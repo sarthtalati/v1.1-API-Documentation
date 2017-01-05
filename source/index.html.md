@@ -3,6 +3,7 @@ title: API Reference
 
 language_tabs:
   - json
+  - xml
   
 
 toc_footers:
@@ -96,7 +97,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 Type | Description
 ---- | -----------
 Request URL Format | http://<host>/<API version no.>/<entity>/<method>.<format>
-Host | The server to which the API calls are made (cluster URL). **India**: intouch.capillary.co.in, **APAC2**: apac2.intouch.capillarytech.com, **EU**: eu.intouch.capillarytech.com, **US**: us.intouch.capillarytech.com
+Host | The server to which the API calls are made (cluster URL). <br>**India**: intouch.capillary.co.in <br>**APAC2**: apac2.intouch.capillarytech.com <br>**EU**: eu.intouch.capillarytech.com, <br>**US**: us.intouch.capillarytech.com
 API Version Number | v1.1
 Entity | Provide the appropriate entity based on the action to be performed. The supported entities are communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GETand POST
@@ -113,6 +114,20 @@ Response Format | The format for requesting data from the APIs (xml, json). V1.1
 </status>
 ```
 
+```json
+# API level Response Code
+
+{
+  "status": {
+    "success": "true",
+    "code": "200",
+    "message": "Operation Successful"
+  }
+}
+```
+
+
+
 ```xml
 # Item Level Response Code
 
@@ -121,8 +136,20 @@ Response Format | The format for requesting data from the APIs (xml, json). V1.1
 <code>1001</code>
 <message>Invalid Mobile Number</message>
 </item_status>
+```
+
+```json
+# Item Level Response Code
+{
+  "item_status": {
+    "success": "false",
+    "code": "1001",
+    "message": "Invalid Mobile Number"
+  }
+}
 
 ```
+
 API responces are generated at request level and item level.
 
 * **Request Level Responses**: These response codes are generated at the request level (for an entire request).
