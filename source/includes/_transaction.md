@@ -1,11 +1,25 @@
 # Transaction
 In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:
 
-* Loyalty Transactions: Transactions made by registered customers of your organization's loyalty program
+* Loyalty Transactions: Transactions made by registered customers of your organization's loyalty program. A customer can be tagged to a loyalty transaction.
  
-* Non-loyalty Transactions: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization 
+* Non-loyalty Transactions: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)
 
 * Not-interested Transactions: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
+
+Transactions | Type | Description | Sub-type
+------------ | ---- | ----------- | --------
+Loyalty Transaction | Regular | Regular transactions made at the PoS| 
+                    | Return | Return transactions made at the PoS. There are two kind of return.<br> | With Reference number. These kind of transaction will  have a reference to the previous transaction (regular sales) made by the same customer.<br> Line item return <br> line item level returned <br> Entire transaction return <br> mixed return <br> amount return
+
+ Full return
+
+Whole transaction gets returned
+
+ Mixed return
+
+Exchanging the line items (It will include both sales and return line items)
+					
 
 The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty transactions), and custom fields. 
 
