@@ -2834,57 +2834,23 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 <p>In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:</p>
 
 <ul>
-<li><p>Loyalty Transactions: Transactions made by registered customers of your organization&rsquo;s loyalty program. A customer can be tagged to a loyalty transaction.</p></li>
-<li><p>Non-loyalty Transactions: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)</p></li>
-<li><p>Not-interested Transactions: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. </p></li>
+<li><p><strong>Loyalty Transactions</strong>: Transactions made by registered customers of your organization&rsquo;s loyalty program. A customer can be tagged to a loyalty transaction.</p></li>
+<li><p><strong>Non-loyalty Transactions</strong>: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)</p></li>
+<li><p><strong>Not-interested Transactions</strong>: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. </p></li>
 </ul>
 
-<table><thead>
-<tr>
-<th>Transactions</th>
-<th>Type</th>
-<th>Description</th>
-<th>Sub-type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Loyalty Transaction</td>
-<td>Regular</td>
-<td>Regular transactions made at the PoS</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>Return</td>
-<td>Return transactions made at the PoS. There are two kind of return.<br></td>
-<td>With Reference number. These kind of transaction will  have a reference to the previous transaction (regular sales) made by the same customer.<br> Line item return <br> line item level returned <br> Entire transaction return <br> mixed return <br> amount return</td>
-</tr>
-</tbody></table>
+<p>Transactions are again classified into two types:</p>
 
-<p> Full return</p>
+<ul>
+<li><strong>Regular</strong>: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and nnot-interested.</li>
+<li><strong>Return</strong> : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.</li>
+</ul>
 
-<p>Whole transaction gets returned</p>
-
-<p> Mixed return</p>
-
-<p>Exchanging the line items (It will include both sales and return line items)</p>
-
-<p>The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty transactions), and custom fields. </p>
+<p>The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), and custom fields. </p>
 
 <aside class="notice">
 Note: Custom fields are additional fields created in InStore to capture a specific information from customers. For example, favorite color, birthday, favorite brand etc.
 </aside>
-
-<p>Transaction APIs allow you to perform the following tasks:</p>
-
-<ul>
-<li>Register new customers automatically when submitting transactions </li>
-<li>Submit loyalty and non-loyalty transactions </li>
-<li>Retrieve list of transactions of a particular store, till, duration or transactions of a specific customer </li>
-<li>Assign not interested transactions to specific customers (once they register) - Retro transaction </li>
-<li>Redeem points/coupons of customers against their transactions </li>
-<li>Retrieve points/coupons redeemed for a particular transaction</li>
-</ul>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
@@ -3436,8 +3402,20 @@ returned only when query param user_id is true
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The same transaction/add endpoint can be used to return transactions of registered transactions.  No new transaction is created for return transactions.
-This API can supports the following types of return transactions based on the request parameters:
+<p>This API allows you to return transactions of only loyalty and non-loyalty customers. You cannot return the transactions of not-interested customers. </p>
+
+<p>This API supports the following types of return transactions based on the request parameters:</p>
+
+<ul>
+<li><strong>Full Return</strong>: Returns an entire transaction. Supported for both loyalty and non-loyalty transactions</li>
+<li><strong>Line-item Return</strong>: Returns an individual line-item of a transaction. Supported for both loyalty and non-loyalty transactions</li>
+<li><strong>Mixed Return</strong>: Returns partial line-items of a transaction and amount for the remaining transaction. Supported only for loyalty transactions</li>
+<li><strong>Amount Return</strong>: Returns transaction amount. Supported only for loyalty and non-loyalty transactions</li>
+</ul>
+
+<p>The same transaction/add endpoint can be used to return transactions of registered transactions.  No new transaction is created for return transactions.</p>
+
+<p>This API can supports the following types of return transactions based on the request parameters:
 * To return an entire transactions
 * To return individual line-items of a transaction
 * To return transaction amount</p>
