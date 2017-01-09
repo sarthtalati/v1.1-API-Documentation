@@ -1,40 +1,22 @@
 # Transaction
 In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:
 
-* Loyalty Transactions: Transactions made by registered customers of your organization's loyalty program. A customer can be tagged to a loyalty transaction.
+* **Loyalty Transactions**: Transactions made by registered customers of your organization's loyalty program. A customer can be tagged to a loyalty transaction.
  
-* Non-loyalty Transactions: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)
+* **Non-loyalty Transactions**: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)
 
-* Not-interested Transactions: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
+* **Not-interested Transactions**: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
 
-Transactions | Type | Description | Sub-type
------------- | ---- | ----------- | --------
-Loyalty Transaction | Regular | Regular transactions made at the PoS| 
-                    | Return | Return transactions made at the PoS. There are two kind of return.<br> | With Reference number. These kind of transaction will  have a reference to the previous transaction (regular sales) made by the same customer.<br> Line item return <br> line item level returned <br> Entire transaction return <br> mixed return <br> amount return
+Transactions are again classified into two types:
 
- Full return
-
-Whole transaction gets returned
-
- Mixed return
-
-Exchanging the line items (It will include both sales and return line items)
-					
-
-The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty transactions), and custom fields. 
+* **Regular**: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and nnot-interested.
+* **Return** : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.
+		
+The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), and custom fields. 
 
 <aside class="notice">
 Note: Custom fields are additional fields created in InStore to capture a specific information from customers. For example, favorite color, birthday, favorite brand etc.
 </aside>
-
-Transaction APIs allow you to perform the following tasks:
-
-* Register new customers automatically when submitting transactions 
-* Submit loyalty and non-loyalty transactions 
-* Retrieve list of transactions of a particular store, till, duration or transactions of a specific customer 
-* Assign not interested transactions to specific customers (once they register) - Retro transaction 
-* Redeem points/coupons of customers against their transactions 
-* Retrieve points/coupons redeemed for a particular transaction
 
 
 ## Prerequisites
@@ -296,6 +278,8 @@ This API allows you to make regular or not interested transactions. You can subm
 
 * **Regular Transactions**: To make regular transactions, set `type` as `regular` and pass the customer’s unique identifier of the customer in the respective tag.
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
+
+
 
 <aside class="notice">
 When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields etc. will be updated to the new values. <br>
@@ -574,7 +558,18 @@ returned only when query param user_id is true
 }
 ```
 
+This API allows you to return transactions of only loyalty and non-loyalty customers. You cannot return the transactions of not-interested customers. 
+
+This API supports the following types of return transactions based on the request parameters:
+
+* **Full Return**: Returns an entire transaction. Supported for both loyalty and non-loyalty transactions
+* **Line-item Return**: Returns an individual line-item of a transaction. Supported for both loyalty and non-loyalty transactions
+* **Mixed Return**: Returns partial line-items of a transaction and amount for the remaining transaction. Supported only for loyalty transactions
+* **Amount Return**: Returns transaction amount. Supported only for loyalty and non-loyalty transactions
+
+
 The same transaction/add endpoint can be used to return transactions of registered transactions.  No new transaction is created for return transactions.
+
 This API can supports the following types of return transactions based on the request parameters:
 * To return an entire transactions
 * To return individual line-items of a transaction
