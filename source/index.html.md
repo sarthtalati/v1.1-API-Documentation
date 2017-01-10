@@ -16,6 +16,7 @@ includes:
   - points
   - coupon
   - communications
+  - requests
   
 
 search: true
