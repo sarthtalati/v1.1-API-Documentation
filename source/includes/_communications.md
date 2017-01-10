@@ -10,7 +10,7 @@ The communications entity allows you to perform the following tasks:
 * Retrieve details of a specific email/sms template 
 * Create new SMS/email templates or update existing templates 
 
-## Send SMS to Customers
+## Send SMS to Customer
 
 ```html
 # Sample Request URL
@@ -226,7 +226,7 @@ Batch Support | No
 `http://<cluster url>/v1.1/communications/email?format=<xml/json>`
 
 
-## Retrieve Details of Email Sent
+## Retrieve Details of Emails Sent
 
 ### Resource Information
 Entry | Description
@@ -245,7 +245,7 @@ Batch Support | No
 id - Pass the message id generated for the sent message
 
 
-## Retrieve Details of SMS Sent
+## Retrieve Details of SMSs Sent
 
 
 ## Response Codes

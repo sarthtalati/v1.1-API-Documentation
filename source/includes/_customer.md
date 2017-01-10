@@ -813,8 +813,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 
 This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. Besides these you can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.
 ### Resource Information
-Parameter | Description
---------- | -----------
+
 URI	| customer/search
 Rate Limited? | Yes
 Authentication | Yes
@@ -858,9 +857,347 @@ This section guides how to use queries for achieving results as per needed.
 * **VALUES**: ALPHANUMERIC | ALPHANUMERIC;ALPHANUMERIC(for RANGE, IN OPERATOR, separator is ';' )
 
 
+## Retrieve Customer Details
+```html
+# Sample Request URL
+http://api.capillary.co.in/v1.1/customer/get?format=xml&mobile=44700900000,44700900999
+```
+
+```json
+# Sample Response
+{
+"status": {
+"success": "true", 
+"code": "200", 
+"message": "SUCCESS"
+}, 
+"customers": [
+{
+"firstname": "Tom", 
+"lastname": "Swayer", 
+"mobile": "44700900000", 
+"email": "tomsawyer@example.com", 
+"external_id": "ts1234", 
+"lifetime_points": "0", 
+"lifetime_purchases": "0", 
+"loyalty_points": "0", 
+"current_slab": [ ], 
+"registered_on": "2013-01-21 11:23:45", 
+"updated_on": "2013-01-21 10:23:45", 
+"gender": "M", 
+"registered_by": "vimal store", 
+"registered_store": {
+"code": "vimal.store", 
+"name": "vimal store"
+}, 
+"registered_till": {
+"code": "vimal.till", 
+"name": "vimal.till"
+}, 
+"fraud_details": {
+"status": "NONE", 
+"marked_by": [ ], 
+"modified_on": [ ]
+}, 
+"ndnc_status": "NONE", 
+"optin_status": "NONE", 
+"expiry_schedule": [
+{
+"points": "10", 
+"expiry_date": "2014-03-25"
+}
+], 
+"expired_points": [
+{
+"points": "10", 
+"expired_on": "2013-12-20"
+}
+], 
+"slab_history": [
+{
+"to": "TIER2-GOLD", 
+"from": "TIER1-SILVER", 
+"store": {
+"code": "store.code", 
+"name": "store.name"
+}, 
+"type": "UPGRADE", 
+"changed_on": "2014-01-24T19:29:40+05:30", 
+"notes": "done by the scron"
+}
+], 
+"points_summary": {
+"expired": "103", 
+"redeemed": "120", 
+"adjusted": "10", 
+"returned": "30"
+}, 
+"promotion_points": {
+"customer": [
+{
+"points": "30", 
+"expiry_date": "2014-11-02", 
+"issued_at": {
+"code": "storecode", 
+"name": "storename"
+}, 
+"issued_on": "2014-01-23"
+}, 
+{
+"points": "30", 
+"expiry_date": "2014-11-02", 
+"issued_at": {
+"code": "storecode", 
+"name": "storename"
+}, 
+"issued_on": "2014-01-21"
+}
+], 
+"transactions": [
+{
+"transaction_id": "4325", 
+"points": "349", 
+"expiry_date": "2014-11-21", 
+"issued_at": {
+"code": "storecode", 
+"name": "storename"
+}, 
+"issued_on": "2014-01-21"
+}
+], 
+"lineitems": [
+{
+"lineitem_id": "10342", 
+"transaction_id": "245", 
+"points": "13", 
+"expiry_date": "2014-11-20", 
+"issued_at": {
+"code": "storecode", 
+"name": "storename"
+}
+}
+]
+}, 
+"current_nps_status": [ ], 
+"custom_fields": [
+[ ]
+], 
+"segments": [
+[ ]
+], 
+"transactions": [
+[ ]
+], 
+"coupons": [
+{
+"id": "3495", 
+"series_id": "6", 
+"code": "00b5nis2", 
+"description": "redemptions", 
+"created_date": "2009-09-30 16:29:58", 
+"valid_till": "2009-10-01", 
+"redeemed": "true"
+}
+], 
+"notes": [ ], 
+"item_status": {
+"success": "true", 
+"code": "1000", 
+"message": "Customer successfully retrieved"
+}
+}
+]
+}
+```
+
+```xml
+# Sample Response
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <firstname>Tom</firstname>
+         <lastname>Swayer</lastname>
+         <mobile>44700900000</mobile>
+         <email>tomsawyer@example.com</email>
+         <external_id>ts1234</external_id>
+         <lifetime_points>0</lifetime_points>
+         <lifetime_purchases>0</lifetime_purchases>
+         <loyalty_points>0</loyalty_points>
+         <current_slab />
+         <registered_on>2013-01-21 11:23:45</registered_on>
+         <updated_on>2013-01-21 10:23:45</updated_on>
+         <gender>M</gender>
+         <registered_by>vimal store</registered_by>
+         <registered_store>
+            <code>vimal.store</code>
+            <name>vimal store</name>
+         </registered_store>
+         <registered_till>
+            <code>vimal.till</code>
+            <name>vimal.till</name>
+         </registered_till>
+         <fraud_details>
+            <status>NONE</status>
+            <marked_by />
+            <modified_on />
+         </fraud_details>
+         <ndnc_status>NONE</ndnc_status>
+         <optin_status>NONE</optin_status>
+         <expiry_schedule>
+            <schedule>
+               <points>10</points>
+               <expiry_date>2014-03-25</expiry_date>
+            </schedule>
+         </expiry_schedule>
+         <expired_points>
+            <item>
+               <points>10</points>
+               <expired_on>2013-12-20</expired_on>
+            </item>
+         </expired_points>
+         <slab_history>
+            <history>
+               <to>TIER2-GOLD</to>
+               <from>TIER1-SILVER</from>
+               <store>
+                  <code>store.code</code>
+                  <name>store.name</name>
+               </store>
+               <type>UPGRADE</type>
+               <changed_on>2014-01-24T19:29:40+05:30</changed_on>
+               <notes>done by the scron</notes>
+            </history>
+         </slab_history>
+         <points_summary>
+            <expired>103</expired>
+            <redeemed>120</redeemed>
+            <adjusted>10</adjusted>
+            <returned>30</returned>
+         </points_summary>
+         <promotion_points>
+            <customer>
+               <item>
+                  <points>30</points>
+                  <expiry_date>2014-11-02</expiry_date>
+                  <issued_at>
+                     <code>storecode</code>
+                     <name>storename</name>
+                  </issued_at>
+                  <issued_on>2014-01-23</issued_on>
+               </item>
+               <item>
+                  <points>30</points>
+                  <expiry_date>2014-11-02</expiry_date>
+                  <issued_at>
+                     <code>storecode</code>
+                     <name>storename</name>
+                  </issued_at>
+                  <issued_on>2014-01-21</issued_on>
+               </item>
+            </customer>
+            <transactions>
+               <item>
+                  <transaction_id>4325</transaction_id>
+                  <points>349</points>
+                  <expiry_date>2014-11-21</expiry_date>
+                  <issued_at>
+                     <code>storecode</code>
+                     <name>storename</name>
+                  </issued_at>
+                  <issued_on>2014-01-21</issued_on>
+               </item>
+            </transactions>
+            <lineitems>
+               <item>
+                  <lineitem_id>10342</lineitem_id>
+                  <transaction_id>245</transaction_id>
+                  <points>13</points>
+                  <expiry_date>2014-11-20</expiry_date>
+                  <issued_at>
+                     <code>storecode</code>
+                     <name>storename</name>
+                  </issued_at>
+               </item>
+            </lineitems>
+         </promotion_points>
+         <current_nps_status />
+         <custom_fields>
+            <field />
+         </custom_fields>
+         <segments>
+            <segment />
+         </segments>
+         <transactions>
+            <transaction />
+         </transactions>
+         <coupons>
+            <coupon>
+               <id>3495</id>
+               <series_id>6</series_id>
+               <code>00b5nis2</code>
+               <description>redemptions</description>
+               <created_date>2009-09-30 16:29:58</created_date>
+               <valid_till>2009-10-01</valid_till>
+               <redeemed>true</redeemed>
+            </coupon>
+         </coupons>
+         <notes />
+         <item_status>
+            <success>true</success>
+            <code>1000</code>
+            <message>Customer successfully retrieved</message>
+         </item_status>
+      </customer>
+   </customers>
+</response>
+```
+
+This API allows you to retrieve details of one or more customers at a time. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer's unique id.
+
+### Resource Information
+----------- | ---------
+Rate Limited? | Yes
+Authentication |  Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+Response Object | Details of loyalty customers.
+API Version | v1.1
+Batch Support | Yes
+
+### Request Parameters
+
+Parameter | Description
+--------- | ----------- 
+Customer Identifier* | Pass any identifier (mobile/email/external_id/user_id) of the customer whose details you want to retrieve <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with come. For example,  mobile=44700900000,44700900999,4470090345
+user_id | Returns the unique id of the customer generated at our end when the customer is registered
+next_slab=true | Returns the details of next tier of the  loyalty customer
+slab_history=true | Returns the details of loyalty tier changes of the customer
+registered_store | Returns the store at which customer is registered. This is returned by default.
+registered_till | Returns the store-TILL at which the customer is registered. This is returned by default. 
+fraud_details=true | Returns the fraud details of a customer. This field is returned by default
+ndsc_status=true | Returns the preferences of the customer in receiving store's SMSs and emails
+optin_status=true | Returns the services (sms/email) to which the customer has opted in and opted out
+expiry_schedule=true | Returns the details of points expiry date
+expired_points=true | Returns the details of expired points of the customer.
+points_summary=true | Returns issued and redeemed history of customer's points
+promotion_points=true | Returns the history of promotional points of the customer. You can also see points the issued store and the expiry date
+membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program)
+
+### Request URL
+`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>`
+
+
+ 
+ 
 ## Retrieve Customer Transactions
 ```html
-http://api.capillary.co.in/v1.1/customer/get?format=xml&mobile=44700900000&start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45
+http://api.capillary.co.in/v1.1/customer/transactions?format=xml&mobile=44700900000&start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45
 ```
 
 ```json

@@ -568,13 +568,6 @@ This API supports the following types of return transactions based on the reques
 * **Amount Return**: Returns transaction amount. Supported only for loyalty and non-loyalty transactions
 
 
-The same transaction/add endpoint can be used to return transactions of registered transactions.  No new transaction is created for return transactions.
-
-This API can supports the following types of return transactions based on the request parameters:
-* To return an entire transactions
-* To return individual line-items of a transaction
-* To return transaction amount
-
 ### Resource Information
 Entry | Description
 ----- | -----------
