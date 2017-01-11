@@ -1,16 +1,22 @@
 # Points
-Points represent loyalty points of an organization that are issued to the loyalty customers based on the transactions made and tiers achieved. Customers can redeem the loyalty points earned by them against transactions. Points are issued only through the Loyalty Manager upon a transaction or tier upgrade but not through API calls.
+Points represent loyalty points of an organization that are issued to the loyalty customers through different sources such as Loyalty Manager, Data Import (import profiles) and Member Care (GoodWill points). Customers can redeem their points against transactions. 
+
+<aside class="warning"> 
+Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
+</aside>
+
+The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (isreedemable), validate customer's registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.
 
 The points entity allows you to perform the following tasks:
 
 * Check whether a specific number of points can be redeemed by a customer  
-* Validate customer’s mobile number by issuing validation code to redeem points 
-* Redeem loyalty points of a customer after validating the preceding tasks
+* Issue validation code to the registered mobile number to validate customer 
+* Redeem points using the validation code received by the customer
 
 ## Check If Points are Redeemable
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=xml&points=100&validation_code=6D18DU&mobile=919591228668
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=100&validation_code=6D18DU&mobile=919591228668
 ```
 > Sample Response
 
@@ -103,6 +109,10 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=xml&points=1
 </response>
 ```
 
+This API allows you to verify whether a customer can redeem a specific number of points. Active points of a customer can be redeemed based on the redemption criteria set on your organization's Loyalty Program. 
+
+For example, a redemption criteria could be, points can be redeemed only in the denominations of 10 and a maximum of 200 points can be redeemed at a time. 
+
 ### Resource Information
 Entry | Description
 --------- | -----------
@@ -127,7 +137,7 @@ validation_code* | OTP issued to the customer's mobile number
 ## Issue Validation Code for Redeeming Points
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=xml&mobile=447700900000&points=50
+http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=json&mobile=447700900000&points=50
 ```
 
 ```json
@@ -180,10 +190,21 @@ Validation Code Issued by SMS/Email
 </response>
 ```
 
-Mobile number validation is required for redeeming points of a customer. You can validate the mobile number through OTP. This API allows you to issue validation code for redeeming points. 
+Before making `points/redeem` API call, you need to validate the customer by issuing validation code to the registered mobile number/email id. 
+
+This API allows you to issue a dynamic validation code to the customer's registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validaty period, same code will be issued again.
+
+The validity period and communicate via is set on the OTPConfigurations page of InTouch > **Settings** > **Organization Setup**
+
+* **OTP code validity period**: The validity of the validation code in minutes
+* **Communicate OTP Via.**: Mode of sending the validation code, email/sms/both
+
+<aside class="notice"> 
+The validation code is issued either to mobile number, or email id or both, based on the configuration set on the page InTouch > **Settings** > **Organization Setup** > **OTPConfigurations**
+</aside>
 
 ### Resource Information
-Entry | Description
+Entry | Value
 --------- | -----------
 URI | points/validationcode
 Rate Limited? | Yes
@@ -199,9 +220,8 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-mobile* | Provide the registered mobile number of the customer to issue validation code - mobile,email, external_id, user_id 
+Customer Identifier* | Pass any identifier (mobile/email/external_id/user_id)of the customer to issue validation code 
 points* | Number of points to redeem
-email | Provide the email id of the customer if mobile number is not available
 
 ## Redeem Points
 
@@ -219,7 +239,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
       "customer": { "mobile": "44700900999" },
       "notes": "Sample notes",
       "validation_code": "6D18DU",
-      "redemption_time": "2011-11-21 11:30:11"
+      "redemption_time": "2016-11-21 11:30:11"
     }
   }
 }
@@ -237,7 +257,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 </customer>
 <notes>Sample notes</notes>
 <validation_code>6D18DU</validation_code>
-<redemption_time>2011-11-21 11:30:11</redemption_time>
+<redemption_time>2016-11-21 11:30:11</redemption_time>
 </redeem>
 </root>
 ```
@@ -294,11 +314,14 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 </response>
 ```
 
+You can redeem points of a customer using the issued validation code. Ensure that you have validated the points to be redeemed and issued validation code to the customer's mobile number before redeeming. You need to have the validation code to process points redemption.
 
-This API alllows you to process points redemption once the OTP issued to the customer is validated.
+<aside class="warning"> 
+You need to use the validation code within the validity period. You can check the validity set for the validation code in **OTP code validity period** field on InTouch > **Settings** > **Organization Setup** > **OTPConfigurations** page
+</aside>
 
 ### Resource Information
-Entry | Description
+Entry | Value
 --------- | -----------
 URI | points/redeem
 Rate Limited? | Yes
@@ -316,8 +339,8 @@ Parameter | Description
 --------- | -----------
 mobile* | Provide the registered mobile number of the customer to redeem points
 points_redeemed* | Provide the number of points to be redeemed
-transaction_number | Provide the transaction number against which the points has to be redeemed
-validation_code | Provide the OTP generated to the customer's mobile number through the previous call
+transaction_number | Provide the transaction number for which the points has to be redeemed
+validation_code* | Provide the validation code received by the customer through `points/validationcode`
 redemption_time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format
 
 ## Response Codes
