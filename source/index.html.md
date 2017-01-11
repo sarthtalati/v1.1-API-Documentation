@@ -7,7 +7,7 @@ language_tabs:
   
 
 toc_footers:
-  - <a href='#'>Capillary V1.0 API Documentation</a>
+  - <a href='#'>Capillary V1.1 API Documentation</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
