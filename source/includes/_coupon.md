@@ -816,6 +816,8 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 
 This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
 
+### Resource Information
+
 Entry | Description
 ----- | -----------
 URI | coupon/series
