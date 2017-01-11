@@ -111,7 +111,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Capillary V1.0 API Documentation</a></li>
+            <li><a href='#'>Capillary V1.1 API Documentation</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -951,14 +951,14 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
         <span class="nt">&lt;/customers&gt;</span>
     <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of a registered customer. Capillary back-end team verifies each such request and update the identifier(s) manually.</p>
+<p>This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through <code class="prettyprint">customer/update_identity</code> will be in pending state by default. Capillary back-end team verifies each such requests and process it accordingly.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -987,16 +987,6 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/update_identity?format=&lt;xml/json&gt;</code></p>
@@ -1011,7 +1001,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
 </thead><tbody>
 <tr>
 <td>identifier*</td>
-<td>Unique identifier (Mobile/email/external_id) of the customer whose identifier needs to be updated</td>
+<td>Provide mobile/email/external_id of the customer whose identifier you want to modify</td>
 </tr>
 <tr>
 <td>old_identifier*</td>
@@ -1231,12 +1221,37 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
 <h3 id="resource-information">Resource Information</h3>
 
-<p>URI | customer/search
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON 
-HTTP Method | GET
-Batch Support | Yes</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>customer/search</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1244,7 +1259,7 @@ Batch Support | Yes</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>You need to learn Query Grammar to understand how to use input parameters for customer/search API. For more details, see the Query Grammar section.</p>
+<p>You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.</p>
 
 <table><thead>
 <tr>
@@ -1312,8 +1327,9 @@ Batch Support | Yes</p>
 
 <h3 id="query-grammar">Query Grammar</h3>
 
-<p>This section guides how to use queries for achieving results as per needed.
-<strong>QUERY</strong>: <code class="prettyprint">(CONDITION) | (CONDITION &amp; (CONDITION)*)</code></p>
+<p>The following is a formal definition of the Query Grammer</p>
+
+<p><strong>QUERY</strong>: <code class="prettyprint">(CONDITION) | (CONDITION &amp; (CONDITION)*)</code></p>
 
 <p><strong>CONDITION</strong>: <code class="prettyprint">ATTRIBUTE:OPERATOR:VALUES</code></p>
 
@@ -1616,18 +1632,45 @@ http://api.capillary.co.in/v1.1/customer/get?format=xml<span class="err">&amp;</
    <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve details of one or more customers at a time. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer&rsquo;s unique id.</p>
+<p>This API allows you to retrieve details of loyalty customers of your organization. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer&rsquo;s unique id.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
-<p>&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;
-Rate Limited? | Yes
-Authentication |  Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-Response Object | Details of loyalty customers.
-API Version | v1.1
-Batch Support | Yes</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Details of loyalty customers</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1639,7 +1682,7 @@ Batch Support | Yes</p>
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any identifier (mobile/email/external_id/user_id) of the customer whose details you want to retrieve <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with come. For example,  mobile=44700900000,44700900999,4470090345</td>
+<td>Pass any identifier (mobile/email/external_id/user_id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -1655,7 +1698,7 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>registered_store</td>
-<td>Returns the store at which customer is registered. This is returned by default.</td>
+<td>Returns the store at which the customer is registered. This is returned by default.</td>
 </tr>
 <tr>
 <td>registered_till</td>
@@ -1667,7 +1710,7 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>ndsc_status=true</td>
-<td>Returns the preferences of the customer in receiving store&rsquo;s SMSs and emails</td>
+<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND</td>
 </tr>
 <tr>
 <td>optin_status=true</td>
@@ -1675,23 +1718,23 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>expiry_schedule=true</td>
-<td>Returns the details of points expiry date</td>
+<td>Returns the details of points expiry summary</td>
 </tr>
 <tr>
 <td>expired_points=true</td>
-<td>Returns the details of expired points of the customer.</td>
+<td>Returns the details of expired points of the customer</td>
 </tr>
 <tr>
 <td>points_summary=true</td>
-<td>Returns issued and redeemed history of customer&rsquo;s points</td>
+<td>Returns the history of points issued and redeemed</td>
 </tr>
 <tr>
 <td>promotion_points=true</td>
-<td>Returns the history of promotional points of the customer. You can also see points the issued store and the expiry date</td>
+<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued</td>
 </tr>
 <tr>
 <td>membership_retention_criteria=true</td>
-<td>Returns the criteria set for membership retention (for membership based loyalty program)</td>
+<td>Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership</td>
 </tr>
 </tbody></table>
 
@@ -1700,7 +1743,7 @@ Batch Support | Yes</p>
 <p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
 
 <h2 id="retrieve-customer-transactions">Retrieve Customer Transactions</h2>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=xml<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2013-12-21+23:45:45<span class="err">&amp;</span>end_date=2013-12-29+12:11:45
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1717,8 +1760,8 @@ Batch Support | Yes</p>
 </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13700"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-10 11:11:15"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-25 11:19:11"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-10 11:11:15"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-25 11:19:11"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23622808"</span><span class="p">,</span><span class="w"> 
@@ -1730,7 +1773,7 @@ Batch Support | Yes</p>
 </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill added by mobile"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-16 17:02:22"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16 17:02:22"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
@@ -1765,8 +1808,8 @@ Batch Support | Yes</p>
             <span class="nt">&lt;lifetime_points&gt;</span>13700<span class="nt">&lt;/lifetime_points&gt;</span>
             <span class="nt">&lt;lifetime_purchases&gt;</span>138000<span class="nt">&lt;/lifetime_purchases&gt;</span>
             <span class="nt">&lt;loyalty_points&gt;</span>12000<span class="nt">&lt;/loyalty_points&gt;</span>
-            <span class="nt">&lt;registered_on&gt;</span>2013-07-10 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
-            <span class="nt">&lt;updated_on&gt;</span>2013-12-25 11:19:11<span class="nt">&lt;/updated_on&gt;</span>
+            <span class="nt">&lt;registered_on&gt;</span>2016-07-10 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
+            <span class="nt">&lt;updated_on&gt;</span>2016-12-25 11:19:11<span class="nt">&lt;/updated_on&gt;</span>
             <span class="nt">&lt;current_slab&gt;</span>gold<span class="nt">&lt;/current_slab&gt;</span>
             <span class="nt">&lt;count&gt;</span>26<span class="nt">&lt;/count&gt;</span>
             <span class="nt">&lt;start&gt;</span>23622808<span class="nt">&lt;/start&gt;</span>
@@ -1799,7 +1842,7 @@ Batch Support | Yes</p>
 
 
 </code></pre>
-<p>This API allows you to retrieve transactions history of a customer which includes the following information.</p>
+<p>This API allows you to retrieve transaction history of a customer which includes the following information.</p>
 
 <p>Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. </p>
 
@@ -1807,14 +1850,14 @@ Batch Support | Yes</p>
 
 <aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
-<p>You can also use filters to see and analyze the data that is required and hide data that you don’t want to see. For more details on supported filters, see the below <strong><em>Request Parameters</em></strong> table.</p>
+<p>You can filter results using various parameters to analyze the data that you want to see and hide that you don’t want to see. For more details on supported filters, see the <strong><em>Request Parameters</em></strong> table below.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1845,7 +1888,7 @@ Batch Support | Yes</p>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://us.intouch.capillarytech.com/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1894,7 +1937,7 @@ Batch Support | Yes</p>
 </tbody></table>
 
 <h2 id="add-customer-notes">Add Customer Notes</h2>
-<pre class="highlight html"><code>http://intouch.capillary.co.in/v1.1/customer/notes?format=json
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2001,7 +2044,7 @@ Batch Support | Yes</p>
 <span class="nt">&lt;/response&gt;</span>
 
 </code></pre>
-<p>This API allows you to record additional information about the customer in a plain text format.</p>
+<p>This API allows you to record additional information about the customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -2050,20 +2093,20 @@ Batch Support | Yes</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id</td>
+<td>Customer id*</td>
 <td>Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)</td>
 </tr>
 <tr>
-<td>associate_id</td>
+<td>associate_id*</td>
 <td>Unique id of the associate who is creating the notes</td>
 </tr>
 <tr>
-<td>date</td>
+<td>date*</td>
 <td>Date on which the customer note is added</td>
 </tr>
 <tr>
 <td>description</td>
-<td>Short description of the note</td>
+<td>Details or message of the note in a plain text format</td>
 </tr>
 </tbody></table>
 
@@ -2154,14 +2197,14 @@ user_id tag will be returned only if query param user_id = true
 <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to fetch notes of a customer created by a specific associate.</p>
+<p>This API allows you to fetch  customer notes created by a specific associate.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2192,7 +2235,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=xml&amp;&lt;identifier&gt;=&lt;value&gt;&amp;associate_id=&lt;ids&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=&lt;xml/json&gt;&amp;&lt;identifier&gt;=&lt;value&gt;&amp;associate_id=&lt;ids&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2203,12 +2246,12 @@ user_id tag will be returned only if query param user_id = true
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id</td>
-<td>Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)</td>
+<td>Customer id*</td>
+<td>Unique identifier of the customer whose notes need to be retrieved - mobile/email/external_id/user_id</td>
 </tr>
 <tr>
 <td>associate_id</td>
-<td>Unique id of the associate who is creating the notes</td>
+<td>Returns notes created by a specific associate based on the associate id passed</td>
 </tr>
 </tbody></table>
 
@@ -2308,14 +2351,14 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve coupons issued to a customer.</p>
+<p>This API allows you to retrieve the details of coupon history of a specific customer, i.e., the details of coupons issued to the customer, and redeemed by the customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2358,7 +2401,7 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the mobile no/email id/external id of the customer whose coupons need to be retrieved</td>
+<td>Pass the mobile no/email id/external id of the customer to retrieve coupon history</td>
 </tr>
 <tr>
 <td>start_date</td>
@@ -2378,7 +2421,7 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 </tr>
 <tr>
 <td>order_by</td>
-<td>Order the results by created date, amount or issued TILL (<code class="prettyprint">created_date</code>, <code class="prettyprint">amount</code>, <code class="prettyprint">valid_till</code>)</td>
+<td>Order the results by created date, amount or issued TILL (<code class="prettyprint">created_date</code>, <code class="prettyprint">amount</code>, <code class="prettyprint">valid_till</code>) based on the type passed</td>
 </tr>
 <tr>
 <td>sort_order</td>
@@ -2512,14 +2555,14 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
     <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to create tickets for a customer.</p>
+<p>This API allows you to create tickets for a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2550,7 +2593,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://api.capillary.co.in/v1.1/customer/tickets?format=xml&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/tickets?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2672,7 +2715,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to fetch existing tickets of a customer.</p>
+<p>This API allows you to fetch the details of tickets of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -6337,9 +6380,7 @@ null
 <span class="nt">&lt;dvs_enabled&gt;</span>0<span class="nt">&lt;/dvs_enabled&gt;</span>
 <span class="nt">&lt;dvs_expiry_date&gt;</span>2016-11-01<span class="nt">&lt;/dvs_expiry_date&gt;</span>
 <span class="nt">&lt;priority&gt;</span>0<span class="nt">&lt;/priority&gt;</span>
-<span class="nt">&lt;short_sms_template&gt;</span>
-Hello {{cust_name}}, your voucher code is {{voucher_code}}
-<span class="nt">&lt;/short_sms_template&gt;</span>
+<span class="nt">&lt;short_sms_template&gt;</span> Hello {{cust_name}}, your voucher code is {{voucher_code}} <span class="nt">&lt;/short_sms_template&gt;</span>
 <span class="nt">&lt;max_vouchers_per_user&gt;</span>
 -1
 <span class="nt">&lt;/max_vouchers_per_user&gt;</span>
@@ -6374,6 +6415,8 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.</p>
+
+<h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
