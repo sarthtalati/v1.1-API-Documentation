@@ -354,7 +354,7 @@ t<code>200</code>
 ```
 
 
-This API allows you to redeem coupons issued to the loyalty customer.
+This API allows you to redeem coupons issued to your loyalty customers.
 
 ### Resource Information
 Entry | Description
