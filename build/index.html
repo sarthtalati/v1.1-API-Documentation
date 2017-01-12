@@ -111,7 +111,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Capillary V1.0 API Documentation</a></li>
+            <li><a href='#'>Capillary V1.1 API Documentation</a></li>
             <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -951,14 +951,14 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
         <span class="nt">&lt;/customers&gt;</span>
     <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of a registered customer. Capillary back-end team verifies each such request and update the identifier(s) manually.</p>
+<p>This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through <code class="prettyprint">customer/update_identity</code> will be in pending state by default. Capillary back-end team verifies each such requests and process it accordingly.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -987,16 +987,6 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/update_identity?format=&lt;xml/json&gt;</code></p>
@@ -1011,7 +1001,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
 </thead><tbody>
 <tr>
 <td>identifier*</td>
-<td>Unique identifier (Mobile/email/external_id) of the customer whose identifier needs to be updated</td>
+<td>Provide mobile/email/external_id of the customer whose identifier you want to modify</td>
 </tr>
 <tr>
 <td>old_identifier*</td>
@@ -1231,12 +1221,37 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
 <h3 id="resource-information">Resource Information</h3>
 
-<p>URI | customer/search
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON 
-HTTP Method | GET
-Batch Support | Yes</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>customer/search</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -1244,7 +1259,7 @@ Batch Support | Yes</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>You need to learn Query Grammar to understand how to use input parameters for customer/search API. For more details, see the Query Grammar section.</p>
+<p>You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.</p>
 
 <table><thead>
 <tr>
@@ -1312,8 +1327,9 @@ Batch Support | Yes</p>
 
 <h3 id="query-grammar">Query Grammar</h3>
 
-<p>This section guides how to use queries for achieving results as per needed.
-<strong>QUERY</strong>: <code class="prettyprint">(CONDITION) | (CONDITION &amp; (CONDITION)*)</code></p>
+<p>The following is a formal definition of the Query Grammer</p>
+
+<p><strong>QUERY</strong>: <code class="prettyprint">(CONDITION) | (CONDITION &amp; (CONDITION)*)</code></p>
 
 <p><strong>CONDITION</strong>: <code class="prettyprint">ATTRIBUTE:OPERATOR:VALUES</code></p>
 
@@ -1616,18 +1632,45 @@ http://api.capillary.co.in/v1.1/customer/get?format=xml<span class="err">&amp;</
    <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve details of one or more customers at a time. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer&rsquo;s unique id.</p>
+<p>This API allows you to retrieve details of loyalty customers of your organization. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer&rsquo;s unique id.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
-<p>&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;
-Rate Limited? | Yes
-Authentication |  Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-Response Object | Details of loyalty customers.
-API Version | v1.1
-Batch Support | Yes</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Details of loyalty customers</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1639,7 +1682,7 @@ Batch Support | Yes</p>
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any identifier (mobile/email/external_id/user_id) of the customer whose details you want to retrieve <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with come. For example,  mobile=44700900000,44700900999,4470090345</td>
+<td>Pass any identifier (mobile/email/external_id/user_id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -1655,7 +1698,7 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>registered_store</td>
-<td>Returns the store at which customer is registered. This is returned by default.</td>
+<td>Returns the store at which the customer is registered. This is returned by default.</td>
 </tr>
 <tr>
 <td>registered_till</td>
@@ -1667,7 +1710,7 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>ndsc_status=true</td>
-<td>Returns the preferences of the customer in receiving store&rsquo;s SMSs and emails</td>
+<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND</td>
 </tr>
 <tr>
 <td>optin_status=true</td>
@@ -1675,23 +1718,23 @@ Batch Support | Yes</p>
 </tr>
 <tr>
 <td>expiry_schedule=true</td>
-<td>Returns the details of points expiry date</td>
+<td>Returns the details of points expiry summary</td>
 </tr>
 <tr>
 <td>expired_points=true</td>
-<td>Returns the details of expired points of the customer.</td>
+<td>Returns the details of expired points of the customer</td>
 </tr>
 <tr>
 <td>points_summary=true</td>
-<td>Returns issued and redeemed history of customer&rsquo;s points</td>
+<td>Returns the history of points issued and redeemed</td>
 </tr>
 <tr>
 <td>promotion_points=true</td>
-<td>Returns the history of promotional points of the customer. You can also see points the issued store and the expiry date</td>
+<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued</td>
 </tr>
 <tr>
 <td>membership_retention_criteria=true</td>
-<td>Returns the criteria set for membership retention (for membership based loyalty program)</td>
+<td>Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership</td>
 </tr>
 </tbody></table>
 
@@ -1700,7 +1743,7 @@ Batch Support | Yes</p>
 <p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
 
 <h2 id="retrieve-customer-transactions">Retrieve Customer Transactions</h2>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=xml<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2013-12-21+23:45:45<span class="err">&amp;</span>end_date=2013-12-29+12:11:45
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1717,8 +1760,8 @@ Batch Support | Yes</p>
 </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13700"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-07-10 11:11:15"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-25 11:19:11"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-10 11:11:15"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-25 11:19:11"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23622808"</span><span class="p">,</span><span class="w"> 
@@ -1730,7 +1773,7 @@ Batch Support | Yes</p>
 </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill added by mobile"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-16 17:02:22"</span><span class="p">,</span><span class="w"> 
+</span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16 17:02:22"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> 
 </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
@@ -1765,8 +1808,8 @@ Batch Support | Yes</p>
             <span class="nt">&lt;lifetime_points&gt;</span>13700<span class="nt">&lt;/lifetime_points&gt;</span>
             <span class="nt">&lt;lifetime_purchases&gt;</span>138000<span class="nt">&lt;/lifetime_purchases&gt;</span>
             <span class="nt">&lt;loyalty_points&gt;</span>12000<span class="nt">&lt;/loyalty_points&gt;</span>
-            <span class="nt">&lt;registered_on&gt;</span>2013-07-10 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
-            <span class="nt">&lt;updated_on&gt;</span>2013-12-25 11:19:11<span class="nt">&lt;/updated_on&gt;</span>
+            <span class="nt">&lt;registered_on&gt;</span>2016-07-10 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
+            <span class="nt">&lt;updated_on&gt;</span>2016-12-25 11:19:11<span class="nt">&lt;/updated_on&gt;</span>
             <span class="nt">&lt;current_slab&gt;</span>gold<span class="nt">&lt;/current_slab&gt;</span>
             <span class="nt">&lt;count&gt;</span>26<span class="nt">&lt;/count&gt;</span>
             <span class="nt">&lt;start&gt;</span>23622808<span class="nt">&lt;/start&gt;</span>
@@ -1799,7 +1842,7 @@ Batch Support | Yes</p>
 
 
 </code></pre>
-<p>This API allows you to retrieve transactions history of a customer which includes the following information.</p>
+<p>This API allows you to retrieve transaction history of a customer which includes the following information.</p>
 
 <p>Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. </p>
 
@@ -1807,14 +1850,14 @@ Batch Support | Yes</p>
 
 <aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
-<p>You can also use filters to see and analyze the data that is required and hide data that you don’t want to see. For more details on supported filters, see the below <strong><em>Request Parameters</em></strong> table.</p>
+<p>You can filter results using various parameters to analyze the data that you want to see and hide that you don’t want to see. For more details on supported filters, see the <strong><em>Request Parameters</em></strong> table below.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1845,7 +1888,7 @@ Batch Support | Yes</p>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://us.intouch.capillarytech.com/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1894,7 +1937,7 @@ Batch Support | Yes</p>
 </tbody></table>
 
 <h2 id="add-customer-notes">Add Customer Notes</h2>
-<pre class="highlight html"><code>http://intouch.capillary.co.in/v1.1/customer/notes?format=json
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2001,7 +2044,7 @@ Batch Support | Yes</p>
 <span class="nt">&lt;/response&gt;</span>
 
 </code></pre>
-<p>This API allows you to record additional information about the customer in a plain text format.</p>
+<p>This API allows you to record additional information about the customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -2050,20 +2093,20 @@ Batch Support | Yes</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id</td>
+<td>Customer id*</td>
 <td>Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)</td>
 </tr>
 <tr>
-<td>associate_id</td>
+<td>associate_id*</td>
 <td>Unique id of the associate who is creating the notes</td>
 </tr>
 <tr>
-<td>date</td>
+<td>date*</td>
 <td>Date on which the customer note is added</td>
 </tr>
 <tr>
 <td>description</td>
-<td>Short description of the note</td>
+<td>Details or message of the note in a plain text format</td>
 </tr>
 </tbody></table>
 
@@ -2154,14 +2197,14 @@ user_id tag will be returned only if query param user_id = true
 <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to fetch notes of a customer created by a specific associate.</p>
+<p>This API allows you to fetch  customer notes created by a specific associate.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2192,7 +2235,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=xml&amp;&lt;identifier&gt;=&lt;value&gt;&amp;associate_id=&lt;ids&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=&lt;xml/json&gt;&amp;&lt;identifier&gt;=&lt;value&gt;&amp;associate_id=&lt;ids&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2203,12 +2246,12 @@ user_id tag will be returned only if query param user_id = true
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id</td>
-<td>Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)</td>
+<td>Customer id*</td>
+<td>Unique identifier of the customer whose notes need to be retrieved - mobile/email/external_id/user_id</td>
 </tr>
 <tr>
 <td>associate_id</td>
-<td>Unique id of the associate who is creating the notes</td>
+<td>Returns notes created by a specific associate based on the associate id passed</td>
 </tr>
 </tbody></table>
 
@@ -2308,14 +2351,14 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve coupons issued to a customer.</p>
+<p>This API allows you to retrieve the details of coupon history of a specific customer, i.e., the details of coupons issued to the customer, and redeemed by the customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2358,7 +2401,7 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the mobile no/email id/external id of the customer whose coupons need to be retrieved</td>
+<td>Pass the mobile no/email id/external id of the customer to retrieve coupon history</td>
 </tr>
 <tr>
 <td>start_date</td>
@@ -2378,7 +2421,7 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 </tr>
 <tr>
 <td>order_by</td>
-<td>Order the results by created date, amount or issued TILL (<code class="prettyprint">created_date</code>, <code class="prettyprint">amount</code>, <code class="prettyprint">valid_till</code>)</td>
+<td>Order the results by created date, amount or issued TILL (<code class="prettyprint">created_date</code>, <code class="prettyprint">amount</code>, <code class="prettyprint">valid_till</code>) based on the type passed</td>
 </tr>
 <tr>
 <td>sort_order</td>
@@ -2512,14 +2555,14 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
     <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to create tickets for a customer.</p>
+<p>This API allows you to create tickets for a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2550,7 +2593,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://api.capillary.co.in/v1.1/customer/tickets?format=xml&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/tickets?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2672,7 +2715,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to fetch existing tickets of a customer.</p>
+<p>This API allows you to fetch the details of tickets of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -4796,19 +4839,25 @@ returned only when query param user_id is true
 
           <h1 id="points">Points</h1>
 
-<p>Points represent loyalty points of an organization that are issued to the loyalty customers based on the transactions made and tiers achieved. Customers can redeem the loyalty points earned by them against transactions. Points are issued only through the Loyalty Manager upon a transaction or tier upgrade but not through API calls.</p>
+<p>Points represent loyalty points of an organization that are issued to the loyalty customers through different sources such as Loyalty Manager, Data Import (import profiles) and Member Care (GoodWill points). Customers can redeem their points against transactions. </p>
+
+<aside class="warning"> 
+Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
+</aside>
+
+<p>The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (isreedemable), validate customer&rsquo;s registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.</p>
 
 <p>The points entity allows you to perform the following tasks:</p>
 
 <ul>
 <li>Check whether a specific number of points can be redeemed by a customer<br></li>
-<li>Validate customer’s mobile number by issuing validation code to redeem points </li>
-<li>Redeem loyalty points of a customer after validating the preceding tasks</li>
+<li>Issue validation code to the registered mobile number/email id to validate customer </li>
+<li>Redeem points using the validation code received by the customer</li>
 </ul>
 
 <h2 id="check-if-points-are-redeemable">Check If Points are Redeemable</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=xml<span class="err">&amp;</span>points=100<span class="err">&amp;</span>validation_code=6D18DU<span class="err">&amp;</span>mobile=919591228668
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span class="err">&amp;</span>points=100<span class="err">&amp;</span>validation_code=6D18DU<span class="err">&amp;</span>mobile=919591228668
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -4897,6 +4946,10 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=xml<span cla
 <span class="nt">&lt;/responses&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
+<p>This API allows you to verify whether a customer can redeem a specific number of points. Active points of a customer can be redeemed based on the redemption criteria set on your organization&rsquo;s Loyalty Program. </p>
+
+<p>For example, a redemption criteria could be, points can be redeemed only in the denominations of 10 and a maximum of 200 points can be redeemed at a time. </p>
+
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
@@ -4962,7 +5015,7 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=xml<span cla
 </tbody></table>
 
 <h2 id="issue-validation-code-for-redeeming-points">Issue Validation Code for Redeeming Points</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=xml<span class="err">&amp;</span>mobile=447700900000<span class="err">&amp;</span>points=50
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=json<span class="err">&amp;</span>mobile=447700900000<span class="err">&amp;</span>points=50
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5008,14 +5061,27 @@ Validation Code Issued by SMS/Email
 <span class="nt">&lt;/validation_code&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>Mobile number validation is required for redeeming points of a customer. You can validate the mobile number through OTP. This API allows you to issue validation code for redeeming points. </p>
+<p>Before making <code class="prettyprint">points/redeem</code> API call, you need to validate the customer by issuing validation code to the registered mobile number/email id. </p>
+
+<p>This API allows you to issue a dynamic validation code to the customer&rsquo;s registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validaty period, same code will be issued again.</p>
+
+<p>The validity period and communicate via is set on the <strong>OTPConfigurations</strong> page of InTouch &gt; <strong>Settings</strong> &gt; <strong>Organization Setup</strong></p>
+
+<ul>
+<li><strong>OTP code validity period</strong>: The validity of the validation code in minutes</li>
+<li><strong>Communicate OTP Via</strong>: Mode of sending the validation code, email/sms/both</li>
+</ul>
+
+<aside class="notice"> 
+The validation code is issued either to mobile number, or email id or both, based on the configuration set on the page InTouch > Settings > Organization Setup > OTPConfigurations
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Entry</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -5061,16 +5127,12 @@ Validation Code Issued by SMS/Email
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile*</td>
-<td>Provide the registered mobile number of the customer to issue validation code - mobile,email, external_id, user_id</td>
+<td>Customer Identifier*</td>
+<td>Pass any identifier (mobile/email/external_id/user_id)of the customer to issue validation code</td>
 </tr>
 <tr>
 <td>points*</td>
 <td>Number of points to redeem</td>
-</tr>
-<tr>
-<td>email</td>
-<td>Provide the email id of the customer if mobile number is not available</td>
 </tr>
 </tbody></table>
 
@@ -5085,7 +5147,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample notes"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6D18DU"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-11-21 11:30:11"</span><span class="w">
+      </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-21 11:30:11"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5100,7 +5162,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;notes&gt;</span>Sample notes<span class="nt">&lt;/notes&gt;</span>
 <span class="nt">&lt;validation_code&gt;</span>6D18DU<span class="nt">&lt;/validation_code&gt;</span>
-<span class="nt">&lt;redemption_time&gt;</span>2011-11-21 11:30:11<span class="nt">&lt;/redemption_time&gt;</span>
+<span class="nt">&lt;redemption_time&gt;</span>2016-11-21 11:30:11<span class="nt">&lt;/redemption_time&gt;</span>
 <span class="nt">&lt;/redeem&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
@@ -5152,14 +5214,18 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 <span class="nt">&lt;/responses&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API alllows you to process points redemption once the OTP issued to the customer is validated.</p>
+<p>You can redeem points of a customer using the issued validation code. Ensure that you have validated the points to be redeemed and issued validation code to the customer&rsquo;s mobile number before redeeming. You need to have the validation code to process points redemption.</p>
+
+<aside class="warning"> 
+You need to use the validation code within the validity period. You can check the validity set for the validation code in **OTP code validity period** field on InTouch > **Settings** > **Organization Setup** > **OTPConfigurations** page
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
 <th>Entry</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
@@ -5214,11 +5280,11 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 </tr>
 <tr>
 <td>transaction_number</td>
-<td>Provide the transaction number against which the points has to be redeemed</td>
+<td>Provide the transaction number for which the points has to be redeemed</td>
 </tr>
 <tr>
-<td>validation_code</td>
-<td>Provide the OTP generated to the customer&rsquo;s mobile number through the previous call</td>
+<td>validation_code*</td>
+<td>Provide the validation code received by the customer through <code class="prettyprint">points/validationcode</code></td>
 </tr>
 <tr>
 <td>redemption_time</td>
@@ -5371,8 +5437,6 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 <li>Retrieve details of a specific coupon/coupon series </li>
 <li>Check whether a customer can redeem a specific coupon and redeem the coupon</li>
 </ul>
-
-<h2 id="issue-coupon">Issue Coupon</h2>
 
 <h2 id="issue-coupon">Issue Coupon</h2>
 <pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/coupon/issue?format=json
@@ -6349,96 +6413,301 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 <span class="nt">&lt;/items&gt;</span>
 <span class="nt">&lt;/series&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
-``
-
-This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
-
-Entry | Description
------ | -----------
-URI | coupon/series
-Rate Limited? | Yes
-Authentication  | Yes
-Response Formats  | XML, JSON
-HTTP Method  | GET
-API Version  | v1.1
-Batch Support  | Yes
-
-### Request URL
-`http://<span class="nt">&lt;cluster</span> <span class="err">url</span><span class="nt">&gt;</span>/v1.1/coupon/series?format=<span class="nt">&lt;xml</span><span class="err">/json</span><span class="nt">&gt;</span><span class="err">&amp;</span>id=<span class="nt">&lt;series</span> <span class="err">id</span><span class="nt">&gt;</span><span class="err">&amp;</span>expired=<span class="nt">&lt;true</span><span class="err">/false/extended</span><span class="nt">&gt;</span>`
-
-### Request Parameters
-Parameter | Description
---------- | -----------
-id | Id of the specific coupon series that you want to retrieve
-expired | Value: `true`, `false`, `extended`. Retrieves the details of the expired coupon series if `expired=true` and active coupon series details if `expired=false`. If `expired=extended` then the coupon configuration details are also shown. 
-
-## Request URL
-`http://<span class="nt">&lt;cluster</span> <span class="err">url</span><span class="nt">&gt;</span>/v1.1/coupon/series?format=<span class="nt">&lt;xml</span><span class="err">/json</span><span class="nt">&gt;</span><span class="err">&amp;</span>expired=<span class="nt">&lt;true</span><span class="err">/false</span><span class="nt">&gt;</span>`
-
-
-
-
-## Response Codes
-### Success Codes
-| Code |  Description                       | 
-|------|------------------------------------| 
-| 700  | Coupon processed successfully     | 
-| 700  | Coupon series fetched successfully | 
-
-### Error Codes
-Code | Description                                                                                    
----- | -----------
-701  | Unable to find the customer. Please enter correct mobile number/email id/external id           
-702  | Coupon code is invalid                                                                          
-703  | Coupon not issued to this customer                                                              
-704  | Unable to send coupon to the customer’s mobile number                                           
-705  | Invalid coupon code and validation code                                                         
-706  | Unable to redeem coupon                                                                         
-707  | Coupon series id is invalid                                                                     
-709  | Unable to redeem coupon                                                                         
-710  | Coupon cannot be redeemed by this customer                                                      
-711  | Coupon is redeemed already                                                                     
-712  | Unable to redeem. Either coupon series or campaign might have expired                           
-713  | Coupon has expired                                                                              
-714  | Unable to redeem. Maximum redemptions allowed for this campaign are already reached             
-715  | Unable to redeem. The coupon is not valid for this organization                                
-716  | Unable to redeem. Cannot redeem same coupon multiple times                                      
-718  | Unable to redeem. Please enter transaction number must be entered to redeem                     
-719  | Coupon code does not exist                                                                      
-720  | Unable to redeem. This is just a trial coupon and cannot be redeemed                           
-721  | Unable to issue/redeem coupon. Customer is invalid                                             
-722  | Unable to issue coupon                                                                          
-723  | Unable to redeem. The coupon cannot be used by this customer                              
-724  | Unable to send message                                                    
-725  | Unable to redeem coupon. Please provide validation code to redeem                             
-726  | Validation not required                                                                         
-728  | Unable to redeem. Maximum number of coupon redemptions allowed has already been reached         
-729  | Invalid redemption date range for the coupon series                                             
-730  | Unknown error                                                                                   
-732  | No Missed call received from the customer                                                       
-733  | Transaction amount invalid                                                                      
-735  | Unable to redeem coupon. The coupon cannot be redeemed at this store                            
-736  | Unable to redeem coupon. Maximum number of coupon redemptions allowed has already been reached  
-738  | Cannot redeem the coupon. Please wait for <span class="nt">&lt;X&gt;</span> days to redeem this coupon again                  
-739  | Unable to redeem. Make sure that the redemption date you have entered is valid                  
-740  | Unable to process. Customer is marked as fraud                                                  
-742  | Coupon issual or redemption is blocked for this customer                                        
-750  | Unable to process. Customer is marked as fraud                                                  
-786  | Unable to process coupon. Please try again later                                                
-787  | Unable to process coupon. Please try again later                                                
-788  | Configuration is invalid. Please report to Capillary Support                                   
-789  | Unable to process coupon. Please try again later                                                
-790  | Unable to process coupon. Please try again later                                                
-791  | Unable to process coupon. Please try again later                                                
-792  | Unable to process coupon. Please try again later                                                
-793  | Unable to process coupon. Please try again later                                                
-794  | Unable to process coupon. Please try again later                                                
-795  | Configuration is invalid. Please report to Capillary Support                                  
-796  | Unable to process coupon. Please try again later                                                
-797  | Unable to process coupon. Please try again later                                                
-798  | Unable to process coupon. Please try again later                                                
-799  | Configuration is invalid. Please report to Capillary Support                                 
 </code></pre>
+<p>This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.</p>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>coupon/series</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/coupon/series?format=&lt;xml/json&gt;&amp;id=&lt;series id&gt;&amp;expired=&lt;true/false/extended&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id of the specific coupon series that you want to retrieve</td>
+</tr>
+<tr>
+<td>expired</td>
+<td>Value: <code class="prettyprint">true</code>, <code class="prettyprint">false</code>, <code class="prettyprint">extended</code>. Retrieves the details of the expired coupon series if <code class="prettyprint">expired=true</code> and active coupon series details if <code class="prettyprint">expired=false</code>. If <code class="prettyprint">expired=extended</code> then the coupon configuration details are also shown.</td>
+</tr>
+</tbody></table>
+
+<h2 id="request-url">Request URL</h2>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/coupon/series?format=&lt;xml/json&gt;&amp;expired=&lt;true/false&gt;</code></p>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<h3 id="success-codes">Success Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>700</td>
+<td>Coupon processed successfully</td>
+</tr>
+<tr>
+<td>700</td>
+<td>Coupon series fetched successfully</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-codes">Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>701</td>
+<td>Unable to find the customer. Please enter correct mobile number/email id/external id</td>
+</tr>
+<tr>
+<td>702</td>
+<td>Coupon code is invalid</td>
+</tr>
+<tr>
+<td>703</td>
+<td>Coupon not issued to this customer</td>
+</tr>
+<tr>
+<td>704</td>
+<td>Unable to send coupon to the customer’s mobile number</td>
+</tr>
+<tr>
+<td>705</td>
+<td>Invalid coupon code and validation code</td>
+</tr>
+<tr>
+<td>706</td>
+<td>Unable to redeem coupon</td>
+</tr>
+<tr>
+<td>707</td>
+<td>Coupon series id is invalid</td>
+</tr>
+<tr>
+<td>709</td>
+<td>Unable to redeem coupon</td>
+</tr>
+<tr>
+<td>710</td>
+<td>Coupon cannot be redeemed by this customer</td>
+</tr>
+<tr>
+<td>711</td>
+<td>Coupon is redeemed already</td>
+</tr>
+<tr>
+<td>712</td>
+<td>Unable to redeem. Either coupon series or campaign might have expired</td>
+</tr>
+<tr>
+<td>713</td>
+<td>Coupon has expired</td>
+</tr>
+<tr>
+<td>714</td>
+<td>Unable to redeem. Maximum redemptions allowed for this campaign are already reached</td>
+</tr>
+<tr>
+<td>715</td>
+<td>Unable to redeem. The coupon is not valid for this organization</td>
+</tr>
+<tr>
+<td>716</td>
+<td>Unable to redeem. Cannot redeem same coupon multiple times</td>
+</tr>
+<tr>
+<td>718</td>
+<td>Unable to redeem. Please enter transaction number must be entered to redeem</td>
+</tr>
+<tr>
+<td>719</td>
+<td>Coupon code does not exist</td>
+</tr>
+<tr>
+<td>720</td>
+<td>Unable to redeem. This is just a trial coupon and cannot be redeemed</td>
+</tr>
+<tr>
+<td>721</td>
+<td>Unable to issue/redeem coupon. Customer is invalid</td>
+</tr>
+<tr>
+<td>722</td>
+<td>Unable to issue coupon</td>
+</tr>
+<tr>
+<td>723</td>
+<td>Unable to redeem. The coupon cannot be used by this customer</td>
+</tr>
+<tr>
+<td>724</td>
+<td>Unable to send message</td>
+</tr>
+<tr>
+<td>725</td>
+<td>Unable to redeem coupon. Please provide validation code to redeem</td>
+</tr>
+<tr>
+<td>726</td>
+<td>Validation not required</td>
+</tr>
+<tr>
+<td>728</td>
+<td>Unable to redeem. Maximum number of coupon redemptions allowed has already been reached</td>
+</tr>
+<tr>
+<td>729</td>
+<td>Invalid redemption date range for the coupon series</td>
+</tr>
+<tr>
+<td>730</td>
+<td>Unknown error</td>
+</tr>
+<tr>
+<td>732</td>
+<td>No Missed call received from the customer</td>
+</tr>
+<tr>
+<td>733</td>
+<td>Transaction amount invalid</td>
+</tr>
+<tr>
+<td>735</td>
+<td>Unable to redeem coupon. The coupon cannot be redeemed at this store</td>
+</tr>
+<tr>
+<td>736</td>
+<td>Unable to redeem coupon. Maximum number of coupon redemptions allowed has already been reached</td>
+</tr>
+<tr>
+<td>738</td>
+<td>Cannot redeem the coupon. Please wait for <X> days to redeem this coupon again</td>
+</tr>
+<tr>
+<td>739</td>
+<td>Unable to redeem. Make sure that the redemption date you have entered is valid</td>
+</tr>
+<tr>
+<td>740</td>
+<td>Unable to process. Customer is marked as fraud</td>
+</tr>
+<tr>
+<td>742</td>
+<td>Coupon issual or redemption is blocked for this customer</td>
+</tr>
+<tr>
+<td>750</td>
+<td>Unable to process. Customer is marked as fraud</td>
+</tr>
+<tr>
+<td>786</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>787</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>788</td>
+<td>Configuration is invalid. Please report to Capillary Support</td>
+</tr>
+<tr>
+<td>789</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>790</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>791</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>792</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>793</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>794</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>795</td>
+<td>Configuration is invalid. Please report to Capillary Support</td>
+</tr>
+<tr>
+<td>796</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>797</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>798</td>
+<td>Unable to process coupon. Please try again later</td>
+</tr>
+<tr>
+<td>799</td>
+<td>Configuration is invalid. Please report to Capillary Support</td>
+</tr>
+</tbody></table>
+
           <h1 id="communications">Communications</h1>
 
 <p>Communications represent personalized messages (SMSs/emails) sent to the loyalty customers. Messages such as transaction notifications, birthday wishes, anniversary wishes can be sent through communications APIs.</p>
@@ -6826,9 +7095,107 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 </tr>
 </tbody></table>
 
-          <h1 id="requests">Requests</h1>
+          <h1 id="request">Request</h1>
 
-<p>The following resource contains APIs related to <code class="prettyprint">requests</code> resource</p>
+<p>Request entity contains APIs corresponding to submitting and retrieving requests. You can use this entity to change identifiers, merge customer accounts, issue Good Will points/coupons, and retrieve details of submitted requests.</p>
+
+<h2 id="submit-a-request">Submit a Request</h2>
+
+<p>This API allows you to submit requests for changing customer identifier, merging customers, issuing Goodwill points and coupons to the loyalty customers.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Submits service requests for customers.</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/add&amp;format=&lt;xml/json&gt;</code></p>
+
+<h2 id="approve-request">Approve Request</h2>
+
+<h2 id="reject-request">Reject Request</h2>
+
+<h2 id="retrieve-request-details">Retrieve Request Details</h2>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
+</tr>
+<tr>
+<td>customer identifiers</td>
+<td>Identifier (user_id, email, mobile, external_id supported) of the customer whose details you want to retrieve</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Returns the requests by request status. <strong>Value</strong>: APPROVED, PENDING, REJECTED</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Returns a specific type of requests. <strong>Value</strong>: CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>(MOBILE, EXTERNAL_ID, EMAIL, MERGE, ADDRESS, COUPONS, POINTS)</td>
+</tr>
+<tr>
+<td>start_id &amp; end_id</td>
+<td>pagination support - request id</td>
+</tr>
+<tr>
+<td>start_limit</td>
+<td>UI support for data table; ex: get next 20 batch; formula: (page_no-1)*limit</td>
+</tr>
+</tbody></table>
+
+<p>limit (no of entries to list)</p>
+
+<h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
 
       </div>
       <div class="dark-box">
