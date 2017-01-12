@@ -5065,15 +5065,15 @@ Validation Code Issued by SMS/Email
 
 <p>This API allows you to issue a dynamic validation code to the customer&rsquo;s registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validaty period, same code will be issued again.</p>
 
-<p>The validity period and communicate via is set on the <strong>OTPConfigurations</strong> page of InTouch &gt; <strong>Settings</strong> &gt; <strong>Organization Setup</strong></p>
+<p>The validity period and communicate via is set on the OTPConfigurations page of InTouch &gt; <strong>Settings</strong> &gt; <strong>Organization Setup</strong></p>
 
 <ul>
 <li><strong>OTP code validity period</strong>: The validity of the validation code in minutes</li>
-<li><strong>Communicate OTP Via</strong>: Mode of sending the validation code, email/sms/both</li>
+<li><strong>Communicate OTP Via.</strong>: Mode of sending the validation code, email/sms/both</li>
 </ul>
 
 <aside class="notice"> 
-The validation code is issued either to mobile number, or email id or both, based on the configuration set on the page InTouch > Settings > Organization Setup > OTPConfigurations
+The validation code is issued either to mobile number, or email id or both, based on the configuration set on the page InTouch > **Settings** > **Organization Setup** > **OTPConfigurations**
 </aside>
 
 <h3 id="resource-information">Resource Information</h3>
@@ -6415,301 +6415,96 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 <span class="nt">&lt;/items&gt;</span>
 <span class="nt">&lt;/series&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
+``
+
+This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
+
+Entry | Description
+----- | -----------
+URI | coupon/series
+Rate Limited? | Yes
+Authentication  | Yes
+Response Formats  | XML, JSON
+HTTP Method  | GET
+API Version  | v1.1
+Batch Support  | Yes
+
+### Request URL
+`http://<span class="nt">&lt;cluster</span> <span class="err">url</span><span class="nt">&gt;</span>/v1.1/coupon/series?format=<span class="nt">&lt;xml</span><span class="err">/json</span><span class="nt">&gt;</span><span class="err">&amp;</span>id=<span class="nt">&lt;series</span> <span class="err">id</span><span class="nt">&gt;</span><span class="err">&amp;</span>expired=<span class="nt">&lt;true</span><span class="err">/false/extended</span><span class="nt">&gt;</span>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+id | Id of the specific coupon series that you want to retrieve
+expired | Value: `true`, `false`, `extended`. Retrieves the details of the expired coupon series if `expired=true` and active coupon series details if `expired=false`. If `expired=extended` then the coupon configuration details are also shown. 
+
+## Request URL
+`http://<span class="nt">&lt;cluster</span> <span class="err">url</span><span class="nt">&gt;</span>/v1.1/coupon/series?format=<span class="nt">&lt;xml</span><span class="err">/json</span><span class="nt">&gt;</span><span class="err">&amp;</span>expired=<span class="nt">&lt;true</span><span class="err">/false</span><span class="nt">&gt;</span>`
+
+
+
+
+## Response Codes
+### Success Codes
+| Code |  Description                       | 
+|------|------------------------------------| 
+| 700  | Coupon processed successfully     | 
+| 700  | Coupon series fetched successfully | 
+
+### Error Codes
+Code | Description                                                                                    
+---- | -----------
+701  | Unable to find the customer. Please enter correct mobile number/email id/external id           
+702  | Coupon code is invalid                                                                          
+703  | Coupon not issued to this customer                                                              
+704  | Unable to send coupon to the customer’s mobile number                                           
+705  | Invalid coupon code and validation code                                                         
+706  | Unable to redeem coupon                                                                         
+707  | Coupon series id is invalid                                                                     
+709  | Unable to redeem coupon                                                                         
+710  | Coupon cannot be redeemed by this customer                                                      
+711  | Coupon is redeemed already                                                                     
+712  | Unable to redeem. Either coupon series or campaign might have expired                           
+713  | Coupon has expired                                                                              
+714  | Unable to redeem. Maximum redemptions allowed for this campaign are already reached             
+715  | Unable to redeem. The coupon is not valid for this organization                                
+716  | Unable to redeem. Cannot redeem same coupon multiple times                                      
+718  | Unable to redeem. Please enter transaction number must be entered to redeem                     
+719  | Coupon code does not exist                                                                      
+720  | Unable to redeem. This is just a trial coupon and cannot be redeemed                           
+721  | Unable to issue/redeem coupon. Customer is invalid                                             
+722  | Unable to issue coupon                                                                          
+723  | Unable to redeem. The coupon cannot be used by this customer                              
+724  | Unable to send message                                                    
+725  | Unable to redeem coupon. Please provide validation code to redeem                             
+726  | Validation not required                                                                         
+728  | Unable to redeem. Maximum number of coupon redemptions allowed has already been reached         
+729  | Invalid redemption date range for the coupon series                                             
+730  | Unknown error                                                                                   
+732  | No Missed call received from the customer                                                       
+733  | Transaction amount invalid                                                                      
+735  | Unable to redeem coupon. The coupon cannot be redeemed at this store                            
+736  | Unable to redeem coupon. Maximum number of coupon redemptions allowed has already been reached  
+738  | Cannot redeem the coupon. Please wait for <span class="nt">&lt;X&gt;</span> days to redeem this coupon again                  
+739  | Unable to redeem. Make sure that the redemption date you have entered is valid                  
+740  | Unable to process. Customer is marked as fraud                                                  
+742  | Coupon issual or redemption is blocked for this customer                                        
+750  | Unable to process. Customer is marked as fraud                                                  
+786  | Unable to process coupon. Please try again later                                                
+787  | Unable to process coupon. Please try again later                                                
+788  | Configuration is invalid. Please report to Capillary Support                                   
+789  | Unable to process coupon. Please try again later                                                
+790  | Unable to process coupon. Please try again later                                                
+791  | Unable to process coupon. Please try again later                                                
+792  | Unable to process coupon. Please try again later                                                
+793  | Unable to process coupon. Please try again later                                                
+794  | Unable to process coupon. Please try again later                                                
+795  | Configuration is invalid. Please report to Capillary Support                                  
+796  | Unable to process coupon. Please try again later                                                
+797  | Unable to process coupon. Please try again later                                                
+798  | Unable to process coupon. Please try again later                                                
+799  | Configuration is invalid. Please report to Capillary Support                                 
 </code></pre>
-<p>This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.</p>
-
-<table><thead>
-<tr>
-<th>Entry</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>URI</td>
-<td>coupon/series</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
-<td>HTTP Method</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/coupon/series?format=&lt;xml/json&gt;&amp;id=&lt;series id&gt;&amp;expired=&lt;true/false/extended&gt;</code></p>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>Id of the specific coupon series that you want to retrieve</td>
-</tr>
-<tr>
-<td>expired</td>
-<td>Value: <code class="prettyprint">true</code>, <code class="prettyprint">false</code>, <code class="prettyprint">extended</code>. Retrieves the details of the expired coupon series if <code class="prettyprint">expired=true</code> and active coupon series details if <code class="prettyprint">expired=false</code>. If <code class="prettyprint">expired=extended</code> then the coupon configuration details are also shown.</td>
-</tr>
-</tbody></table>
-
-<h2 id="request-url">Request URL</h2>
-
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/coupon/series?format=&lt;xml/json&gt;&amp;expired=&lt;true/false&gt;</code></p>
-
-<h2 id="response-codes">Response Codes</h2>
-
-<h3 id="success-codes">Success Codes</h3>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>700</td>
-<td>Coupon processed successfully</td>
-</tr>
-<tr>
-<td>700</td>
-<td>Coupon series fetched successfully</td>
-</tr>
-</tbody></table>
-
-<h3 id="error-codes">Error Codes</h3>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>701</td>
-<td>Unable to find the customer. Please enter correct mobile number/email id/external id</td>
-</tr>
-<tr>
-<td>702</td>
-<td>Coupon code is invalid</td>
-</tr>
-<tr>
-<td>703</td>
-<td>Coupon not issued to this customer</td>
-</tr>
-<tr>
-<td>704</td>
-<td>Unable to send coupon to the customer’s mobile number</td>
-</tr>
-<tr>
-<td>705</td>
-<td>Invalid coupon code and validation code</td>
-</tr>
-<tr>
-<td>706</td>
-<td>Unable to redeem coupon</td>
-</tr>
-<tr>
-<td>707</td>
-<td>Coupon series id is invalid</td>
-</tr>
-<tr>
-<td>709</td>
-<td>Unable to redeem coupon</td>
-</tr>
-<tr>
-<td>710</td>
-<td>Coupon cannot be redeemed by this customer</td>
-</tr>
-<tr>
-<td>711</td>
-<td>Coupon is redeemed already</td>
-</tr>
-<tr>
-<td>712</td>
-<td>Unable to redeem. Either coupon series or campaign might have expired</td>
-</tr>
-<tr>
-<td>713</td>
-<td>Coupon has expired</td>
-</tr>
-<tr>
-<td>714</td>
-<td>Unable to redeem. Maximum redemptions allowed for this campaign are already reached</td>
-</tr>
-<tr>
-<td>715</td>
-<td>Unable to redeem. The coupon is not valid for this organization</td>
-</tr>
-<tr>
-<td>716</td>
-<td>Unable to redeem. Cannot redeem same coupon multiple times</td>
-</tr>
-<tr>
-<td>718</td>
-<td>Unable to redeem. Please enter transaction number must be entered to redeem</td>
-</tr>
-<tr>
-<td>719</td>
-<td>Coupon code does not exist</td>
-</tr>
-<tr>
-<td>720</td>
-<td>Unable to redeem. This is just a trial coupon and cannot be redeemed</td>
-</tr>
-<tr>
-<td>721</td>
-<td>Unable to issue/redeem coupon. Customer is invalid</td>
-</tr>
-<tr>
-<td>722</td>
-<td>Unable to issue coupon</td>
-</tr>
-<tr>
-<td>723</td>
-<td>Unable to redeem. The coupon cannot be used by this customer</td>
-</tr>
-<tr>
-<td>724</td>
-<td>Unable to send message</td>
-</tr>
-<tr>
-<td>725</td>
-<td>Unable to redeem coupon. Please provide validation code to redeem</td>
-</tr>
-<tr>
-<td>726</td>
-<td>Validation not required</td>
-</tr>
-<tr>
-<td>728</td>
-<td>Unable to redeem. Maximum number of coupon redemptions allowed has already been reached</td>
-</tr>
-<tr>
-<td>729</td>
-<td>Invalid redemption date range for the coupon series</td>
-</tr>
-<tr>
-<td>730</td>
-<td>Unknown error</td>
-</tr>
-<tr>
-<td>732</td>
-<td>No Missed call received from the customer</td>
-</tr>
-<tr>
-<td>733</td>
-<td>Transaction amount invalid</td>
-</tr>
-<tr>
-<td>735</td>
-<td>Unable to redeem coupon. The coupon cannot be redeemed at this store</td>
-</tr>
-<tr>
-<td>736</td>
-<td>Unable to redeem coupon. Maximum number of coupon redemptions allowed has already been reached</td>
-</tr>
-<tr>
-<td>738</td>
-<td>Cannot redeem the coupon. Please wait for <X> days to redeem this coupon again</td>
-</tr>
-<tr>
-<td>739</td>
-<td>Unable to redeem. Make sure that the redemption date you have entered is valid</td>
-</tr>
-<tr>
-<td>740</td>
-<td>Unable to process. Customer is marked as fraud</td>
-</tr>
-<tr>
-<td>742</td>
-<td>Coupon issual or redemption is blocked for this customer</td>
-</tr>
-<tr>
-<td>750</td>
-<td>Unable to process. Customer is marked as fraud</td>
-</tr>
-<tr>
-<td>786</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>787</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>788</td>
-<td>Configuration is invalid. Please report to Capillary Support</td>
-</tr>
-<tr>
-<td>789</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>790</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>791</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>792</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>793</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>794</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>795</td>
-<td>Configuration is invalid. Please report to Capillary Support</td>
-</tr>
-<tr>
-<td>796</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>797</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>798</td>
-<td>Unable to process coupon. Please try again later</td>
-</tr>
-<tr>
-<td>799</td>
-<td>Configuration is invalid. Please report to Capillary Support</td>
-</tr>
-</tbody></table>
-
           <h1 id="communications">Communications</h1>
 
 <p>Communications represent personalized messages (SMSs/emails) sent to the loyalty customers. Messages such as transaction notifications, birthday wishes, anniversary wishes can be sent through communications APIs.</p>
@@ -7097,107 +6892,9 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 </tr>
 </tbody></table>
 
-          <h1 id="request">Request</h1>
+          <h1 id="requests">Requests</h1>
 
-<p>Request entity contains APIs corresponding to submitting and retrieving requests. You can use this entity to change identifiers, merge customer accounts, issue Good Will points/coupons, and retrieve details of submitted requests.</p>
-
-<h2 id="submit-a-request">Submit a Request</h2>
-
-<p>This API allows you to submit requests for changing customer identifier, merging customers, issuing Goodwill points and coupons to the loyalty customers.</p>
-
-<h3 id="resource-information">Resource Information</h3>
-
-<table><thead>
-<tr>
-<th>Entry</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Submits service requests for customers.</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
-</tr>
-<tr>
-<td>Batch Support</td>
-<td>Yes</td>
-</tr>
-</tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/add&amp;format=&lt;xml/json&gt;</code></p>
-
-<h2 id="approve-request">Approve Request</h2>
-
-<h2 id="reject-request">Reject Request</h2>
-
-<h2 id="retrieve-request-details">Retrieve Request Details</h2>
-
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>start_date</td>
-<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
-</tr>
-<tr>
-<td>customer identifiers</td>
-<td>Identifier (user_id, email, mobile, external_id supported) of the customer whose details you want to retrieve</td>
-</tr>
-<tr>
-<td>status</td>
-<td>Returns the requests by request status. <strong>Value</strong>: APPROVED, PENDING, REJECTED</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Returns a specific type of requests. <strong>Value</strong>: CHANGE_IDENTIFIER, GOODWILL</td>
-</tr>
-<tr>
-<td>base_type</td>
-<td>(MOBILE, EXTERNAL_ID, EMAIL, MERGE, ADDRESS, COUPONS, POINTS)</td>
-</tr>
-<tr>
-<td>start_id &amp; end_id</td>
-<td>pagination support - request id</td>
-</tr>
-<tr>
-<td>start_limit</td>
-<td>UI support for data table; ex: get next 20 batch; formula: (page_no-1)*limit</td>
-</tr>
-</tbody></table>
-
-<p>limit (no of entries to list)</p>
-
-<h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
+<p>The following resource contains APIs related to <code class="prettyprint">requests</code> resource</p>
 
       </div>
       <div class="dark-box">
