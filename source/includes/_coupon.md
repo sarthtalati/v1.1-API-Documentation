@@ -834,10 +834,6 @@ Parameter | Description
 id | Id of the specific coupon series that you want to retrieve
 expired | Value: `true`, `false`, `extended`. Retrieves the details of the expired coupon series if `expired=true` and active coupon series details if `expired=false`. If `expired=extended` then the coupon configuration details are also shown. 
 
-## Request URL
-`http://<cluster url>/v1.1/coupon/series?format=<xml/json>&expired=<true/false>`
-
-
 
 
 ## Response Codes
