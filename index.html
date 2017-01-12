@@ -7095,6 +7095,13 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
 <p>Request entity contains APIs corresponding to submitting and retrieving requests. You can use this entity to change identifiers, merge customer accounts, issue Good Will points/coupons, and retrieve details of submitted requests.</p>
 
+<p>Requests are broadly categorized into two types:</p>
+
+<ul>
+<li>Change Identifier: Requests that correspond to identifier change, accounts merge, amd mobile reallocation comes under change identifier requests</li>
+<li>Goodwill: Requests for issuing goodwill points and coupons</li>
+</ul>
+
 <h2 id="submit-a-request">Submit a Request</h2>
 
 <p>This API allows you to submit requests for changing customer identifier, merging customers, issuing Goodwill points and coupons to the loyalty customers.</p>
@@ -7342,6 +7349,50 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Request/get is a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns the list of service requests and the current status of each request</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/get&amp;format=&lt;xml/json&gt;</code></p>
+
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
@@ -7585,6 +7636,120 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Retrieves the requests logs of a specific duration. You can retrieve the either the logs of <code class="prettyprint">CHANGE_IDENTIFIER</code>or <code class="prettyprint">GOODWILL</code>. </p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>request/logs</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns the log of service requests</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/logs&amp;format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type*</td>
+<td>CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>start_date*</td>
+<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>end_date*</td>
+<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>base_type*</td>
+<td>MOBILE, EXTERNAL_ID, EMAIL, MERGE, COUPONS, POINTS</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Filters the logs by request status. Values: PENDING, APPROVED, REJECTED</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>Returns the requests that were updated by a specific associate</td>
+</tr>
+<tr>
+<td>added_by</td>
+<td>Returns the requests created by a specific associate</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td>Returns the details of a specific request id</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>Returns the requests that were updated directly in a single call. Value: true, false</td>
+</tr>
+<tr>
+<td>approval_type</td>
+<td>Returns the logs of a specific approval type. Value: CLIENT, CONFIG, CONFIG_DISABLED, CLIENT_DISABLED</td>
+</tr>
+<tr>
+<td>customer identifiers</td>
+<td>Returns the requests of a specific customer. Params: email, mobile, external_id, customer_id</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Returns the user ids of customers if <code class="prettyprint">user_id=true</code></td>
+</tr>
+<tr>
+<td>start_id &amp; end_id</td>
+<td>Returns the logs of a specific range of request ids. For example, logs</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of results per page. For example, <code class="prettyprint">limit=10</code> shows 10 results per page on UI</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
