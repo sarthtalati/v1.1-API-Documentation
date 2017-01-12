@@ -7146,7 +7146,202 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 <h2 id="reject-request">Reject Request</h2>
 
 <h2 id="retrieve-request-details">Retrieve Request Details</h2>
+<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/get?format=json
+</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+<span class="nt">&lt;status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;requests&gt;</span>
+    <span class="nt">&lt;count&gt;</span>531<span class="nt">&lt;/count&gt;</span>
+    <span class="nt">&lt;rows&gt;</span>30<span class="nt">&lt;/rows&gt;</span>
+<span class="nt">&lt;goodwill&gt;</span>
+<span class="nt">&lt;id&gt;</span>10039<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>COUPON<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;reason&gt;</span>BILL_ISSUE<span class="nt">&lt;/reason&gt;</span>
+<span class="nt">&lt;comments&gt;</span>customer is angry<span class="nt">&lt;/comments&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;assoc_id&gt;&lt;/assoc_id&gt;</span>
+<span class="nt">&lt;approved_value&gt;&lt;/approved_value&gt;</span>
+<span class="nt">&lt;updated_comments&gt;&lt;/updated_comments&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2016-02-12T13:32:42+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/goodwill&gt;</span>
+<span class="nt">&lt;change_identifier&gt;</span>
+<span class="nt">&lt;id&gt;</span>10034<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>REJECTED<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>Tom@Tom2.com<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>Tom@Tom.com<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom@Tom2.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>919740798372<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;updated_comments&gt;&lt;/updated_comments&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2016-02-12T05:30:00+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;</span>2014-02-21T05:30:00+05:30<span class="nt">&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>admin<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Mr Admin<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/change_identifier&gt;</span>
+<span class="nt">&lt;change_identifier&gt;</span>
+<span class="nt">&lt;id&gt;</span>10035<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>REJECTED<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>tom.tom@example.com<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2014-01-20T05:30:00+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;</span>2016-02-01T05:30:00+05:30<span class="nt">&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>admin007<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Mr Admin<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/change_identifier&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>Request retrieved successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+<span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"531"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"goodwill"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10039"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COUPON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL_ISSUE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer is angry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-12T13:32:42+05:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"change_identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10034"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom2.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom2.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919740798372"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-12T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"last_action_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-21T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Admin"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10035"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.tom@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-01-20T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"last_action_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin007"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Admin"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request retrieved successfully"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
@@ -7192,7 +7387,204 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 <p>limit (no of entries to list)</p>
 
 <h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
+<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/logs?format=json<span class="err">&amp;</span>type=CHANGE_IDENTIFIER<span class="err">&amp;</span>start_date=2016-01-15<span class="err">&amp;</span>end_date=2017-05-08<span class="err">&amp;</span>base_type=EMAIL
 
+</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;requests&gt;</span>
+        <span class="nt">&lt;count&gt;</span>60<span class="nt">&lt;/count&gt;</span>
+        <span class="nt">&lt;rows&gt;</span>10<span class="nt">&lt;/rows&gt;</span>
+        <span class="nt">&lt;change_identifier&gt;</span>
+            <span class="nt">&lt;id&gt;</span>263452<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts123<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;fraud_status&gt;</span>NONE<span class="nt">&lt;/fraud_status&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;old_value&gt;</span>tom.sawyerold@example.com<span class="nt">&lt;/old_value&gt;</span>
+            <span class="nt">&lt;new_value&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+            <span class="nt">&lt;updated_comments/&gt;</span>
+            <span class="nt">&lt;one_step_change&gt;</span>false<span class="nt">&lt;/one_step_change&gt;</span>
+            <span class="nt">&lt;approval_type&gt;</span>CLIENT<span class="nt">&lt;/approval_type&gt;</span>
+            <span class="nt">&lt;logs&gt;</span>
+                <span class="nt">&lt;added_by&gt;</span>
+                    <span class="nt">&lt;till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>Catherine<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>James<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/till&gt;</span>
+                    <span class="nt">&lt;store&gt;</span>
+                        <span class="nt">&lt;code/&gt;</span>
+                        <span class="nt">&lt;name/&gt;</span>
+                    <span class="nt">&lt;/store&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-12-16T12:49:29+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/added_by&gt;</span>
+                <span class="nt">&lt;updated_by&gt;</span>
+                    <span class="nt">&lt;user&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Catherine James<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;mobile&gt;</span>44700200030<span class="nt">&lt;/mobile&gt;</span>
+                        <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
+                    <span class="nt">&lt;/user&gt;</span>
+                    <span class="nt">&lt;ip&gt;</span>115.114.139.186<span class="nt">&lt;/ip&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-12-16T12:49:29+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/updated_by&gt;</span>
+            <span class="nt">&lt;/logs&gt;</span>
+        <span class="nt">&lt;/change_identifier&gt;</span>
+        <span class="nt">&lt;change_identifier&gt;</span>
+            <span class="nt">&lt;id&gt;</span>225750<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>LUCIA<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Customer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>lucia@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>918656001195<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;external_id/&gt;</span>
+                <span class="nt">&lt;fraud_status&gt;</span>NONE<span class="nt">&lt;/fraud_status&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;status&gt;</span>APPROVED<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;old_value&gt;</span>lucia.old@example.com<span class="nt">&lt;/old_value&gt;</span>
+            <span class="nt">&lt;new_value&gt;</span>lucia@example.com<span class="nt">&lt;/new_value&gt;</span>
+            <span class="nt">&lt;updated_comments/&gt;</span>
+            <span class="nt">&lt;one_step_change&gt;</span>true<span class="nt">&lt;/one_step_change&gt;</span>
+            <span class="nt">&lt;approval_type&gt;</span>CLIENT<span class="nt">&lt;/approval_type&gt;</span>
+            <span class="nt">&lt;logs&gt;</span>
+                <span class="nt">&lt;added_by&gt;</span>
+                    <span class="nt">&lt;till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>1371622280_919866643044<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>1371622280_Ashish<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/till&gt;</span>
+                    <span class="nt">&lt;store&gt;</span>
+                        <span class="nt">&lt;code/&gt;</span>
+                        <span class="nt">&lt;name/&gt;</span>
+                    <span class="nt">&lt;/store&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-09-16T15:52:07+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/added_by&gt;</span>
+                <span class="nt">&lt;updated_by&gt;</span>
+                    <span class="nt">&lt;user&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Ashish Karan<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;mobile&gt;</span>919866643044<span class="nt">&lt;/mobile&gt;</span>
+                        <span class="nt">&lt;email&gt;</span>cap@coin.com<span class="nt">&lt;/email&gt;</span>
+                    <span class="nt">&lt;/user&gt;</span>
+                    <span class="nt">&lt;ip&gt;</span>115.114.139.186<span class="nt">&lt;/ip&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-09-16T15:52:07+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/updated_by&gt;</span>
+            <span class="nt">&lt;/logs&gt;</span>
+        <span class="nt">&lt;/change_identifier&gt;</span>
+        <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Request retrieved successfully<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/item_status&gt;</span>
+    <span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"change_identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"263452"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"one_step_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catherine"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T12:49:29+05:30"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catherine James"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700200030"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catherine@example.com"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.114.139.186"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T12:49:29+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225750"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LUCIA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918656001195"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia.old@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"one_step_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1371622280_919866643044"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1371622280_Ashish"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-16T15:52:07+05:30"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ashish Karan"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919866643044"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap@coin.com"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.114.139.186"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-16T15:52:07+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request retrieved successfully"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
