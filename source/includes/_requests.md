@@ -1,6 +1,11 @@
 # Request
 Request entity contains APIs corresponding to submitting and retrieving requests. You can use this entity to change identifiers, merge customer accounts, issue Good Will points/coupons, and retrieve details of submitted requests.
 
+Requests are broadly categorized into two types:
+
+* Change Identifier: Requests that correspond to identifier change, accounts merge, amd mobile reallocation comes under change identifier requests
+* Goodwill: Requests for issuing goodwill points and coupons
+
 ## Submit a Request
 This API allows you to submit requests for changing customer identifier, merging customers, issuing Goodwill points and coupons to the loyalty customers.
 
@@ -231,6 +236,22 @@ https://us.intouch.capillarytech.com/v1.1/request/get?format=json
 }
 ```
 
+Request/get is a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+Response Object | Returns the list of service requests and the current status of each request
+API Version | v1.1
+Batch Support | Yes
+
+### Request URL
+`https://<cluster url>/v1.1/request/get&format=<xml/json>`
+
 ### Request Parameters
 Parameter | Description
 --------- | -----------
@@ -452,4 +473,39 @@ https://us.intouch.capillarytech.com/v1.1/request/logs?format=json&type=CHANGE_I
   }
 }
 ```
+Retrieves the requests logs of a specific duration. You can retrieve the either the logs of `CHANGE_IDENTIFIER`or `GOODWILL`. 
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | request/logs
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+Response Object | Returns the log of service requests
+API Version | v1.1
+Batch Support | Yes
+
+### Request URL
+`https://<cluster url>/v1.1/request/logs&format=<xml/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+type* | CHANGE_IDENTIFIER, GOODWILL
+start_date* | Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)
+end_date* | Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)
+base_type* | MOBILE, EXTERNAL_ID, EMAIL, MERGE, COUPONS, POINTS
+status | Filters the logs by request status. Values: PENDING, APPROVED, REJECTED
+updated_by | Returns the requests that were updated by a specific associate 
+added_by | Returns the requests created by a specific associate
+request_id | Returns the details of a specific request id
+is_one_step_change | Returns the requests that were updated directly in a single call. Value: true, false
+approval_type | Returns the logs of a specific approval type. Value: CLIENT, CONFIG, CONFIG_DISABLED, CLIENT_DISABLED
+customer identifiers | Returns the requests of a specific customer. Params: email, mobile, external_id, customer_id
+user_id | Returns the user ids of customers if `user_id=true`
+start_id & end_id | Returns the logs of a specific range of request ids. For example, logs 
+limit | Limits the number of results per page. For example, `limit=10` shows 10 results per page on UI
+
 
