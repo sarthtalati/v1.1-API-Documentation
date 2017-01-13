@@ -4,7 +4,7 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 * **Change Identifier**: Requests corresponding to identifier change, accounts merge, and mobile reallocation
 * **Goodwill**: Requests corresponding to goodwill points and coupons
 
-## Submit a Request
+## Submit Requests
 ```html
 http://us.intouch.capillarytech.com/v1.1/request/add
 ```
@@ -51,6 +51,7 @@ http://us.intouch.capillarytech.com/v1.1/request/add
   }
 }
 ```
+
 > Sample Response
 
 ```xml
@@ -177,7 +178,7 @@ comments | Small description on why goodwill points/coupons issued
 client_auto_approve | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
 
 
-## Approve Request
+## Approve Requests
 ```html
 http://us.intouch.capillarytech.com/v1.1/request/approve
 ```
