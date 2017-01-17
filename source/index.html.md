@@ -17,7 +17,7 @@ includes:
   - coupon
   - communications
   - requests
-  
+  - task
 
 search: true
 ---
