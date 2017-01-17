@@ -7093,11 +7093,166 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
           <h1 id="request">Request</h1>
 
-<p>Request entity contains APIs corresponding to submitting and retrieving requests. You can use this entity to change identifiers, merge customer accounts, issue Good Will points/coupons, and retrieve details of submitted requests.</p>
+<p>Request entity contains APIs corresponding to submitting and retrieving requests. In Capillary APIs, requests are of two types - Change Identifier and Goodwill. Request APIs allow you to change customer identifiers, merge customer accounts, issue Goodwill points/coupons, and retrieve details of submitted requests.</p>
 
-<h2 id="submit-a-request">Submit a Request</h2>
+<ul>
+<li><strong>Change Identifier</strong>: Requests corresponding to identifier change, accounts merge, and mobile reallocation</li>
+<li><strong>Goodwill</strong>: Requests corresponding to goodwill points and coupons</li>
+</ul>
 
-<p>This API allows you to submit requests for changing customer identifier, merging customers, issuing Goodwill points and coupons to the loyalty customers.</p>
+<h2 id="submit-requests">Submit Requests</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+<span class="nt">&lt;request&gt;</span>
+    <span class="nt">&lt;reference_id&gt;</span>1234<span class="nt">&lt;/reference_id&gt;</span>
+    <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;email&gt;</span>Tom.sawyerold@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;id&gt;</span>395958<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;/customer&gt;</span>
+    <span class="nt">&lt;old_value&gt;</span>Tom.sawyerold@example.com<span class="nt">&lt;/old_value&gt;</span>
+    <span class="nt">&lt;new_value&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+    <span class="nt">&lt;requested_on&gt;</span>time in 8601<span class="nt">&lt;/requested_on&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"395958"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time in 8601"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+<span class="nt">&lt;status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;requests&gt;</span>
+    <span class="nt">&lt;request&gt;</span>
+<span class="nt">&lt;reference_id&gt;</span>1234<span class="nt">&lt;/reference_id&gt;</span>
+<span class="nt">&lt;id&gt;</span>23123124<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>MOBILE<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>tom.sawyerold@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;id&gt;</span>10423<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>tom.sawyerold@example.com<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>Change Identifier request added successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23123124"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10423"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change Identifier request added successfully"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows you to submit requests for changing customer identifier, merging customers, reallocating mobile number and issuing goodwill points/coupons to the loyalty customers.</p>
+
+<p>Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default.</p>
+
+<p>However, requests can be approved automatically based on the following configs set on Member Care.</p>
+
+<table><thead>
+<tr>
+<th>Config</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CI_EMAIL_AUTO_APPROVE</td>
+<td>Approves email id change requests automatically</td>
+</tr>
+<tr>
+<td>CI_MOBILE_AUTO_APPROVE</td>
+<td>Approves mobile number change requests automatically</td>
+</tr>
+<tr>
+<td>CI_EXTID_AUTO_APPROVE</td>
+<td>Approves external id change requests automatically</td>
+</tr>
+<tr>
+<td>CI_ADDRESS_AUTO_APPROVE</td>
+<td>Approves registered address change requests automatically</td>
+</tr>
+<tr>
+<td>CI_MERGE_AUTO_APPROVE</td>
+<td>Approves customer accounts merge requests automatically</td>
+</tr>
+<tr>
+<td>CI_MOBILEREALLOC_AUTO_APPROVE</td>
+<td>Approves mobile number reallocation requests automatically</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -7107,6 +7262,10 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 <th>Value</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>URI</td>
+<td>request/add</td>
+</tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
@@ -7125,7 +7284,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 </tr>
 <tr>
 <td>Response Object</td>
-<td>Submits service requests for customers.</td>
+<td>Submits customer requests</td>
 </tr>
 <tr>
 <td>API Version</td>
@@ -7141,11 +7300,590 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/add&amp;format=&lt;xml/json&gt;</code></p>
 
-<h2 id="approve-request">Approve Request</h2>
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer Identifier*</td>
+<td>Unique identifier of the customer for whom the request is created. This can be mobile no/email id/external id/user id</td>
+</tr>
+<tr>
+<td>reference_id*</td>
+<td>Unique reference id for the request</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
+</tr>
+<tr>
+<td>old_value</td>
+<td>The current value of the customer identifier. Applicable only for identifier change requests</td>
+</tr>
+<tr>
+<td>new_value</td>
+<td>The new value of the customer identifier. Applicable only for identifier change requests</td>
+</tr>
+<tr>
+<td>requested_on</td>
+<td>Date on which the request is created in YYYY-MM-DD format</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>Reason for issuing goodwill points/coupons. Applicable only for goodwill response</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>Small description on why goodwill points/coupons issued</td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+</tbody></table>
+
+<h2 id="approve-requests">Approve Requests</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/approve
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;request&gt;</span>
+        <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;base_type&gt;</span>POINTS<span class="nt">&lt;/base_type&gt;</span>
+        <span class="nt">&lt;id&gt;</span>23423<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;points&gt;</span>20<span class="nt">&lt;/points&gt;</span>
+<span class="nt">&lt;updated_comments&gt;</span>Seems to a valid request. hence approving<span class="nt">&lt;/updated_comments&gt;</span>
+    <span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23423"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seems to a valid request. hence approving"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;requests&gt;</span>
+        <span class="nt">&lt;goodwill&gt;</span>
+            <span class="nt">&lt;type&gt;</span>POINTS<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;reason&gt;</span>BILL_ISSUE<span class="nt">&lt;/reason&gt;</span>
+            <span class="nt">&lt;comments&gt;</span>pls issue a coupon for the failed transaction<span class="nt">&lt;/comments&gt;</span>
+<span class="nt">&lt;updated_comments&gt;</span>Seems to a valid request. hence approving<span class="nt">&lt;/updated_comments&gt;</span>
+            <span class="nt">&lt;status&gt;</span>APPROVED<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;reply&gt;&lt;/reply&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>919999999999<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;added_on&gt;</span>2014-01-22T03:06:11+05:30<span class="nt">&lt;/added_on&gt;</span>
+            <span class="nt">&lt;last_action_on&gt;</span>2016-01-23T03:06:11+05:30<span class="nt">&lt;/last_action_on&gt;</span>
+        <span class="nt">&lt;/goodwill&gt;</span>
+    <span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"goodwill"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL_ISSUE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pls issue a coupon for the failed transaction"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"updated_comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seems to a valid request. hence approving"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919999999999"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-01-22T03:06:11+05:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"last_action_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-23T03:06:11+05:30"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Allows approving requests that are in pending status. You can use this API only when the auto-approval configurations are not enabled for your organization. Also, you cannot approve force approval requests made using <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>request/approve</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Approves customer requests</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/approve&amp;format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Reference id of the request that you want to approve</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
+</tr>
+</tbody></table>
 
 <h2 id="reject-request">Reject Request</h2>
+<pre class="highlight html"><code>
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;request&gt;</span>
+        <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;base_type&gt;</span>MOBILE<span class="nt">&lt;/base_type&gt;</span>
+        <span class="nt">&lt;id&gt;</span>346436<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;updated_comments&gt;</span>outlier<span class="nt">&lt;/updated_comments&gt;</span>
+    <span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"346436"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outlier"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample POST Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+<span class="nt">&lt;status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;requests&gt;</span>
+<span class="nt">&lt;request&gt;</span>
+<span class="nt">&lt;id&gt;</span>12955<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>MOBILE<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;status&gt;</span>REJECTED<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>44700900099<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>44700900000<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>Request updated successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+<span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12955"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900099"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request updated successfully"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Allows rejecting requests that are in pending status. You can use this API only when the auto-approval configurations are not enabled for your organization. Also, you cannot reject force approval requests made using <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>request/reject</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Rejects pending requests</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/reject&amp;format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Reference id of the request that you want to approve</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
+</tr>
+</tbody></table>
 
 <h2 id="retrieve-request-details">Retrieve Request Details</h2>
+<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/get?format=json
+</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+<span class="nt">&lt;status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;requests&gt;</span>
+    <span class="nt">&lt;count&gt;</span>531<span class="nt">&lt;/count&gt;</span>
+    <span class="nt">&lt;rows&gt;</span>30<span class="nt">&lt;/rows&gt;</span>
+<span class="nt">&lt;goodwill&gt;</span>
+<span class="nt">&lt;id&gt;</span>10039<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>COUPON<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;reason&gt;</span>BILL_ISSUE<span class="nt">&lt;/reason&gt;</span>
+<span class="nt">&lt;comments&gt;</span>customer is angry<span class="nt">&lt;/comments&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;assoc_id&gt;&lt;/assoc_id&gt;</span>
+<span class="nt">&lt;approved_value&gt;&lt;/approved_value&gt;</span>
+<span class="nt">&lt;updated_comments&gt;&lt;/updated_comments&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2016-02-12T13:32:42+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/goodwill&gt;</span>
+<span class="nt">&lt;change_identifier&gt;</span>
+<span class="nt">&lt;id&gt;</span>10034<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>REJECTED<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>Tom@Tom2.com<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>Tom@Tom.com<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom@Tom2.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>919740798372<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;updated_comments&gt;&lt;/updated_comments&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2016-02-12T05:30:00+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;</span>2014-02-21T05:30:00+05:30<span class="nt">&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>admin<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Mr Admin<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/change_identifier&gt;</span>
+<span class="nt">&lt;change_identifier&gt;</span>
+<span class="nt">&lt;id&gt;</span>10035<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;status&gt;</span>REJECTED<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+<span class="nt">&lt;new_value&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+<span class="nt">&lt;old_value&gt;</span>tom.tom@example.com<span class="nt">&lt;/old_value&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+<span class="nt">&lt;email&gt;</span>Tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+<span class="nt">&lt;fraud_status&gt;</span>CONFIRMED<span class="nt">&lt;/fraud_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;added_on&gt;</span>2014-01-20T05:30:00+05:30<span class="nt">&lt;/added_on&gt;</span>
+<span class="nt">&lt;last_action_on&gt;</span>2016-02-01T05:30:00+05:30<span class="nt">&lt;/last_action_on&gt;</span>
+<span class="nt">&lt;added_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>Tom.store<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Tom store<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/added_by&gt;</span>
+<span class="nt">&lt;updated_by&gt;</span>
+<span class="nt">&lt;code&gt;</span>admin007<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>Mr Admin<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/updated_by&gt;</span>
+<span class="nt">&lt;/change_identifier&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>Request retrieved successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+<span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"531"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"goodwill"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10039"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COUPON"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL_ISSUE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer is angry"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-12T13:32:42+05:30"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"change_identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10034"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom2.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom@Tom2.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919740798372"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-12T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"last_action_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-21T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Admin"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10035"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REJECTED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.tom@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-01-20T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"last_action_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01T05:30:00+05:30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.store"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom store"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin007"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Admin"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request retrieved successfully"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This .</p>
+
+<p>The <code class="prettyprint">request/get</code> API allows you to retrieve up to 50 records containing goodwill and change identifier requests. a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns the list of service requests and the current status of each request</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/get&amp;format=&lt;xml/json&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -7192,6 +7930,2055 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 <p>limit (no of entries to list)</p>
 
 <h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
+<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/logs?format=json<span class="err">&amp;</span>type=CHANGE_IDENTIFIER<span class="err">&amp;</span>start_date=2016-01-15<span class="err">&amp;</span>end_date=2017-05-08<span class="err">&amp;</span>base_type=EMAIL
+
+</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;requests&gt;</span>
+        <span class="nt">&lt;count&gt;</span>60<span class="nt">&lt;/count&gt;</span>
+        <span class="nt">&lt;rows&gt;</span>10<span class="nt">&lt;/rows&gt;</span>
+        <span class="nt">&lt;change_identifier&gt;</span>
+            <span class="nt">&lt;id&gt;</span>263452<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts123<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;fraud_status&gt;</span>NONE<span class="nt">&lt;/fraud_status&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;old_value&gt;</span>tom.sawyerold@example.com<span class="nt">&lt;/old_value&gt;</span>
+            <span class="nt">&lt;new_value&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/new_value&gt;</span>
+            <span class="nt">&lt;updated_comments/&gt;</span>
+            <span class="nt">&lt;one_step_change&gt;</span>false<span class="nt">&lt;/one_step_change&gt;</span>
+            <span class="nt">&lt;approval_type&gt;</span>CLIENT<span class="nt">&lt;/approval_type&gt;</span>
+            <span class="nt">&lt;logs&gt;</span>
+                <span class="nt">&lt;added_by&gt;</span>
+                    <span class="nt">&lt;till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>Catherine<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>James<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/till&gt;</span>
+                    <span class="nt">&lt;store&gt;</span>
+                        <span class="nt">&lt;code/&gt;</span>
+                        <span class="nt">&lt;name/&gt;</span>
+                    <span class="nt">&lt;/store&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-12-16T12:49:29+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/added_by&gt;</span>
+                <span class="nt">&lt;updated_by&gt;</span>
+                    <span class="nt">&lt;user&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Catherine James<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;mobile&gt;</span>44700200030<span class="nt">&lt;/mobile&gt;</span>
+                        <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
+                    <span class="nt">&lt;/user&gt;</span>
+                    <span class="nt">&lt;ip&gt;</span>115.114.139.186<span class="nt">&lt;/ip&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-12-16T12:49:29+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/updated_by&gt;</span>
+            <span class="nt">&lt;/logs&gt;</span>
+        <span class="nt">&lt;/change_identifier&gt;</span>
+        <span class="nt">&lt;change_identifier&gt;</span>
+            <span class="nt">&lt;id&gt;</span>225750<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>LUCIA<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Customer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>lucia@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>918656001195<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;external_id/&gt;</span>
+                <span class="nt">&lt;fraud_status&gt;</span>NONE<span class="nt">&lt;/fraud_status&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>EMAIL<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;status&gt;</span>APPROVED<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;old_value&gt;</span>lucia.old@example.com<span class="nt">&lt;/old_value&gt;</span>
+            <span class="nt">&lt;new_value&gt;</span>lucia@example.com<span class="nt">&lt;/new_value&gt;</span>
+            <span class="nt">&lt;updated_comments/&gt;</span>
+            <span class="nt">&lt;one_step_change&gt;</span>true<span class="nt">&lt;/one_step_change&gt;</span>
+            <span class="nt">&lt;approval_type&gt;</span>CLIENT<span class="nt">&lt;/approval_type&gt;</span>
+            <span class="nt">&lt;logs&gt;</span>
+                <span class="nt">&lt;added_by&gt;</span>
+                    <span class="nt">&lt;till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>1371622280_919866643044<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>1371622280_Ashish<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/till&gt;</span>
+                    <span class="nt">&lt;store&gt;</span>
+                        <span class="nt">&lt;code/&gt;</span>
+                        <span class="nt">&lt;name/&gt;</span>
+                    <span class="nt">&lt;/store&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-09-16T15:52:07+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/added_by&gt;</span>
+                <span class="nt">&lt;updated_by&gt;</span>
+                    <span class="nt">&lt;user&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Ashish Karan<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;mobile&gt;</span>919866643044<span class="nt">&lt;/mobile&gt;</span>
+                        <span class="nt">&lt;email&gt;</span>cap@coin.com<span class="nt">&lt;/email&gt;</span>
+                    <span class="nt">&lt;/user&gt;</span>
+                    <span class="nt">&lt;ip&gt;</span>115.114.139.186<span class="nt">&lt;/ip&gt;</span>
+                    <span class="nt">&lt;time&gt;</span>2016-09-16T15:52:07+05:30<span class="nt">&lt;/time&gt;</span>
+                <span class="nt">&lt;/updated_by&gt;</span>
+            <span class="nt">&lt;/logs&gt;</span>
+        <span class="nt">&lt;/change_identifier&gt;</span>
+        <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Request retrieved successfully<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/item_status&gt;</span>
+    <span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"change_identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"263452"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"one_step_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catherine"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T12:49:29+05:30"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Catherine James"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700200030"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"catherine@example.com"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.114.139.186"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16T12:49:29+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"225750"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LUCIA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918656001195"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APPROVED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia.old@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lucia@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"one_step_change"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approval_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"added_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1371622280_919866643044"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1371622280_Ashish"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-16T15:52:07+05:30"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ashish Karan"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919866643044"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap@coin.com"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"115.114.139.186"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-16T15:52:07+05:30"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request retrieved successfully"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the requests logs of a specific duration. You can retrieve the either the logs of <code class="prettyprint">CHANGE_IDENTIFIER</code>or <code class="prettyprint">GOODWILL</code>. </p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>request/logs</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns the log of service requests</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/logs&amp;format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type*</td>
+<td>CHANGE_IDENTIFIER, GOODWILL</td>
+</tr>
+<tr>
+<td>start_date*</td>
+<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>end_date*</td>
+<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+</tr>
+<tr>
+<td>base_type*</td>
+<td>MOBILE, EXTERNAL_ID, EMAIL, MERGE, COUPONS, POINTS</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Filters the logs by request status. Values: PENDING, APPROVED, REJECTED</td>
+</tr>
+<tr>
+<td>updated_by</td>
+<td>Returns the requests that were updated by a specific associate</td>
+</tr>
+<tr>
+<td>added_by</td>
+<td>Returns the requests created by a specific associate</td>
+</tr>
+<tr>
+<td>request_id</td>
+<td>Returns the details of a specific request id</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>Returns the requests that were updated directly in a single call. Value: true, false</td>
+</tr>
+<tr>
+<td>approval_type</td>
+<td>Returns the logs of a specific approval type. Value: CLIENT, CONFIG, CONFIG_DISABLED, CLIENT_DISABLED</td>
+</tr>
+<tr>
+<td>customer identifiers</td>
+<td>Returns the requests of a specific customer. Params: email, mobile, external_id, customer_id</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>Returns the user ids of customers if <code class="prettyprint">user_id=true</code></td>
+</tr>
+<tr>
+<td>start_id &amp; end_id</td>
+<td>Returns the logs of a specific range of request ids. For example, logs</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of results per page. For example, <code class="prettyprint">limit=10</code> shows 10 results per page on UI</td>
+</tr>
+</tbody></table>
+
+          <h1 id="task">Task</h1>
+
+<h2 id="create-tasks">Create Tasks</h2>
+<pre class="highlight html"><code># Sample Request
+http://api.capillary.co.in/v1.1/task/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+<span class="nt">&lt;root&gt;</span>
+
+
+   <span class="nt">&lt;task&gt;</span>
+
+
+      <span class="nt">&lt;id&gt;</span>-1<span class="nt">&lt;/id&gt;</span>
+
+
+      <span class="c">&lt;!-- server side id of the Task, -1 in case of add,
+
+
+or other than that will attempt to update the task --&gt;</span>
+
+
+      <span class="nt">&lt;local_id&gt;</span>213124334342<span class="nt">&lt;/local_id&gt;</span>
+
+
+      <span class="c">&lt;!-- local id is client side id of the task --&gt;</span>
+
+
+      <span class="nt">&lt;title&gt;</span>any title for this task<span class="nt">&lt;/title&gt;</span>
+
+
+      <span class="nt">&lt;body&gt;</span>description of this task<span class="nt">&lt;/body&gt;</span>
+
+
+      <span class="nt">&lt;start_date&gt;</span>2016-10-4 12:12:12<span class="nt">&lt;/start_date&gt;</span>
+
+
+      <span class="nt">&lt;end_date&gt;</span>2016-10-10 12:12:12<span class="nt">&lt;/end_date&gt;</span>
+
+
+      <span class="nt">&lt;expiry_date&gt;</span>2016-10-10 12:12:12<span class="nt">&lt;/expiry_date&gt;</span>
+
+
+      <span class="nt">&lt;type&gt;</span>MEMO<span class="nt">&lt;/type&gt;</span>
+
+
+      <span class="c">&lt;!-- this can be MEMO/TASK --&gt;</span>
+
+
+      <span class="nt">&lt;action&gt;</span>
+
+
+         <span class="c">&lt;!-- action_type can be any of (sms/email/call/none) --&gt;</span>
+
+
+         <span class="nt">&lt;type&gt;</span>sms<span class="nt">&lt;/type&gt;</span>
+
+
+         <span class="nt">&lt;template&gt;</span><span class="cp">&lt;![CDATA[Hi {name}, Your points = {points}]]&gt;</span><span class="nt">&lt;/template&gt;</span>
+
+
+      <span class="nt">&lt;/action&gt;</span>
+
+
+      <span class="nt">&lt;creator&gt;</span>
+
+
+         <span class="c">&lt;!-- creator can be any of (manager/cashier) --&gt;</span>
+
+
+         <span class="nt">&lt;type&gt;</span>manager<span class="nt">&lt;/type&gt;</span>
+
+
+         <span class="nt">&lt;id&gt;</span>55456456<span class="nt">&lt;/id&gt;</span>
+
+
+      <span class="nt">&lt;/creator&gt;</span>
+
+
+      <span class="c">&lt;!-- id of the manager or cashier --&gt;</span>
+
+
+      <span class="nt">&lt;target_type&gt;</span>CASHIER/CUSTOMER<span class="nt">&lt;/target_type&gt;</span>
+
+
+      <span class="c">&lt;!-- target type cashier, is not specified yet  --&gt;</span>
+
+
+      <span class="nt">&lt;customer_ids&gt;</span>15,82,443399<span class="nt">&lt;/customer_ids&gt;</span>
+
+
+      <span class="nt">&lt;selected_audience_groups&gt;</span>443452,432887<span class="nt">&lt;/selected_audience_groups&gt;</span>
+
+
+      <span class="c">&lt;!-- 
+
+
+if target_type is CUSTOMER then
+
+
+for whom this task needs to be executed.
+
+
+along with target_type, either customer_ids or selected_audience_groups needs to be passed.
+
+
+
+
+
+passing customer_ids will create task for individual customer, and passing selected_audiance_groups will create tasks for each customers for the given groups.
+
+
+--&gt;</span>
+
+
+      <span class="nt">&lt;execute_by_all&gt;</span>false<span class="nt">&lt;/execute_by_all&gt;</span>
+
+
+      <span class="c">&lt;!-- execute_by_all indicates
+
+
+if the task needs to be performed by all cashier or not --&gt;</span>
+
+
+      <span class="nt">&lt;executable_by_type&gt;</span>cashier<span class="nt">&lt;/executable_by_type&gt;</span>
+
+
+      <span class="c">&lt;!-- executable_by_type can be any of the cashier or store,
+
+
+        store indicates that all cashier of the store can
+
+
+access this task --&gt;</span>
+
+
+      <span class="nt">&lt;executable_by_ids&gt;</span>44,33,22,54<span class="nt">&lt;/executable_by_ids&gt;</span>
+
+
+      <span class="c">&lt;!-- ids can be cashier_id/store_id depends on
+
+
+executable_by_type --&gt;</span>
+
+
+      <span class="c">&lt;!-- represent current status of the task --&gt;</span>
+
+
+      <span class="nt">&lt;possible_statuses&gt;</span>OPEN,IN_PROGRESS,CLOSED<span class="nt">&lt;/possible_statuses&gt;</span>
+
+
+      <span class="c">&lt;!-- represents possible statuses --&gt;</span>
+
+
+      <span class="nt">&lt;tags&gt;</span>[“label” : “birthday task”, “priority” : “1” ]<span class="nt">&lt;/tags&gt;</span>
+
+
+      <span class="c">&lt;!-- reminder is mandatory to create reminders --&gt;</span>
+
+
+      <span class="nt">&lt;reminder</span> <span class="na">create=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+
+
+         <span class="nt">&lt;time&gt;</span>2012-12-26 13:35:35<span class="nt">&lt;/time&gt;</span>
+
+
+         <span class="nt">&lt;template&gt;</span><span class="cp">&lt;![CDATA[….]]&gt;</span><span class="nt">&lt;/template&gt;</span>
+
+
+      <span class="nt">&lt;/reminder&gt;</span>
+
+
+      <span class="nt">&lt;entries&gt;</span>
+
+
+         <span class="c">&lt;!-- these entries will try to update the task entry status,
+
+
+this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</span>
+
+
+         <span class="nt">&lt;entry&gt;</span>
+
+
+            <span class="nt">&lt;customer_id</span> <span class="nt">/&gt;</span>
+
+
+            <span class="nt">&lt;associate_id</span> <span class="nt">/&gt;</span>
+
+
+            <span class="c">&lt;!-- store_id can directly fetched from currentuser --&gt;</span>
+
+
+            <span class="nt">&lt;status&gt;</span>CLOSE<span class="nt">&lt;/status&gt;</span>
+
+
+            <span class="c">&lt;!-- new status --&gt;</span>
+
+
+         <span class="nt">&lt;/entry&gt;</span>
+
+
+         <span class="nt">&lt;entry&gt;</span>
+
+
+            <span class="nt">&lt;customer_id</span> <span class="nt">/&gt;</span>
+
+
+            <span class="nt">&lt;associate_id</span> <span class="nt">/&gt;</span>
+
+
+            <span class="c">&lt;!-- store_id can directly fetched from currentuser --&gt;</span>
+
+
+            <span class="nt">&lt;status&gt;</span>CLOSE<span class="nt">&lt;/status&gt;</span>
+
+
+            <span class="c">&lt;!-- new status --&gt;</span>
+
+
+         <span class="nt">&lt;/entry&gt;</span>
+
+
+      <span class="nt">&lt;/entries&gt;</span>
+
+
+   <span class="nt">&lt;/task&gt;</span>
+
+
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"local_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213124334342"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any title for this task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description of this task"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-4 12:12:12"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-10 12:12:12"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-10 12:12:12"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEMO"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {name}, Your points = {points}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55456456"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"target_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASHIER/CUSTOMER"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15,82,443399"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"selected_audience_groups"</span><span class="p">:</span><span class="w"> </span><span class="s2">"443452,432887"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"execute_by_all"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"executable_by_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cashier"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"executable_by_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44,33,22,54"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"possible_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN,IN_PROGRESS,CLOSED"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“label” : “birthday task”, “priority” : “1” ]"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"-create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-12-26 13:35:35"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSE"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSE"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;tasks&gt;</span>
+      <span class="nt">&lt;task&gt;</span>
+         <span class="nt">&lt;id&gt;</span>12<span class="nt">&lt;/id&gt;</span>
+         <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+         <span class="nt">&lt;body&gt;</span>Body<span class="nt">&lt;/body&gt;</span>
+         <span class="nt">&lt;start_date&gt;</span>20120820<span class="nt">&lt;/start_date&gt;</span>
+         <span class="nt">&lt;end_date&gt;</span>20120821<span class="nt">&lt;/end_date&gt;</span>
+         <span class="nt">&lt;action&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Call<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Hi {name}, Your points = {points}<span class="nt">&lt;/template&gt;</span>
+         <span class="nt">&lt;/action&gt;</span>
+         <span class="nt">&lt;cashier_task&gt;</span>false<span class="nt">&lt;/cashier_task&gt;</span>
+         <span class="c">&lt;!-- Executable by particular cashier --&gt;</span>
+         <span class="nt">&lt;customer_task&gt;</span>false<span class="nt">&lt;/customer_task&gt;</span>
+         <span class="nt">&lt;execute_by_all&gt;</span>false<span class="nt">&lt;/execute_by_all&gt;</span>
+         <span class="c">&lt;!-- non cashier/customer tasks --&gt;</span>
+         <span class="nt">&lt;creator&gt;</span>
+            <span class="nt">&lt;type&gt;</span>manager<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;id&gt;</span>55456456<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;name&gt;</span>name<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;/creator&gt;</span>
+         <span class="nt">&lt;entries&gt;</span>
+            <span class="nt">&lt;entry&gt;</span>
+               <span class="nt">&lt;entry_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;associate_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;associate_name&gt;</span>assigned_to name<span class="nt">&lt;/associate_name&gt;</span>
+               <span class="nt">&lt;store_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;status&gt;</span>OPEN<span class="nt">&lt;/status&gt;</span>
+               <span class="nt">&lt;type&gt;</span>CUSTOMER/CASHIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/entry&gt;</span>
+            <span class="nt">&lt;entry&gt;</span>
+               <span class="nt">&lt;entry_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;associate_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;associate_name&gt;</span>assigned_to name<span class="nt">&lt;/associate_name&gt;</span>
+               <span class="nt">&lt;store_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;status&gt;</span>OPEN<span class="nt">&lt;/status&gt;</span>
+               <span class="nt">&lt;type&gt;</span>CUSTOMER/CASHIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/entry&gt;</span>
+         <span class="nt">&lt;/entries&gt;</span>
+         <span class="c">&lt;!-- reminders will be populated only if they are created --&gt;</span>
+         <span class="nt">&lt;reminders&gt;</span>
+            <span class="nt">&lt;reminder&gt;</span>
+               <span class="nt">&lt;id&gt;</span>15<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;time&gt;</span>2016-05-30 13:12:12<span class="nt">&lt;/time&gt;</span>
+               <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+               <span class="nt">&lt;template&gt;</span><span class="cp">&lt;![CDATA[Please note this too]]&gt;</span><span class="nt">&lt;/template&gt;</span>
+               <span class="nt">&lt;remindee_id&gt;</span>1245333<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;/reminder&gt;</span>
+            <span class="nt">&lt;reminder&gt;</span>
+               <span class="nt">&lt;id&gt;</span>16<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;time&gt;</span>2016-05-30 13:12:12<span class="nt">&lt;/time&gt;</span>
+               <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+               <span class="nt">&lt;template&gt;</span><span class="cp">&lt;![CDATA[Please note this too]]&gt;</span><span class="nt">&lt;/template&gt;</span>
+               <span class="nt">&lt;remindee_id&gt;</span>1245333<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;/reminder&gt;</span>
+         <span class="nt">&lt;/reminders&gt;</span>
+         <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Task Added Successfully<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;/item_status&gt;</span>
+      <span class="nt">&lt;/task&gt;</span>
+   <span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Body"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20120820"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20120821"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Call"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {name}, Your points = {points}"</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"cashier_task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">""</span><span class="w">
+                </span><span class="p">],</span><span class="w"> 
+                </span><span class="nt">"customer_task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"execute_by_all"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55456456"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name"</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"entry_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"associate_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"associate_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assigned_to name"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOMER/CASHIER"</span><span class="w">
+                        </span><span class="p">},</span><span class="w"> 
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"entry_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"associate_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"associate_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assigned_to name"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOMER/CASHIER"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 13:12:12"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this too"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245333"</span><span class="w">
+                        </span><span class="p">},</span><span class="w"> 
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 13:12:12"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this too"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245333"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Added Successfully"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates new store task and store task entry ( that is status for each executor ). You can also set task type, title, created by, assigned to, validity, status and reminder.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/add</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET &amp; POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Creates new tasks</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/add?format=&lt;xml/json&gt;</code></p>
+
+<h2 id="retrieve-list-of-tasks">Retrieve List of Tasks</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/metadata?format=xml<span class="err">&amp;</span>assoc=false<span class="err">&amp;</span>action_type=call<span class="err">&amp;</span>created_by=12435<span class="err">&amp;</span>created_by_type=cashier<span class="err">&amp;</span>execute_by_all=false<span class="err">&amp;</span>customer_task=true<span class="err">&amp;</span>start_id=3245<span class="err">&amp;</span>end_id=3345<span class="err">&amp;</span>start_date=2016-18-20+12:12:12<span class="err">&amp;</span>end_date=2016-12-29+12:11:45<span class="err">&amp;</span>batch_size=10
+</code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;tasks&gt;</span>
+      <span class="nt">&lt;task&gt;</span>
+         <span class="nt">&lt;id&gt;</span>15<span class="nt">&lt;/id&gt;</span>
+         <span class="nt">&lt;title&gt;</span>Title<span class="nt">&lt;/title&gt;</span>
+         <span class="nt">&lt;body&gt;</span>Body<span class="nt">&lt;/body&gt;</span>
+         <span class="nt">&lt;start_date&gt;</span>2016-08-20<span class="nt">&lt;/start_date&gt;</span>
+         <span class="nt">&lt;end_date&gt;</span>2016-12-29<span class="nt">&lt;/end_date&gt;</span>
+         <span class="nt">&lt;expiry_date&gt;</span>2016-12-30 12:11:45<span class="nt">&lt;/expiry_date&gt;</span>
+         <span class="nt">&lt;action&gt;</span>
+            <span class="c">&lt;!-- Call/SMS/Email/None --&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Call<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Hi {name}, Your points = {points}<span class="nt">&lt;/template&gt;</span>
+         <span class="nt">&lt;/action&gt;</span>
+         <span class="nt">&lt;task_type&gt;</span>MEMO/TASK<span class="nt">&lt;/task_type&gt;</span>
+         <span class="nt">&lt;cashier_task&gt;</span>false<span class="nt">&lt;/cashier_task&gt;</span>
+         <span class="c">&lt;!-- Executable by particular cashier --&gt;</span>
+         <span class="nt">&lt;customer_task&gt;</span>false<span class="nt">&lt;/customer_task&gt;</span>
+         <span class="nt">&lt;execute_by_all&gt;</span>false<span class="nt">&lt;/execute_by_all&gt;</span>
+         <span class="c">&lt;!-- non cashier/customer tasks --&gt;</span>
+         <span class="nt">&lt;creator&gt;</span>
+            <span class="nt">&lt;type</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/creator&gt;</span>
+         <span class="nt">&lt;possible_statuses&gt;</span>
+            <span class="nt">&lt;status&gt;</span>
+               <span class="nt">&lt;label&gt;</span>open<span class="nt">&lt;/label&gt;</span>
+               <span class="nt">&lt;value&gt;</span>open<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;status&gt;</span>
+               <span class="nt">&lt;label&gt;</span>processing<span class="nt">&lt;/label&gt;</span>
+               <span class="nt">&lt;value&gt;</span>in_progress<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/status&gt;</span>
+         <span class="nt">&lt;/possible_statuses&gt;</span>
+         <span class="nt">&lt;tags&gt;</span><span class="cp">&lt;![CDATA[[“label” : “birthday task”, “priority” : “1” ]]]&gt;</span><span class="nt">&lt;/tags&gt;</span>
+      <span class="nt">&lt;/task&gt;</span>
+   <span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Title"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Body"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-20"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-21"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-10-10 12:12:12"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Call"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi {name}, Your points = {points}"</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"task_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MEMO/TASK"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"cashier_task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">""</span><span class="w">
+                </span><span class="p">],</span><span class="w"> 
+                </span><span class="nt">"customer_task"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"execute_by_all"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nt">"creator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"possible_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"open"</span><span class="w">
+                        </span><span class="p">},</span><span class="w"> 
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w"> 
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in_progress"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w"> 
+                </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“label” : “birthday task”, “priority” : “1” ]"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the list of tasks created which contains information such as the title of the task, notes, created date, expiry date, type (customer/associate).</p>
+
+<p>You can also use filters to limit or customize the results. You can also use <code class="prettyprint">store/task</code> to retrieve task details.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/metadata</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns task(s) details</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/metadata?format=&lt;xml/json&gt;&amp;&lt;param&gt;=&lt;value&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assoc</td>
+<td>Returns tasks of a specific associate</td>
+</tr>
+<tr>
+<td>action_type</td>
+<td>Value: sms, email, call, or none. Returns a particular type of task (SMS/email/call). If action_type is &ldquo;none&rdquo;, then the tasks other than SMS, email, or call will be returned.</td>
+</tr>
+<tr>
+<td>created_by</td>
+<td>Returns the tasks of a specific associate</td>
+</tr>
+<tr>
+<td>created_by_type</td>
+<td>Returns the tasks created by either manager or cashier. Value: manager, cashier.</td>
+</tr>
+<tr>
+<td>execute_by_all</td>
+<td>Returns the list of generic tasks - not to a specific associate or created for all associates</td>
+</tr>
+<tr>
+<td>customer_task</td>
+<td>Returns the list of all customer tasks assigned to associates</td>
+</tr>
+<tr>
+<td>start_id</td>
+<td>Returns the list of tasks having task ids greater than or equal to the value passed in this param</td>
+</tr>
+<tr>
+<td>end_id</td>
+<td>Returns the list of tasks having task ids less than or equal to the value passed in this param</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Returns the list of tasks created between the dates set on start_date and end_date. If only start_date is mentioned then the list of tasks created on or after that specified date is returned</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Returns the list of tasks created between the dates set on start_date and end_date. If only end_date is passed, the list of tasks created on or before the specified date is returned</td>
+</tr>
+<tr>
+<td>batch_size</td>
+<td>Limits the number of tasks to be displayed. For example, if <code class="prettyprint">batch_size=10</code> then the details of only 10 tasks are returned</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-tasks">Update Tasks</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/update?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request </p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;task&gt;</span>
+        <span class="nt">&lt;id&gt;</span>15<span class="nt">&lt;/id&gt;</span>
+
+        <span class="c">&lt;!-- tags for update the entry --&gt;</span>
+        <span class="nt">&lt;entry_id&gt;&lt;/entry_id&gt;</span>
+        <span class="nt">&lt;customer_id&gt;&lt;/customer_id&gt;</span>
+        <span class="nt">&lt;associate_id&gt;&lt;/associate_id&gt;</span>
+<span class="c">&lt;!-- store_id can directly fetched from currentuser --&gt;</span>
+        <span class="nt">&lt;status&gt;</span>CLOSED<span class="nt">&lt;/status&gt;</span> <span class="c">&lt;!-- new status --&gt;</span>    
+
+    <span class="c">&lt;!-- tags for update metadata --&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Sample title<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;body&gt;</span>sample body<span class="nt">&lt;/body&gt;</span>
+    <span class="nt">&lt;start_date&gt;</span>2016-08-20<span class="nt">&lt;/start_date&gt;</span>
+    <span class="nt">&lt;end_date&gt;</span>2016-08-22<span class="nt">&lt;/end_date&gt;</span>
+    <span class="nt">&lt;expiry_date&gt;</span>2016-08-22<span class="nt">&lt;/expiry_date&gt;</span>
+    <span class="nt">&lt;action_type&gt;</span>call<span class="nt">&lt;/action_type&gt;</span>
+    <span class="nt">&lt;action_template&gt;</span><span class="cp">&lt;![CDATA[ template ]]&gt;</span><span class="nt">&lt;/action_template&gt;</span>
+    <span class="c">&lt;!-- executable_by_ids can only add new status(task_entry) it can’t remove any of the existing entries, not supported for now. --&gt;</span>
+    <span class="nt">&lt;executable_by_ids&gt;&lt;/executable_by_ids&gt;</span>
+    <span class="nt">&lt;tags&gt;</span>
+<span class="cp">&lt;![CDATA[
+[“label” : “birthday task”, “priority” : “1” ]
+]]&gt;</span>
+<span class="nt">&lt;/tags&gt;</span>
+<span class="nt">&lt;/task&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample title"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample body"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-20"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"call"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"action_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">" template "</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+
+[“label” : “birthday task”, “priority” : “1” ]
+
+"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+        <span class="nt">&lt;task&gt;</span>
+            <span class="nt">&lt;id&gt;&lt;/id&gt;</span>
+            <span class="nt">&lt;entry_id&gt;&lt;/entry_id&gt;</span>
+            <span class="nt">&lt;customer_id&gt;&lt;/customer_id&gt;</span>
+            <span class="nt">&lt;associate_id&gt;&lt;/associate_id&gt;</span>
+            <span class="nt">&lt;status&gt;</span>CLOSED<span class="nt">&lt;/status&gt;</span>
+
+            <span class="c">&lt;!-- tags for task metadata --&gt;</span>
+            <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+            <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+            <span class="nt">&lt;start_date&gt;</span>2016-08-20<span class="nt">&lt;/start_date&gt;</span>
+            <span class="nt">&lt;end_date&gt;</span>2016-08-22<span class="nt">&lt;/end_date&gt;</span>
+            <span class="nt">&lt;expiry_date&gt;</span>2016-08-22<span class="nt">&lt;/expiry_date&gt;</span>
+            <span class="nt">&lt;action_type&gt;&lt;/action_type&gt;</span>
+            <span class="nt">&lt;action_template&gt;&lt;/action_template&gt;</span>
+            <span class="nt">&lt;executable_by_ids&gt;&lt;/executable_by_ids&gt;</span>
+            <span class="nt">&lt;tags&gt;&lt;/tags&gt;</span>
+
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Task Status Updated Successfully<span class="nt">&lt;/message&gt;</span>
+                <span class="nt">&lt;/item_status&gt;</span>
+
+        <span class="nt">&lt;/task&gt;</span>
+    <span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-20"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-22"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-22"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Task Status Updated Successfully"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Updates the status of existing tasks and metadata details.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET &amp; POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Modifies status and metadata of existing tasks</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/update?format=&lt;xml/json&gt;</code></p>
+
+<h2 id="retrieve-individual-task-details">Retrieve Individual Task Details</h2>
+<pre class="highlight html"><code>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;tasks&gt;</span>
+<span class="nt">&lt;task&gt;</span>
+    <span class="nt">&lt;id&gt;&lt;/id&gt;</span>
+    <span class="nt">&lt;entry_id&gt;&lt;/entry_id&gt;</span>
+    <span class="nt">&lt;type&gt;</span>CUSTOMER/CASHIER<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;associate_id&gt;</span>
+123
+<span class="nt">&lt;/associate_id&gt;</span>    <span class="c">&lt;!-- individual tasks --&gt;</span>
+      <span class="nt">&lt;customer_id&gt;</span>
+124
+<span class="nt">&lt;/customer_id&gt;</span>     <span class="c">&lt;!-- customer tasks   --&gt;</span>
+      <span class="nt">&lt;store_id&gt;</span>
+125
+<span class="nt">&lt;/store_id&gt;</span>
+      <span class="nt">&lt;status&gt;</span>OPEN<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;/task&gt;</span>
+        <span class="nt">&lt;task&gt;</span>
+    <span class="nt">&lt;id&gt;&lt;/id&gt;</span>
+    <span class="nt">&lt;entry_id&gt;&lt;/entry_id&gt;</span>
+    <span class="nt">&lt;type&gt;</span>CUSTOMER/TYPE<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;associate_id&gt;</span>
+125
+<span class="nt">&lt;/associate_id&gt;</span>    <span class="c">&lt;!-- individual tasks --&gt;</span>
+      <span class="nt">&lt;customer_id&gt;</span>
+122
+<span class="nt">&lt;/customer_id&gt;</span>     <span class="c">&lt;!-- customer tasks   --&gt;</span>
+      <span class="nt">&lt;store_id&gt;</span>
+127
+<span class="nt">&lt;/store_id&gt;</span>
+      <span class="nt">&lt;status&gt;</span>OPEN<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/task&gt;</span>
+<span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOMER/CASHIER"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"associate_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+123
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+124
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+125
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CUSTOMER/TYPE"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"associate_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+125
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+122
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+127
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the information about individual tasks such as created by, assigned to, task type, created at store and current status.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/get</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns individual task details</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/get?format=&lt;xml/json&gt;&amp;&lt;params&gt;=&lt;value&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assoc</td>
+<td>Returns tasks of all associates of the current store if <code class="prettyprint">assoc=true</code></td>
+</tr>
+<tr>
+<td>all</td>
+<td>Returns all the tasks of the current organization if <code class="prettyprint">all=true</code>. If <code class="prettyprint">all=false</code>, only the current store tasks are returned. Default value: true</td>
+</tr>
+<tr>
+<td>action_type</td>
+<td>Value: sms, email, call, or none. Returns a particular type of task (SMS/email/call). If action_type is &ldquo;none&rdquo;, then the tasks other than SMS, email, or call will be returned.</td>
+</tr>
+<tr>
+<td>assoc_id</td>
+<td>Returns the tasks assigned to a specific associate</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>Returns the tasks created for a specific customer</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Returns the tasks by status. Value: OPEN, IN_PROGRESS, CLOSED</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Returns the list of tasks created in a specific duration (set in start_date and end_date). If only start_date is mentioned then the list of tasks created on or after the specified date is returned.</td>
+</tr>
+</tbody></table>
+
+<p>end_date   Returns the list of tasks created in a specific duration set in start_date and end_date. If only end_date is passed then the list of tasks created on or before the specified date is returned.
+ batch_size  Limits the number of tasks to be displayed. For example, if <code class="prettyprint">batch_size=10</code> then the details of only 10 tasks are returned</p>
+
+<p>## Retrieve Task Logs
+&ldquo;`</p>
+
+<h3 id="sample-request-url">Sample Request URL</h3>
+
+<p>http://api.capillary.co.in/v1.1/task/log?task_id=12,15
+&rdquo;`</p>
+
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+        <span class="nt">&lt;task&gt;</span>
+            <span class="nt">&lt;log&gt;</span>
+<span class="nt">&lt;task_id&gt;</span>12<span class="nt">&lt;/task_id&gt;</span>
+                    <span class="nt">&lt;task_status_id&gt;&lt;/task_status_id&gt;</span>
+            <span class="nt">&lt;customer_id&gt;&lt;/customer_id&gt;</span>
+            <span class="nt">&lt;associate_id&gt;&lt;/associate_id&gt;</span>
+            <span class="nt">&lt;store_id&gt;&lt;/store_id&gt;</span>
+                <span class="nt">&lt;updated_time&gt;&lt;/updated_time&gt;</span>
+                <span class="nt">&lt;new_status&gt;&lt;/new_status&gt;</span>
+        <span class="nt">&lt;/log&gt;</span>
+        <span class="nt">&lt;log&gt;</span>
+            <span class="nt">&lt;task_id&gt;&lt;/task_id&gt;</span>
+                    <span class="nt">&lt;task_status_id&gt;&lt;/task_status_id&gt;</span>
+            <span class="nt">&lt;customer_id&gt;&lt;/customer_id&gt;</span>
+            <span class="nt">&lt;associate_id&gt;&lt;/associate_id&gt;</span>
+            <span class="nt">&lt;store_id&gt;&lt;/store_id&gt;</span>
+                <span class="nt">&lt;updated_time&gt;&lt;/updated_time&gt;</span>
+                <span class="nt">&lt;new_status&gt;&lt;/new_status&gt;</span>
+            <span class="nt">&lt;/log&gt;</span>
+            <span class="nt">&lt;log&gt;</span>
+                <span class="nt">&lt;task_id&gt;&lt;/task_id&gt;</span>
+                    <span class="nt">&lt;task_status_id&gt;&lt;/task_status_id&gt;</span>
+            <span class="nt">&lt;customer_id&gt;&lt;/customer_id&gt;</span>
+            <span class="nt">&lt;associate_id&gt;&lt;/associate_id&gt;</span>
+            <span class="nt">&lt;store_id&gt;&lt;/store_id&gt;</span>
+                <span class="nt">&lt;updated_time&gt;&lt;/updated_time&gt;</span>
+                <span class="nt">&lt;new_status&gt;&lt;/new_status&gt;</span>
+            <span class="nt">&lt;/log&gt;</span>
+            <span class="nt">&lt;log&gt;</span>
+<span class="nt">&lt;task_id&gt;&lt;/task_id&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+<span class="nt">&lt;success&gt;</span>false<span class="nt">&lt;/success&gt;</span>
+<span class="nt">&lt;code&gt;</span>5204<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;message&gt;</span>
+Task Identifier is Empty or Invalid
+<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;/log&gt;</span>
+        <span class="nt">&lt;/task&gt;</span>
+    <span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"log"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w"> </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w"> </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5204"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+Task Identifier is Empty or Invalid
+"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the log of task updates</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/log</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns the log of task updates</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/log?task_id=&lt;id1,id2,id3,...&gt;</code></p>
+
+<h3 id="request-parameter">Request Parameter</h3>
+
+<p>task_id  | Returns the log of specific tasks based on the ids passed</p>
+
+<h2 id="retrieve-status-mappings">Retrieve Status Mappings</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/statusmapping?format=json
+</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+    <span class="nt">&lt;task_statuses&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>OPEN<span class="nt">&lt;/value&gt;</span>
+            <span class="c">&lt;!-- value represents status type in server side --&gt;</span>
+            <span class="nt">&lt;label&gt;</span>NEW<span class="nt">&lt;/label&gt;</span>
+            <span class="c">&lt;!-- organization depended status that
+represents corresponding value --&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>2<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>CLOSED<span class="nt">&lt;/value&gt;</span>
+            <span class="c">&lt;!-- value represents status type in server side --&gt;</span>
+            <span class="nt">&lt;label&gt;</span>FINISH<span class="nt">&lt;/label&gt;</span>
+            <span class="c">&lt;!-- organization depended status that
+represents corresponding value --&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+            <span class="c">&lt;!-- value represents status type in server side --&gt;</span>
+            <span class="nt">&lt;value&gt;</span>PROCESSING_START<span class="nt">&lt;/value&gt;</span>
+            <span class="c">&lt;!-- organization depended status that
+represents corresponding value --&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>4<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+            <span class="c">&lt;!-- value represents status type in server side --&gt;</span>
+            <span class="nt">&lt;label&gt;</span>PROCESSING_DONE<span class="nt">&lt;/label&gt;</span>
+            <span class="c">&lt;!-- organization depended status that
+represents corresponding value --&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;/task_statuses&gt;</span>
+<span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"task_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FINISH"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"PROCESSING_START"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING_DONE"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns status mapping between internal status and organization level status.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<p>Parameter | Value
+URI | task/statusmapping
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+Response Object | Returns mapping between predefined status and user-defined status
+ API Version | v1.1 
+ Batch Support | No</p>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/statusmapping?format=&lt;xml/json&gt;</code></p>
+
+<h2 id="update-status-mappings">Update Status Mappings</h2>
+<pre class="highlight html"><code>
+
+</code></pre><pre class="highlight xml"><code> <span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;value&gt;</span>OPEN<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;label&gt;</span>NEW<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;id&gt;</span>2<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;value&gt;</span>CLOSED<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;label&gt;</span>FINISHED<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;label&gt;</span>PROCESS_START<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;label&gt;</span>PROCESS_DONE<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FINISHED"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESS_START"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESS_DONE"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+    <span class="nt">&lt;task_statuses&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>OPEN<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;label&gt;</span>NEW<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>status added successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>2<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>CLOSED<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;label&gt;</span>FINISHED<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>status added successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;label&gt;</span>PROCESSING_START<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>status added successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;id&gt;</span>4<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;value&gt;</span>NONE<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;label&gt;</span>PROCESSING_DONE<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>status added successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;/task_statuses&gt;</span>
+    <span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"task_statuses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status added successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FINISHED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status added successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING_START"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status added successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING_DONE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"status added successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Allows to update mappings between the predefined and the user-defined statuses.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<p>Parameter | Value
+URI | task/statusmapping
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | POST
+Response Object | Updates mapping between predefined and user-defined status
+API Version | v1.1 
+Batch Support | Yes</p>
+
+<h3 id="request-url">Request URL</h3>
+
+<p>http://<cluster url>/v1.1/task/statusmapping?format=xml/json&gt;</p>
+
+<h2 id="retrieve-task-reminders">Retrieve Task Reminders</h2>
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/task/reminder?format=xml<span class="err">&amp;</span>only_for_stores=true
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+        <span class="nt">&lt;reminders&gt;</span>
+        <span class="nt">&lt;reminder&gt;</span>
+            <span class="nt">&lt;id&gt;</span>32<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;task_id&gt;</span>4<span class="nt">&lt;/task_id&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;remindee_id&gt;</span>1245332<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2016-05-30 12:12:12<span class="nt">&lt;/time&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Please note this<span class="nt">&lt;/template&gt;</span>
+        <span class="nt">&lt;/reminder&gt;</span>
+        <span class="nt">&lt;reminder&gt;</span>
+            <span class="nt">&lt;id&gt;</span>33<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;task_id&gt;</span>4<span class="nt">&lt;/task_id&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;remindee_id&gt;</span>1245332<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2016-05-30 12:12:12<span class="nt">&lt;/time&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Please note this<span class="nt">&lt;/template&gt;</span>
+        <span class="nt">&lt;/reminder&gt;</span>
+        <span class="nt">&lt;reminder&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;task_id&gt;</span>5<span class="nt">&lt;/task_id&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;remindee_id&gt;</span>1245333<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2016-05-30 13:12:12<span class="nt">&lt;/time&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Please note this too<span class="nt">&lt;/template&gt;</span>
+        <span class="nt">&lt;/reminder&gt;</span>
+    <span class="nt">&lt;/reminders&gt;</span>
+<span class="nt">&lt;/tasks&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245332"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 12:12:12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245332"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 12:12:12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245333"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 13:12:12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this too"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/reminder</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Return task reminders</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/reminder?format=&lt;xml/json&gt;&amp;only_for_stores=true</code></p>
+
+<h2 id="update-task-reminders">Update Task Reminders</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/reminder?format=xml<span class="err">&amp;</span>only_for_stores=true
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;reminder&gt;</span>
+        <span class="nt">&lt;task_id&gt;</span>4<span class="nt">&lt;/task_id&gt;</span>
+        <span class="nt">&lt;local_id&gt;&lt;/local_id&gt;</span>
+        <span class="nt">&lt;time&gt;</span>2016-05-30 12:12:12<span class="nt">&lt;/time&gt;</span>
+        <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+        <span class="c">&lt;!-- created_by needs to be assoc_id --&gt;</span>
+        <span class="nt">&lt;template&gt;</span>Please note this<span class="nt">&lt;/template&gt;</span>
+    <span class="nt">&lt;remindee_id&gt;</span>1245332<span class="nt">&lt;/remindee_id&gt;</span>
+    <span class="nt">&lt;/reminder&gt;</span>
+<span class="nt">&lt;reminder&gt;</span>
+        <span class="nt">&lt;task_id&gt;</span>5<span class="nt">&lt;/task_id&gt;</span>
+        <span class="nt">&lt;local_id&gt;&lt;/local_id&gt;</span>
+        <span class="nt">&lt;time&gt;</span>2016-05-30 13:12:12<span class="nt">&lt;/time&gt;</span>
+        <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+        <span class="nt">&lt;template&gt;</span>Please note this too<span class="nt">&lt;/template&gt;</span>
+        <span class="nt">&lt;remindee_id&gt;</span>1245333<span class="nt">&lt;/remindee_id&gt;</span>
+    <span class="nt">&lt;/reminder&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 12:12:12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245332"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 13:12:12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this too"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245333"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;tasks&gt;</span>
+        <span class="nt">&lt;reminders&gt;</span>
+        <span class="nt">&lt;reminder&gt;</span>
+            <span class="nt">&lt;id&gt;</span>33<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;task_id&gt;</span>4<span class="nt">&lt;/task_id&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;remindee_id&gt;</span>1245332<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2016-05-30 12:12:12<span class="nt">&lt;/time&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Please note this<span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Reminder Added Successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/reminder&gt;</span>
+        <span class="nt">&lt;reminder&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;task_id&gt;</span>5<span class="nt">&lt;/task_id&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;remindee_id&gt;</span>1245333<span class="nt">&lt;/remindee_id&gt;</span>
+            <span class="nt">&lt;time&gt;</span>2016-05-30 13:12:12<span class="nt">&lt;/time&gt;</span>
+            <span class="nt">&lt;template&gt;</span>Please note this too<span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Reminder Added Successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/reminder&gt;</span>
+<span class="nt">&lt;/reminders&gt;</span>
+<span class="nt">&lt;/tasks&gt;</span>    
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reminders"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245332"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 12:12:12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reminder Added Successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"task_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"remindee_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1245333"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-05-30 13:12:12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please note this too"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reminder Added Successfully"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates new task reminders or updates existing reminders</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/reminder</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Updates task reminders</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/reminder?format=&lt;xml/json&gt;&amp;only_for_stores=true</code></p>
 
       </div>
       <div class="dark-box">
