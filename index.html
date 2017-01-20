@@ -13420,14 +13420,33 @@ id</p>
 
 <p>Capillary APIs now support payments through third party payment gateway services such as RazorPay. These third party services support different wallet payments such as RuPay, Amex, Mobikwik, PayZapp, PayUMoney and so on. Wallets are configured at TILL level and not at store level. Hence, within a store, each TILL can have different wallets.</p>
 
-<p>Unlike other entities, <code class="prettyprint">wallet&#39; APIs are not version dependent. The following is the standard url for</code>wallet` APIs</p>
+<p>Unlike other entities, <code class="prettyprint">wallet</code> APIs are not version dependent. The following is the standard url for <code class="prettyprint">wallet</code> APIs</p>
 
 <p><code class="prettyprint">https://&lt;cluster url&gt;/walletApp/payment/&lt;method&gt;</code></p>
 
-<p>Request URL Format | https://<host/walletApp/payment/<method>
-Host | The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com
-HTTP Methods | Capillary Sharingan APIs support the standard HTTP methods GET,  and POST
-Response Format | Sharingan APIs return information in json format</p>
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Request URL</td>
+<td>https://<host/walletApp/payment/<method></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>Capillary Sharingan APIs support the standard HTTP methods GET,  and POST</td>
+</tr>
+<tr>
+<td>Response Format</td>
+<td>Sharingan APIs return information in json format</td>
+</tr>
+</tbody></table>
 
 <aside class="notice"> Wallet APIs are not version dependent. Hence, there is no need to specify API versions for these APIs. XML format is not supported for wallet APIs</aside>
 
@@ -13458,7 +13477,6 @@ https://apac.sharingan.capillarytech.com/walletApp/till/wallets
    </span><span class="p">],</span><span class="w">
    </span><span class="nt">"suceess"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 <p>Use the API to fetch the details of wallets configured for the current TILL. Each wallet details consist of wallet provider id,  wallet name, and wallet id.</p>
 
@@ -13525,8 +13543,11 @@ https://apac.sharingan.capillarytech.com/walletApp/till/wallets
 <h2 id="authorize-payments">Authorize Payments</h2>
 <pre class="highlight html"><code># Sample Request
 https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Request</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
  </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
  </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919876543210"</span><span class="p">,</span><span class="w">
@@ -13538,8 +13559,11 @@ https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
  </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"577a065b07cd440f0f8b4568"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-</span><span class="p">{</span><span class="w">  
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"refId"</span><span class="p">:</span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -13676,15 +13700,21 @@ https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
 <h2 id="process-payments">Process Payments</h2>
 <pre class="highlight html"><code># Sample Request
 https:// apac.sharingan.capillarytech.com/walletApp/payment/validate
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Request</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
 
  </span><span class="nt">"refId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
  </span><span class="nt">"otp"</span><span class="p">:</span><span class="mi">12313</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-</span><span class="p">{</span><span class="w">  
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
    </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="nt">"refId"</span><span class="p">:</span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
    </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"payment captured"</span><span class="p">,</span><span class="w">
