@@ -7,8 +7,8 @@ Unlike other entities, `wallet` APIs are not version dependent. The following is
 
 Entry | Value
 ----- | -----
-Request URL  | https://<host/walletApp/payment/<method>
-Host | The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com
+Request URL  | `https://<cluster url>/walletApp/payment/<method>`
+Cluster URL | The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com
 HTTP Methods | Capillary Sharingan APIs support the standard HTTP methods GET,  and POST
 Response Format | Sharingan APIs return information in json format
 
