@@ -21,6 +21,7 @@ includes:
   - organization
   - store
   - product
+  - wallet
 
 search: true
 ---
