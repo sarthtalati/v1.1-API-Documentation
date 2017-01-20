@@ -18,6 +18,9 @@ includes:
   - communications
   - requests
   - task
+  - organization
+  - store
+  - product
 
 search: true
 ---
