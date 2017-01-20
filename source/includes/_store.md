@@ -1,5 +1,5 @@
 # Store
-
+The store entity holds information about all stores configured for an organization. This entity contain APIs to manage and fetch store details such as retrieve store information, upload log files to the server, get store report, and fetch store tasks. Store details and configurations cannot be updated using store APIs.
 
 ## Retrieve Store Details
 ```html

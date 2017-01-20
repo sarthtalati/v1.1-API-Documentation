@@ -11168,6 +11168,24 @@ http://us.intouch.capillarytech.com/v1.1/organization/tenders
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/tenders.&lt;xml/json&gt;</code></p>
 
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attribute_name</td>
+<td>Retrieves the details of all tenders which contains the specific attribute name</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>Value: true, false. Retrieves attributes of the payment modes if <code class="prettyprint">attribute=true</code> is passed</td>
+</tr>
+</tbody></table>
+
 <h2 id="response-codes">Response Codes</h2>
 
 <h3 id="success-codes">Success Codes</h3>
@@ -12891,7 +12909,7 @@ false
 
 <h2 id="search-products">Search Products</h2>
 <pre class="highlight html"><code># Sample Request
-http://api.capillary.co.in/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
+http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13384,6 +13402,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <td>Unable to retrieve product details</td>
 </tr>
 </tbody></table>
+
+<h2 id="retrieve-details-of-a-specific-product">Retrieve Details of a Specific Product</h2>
+
+<p>sku
+id</p>
 
       </div>
       <div class="dark-box">

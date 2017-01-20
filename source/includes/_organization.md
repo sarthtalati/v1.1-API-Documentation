@@ -1,4 +1,7 @@
 # Organization
+The organization entity holds configuration details and transaction details of an organization. You to retrieve the org level details such as profile information, configurations set on InTouch, custom field details, transaction details and top selling products at the organization.
+
+You cannot modify the existing information using the organization entity.
 
 
 ## Retrieve Org Details
