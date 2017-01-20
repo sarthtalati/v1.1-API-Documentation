@@ -1,11 +1,13 @@
 # Wallet
 Capillary APIs now support payments through third party payment gateway services such as RazorPay. These third party services support different wallet payments such as RuPay, Amex, Mobikwik, PayZapp, PayUMoney and so on. Wallets are configured at TILL level and not at store level. Hence, within a store, each TILL can have different wallets.
 
-Unlike other entities, `wallet' APIs are not version dependent. The following is the standard url for `wallet` APIs
+Unlike other entities, `wallet` APIs are not version dependent. The following is the standard url for `wallet` APIs
 
 `https://<cluster url>/walletApp/payment/<method>`
 
-Request URL Format | https://<host/walletApp/payment/<method>
+Entry | Value
+----- | -----
+Request URL  | https://<host/walletApp/payment/<method>
 Host | The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com
 HTTP Methods | Capillary Sharingan APIs support the standard HTTP methods GET,  and POST
 Response Format | Sharingan APIs return information in json format
@@ -43,7 +45,6 @@ https://apac.sharingan.capillarytech.com/walletApp/till/wallets
    ],
    "suceess":true
 }
-
 ```
 
 
@@ -77,8 +78,9 @@ Code | Description
 https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
 ```
 
+> Sample POST Request
+
 ```json
-# Sample Request
 {
  "amount": 100,
  "currency": "INR",
@@ -93,8 +95,9 @@ https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
 
 ```
 
+> Sample Response
+
 ```json
-# Sample Response
 {  
    "refId":"5214674014704128150",
    "success":true
@@ -150,8 +153,9 @@ Code | Description
 https:// apac.sharingan.capillarytech.com/walletApp/payment/validate
 ```
 
+> Sample POST Request
+ 
 ```json
-# Sample Request
 {
 
  "refId": "5214674014704128150",
@@ -160,8 +164,9 @@ https:// apac.sharingan.capillarytech.com/walletApp/payment/validate
 
 ```
 
+> Sample Response
+
 ```json
-# Sample Response
 {  
    "success":true,
    "refId":"5214674014704128150",
