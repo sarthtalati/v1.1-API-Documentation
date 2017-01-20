@@ -9982,6 +9982,10 @@ Batch Support | Yes</p>
 
           <h1 id="organization">Organization</h1>
 
+<p>The organization entity holds configuration details and transaction details of an organization. You to retrieve the org level details such as profile information, configurations set on InTouch, custom field details, transaction details and top selling products at the organization.</p>
+
+<p>You cannot modify the existing information using the organization entity.</p>
+
 <h2 id="retrieve-org-details">Retrieve Org Details</h2>
 <pre class="highlight html"><code># Sample Request
 http://api.intouch.capillarytech.com/v1.1/organization/get.json
@@ -11265,6 +11269,8 @@ http://us.intouch.capillarytech.com/v1.1/organization/tenders
 </tbody></table>
 
           <h1 id="store">Store</h1>
+
+<p>The store entity holds information about all stores configured for an organization. This entity contain APIs to manage and fetch store details such as retrieve store information, upload log files to the server, get store report, and fetch store tasks. Store details and configurations cannot be updated using store APIs.</p>
 
 <h2 id="retrieve-store-details">Retrieve Store Details</h2>
 <pre class="highlight html"><code># Sample Request
@@ -12907,6 +12913,8 @@ false
 
           <h1 id="product">Product</h1>
 
+<p>The product entity holds all products of an org and product related information such as size, color, type, and brand.  Product APIs allow you to fetch details of a specific product, modify existing details, change brand name for a product and create new attributes for a product.</p>
+
 <h2 id="search-products">Search Products</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
@@ -13407,6 +13415,373 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <p>sku
 id</p>
+
+          <h1 id="wallet">Wallet</h1>
+
+<p>Capillary APIs now support payments through third party payment gateway services such as RazorPay. These third party services support different wallet payments such as RuPay, Amex, Mobikwik, PayZapp, PayUMoney and so on. Wallets are configured at TILL level and not at store level. Hence, within a store, each TILL can have different wallets.</p>
+
+<p>Unlike other entities, <code class="prettyprint">wallet&#39; APIs are not version dependent. The following is the standard url for</code>wallet` APIs</p>
+
+<p><code class="prettyprint">https://&lt;cluster url&gt;/walletApp/payment/&lt;method&gt;</code></p>
+
+<p>Request URL Format | https://<host/walletApp/payment/<method>
+Host | The server to which the API calls are made. This usually depends on your cluster as mentioned below:<br>APAC: apac.sharingan.capillarytech.com<br>APAC2: apac.sharingan.capillarytech.com<br>EU: eu.sharingan.capillarytech.com<br>US: us.sharingan.capillarytech.com
+HTTP Methods | Capillary Sharingan APIs support the standard HTTP methods GET,  and POST
+Response Format | Sharingan APIs return information in json format</p>
+
+<aside class="notice"> Wallet APIs are not version dependent. Hence, there is no need to specify API versions for these APIs. XML format is not supported for wallet APIs</aside>
+
+<h2 id="get-wallets-configured-for-a-till">Get Wallets Configured for a TILL</h2>
+<pre class="highlight html"><code># Sample Request
+https://apac.sharingan.capillarytech.com/walletApp/till/wallets
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"wallets"</span><span class="p">:[</span><span class="w">  
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="s2">"577a065b07cd440f0f8b4568"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_label"</span><span class="p">:</span><span class="s2">"mobikwik"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="s2">"577a065b07cd440f0f8b4568"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_label"</span><span class="p">:</span><span class="s2">"payumoney"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="s2">"577a065b07cd440f0f8b4568"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_label"</span><span class="p">:</span><span class="s2">"payzapp"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"wallet_id"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nt">"suceess"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Use the API to fetch the details of wallets configured for the current TILL. Each wallet details consist of wallet provider id,  wallet name, and wallet id.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>wallet/payment</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;cluster URL&gt;/walletApp/till/wallets</code></p>
+
+<h3 id="error-messages">Error Messages</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Authentication failed/Invalid authentication <br> Invalid TILL</td>
+</tr>
+</tbody></table>
+
+<h2 id="authorize-payments">Authorize Payments</h2>
+<pre class="highlight html"><code># Sample Request
+https:// apac.sharingan.capillarytech.com/walletApp/payment/authorize
+</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+ </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919876543210"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.vettori@gmaill.com"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"refId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"wallet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"provider_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"577a065b07cd440f0f8b4568"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"refId"</span><span class="p">:</span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This API allows you to validate customer’s wallet details and wallet balance and generate OTP which is used for processing the transaction. That is, if a customer wants to make a payment for a transaction through a wallet service, you need to validate the customer’s registered mobile number/email id including the transaction amount. Only if the validation is successful OTP is generated.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>wallet/payment/authorize</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;Cluster URL&gt;/walletApp/payment/authorize</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount*</td>
+<td>Transaction amount or the amount that the customer wants to pay through wallet</td>
+</tr>
+<tr>
+<td>wallet_id or wallet_label*</td>
+<td>The respective wallet id or wallet name. Any one of the following parameter is mandatory</td>
+</tr>
+<tr>
+<td>Email*</td>
+<td>Email id of the customer registered with the wallet</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Short description about the transaction</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>Address of the customer</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>Base currency of the wallet service</td>
+</tr>
+<tr>
+<td>provider_id</td>
+<td>ID of the wallet service provider. For example, RazorPay’s provider id is</td>
+</tr>
+<tr>
+<td>Mobile*</td>
+<td>Mobile number of the customer registered with the wallet</td>
+</tr>
+<tr>
+<td>refId*</td>
+<td>A unique reference id for the current transaction</td>
+</tr>
+<tr>
+<td>TransactionNumber*</td>
+<td>Transaction number for which the wallet details are validated</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-messages">Error Messages</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Authentication failed/Invalid authentication</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid TILL</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid params</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid reference id</td>
+</tr>
+<tr>
+<td></td>
+<td>Unexpected response or error from the payment gateway</td>
+</tr>
+</tbody></table>
+
+<h2 id="process-payments">Process Payments</h2>
+<pre class="highlight html"><code># Sample Request
+https:// apac.sharingan.capillarytech.com/walletApp/payment/validate
+</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+ </span><span class="nt">"refId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
+ </span><span class="nt">"otp"</span><span class="p">:</span><span class="mi">12313</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
+</span><span class="p">{</span><span class="w">  
+   </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"refId"</span><span class="p">:</span><span class="s2">"5214674014704128150"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"payment captured"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"payment_id"</span><span class="p">:</span><span class="s2">"pay_6rx8LlO6mCIcra"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows you to process the authorized payments based on the reference id and OTP passed.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>walletApp/payment/validate</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Accept</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://&lt;Cluster URL&gt;/walletApp/payment/validate</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refId*</td>
+<td>Reference id provided for the transaction during authorization</td>
+</tr>
+<tr>
+<td>otp</td>
+<td>OTP received by the customer for that transaction</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-messages">Error Messages</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Authentication failed</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid TILL</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid params</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid reference id</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
