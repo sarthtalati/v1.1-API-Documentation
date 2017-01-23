@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Doc v1.1</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -12911,11 +12911,321 @@ false
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/store/login.&lt;xml/json&gt;</code></p>
 
+<h2 id="response-codes">Response Codes</h2>
+
+<h3 id="success-codes">Success Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>900</td>
+<td>Store details retrieved successfully</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Report uploaded successfully</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Store report retrieved successfully</td>
+</tr>
+<tr>
+<td>910</td>
+<td>Tasks retrieved successfully</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-codes">Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>901</td>
+<td>Store information retrieval failed</td>
+</tr>
+<tr>
+<td>902</td>
+<td>Store identifier is invalid</td>
+</tr>
+<tr>
+<td>903</td>
+<td>Unable to fetch store details. No store id is passed</td>
+</tr>
+<tr>
+<td>904</td>
+<td>Client log file size does not match with the file size uploaded on server</td>
+</tr>
+<tr>
+<td>905</td>
+<td>Client log file signature does not match with the file signature on server</td>
+</tr>
+<tr>
+<td>906</td>
+<td>Uploading client log file to file service failed.</td>
+</tr>
+<tr>
+<td>907</td>
+<td>Insert client log file metadata in database failed</td>
+</tr>
+<tr>
+<td>908</td>
+<td>Tasks retrieval failed</td>
+</tr>
+<tr>
+<td>909</td>
+<td>No tasks found</td>
+</tr>
+<tr>
+<td>911</td>
+<td>Report type is invalid</td>
+</tr>
+<tr>
+<td>912</td>
+<td>Report upload failed</td>
+</tr>
+<tr>
+<td>913</td>
+<td>Unable to fetch store details. No identifier is passed</td>
+</tr>
+<tr>
+<td>921</td>
+<td>Unable to insert one or more store server stats</td>
+</tr>
+<tr>
+<td>922</td>
+<td>Unable to insert the entire store server stats</td>
+</tr>
+<tr>
+<td>923</td>
+<td>Unable to insert one or more till diagnostic details</td>
+</tr>
+<tr>
+<td>924</td>
+<td>Unable to insert all till diagnostics details</td>
+</tr>
+</tbody></table>
+
           <h1 id="product">Product</h1>
 
 <p>The product entity holds all products of an org and product related information such as size, color, type, and brand.  Product APIs allow you to fetch details of a specific product, modify existing details, change brand name for a product and create new attributes for a product.</p>
 
-<h2 id="search-products">Search Products</h2>
+<h2 id="add-product">Add Product</h2>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/product/add.json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+<span class="nt">&lt;product&gt;</span>
+            <span class="nt">&lt;sku&gt;</span>31sa84<span class="nt">&lt;/sku&gt;</span>
+        <span class="nt">&lt;ean&gt;</span>12ss21<span class="nt">&lt;/ean&gt;</span>
+        <span class="nt">&lt;price&gt;</span>22<span class="nt">&lt;/price&gt;</span>
+        <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;long_description&gt;</span>Sample description<span class="nt">&lt;/long_description&gt;</span>
+        <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors<span class="nt">&lt;/img_url&gt;</span>
+            <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Jeans Shirt<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/size&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">&lt;name&gt;</span>test001<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/style&gt;</span>
+        <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>BRANDS23<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/brand&gt;</span>
+        <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;name&gt;</span>DarkBlue<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/color&gt;</span>
+        <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>My test21<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/category&gt;</span>
+        <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>大伟大12121212<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>123<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>大伟大1212<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>12hjha<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+        <span class="nt">&lt;/attributes&gt;</span>
+        <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31sa84"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12ss21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adding sample product"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nightly.capillary.in/productManagement/Colors"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeans Shirt"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test001"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRANDS23"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DarkBlue"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My test21"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"大伟大12121212"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"大伟大1212"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12hjha"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;product&gt;</span>
+        <span class="nt">&lt;sku&gt;</span>31sa84<span class="nt">&lt;/sku&gt;</span>
+        <span class="nt">&lt;ean&gt;</span>12ss21<span class="nt">&lt;/ean&gt;</span>
+        <span class="nt">&lt;price&gt;</span>22<span class="nt">&lt;/price&gt;</span>
+        <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;long_description&gt;</span>Sample description<span class="nt">&lt;/long_description&gt;</span>
+        <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors<span class="nt">&lt;/img_url&gt;</span>
+        <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Jeans Shirt<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/size&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">&lt;name&gt;</span>test001<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/style&gt;</span>
+        <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>BRANDS23<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/brand&gt;</span>
+        <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;name&gt;</span>DarkBlue<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/color&gt;</span>
+        <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>My test21<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;/category&gt;</span>
+        <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>大伟大12121212<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>123<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>大伟大1212<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>12hjha<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+        <span class="nt">&lt;/attributes&gt;</span>
+        <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>9100<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Product added successfully<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/item_status&gt;</span>
+    <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31sa84"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12ss21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adding sample product"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nightly.capillary.in/productManagement/Colors"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeans Shirt"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test001"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRANDS23"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DarkBlue"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My test21"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"大伟大12121212"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"大伟大1212"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12hjha"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9100"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Product added successfully"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Allows you to add product to the inventory.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/add</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Adds product to the inventory</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/add.&lt;xml/json&gt;</code></p>
+
+<h2 id="retrieve-products">Retrieve Products</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
 </code></pre>
@@ -13036,7 +13346,7 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns inventory details of a specific product such as SKU, quantity, price, item status, images, attributes and so on.</p>
+<p>Retrieve products available at the current org based on the query params such as SKU, quantity, price, item status, images, attributes and so on.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -13048,7 +13358,7 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/search</td>
+<td>product/searchs</td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -13082,7 +13392,7 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>Attributes like price, item_sku, description, img_url is common for all the organizations.</p>
+<p>Attributes like price, item_sku, description, img_url are common for all the orgs.</p>
 
 <table><thead>
 <tr>
@@ -13119,6 +13429,35 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/search?q=(&lt;searchquerystring&gt;)&amp;format=&lt;xml/json&gt;</code></p>
+
+<h3 id="search-query-string">Search Query String</h3>
+
+<p>Standard Query: <code class="prettyprint">attribute:OPERATOR:value</code></p>
+
+<p>Search Query String is the URL encoded string containing the parameters used for searching. You can pass multiple params in the query with fixed operators separating each query string with <code class="prettyprint">|</code></p>
+
+<p>For instance, assume that you want to retrieve all the products which matches any of the following </p>
+
+<ul>
+<li>Color: Black, blue, or green</li>
+<li>Size XL, </li>
+<li>Price range: 2000 - 4000</li>
+<li>Department: Men</li>
+</ul>
+
+<p>Then the query string would be as shown below:</p>
+
+<p><code class="prettyprint">q=(color:IN:Black;Blue;Green|size:EQUALS:XL|price:RANGE:2000;4000|department:EQUALS:Men)</code></p>
+
+<p><strong>URL Encoded String</strong>:</p>
+
+<p><code class="prettyprint">color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen</code></p>
+
+<p><strong>Request URL</strong>: http://<cluster url>/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&amp;format=<xml/json></p>
+
+<aside class="warning">The following characters are not supported in search queries as they have a special meaning in search grammar. <br>
+`+ - && || ! ( ) { } [ ] ^ &ldquo; ~ * ? : `
+</aside>
 
 <h2 id="retrieve-product-attributes">Retrieve Product Attributes</h2>
 <pre class="highlight html"><code># Sample Request
@@ -13240,7 +13579,7 @@ http://us.intouch.capillarytech.com/v1.1/product/attributes?format=json
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/attributes?format=&lt;xml/json&gt;</code></p>
 
-<h2 id="retrieve-products-of-the-org">Retrieve Products of the Org</h2>
+<h2 id="retrieve-products-details">Retrieve Products Details</h2>
 <pre class="highlight html"><code># Sample Request
 http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">&amp;</span>format=json
 </code></pre>
@@ -13315,7 +13654,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns products available in that specific org.</p>
+<p>Returns the details of a specific product. You can retrieve details of multiple products at a time.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -13381,6 +13720,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/get?format=xml&amp;&lt;query_parameters&gt;</code></p>
 
+<h2 id="retrieve-details-of-a-specific-product">Retrieve Details of a Specific Product</h2>
+
+<p>sku
+id</p>
+
 <h2 id="response-codes">Response Codes</h2>
 
 <h3 id="success-code">Success Code</h3>
@@ -13410,11 +13754,6 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <td>Unable to retrieve product details</td>
 </tr>
 </tbody></table>
-
-<h2 id="retrieve-details-of-a-specific-product">Retrieve Details of a Specific Product</h2>
-
-<p>sku
-id</p>
 
           <h1 id="wallet">Wallet</h1>
 
