@@ -2,7 +2,195 @@
 
 The product entity holds all products of an org and product related information such as size, color, type, and brand.  Product APIs allow you to fetch details of a specific product, modify existing details, change brand name for a product and create new attributes for a product.
 
-## Search Products
+## Add Product
+```html
+http://us.intouch.capillarytech.com/v1.1/product/add.json
+```
+> Sample POST Request
+
+```xml
+<root>
+<product>
+        	<sku>31sa84</sku>
+        <ean>12ss21</ean>
+        <price>22</price>
+        <description>adding sample product</description>
+        <long_description>Sample description</long_description>
+        <img_url>https://nightly.capillary.in/productManagement/Colors</img_url>
+        	<size>
+            <name>Jeans Shirt</name>
+        </size>
+        <style>
+            <name>test001</name>
+        </style>
+        <brand>
+            <name>BRANDS23</name>
+        </brand>
+        <color>
+            <name>DarkBlue</name>
+        </color>
+        <category>
+            <name>My test21</name>
+        </category>
+        <attributes>
+            <attribute>
+                <name>大伟大12121212</name>
+                <value>123</value>
+            </attribute>
+            <attribute>
+                <name>大伟大1212</name>
+                <value>12hjha</value>
+            </attribute>
+        </attributes>
+       	</product>
+</root>
+```
+```json
+{
+  "root": {
+    "product": {
+      "sku": "31sa84",
+      "ean": "12ss21",
+      "price": "22",
+      "description": "adding sample product",
+      "long_description": "Sample description",
+      "img_url": "https://nightly.capillary.in/productManagement/Colors",
+      "size": { "name": "Jeans Shirt" },
+      "style": { "name": "test001" },
+      "brand": { "name": "BRANDS23" },
+      "color": { "name": "DarkBlue" },
+      "category": { "name": "My test21" },
+      "attributes": {
+        "attribute": [
+          {
+            "name": "大伟大12121212",
+            "value": "123"
+          },
+          {
+            "name": "大伟大1212",
+            "value": "12hjha"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+> Sample Response
+
+```xml
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>SUCCESS</message>
+    </status>
+    <product>
+        <sku>31sa84</sku>
+        <ean>12ss21</ean>
+        <price>22</price>
+        <description>adding sample product</description>
+        <long_description>Sample description</long_description>
+        <img_url>https://nightly.capillary.in/productManagement/Colors</img_url>
+        <size>
+            <name>Jeans Shirt</name>
+        </size>
+        <style>
+            <name>test001</name>
+        </style>
+        <brand>
+            <name>BRANDS23</name>
+        </brand>
+        <color>
+            <name>DarkBlue</name>
+        </color>
+        <category>
+            <name>My test21</name>
+        </category>
+        <attributes>
+            <attribute>
+                <name>大伟大12121212</name>
+                <value>123</value>
+            </attribute>
+            <attribute>
+                <name>大伟大1212</name>
+                <value>12hjha</value>
+            </attribute>
+        </attributes>
+        <item_status>
+            <success>true</success>
+            <code>9100</code>
+            <message>Product added successfully</message>
+        </item_status>
+    </product>
+</response>
+
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "product": {
+      "sku": "31sa84",
+      "ean": "12ss21",
+      "price": "22",
+      "description": "adding sample product",
+      "long_description": "Sample description",
+      "img_url": "https://nightly.capillary.in/productManagement/Colors",
+      "size": { "name": "Jeans Shirt" },
+      "style": { "name": "test001" },
+      "brand": { "name": "BRANDS23" },
+      "color": { "name": "DarkBlue" },
+      "category": { "name": "My test21" },
+      "attributes": {
+        "attribute": [
+          {
+            "name": "大伟大12121212",
+            "value": "123"
+          },
+          {
+            "name": "大伟大1212",
+            "value": "12hjha"
+          }
+        ]
+      },
+      "item_status": {
+        "success": "true",
+        "code": "9100",
+        "message": "Product added successfully"
+      }
+    }
+  }
+}
+```
+
+Allows you to add product to the inventory.
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/add
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | POST
+Response Object | Adds product to the inventory
+API Version | v1.1 
+Batch Support | Yes
+
+
+### Request URL
+`http://<cluster url>/v1.1/product/add.<xml/json>`
+
+
+## Retrieve Products
+
 ```html
 # Sample Request
 http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=xml
@@ -128,12 +316,12 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
 }
 ```
 
-Returns inventory details of a specific product such as SKU, quantity, price, item status, images, attributes and so on.
+Retrieve products available at the current org based on the query params such as SKU, quantity, price, item status, images, attributes and so on.
 
 ### Resource Information
 Attribute | Value
 --------- | -----
-URI | product/search
+URI | product/searchs
 Rate Limited? | Yes
 Authentication | Yes
 Response Formats | XML, JSON
@@ -144,7 +332,7 @@ Batch Support | Yes
 
 
 ### Request Parameters
-Attributes like price, item_sku, description, img_url is common for all the organizations.
+Attributes like price, item_sku, description, img_url are common for all the orgs.
 
 Parameter | Description
 --------- | -----------
@@ -157,6 +345,36 @@ User Defined Attributes | Apart from the predefined attributes mentioned above, 
 
 ### Request URL
 `http://<cluster url>/v1.1/product/search?q=(<searchquerystring>)&format=<xml/json>`
+
+### Search Query String
+Standard Query: `attribute:OPERATOR:value`
+
+Search Query String is the URL encoded string containing the parameters used for searching. You can pass multiple params in the query with fixed operators separating each query string with `|`
+
+For instance, assume that you want to retrieve all the products which matches any of the following 
+ 
+* Color: Black, blue, or green
+* Size XL, 
+* Price range: 2000 - 4000
+* Department: Men
+
+Then the query string would be as shown below:
+    
+`q=(color:IN:Black;Blue;Green|size:EQUALS:XL|price:RANGE:2000;4000|department:EQUALS:Men)`
+
+**URL Encoded String**:
+
+`color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen`
+
+
+**Request URL**: http://<cluster url>/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&format=<xml/json>
+
+
+<aside class="warning">The following characters are not supported in search queries as they have a special meaning in search grammar. <br>
+`+ - && || ! ( ) { } [ ] ^ " ~ * ? : \`
+</aside>
+
+
 
 
 ## Retrieve Product Attributes
@@ -255,7 +473,7 @@ Batch Support | Yes
 `http://<cluster url>/v1.1/product/attributes?format=<xml/json>`
 
 
-## Retrieve Products of the Org
+## Retrieve Products Details
 ```html
 # Sample Request
 http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345&format=json
@@ -336,7 +554,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345&format=json
 }
 ```
 
-Returns products available in that specific org.
+Returns the details of a specific product. You can retrieve details of multiple products at a time.
 
 ### Resource Information
 Attribute | Value
@@ -360,6 +578,17 @@ id | Returns products based on the product id. This id is assigned by Capillary 
 ### Request URL
 `http://<cluster url>/v1.1/product/get?format=xml&<query_parameters>`
 
+
+
+
+## Retrieve Details of a Specific Product
+
+
+sku
+id
+
+
+
 ## Response Codes
 ### Success Code
 Code | Description
@@ -370,12 +599,4 @@ Code | Description
 Code | Description
 ---- | -----------
 2101 | Unable to retrieve product details
-
-
-## Retrieve Details of a Specific Product
-
-
-sku
-id
-
 
