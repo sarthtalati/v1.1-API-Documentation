@@ -227,6 +227,57 @@ Batch Support | No
 
 
 ## Retrieve Details of Emails Sent
+```html
+# Sample Request
+http://us.intouch.capillarytech.com/v1.1/communications/email?format=xml&id=2342344
+```
+
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>        
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>success</message>
+    </status>
+    <email>
+        <id>2342344</id>
+        <to>piyush.goel@example.com</to>
+        <cc>joe@example.com, jim@example.com</cc>    
+<subject>Test Email</subject>
+<description>This is body of the email sent</description>
+        <status>Delivered</status>
+        <sent_time>2016-08-05 22:00::IST</sent_time>
+</email>    
+</response>
+
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "success"
+    },
+    "email": {
+      "id": "2342344",
+      "to": "piyush.goel@example.com",
+      "cc": "joe@example.com, jim@example.com",
+      "subject": "Test Email",
+      "description": "This is body of the email sent",
+      "status": "Delivered",
+      "sent_time": "2016-08-05 22:00::IST"
+    }
+  }
+}
+```
+
+Returns the details of a specific sent email based on the message id you pass. 
 
 ### Resource Information
 Entry | Description
@@ -241,11 +292,77 @@ Batch Support | No
 ### Request URL
 `http://<cluster url>/v1.1/communications/email?format=<xml/json>&<parameters>`
 
-### Request Rameters
-id - Pass the message id generated for the sent message
+### Request Parameters
+id* - Pass the message id generated for the sent message
 
 
 ## Retrieve Details of SMSs Sent
+```html
+# Sample Request
+http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml&id=23423443
+```
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>        
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>success</message>
+    </status>
+    <sms>
+        <id>23423443</id>
+        <to>919980616xxx</to>        
+        <status>Sent</status>
+        <scheduled_time>2016-08-05 22:00:00IST</scheduled_time>
+        <message>Sample message</message>
+        <sender>test sender</sender>
+</sms>    
+</response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "success"
+    },
+    "sms": {
+      "id": "23423443",
+      "to": "919980616xxx",
+      "status": "Sent",
+      "scheduled_time": "2016-08-05 22:00:00IST",
+      "message": "Sample message",
+      "sender": "test sender"
+    }
+  }
+}
+```
+
+Returns the details of a specific sent SMS based on the message id you pass.
+
+### Resource Information
+Entry | Description
+----- | -----------
+URI | communications/sms
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | No
+
+### Request URL
+`http://<cluster url>/v1.1/communications/sms?format=<xml/json>&<parameters>`
+
+### Request Parameters
+id* - Pass the unique id of the message that you want to retrieve
+
+
+
 
 
 ## Response Codes
