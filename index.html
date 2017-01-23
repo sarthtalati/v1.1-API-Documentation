@@ -6968,6 +6968,50 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/communications/email?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="retrieve-details-of-emails-sent">Retrieve Details of Emails Sent</h2>
+<pre class="highlight html"><code># Sample Request
+http://us.intouch.capillarytech.com/v1.1/communications/email?format=xml<span class="err">&amp;</span>id=2342344
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>        
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;email&gt;</span>
+        <span class="nt">&lt;id&gt;</span>2342344<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;to&gt;</span>piyush.goel@example.com<span class="nt">&lt;/to&gt;</span>
+        <span class="nt">&lt;cc&gt;</span>joe@example.com, jim@example.com<span class="nt">&lt;/cc&gt;</span>    
+<span class="nt">&lt;subject&gt;</span>Test Email<span class="nt">&lt;/subject&gt;</span>
+<span class="nt">&lt;description&gt;</span>This is body of the email sent<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;status&gt;</span>Delivered<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;sent_time&gt;</span>2016-08-05 22:00::IST<span class="nt">&lt;/sent_time&gt;</span>
+<span class="nt">&lt;/email&gt;</span>    
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2342344"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"piyush.goel@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joe@example.com, jim@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Email"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is body of the email sent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-05 22:00::IST"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the details of a specific sent email based on the message id you pass. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -7007,11 +7051,94 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/communications/email?format=&lt;xml/json&gt;&amp;&lt;parameters&gt;</code></p>
 
-<h3 id="request-rameters">Request Rameters</h3>
+<h3 id="request-parameters">Request Parameters</h3>
 
-<p>id - Pass the message id generated for the sent message</p>
+<p>id* - Pass the message id generated for the sent message</p>
 
 <h2 id="retrieve-details-of-smss-sent">Retrieve Details of SMSs Sent</h2>
+<pre class="highlight html"><code># Sample Request
+http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml<span class="err">&amp;</span>id=23423443
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>        
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;sms&gt;</span>
+        <span class="nt">&lt;id&gt;</span>23423443<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;to&gt;</span>919980616xxx<span class="nt">&lt;/to&gt;</span>        
+        <span class="nt">&lt;status&gt;</span>Sent<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;scheduled_time&gt;</span>2016-08-05 22:00:00IST<span class="nt">&lt;/scheduled_time&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Sample message<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;sender&gt;</span>test sender<span class="nt">&lt;/sender&gt;</span>
+<span class="nt">&lt;/sms&gt;</span>    
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23423443"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919980616xxx"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sent"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-05 22:00:00IST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample message"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test sender"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns the details of a specific sent SMS based on the message id you pass.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Entry</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>communications/sms</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/communications/sms?format=&lt;xml/json&gt;&amp;&lt;parameters&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>id* - Pass the unique id of the message that you want to retrieve</p>
 
 <h2 id="response-codes">Response Codes</h2>
 
