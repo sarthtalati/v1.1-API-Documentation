@@ -101,12 +101,13 @@ When an API call is made with 4 batch transactions, A response header is generat
 ## HTTP Request
 Type | Description
 ---- | -----------
-Request URL Format | http://<host>/<API version no.>/<entity>/<method>.<format>
+Request URL Format | `http://<host>/<API version no.>/<entity>/<method>.<format>`
 Host | The server to which the API calls are made (cluster URL). <br>**India**: intouch.capillary.co.in <br>**APAC2**: apac2.intouch.capillarytech.com <br>**EU**: eu.intouch.capillarytech.com, <br>**US**: us.intouch.capillarytech.com
 API Version Number | v1.1
 Entity | Provide the appropriate entity based on the action to be performed. The supported entities are communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GETand POST
-Response Format | The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention `format=xml` explicitly.
+Response Format | The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention `format=json` explicitly or just pass the request url with .json. <br>
+Exampl: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
 
 ## Response Codes
 ```xml
