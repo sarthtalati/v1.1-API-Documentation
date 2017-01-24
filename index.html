@@ -195,7 +195,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 </thead><tbody>
 <tr>
 <td>Request URL Format</td>
-<td>http://<host>/<API version no.>/<entity>/<method>.<format></td>
+<td><code class="prettyprint">http://&lt;host&gt;/&lt;API version no.&gt;/&lt;entity&gt;/&lt;method&gt;.&lt;format&gt;</code></td>
 </tr>
 <tr>
 <td>Host</td>
@@ -215,9 +215,11 @@ When an API call is made with 4 batch transactions, A response header is generat
 </tr>
 <tr>
 <td>Response Format</td>
-<td>The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention <code class="prettyprint">format=xml</code> explicitly.</td>
+<td>The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention <code class="prettyprint">format=json</code> explicitly or just pass the request url with .json. <br></td>
 </tr>
 </tbody></table>
+
+<p>Exampl: <code class="prettyprint">http://eu.intouch.capillarytech.com/v1.1/customer/add.json</code></p>
 
 <h2 id="response-codes">Response Codes</h2>
 <pre class="highlight xml"><code># API level Response Code
