@@ -2005,6 +2005,612 @@ start_date | Retrieve tickets created in a specific duration - between start_dat
 end_date | Retrieve tickets created in a specific duration - between start_date to end_date
 
 
+## Issue Referral Code
+```html
+http://us.intouch.capillarytech.com/customer/referrals
+```
+
+> Sample POST Request
+
+```xml
+<root>
+<customer>
+<!-- Any one identifier is required -->
+<email></email>
+<mobile>9174116390xx</mobile>
+<id></id>
+<external_id></external_id>
+<referrals>
+<!-- If no campaign id passed, default campaign is considered -->
+<campaign_token>12511</campaign_token>
+<referral_type>
+<type>EMAIL</type>
+<referral>
+<id>1</id>
+<name>Dexter Morgan</name>
+<identifier>dexter.morgan@mpd.com</identifier>
+<invited_on>20160912T15:
+19:21+05:30</invited_on>
+</referral>
+<referral>
+<id>2</id>
+<name>Debra Morgan</name>
+<identifier>debra.morgan@elwaydetectives.com</identifier
+>
+<invited_on>20130912T15:
+19:21+05:30</invited_on>
+</referral>
+<referral>
+<id>3</id>
+<name>Eddard ‘Ned’ Stark</name>
+<identifier>eddard.stark@winterfell.com</identifier>
+<invited_on>2016-09-12 T15:19:21+05:30</invited_on>
+</referral>
+</referral_type>
+</referrals>
+</customer>
+</root>
+
+```
+
+```json
+{
+  "root": {
+    "customer": {
+      "mobile": "9174116390xx",
+      "referrals": {
+        "campaign_token": "12511",
+        "referral_type": {
+          "type": "EMAIL",
+          "referral": [
+            {
+              "id": "1",
+              "name": "Dexter Morgan",
+              "identifier": "dexter.morgan@mpd.com",
+              "invited_on": "20160912T15:19:21+05:30"
+            },
+            {
+              "id": "2",
+              "name": "Debra Morgan",
+              "identifier": "debra.morgan@elwaydetectives.com",
+              "invited_on": "20160912T15:19:21+05:30"
+            },
+            {
+              "id": "3",
+              "name": "Eddard ‘Ned’ Stark",
+              "identifier": "eddard.stark@winterfell.com",
+              "invited_on": "2016-09-12 T15:19:21+05:30"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+> Sample Response
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "success"
+    },
+    "customers": {
+      "customer": {
+        "email": "vimalsudhan@gmail.com",
+        "mobile": "9197407983xx",
+        "external_id": "VIMAL004",
+        "id": "4596849",
+        "firstname": "Vimal",
+        "lastname": "Sudhan",
+        "referrals": {
+          "referral_type": [
+            {
+              "type": "EMAIL",
+              "referral": [
+                {
+                  "id": "1",
+                  "name": "Dexter Morgan",
+                  "identifier": "dexter.morgan@mpd.com",
+                  "invited_on": "2016-09-12T15:19:21+05:30",
+                  "status": {
+                    "success": "true",
+                    "code": "100",
+                    "message": "Invitee added
+ successfully"
+                  }
+                },
+                {
+                  "id": "2",
+                  "name": "Debra Morgan",
+                  "identifier": "debra.morgan@elwaydetectives.com",
+                  "invited_on": "2013-09-12T15:19:21+05:30",
+                  "status": {
+                    "success": "true",
+                    "code": "100",
+                    "message": "Invitee added
+ successfully"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "MOBILE",
+              "referral": [
+                {
+                  "id": "4",
+                  "name": "Arya Stark",
+                  "identifier": "919911223xx",
+                  "invited_on": "2016-09-12T15:19:21+05:30",
+                  "status": {
+                    "success": "true",
+                    "code": "100",
+                    "message": "Invitee added
+ successfully"
+                  }
+                },
+                
+                {
+                  "id": "10",
+                  "name": "Walt Jr",
+                  "identifier": "919876543211",
+                  "invited_on": " 2016-09-12T15:19:21+05:30",
+                  "status": {
+                    "success": "true",
+                    "code": "100",
+                    "message": "Invitee added
+ successfully"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "item_status": {
+          "success": "true",
+          "code": "1000",
+          "message": "Referrals are invited Successfully"
+        }
+      }
+    }
+  }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<status>
+<success>true</success>
+<code>200</code>
+<message>success</message>
+</status>
+<customers>
+<customer>
+    <email>vimalsudhan@gmail.com</email>
+    <mobile>919740798372</mobile>
+    <external_id>VIMAL004</external_id>
+    <id>4596849</id>
+    <firstname>Vimal</firstname>
+    <lastname>Sudhan</lastname>
+    <referrals>
+        <referral_type>
+            <type>EMAIL</type>
+            <referral>
+                <id>1</id>
+                <name>Dexter Morgan</name>
+                <identifier>dexter.morgan@mpd.com</identifier>
+                <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                <status>
+            <success>true</success>            
+                <code>100</code>
+                <message>Invitee added
+ successfully</message>
+                </status>
+            </referral>
+            <referral>
+                <id>2</id>
+<name>Debra Morgan</name>                <identifier>debra.morgan@elwaydetectives.com</identifier>
+                <invited_on>2013-09-12T15:19:21+05:30</invited_on>
+                <status>
+            <success>true</success>            
+                <code>100</code>
+                <message>Invitee added
+ successfully</message>
+                </status>
+            </referral>
+            
+</referral_type>
+                <referral_type>
+                    <type>MOBILE</type>
+                    <referral>
+                        <id>5</id>
+                        <name>Heisenberg</name>
+                        <identifier>919123456789</identifier>
+                <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                <status>
+                <success>true</success>                            <code>100</code>
+            
+<message>Invitee added
+ successfully</message>
+                </status>
+                    </referral>
+                    <referral>
+                        <id>10</id>
+                        <name>Walt Jr</name>
+                        <identifier>919876543211</identifier>
+<invited_on> 2016-09-12T15:19:21+05:30</invited_on>
+                <status>
+                <success>true</success>                            <code>100</code>
+            <message>Invitee added
+ successfully</message>
+                </status>
+                    </referral>
+                </referral_type>
+    </referrals>
+<item_status>        
+<success>true</success>        
+<code>1000</code>        
+<message>Referrals are invited Successfully</message>     
+</item_status>
+</customer>
+</customers>
+</response>
+```
+
+This API allows you to send the referral code of a specific campaign to a customer (auto generated referral code).
+
+### Naming Conventions
+It is important to understand the following terminologies that you may come across while using the customer/APIs.
+
+* **referral_code**: Unique code generated for the referrer for a specific campaign. Each referral campaign generate a unique code for each customer.
+* **invitee**: A person who was invited by the referrer. The list will have the list of both successful and failed referees
+* **referees**: Customers from the invitee list who turned up to the stores and made either transactions or registrations
+* **incentives**: Rewards received by the referral for successful referees of the campaign. Currently, only coupons are issued as incentives
+* **scope**: The channel through which the referral was made. Currently, the referrals are supported only through email and mobile number. Scopes are used as name-value pairs, the value could be referees, invitees, or incentives as per the context.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/referrals
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | POST
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/customer/referrals?<query-params>`
+
+
+
+## Retrieve Referral Details of a Customer
+```html
+http://us.intouch.capillarytech.com/customer/referrals&mobile=9197407983xx
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<status>
+<success>true</success>
+<code>200</code>
+<message>success</message>
+</status>
+<customer>
+    <email>vimalsudhan@example.com</email>
+    <mobile>9197407983xx</mobile>
+    <external_id>VIMAL004</external_id>
+    <id>4596849</id>
+    <firstname>Vimal</firstname>
+    <lastname>Sudhan</lastname>
+<referral_code>DJK39</referral_code>
+    <invitees>
+        <referral_type>
+            <type>EMAIL</type>
+            <invitee>
+                <identifier>dexter.morgan@mpd.com</identifier>
+                <invited_on>2013-09-02 12:49:12</invited_on>
+                <till>
+                    <code>store.till</code>
+                    <name>store till</name>
+                </till>
+            </invitee>
+            <invitee>
+                <identifier>
+debra.morgan@elwaydetectives.com</identifier>
+                <invited_on>2013-09-01 13:04:10</invited_on>
+                <till>
+                    <code>till.cap.123</code>
+                    <name>cap till</name>
+                </till>
+            </invitee>
+        <invitee>
+                <identifier>
+eddard.stark@winterfell.com</identifier>
+                <invited_on>2013-08-21 10:04:10</invited_on>
+                <till>
+                    <code>till.cap.123</code>
+                    <name>cap till</name>
+                </till>
+            </invitee>
+        </referral_type>
+        <referral_type>
+            <type>MOBILE</type>
+            <invitee>
+                <identifier>919123456789</identifier>
+                <invited_on>2013-09-02 12:49:12</invited_on>
+                <till>
+                    <code>store.till</code>
+                    <name>store till</name>
+                </till>
+                <success>true</success>
+            </invitee>
+            <invitee>
+                <identifier>
+919876543210</identifier>
+                <invited_on>2013-09-01 13:04:10</invited_on>
+                <till>
+                    <code>till.cap.123</code>
+                    <name>cap till</name>
+                </till>
+                <success>false</success>
+            </invitee>
+        <invitee>
+                <identifier>
+919112233445</identifier>
+                <invited_on>2013-08-21 10:04:10</invited_on>
+                <till>
+                    <code>till.cap.123</code>
+                    <name>cap till</name>
+                </till>
+                <success>true</success>
+            </invitee>
+        </referral_type>
+    </invitees>
+    <referees>
+            <referee>
+                <event_type>TRANSACTION</event_type>
+                <user_id>1494955</user_id>
+<!-- only when user_id=true get param -->
+<firstname>Dexter</firstname>
+<lastname>Morgan</lastname>
+<email>dexter.morgan@mpd.com</email>
+<mobile>919988776655</mobile>
+<external_id>MPD345</external_id>
+<added_on>2013-09-02 11:29:10</added_on>
+            </referee>
+            <referee>
+                <event_type>REGISTRATION</event_type>
+                <user_id>1494915</user_id>
+<!-- only when user_id=true get param -->
+<firstname>Debra</firstname>
+<lastname>Morgan</lastname>
+<email>debra.morgan@elwaydetectives.com</email>
+<mobile>919988976655</mobile>
+<external_id>ELW345</external_id>
+<added_on>2013-09-01 10:29:10</added_on>
+            </referee>
+
+    </referees>
+    <incentives>
+        <event_type>
+            <name>TRANSACTION</name>
+            <coupons>
+                <coupon>
+                    <code>934KD944K</code>
+                    <valid_till>2014-02-12 12:10:40</valid_till>
+                    <redemption_info>
+                        <redeemed>true</redeemed>
+                        <redeemed_on>2013-12-12 14:29:41</redeemed_on>
+</redemption_info>
+                </coupon>
+            </coupons>
+        </event_type>
+        <event_type>
+            <name>REGISTRATION</name>
+            <coupons>
+                <coupon>
+                    <code>DFI3KDL</code>
+                    <valid_till>2014-01-12 19:10:40</valid_till>
+                    <value>50</value>
+                    <redemption_info>
+                        <redeemed>true</redeemed>
+                        <redeemed_on>2013-02-12 14:29:41</redeemed_on>
+                    </redemption_info>
+                </coupon>
+            </coupons>
+        </event_type>
+    </incentives>
+<item_status>        
+<success>true</success>        
+<code>1000</code>
+<message>Referral Statistics retrieved successfully</message>     
+</item_status>   
+</customer>
+</response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "success"
+    },
+    "customer": {
+      "email": "vimalsudhan@gmail.com",
+      "mobile": "919740798372",
+      "external_id": "VIMAL004",
+      "id": "4596849",
+      "firstname": "Vimal",
+      "lastname": "Sudhan",
+      "referral_code": "DJK39",
+      "invitees": {
+        "referral_type": [
+          {
+            "type": "EMAIL",
+            "invitee": [
+              {
+                "identifier": "dexter.morgan@mpd.com",
+                "invited_on": "2013-09-02 12:49:12",
+                "till": {
+                  "code": "store.till",
+                  "name": "store till"
+                }
+              },
+              {
+                "identifier": "
+debra.morgan@elwaydetectives.com",
+                "invited_on": "2013-09-01 13:04:10",
+                "till": {
+                  "code": "till.cap.123",
+                  "name": "cap till"
+                }
+              },
+              {
+                "identifier": "
+eddard.stark@winterfell.com",
+                "invited_on": "2013-08-21 10:04:10",
+                "till": {
+                  "code": "till.cap.123",
+                  "name": "cap till"
+                }
+              }
+            ]
+          },
+          {
+            "type": "MOBILE",
+            "invitee": [
+              {
+                "identifier": "919123456789",
+                "invited_on": "2013-09-02 12:49:12",
+                "till": {
+                  "code": "store.till",
+                  "name": "store till"
+                },
+                "success": "true"
+              },
+              {
+                "identifier": "
+919876543210",
+                "invited_on": "2013-09-01 13:04:10",
+                "till": {
+                  "code": "till.cap.123",
+                  "name": "cap till"
+                },
+                "success": "false"
+              },
+              {
+                "identifier": "
+919112233445",
+                "invited_on": "2013-08-21 10:04:10",
+                "till": {
+                  "code": "till.cap.123",
+                  "name": "cap till"
+                },
+                "success": "true"
+              }
+            ]
+          }
+        ]
+      },
+      "referees": {
+        "referee": [
+          {
+            "event_type": "TRANSACTION",
+            "user_id": "1494955",
+            "firstname": "Dexter",
+            "lastname": "Morgan",
+            "email": "dexter.morgan@mpd.com",
+            "mobile": "919988776655",
+            "external_id": "MPD345",
+            "added_on": "2013-09-02 11:29:10"
+          },
+          {
+            "event_type": "REGISTRATION",
+            "user_id": "1494915",
+            "firstname": "Debra",
+            "lastname": "Morgan",
+            "email": "debra.morgan@elwaydetectives.com",
+            "mobile": "919988976655",
+            "external_id": "ELW345",
+            "added_on": "2013-09-01 10:29:10"
+          }
+        ]
+      },
+      "incentives": {
+        "event_type": [
+          {
+            "name": "TRANSACTION",
+            "coupons": {
+              "coupon": {
+                "code": "934KD944K",
+                "valid_till": "2014-02-12 12:10:40",
+                "redemption_info": {
+                  "redeemed": "true",
+                  "redeemed_on": "2013-12-12 14:29:41"
+                }
+              }
+            }
+          },
+          {
+            "name": "REGISTRATION",
+            "coupons": {
+              "coupon": {
+                "code": "DFI3KDL",
+                "valid_till": "2014-01-12 19:10:40",
+                "value": "50",
+                "redemption_info": {
+                  "redeemed": "true",
+                  "redeemed_on": "2013-02-12 14:29:41"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "item_status": {
+        "success": "true",
+        "code": "1000",
+        "message": "Referral Statistics retrieved successfully"
+      }
+    }
+  }
+}
+```
+
+Returns the stats of the referrals sent, and gets the unique referral code of a referral campaign sent to the specific  customer.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/referrals
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | POST
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/customer/referrals?<query-params>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Customer identifier* | Pass the customer identifier (mobile/email/external_id) for whom you want to track the referral details
+campaign_token | Pass the specific token id of the referral campaign that you want to fetch. If no campaign id is passed, the details of the customer's referral history of the default campaign will be retrieved
+start_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
+end_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
+store_code | Retrieve referral stats of the specific store. Default value will be the current store. Set `all` to track details from all the stores
+only_referral_code | Set `true` to retrieve the referral code of the campaign (of the specific customer)
+
+
 ## Response Codes
 ### Success Codes
 | Code |  Description                                          | 

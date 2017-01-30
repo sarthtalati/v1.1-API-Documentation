@@ -37,7 +37,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 ```json
 {
   "root": {
-    "transaction": {
+    "transaction": [{
       "bill_client_id": "1121",
       "type": "regular",
       "number": "MyBill-077",
@@ -93,6 +93,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         "name": "Tom Sawyer"
       }
     }
+	]
   }
 }
 ```
