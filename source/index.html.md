@@ -49,7 +49,7 @@ If you authenticate using till1 credentials, you can access org level data and o
 
 
 <aside class="warning">
-For any assistance on Organization setup, please contact your Capillary's Account Manager.
+For any assistance on Organization setup, please contact your Account Manager of Capillary.
 </aside>
 
 
@@ -88,7 +88,7 @@ Then encode the username and md5 password to Base64. i.e.
   "Connection": "keep-alive"
 }
 ```
-A unique id is generated for every request made using Capillary APIs and is sent to the requestor in the Response Headers as "X-Cap-Requestid". 
+A unique id is generated for every request made using Capillary APIs and is sent to the requester in the Response Headers as "X-Cap-Requestid". 
 You can use this request id to track the request end-to-end.
 <aside class="notice"
 It is recommended to note the `X-Cap-Requestid` of a request for future requirements.
@@ -106,8 +106,7 @@ Host | The server to which the API calls are made (cluster URL). <br>**India**: 
 API Version Number | v1.1
 Entity | Provide the appropriate entity based on the action to be performed. The supported entities are communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GETand POST
-Response Format | The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention `format=json` explicitly or just pass the request url with .json. <br>
-Exampl: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
+Response Format | The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention `format=json` explicitly or just pass the request url with `.json` extension. <br>Example: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
 
 ## Response Codes
 ```xml
