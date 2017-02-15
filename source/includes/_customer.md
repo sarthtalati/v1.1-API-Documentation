@@ -1723,6 +1723,7 @@ start_date | Retrieve coupons issued in a specific duration - coupons issued bet
 end_date | Retrieve coupons issued in a specific duration - coupons issued between start_date and end_date
 status | Retrieve coupons by coupon status. <br>**Values**: redeemed, expired, active. <br>You can also pass more than one status separating each ; (semi-colon)
 series_id | Retrieve details of a specific coupon series issued to the customer
+store_id | Retrieves the details of active coupons of the customer that can be redeemed at a specific store
 order_by | Order the results by created date, amount or issued TILL (`created_date`, `amount`, `valid_till`) based on the type passed
 sort_order | Sort the results in ascending (`asc`) or descending (`desc`) order
 
