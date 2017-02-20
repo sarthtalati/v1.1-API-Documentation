@@ -4215,40 +4215,38 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add?format=&lt;xml/json&gt;</code></p>
 
-<h2 id="add-transaction-with-customer-39-s-local-currency">Add Transaction with Customer&rsquo;s Local Currency</h2>
+<h2 id="convert-transaction-currency">Convert Transaction Currency</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
-<p>Sample POST Request
-<code class="prettyprint">xml
-&lt;root&gt;
-&lt;transaction&gt;
-&lt;comment&gt;&lt;/comment&gt;
-&lt;customer&gt;
-&lt;mobile&gt;91000000099&lt;/mobile&gt;
-&lt;email&gt;john@example.com&lt;/email&gt;
-&lt;firstname&gt;autofn_7353409276&lt;/firstname&gt;
-&lt;/customer&gt;
-&lt;billing_time&gt;2014-01-21&lt;/billing_time&gt;
-&lt;type&gt;regular&lt;/type&gt;
-&lt;gross_amount&gt;1000&lt;/gross_amount&gt;
-&lt;number&gt;numbr735ccdcdb34&lt;/number&gt;
-&lt;bill_client_id&gt;1121&lt;/bill_client_id&gt;
-&lt;discount&gt;0&lt;/discount&gt;
-&lt;amount&gt;2000&lt;/amount&gt;
-&lt;credit_note&gt;
-&lt;comment&gt;&lt;/comment&gt;
-&lt;amount&gt;1800&lt;/amount&gt;
-&lt;notes&gt;Reason for credit&lt;/notes&gt;
-&lt;number&gt;numbr9959104543&lt;/number&gt;
-&lt;/credit_note&gt;
-&lt;notes&gt;Regular Bill with Payment Details&lt;/notes&gt;
-&lt;/transaction&gt;
-&lt;/root&gt;
-</code></p>
+<p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+<span class="nt">&lt;transaction&gt;</span>
+<span class="nt">&lt;comment&gt;&lt;/comment&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+<span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
+<span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
+<span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;billing_time&gt;</span>2014-01-21<span class="nt">&lt;/billing_time&gt;</span>
+<span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
+<span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
+<span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
+<span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
+<span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+<span class="nt">&lt;amount&gt;</span>2000<span class="nt">&lt;/amount&gt;</span>
+<span class="nt">&lt;credit_note&gt;</span>
+<span class="nt">&lt;comment&gt;&lt;/comment&gt;</span>
+<span class="nt">&lt;amount&gt;</span>1800<span class="nt">&lt;/amount&gt;</span>
+<span class="nt">&lt;notes&gt;</span>Reason for credit<span class="nt">&lt;/notes&gt;</span>
+<span class="nt">&lt;number&gt;</span>numbr9959104543<span class="nt">&lt;/number&gt;</span>
+<span class="nt">&lt;/credit_note&gt;</span>
+<span class="nt">&lt;notes&gt;</span>Regular Bill with Payment Details<span class="nt">&lt;/notes&gt;</span>
+<span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
