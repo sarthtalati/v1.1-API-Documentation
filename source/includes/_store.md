@@ -177,7 +177,7 @@ http://us.intouch.capillarytech.com/v1.1/store/staff?format=json&type=ASSOCIATE
 
 > Sample Response
 
-```xml
+```json
 {
     "response": {
         "status": {
@@ -228,7 +228,7 @@ http://us.intouch.capillarytech.com/v1.1/store/staff?format=json&type=ASSOCIATE
 }
 ```
 
-```json
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
     <status>
@@ -423,7 +423,7 @@ Batch Support | No
 http://api.capillary.co.in/v1.1/store/login.json
 ```
 
-> Sample Request
+> Sample Response
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
