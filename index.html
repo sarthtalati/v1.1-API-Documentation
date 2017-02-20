@@ -4215,7 +4215,191 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add?format=&lt;xml/json&gt;</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h2 id="add-transaction-with-customer-39-s-local-currency">Add Transaction with Customer&rsquo;s Local Currency</h2>
+<pre class="highlight html"><code># Sample Request
+http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request
+<code class="prettyprint">xml
+&lt;root&gt;
+&lt;transaction&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;customer&gt;
+&lt;mobile&gt;91000000099&lt;/mobile&gt;
+&lt;email&gt;john@example.com&lt;/email&gt;
+&lt;firstname&gt;autofn_7353409276&lt;/firstname&gt;
+&lt;/customer&gt;
+&lt;billing_time&gt;2014-01-21&lt;/billing_time&gt;
+&lt;type&gt;regular&lt;/type&gt;
+&lt;gross_amount&gt;1000&lt;/gross_amount&gt;
+&lt;number&gt;numbr735ccdcdb34&lt;/number&gt;
+&lt;bill_client_id&gt;1121&lt;/bill_client_id&gt;
+&lt;discount&gt;0&lt;/discount&gt;
+&lt;amount&gt;2000&lt;/amount&gt;
+&lt;credit_note&gt;
+&lt;comment&gt;&lt;/comment&gt;
+&lt;amount&gt;1800&lt;/amount&gt;
+&lt;notes&gt;Reason for credit&lt;/notes&gt;
+&lt;number&gt;numbr9959104543&lt;/number&gt;
+&lt;/credit_note&gt;
+&lt;notes&gt;Regular Bill with Payment Details&lt;/notes&gt;
+&lt;/transaction&gt;
+&lt;/root&gt;
+</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91000000099"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autofn_7353409276"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-01-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr735ccdcdb34"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_note"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1800"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reason for credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr9959104543"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular Bill with Payment Details"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34058904<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
+            <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>282100245<span class="nt">&lt;/user_id&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
+                <span class="nt">&lt;lifetime_points&gt;</span>0<span class="nt">&lt;/lifetime_points&gt;</span>
+                <span class="nt">&lt;loyalty_points&gt;</span>0<span class="nt">&lt;/loyalty_points&gt;</span>
+                <span class="nt">&lt;current_slab&gt;&lt;/current_slab&gt;</span>
+                <span class="nt">&lt;tier_expiry_date&gt;&lt;/tier_expiry_date&gt;</span>
+                <span class="nt">&lt;lifetime_purchases&gt;</span>2000<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+                <span class="nt">&lt;effect/&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34058904"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr735ccdcdb34"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"282100245"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91000000099"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autofn_7353409276"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction added successfully"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows you to convert transaction the currency using the currency conversion ratio. All the loyalty activities such as points/coupon need to be issued or redeemed will happen as per the local currency(the customer registered) even though transaction is made in the store with different base currency. </p>
+
+<p>To use this feature, you need to have enabled <code class="prettyprint">ERR_CURRENCY_CONVERSION_DISABLED</code> on InTouch Settings.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>transaction/add_with_local_currency</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="return-transactions">Return Transactions</h2>
 <pre class="highlight html"><code># Sample Request
@@ -6758,7 +6942,7 @@ t<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
 </tr>
 </tbody></table>
 
-<h2 id="check-if-coupon-is-reedemable">Check if Coupon is Reedemable</h2>
+<h2 id="check-if-coupon-is-redeemable">Check if Coupon is Redeemable</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.intouch.capillarytech.com/v1.1/coupon/isredeemable?format=xml<span class="err">&amp;</span>details=true<span class="err">&amp;</span>code=06000041<span class="err">&amp;</span>mobile=447700900000
 </code></pre>
@@ -6829,6 +7013,8 @@ Cannot redeem same voucher multiple times
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>This API allows you to verify whether a coupon is redeemable by a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
@@ -7082,6 +7268,8 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.</p>
+
+<h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
@@ -8291,7 +8479,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tbody></table>
 
 <h2 id="reject-request">Reject Request</h2>
-<pre class="highlight html"><code>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/reject
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -8633,8 +8821,6 @@ The param `client_auto_approve` overrides all the server side configurations men
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This .</p>
-
 <p>The <code class="prettyprint">request/get</code> API allows you to retrieve up to 50 records containing goodwill and change identifier requests. a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.</p>
 
 <h3 id="resource-information">Resource Information</h3>
@@ -9037,6 +9223,8 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tbody></table>
 
           <h1 id="task">Task</h1>
+
+<p>Tasks could be any activity created by an associate for oneself or for other associate. The task entity allows you to create, update and map tasks and retrieve the details of tasks created in your organization.</p>
 
 <h2 id="create-tasks">Create Tasks</h2>
 <pre class="highlight html"><code># Sample Request
@@ -9877,7 +10065,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/update?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="retrieve-individual-task-details">Retrieve Individual Task Details</h2>
-<pre class="highlight html"><code>
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/get?format=xml
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -10046,19 +10234,20 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <td>start_date</td>
 <td>Returns the list of tasks created in a specific duration (set in start_date and end_date). If only start_date is mentioned then the list of tasks created on or after the specified date is returned.</td>
 </tr>
+<tr>
+<td>end_date</td>
+<td>Returns the list of tasks created in a specific duration set in start_date and end_date. If only end_date is passed then the list of tasks created on or before the specified date is returned.</td>
+</tr>
+<tr>
+<td>batch_size</td>
+<td>Limits the number of tasks to be displayed. For example, if <code class="prettyprint">batch_size=10</code> then the details of only 10 tasks are returned</td>
+</tr>
 </tbody></table>
 
-<p>end_date   Returns the list of tasks created in a specific duration set in start_date and end_date. If only end_date is passed then the list of tasks created on or before the specified date is returned.
- batch_size  Limits the number of tasks to be displayed. For example, if <code class="prettyprint">batch_size=10</code> then the details of only 10 tasks are returned</p>
-
-<p>## Retrieve Task Logs
-&ldquo;`</p>
-
-<h3 id="sample-request-url">Sample Request URL</h3>
-
-<p>http://api.capillary.co.in/v1.1/task/log?task_id=12,15
-&rdquo;`</p>
-
+<h2 id="retrieve-task-logs">Retrieve Task Logs</h2>
+<pre class="highlight html"><code># Sample Request URL
+http://us.intouch.capillarytech.com/v1.1/task/log?task_id=12,15
+</code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
@@ -10277,27 +10466,54 @@ represents corresponding value --&gt;</span>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns status mapping between internal status and organization level status.</p>
-
 <h3 id="resource-information">Resource Information</h3>
 
-<p>Parameter | Value
-URI | task/statusmapping
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-Response Object | Returns mapping between predefined status and user-defined status
- API Version | v1.1 
- Batch Support | No</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/statusmapping</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Returns mapping between predefined status and user-defined status</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>No</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/statusmapping?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="update-status-mappings">Update Status Mappings</h2>
-<pre class="highlight html"><code>
-
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/statusmapping.xml
 </code></pre><pre class="highlight xml"><code> <span class="nt">&lt;root&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;value&gt;</span>OPEN<span class="nt">&lt;/value&gt;</span>
@@ -10457,15 +10673,45 @@ Response Object | Returns mapping between predefined status and user-defined sta
 
 <h3 id="resource-information">Resource Information</h3>
 
-<p>Parameter | Value
-URI | task/statusmapping
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
-HTTP Methods | POST
-Response Object | Updates mapping between predefined and user-defined status
-API Version | v1.1 
-Batch Support | Yes</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>task/statusmapping</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Response Object</td>
+<td>Updates mapping between predefined and user-defined status</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
@@ -10726,7 +10972,7 @@ Batch Support | Yes</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Creates new task reminders or updates existing reminders</p>
+<p>Creates new task reminders or updates existing reminders.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -10773,6 +11019,140 @@ Batch Support | Yes</p>
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/reminder?format=&lt;xml/json&gt;&amp;only_for_stores=true</code></p>
+
+<h2 id="response-codes">Response Codes</h2>
+
+<h3 id="success-codes">Success Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5200</td>
+<td>Tasks retrieved successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Tasks meta data retrieved successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Task added successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Task updated successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Task fetched successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Task update log file fetched successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Task reminder added successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Update log file retrieved successfully</td>
+</tr>
+<tr>
+<td></td>
+<td>Status mapping added successfully</td>
+</tr>
+</tbody></table>
+
+<h3 id="error-codes">Error Codes</h3>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5201</td>
+<td>Unable to fetch task details</td>
+</tr>
+<tr>
+<td>5201</td>
+<td>Unable to fetch task meta data</td>
+</tr>
+<tr>
+<td>5201</td>
+<td>Unable to add the task</td>
+</tr>
+<tr>
+<td>5021</td>
+<td>Unable to update the task</td>
+</tr>
+<tr>
+<td>5203</td>
+<td>No identifier passed</td>
+</tr>
+<tr>
+<td>5204</td>
+<td>Invalid or empty task identifier</td>
+</tr>
+<tr>
+<td>5205</td>
+<td>One or more params you have passed are invalid. Please check the parameters</td>
+</tr>
+<tr>
+<td>5206</td>
+<td>Unable to add status mapping</td>
+</tr>
+<tr>
+<td>5206</td>
+<td>Unable to add reminder</td>
+</tr>
+<tr>
+<td>5207</td>
+<td>Invalid status passed</td>
+</tr>
+<tr>
+<td>5208</td>
+<td>Task end date should be greater than the task start date</td>
+</tr>
+<tr>
+<td>5208</td>
+<td>Invalid internal status</td>
+</tr>
+<tr>
+<td>5209</td>
+<td>Task expiry date should be greater than the task end date</td>
+</tr>
+<tr>
+<td>5211</td>
+<td>No tasks found</td>
+</tr>
+<tr>
+<td>5212</td>
+<td>Invalid id the recipient (an associate) to whom the task is assigned</td>
+</tr>
+<tr>
+<td>5212</td>
+<td>Customers are not registered in this organization</td>
+</tr>
+<tr>
+<td>5213</td>
+<td>One or more customers passed are not registered</td>
+</tr>
+<tr>
+<td>5213</td>
+<td>Invalid create by id</td>
+</tr>
+<tr>
+<td>5214</td>
+<td>Please pass the store id to update the task as an admin user</td>
+</tr>
+</tbody></table>
 
           <h1 id="organization">Organization</h1>
 
@@ -11826,7 +12206,7 @@ http://api.intouch.capillarytech.com/v1.1/organization/customfields?format=json
 http://us.intouch.capillarytech.com/v1.1/organization/tenders
 </code></pre>
 <blockquote>
-<p>Sample Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
@@ -12276,101 +12656,101 @@ http://us.intouch.capillarytech.com/v1.1/store/staff?format=json<span class="err
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>{
-    "response": {
-        "status": {
-            "success": "true", 
-            "code": "200", 
-            "message": "success"
-        }, 
-        "store": {
-            "staff": {
-                "user": [
-                    {
-                        "id": "2313", 
-                        "type": "ASSOCIATE", 
-                        "code": "marks12131", 
-                        "firstname": "George", 
-                        "lastname": "Milton", 
-                        "mobile": "447009000693", 
-                        "email": "george.milton@example.com", 
-                        "store_id": "232234", 
-                        "store_code": "store.server"
-                    }, 
-                    {
-                        "id": "2314", 
-                        "type": "ASSOCIATE", 
-                        "code": "marks12132", 
-                        "firstname": "George", 
-                        "lastname": "Milton", 
-                        "mobile": "447009000693", 
-                        "email": "george.milton@example.com", 
-                        "store_id": "232234", 
-                        "store_code": "store.server"
-                    }, 
-                    {
-                        "id": "2315", 
-                        "type": "ASSOCIATE", 
-                        "code": "marks12133", 
-                        "firstname": "George", 
-                        "lastname": "Milton", 
-                        "mobile": "447009000693", 
-                        "email": "george.milton@example.com", 
-                        "store_id": "232234", 
-                        "store_code": "store.server"
-                    }
-                ]
-            }
-        }
-    }
-}
-</code></pre><pre class="highlight json"><code><span class="err">&lt;?xml</span><span class="w"> </span><span class="err">version=</span><span class="s2">"1.0"</span><span class="w"> </span><span class="err">encoding=</span><span class="s2">"UTF-8"</span><span class="err">?&gt;</span><span class="w">
-</span><span class="err">&lt;response&gt;</span><span class="w">
-    </span><span class="err">&lt;status&gt;</span><span class="w">
-        </span><span class="err">&lt;success&gt;</span><span class="kc">true</span><span class="err">&lt;/success&gt;</span><span class="w">
-        </span><span class="err">&lt;code&gt;</span><span class="mi">200</span><span class="err">&lt;/code&gt;</span><span class="w">
-        </span><span class="err">&lt;message&gt;success&lt;/message&gt;</span><span class="w">
-    </span><span class="err">&lt;/status&gt;</span><span class="w">
-    </span><span class="err">&lt;store&gt;</span><span class="w">
-        </span><span class="err">&lt;staff&gt;</span><span class="w">
-            </span><span class="err">&lt;user&gt;</span><span class="w">
-                </span><span class="err">&lt;id&gt;</span><span class="mi">2313</span><span class="err">&lt;/id&gt;</span><span class="w">
-                </span><span class="err">&lt;type&gt;ASSOCIATE&lt;/type&gt;</span><span class="w">
-                </span><span class="err">&lt;!--</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">ASSOCIATE</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">manager</span><span class="w"> </span><span class="err">--&gt;</span><span class="w">
-                </span><span class="err">&lt;code&gt;marks</span><span class="mi">12131</span><span class="err">&lt;/code&gt;</span><span class="w">
-                </span><span class="err">&lt;firstname&gt;George&lt;/firstname&gt;</span><span class="w">
-                </span><span class="err">&lt;lastname&gt;Milton&lt;/lastname&gt;</span><span class="w">
-                </span><span class="err">&lt;mobile&gt;</span><span class="mi">447009000693</span><span class="err">&lt;/mobile&gt;</span><span class="w">
-                </span><span class="err">&lt;email&gt;george.milton@example.com&lt;/email&gt;</span><span class="w">
-                </span><span class="err">&lt;store_id&gt;</span><span class="mi">232234</span><span class="err">&lt;/store_id&gt;</span><span class="w">
-                </span><span class="err">&lt;store_code&gt;store.server&lt;/store_code&gt;</span><span class="w">
-            </span><span class="err">&lt;/user&gt;</span><span class="w">
-            </span><span class="err">&lt;user&gt;</span><span class="w">
-                </span><span class="err">&lt;id&gt;</span><span class="mi">2314</span><span class="err">&lt;/id&gt;</span><span class="w">
-                </span><span class="err">&lt;type&gt;ASSOCIATE&lt;/type&gt;</span><span class="w">
-                </span><span class="err">&lt;code&gt;marks</span><span class="mi">12132</span><span class="err">&lt;/code&gt;</span><span class="w">
-                </span><span class="err">&lt;firstname&gt;George&lt;/firstname&gt;</span><span class="w">
-                </span><span class="err">&lt;lastname&gt;Milton&lt;/lastname&gt;</span><span class="w">
-                </span><span class="err">&lt;mobile&gt;</span><span class="mi">447009000693</span><span class="err">&lt;/mobile&gt;</span><span class="w">
-                </span><span class="err">&lt;email&gt;george.milton@example.com&lt;/email&gt;</span><span class="w">
-                </span><span class="err">&lt;store_id&gt;</span><span class="mi">232234</span><span class="err">&lt;/store_id&gt;</span><span class="w">
-                </span><span class="err">&lt;store_code&gt;store.server&lt;/store_code&gt;</span><span class="w">
-            </span><span class="err">&lt;/user&gt;</span><span class="w">
-            </span><span class="err">&lt;user&gt;</span><span class="w">
-                </span><span class="err">&lt;id&gt;</span><span class="mi">2315</span><span class="err">&lt;/id&gt;</span><span class="w">
-                </span><span class="err">&lt;type&gt;ASSOCIATE&lt;/type&gt;</span><span class="w">
-                </span><span class="err">&lt;code&gt;marks</span><span class="mi">12133</span><span class="err">&lt;/code&gt;</span><span class="w">
-                </span><span class="err">&lt;firstname&gt;George&lt;/firstname&gt;</span><span class="w">
-                </span><span class="err">&lt;lastname&gt;Milton&lt;/lastname&gt;</span><span class="w">
-                </span><span class="err">&lt;mobile&gt;</span><span class="mi">447009000693</span><span class="err">&lt;/mobile&gt;</span><span class="w">
-                </span><span class="err">&lt;email&gt;george.milton@example.com&lt;/email&gt;</span><span class="w">
-                </span><span class="err">&lt;store_id&gt;</span><span class="mi">232234</span><span class="err">&lt;/store_id&gt;</span><span class="w">
-                </span><span class="err">&lt;store_code&gt;store.server&lt;/store_code&gt;</span><span class="w">
-            </span><span class="err">&lt;/user&gt;</span><span class="w">
-        </span><span class="err">&lt;/staff&gt;</span><span class="w">
-    </span><span class="err">&lt;/store&gt;</span><span class="w">
-</span><span class="err">&lt;/response&gt;</span><span class="w">
-</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"staff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2313"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASSOCIATE"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marks12131"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milton"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447009000693"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george.milton@example.com"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"232234"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.server"</span><span class="w">
+                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2314"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASSOCIATE"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marks12132"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milton"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447009000693"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george.milton@example.com"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"232234"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.server"</span><span class="w">
+                    </span><span class="p">},</span><span class="w"> 
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2315"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASSOCIATE"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marks12133"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Milton"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447009000693"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george.milton@example.com"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"232234"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="nt">"store_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.server"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;store&gt;</span>
+        <span class="nt">&lt;staff&gt;</span>
+            <span class="nt">&lt;user&gt;</span>
+                <span class="nt">&lt;id&gt;</span>2313<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;type&gt;</span>ASSOCIATE<span class="nt">&lt;/type&gt;</span>
+                <span class="c">&lt;!-- type can be ASSOCIATE or manager --&gt;</span>
+                <span class="nt">&lt;code&gt;</span>marks12131<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>George<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Milton<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>447009000693<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>george.milton@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;store_id&gt;</span>232234<span class="nt">&lt;/store_id&gt;</span>
+                <span class="nt">&lt;store_code&gt;</span>store.server<span class="nt">&lt;/store_code&gt;</span>
+            <span class="nt">&lt;/user&gt;</span>
+            <span class="nt">&lt;user&gt;</span>
+                <span class="nt">&lt;id&gt;</span>2314<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;type&gt;</span>ASSOCIATE<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;code&gt;</span>marks12132<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>George<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Milton<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>447009000693<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>george.milton@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;store_id&gt;</span>232234<span class="nt">&lt;/store_id&gt;</span>
+                <span class="nt">&lt;store_code&gt;</span>store.server<span class="nt">&lt;/store_code&gt;</span>
+            <span class="nt">&lt;/user&gt;</span>
+            <span class="nt">&lt;user&gt;</span>
+                <span class="nt">&lt;id&gt;</span>2315<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;type&gt;</span>ASSOCIATE<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;code&gt;</span>marks12133<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>George<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Milton<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>447009000693<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>george.milton@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;store_id&gt;</span>232234<span class="nt">&lt;/store_id&gt;</span>
+                <span class="nt">&lt;store_code&gt;</span>store.server<span class="nt">&lt;/store_code&gt;</span>
+            <span class="nt">&lt;/user&gt;</span>
+        <span class="nt">&lt;/staff&gt;</span>
+    <span class="nt">&lt;/store&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre>
 <p>Returns the entire staff details of the current organization. Staff could be associates and managers.</p>
 
 <h3 id="resource-information">Resource Information</h3>
@@ -12603,7 +12983,7 @@ http://us.intouch.capillarytech.com/v1/store/tasks?format=json
 http://api.capillary.co.in/v1.1/store/login.json
 </code></pre>
 <blockquote>
-<p>Sample Request</p>
+<p>Sample Response</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
