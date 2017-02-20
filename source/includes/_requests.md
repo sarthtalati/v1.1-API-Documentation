@@ -290,7 +290,7 @@ base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_t
 
 ## Reject Request
 ```html
-
+http://us.intouch.capillarytech.com/v1.1/request/reject
 ```
 > Sample POST Request
 
@@ -600,7 +600,7 @@ https://us.intouch.capillarytech.com/v1.1/request/get?format=json
   }
 }
 ```
- This .
+
 
 The `request/get` API allows you to retrieve up to 50 records containing goodwill and change identifier requests. a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.
 

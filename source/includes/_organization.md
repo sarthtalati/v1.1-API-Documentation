@@ -892,7 +892,7 @@ Scope | Value: customer_feedback, loyalty_transaction, loyalty_registration, cus
 http://us.intouch.capillarytech.com/v1.1/organization/tenders
 ```
 
-> Sample Request
+> Sample Response
 
 ```xml
 <response>

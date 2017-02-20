@@ -1,4 +1,5 @@
 # Task
+Tasks could be any activity created by an associate for oneself or for other associate. The task entity allows you to create, update and map tasks and retrieve the details of tasks created in your organization.
 
 ## Create Tasks
 ```html
@@ -749,7 +750,7 @@ Response Object | Modifies status and metadata of existing tasks
 
 ## Retrieve Individual Task Details
 ```html
-
+http://us.intouch.capillarytech.com/v1.1/task/get?format=xml
 ```
 
 > Sample Response
@@ -865,13 +866,13 @@ Parameter | Description
  customer_id | Returns the tasks created for a specific customer
  status | Returns the tasks by status. Value: OPEN, IN_PROGRESS, CLOSED
  start_date | Returns the list of tasks created in a specific duration (set in start_date and end_date). If only start_date is mentioned then the list of tasks created on or after the specified date is returned.
- end_date	Returns the list of tasks created in a specific duration set in start_date and end_date. If only end_date is passed then the list of tasks created on or before the specified date is returned.
- batch_size	 Limits the number of tasks to be displayed. For example, if `batch_size=10` then the details of only 10 tasks are returned
+ end_date | Returns the list of tasks created in a specific duration set in start_date and end_date. If only end_date is passed then the list of tasks created on or before the specified date is returned.
+ batch_size | Limits the number of tasks to be displayed. For example, if `batch_size=10` then the details of only 10 tasks are returned
  
- ## Retrieve Task Logs
-```
-### Sample Request URL
-http://api.capillary.co.in/v1.1/task/log?task_id=12,15
+## Retrieve Task Logs
+```html
+# Sample Request URL
+http://us.intouch.capillarytech.com/v1.1/task/log?task_id=12,15
 ```
 
 > Sample Response
@@ -961,7 +962,7 @@ Task Identifier is Empty or Invalid
 }
 ```
 
- Returns the log of task updates
+Returns the log of task updates
 
 ### Resource Information
 Entry | Description
@@ -1073,10 +1074,10 @@ represents corresponding value -->
 }
 ```
 
-Returns status mapping between internal status and organization level status.
 
 ### Resource Information
 Parameter | Value
+--------- | -----
 URI | task/statusmapping
 Rate Limited? | Yes
 Authentication | Yes
@@ -1091,8 +1092,7 @@ Response Object | Returns mapping between predefined status and user-defined sta
 
 ## Update Status Mappings
 ```html
-
-
+http://us.intouch.capillarytech.com/v1.1/task/statusmapping.xml
 ```
 
 ```xml
@@ -1261,6 +1261,7 @@ Allows to update mappings between the predefined and the user-defined statuses.
 
 ### Resource Information
 Parameter | Value
+--------- | -----
 URI | task/statusmapping
 Rate Limited? | Yes
 Authentication | Yes
@@ -1514,7 +1515,7 @@ http://us.intouch.capillarytech.com/v1.1/task/reminder?format=xml&only_for_store
 }
 ```
 
-Creates new task reminders or updates existing reminders
+Creates new task reminders or updates existing reminders.
 
 ### Resource Information
 Parameter | Value
@@ -1530,3 +1531,41 @@ Batch Support | Yes
 
 ### Request URL
 `http://<cluster url>/v1.1/task/reminder?format=<xml/json>&only_for_stores=true`
+
+
+## Response Codes
+### Success Codes
+Code | Description
+---- | -----------
+5200 | Tasks retrieved successfully
+     | Tasks meta data retrieved successfully
+     | Task added successfully
+	 | Task updated successfully
+	 | Task fetched successfully
+	 | Task update log file fetched successfully
+	 | Task reminder added successfully
+	 | Update log file retrieved successfully
+	 | Status mapping added successfully
+
+### Error Codes
+Code | Description
+---- | -----------
+5201 | Unable to fetch task details
+5201 | Unable to fetch task meta data 
+5201 | Unable to add the task
+5021 | Unable to update the task
+5203 | No identifier passed
+5204 | Invalid or empty task identifier
+5205 | One or more params you have passed are invalid. Please check the parameters
+5206 | Unable to add status mapping
+5206 | Unable to add reminder
+5207 | Invalid status passed
+5208 | Task end date should be greater than the task start date
+5208 | Invalid internal status
+5209 | Task expiry date should be greater than the task end date
+5211 | No tasks found
+5212 | Invalid id the recipient (an associate) to whom the task is assigned
+5212 | Customers are not registered in this organization
+5213 | One or more customers passed are not registered
+5213 | Invalid create by id
+5214 | Please pass the store id to update the task as an admin user 

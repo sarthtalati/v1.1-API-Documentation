@@ -302,7 +302,173 @@ Batch Support | Yes
 ### Request URL
 `http://<cluster url>/v1.1/transaction/add?format=<xml/json>`
 
-### Request Parameters
+
+ 
+## Add Transaction with Customer's Local Currency
+```html
+# Sample Request
+http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+```
+
+> Sample POST Request
+```xml
+<root>
+<transaction>
+<comment></comment>
+<customer>
+<mobile>91000000099</mobile>
+<email>john@example.com</email>
+<firstname>autofn_7353409276</firstname>
+</customer>
+<billing_time>2014-01-21</billing_time>
+<type>regular</type>
+<gross_amount>1000</gross_amount>
+<number>numbr735ccdcdb34</number>
+<bill_client_id>1121</bill_client_id>
+<discount>0</discount>
+<amount>2000</amount>
+<credit_note>
+<comment></comment>
+<amount>1800</amount>
+<notes>Reason for credit</notes>
+<number>numbr9959104543</number>
+</credit_note>
+<notes>Regular Bill with Payment Details</notes>
+</transaction>
+</root>
+```
+
+```json
+{
+  "root": {
+    "transaction": {
+      "customer": {
+        "mobile": "91000000099",
+        "email": "john@example.com",
+        "firstname": "autofn_7353409276"
+      },
+      "billing_time": "2014-01-21",
+      "type": "regular",
+      "gross_amount": "1000",
+      "number": "numbr735ccdcdb34",
+      "bill_client_id": "1121",
+      "discount": "0",
+      "amount": "2000",
+      "credit_note": {
+        "amount": "1800",
+        "notes": "Reason for credit",
+        "number": "numbr9959104543"
+      },
+      "notes": "Regular Bill with Payment Details"
+    }
+  }
+}
+```
+
+> Sample Response
+
+```xml
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>Success</message>
+    </status>
+    <transactions>
+        <transaction>
+            <id>34058904</id>
+            <number>numbr735ccdcdb34</number>
+            <bill_client_id>1121</bill_client_id>
+            <type>REGULAR</type>
+            <delivery_status>DELIVERED</delivery_status>
+            <customer>
+                <user_id>282100245</user_id>
+                <mobile>91000000099</mobile>
+                <firstname>autofn_7353409276</firstname>
+                <lastname></lastname>
+                <email>john@example.com</email>
+                <external_id></external_id>
+                <lifetime_points>0</lifetime_points>
+                <loyalty_points>0</loyalty_points>
+                <current_slab></current_slab>
+                <tier_expiry_date></tier_expiry_date>
+                <lifetime_purchases>2000</lifetime_purchases>
+                <type>LOYALTY</type>
+                <source>instore</source>
+            </customer>
+            <side_effects>
+                <effect/>
+            </side_effects>
+            <source>instore</source>
+            <item_status>
+                <code>600</code>
+                <success>true</success>
+                <message>Transaction added successfully</message>
+            </item_status>
+        </transaction>
+    </transactions>
+</response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "Success"
+    },
+    "transactions": {
+      "transaction": {
+        "id": "34058904",
+        "number": "numbr735ccdcdb34",
+        "bill_client_id": "1121",
+        "type": "REGULAR",
+        "delivery_status": "DELIVERED",
+        "customer": {
+          "user_id": "282100245",
+          "mobile": "91000000099",
+          "firstname": "autofn_7353409276",
+          "email": "john@example.com",
+          "lifetime_points": "0",
+          "loyalty_points": "0",
+          "lifetime_purchases": "2000",
+          "type": "LOYALTY",
+          "source": "instore"
+        },
+        "side_effects": {
+          
+        },
+        "source": "instore",
+        "item_status": {
+          "code": "600",
+          "success": "true",
+          "message": "Transaction added successfully"
+        }
+      }
+    }
+  }
+}
+```
+
+This API allows you to convert transaction the currency using the currency conversion ratio. All the loyalty activities such as points/coupon need to be issued or redeemed will happen as per the local currency(the customer registered) even though transaction is made in the store with different base currency. 
+
+To use this feature, you need to have enabled `ERR_CURRENCY_CONVERSION_DISABLED` on InTouch Settings.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | transaction/add_with_local_currency
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | POST
+API Version | v1.1
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+
 
 
 ## Return Transactions
@@ -1006,6 +1172,7 @@ returned only when query param user_id is true
 
 
 This API allows you to fetch the details of a specific transaction based on the transaction id.
+
 ### Resource Information
 Entry | Description
 ----- | -----------

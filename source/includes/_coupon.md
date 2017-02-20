@@ -523,7 +523,7 @@ Parameter | Description
 id | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each id separating with , (comma)
 code | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each code separating with , (comma)
 
-## Check if Coupon is Reedemable
+## Check if Coupon is Redeemable
 ```html
 # Sample Request
 http://us.intouch.capillarytech.com/v1.1/coupon/isredeemable?format=xml&details=true&code=06000041&mobile=447700900000
@@ -599,6 +599,7 @@ Cannot redeem same voucher multiple times
 
 This API allows you to verify whether a coupon is redeemable by a specific customer.
 
+### Resource Information
 Entry | Description
 ----- | -----------
 URI | coupon/isredeemable
@@ -815,6 +816,7 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 
 This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
 
+### Resource Information
 Entry | Description
 ----- | -----------
 URI | coupon/series
