@@ -304,13 +304,14 @@ Batch Support | Yes
 
 
  
-## Add Transaction with Customer's Local Currency
+## Convert Transaction Currency 
 ```html
 # Sample Request
 http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
 > Sample POST Request
+
 ```xml
 <root>
 <transaction>
