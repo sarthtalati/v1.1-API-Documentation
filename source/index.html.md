@@ -27,7 +27,7 @@ search: true
 ---
 
 # Getting Started
-The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary’s platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.
+The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.
 
 To download the v1.1 API documentation, click [here] (https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf "Download Capillary API Document v1.1").
 
@@ -155,12 +155,12 @@ Response Format | The format for requesting data from the APIs (xml, json). V1.1
 
 ```
 
-API responces are generated at request level and item level.
+API responses are generated at request level and item level.
 
 * **Request Level Responses**: These response codes are generated at the request level (for an entire request).
 * **Item Level Responses**: These response codes are generated at individual items of a request.
 
-<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and alse each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
+<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
 </aside>
 
 ### API Level Response Codes

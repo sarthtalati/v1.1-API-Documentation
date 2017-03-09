@@ -37,7 +37,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 ```json
 {
   "root": {
-    "transaction": [{
+    "transaction": {
       "bill_client_id": "1121",
       "type": "regular",
       "number": "MyBill-077",
@@ -60,8 +60,27 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
             "value": "100"
           },
           {
-            "mode": "CREDIT",
-            "value": "4000"
+            "mode": [
+              "CREDIT",
+              "CHECKAPI"
+            ],
+            "value": [
+              "4000",
+              "500"
+            ],
+            "attributes": {
+              "attribute": [
+                {
+                  "name": "BankNameAPI",
+                  "value": "value_602656"
+                },
+                {
+                  "name": "branch_nameAPI",
+                  "value": "value_602656"
+                }
+              ]
+            },
+            "notes": "notes_602656"
           }
         ]
       },
@@ -93,7 +112,6 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         "name": "Tom Sawyer"
       }
     }
-	]
   }
 }
 ```
@@ -125,7 +143,21 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
          <payment>
             <mode>CREDIT</mode>
             <value>4000</value>
-         </payment>
+         
+		<attributes>
+			<attribute>
+			<name>BankNameAPI</name>
+			<value>value_602656</value>
+			</attribute>
+			<attribute>
+			<name>branch_nameAPI</name>
+			<value>value_602656</value>
+			</attribute>
+		</attributes>
+<notes>notes_602656</notes>
+<mode>CHECKAPI</mode>
+<value>500</value>
+		 </payment>
       </payment_details>
       <custom_fields>
          <field>
@@ -304,7 +336,7 @@ Batch Support | Yes
 
 
  
-## Convert Transaction Currency 
+## Make Transaction with Local Currency 
 ```html
 # Sample Request
 http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
@@ -452,9 +484,12 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 }
 ```
 
-This API allows you to convert transaction the currency using the currency conversion ratio. All the loyalty activities such as points/coupon need to be issued or redeemed will happen as per the local currency(the customer registered) even though transaction is made in the store with different base currency. 
+This API allows you to make a transaction in different currency using the currency conversion ratio. To support this feature, you need to have  
+* disabled ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
+* Added relevant currency conversion ratios in the back-end
+* the destination currency id. If no currency id is passed, the transaction gets converted to the org's base currency
 
-To use this feature, you need to have enabled `ERR_CURRENCY_CONVERSION_DISABLED` on InTouch Settings.
+Through this API call, coupon or points to be issued or redeemed for the transaction will be as per the destination currency. 
 
 ### Resource Information
 Parameter | Description
