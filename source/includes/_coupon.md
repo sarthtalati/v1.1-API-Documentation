@@ -21,10 +21,10 @@ http://us.intouch.capillarytech.com/v1.1/coupon/issue?format=json
 ```json
 {
   "root": {
-    "coupon": {
+    "coupon": [{
       "series_id": "832",
       "customer": { "mobile": "447700900000" }
-    }
+    }]
   }
 }
 ```
@@ -159,14 +159,14 @@ http://us.intouch.capillarytech.com/v1.1/coupon/resend?format=xml&id=13596576
       "message": "SUCCESS"
     },
     "coupons": {
-      "coupon": {
+      "coupon": [{
         "id": "13596576",
         "code": "4R5A33",
         "item_status": {
           "success": "true",
           "code": "700",
           "message": "Coupon Resent"
-        }
+        }]
       }
     }
   }
@@ -235,21 +235,21 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 ```json
 {
   "root": {
-    "coupon": {
+    "coupon": [{
       "code": "06000041",
       "validation_code": "XYZ123",
       "customer": { "mobile": "447700900000" },
-      "custom_fields": {
+      "custom_fields": [{
         "field": {
           "name": "Sport",
           "value": "[“Soccer”]"
         }
-      },
+      }],
       "transaction": {
         "number": "bill-110",
         "amount": "1000"
       }
-    }
+    }]
   }
 }
 ```

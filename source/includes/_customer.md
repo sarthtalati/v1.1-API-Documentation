@@ -36,7 +36,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
       {
         "mobile": "44700900000",
         "email": "tom.sawyer@example.com",
-        "external_id": "ts1234",
+        "external_id": "XYPZ001",
         "firstname": "Tom",
         "lastname": "Sawyer",
         "gender": "M",
@@ -62,6 +62,34 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "lastname": "John",
         "gender": "M",
         "registered_on": "2012-09-11 11:11:15",
+        "subscriptions": {
+          "subscription": [
+            {
+              "priority": "TRANS",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "email"
+            },
+            {
+              "priority": "BULK",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "email"
+            },
+            {
+              "priority": "TRANS",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "sms"
+            },
+            {
+              "priority": "BULK",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "sms"
+            }
+          ]
+        },
         "custom_fields": {
           "field": [
             {
@@ -110,7 +138,27 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
      <lastname>John</lastname>
      <gender>M</gender>
      <registered_on>2012-09-11 11:11:15</registered_on>
-     <custom_fields>
+     
+	 <subscriptions>
+<subscription><priority>TRANS</priority>
+<scope>all</scope>
+<is_subscribed>0</is_subscribed>
+<channel>email</channel>
+</subscription><subscription><priority>BULK</priority>
+<scope>all</scope>
+<is_subscribed>0</is_subscribed>
+<channel>email</channel>
+</subscription><subscription><priority>TRANS</priority>
+<scope>all</scope>
+<is_subscribed>0</is_subscribed>
+<channel>sms</channel>
+</subscription><subscription><priority>BULK</priority>
+<scope>all</scope>
+<is_subscribed>0</is_subscribed>
+<channel>sms</channel>
+</subscription></subscriptions>
+	 
+	 <custom_fields>
      <field>
     <name>Hobbies</name>
      <value>[“Singing”]></value>
@@ -2286,7 +2334,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/customer/referrals?<query-params>`
+`http://<cluster url>/customer/referrals??format=<xml/json>&<query-params>`
 
 
 
