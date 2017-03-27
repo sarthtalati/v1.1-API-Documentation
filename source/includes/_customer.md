@@ -2055,7 +2055,7 @@ start_date | Retrieve tickets created in a specific duration - between start_dat
 end_date | Retrieve tickets created in a specific duration - between start_date to end_date
 
 
-## Issue Referral Code
+## Refer Customer
 ```html
 http://us.intouch.capillarytech.com/customer/referrals
 ```
@@ -2338,7 +2338,7 @@ Batch Support | Yes
 
 
 
-## Retrieve Referral Details of a Customer
+## Retrieve Customer Referral Details
 ```html
 http://us.intouch.capillarytech.com/customer/referrals&mobile=9197407983xx
 ```
@@ -2659,6 +2659,601 @@ start_date | The duration for which you want to track the referral history of th
 end_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
 store_code | Retrieve referral stats of the specific store. Default value will be the current store. Set `all` to track details from all the stores
 only_referral_code | Set `true` to retrieve the referral code of the campaign (of the specific customer)
+
+## Update Customer Preferences
+```html
+# Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=xml
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json
+```
+> Sample POST Request
+
+```xml
+<root>
+    <customer>
+        <!-- any of these will work, mobile/email/external_id/user_id -->
+        <mobile>44700900000</mobile>
+        <email>tom.sawyer@example.com</email>
+        <external_id>ts1234</external_id>
+        <user_id>sa234</user_id>
+        <local_id></local_id>
+<store>
+    <code>store.code</code>
+    <id>2234235</id>
+</store>
+
+        <custom_fields>
+            <field>
+                <name>Favorite Brand</name>
+                <value>[“puma”]</value>
+            </field>
+            <field>
+                <name>Favorite Color</name>
+                <value>Blue</value>
+            </field>
+        </custom_fields>
+    </customer>
+</root>
+
+```
+
+```json
+{
+  "root": {
+    "customer": {
+      "mobile": "44700900000",
+      "email": "tom.sawyer@example.com",
+      "external_id": "ts1234",
+      "user_id": "sa234",
+      "store": {
+        "code": "store.code",
+        "id": "2234235"
+      },
+      "custom_fields": {
+        "field": [
+          {
+            "name": "Favorite Brand",
+            "value": "[“puma”]"
+          },
+          {
+            "name": "Favorite Color",
+            "value": "Blue"
+          }
+        ]
+      }
+    }
+  }
+}
+
+```
+
+> Sample Response
+
+```xml
+<response>
+        <status>
+            <success>true</success>
+            <code>200</code>
+            <message>SUCCESS</message>
+        </status>
+        <customers>
+            <customer>
+                <user_id>sa234</user_id>
+                <mobile>44700900000</mobile>
+                <email>tom.sawyer@example.com</email>
+                <external_id>ts1234</external_id>
+                <local_id></local_id>
+                <custom_fields>
+                    <field>
+                        <name>Favorite Brand</name>
+                        <value>Puma</value>
+                    </field>
+                    <field>
+                        <name>Favorite Color</name>
+                        <value>Green</value>
+                    </field>
+</custom_fields>
+<store>
+<id>12762390</id>
+<code>storecode</code>
+<name>store Name</name>
+<status>SUCCESS</status>
+</store>
+
+<item_status>
+    <success>true</success>
+    <code>200</code>
+    <message>Preferences Updated Successfully</message>
+</item_status>
+</customer>
+</customers>
+</response>
+
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "customers": {
+      "customer": {
+        "user_id": "sa234",
+        "mobile": "44700900000",
+        "email": "tom.sawyer@example.com",
+        "external_id": "ts1234",
+        "custom_fields": {
+          "field": [
+            {
+              "name": "Favorite Brand",
+              "value": "Puma"
+            },
+            {
+              "name": "Favorite Color",
+              "value": "Green"
+            }
+          ]
+        },
+        "store": {
+          "id": "12762390",
+          "code": "storecode",
+          "name": "store Name",
+          "status": "SUCCESS"
+        },
+        "item_status": {
+          "success": "true",
+          "code": "200",
+          "message": "Preferences Updated Successfully"
+        }
+      }
+    }
+  }
+}
+```
+
+Preferences are custom fields created under the preferences category which helps in capturing specific interests of a customer. Example: favorite color, favorite brand. This API allows you to set or update preferences of a customer.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/preferences
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | POST
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/preferences?format=<xml/json>`
+
+
+
+## Fetch Customer Preferences
+```html
+# Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
+
+```
+
+> Sample Response
+
+```xml
+<response>
+        <status>
+            <success>true</success>
+            <code>200</code>
+            <message>SUCCESS</message>
+        </status>
+        <customers>
+            <customer>
+                <user_id>5532354</user_id>
+                <!-- user_id will return according to
+the extra query parameter “user_id”=true/false -->
+                <mobile>44700900000</mobile>
+                <email>tom.sawyer@example.com</email>
+                <external_id>ts1234</external_id>
+                <custom_fields>
+                    <field>
+                        <name>Favorite Color</name>
+                        <value>Green</value>
+                    </field>
+                    <field>
+                        <name>Favorite Brand</name>
+                        <value>Puma</value>
+                    </field>
+                    <field>
+                        <name>Likes</name>
+                        <value>Shoes</value>
+                    </field>
+<field>
+<name>PREFERRED_STORE</name>
+<value>Store name</value>
+</field>
+                </custom_fields>
+<item_status>
+    <success>true</success>
+    <code>200</code>
+    <message>
+Preferences retrieved successfully
+</message>
+</item_status>
+            </customer>
+        </customers>
+    </response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "customers": {
+      "customer": {
+        "user_id": "5532354",
+        "mobile": "44700900000",
+        "email": "tom.sawyer@example.com",
+        "external_id": "ts1234",
+        "custom_fields": {
+          "field": [
+            {
+              "name": "Favorite Color",
+              "value": "Green"
+            },
+            {
+              "name": "Favorite Brand",
+              "value": "Puma"
+            },
+            {
+              "name": "Likes",
+              "value": "Shoes"
+            },
+            {
+              "name": "PREFERRED_STORE",
+              "value": "Store Name"
+            }
+          ]
+        },
+        "item_status": {
+          "success": "true",
+          "code": "200",
+          "message": "
+Preferences retrieved successfully
+"
+        }
+      }
+    }
+  }
+}
+```
+
+
+
+
+This API allows you to fetch preference values set for a specific customer.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/preferences
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | GET
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/preferences?format=<xml/json>&<customer_identifier>=<identifier value>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Customer Identifier | Pass any identifiers of the customer for whom you want to see the preference values. Values: mobile, email, external_id, user_id
+
+
+## Retrieve Customer Interactions
+```html
+# Sample Request
+http://us.intouch.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
+
+```
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <status>
+        <success>true</success>
+        <response_code>200</response_code>
+    <message>Success</message>     
+    </status>
+    <customer>
+        <id>24243</id>
+        <mobile>44700900000</mobile>
+        <email>tom.sawyer@example.com</email>
+        <external_id>ts1234</external_id>    
+        <interactions>
+            <network>        
+                <name>facebook</name>
+                <interaction>
+                    <type>checkin</type>    
+                     <count>1</count>
+                    <locs>
+                        <loc>
+                        <lat>22.23</lat>    
+                        <long>23.33</long>
+                        <time>2012-3-12 11:33:23</time>
+                        </loc>    
+                    </locs>    
+                </interaction>
+            </network>                                      
+            <network>
+                <name>twitter</name>
+                <interaction>
+                    <type>tweet</type>
+                    <count>10</count>
+                </interaction>
+                <interaction>
+                    <type>retweet</type>
+                    <count>5</count>
+                </interaction>
+            </network>
+            <network>
+                <name>capillary</name>
+                <interaction>
+                    <type>email</type>
+                    <count>1</count>
+                    <messages>
+                        <message>
+                    <id>554</id>
+                    <sender>abc@xyz.com</sender>
+                    <receiver>
+def@xyz.com
+</receiver>
+                    <subject>Sample subject</subject>
+                    <sent_time>45837-06-15 02:56:40</sent_time>
+                <delivered_time></delivered_time>
+<status>SENT</status>
+</message>
+            </messages>
+                </interaction>
+                <interaction>
+                    <type>sms</type>
+                    <count>1</count>
+                    <messages>
+                        <message>
+                    <id>555</id>
+                    <sender>918867702348</sender>
+                    <receiver>
+918867702349
+</receiver>
+                    <subject>Example subject</subject>
+                    <sent_time>45837-06-15 02:56:40</sent_time>
+                </message>
+            </messages>
+                </interaction>
+<interaction>
+          <type>survey</type>
+          <latest_nps_score>9</latest_nps_score>
+          <latest_survey_name>Customer Satisfaction Survey 5</latest_survey_name>
+          <latest_survey_interaction_time>2013-12-16 12:14:37</latest_survey_interaction_time>
+          <surveys>
+            <survey>
+              <name>Customer Satisfaction Survey</name>
+              <nps_score>9</nps_score>
+              <sent_by>Nayan Kumar</sent_by>
+              <response_url></response_url>
+              <sent_time>2013-11-20 12:56:55</sent_time>
+              <completion_time>2013-11-14 13:23:05</completion_time>
+            </survey>
+            <survey>
+              <name>Customer Satisfaction Survey</name>
+              <nps_score>10</nps_score>
+              <sent_by>Shilpa</sent_by>
+              <response_url></response_url>
+              <sent_time>2013-12-11 11:43:55</sent_time>
+              <completion_time>2013-12-11 11:43:55</completion_time>
+            </survey>
+            <survey>
+              <name>Customer Feedback</name>
+              <nps_score>9</nps_score>
+              <sent_by>Shilpa </sent_by>
+              <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=14&amp;t=R0C9I313&amp;u=true</response_url>
+              <sent_time>2013-12-11 12:17:13</sent_time>
+              <completion_time>2013-12-11 12:17:13</completion_time>
+            </survey>
+            <survey>
+              <name>Customer Review</name>
+              <nps_score>8</nps_score>
+              <sent_by>Shilpa </sent_by>
+              <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=1&amp;t=7Q81C41Z&amp;u=true</response_url>
+              <sent_time>2013-12-13 15:22:48</sent_time>
+              <completion_time>2013-12-13 15:22:48</completion_time>
+            </survey>
+            <survey>
+              <name>Customer Satisfaction Survey 5</name>
+              <nps_score>9</nps_score>
+              <sent_by>Shilpa </sent_by>
+              <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=93&amp;t=3LWIXC9Y&amp;u=true</response_url>
+              <sent_time>2013-12-16 12:14:37</sent_time>
+              <completion_time>2013-12-16 12:14:37</completion_time>
+            </survey>
+          </surveys>
+          <count>5</count>
+        </interaction>
+            </network>
+        </interactions>
+</customer>
+</response>    
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "response_code": "200",
+      "message": "Success"
+    },
+    "customer": {
+      "id": "24243",
+      "mobile": "44700900000",
+      "email": "tom.sawyer@example.com",
+      "external_id": "ts1234",
+      "interactions": {
+        "network": [
+          {
+            "name": "facebook",
+            "interaction": {
+              "type": "checkin",
+              "count": "1",
+              "locs": {
+                "loc": {
+                  "lat": "22.23",
+                  "long": "23.33",
+                  "time": "2012-3-12 11:33:23"
+                }
+              }
+            }
+          },
+          {
+            "name": "twitter",
+            "interaction": [
+              {
+                "type": "tweet",
+                "count": "10"
+              },
+              {
+                "type": "retweet",
+                "count": "5"
+              }
+            ]
+          },
+          {
+            "name": "capillary",
+            "interaction": [
+              {
+                "type": "email",
+                "count": "1",
+                "messages": {
+                  "message": {
+                    "id": "554",
+                    "sender": "abc@xyz.com",
+                    "receiver": "
+def@xyz.com
+",
+                    "subject": "Sample subject",
+                    "sent_time": "45837-06-15 02:56:40",
+                    "status": "SENT"
+                  }
+                }
+              },
+              {
+                "type": "sms",
+                "count": "1",
+                "messages": {
+                  "message": {
+                    "id": "555",
+                    "sender": "918867702348",
+                    "receiver": "
+918867702349
+",
+                    "subject": "Example subject",
+                    "sent_time": "45837-06-15 02:56:40"
+                  }
+                }
+              },
+              {
+                "type": "survey",
+                "latest_nps_score": "9",
+                "latest_survey_name": "Customer Satisfaction Survey 5",
+                "latest_survey_interaction_time": "2013-12-16 12:14:37",
+                "surveys": {
+                  "survey": [
+                    {
+                      "name": "Customer Satisfaction Survey",
+                      "nps_score": "9",
+                      "sent_by": "Nayan Kumar",
+                      "sent_time": "2013-11-20 12:56:55",
+                      "completion_time": "2013-11-14 13:23:05"
+                    },
+                    {
+                      "name": "Customer Satisfaction Survey",
+                      "nps_score": "10",
+                      "sent_by": "Shilpa ",
+                      "sent_time": "2013-12-11 11:43:55",
+                      "completion_time": "2013-12-11 11:43:55"
+                    },
+                    {
+                      "name": "Customer Feedback",
+                      "nps_score": "9",
+                      "sent_by": "Shilpa ",
+                      "response_url": "https://survey-devint.capillary.in?sc=O5JHLN95&sfc=14&t=R0C9I313&u=true",
+                      "sent_time": "2013-12-11 12:17:13",
+                      "completion_time": "2013-12-11 12:17:13"
+                    },
+                    {
+                      "name": "Customer Review",
+                      "nps_score": "8",
+                      "sent_by": "Shilpa ",
+                      "response_url": "https://survey-devint.capillary.in?sc=O5JHLN95&sfc=1&t=7Q81C41Z&u=true",
+                      "sent_time": "2013-12-13 15:22:48",
+                      "completion_time": "2013-12-13 15:22:48"
+                    },
+                    {
+                      "name": "Customer Satisfaction Survey 5",
+                      "nps_score": "9",
+                      "sent_by": "Shilpa ",
+                      "response_url": "https://survey-devint.capillary.in?sc=O5JHLN95&sfc=93&t=3LWIXC9Y&u=true",
+                      "sent_time": "2013-12-16 12:14:37",
+                      "completion_time": "2013-12-16 12:14:37"
+                    }
+                  ]
+                },
+                "count": "5"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+
+This API allows you to fetch store interactions with a specific customer such as SMSs sent, emails sent, missed calls received from the customer's registered mobile number, and surveys submitted by the customer.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/interaction
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | GET
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/interaction?format=<xml/json>&<parameters>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) whose interaction details need to be retrieved. 
+network | Filter data by communication network. Values: facebook, twitter, foursquare, capillary
+type | Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).
+start_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
+end_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
 
 
 ## Response Codes
