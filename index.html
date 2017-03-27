@@ -120,7 +120,7 @@
       <div class="content">
         <h1 id="getting-started">Getting Started</h1>
 
-<p>The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary’s platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.</p>
+<p>The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.</p>
 
 <p>To download the v1.1 API documentation, click <a href="https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf" title="Download Capillary API Document v1.1">here</a>.</p>
 
@@ -255,14 +255,14 @@ When an API call is made with 4 batch transactions, A response header is generat
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>API responces are generated at request level and item level.</p>
+<p>API responses are generated at request level and item level.</p>
 
 <ul>
 <li><strong>Request Level Responses</strong>: These response codes are generated at the request level (for an entire request).</li>
 <li><strong>Item Level Responses</strong>: These response codes are generated at individual items of a request.</li>
 </ul>
 
-<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and alse each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
+<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
 </aside>
 
 <h3 id="api-level-response-codes">API Level Response Codes</h3>
@@ -361,7 +361,7 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
@@ -387,6 +387,34 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-11 11:11:15"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"is_subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"is_subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"is_subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"is_subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -432,6 +460,26 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
      <span class="nt">&lt;lastname&gt;</span>John<span class="nt">&lt;/lastname&gt;</span>
      <span class="nt">&lt;gender&gt;</span>M<span class="nt">&lt;/gender&gt;</span>
      <span class="nt">&lt;registered_on&gt;</span>2012-09-11 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
+
+     <span class="nt">&lt;subscriptions&gt;</span>
+<span class="nt">&lt;subscription&gt;&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+<span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+<span class="nt">&lt;/subscription&gt;&lt;subscription&gt;&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+<span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+<span class="nt">&lt;/subscription&gt;&lt;subscription&gt;&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+<span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+<span class="nt">&lt;/subscription&gt;&lt;subscription&gt;&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+<span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+<span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+<span class="nt">&lt;/subscription&gt;&lt;/subscriptions&gt;</span>
+
      <span class="nt">&lt;custom_fields&gt;</span>
      <span class="nt">&lt;field&gt;</span>
     <span class="nt">&lt;name&gt;</span>Hobbies<span class="nt">&lt;/name&gt;</span>
@@ -2807,7 +2855,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 </tr>
 </tbody></table>
 
-<h2 id="issue-referral-code">Issue Referral Code</h2>
+<h2 id="refer-customer">Refer Customer</h2>
 <pre class="highlight html"><code>http://us.intouch.capillarytech.com/customer/referrals
 </code></pre>
 <blockquote>
@@ -3104,9 +3152,9 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/customer/referrals?&lt;query-params&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/customer/referrals??format=&lt;xml/json&gt;&amp;&lt;query-params&gt;</code></p>
 
-<h2 id="retrieve-referral-details-of-a-customer">Retrieve Referral Details of a Customer</h2>
+<h2 id="retrieve-customer-referral-details">Retrieve Customer Referral Details</h2>
 <pre class="highlight html"><code>http://us.intouch.capillarytech.com/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
 </code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
@@ -3466,6 +3514,678 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 <tr>
 <td>only_referral_code</td>
 <td>Set <code class="prettyprint">true</code> to retrieve the referral code of the campaign (of the specific customer)</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-customer-preferences">Update Customer Preferences</h2>
+<pre class="highlight html"><code># Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=xml
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="c">&lt;!-- any of these will work, mobile/email/external_id/user_id --&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;user_id&gt;</span>sa234<span class="nt">&lt;/user_id&gt;</span>
+        <span class="nt">&lt;local_id&gt;&lt;/local_id&gt;</span>
+<span class="nt">&lt;store&gt;</span>
+    <span class="nt">&lt;code&gt;</span>store.code<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;id&gt;</span>2234235<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;/store&gt;</span>
+
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Favorite Brand<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>[“puma”]<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Favorite Color<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>Blue<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/custom_fields&gt;</span>
+    <span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sa234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.code"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2234235"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Brand"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“puma”]"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Color"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;customers&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>sa234<span class="nt">&lt;/user_id&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;local_id&gt;&lt;/local_id&gt;</span>
+                <span class="nt">&lt;custom_fields&gt;</span>
+                    <span class="nt">&lt;field&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Favorite Brand<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Puma<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/field&gt;</span>
+                    <span class="nt">&lt;field&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Favorite Color<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Green<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;/custom_fields&gt;</span>
+<span class="nt">&lt;store&gt;</span>
+<span class="nt">&lt;id&gt;</span>12762390<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;name&gt;</span>store Name<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;status&gt;</span>SUCCESS<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/store&gt;</span>
+
+<span class="nt">&lt;item_status&gt;</span>
+    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;message&gt;</span>Preferences Updated Successfully<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;/customers&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sa234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Brand"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Puma"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Color"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12762390"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store Name"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Preferences Updated Successfully"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Preferences are custom fields created under the preferences category which helps in capturing specific interests of a customer. Example: favorite color, favorite brand. This API allows you to set or update preferences of a customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>customer/preferences</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/preferences?format=&lt;xml/json&gt;</code></p>
+
+<h2 id="fetch-customer-preferences">Fetch Customer Preferences</h2>
+<pre class="highlight html"><code># Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;customers&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>5532354<span class="nt">&lt;/user_id&gt;</span>
+                <span class="c">&lt;!-- user_id will return according to
+the extra query parameter “user_id”=true/false --&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;custom_fields&gt;</span>
+                    <span class="nt">&lt;field&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Favorite Color<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Green<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/field&gt;</span>
+                    <span class="nt">&lt;field&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Favorite Brand<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Puma<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/field&gt;</span>
+                    <span class="nt">&lt;field&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Likes<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Shoes<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/field&gt;</span>
+<span class="nt">&lt;field&gt;</span>
+<span class="nt">&lt;name&gt;</span>PREFERRED_STORE<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;value&gt;</span>Store name<span class="nt">&lt;/value&gt;</span>
+<span class="nt">&lt;/field&gt;</span>
+                <span class="nt">&lt;/custom_fields&gt;</span>
+<span class="nt">&lt;item_status&gt;</span>
+    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;message&gt;</span>
+Preferences retrieved successfully
+<span class="nt">&lt;/message&gt;</span>
+<span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+        <span class="nt">&lt;/customers&gt;</span>
+    <span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5532354"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Color"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Favorite Brand"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Puma"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likes"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shoes"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREFERRED_STORE"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Store Name"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+Preferences retrieved successfully
+"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows you to fetch preference values set for a specific customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>customer/preferences</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/preferences?format=&lt;xml/json&gt;&amp;&lt;customer_identifier&gt;=&lt;identifier value&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer Identifier</td>
+<td>Pass any identifiers of the customer for whom you want to see the preference values. Values: mobile, email, external_id, user_id</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-customer-interactions">Retrieve Customer Interactions</h2>
+<pre class="highlight html"><code># Sample Request
+http://us.intouch.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;response_code&gt;</span>200<span class="nt">&lt;/response_code&gt;</span>
+    <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>     
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;id&gt;</span>24243<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>    
+        <span class="nt">&lt;interactions&gt;</span>
+            <span class="nt">&lt;network&gt;</span>        
+                <span class="nt">&lt;name&gt;</span>facebook<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;interaction&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>checkin<span class="nt">&lt;/type&gt;</span>    
+                     <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
+                    <span class="nt">&lt;locs&gt;</span>
+                        <span class="nt">&lt;loc&gt;</span>
+                        <span class="nt">&lt;lat&gt;</span>22.23<span class="nt">&lt;/lat&gt;</span>    
+                        <span class="nt">&lt;long&gt;</span>23.33<span class="nt">&lt;/long&gt;</span>
+                        <span class="nt">&lt;time&gt;</span>2012-3-12 11:33:23<span class="nt">&lt;/time&gt;</span>
+                        <span class="nt">&lt;/loc&gt;</span>    
+                    <span class="nt">&lt;/locs&gt;</span>    
+                <span class="nt">&lt;/interaction&gt;</span>
+            <span class="nt">&lt;/network&gt;</span>                                      
+            <span class="nt">&lt;network&gt;</span>
+                <span class="nt">&lt;name&gt;</span>twitter<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;interaction&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>tweet<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;count&gt;</span>10<span class="nt">&lt;/count&gt;</span>
+                <span class="nt">&lt;/interaction&gt;</span>
+                <span class="nt">&lt;interaction&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>retweet<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;count&gt;</span>5<span class="nt">&lt;/count&gt;</span>
+                <span class="nt">&lt;/interaction&gt;</span>
+            <span class="nt">&lt;/network&gt;</span>
+            <span class="nt">&lt;network&gt;</span>
+                <span class="nt">&lt;name&gt;</span>capillary<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;interaction&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>email<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
+                    <span class="nt">&lt;messages&gt;</span>
+                        <span class="nt">&lt;message&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>554<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;sender&gt;</span>abc@xyz.com<span class="nt">&lt;/sender&gt;</span>
+                    <span class="nt">&lt;receiver&gt;</span>
+def@xyz.com
+<span class="nt">&lt;/receiver&gt;</span>
+                    <span class="nt">&lt;subject&gt;</span>Sample subject<span class="nt">&lt;/subject&gt;</span>
+                    <span class="nt">&lt;sent_time&gt;</span>45837-06-15 02:56:40<span class="nt">&lt;/sent_time&gt;</span>
+                <span class="nt">&lt;delivered_time&gt;&lt;/delivered_time&gt;</span>
+<span class="nt">&lt;status&gt;</span>SENT<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/messages&gt;</span>
+                <span class="nt">&lt;/interaction&gt;</span>
+                <span class="nt">&lt;interaction&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>sms<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
+                    <span class="nt">&lt;messages&gt;</span>
+                        <span class="nt">&lt;message&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>555<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;sender&gt;</span>918867702348<span class="nt">&lt;/sender&gt;</span>
+                    <span class="nt">&lt;receiver&gt;</span>
+918867702349
+<span class="nt">&lt;/receiver&gt;</span>
+                    <span class="nt">&lt;subject&gt;</span>Example subject<span class="nt">&lt;/subject&gt;</span>
+                    <span class="nt">&lt;sent_time&gt;</span>45837-06-15 02:56:40<span class="nt">&lt;/sent_time&gt;</span>
+                <span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/messages&gt;</span>
+                <span class="nt">&lt;/interaction&gt;</span>
+<span class="nt">&lt;interaction&gt;</span>
+          <span class="nt">&lt;type&gt;</span>survey<span class="nt">&lt;/type&gt;</span>
+          <span class="nt">&lt;latest_nps_score&gt;</span>9<span class="nt">&lt;/latest_nps_score&gt;</span>
+          <span class="nt">&lt;latest_survey_name&gt;</span>Customer Satisfaction Survey 5<span class="nt">&lt;/latest_survey_name&gt;</span>
+          <span class="nt">&lt;latest_survey_interaction_time&gt;</span>2013-12-16 12:14:37<span class="nt">&lt;/latest_survey_interaction_time&gt;</span>
+          <span class="nt">&lt;surveys&gt;</span>
+            <span class="nt">&lt;survey&gt;</span>
+              <span class="nt">&lt;name&gt;</span>Customer Satisfaction Survey<span class="nt">&lt;/name&gt;</span>
+              <span class="nt">&lt;nps_score&gt;</span>9<span class="nt">&lt;/nps_score&gt;</span>
+              <span class="nt">&lt;sent_by&gt;</span>Nayan Kumar<span class="nt">&lt;/sent_by&gt;</span>
+              <span class="nt">&lt;response_url&gt;&lt;/response_url&gt;</span>
+              <span class="nt">&lt;sent_time&gt;</span>2013-11-20 12:56:55<span class="nt">&lt;/sent_time&gt;</span>
+              <span class="nt">&lt;completion_time&gt;</span>2013-11-14 13:23:05<span class="nt">&lt;/completion_time&gt;</span>
+            <span class="nt">&lt;/survey&gt;</span>
+            <span class="nt">&lt;survey&gt;</span>
+              <span class="nt">&lt;name&gt;</span>Customer Satisfaction Survey<span class="nt">&lt;/name&gt;</span>
+              <span class="nt">&lt;nps_score&gt;</span>10<span class="nt">&lt;/nps_score&gt;</span>
+              <span class="nt">&lt;sent_by&gt;</span>Shilpa<span class="nt">&lt;/sent_by&gt;</span>
+              <span class="nt">&lt;response_url&gt;&lt;/response_url&gt;</span>
+              <span class="nt">&lt;sent_time&gt;</span>2013-12-11 11:43:55<span class="nt">&lt;/sent_time&gt;</span>
+              <span class="nt">&lt;completion_time&gt;</span>2013-12-11 11:43:55<span class="nt">&lt;/completion_time&gt;</span>
+            <span class="nt">&lt;/survey&gt;</span>
+            <span class="nt">&lt;survey&gt;</span>
+              <span class="nt">&lt;name&gt;</span>Customer Feedback<span class="nt">&lt;/name&gt;</span>
+              <span class="nt">&lt;nps_score&gt;</span>9<span class="nt">&lt;/nps_score&gt;</span>
+              <span class="nt">&lt;sent_by&gt;</span>Shilpa <span class="nt">&lt;/sent_by&gt;</span>
+              <span class="nt">&lt;response_url&gt;</span>https://survey-devint.capillary.in?sc=O5JHLN95<span class="ni">&amp;amp;</span>sfc=14<span class="ni">&amp;amp;</span>t=R0C9I313<span class="ni">&amp;amp;</span>u=true<span class="nt">&lt;/response_url&gt;</span>
+              <span class="nt">&lt;sent_time&gt;</span>2013-12-11 12:17:13<span class="nt">&lt;/sent_time&gt;</span>
+              <span class="nt">&lt;completion_time&gt;</span>2013-12-11 12:17:13<span class="nt">&lt;/completion_time&gt;</span>
+            <span class="nt">&lt;/survey&gt;</span>
+            <span class="nt">&lt;survey&gt;</span>
+              <span class="nt">&lt;name&gt;</span>Customer Review<span class="nt">&lt;/name&gt;</span>
+              <span class="nt">&lt;nps_score&gt;</span>8<span class="nt">&lt;/nps_score&gt;</span>
+              <span class="nt">&lt;sent_by&gt;</span>Shilpa <span class="nt">&lt;/sent_by&gt;</span>
+              <span class="nt">&lt;response_url&gt;</span>https://survey-devint.capillary.in?sc=O5JHLN95<span class="ni">&amp;amp;</span>sfc=1<span class="ni">&amp;amp;</span>t=7Q81C41Z<span class="ni">&amp;amp;</span>u=true<span class="nt">&lt;/response_url&gt;</span>
+              <span class="nt">&lt;sent_time&gt;</span>2013-12-13 15:22:48<span class="nt">&lt;/sent_time&gt;</span>
+              <span class="nt">&lt;completion_time&gt;</span>2013-12-13 15:22:48<span class="nt">&lt;/completion_time&gt;</span>
+            <span class="nt">&lt;/survey&gt;</span>
+            <span class="nt">&lt;survey&gt;</span>
+              <span class="nt">&lt;name&gt;</span>Customer Satisfaction Survey 5<span class="nt">&lt;/name&gt;</span>
+              <span class="nt">&lt;nps_score&gt;</span>9<span class="nt">&lt;/nps_score&gt;</span>
+              <span class="nt">&lt;sent_by&gt;</span>Shilpa <span class="nt">&lt;/sent_by&gt;</span>
+              <span class="nt">&lt;response_url&gt;</span>https://survey-devint.capillary.in?sc=O5JHLN95<span class="ni">&amp;amp;</span>sfc=93<span class="ni">&amp;amp;</span>t=3LWIXC9Y<span class="ni">&amp;amp;</span>u=true<span class="nt">&lt;/response_url&gt;</span>
+              <span class="nt">&lt;sent_time&gt;</span>2013-12-16 12:14:37<span class="nt">&lt;/sent_time&gt;</span>
+              <span class="nt">&lt;completion_time&gt;</span>2013-12-16 12:14:37<span class="nt">&lt;/completion_time&gt;</span>
+            <span class="nt">&lt;/survey&gt;</span>
+          <span class="nt">&lt;/surveys&gt;</span>
+          <span class="nt">&lt;count&gt;</span>5<span class="nt">&lt;/count&gt;</span>
+        <span class="nt">&lt;/interaction&gt;</span>
+            <span class="nt">&lt;/network&gt;</span>
+        <span class="nt">&lt;/interactions&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;/response&gt;</span>    
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"response_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24243"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"interactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"network"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkin"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"locs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"loc"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.23"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23.33"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-3-12 11:33:23"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"twitter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tweet"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"retweet"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capillary"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"interaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"554"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc@xyz.com"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+def@xyz.com
+"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample subject"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45837-06-15 02:56:40"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SENT"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sms"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918867702348"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"receiver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+918867702349
+"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example subject"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45837-06-15 02:56:40"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"latest_nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"latest_survey_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Satisfaction Survey 5"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"latest_survey_interaction_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-16 12:14:37"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"surveys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"survey"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Satisfaction Survey"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nayan Kumar"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-20 12:56:55"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"completion_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-11-14 13:23:05"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Satisfaction Survey"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shilpa "</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-11 11:43:55"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"completion_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-11 11:43:55"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Feedback"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shilpa "</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"response_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=14&amp;t=R0C9I313&amp;u=true"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-11 12:17:13"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"completion_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-11 12:17:13"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Review"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shilpa "</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"response_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=1&amp;t=7Q81C41Z&amp;u=true"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-13 15:22:48"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"completion_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-13 15:22:48"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Satisfaction Survey 5"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"nps_score"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shilpa "</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"response_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=93&amp;t=3LWIXC9Y&amp;u=true"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"sent_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-16 12:14:37"</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"completion_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-16 12:14:37"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows you to fetch store interactions with a specific customer such as SMSs sent, emails sent, missed calls received from the customer&rsquo;s registered mobile number, and surveys submitted by the customer.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>customer/interaction</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/interaction?format=&lt;xml/json&gt;&amp;&lt;parameters&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer Identifier*</td>
+<td>Pass any one of the identifiers(mobile/email/external_id/user_id) whose interaction details need to be retrieved.</td>
+</tr>
+<tr>
+<td>network</td>
+<td>Filter data by communication network. Values: facebook, twitter, foursquare, capillary</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Specify the duration for which you want to see the customer interactions in start_date and end_date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Specify the duration for which you want to see the customer interactions in start_date and end_date</td>
 </tr>
 </tbody></table>
 
@@ -3932,7 +4652,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 <pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyBill-077"</span><span class="p">,</span><span class="w">
@@ -3955,8 +4675,27 @@ Note: Custom fields are additional fields created in InStore to capture a specif
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDIT"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4000"</span><span class="w">
+            </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"CREDIT"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"CHECKAPI"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"4000"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"500"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankNameAPI"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_602656"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"branch_nameAPI"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_602656"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notes_602656"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
@@ -3988,7 +4727,6 @@ Note: Custom fields are additional fields created in InStore to capture a specif
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -4017,6 +4755,20 @@ Note: Custom fields are additional fields created in InStore to capture a specif
          <span class="nt">&lt;payment&gt;</span>
             <span class="nt">&lt;mode&gt;</span>CREDIT<span class="nt">&lt;/mode&gt;</span>
             <span class="nt">&lt;value&gt;</span>4000<span class="nt">&lt;/value&gt;</span>
+
+        <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+            <span class="nt">&lt;name&gt;</span>BankNameAPI<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+            <span class="nt">&lt;name&gt;</span>branch_nameAPI<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+        <span class="nt">&lt;/attributes&gt;</span>
+<span class="nt">&lt;notes&gt;</span>notes_602656<span class="nt">&lt;/notes&gt;</span>
+<span class="nt">&lt;mode&gt;</span>CHECKAPI<span class="nt">&lt;/mode&gt;</span>
+<span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
          <span class="nt">&lt;/payment&gt;</span>
       <span class="nt">&lt;/payment_details&gt;</span>
       <span class="nt">&lt;custom_fields&gt;</span>
@@ -4217,7 +4969,7 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add?format=&lt;xml/json&gt;</code></p>
 
-<h2 id="convert-transaction-currency">Convert Transaction Currency</h2>
+<h2 id="make-transaction-with-local-currency">Make Transaction with Local Currency</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
@@ -4355,9 +5107,12 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to convert transaction the currency using the currency conversion ratio. All the loyalty activities such as points/coupon need to be issued or redeemed will happen as per the local currency(the customer registered) even though transaction is made in the store with different base currency. </p>
+<p>This API allows you to make a transaction in different currency using the currency conversion ratio. To support this feature, you need to have<br>
+* disabled ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
+* Added relevant currency conversion ratios in the back-end
+* the destination currency id. If no currency id is passed, the transaction gets converted to the org&rsquo;s base currency</p>
 
-<p>To use this feature, you need to have enabled <code class="prettyprint">ERR_CURRENCY_CONVERSION_DISABLED</code> on InTouch Settings.</p>
+<p>Through this API call, coupon or points to be issued or redeemed for the transaction will be as per the destination currency. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -6297,10 +7052,10 @@ You need to use the validation code within the validity period. You can check th
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="w"> </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -6465,18 +7220,18 @@ http://us.intouch.capillarytech.com/v1.1/coupon/resend?format=xml<span class="er
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13596576"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4R5A33"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon Resent"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="err">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>  
 <span class="nt">&lt;status&gt;</span>    
 <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>    
@@ -6574,21 +7329,21 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06000041"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sport"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“Soccer”]"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
       </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
