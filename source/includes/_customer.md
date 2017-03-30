@@ -1377,7 +1377,7 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile no./email id/external id. <br>To retrieve transactions of multiple customers at a time, provide each customer's identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile no./email id/external id. <br>To retrieve transactions of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
 store_id | Retrieves transactions made at a specific store
 start_id | Retrieves transactions made in a specific duration (start_date to end_date)
 end_date | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
@@ -1386,6 +1386,167 @@ transaction_date | Retrieves the transactions made on a specific date. Date form
 order | Alligns the list in ascending or descendending order of transaction date/transaction id based on the following parameters. <br>**Value**: trans_id, trans_date
 asc | Sorts the transaction history in the ascending order of transaction date or transaction id. <br>**Query**: sort=desc
 Desc | Sorts the transaction history in the descending order of transaction date or transaction id. <br>**Query**: sort=desc
+
+
+## Retrieve Customer Redemptions
+
+```html
+# Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&format=json
+```
+
+> Sample Response
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "customer": {
+      "mobile": "44700900000",
+      "email": "tom.sawyer@example.com",
+      "external_id": "1234",
+      "firstname": "Tom",
+      "lastname": "Sawyer",
+      "rows": "3",
+      "coupons_count": "3",
+      "points_count": "15",
+      "coupons_start_id": "2",
+      "points_start_id": "121613",
+      "redemptions": {
+        "coupons": {
+          "coupon": {
+            "id": "3",
+            "code": "832-pghhi6u1",
+            "series_id": "832",
+            "description": "abctest",
+            "discount_code": "abc",
+            "discount_type": "PERC",
+            "transaction_number": "TestBill-1234",
+            "redeemed_time": "2013-04-18 14:00:27",
+            "redeemed_at": "Test store  store.server"
+          }
+        },
+        "points": {
+          "point": [
+            {
+              "id": "121614",
+              "points_redeemed": "200",
+              "transaction_number": "bill-83",
+              "redeemed_time": "2011-03-17 16:03:31",
+              "redeemed_at": "Test store  store.server"
+            },
+            {
+              "id": "121615",
+              "points_redeemed": "200",
+              "transaction_number": "bill-121",
+              "redeemed_time": "2011-03-17 16:05:22",
+              "redeemed_at": "Test store  store.server"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+<status>
+            <success>true</success>
+            <code>200</code>
+            <message>SUCCESS</message>
+      </status>
+<customer>
+        <mobile>44700900000</mobile>
+        <email>tom.sawyer@example.com</email>
+        <external_id>1234</external_id>
+        <firstname>Tom</firstname>
+        <lastname>Sawyer</lastname>
+        <rows>3</rows>
+        <coupons_count>3</coupons_count>
+        <points_count>15</points_count>
+        <coupons_start_id>2</coupons_start_id>
+        <points_start_id>121613</points_start_id>
+        <redemptions>
+              <coupons>
+                    <coupon>
+                          <id>3</id>
+                          <code>832-pghhi6u1</code>
+                          <series_id>832</series_id>
+                                                <description>abctest</description>
+<discount_code>abc</discount_code>
+                                                <discount_type>PERC</discount_type>              
+                                     <transaction_number>TestBill-1234</transaction_number>
+                          <redeemed_time>2013-04-18 14:00:27</redeemed_time>
+                          <redeemed_at>Test store  store.server</redeemed_at>
+                    </coupon>
+                  </coupons>
+              <points>
+                    <point>
+                          <id>121614</id>
+                          <points_redeemed>200</points_redeemed>
+                          <transaction_number>bill-83</transaction_number>
+                          <redeemed_time>2011-03-17 16:03:31</redeemed_time>
+                          <redeemed_at>Test store  store.server</redeemed_at>
+                    </point>
+                    <point>
+                          <id>121615</id>
+                          <points_redeemed>200</points_redeemed>
+                          <transaction_number>bill-121</transaction_number>
+                          <redeemed_time>2011-03-17 16:05:22</redeemed_time>
+                          <redeemed_at>Test store  store.server</redeemed_at>
+                    </point>
+                </points>
+        </redemptions>
+  </customer>
+</response>
+
+```
+
+
+This API allows you to retrieve points and coupons redemption history of a customer. You can filter the results by type, duration, coupon ids start with, and coupon ids end with. Besides filters you can also sort the results by ascending or descending order by redemption id/time and limit number of results to retrieve.
+
+### Resource Information
+Parameter | Value
+--------- | -----
+URI | customer/redemptions
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | GET
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/redemptions?format=<xml/json>&<input_params>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Customer Identifier* | Provide the primary identifier of the customer whose redemption details needs to be fetched - mobile no./email id/external id. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+type | Filter the results by redemption - points or coupons
+start_date | Filter the results by redemptions made in a specific duration - between start_date to end_date
+end_date | Filter the results by redemptions made in a specific duration - between start_date to end_date
+coupons_limit | Limit the number of coupon redemptions to be displayed. Example:`coupons_limit=10` to show only 10 coupon redemption details. Use only when the `type` parameter is not passed
+points_limit | Limit the number of points redemption results to be displayed. Example:`points_limit=10` to show only 10 points redemption details. Use only when the `type` parameter is not passed
+limit | Limit the number of redemption details (points and/or coupons). Use only when the `type` parameter is not passed
+coupons_start_id | Filter the results by coupon redemption id starting with a specific number. Use only when the `type` parameter is not passed
+coupons_end_id | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed
+points_start_id | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed
+points_end_id | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed
+order | Order the results in ascending (asc) or descending order (desc). By default the results are ordered in the descending order of redeemed time
+sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default the results are sorted in the descending order of redeemed time
+
+
+
+
+
 
 ## Add Customer Notes
 ```html
@@ -3249,11 +3410,403 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) whose interaction details need to be retrieved. 
+Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) to retrieve interactions
 network | Filter data by communication network. Values: facebook, twitter, foursquare, capillary
 type | Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).
 start_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
 end_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
+
+
+## Update Subscription Details
+
+```html
+# Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json
+```
+
+> Sample POST Request
+
+```xml
+<root>
+<subscription>
+<email>tom.sawyer@example.com</email>
+<priority>bulk</priority>
+<scope>all</scope>
+<!-- Multiple scope as csv is supported -->
+<channel>email</channel>
+<is_subscribed>0</is_subscribed>
+</subscription>
+<subscription>
+<email>tom.sawyer@example.com</email>
+<priority>bulk</priority>
+<scope>all</scope>
+<channel>sms</channel>
+<is_subscribed>0</is_subscribed>
+</subscription>
+</root>
+```
+
+```json
+{
+  "root": {
+    "subscription": [
+      {
+        "email": "tom.sawyer@example.com",
+        "priority": "bulk",
+        "scope": "all",
+        "channel": "email",
+        "is_subscribed": "0"
+      },
+      {
+        "email": "tom.sawyer@example.com",
+        "priority": "bulk",
+        "scope": "all",
+        "channel": "sms",
+        "is_subscribed": "0"
+      }
+    ]
+  }
+}
+```
+
+
+> Sample Response
+
+```xml
+<response>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>SUCCESS</message>
+  </status>
+  <subscriptions>
+    <subscription>
+      <user_id>608</user_id>
+      <email>tom.sawyer@example.com</email>
+<!-- Will have the same identifier passed in the request -->
+      <channel>EMAIL</channel>
+      <priority>BULK</priority>
+      <scope>ALL</scope>
+      <is_subscribed>0</is_subscribed>
+      <item_status>
+        <success>true</success>
+        <code>1000</code>
+        <message>Subscription successfully updated</message>
+      </item_status>
+    </subscription>
+    <subscription>
+      <user_id>608</user_id>
+      <email>tom.sawyer@example.com</email>
+      <channel>SMS</channel>
+      <priority>BULK</priority>
+      <scope>ALL</scope>
+      <is_subscribed>0</is_subscribed>
+      <item_status>
+        <success>true</success>
+        <code>1000</code>
+        <message>Subscription successfully updated</message>
+      </item_status>
+    </subscription>
+  </subscriptions>
+</response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "subscriptions": {
+      "subscription": [
+        {
+          "user_id": "608",
+          "email": "tom.sawyer@example.com",
+          "channel": "EMAIL",
+          "priority": "BULK",
+          "scope": "ALL",
+          "is_subscribed": "0",
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Subscription successfully updated"
+          }
+        },
+        {
+          "user_id": "608",
+          "email": "tom.sawyer@example.com",
+          "channel": "SMS",
+          "priority": "BULK",
+          "scope": "ALL",
+          "is_subscribed": "0",
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Subscription successfully updated"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+This API allows you to update sms/email subscription statuses of a customer.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/subscriptions
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | POST
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/subscriptions?format=<xml/json>`
+
+
+
+## Retrieve Subscription Details
+
+```html
+# Sample Request
+
+http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json&mobile=447700900000
+
+```
+
+> Sample Response
+
+```xml
+<response>
+  <status>
+
+    <success>true</success>
+    <code>200</code>
+    <message>SUCCESS</message>
+  </status>
+  <subscriptions>
+    <subscription>
+      <user_id>249594982</user_id>
+      <mobile>44700900000</mobile>
+      <channel>
+        <name>SMS</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <channel>
+        <name>EMAIL</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <channel>
+        <name>SOCIAL</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <channel>
+        <name>CLIENT</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <channel>
+        <name>REMINDER_TEXT</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <channel>
+        <name>RE_ISSUAL_TEXT</name>
+        <priority>
+          <name>TRANS</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+        <priority>
+          <name>BULK</name>
+          <subscribed>ALL,COUPON,GENERAL,POINTS</subscribed>
+          <unsubscribed></unsubscribed>
+        </priority>
+      </channel>
+      <item_status>
+        <success>true</success>
+        <code>1000</code>
+        <message>Subscription successfully retrieved</message>
+      </item_status>
+    </subscription>
+  </subscriptions>
+</response>
+```
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "subscriptions": {
+      "subscription": {
+        "user_id": "249594982",
+        "mobile": "44700900000",
+        "channel": [
+          {
+            "name": "SMS",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "EMAIL",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "SOCIAL",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "CLIENT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "REMINDER_TEXT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "RE_ISSUAL_TEXT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          }
+        ],
+        "item_status": {
+          "success": "true",
+          "code": "1000",
+          "message": "Subscription successfully retrieved"
+        }
+      }
+    }
+  }
+}
+```
+
+This API allows you to fetch the sms/email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/subscriptions
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | GET
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/customer/subscriptions?format=<xml/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) whose subscription details needs to be retrieved
+channel | Filter the results by communication channel. Value: SMS, EMAIL, WECHAT, SOCIAL, REMINDER_TEXT, RE_ISSUAL_TEXT, CLIENT.
+priority | Filter the results by transaction or bulk messages. Value: TRANS, BULK
+scope | Pass scope=ALL. It retrieves the details of all subscription modules. For example, points, coupons, general etc.
 
 
 ## Response Codes
