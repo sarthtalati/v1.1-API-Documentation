@@ -1377,13 +1377,26 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile no./email id/external id. <br>To retrieve transactions of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
-store_id | Retrieves transactions made at a specific store
-start_id | Retrieves transactions made in a specific duration (start_date to end_date)
+Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/user_id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+start_date | Retrieves transactions made in a specific duration (start_date to end_date)
 end_date | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
-transaction_id | Retrieves the details of a specific transactions.
-transaction_date | Retrieves the transactions made on a specific date. Date format: YYYY-MM-DD
-order | Alligns the list in ascending or descendending order of transaction date/transaction id based on the following parameters. <br>**Value**: trans_id, trans_date
+transaction_id | Retrieves the details of a specific transaction
+transaction_date | Retrieves the transactions made on a particular date. Date format: YYYY-MM-DD
+amount | Retrieves transactions by transaction amount. Pass the specific transaction amount that you want to fetch
+number | Retrieves the details of a specific transaction based on the transaction number passed
+till_id | Retrieves the transactions made at a specific TILL based on the TILL id passed
+till_name | Retrieves the transactions made at a specific TILL based on the TILL name passed
+till_code | Retrieves the transactions made at a specific TILL based on the TILL code passed
+store_id | Retrieves transactions made at a specific store based on the store id passed
+store_name | Retrieves transactions made at a specific store based on the store name passed
+store_code | Retrieves transactions made at a specific store based on the store code passed
+start_id | Retrieves transactions with transaction ids starting with a specific value passed
+end_id | Retrieves transactions with transaction ids ending with a specific value passed
+credit_notes | Retrieves the credit notes of the transactions. **Value**: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes: A receipt given by a cashier to a customer for returned goods which can be used for future purchases.
+custom_fields | Retrieves the details of custom fields of the respective transactions. **Value**: true,false.
+limit | Limits the number of results to be displayed. For example, if `limit=10` a maximum of 10 transactions will be displayed
+sort | Arranges the transactions by transaction date or transaction id based on the value set <br>**Value**: trans_id, trans_date
+order | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id
 asc | Sorts the transaction history in the ascending order of transaction date or transaction id. <br>**Query**: sort=desc
 Desc | Sorts the transaction history in the descending order of transaction date or transaction id. <br>**Query**: sort=desc
 
@@ -1540,8 +1553,8 @@ coupons_start_id | Filter the results by coupon redemption id starting with a sp
 coupons_end_id | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed
 points_start_id | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed
 points_end_id | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed
-order | Order the results in ascending (asc) or descending order (desc). By default the results are ordered in the descending order of redeemed time
-sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default the results are sorted in the descending order of redeemed time
+order | Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time
+sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time
 
 
 

@@ -27,22 +27,22 @@ search: true
 ---
 
 # Getting Started
-The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.
+The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and Loyalty Program through the Capillary platform. This document provides all the APIs that can be used to integrate with the Capillary Applications, their descriptions, resource information, request parameters, request URIs, and sample requests.
 
 To download the v1.1 API documentation, click [here] (https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf "Download Capillary API Document v1.1").
 
 ## Organization Setup
-Every organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created for the organization apart from zones, concepts and stores. Only Capillary users have access to register an organization inTouch. Contact your Capillary Account Manager or Delivery Manager.
+Every organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
 
 To set up an organization as a Capillary admin, see Setting up Organization. 
  
 
 ## Authentication
-Capillary APIs are accessed using the TILL/Store Center credentials that are created when registering the organization. Please note that it is mandatory to use only the store specific Till/Store center credentials of the organization as the data in the API response depends on this identification.
+Capillary APIs are accessed using the TILL/Store Center credentials created when the organization is registered. Please note that it is mandatory to use only the store specific Till/Store center credentials of the organization as the data in the API response depends on this identification.
 
 <aside class="notice">
 Use Case: 
-For instance, assume that a retailer XYZ of India cluster is registered with Capillary with 2 stores - store1 and store2. Each store has 2 TILLS - till1 and till2(for store1), till3 and till4(for store2). 
+For instance, assume that a retailer XYZ of India cluster is registered with Capillary with two stores - store1 and store2. Each store has 2 TILLS - till1 and till2(for store1), till3 and till4(for store2). 
 
 If you authenticate using till1 credentials, you can access org level data and only the data of Store1. You cannot access the data of Store2.
 </aside>
@@ -64,11 +64,11 @@ In the Authorization Header pass the encoded Base64 form of username and md5 for
 
 
 <aside class="notice">
-For example, to authenticate using TILL1 credentials whose password is 123: 
+For example, to authenticate using TILL1 credentials whose password is 123: <br>
 
-First convert the password ‘123’ in md5 form. i,e., 202cb962ac59075b964b07152d234b70
+First convert the password ‘123’ in md5 form. i,e., 202cb962ac59075b964b07152d234b70 <br>
 
-Then encode the username and md5 password to Base64. i.e. 
+Then encode the username and md5 password to Base64. i.e. <br>
 
 `Base64(till1: 202cb962ac59075b964b07152d234b70)` which is `Authorization: Basic dGlsbDE6IDIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0Yjcw`
 </aside>
@@ -104,9 +104,9 @@ Type | Description
 Request URL Format | `http://<host>/<API version no.>/<entity>/<method>.<format>`
 Host | The server to which the API calls are made (cluster URL). <br>**India**: intouch.capillary.co.in <br>**APAC2**: apac2.intouch.capillarytech.com <br>**EU**: eu.intouch.capillarytech.com, <br>**US**: us.intouch.capillarytech.com
 API Version Number | v1.1
-Entity | Provide the appropriate entity based on the action to be performed. The supported entities are communications, coupon, customer, organization, points, product, store, and transaction
-HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GETand POST
-Response Format | The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention `format=json` explicitly or just pass the request url with `.json` extension. <br>Example: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
+Entity | Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction
+HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST
+Response Format | The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify `format=json` or just pass the request url with `.json` extension. <br>Example: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
 
 ## Response Codes
 ```xml
@@ -160,7 +160,7 @@ API responses are generated at request level and item level.
 * **Request Level Responses**: These response codes are generated at the request level (for an entire request).
 * **Item Level Responses**: These response codes are generated at individual items of a request.
 
-<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
+<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the <status> element and item level in the <item_status> element.
 </aside>
 
 ### API Level Response Codes
