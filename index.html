@@ -120,23 +120,23 @@
       <div class="content">
         <h1 id="getting-started">Getting Started</h1>
 
-<p>The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and/or Loyalty Program through Capillary platform. This document lists the APIs that can be used to integrate with the Capillary Server Application, their descriptions, resource information, request parameters, request URIs, and sample requests.</p>
+<p>The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and Loyalty Program through the Capillary platform. This document provides all the APIs that can be used to integrate with the Capillary Applications, their descriptions, resource information, request parameters, request URIs, and sample requests.</p>
 
 <p>To download the v1.1 API documentation, click <a href="https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf" title="Download Capillary API Document v1.1">here</a>.</p>
 
 <h2 id="organization-setup">Organization Setup</h2>
 
-<p>Every organization associated with Capillary is registered in InTouch. Based on the organization&rsquo;s architecture, store TILL /Store Center accounts are created for the organization apart from zones, concepts and stores. Only Capillary users have access to register an organization inTouch. Contact your Capillary Account Manager or Delivery Manager.</p>
+<p>Every organization associated with Capillary is registered in InTouch. Based on the organization&rsquo;s architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.</p>
 
 <p>To set up an organization as a Capillary admin, see Setting up Organization. </p>
 
 <h2 id="authentication">Authentication</h2>
 
-<p>Capillary APIs are accessed using the TILL/Store Center credentials that are created when registering the organization. Please note that it is mandatory to use only the store specific Till/Store center credentials of the organization as the data in the API response depends on this identification.</p>
+<p>Capillary APIs are accessed using the TILL/Store Center credentials created when the organization is registered. Please note that it is mandatory to use only the store specific Till/Store center credentials of the organization as the data in the API response depends on this identification.</p>
 
 <aside class="notice">
 Use Case: 
-For instance, assume that a retailer XYZ of India cluster is registered with Capillary with 2 stores - store1 and store2. Each store has 2 TILLS - till1 and till2(for store1), till3 and till4(for store2). 
+For instance, assume that a retailer XYZ of India cluster is registered with Capillary with two stores - store1 and store2. Each store has 2 TILLS - till1 and till2(for store1), till3 and till4(for store2). 
 
 If you authenticate using till1 credentials, you can access org level data and only the data of Store1. You cannot access the data of Store2.
 </aside>
@@ -156,11 +156,11 @@ For any assistance on Organization setup, please contact your Account Manager of
 <p>In the Authorization Header pass the encoded Base64 form of username and md5 formatted password.</p>
 
 <aside class="notice">
-For example, to authenticate using TILL1 credentials whose password is 123: 
+For example, to authenticate using TILL1 credentials whose password is 123: <br>
 
-First convert the password ‘123’ in md5 form. i,e., 202cb962ac59075b964b07152d234b70
+First convert the password ‘123’ in md5 form. i,e., 202cb962ac59075b964b07152d234b70 <br>
 
-Then encode the username and md5 password to Base64. i.e. 
+Then encode the username and md5 password to Base64. i.e. <br>
 
 `Base64(till1: 202cb962ac59075b964b07152d234b70)` which is `Authorization: Basic dGlsbDE6IDIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0Yjcw`
 </aside>
@@ -209,15 +209,15 @@ When an API call is made with 4 batch transactions, A response header is generat
 </tr>
 <tr>
 <td>Entity</td>
-<td>Provide the appropriate entity based on the action to be performed. The supported entities are communications, coupon, customer, organization, points, product, store, and transaction</td>
+<td>Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction</td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
-<td>The Capillary Cloud REST APIs support the standard HTTP methods - GETand POST</td>
+<td>The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST</td>
 </tr>
 <tr>
 <td>Response Format</td>
-<td>The format for requesting data from the APIs (xml, json). V1.1 APIs return information in the XML format by default. To get json response, mention <code class="prettyprint">format=json</code> explicitly or just pass the request url with <code class="prettyprint">.json</code> extension. <br>Example: <code class="prettyprint">http://eu.intouch.capillarytech.com/v1.1/customer/add.json</code></td>
+<td>The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify <code class="prettyprint">format=json</code> or just pass the request url with <code class="prettyprint">.json</code> extension. <br>Example: <code class="prettyprint">http://eu.intouch.capillarytech.com/v1.1/customer/add.json</code></td>
 </tr>
 </tbody></table>
 
@@ -262,7 +262,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <li><strong>Item Level Responses</strong>: These response codes are generated at individual items of a request.</li>
 </ul>
 
-<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the `<status>` element and item level in the `<item_status>` element.
+<aside class="notice"> For instance, assume that a batch API call is made to add multiple transactions. The entire request will have a status (successful, failed or partial success)and also each transaction item will have its own response code element. You can see API level response in the <status> element and item level in the <item_status> element.
 </aside>
 
 <h3 id="api-level-response-codes">API Level Response Codes</h3>
@@ -1950,14 +1950,10 @@ http://api.capillary.co.in/v1.1/customer/get?format=xml<span class="err">&amp;</
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Provide the primary identifier of the customer to fetch the transaction details - mobile no./email id/external id. <br>To retrieve transactions of multiple customers at a time, provide the identifier of each customer separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
+<td>Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/user_id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
-<td>store_id</td>
-<td>Retrieves transactions made at a specific store</td>
-</tr>
-<tr>
-<td>start_id</td>
+<td>start_date</td>
 <td>Retrieves transactions made in a specific duration (start_date to end_date)</td>
 </tr>
 <tr>
@@ -1966,15 +1962,71 @@ http://api.capillary.co.in/v1.1/customer/get?format=xml<span class="err">&amp;</
 </tr>
 <tr>
 <td>transaction_id</td>
-<td>Retrieves the details of a specific transactions.</td>
+<td>Retrieves the details of a specific transaction</td>
 </tr>
 <tr>
 <td>transaction_date</td>
-<td>Retrieves the transactions made on a specific date. Date format: YYYY-MM-DD</td>
+<td>Retrieves the transactions made on a particular date. Date format: YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Retrieves transactions by transaction amount. Pass the specific transaction amount that you want to fetch</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Retrieves the details of a specific transaction based on the transaction number passed</td>
+</tr>
+<tr>
+<td>till_id</td>
+<td>Retrieves the transactions made at a specific TILL based on the TILL id passed</td>
+</tr>
+<tr>
+<td>till_name</td>
+<td>Retrieves the transactions made at a specific TILL based on the TILL name passed</td>
+</tr>
+<tr>
+<td>till_code</td>
+<td>Retrieves the transactions made at a specific TILL based on the TILL code passed</td>
+</tr>
+<tr>
+<td>store_id</td>
+<td>Retrieves transactions made at a specific store based on the store id passed</td>
+</tr>
+<tr>
+<td>store_name</td>
+<td>Retrieves transactions made at a specific store based on the store name passed</td>
+</tr>
+<tr>
+<td>store_code</td>
+<td>Retrieves transactions made at a specific store based on the store code passed</td>
+</tr>
+<tr>
+<td>start_id</td>
+<td>Retrieves transactions with transaction ids starting with a specific value passed</td>
+</tr>
+<tr>
+<td>end_id</td>
+<td>Retrieves transactions with transaction ids ending with a specific value passed</td>
+</tr>
+<tr>
+<td>credit_notes</td>
+<td>Retrieves the credit notes of the transactions. <strong>Value</strong>: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes: A receipt given by a cashier to a customer for returned goods which can be used for future purchases.</td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td>Retrieves the details of custom fields of the respective transactions. <strong>Value</strong>: true,false.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of results to be displayed. For example, if <code class="prettyprint">limit=10</code> a maximum of 10 transactions will be displayed</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Arranges the transactions by transaction date or transaction id based on the value set <br><strong>Value</strong>: trans_id, trans_date</td>
 </tr>
 <tr>
 <td>order</td>
-<td>Alligns the list in ascending or descendending order of transaction date/transaction id based on the following parameters. <br><strong>Value</strong>: trans_id, trans_date</td>
+<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id</td>
 </tr>
 <tr>
 <td>asc</td>
@@ -2195,11 +2247,11 @@ http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </tr>
 <tr>
 <td>order</td>
-<td>Order the results in ascending (asc) or descending order (desc). By default the results are ordered in the descending order of redeemed time</td>
+<td>Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time</td>
 </tr>
 <tr>
 <td>sort</td>
-<td>Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default the results are sorted in the descending order of redeemed time</td>
+<td>Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time</td>
 </tr>
 </tbody></table>
 
