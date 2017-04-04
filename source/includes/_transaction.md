@@ -86,12 +86,24 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       },
       "custom_fields": {
         "field": {
-          "name": "citybank",
-          "value": "[“n”]"
+          "name": "Bank",
+          "value": "SBI"
         }
       },
       "line_items": {
         "line_item": {
+          "extended_fields": {
+            "field": [
+              {
+                "name": "color",
+                "value": "black"
+              },
+              {
+                "name": "ItemWeight",
+                "value": "3"
+              }
+            ]
+          },
           "serial": "1",
           "amount": "500",
           "description": "soap",
@@ -161,12 +173,22 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       </payment_details>
       <custom_fields>
          <field>
-            <name>citybank</name>
-            <value>[“n”]</value>
+            <name>Bank</name>
+            <value>SBI</value>
          </field>
       </custom_fields>
       <line_items>
          <line_item>
+		 <extended_fields>
+				<field>
+				<name>color</name>
+				<value>black</value>
+				</field>
+				<field>
+		<name>ItemWeight</name>
+		<value>3</value>
+		</field>
+		</extended_fields>
             <serial>1</serial>
             <amount>500</amount>
             <description>soap</description>
@@ -312,11 +334,18 @@ This API allows you to make regular or not interested transactions. You can subm
 * **Regular Transactions**: To make regular transactions, set `type` as `regular` and pass the customer’s unique identifier of the customer in the respective tag.
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
 
-
-
 <aside class="notice">
 When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields etc. will be updated to the new values. <br>
 If a new customer identifier is passed along with the transaction details, the customer will be registered automatically. 
+</aside>
+
+### Updating custom field details along with transaction
+You can update custom field details of a customer that are configured for transactions. Custom fields can be updated for either regular or return transaction. To retrieve custom fields use customer/get, customer/transaction APIs.
+
+<aside class="notice">
+It is important to know the custom field names and supported custom field values configured for your organization for each module. You can have extended custom fields at line_item level or transaction level. There are two types of custom fields as explained below:<br>
+1. Standard Custom Fields - These are predefined custom fields created by Capillary admins. Fields are mapped to the orgs based on the relevancy. Field name would remain same across the orgs, but field values may vary depending on the org. These custom fields can be passed at line_item level or transaction level. You can just update the field values for the customer using extended_fields tag.<br>
+2. Brand Specific Custom Fields - These are user defined custom fields that are configured at an organization level, usually on InTouch. Field names and field values are completely defined as required for that specific organization. You can submit/update these custom field values for a customer using custom_fields tag. 
 </aside>
 
 
@@ -373,26 +402,102 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 
 ```json
 {
-  "root": {
-    "transaction": {
-      "customer": {
-        "mobile": "91000000099",
-        "email": "john@example.com",
-        "firstname": "autofn_7353409276"
-      },
-      "billing_time": "2014-01-21",
-      "type": "regular",
-      "gross_amount": "1000",
-      "number": "numbr735ccdcdb34",
-      "bill_client_id": "1121",
-      "discount": "0",
-      "amount": "2000",
-      "credit_note": {
-        "amount": "1800",
-        "notes": "Reason for credit",
-        "number": "numbr9959104543"
-      },
-      "notes": "Regular Bill with Payment Details"
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "subscriptions": {
+      "subscription": {
+        "user_id": "249594982",
+        "mobile": "44700900000",
+        "channel": [
+          {
+            "name": "SMS",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "EMAIL",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "SOCIAL",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "CLIENT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "REMINDER_TEXT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          },
+          {
+            "name": "RE_ISSUAL_TEXT",
+            "priority": [
+              {
+                "name": "TRANS",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              },
+              {
+                "name": "BULK",
+                "subscribed": "ALL,COUPON,GENERAL,POINTS"
+              }
+            ]
+          }
+        ],
+        "item_status": {
+          "success": "true",
+          "code": "1000",
+          "message": "Subscription successfully retrieved"
+        }
+      }
     }
   }
 }
