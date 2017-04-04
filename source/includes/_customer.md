@@ -119,6 +119,28 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
      <lastname>Sawyer</lastname>
      <gender>M</gender>
      <registered_on>2012-09-11 11:11:11</registered_on>
+	 <extended_fields>
+		<field>
+		<name>color</name>
+		<value>black</value>
+		</field>
+		<field>
+		<name>ItemWeight</name>
+		<value>3</value>
+	</field>
+	<field>
+	<name>Status</name>
+	<value>pending</value>
+	</field>
+	<field>
+	<name>ser_tax</name>
+	<value/>
+	</field>
+	<field>
+	<name>他他他他</name>
+<value>他他他</value>
+</field>
+</extended_fields>
      <custom_fields>
      <field>
     <name>Hobbies</name>
@@ -176,75 +198,100 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 ```json
 # Sample Response
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "customers": {
-      "customer": [
-        {
-          "user_id": "123",
-          "mobile": "44700900000",
-          "email": "tom.sawyer@example.com",
-          "external_id": "XYPZ001",
-          "gender": "M",
-          "registered_on": "2012-09-11 11:11:11",
-          "item_status": {
-            "success": "true",
-            "code": "1000",
-            "message": "Customer Registration Successful"
-          },
-          "side_effects": {
-            "effect": [
-              {
-                "type": "points",
-                "awarded_points": "19490463",
-                "total_points": "19490463"
-              },
-              {
-                "type": "coupon",
-                "coupon_code": "095790",
-                "description": "Sample description",
-                "coupon_type": "CAMPAIGN/DVS",
-                "id": "42601779"
-              }
-            ]
-          },
-          "firstname": "Tom",
-          "lastname": "Sawyer",
-          "lifetime_points": "50",
-          "lifetime_purchases": "180",
-          "loyalty_points": "50",
-          "current_slab": "SILVER",
-          "updated_on": "2016-09-11 11:11:11"
+  "root": {
+    "customer": [
+      {
+        "mobile": "44700900000",
+        "email": "tom.sawyer@example.com",
+        "external_id": "XYPZ001",
+        "firstname": "Tom",
+        "lastname": "Sawyer",
+        "gender": "M",
+        "registered_on": "2012-09-11 11:11:11",
+        "extended_fields": {
+          "field": [
+            {
+              "name": "color",
+              "value": "black"
+            },
+            {
+              "name": "ItemWeight",
+              "value": "3"
+            },
+            {
+              "name": "Status",
+              "value": "pending"
+            },
+            { "name": "ser_tax" },
+            {
+              "name": "他他他他",
+              "value": "他他他"
+            }
+          ]
         },
-        {
-          "user_id": "44342",
-          "mobile": "44700900999",
-          "email": "rita.john@example.com",
-          "external_id": "XYPZ006",
-          "gender": "M",
-          "registered_on": "2016-09-11 11:11:15",
-          "item_status": {
-            "success": "true",
-            "code": "1000",
-            "message": "Customer Registration Successful"
-          },
-          "side_effects": {
-            
-          },
-          "firstname": "Rita",
-          "lastname": "John",
-          "lifetime_points": "50",
-          "lifetime_purchases": "345",
-          "loyalty_points": "50",
-          "current_slab": "SILVER",
-          "updated_on": "2016-09-11 11:11:15"
+        "custom_fields": {
+          "field": [
+            {
+              "name": "Hobbies",
+              "value": "[“Playing”]"
+            },
+            {
+              "name": "a",
+              "value": "[“b”]>"
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "mobile": "44700900999",
+        "email": "rita.john@example.com",
+        "external_id": "XYPZ006",
+        "firstname": "Rita",
+        "lastname": "John",
+        "gender": "M",
+        "registered_on": "2012-09-11 11:11:15",
+        "subscriptions": {
+          "subscription": [
+            {
+              "priority": "TRANS",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "email"
+            },
+            {
+              "priority": "BULK",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "email"
+            },
+            {
+              "priority": "TRANS",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "sms"
+            },
+            {
+              "priority": "BULK",
+              "scope": "all",
+              "is_subscribed": "0",
+              "channel": "sms"
+            }
+          ]
+        },
+        "custom_fields": {
+          "field": [
+            {
+              "name": "Hobbies",
+              "value": "[“Singing”]>"
+            },
+            {
+              "name": "a",
+              "value": "[“b”]"
+            }
+          ]
+        }
+      }
+    ]
   }
 }
 ```
@@ -338,6 +385,18 @@ Following are the features of customer registration API:
 
 However, to update secondary parameters, allow mobile number change/email id change/external id change should be enabled in your organization’s **InTouch** > **Settings** > **Miscellaneous** > **Registration Configuration** page.
 
+
+### Submit custom field values along with registration
+You can submit custom field values of a customer that are configured for the registration window. To retrieve custom field values of a customer, use customer/get API.
+
+<aside class="notice">
+It is important to know the custom field names and supported custom field values configured for your organization for each module. There are two types of custom fields as explained below:<br>
+1. Standard Custom Fields - These are predefined custom fields created by Capillary admins. Fields are mapped to the orgs based on the relevancy. Field name would remain same across the orgs, but field values may vary depending on the org. You can just update the field values for the customer using extended_fields tag.<br>
+2. Brand Specific Custom Fields - These are user defined custom fields that are configured at an organization level, usually on InTouch. Field names and field values are completely defined as required for that specific organization. You can submit/update these custom field values for a customer using custom_fields tag. 
+</aside>
+
+
+
 ### Resource Information
 Parameter | Description
 --------- | -----------
@@ -383,11 +442,32 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
   "root": {
     "customer": {
       "mobile": "44700900000",
-      "email": "tom.sawyer@email.com",
+      "email": "tom.sawyer@example.com",
       "external_id": "ts1234",
       "firstname": "Tom",
       "lastname": "Sawyer",
       "gender": "M",
+      "extended_fields": {
+        "field": [
+          {
+            "name": "color",
+            "value": "black"
+          },
+          {
+            "name": "ItemWeight",
+            "value": "3"
+          },
+          {
+            "name": "Status",
+            "value": "pending"
+          },
+          { "name": "ser_tax" },
+          {
+            "name": "他他他他",
+            "value": "他他他"
+          }
+        ]
+      },
       "custom_fields": {
         "field": {
           "name": "age",
@@ -411,6 +491,28 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 			<firstname>Tom</firstname>
 			<lastname>Sawyer</lastname>
 			<gender>M</gender>
+			<extended_fields>
+<field>
+<name>color</name>
+<value>black</value>
+</field>
+<field>
+<name>ItemWeight</name>
+<value>3</value>
+</field>
+<field>
+<name>Status</name>
+<value>pending</value>
+</field>
+<field>
+<name>ser_tax</name>
+<value/>
+</field>
+<field>
+<name>他他他他</name>
+<value>他他他</value>
+</field>
+</extended_fields>
 			<custom_fields>
 				<field>
 					<name>age</name>
@@ -512,7 +614,16 @@ You can update secondary identifiers (mobile no./email id./external id) only whe
 * CONF_ALLOW_EMAIL_UPDATE (for email id)
 * CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id) 
 
-However, you cannot update the primary identifier of customers using this API even if the option to update the respective identifier is enabled on the **Registration Configuration** page. 
+However, you cannot update the primary identifier of customers using this API even if the option to update the respective identifier is enabled on the **Registration Configuration** page.
+
+### Update custom field values along with profile updation
+You can also update custom field values of a customer that are configured for the registration window. To retrieve custom field values of a customer, use customer/get API.
+
+<aside class="notice">
+It is important to know the custom field names and supported custom field values configured for your organization for each module. There are two types of custom fields as explained below:<br>
+1. Standard Custom Fields - These are predefined custom fields created by Capillary admins. Fields are mapped to the orgs based on the relevancy. Field name would remain same across the orgs, but field values may vary depending on the org. You can just update the field values for the customer using extended_fields tag.<br>
+2. Brand Specific Custom Fields - These are user defined custom fields that are configured at an organization level, usually on InTouch. Field names and field values are completely defined as required for that specific organization. You can submit/update these custom field values for a customer using custom_fields tag. 
+</aside>
 
 
 ### Resource Information
