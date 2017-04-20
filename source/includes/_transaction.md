@@ -2,7 +2,7 @@
 In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:
 
 * **Loyalty Transactions**: Transactions made by registered customers of your organization's loyalty program. A customer can be tagged to a loyalty transaction.
- 
+
 * **Non-loyalty Transactions**: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)
 
 * **Not-interested Transactions**: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
@@ -11,7 +11,7 @@ Transactions are again classified into two types:
 
 * **Regular**: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and nnot-interested.
 * **Return** : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.
-		
+
 The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), and custom fields. 
 
 <aside class="notice">
@@ -130,85 +130,85 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 
 ```xml
 <root>
-   <transaction>
-      <bill_client_id>1121</bill_client_id>
-      <!-- bill_client_id is optional -->
-      <type>regular</type>
-      <number>MyBill-077</number>
-      <amount>1000</amount>
-      <notes>2 line items</notes>
-      <billing_time>2012-04-01</billing_time>
-      <gross_amount>1000</gross_amount>
-      <discount>10</discount>
-      <customer>
-         <mobile>447700900000</mobile>
-         <email>tom.sawer@example.com</email>
-         <external_id>ts1234</external_id>
-         <firstname>Tom</firstname>
-         <lastname>Sawyer</lastname>
-      </customer>
-      <payment_details>
-         <payment>
-            <mode>CASH</mode>
-            <value>100</value>
-         </payment>
-         <payment>
-            <mode>CREDIT</mode>
-            <value>4000</value>
-         
-		<attributes>
-			<attribute>
-			<name>BankNameAPI</name>
-			<value>value_602656</value>
-			</attribute>
-			<attribute>
-			<name>branch_nameAPI</name>
-			<value>value_602656</value>
-			</attribute>
-		</attributes>
-<notes>notes_602656</notes>
-<mode>CHECKAPI</mode>
-<value>500</value>
-		 </payment>
-      </payment_details>
-      <custom_fields>
-         <field>
-            <name>Bank</name>
-            <value>SBI</value>
-         </field>
-      </custom_fields>
-      <line_items>
-         <line_item>
-		 <extended_fields>
-				<field>
-				<name>color</name>
-				<value>black</value>
-				</field>
-				<field>
-		<name>ItemWeight</name>
-		<value>3</value>
-		</field>
-		</extended_fields>
-            <serial>1</serial>
-            <amount>500</amount>
-            <description>soap</description>
-            <item_code>item-001</item_code>
-            <qty>50</qty>
-            <rate>10</rate>
-            <value>500</value>
-            <attributes>
-               <attribute>
-                  <name>brand</name>
-                  <value>Levis</value>
-               </attribute>
-            </attributes>
-         </line_item>
-      </line_items>
-      <associate_details>
-         <code>hiraxdhara</code>
-         <name>Tom Sawyer</name>
-      </associate_details>
-   </transaction>
+	<transaction>
+		<bill_client_id>1121</bill_client_id>
+		<!-- bill_client_id is optional -->
+		<type>regular</type>
+		<number>MyBill-077</number>
+		<amount>1000</amount>
+		<notes>2 line items</notes>
+		<billing_time>2012-04-01</billing_time>
+		<gross_amount>1000</gross_amount>
+		<discount>10</discount>
+		<customer>
+			<mobile>447700900000</mobile>
+			<email>tom.sawer@example.com</email>
+			<external_id>ts1234</external_id>
+			<firstname>Tom</firstname>
+			<lastname>Sawyer</lastname>
+		</customer>
+		<payment_details>
+			<payment>
+				<mode>CASH</mode>
+				<value>100</value>
+			</payment>
+			<payment>
+				<mode>CREDIT</mode>
+				<value>4000</value>
+
+				<attributes>
+					<attribute>
+						<name>BankNameAPI</name>
+						<value>value_602656</value>
+					</attribute>
+					<attribute>
+						<name>branch_nameAPI</name>
+						<value>value_602656</value>
+					</attribute>
+				</attributes>
+				<notes>notes_602656</notes>
+				<mode>CHECKAPI</mode>
+				<value>500</value>
+			</payment>
+		</payment_details>
+		<custom_fields>
+			<field>
+				<name>Bank</name>
+				<value>SBI</value>
+			</field>
+		</custom_fields>
+		<line_items>
+			<line_item>
+				<extended_fields>
+					<field>
+						<name>color</name>
+						<value>black</value>
+					</field>
+					<field>
+						<name>ItemWeight</name>
+						<value>3</value>
+					</field>
+				</extended_fields>
+				<serial>1</serial>
+				<amount>500</amount>
+				<description>soap</description>
+				<item_code>item-001</item_code>
+				<qty>50</qty>
+				<rate>10</rate>
+				<value>500</value>
+				<attributes>
+					<attribute>
+						<name>brand</name>
+						<value>Levis</value>
+					</attribute>
+				</attributes>
+			</line_item>
+		</line_items>
+		<associate_details>
+			<code>hiraxdhara</code>
+			<name>Tom Sawyer</name>
+		</associate_details>
+	</transaction>
 </root>
 
 ```
@@ -274,58 +274,58 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 
 ```xml
 <response>
-<transactions>
-<transaction>
-<id>5477577</id>
-<number>MyBill-077</number>
-<type>regular</type>
-<customer>
-<mobile>447700900000</mobile>
-<email>tom.sawer@example.com</email>
-<external_id>ts1234</external_id>
-<user_id>4434563</user_id>
-<!-- user_id will only be returned if query param user_id is ‘true’ -->
-<loyalty_points>8388607</loyalty_points>
-<lifetime_points>2000000640</lifetime_points>
-<lifetime_purchases>
+	<transactions>
+		<transaction>
+			<id>5477577</id>
+			<number>MyBill-077</number>
+			<type>regular</type>
+			<customer>
+				<mobile>447700900000</mobile>
+				<email>tom.sawer@example.com</email>
+				<external_id>ts1234</external_id>
+				<user_id>4434563</user_id>
+				<!-- user_id will only be returned if query param user_id is ‘true’ -->
+				<loyalty_points>8388607</loyalty_points>
+				<lifetime_points>2000000640</lifetime_points>
+				<lifetime_purchases>
 100000033000
-</lifetime_purchases>
-<current_slab>SILVER</current_slab>
-</customer>
-<item_status>
-<success>true</success>
-<code>600</code>
-<message>Transaction added successfully</message>
-</item_status>
-<!-- v1 Side effects are not listed here -->
-<side_effects>
-<effect>
-<type>coupon</type>
-<code>ABCDw23</code>
-<id>456677</id>
-<description>10% off on jeans</description>
-<type>DVS</type>
-<valid_till>2011-09-13</valid_till>
-<discount_code>DISCOUNT10</discount_code>
-<discount_value>10</discount_value>
-</effect>
-<effect>
-<type>points</type>
-<awarded>100</awarded>
-<total_points>4000</total_points>
-</effect>
-</side_effects>
-<bill_client_id>1121</bill_client_id> 
-<!-- 
+				</lifetime_purchases>
+				<current_slab>SILVER</current_slab>
+			</customer>
+			<item_status>
+				<success>true</success>
+				<code>600</code>
+				<message>Transaction added successfully</message>
+			</item_status>
+			<!-- v1 Side effects are not listed here -->
+			<side_effects>
+				<effect>
+					<type>coupon</type>
+					<code>ABCDw23</code>
+					<id>456677</id>
+					<description>10% off on jeans</description>
+					<type>DVS</type>
+					<valid_till>2011-09-13</valid_till>
+					<discount_code>DISCOUNT10</discount_code>
+					<discount_value>10</discount_value>
+				</effect>
+				<effect>
+					<type>points</type>
+					<awarded>100</awarded>
+					<total_points>4000</total_points>
+				</effect>
+			</side_effects>
+			<bill_client_id>1121</bill_client_id> 
+			<!-- 
 bill_client_id will be returned only if it is passed in request xml 
 -->
-</transaction>
-</transactions>
-<status>
-<success>true</success>
-<code>200</code>
-<message>SUCCESS</message>
-</status>
+		</transaction>
+	</transactions>
+	<status>
+		<success>true</success>
+		<code>200</code>
+		<message>SUCCESS</message>
+	</status>
 </response>
 ```
 
@@ -335,18 +335,16 @@ This API allows you to make regular or not interested transactions. You can subm
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
 
 <aside class="notice">
-When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields etc. will be updated to the new values. <br>
+When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended custom fields will be updated to the new values. <br>
 If a new customer identifier is passed along with the transaction details, the customer will be registered automatically. 
 </aside>
 
-### Updating custom field details along with transaction
-You can update custom field details of a customer that are configured for transactions. Custom fields can be updated for either regular or return transaction. To retrieve custom fields use customer/get, customer/transaction APIs.
 
-<aside class="notice">
-It is important to know the custom field names and supported custom field values configured for your organization for each module. You can have extended custom fields at line_item level or transaction level. There are two types of custom fields as explained below:<br>
-1. Standard Custom Fields - These are predefined custom fields created by Capillary admins. Fields are mapped to the orgs based on the relevancy. Field name would remain same across the orgs, but field values may vary depending on the org. These custom fields can be passed at line_item level or transaction level. You can just update the field values for the customer using extended_fields tag.<br>
-2. Brand Specific Custom Fields - These are user defined custom fields that are configured at an organization level, usually on InTouch. Field names and field values are completely defined as required for that specific organization. You can submit/update these custom field values for a customer using custom_fields tag. 
-</aside>
+You can update custom field details and extended custom field details for either regular or return transaction. To retrieve these details, use customer/get, customer/transaction APIs.
+
+* Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes
+* Pass custom field details in the custom_fields element and extended fields in the extended_fields element
+* To retrieve custom field values and extended field values, use the customer/get or customer/transaction API
 
 
 ### Resource Information
@@ -364,7 +362,7 @@ Batch Support | Yes
 `http://<cluster url>/v1.1/transaction/add?format=<xml/json>`
 
 
- 
+
 ## Make Transaction with Local Currency 
 ```html
 # Sample Request
@@ -374,30 +372,30 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 > Sample POST Request
 
 ```xml
-<root>
-<transaction>
-<comment></comment>
-<customer>
-<mobile>91000000099</mobile>
-<email>john@example.com</email>
-<firstname>autofn_7353409276</firstname>
-</customer>
-<billing_time>2014-01-21</billing_time>
-<type>regular</type>
-<gross_amount>1000</gross_amount>
-<number>numbr735ccdcdb34</number>
-<bill_client_id>1121</bill_client_id>
-<discount>0</discount>
-<amount>2000</amount>
-<credit_note>
-<comment></comment>
-<amount>1800</amount>
-<notes>Reason for credit</notes>
-<number>numbr9959104543</number>
-</credit_note>
-<notes>Regular Bill with Payment Details</notes>
-</transaction>
-</root>
+					<root>
+						<transaction>
+							<comment/>
+							<customer>
+								<mobile>91000000099</mobile>
+								<email>john@example.com</email>
+								<firstname>autofn_7353409276</firstname>
+							</customer>
+							<billing_time>2014-01-21</billing_time>
+							<type>regular</type>
+							<gross_amount>1000</gross_amount>
+							<number>numbr735ccdcdb34</number>
+							<bill_client_id>1121</bill_client_id>
+							<discount>0</discount>
+							<amount>2000</amount>
+							<credit_note>
+								<comment/>
+								<amount>1800</amount>
+								<notes>Reason for credit</notes>
+								<number>numbr9959104543</number>
+							</credit_note>
+							<notes>Regular Bill with Payment Details</notes>
+						</transaction>
+					</root>
 ```
 
 ```json
@@ -506,46 +504,46 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 > Sample Response
 
 ```xml
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Success</message>
-    </status>
-    <transactions>
-        <transaction>
-            <id>34058904</id>
-            <number>numbr735ccdcdb34</number>
-            <bill_client_id>1121</bill_client_id>
-            <type>REGULAR</type>
-            <delivery_status>DELIVERED</delivery_status>
-            <customer>
-                <user_id>282100245</user_id>
-                <mobile>91000000099</mobile>
-                <firstname>autofn_7353409276</firstname>
-                <lastname></lastname>
-                <email>john@example.com</email>
-                <external_id></external_id>
-                <lifetime_points>0</lifetime_points>
-                <loyalty_points>0</loyalty_points>
-                <current_slab></current_slab>
-                <tier_expiry_date></tier_expiry_date>
-                <lifetime_purchases>2000</lifetime_purchases>
-                <type>LOYALTY</type>
-                <source>instore</source>
-            </customer>
-            <side_effects>
-                <effect/>
-            </side_effects>
-            <source>instore</source>
-            <item_status>
-                <code>600</code>
-                <success>true</success>
-                <message>Transaction added successfully</message>
-            </item_status>
-        </transaction>
-    </transactions>
-</response>
+					<response>
+						<status>
+							<success>true</success>
+							<code>200</code>
+							<message>Success</message>
+						</status>
+						<transactions>
+							<transaction>
+								<id>34058904</id>
+								<number>numbr735ccdcdb34</number>
+								<bill_client_id>1121</bill_client_id>
+								<type>REGULAR</type>
+								<delivery_status>DELIVERED</delivery_status>
+								<customer>
+									<user_id>282100245</user_id>
+									<mobile>91000000099</mobile>
+									<firstname>autofn_7353409276</firstname>
+									<lastname/>
+									<email>john@example.com</email>
+									<external_id/>
+									<lifetime_points>0</lifetime_points>
+									<loyalty_points>0</loyalty_points>
+									<current_slab/>
+									<tier_expiry_date/>
+									<lifetime_purchases>2000</lifetime_purchases>
+									<type>LOYALTY</type>
+									<source>instore</source>
+								</customer>
+								<side_effects>
+									<effect/>
+								</side_effects>
+								<source>instore</source>
+								<item_status>
+									<code>600</code>
+									<success>true</success>
+									<message>Transaction added successfully</message>
+								</item_status>
+							</transaction>
+						</transactions>
+					</response>
 ```
 
 ```json
@@ -575,7 +573,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
           "source": "instore"
         },
         "side_effects": {
-          
+
         },
         "source": "instore",
         "item_status": {
@@ -644,7 +642,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
           "amount": "1300",
           "attributes": {
             "attribute": {
-              
+
             }
           },
           "serial": "0",
@@ -661,7 +659,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       "amount": "float",
       "custom_fields": {
         "field": {
-          
+
         }
       },
       "payment_details": {
@@ -681,136 +679,136 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-	<root>
-		<transaction>
-			<customer>
-				<user_id></user_id>
-				<mobile>44700900000</mobile>
-				<local_id></local_id>
-				<custom_fields>
-					<name>Tom Sawer</name>	
-					<value>1200</value>
-				</custom_fields>
-				<external_id></external_id>
-				<email></email>
-				<store>
-					<code>123</code>
-					<id>234</id>
-				</store>
-			</customer>
-			<line_items>
-				<line_item>
-					<transaction_number>2346</transaction_number>
-					<description></description>
-					<billing_time></billing_time>
-					<rate>float</rate>
-					<value>float</value>
-					<qty>2</qty>
-					<discount>1.00%</discount>
-					<amount>1300</amount>
-					<item_code></item_code>
-					<attributes>
-						<attribute>
-							<name></name>
-							<value></value>
-						</attribute>
-					</attributes>
-					<serial>0</serial>
-					<type>return</type>
-					<return_type>full</return_type>
-				</line_item>
-			</line_items>
-			<purchase_time></purchase_time>
-			<billing_time></billing_time>
-			<credit_note>
-				<amount>1300</amount>
-				<notes></notes>
-				<number>1267</number>
-			</credit_note>
-			<notes></notes>
-			<gross_amount>float</gross_amount>
-			<number></number>
-			<discount>float</discount>
-			<amount>float</amount>
-			<custom_fields>
-				<field>
-					<name></name>
-					<value></value>
-				</field>
-			</custom_fields>
-			<return_type />
-			<type />
-			<payment_details>
-				<payment>
-					<attributes>
-						<attribute>
-						<name>Payment Mode</name>
-						<value>HDFC Credit Card</value>
-						</attribute>
-					</attributes>
-					<notes></notes>
-					<name></name>
-					<value>float</value>
-				</payment>
-			</payment_details>
-		</transaction>
-	</root>
+							<?xml version="1.0" encoding="UTF-8" ?>
+							<root>
+								<transaction>
+									<customer>
+										<user_id/>
+										<mobile>44700900000</mobile>
+										<local_id/>
+										<custom_fields>
+											<name>Tom Sawer</name>	
+											<value>1200</value>
+										</custom_fields>
+										<external_id/>
+										<email/>
+										<store>
+											<code>123</code>
+											<id>234</id>
+										</store>
+									</customer>
+									<line_items>
+										<line_item>
+											<transaction_number>2346</transaction_number>
+											<description/>
+											<billing_time/>
+											<rate>float</rate>
+											<value>float</value>
+											<qty>2</qty>
+											<discount>1.00%</discount>
+											<amount>1300</amount>
+											<item_code/>
+											<attributes>
+												<attribute>
+													<name/>
+													<value/>
+												</attribute>
+											</attributes>
+											<serial>0</serial>
+											<type>return</type>
+											<return_type>full</return_type>
+										</line_item>
+									</line_items>
+									<purchase_time/>
+									<billing_time/>
+									<credit_note>
+										<amount>1300</amount>
+										<notes/>
+										<number>1267</number>
+									</credit_note>
+									<notes/>
+									<gross_amount>float</gross_amount>
+									<number/>
+									<discount>float</discount>
+									<amount>float</amount>
+									<custom_fields>
+										<field>
+											<name/>
+											<value/>
+										</field>
+									</custom_fields>
+									<return_type />
+									<type />
+									<payment_details>
+										<payment>
+											<attributes>
+												<attribute>
+													<name>Payment Mode</name>
+													<value>HDFC Credit Card</value>
+												</attribute>
+											</attributes>
+											<notes/>
+											<name/>
+											<value>float</value>
+										</payment>
+									</payment_details>
+								</transaction>
+							</root>
 
 ```
 > Sample Response
 
 ```xml
-<response>
-<transactions>
-<transaction>
-<id>32</id>
-<number>MyBill-077</number>
-<bill_client_id>1121</bill_client_id>
-<type>return</type>
-<customer>
-<mobile>918167712150</mobile>
-<email>tom.sawyer@example.com</email>
-<external_id>ts1234</external_id>
-<user_id>55453</user_id>
-<!--     
+							<response>
+								<transactions>
+									<transaction>
+										<id>32</id>
+										<number>MyBill-077</number>
+										<bill_client_id>1121</bill_client_id>
+										<type>return</type>
+										<customer>
+											<mobile>918167712150</mobile>
+											<email>tom.sawyer@example.com</email>
+											<external_id>ts1234</external_id>
+											<user_id>55453</user_id>
+											<!--     
 returned only when query param user_id is true
 -->
-<loyalty_points>8388587</loyalty_points>
-<lifetime_points>2000000620</lifetime_points>
-<lifetime_purchases>100000033000</lifetime_purchases>
-<current_slab>SILVER</current_slab>
-</customer>
-<item_status>
-<success>true</success>
-<code>600</code>
-<message>Transaction added successfully</message>
-</item_status>
-<side_effects>
-<effect>
-<type>points</type>
-<awarded_points>19490463</awarded_points>
-<total_points>19490463</total_points>
-</effect>
-<effect>
-<type>coupon</type>
-<coupon_code>095790</coupon_code>
-<description>T description</description>
-<coupon_type>CAMPAIGN</coupon_type>
-<valid_till></valid_till>
-<id>42601779</id>
-</effect>
-</side_effects> 
-<points_deducted>20</points_deducted>
-<points_balance>8388587</points_balance>
-</transaction>
-</transactions>
-<status>
-<success>true</success>
-<code>200</code>
-<message>SUCCESS</message>
-</status>
-</response>
+											<loyalty_points>8388587</loyalty_points>
+											<lifetime_points>2000000620</lifetime_points>
+											<lifetime_purchases>100000033000</lifetime_purchases>
+											<current_slab>SILVER</current_slab>
+										</customer>
+										<item_status>
+											<success>true</success>
+											<code>600</code>
+											<message>Transaction added successfully</message>
+										</item_status>
+										<side_effects>
+											<effect>
+												<type>points</type>
+												<awarded_points>19490463</awarded_points>
+												<total_points>19490463</total_points>
+											</effect>
+											<effect>
+												<type>coupon</type>
+												<coupon_code>095790</coupon_code>
+												<description>T description</description>
+												<coupon_type>CAMPAIGN</coupon_type>
+												<valid_till/>
+												<id>42601779</id>
+											</effect>
+										</side_effects> 
+										<points_deducted>20</points_deducted>
+										<points_balance>8388587</points_balance>
+									</transaction>
+								</transactions>
+								<status>
+									<success>true</success>
+									<code>200</code>
+									<message>SUCCESS</message>
+								</status>
+							</response>
 ```
 
 ```json
@@ -955,56 +953,57 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-   <transaction>
-      <id>123234</id>
-      <!--
+								<?xml version="1.0" encoding="UTF-8"?>
+								<root>
+									<transaction>
+										<id>123234</id>
+										<!--
          identifies specific transaction without conflict (first priority to identify transaction
          
          -->
-      <number>BILL-001</number>
-      <!--
+										<number>BILL-001</number>
+										<!--
          may have conflict as one customer can have multiple transaction having same bill number, will be updated latest transaction in such cases (first transaction in desc order of billing time)
          
          -->
-      <type>REGULAR</type>
-      <!-- this can be REGULAR or NOT_INTERESTED -->
-      <customer>
-         <id>34897</id>
-         <mobile>44700900999</mobile>
-         <email>earnshaw.catherine@example.com</email>
-         <external_id>ec1234</external_id>
-      </customer>
-      <custom_fields>
-         <field>
-            <name>Earnshaw Catherine</name>            <value>value2</value>
-         </field>
-         <field>
-            <name>field2</name>
-            <value>value2</value>
-         </field>
-      </custom_fields>
-   </transaction>
-   <transaction>
-      <id>123234</id>
-      <number>BILL-001</number>
-      <type>REGULAR</type>
-      <!-- this can be REGULAR or NOT_INTERESTED -->
-      <customer>
-         <id>34897</id>
-         <mobile>44700900000</mobile>
-         <email>tom.sawyer@example.com</email>
-         <external_id>ts1234</external_id>
-      </customer>
-      <custom_fields>
-         <field>
-            <name>Tom Sawyer</name>
-            <value>value2</value>
-         </field>
-      </custom_fields>
-   </transaction>
-</root>
+										<type>REGULAR</type>
+										<!-- this can be REGULAR or NOT_INTERESTED -->
+										<customer>
+											<id>34897</id>
+											<mobile>44700900999</mobile>
+											<email>earnshaw.catherine@example.com</email>
+											<external_id>ec1234</external_id>
+										</customer>
+										<custom_fields>
+											<field>
+												<name>Earnshaw Catherine</name>
+												<value>value2</value>
+											</field>
+											<field>
+												<name>field2</name>
+												<value>value2</value>
+											</field>
+										</custom_fields>
+									</transaction>
+									<transaction>
+										<id>123234</id>
+										<number>BILL-001</number>
+										<type>REGULAR</type>
+										<!-- this can be REGULAR or NOT_INTERESTED -->
+										<customer>
+											<id>34897</id>
+											<mobile>44700900000</mobile>
+											<email>tom.sawyer@example.com</email>
+											<external_id>ts1234</external_id>
+										</customer>
+										<custom_fields>
+											<field>
+												<name>Tom Sawyer</name>
+												<value>value2</value>
+											</field>
+										</custom_fields>
+									</transaction>
+								</root>
 
 ```
 
@@ -1037,9 +1036,9 @@ number | Transaction number that needs to be updated
 ```html
 http://api.capillary.co.in/v1.1/transaction/update?format=json
 ```
- 
+
 > Sample POST Request
- 
+
 ```json
 {
   "root": {
@@ -1059,23 +1058,23 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
 ```
 
 ```xml
-<root>
-<transaction>
-<customer>
-<mobile>44700900999</mobile>
-<external_id>ext_id9931156917</external_id>
-<email>catherine@example.com</email>
-</customer>
-<new_type>REGULAR</new_type>
-<notes>Retro Transaction</notes>
-<id>6464658</id>
-<old_type>NOT_INTERESTED</old_type>
-</transaction>
-</root>
+									<root>
+										<transaction>
+											<customer>
+												<mobile>44700900999</mobile>
+												<external_id>ext_id9931156917</external_id>
+												<email>catherine@example.com</email>
+											</customer>
+											<new_type>REGULAR</new_type>
+											<notes>Retro Transaction</notes>
+											<id>6464658</id>
+											<old_type>NOT_INTERESTED</old_type>
+										</transaction>
+									</root>
 ```
 
 > Sample Response
- 
+
 ```json
 {
   "response": {
@@ -1124,49 +1123,49 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
 ```
 
 ```xml
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>SUCCESS</message>
-    </status>
-    <transactions>
-        <transaction>
-            <id>34007568</id>
-            <number>retronumbr9931156917</number>
-            <type>REGULAR</type>
-            <customer>
-                <user_id>282024042</user_id>
-                <mobile>44700900999</mobile>
-                <email>catherine@example.com</email>
-                <external_id>ext_id9931156917</external_id>
-                <loyalty_points>75</loyalty_points>
-                <lifetime_points>75</lifetime_points>
-                <lifetime_purchases>1500</lifetime_purchases>
-                <current_slab>Platinum</current_slab>
-                <tier_expiry_date>2117-01-03 23:59:59</tier_expiry_date>
-                <type>loyalty</type>
-            </customer>
-            <delivery_status>DELIVERED</delivery_status>
-            <source>instore</source>
-            <item_status>
-                <success>true</success>
-                <code>1630</code>
-                <message>Transaction retrospectively marked REGULAR, Transaction added successfully</message>
-            </item_status>
-            <side_effects>
-                <effect>
-                    <type>points</type>
-                    <awarded_points>75</awarded_points>
-                    <total_points>75</total_points>
-                </effect>
-            </side_effects>
-            <old_id>6464658</old_id>
-            <old_type>NOT_INTERESTED</old_type>
-        </transaction>
-    </transactions>
-    <side_effects/>
-</response>
+									<response>
+										<status>
+											<success>true</success>
+											<code>200</code>
+											<message>SUCCESS</message>
+										</status>
+										<transactions>
+											<transaction>
+												<id>34007568</id>
+												<number>retronumbr9931156917</number>
+												<type>REGULAR</type>
+												<customer>
+													<user_id>282024042</user_id>
+													<mobile>44700900999</mobile>
+													<email>catherine@example.com</email>
+													<external_id>ext_id9931156917</external_id>
+													<loyalty_points>75</loyalty_points>
+													<lifetime_points>75</lifetime_points>
+													<lifetime_purchases>1500</lifetime_purchases>
+													<current_slab>Platinum</current_slab>
+													<tier_expiry_date>2117-01-03 23:59:59</tier_expiry_date>
+													<type>loyalty</type>
+												</customer>
+												<delivery_status>DELIVERED</delivery_status>
+												<source>instore</source>
+												<item_status>
+													<success>true</success>
+													<code>1630</code>
+													<message>Transaction retrospectively marked REGULAR, Transaction added successfully</message>
+												</item_status>
+												<side_effects>
+													<effect>
+														<type>points</type>
+														<awarded_points>75</awarded_points>
+														<total_points>75</total_points>
+													</effect>
+												</side_effects>
+												<old_id>6464658</old_id>
+												<old_type>NOT_INTERESTED</old_type>
+											</transaction>
+										</transactions>
+										<side_effects/>
+									</response>
 ```
 
 In retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once he/she is registered. 
@@ -1253,62 +1252,62 @@ GET "http://us.api.capillarytech.com/v1.1/customer/get?format=xml&mobile=4470090
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<response>
-   <transactions>
-      <transaction>
-         <id>5477576</id>
-         <number>MyBill-076</number>
-         <type>REGULAR</type>
-         <customer>
-            <user_id>43445</user_id>
-            <!--
+											<?xml version="1.0" encoding="UTF-8"?>
+											<response>
+												<transactions>
+													<transaction>
+														<id>5477576</id>
+														<number>MyBill-076</number>
+														<type>REGULAR</type>
+														<customer>
+															<user_id>43445</user_id>
+															<!--
 returned only when query param user_id is true
 -->
-            <mobile>44700900999</mobile>
-            <email />
-            <external_id />
-            <firstname>Catherine</firstname>
-            <lastname>Earnshaw</lastname>
-         </customer>
-         <item_status>
-            <success>true</success>
-            <code>600</code>
-            <message>Transaction retrieved successfully</message>
-         </item_status>
-         <amount>1000</amount>
-         <notes>2 line items</notes>
-         <billing_time>2012-04-01 00:00:00</billing_time>
-         <gross_amount>1000</gross_amount>
-         <discount>0</discount>
-         <store />
-         <custom_fields>
-            <field>
-               <name>field name</name>
-               <value>[“value”]</value>
-            </field>
-         </custom_fields>
-         <line_items>
-            <line_item>
-               <serial>1</serial>
-               <item_code>item-001</item_code>
-               <description>soap</description>
-               <qty>50</qty>
-               <rate>10</rate>
-               <value>500</value>
-               <discount>0</discount>
-               <amount>500</amount>
-               <attributes>
-                  <attribute>
-                     <name>color</name>
-                     <value>red</value>
-                  </attribute>
-               </attributes>
-            </line_item>
-         </line_items>
-      </transaction>
-   </transactions>
-</response>
+															<mobile>44700900999</mobile>
+															<email />
+															<external_id />
+															<firstname>Catherine</firstname>
+															<lastname>Earnshaw</lastname>
+														</customer>
+														<item_status>
+															<success>true</success>
+															<code>600</code>
+															<message>Transaction retrieved successfully</message>
+														</item_status>
+														<amount>1000</amount>
+														<notes>2 line items</notes>
+														<billing_time>2012-04-01 00:00:00</billing_time>
+														<gross_amount>1000</gross_amount>
+														<discount>0</discount>
+														<store />
+														<custom_fields>
+															<field>
+																<name>field name</name>
+																<value>[“value”]</value>
+															</field>
+														</custom_fields>
+														<line_items>
+															<line_item>
+																<serial>1</serial>
+																<item_code>item-001</item_code>
+																<description>soap</description>
+																<qty>50</qty>
+																<rate>10</rate>
+																<value>500</value>
+																<discount>0</discount>
+																<amount>500</amount>
+																<attributes>
+																	<attribute>
+																		<name>color</name>
+																		<value>red</value>
+																	</attribute>
+																</attributes>
+															</line_item>
+														</line_items>
+													</transaction>
+												</transactions>
+											</response>
 ```
 
 

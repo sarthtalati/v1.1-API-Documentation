@@ -625,7 +625,7 @@ details=extended | Retrieves the details of coupon configurations (set on campai
 
 ## Retrieve Coupon Series Details
 ```html
-http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=2302
+http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 ```
 
 ```json
@@ -636,84 +636,46 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=2302
       "code": "200",
       "message": "SUCCESS"
     },
-    "series": {
-      "items": {
-        "item": {
-          "id": "2302",
-          "description": "Sample description",
-          "series_type": "CAMPAIGN",
-          "campaign_name": "Holiday season",
-          "client_handling_type": "
-DISC_CODE
-",
-          "discount_code": "XYZ123",
-          "valid_till_date": "2012-11-01",
-          "valid_days_from_create": "
-30
-",
-          "max_create": "-1",
-          "max_redeem": "-1",
-          "transferable": "0",
-          "any_user": "1",
-          "same_user_multiple_redeem": "
-0
-",
-          "allow_referral_existing_users": "
-0
-",
-          "multiple_use": "1",
-          "is_validation_required": "0",
-          "created_by": "12769022",
-          "created": "2016-10-01 00:00:00",
-          "last_used": "0000-00-00 00:00:00",
-          "series_code": "auto generated",
-          "sms_template": "
-Hello {{cust_name}}, your voucher code is {{voucher_code}}
-",
-          "disable_sms": "0",
-          "info": "nothing new",
-          "allow_multiple_vouchers_per_user": "
-0
-",
-          "do_not_resend_existing_voucher": "
-0
-",
-          "mutual_exclusive_series_ids": "
-null
-",
-          "store_ids_json": "[“-1”]",
-          "dvs_enabled": "0",
-          "dvs_expiry_date": "2016-11-01",
-          "priority": "0",
-          "short_sms_template": "
-Hello {{cust_name}}, your voucher code is {{voucher_code}}
-",
-          "max_vouchers_per_user": "
--1
-",
-          "min_days_between_vouchers": "
--1
-",
-          "max_referrals_per_referee": "
--1
-",
-          "discount_type": "ABS",
-          "discount_value": "0",
-          "redemption_range": "
-{\"dom\":[\"-1\"],\"dow\":[\"-1\"],\"hours\":[\"-1\"]}
-",
-          "min_bill_amount": "0",
-          "max_bill_amount": "0",
-          "redeem_at_store": "[-1]",
-          "coupons": {
-            "issued": "1",
-            "redeemed": "5"
-          },
-          "item_status": {
-            "success": "true",
-            "code": "700",
-            "message": "Coupon Series Found"
-          }
+    "customers": {
+      "customer": {
+        "firstname": "test1",
+        "lastname": "test1",
+        "email": "emareddye16@gmail.com",
+        "mobile": "919000050000",
+        "coupons": {
+          "coupon": [
+            {
+              "id": "43367631",
+              "series_id": "7033",
+              "series_name": "newtag",
+              "redemption_count": "0",
+              "created_date": "2017-04-06T16:54:27+08:00",
+              "valid_till": "2017-04-30 23:59:59",
+              "code": "18L6H",
+              "issued_at": {
+                "code": "test_store_code1",
+                "name": "test_store_name1"
+              }
+            },
+            {
+              "id": "43367624",
+              "series_id": "5720",
+              "series_name": "store",
+              "redemption_count": "0",
+              "created_date": "2017-04-06T16:42:58+08:00",
+              "valid_till": "2017-05-06 23:59:59",
+              "code": "RD20O",
+              "issued_at": {
+                "code": "test_store_code1",
+                "name": "test_store_name1"
+              }
+            }
+          ]
+        },
+        "item_status": {
+          "success": "true",
+          "code": "1000",
+          "message": "Coupons retrieved successfully"
         }
       }
     }
@@ -723,95 +685,59 @@ Hello {{cust_name}}, your voucher code is {{voucher_code}}
 
 ```xml
 <response>
-<status>
-<success>true</success>
-<code>200</code>
-<message>SUCCESS</message>
-</status>
-<series>
-<items>
-<item>
-<id>2302</id>
-<description>Sample description</description>
-<series_type>CAMPAIGN</series_type>
-<campaign_name>Holiday season</campaign_name>
-<client_handling_type>
-DISC_CODE
-</client_handling_type>
-<discount_code>XYZ123</discount_code>
-<valid_till_date>2016-11-01</valid_till_date>
-<valid_days_from_create>
-30
-</valid_days_from_create>
-<max_create>-1</max_create>
-<max_redeem>-1</max_redeem>
-<transferrable>0</transferrable>
-<any_user>1</any_user>
-<same_user_multiple_redeem>
-0
-</same_user_multiple_redeem>
-<allow_referral_existing_users>
-0
-</allow_referral_existing_users>
-<multiple_use>1</multiple_use>
-<is_validation_required>0</is_validation_required>
-<created_by>12769022</created_by>
-<created>2016-10-01 00:00:00</created>
-<last_used>0000-00-00 00:00:00</last_used>
-<series_code>auto generated</series_code>
-<sms_template>
-Hello {{cust_name}}, your voucher code is {{voucher_code}}
-</sms_template>
-<disable_sms>0</disable_sms>
-<info>nothing new</info>
-<allow_multiple_vouchers_per_user>
-0
-</allow_multiple_vouchers_per_user>
-<do_not_resend_existing_voucher>
-0
-</do_not_resend_existing_voucher>
-<mutual_exclusive_series_ids>
-null
-</mutual_exclusive_series_ids>
-<store_ids_json>[“-1”]</store_ids_json>
-<dvs_enabled>0</dvs_enabled>
-<dvs_expiry_date>2016-11-01</dvs_expiry_date>
-<priority>0</priority>
-<short_sms_template>
-Hello {{cust_name}}, your voucher code is {{voucher_code}}
-</short_sms_template>
-<max_vouchers_per_user>
--1
-</max_vouchers_per_user>
-<min_days_between_vouchers>
--1
-</min_days_between_vouchers>
-<max_referrals_per_referee>
--1
-</max_referrals_per_referee>
-<discount_on></discount_on>
-<discount_type>ABS</discount_type>
-<discount_value>0</discount_value>
-<dvs_items></dvs_items>
-<redemption_range>
-{"dom":["-1"],"dow":["-1"],"hours":["-1"]}
-</redemption_range>
-<min_bill_amount>0</min_bill_amount>
-<max_bill_amount>0</max_bill_amount>
-<redeem_at_store>[-1]</redeem_at_store>
-<coupons>
-<issued>1</issued>
-<redeemed>5</redeemed>
-</coupons>
-<item_status>
-<success>true</success>
-<code>700</code>
-<message>Coupon Series Found</message>
-</item_status>
-</item>
-</items>
-</series>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>SUCCESS</message>
+  </status>
+  <customers>
+    <customer>
+      <firstname>test1</firstname>
+      <lastname>test1</lastname>
+      <email>emareddye16@gmail.com</email>
+      <external_id></external_id>
+      <mobile>919000050000</mobile>
+      <coupons>
+        <coupon>
+          <id>43367631</id>
+          <series_id>7033</series_id>
+          <series_name>newtag</series_name>
+          <redemption_count>0</redemption_count>
+          <created_date>2017-04-06T16:54:27+08:00</created_date>
+          <valid_till>2017-04-30 23:59:59</valid_till>
+          <code>18L6H</code>
+          <transaction_number></transaction_number>
+          <issued_at>
+            <code>test_store_code1</code>
+            <name>test_store_name1</name>
+          </issued_at>
+          <redemptions/>
+        </coupon>
+        <coupon>
+          <id>43367624</id>
+          <series_id>5720</series_id>
+          <series_name>store</series_name>
+          <redemption_count>0</redemption_count>
+          <created_date>2017-04-06T16:42:58+08:00</created_date>
+          <valid_till>2017-05-06 23:59:59</valid_till>
+          <code>RD20O</code>
+          <transaction_number></transaction_number>
+          <issued_at>
+            <code>test_store_code1</code>
+            <name>test_store_name1</name>
+          </issued_at>
+          <redemptions/>
+        </coupon>
+      </coupons>
+      <item_status>
+        <success>true</success>
+        <code>1000</code>
+        <message>Coupons retrieved successfully</message>
+      </item_status>
+    </customer>
+  </customers>
 </response>
+
 ```
 
 This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
