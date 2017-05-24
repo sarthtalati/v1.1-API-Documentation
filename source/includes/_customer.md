@@ -842,7 +842,7 @@ Rate Limited? | Yes
 Authentication | Yes
 Response Formats | XML, JSON 
 HTTP Method | POST
-Batch Support | Yes
+Batch Support | No
 
 ### Request URL
 `http://<cluster url>/v1.1/customer/update_identity?format=<xml/json>`
