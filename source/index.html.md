@@ -102,11 +102,11 @@ When an API call is made with 4 batch transactions, A response header is generat
 Type | Description
 ---- | -----------
 Request URL Format | `http://<host>/<API version no.>/<entity>/<method>.<format>`
-Host | The server to which the API calls are made (cluster URL). <br>**India**: intouch.capillary.co.in <br>**APAC2**: apac2.intouch.capillarytech.com <br>**EU**: eu.intouch.capillarytech.com, <br>**US**: us.intouch.capillarytech.com
+Host | The server to which the API calls are made (cluster URL). <br>**India**: apac.api.capillary.co.in <br>**APAC2**: apac2.api.capillarytech.com <br>**EU**: eu.api.capillarytech.com <br>**US**: us.api.capillarytech.com <br>**Chine**: cdn-api.capillarytech.cn.com [or] api.capillarytech.cn.com
 API Version Number | v1.1
 Entity | Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST
-Response Format | The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify `format=json` or just pass the request url with `.json` extension. <br>Example: `http://eu.intouch.capillarytech.com/v1.1/customer/add.json`
+Response Format | The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify `format=json` or just pass the request url with `.json` extension. <br>Example: `http://eu.api.capillarytech.com/v1.1/customer/add.json`
 
 ## Response Codes
 ```xml
