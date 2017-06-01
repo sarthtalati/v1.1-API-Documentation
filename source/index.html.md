@@ -102,7 +102,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 Type | Description
 ---- | -----------
 Request URL Format | `http://<host>/<API version no.>/<entity>/<method>.<format>`
-Host | The server to which the API calls are made (cluster URL). <br>**India**: apac.api.capillary.co.in <br>**APAC2**: apac2.api.capillarytech.com <br>**EU**: eu.api.capillarytech.com <br>**US**: us.api.capillarytech.com <br>**Chine**: cdn-api.capillarytech.cn.com [or] api.capillarytech.cn.com
+Host | The server to which the API calls are made (cluster URL). <br>**India**: apac.api.capillary.co.in <br>**APAC2**: apac2.api.capillarytech.com <br>**EU**: eu.api.capillarytech.com <br>**US**: us.api.capillarytech.com <br>**China**: cdn-api.capillarytech.cn.com [or] api.capillarytech.cn.com
 API Version Number | v1.1
 Entity | Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST
