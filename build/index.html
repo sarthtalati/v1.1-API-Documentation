@@ -1147,7 +1147,7 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 <h2 id="update-customer-identifiers">Update Customer Identifiers</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
+http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </code></pre>
 <blockquote>
 <p>Provide the unique identifier of the customer in <identifier> and current and new identifier values in <old_value> and <new_value> respectively</p>
@@ -2225,7 +2225,7 @@ http://api.capillary.co.in/v1.1/customer/get?format=xml<span class="err">&amp;</
 <h2 id="retrieve-customer-redemptions">Retrieve Customer Redemptions</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<span class="err">&amp;</span>format=json
+http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<span class="err">&amp;</span>format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2440,7 +2440,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </tbody></table>
 
 <h2 id="add-customer-notes">Add Customer Notes</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2619,7 +2619,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 
 <h2 id="retrieve-customer-notes">Retrieve Customer Notes</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json<span class="err">&amp;</span>identifier=44700900999<span class="err">&amp;</span>associate_id=234
+http://us.api.capillarytech.com/v1.1/customer/notes?format=json<span class="err">&amp;</span>identifier=44700900999<span class="err">&amp;</span>associate_id=234
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2944,7 +2944,7 @@ BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
 
 <h2 id="create-new-ticket">Create New Ticket</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -3156,7 +3156,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h2 id="retrieve-ticket-details">Retrieve Ticket Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -3323,7 +3323,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 </tbody></table>
 
 <h2 id="refer-customer">Refer Customer</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/customer/referrals
+<pre class="highlight html"><code>http://us.api.capillarytech.com/customer/referrals
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -3629,7 +3629,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
 <p><code class="prettyprint">http://&lt;cluster url&gt;/customer/referrals??format=&lt;xml/json&gt;&amp;&lt;query-params&gt;</code></p>
 
 <h2 id="retrieve-customer-referral-details">Retrieve Customer Referral Details</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
+<pre class="highlight html"><code>http://us.api.capillarytech.com/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
 </code></pre><pre class="highlight xml"><code>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3856,9 +3856,9 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 <h2 id="update-customer-preferences">Update Customer Preferences</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=xml
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=xml
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -4042,7 +4042,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json
 <h2 id="fetch-customer-preferences">Fetch Customer Preferences</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
@@ -4191,7 +4191,7 @@ Preferences retrieved successfully
 
 <h2 id="retrieve-customer-interactions">Retrieve Customer Interactions</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
+http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
@@ -4527,7 +4527,7 @@ def@xyz.com
 <h2 id="update-subscription-details">Update Subscription Details</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json
+http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -4695,7 +4695,7 @@ http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json
 <h2 id="retrieve-subscription-details">Retrieve Subscription Details</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json<span class="err">&amp;</span>mobile=447700900000
+http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span class="err">&amp;</span>mobile=447700900000
 
 </code></pre>
 <blockquote>
@@ -5387,10 +5387,10 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 </ul>
 
 <h2 id="make-transactions">Make Transactions</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyBill-077"</span><span class="p">,</span><span class="w">
@@ -5438,10 +5438,10 @@ Note: Custom fields are additional fields created in InStore to capture a specif
         </span><span class="p">]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBI"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5476,7 +5476,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hiraxdhara"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -5568,7 +5568,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5477577"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyBill-077"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
@@ -5612,12 +5612,12 @@ Note: Custom fields are additional fields created in InStore to capture a specif
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
@@ -5739,133 +5739,60 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <h2 id="make-transaction-with-local-currency">Make Transaction with Local Currency</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code>                    <span class="nt">&lt;root&gt;</span>
-                        <span class="nt">&lt;transaction&gt;</span>
-                            <span class="nt">&lt;comment/&gt;</span>
-                            <span class="nt">&lt;customer&gt;</span>
-                                <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
-                                <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
-                                <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
-                            <span class="nt">&lt;/customer&gt;</span>
-                            <span class="nt">&lt;billing_time&gt;</span>2014-01-21<span class="nt">&lt;/billing_time&gt;</span>
-                            <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
-                            <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
-                            <span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
-                            <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
-                            <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                            <span class="nt">&lt;amount&gt;</span>2000<span class="nt">&lt;/amount&gt;</span>
-                            <span class="nt">&lt;credit_note&gt;</span>
-                                <span class="nt">&lt;comment/&gt;</span>
-                                <span class="nt">&lt;amount&gt;</span>1800<span class="nt">&lt;/amount&gt;</span>
-                                <span class="nt">&lt;notes&gt;</span>Reason for credit<span class="nt">&lt;/notes&gt;</span>
-                                <span class="nt">&lt;number&gt;</span>numbr9959104543<span class="nt">&lt;/number&gt;</span>
-                            <span class="nt">&lt;/credit_note&gt;</span>
-                            <span class="nt">&lt;notes&gt;</span>Regular Bill with Payment Details<span class="nt">&lt;/notes&gt;</span>
-                        <span class="nt">&lt;/transaction&gt;</span>
-                    <span class="nt">&lt;/root&gt;</span>
+<pre class="highlight xml"><code>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;transaction&gt;</span>
+      <span class="nt">&lt;comment</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
+         <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;billing_time&gt;</span>2016-01-21<span class="nt">&lt;/billing_time&gt;</span>
+      <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
+      <span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
+      <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
+      <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+      <span class="nt">&lt;amount&gt;</span>2000<span class="nt">&lt;/amount&gt;</span>
+      <span class="nt">&lt;credit_note&gt;</span>
+         <span class="nt">&lt;comment</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;amount&gt;</span>1800<span class="nt">&lt;/amount&gt;</span>
+         <span class="nt">&lt;notes&gt;</span>Reason for credit<span class="nt">&lt;/notes&gt;</span>
+         <span class="nt">&lt;number&gt;</span>numbr9959104543<span class="nt">&lt;/number&gt;</span>
+      <span class="nt">&lt;/credit_note&gt;</span>
+      <span class="nt">&lt;notes&gt;</span>Regular Bill with Payment Details<span class="nt">&lt;/notes&gt;</span>
+   <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"249594982"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOCIAL"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REMINDER_TEXT"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RE_ISSUAL_TEXT"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL,COUPON,GENERAL,POINTS"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscription successfully retrieved"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91000000099"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autofn_7353409276"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-21"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr735ccdcdb34"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1121"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"credit_note"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1800"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reason for credit"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr9959104543"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular Bill with Payment Details"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -6002,14 +5929,14 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 
 <h2 id="return-transactions">Return Transactions</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6022,7 +5949,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2346"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
@@ -6037,7 +5964,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
           </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"return"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"return_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"full"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"credit_note"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1300"</span><span class="p">,</span><span class="w">
@@ -6047,22 +5974,22 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
 
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"payment_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
               </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment Mode"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HDFC Credit Card"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="p">}]</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code>                            <span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
@@ -6368,10 +6295,10 @@ returned only when query param user_id is true
           </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom Sawyer"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value2"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+          </span><span class="p">}]</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -6502,7 +6429,7 @@ returned only when query param user_id is true
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ext_id9931156917"</span><span class="p">,</span><span class="w">
@@ -6512,7 +6439,7 @@ returned only when query param user_id is true
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retro Transaction"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6464658"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"old_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_INTERESTED"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code>                                    <span class="nt">&lt;root&gt;</span>
@@ -7592,14 +7519,14 @@ The validation code is issued either to mobile number, or email id or both, base
 http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234r743"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample notes"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6D18DU"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-21 11:30:11"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -8184,10 +8111,10 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“Soccer”]"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}],</span><span class="w">
-      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9102,7 +9029,7 @@ Cannot redeem same voucher multiple times
 
 <h2 id="send-sms-to-customer">Send SMS to Customer</h2>
 <pre class="highlight html"><code># Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/communications/sms?format=json
+http://us.api.capillarytech.com/v1.1/communications/sms?format=json
 
 </code></pre>
 <blockquote>
@@ -9110,11 +9037,11 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=json
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, wish you a happy wedding anniversary!"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-05 22:00:00IST"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -9200,7 +9127,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=json
 
 <h2 id="send-email-to-customer">Send Email to Customer</h2>
 <pre class="highlight html"><code># Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
+http://us.api.capillarytech.com/v1.1/communications/email?format=json
 
 </code></pre>
 <blockquote>
@@ -9208,7 +9135,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"cc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cashier1@example.com, cashier2@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"bcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storemanager@example.com"</span><span class="p">,</span><span class="w">
@@ -9221,7 +9148,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
         "</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"asda.pdf"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pdf"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"file_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"  -- base64_encoded file contents
@@ -9230,10 +9157,11 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
                 24234234
 
             "</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-05 22:00:21"</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>        
@@ -9350,7 +9278,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 
 <h2 id="retrieve-details-of-emails-sent">Retrieve Details of Emails Sent</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/communications/email?format=xml<span class="err">&amp;</span>id=2342344
+http://us.api.capillarytech.com/v1.1/communications/email?format=xml<span class="err">&amp;</span>id=2342344
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -9438,7 +9366,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=xml<span cl
 
 <h2 id="retrieve-details-of-smss-sent">Retrieve Details of SMSs Sent</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml<span class="err">&amp;</span>id=23423443
+http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="err">&amp;</span>id=23423443
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -9609,7 +9537,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml<span clas
 </ul>
 
 <h2 id="submit-requests">Submit Requests</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/add
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -9633,7 +9561,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml<span clas
 
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
@@ -9646,7 +9574,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml<span clas
       </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyerold@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time in 8601"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -9859,7 +9787,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tbody></table>
 
 <h2 id="approve-requests">Approve Requests</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/approve
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/approve
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -9877,13 +9805,13 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23423"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Seems to a valid request. hence approving"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10005,7 +9933,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tbody></table>
 
 <h2 id="reject-request">Reject Request</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/request/reject
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/reject
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -10020,12 +9948,12 @@ The param `client_auto_approve` overrides all the server side configurations men
 <span class="nt">&lt;/root&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"346436"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"updated_comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outlier"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -10151,7 +10079,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tbody></table>
 
 <h2 id="retrieve-request-details">Retrieve Request Details</h2>
-<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/get?format=json
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/request/get?format=json
 </code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
 <span class="nt">&lt;status&gt;</span>
 <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -10436,7 +10364,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 <p>limit (no of entries to list)</p>
 
 <h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
-<pre class="highlight html"><code>https://us.intouch.capillarytech.com/v1.1/request/logs?format=json<span class="err">&amp;</span>type=CHANGE_IDENTIFIER<span class="err">&amp;</span>start_date=2016-01-15<span class="err">&amp;</span>end_date=2017-05-08<span class="err">&amp;</span>base_type=EMAIL
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/request/logs?format=json<span class="err">&amp;</span>type=CHANGE_IDENTIFIER<span class="err">&amp;</span>start_date=2016-01-15<span class="err">&amp;</span>end_date=2017-05-08<span class="err">&amp;</span>base_type=EMAIL
 
 </code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
@@ -10986,7 +10914,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <span class="nt">&lt;/root&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"local_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"213124334342"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"any title for this task"</span><span class="p">,</span><span class="w">
@@ -11003,6 +10931,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manager"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55456456"</span><span class="w">
       </span><span class="p">},</span><span class="w">
+
       </span><span class="nt">"target_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASHIER/CUSTOMER"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customer_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15,82,443399"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"selected_audience_groups"</span><span class="p">:</span><span class="w"> </span><span class="s2">"443452,432887"</span><span class="p">,</span><span class="w">
@@ -11011,18 +10940,18 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
       </span><span class="nt">"executable_by_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44,33,22,54"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"possible_statuses"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPEN,IN_PROGRESS,CLOSED"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“label” : “birthday task”, “priority” : “1” ]"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"reminder"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"-create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-12-26 13:35:35"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…."</span><span class="w">
-      </span><span class="p">},</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
       </span><span class="nt">"entries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSE"</span><span class="w"> </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSE"</span><span class="w"> </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -11232,7 +11161,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/add?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="retrieve-list-of-tasks">Retrieve List of Tasks</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/metadata?format=xml<span class="err">&amp;</span>assoc=false<span class="err">&amp;</span>action_type=call<span class="err">&amp;</span>created_by=12435<span class="err">&amp;</span>created_by_type=cashier<span class="err">&amp;</span>execute_by_all=false<span class="err">&amp;</span>customer_task=true<span class="err">&amp;</span>start_id=3245<span class="err">&amp;</span>end_id=3345<span class="err">&amp;</span>start_date=2016-18-20+12:12:12<span class="err">&amp;</span>end_date=2016-12-29+12:11:45<span class="err">&amp;</span>batch_size=10
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/metadata?format=xml<span class="err">&amp;</span>assoc=false<span class="err">&amp;</span>action_type=call<span class="err">&amp;</span>created_by=12435<span class="err">&amp;</span>created_by_type=cashier<span class="err">&amp;</span>execute_by_all=false<span class="err">&amp;</span>customer_task=true<span class="err">&amp;</span>start_id=3245<span class="err">&amp;</span>end_id=3345<span class="err">&amp;</span>start_date=2016-18-20+12:12:12<span class="err">&amp;</span>end_date=2016-12-29+12:11:45<span class="err">&amp;</span>batch_size=10
 </code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
@@ -11432,7 +11361,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 </tbody></table>
 
 <h2 id="update-tasks">Update Tasks</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/update?format=json
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/update?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request </p>
@@ -11467,7 +11396,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <span class="nt">&lt;/root&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"task"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample title"</span><span class="p">,</span><span class="w">
@@ -11482,7 +11411,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 [“label” : “birthday task”, “priority” : “1” ]
 
 "</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -11591,7 +11520,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/update?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="retrieve-individual-task-details">Retrieve Individual Task Details</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/get?format=xml
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/get?format=xml
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -11772,7 +11701,7 @@ this will be considered only when task id “&lt;id&gt;” is positive  --&gt;</
 
 <h2 id="retrieve-task-logs">Retrieve Task Logs</h2>
 <pre class="highlight html"><code># Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/task/log?task_id=12,15
+http://us.api.capillarytech.com/v1.1/task/log?task_id=12,15
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -11910,7 +11839,7 @@ Task Identifier is Empty or Invalid
 <p>task_id  | Returns the log of specific tasks based on the ids passed</p>
 
 <h2 id="retrieve-status-mappings">Retrieve Status Mappings</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/statusmapping?format=json
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/statusmapping?format=json
 </code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -12039,7 +11968,7 @@ represents corresponding value --&gt;</span>
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/statusmapping?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="update-status-mappings">Update Status Mappings</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/statusmapping.xml
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/statusmapping.xml
 </code></pre><pre class="highlight xml"><code> <span class="nt">&lt;root&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;value&gt;</span>OPEN<span class="nt">&lt;/value&gt;</span>
@@ -12371,7 +12300,7 @@ represents corresponding value --&gt;</span>
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/task/reminder?format=&lt;xml/json&gt;&amp;only_for_stores=true</code></p>
 
 <h2 id="update-task-reminders">Update Task Reminders</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/task/reminder?format=xml<span class="err">&amp;</span>only_for_stores=true
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/task/reminder?format=xml<span class="err">&amp;</span>only_for_stores=true
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -12688,7 +12617,7 @@ represents corresponding value --&gt;</span>
 
 <h2 id="retrieve-org-details">Retrieve Org Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/get.json
+http://apac.api.capillarytech.com/v1.1/organization/get.json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -12798,7 +12727,7 @@ http://api.intouch.capillarytech.com/v1.1/organization/get.json
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/get.&lt;xml/json&gt;</code></p>
 
 <h2 id="retrieve-org-entities">Retrieve Org Entities</h2>
-<pre class="highlight html"><code>http://api.intouch.capillarytech.com/v1.1/organization/entities?format=json<span class="err">&amp;</span>type=till
+<pre class="highlight html"><code>http://apac.api.capillarytech.com/v1.1/organization/entities?format=json<span class="err">&amp;</span>type=till
 </code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;pagination&gt;</span>
         <span class="nt">&lt;limit&gt;</span>200<span class="nt">&lt;/limit&gt;</span>
@@ -13359,7 +13288,7 @@ http://api.capillary.co.in/v1.1/organization/configs?format=json
 
 <h2 id="retrieve-org-statistics">Retrieve Org Statistics</h2>
 <pre class="highlight html"><code># Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/statistics?format=json
+http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13451,7 +13380,7 @@ http://api.intouch.capillarytech.com/v1.1/organization/statistics?format=json
 
 <h2 id="retrieve-top-selling-items">Retrieve Top Selling Items</h2>
 <pre class="highlight html"><code># Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/topitems?format=json
+http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13602,7 +13531,7 @@ http://api.intouch.capillarytech.com/v1.1/organization/topitems?format=json
 
 <h2 id="retrieve-configured-custom-fields">Retrieve Configured Custom Fields</h2>
 <pre class="highlight html"><code># Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/customfields?format=json
+http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13729,7 +13658,7 @@ http://api.intouch.capillarytech.com/v1.1/organization/customfields?format=json
 
 <h2 id="retrieve-configured-payment-modes">Retrieve Configured Payment Modes</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/organization/tenders
+http://us.api.capillarytech.com/v1.1/organization/tenders
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -13974,7 +13903,7 @@ http://us.intouch.capillarytech.com/v1.1/organization/tenders
 
 <h2 id="retrieve-store-details">Retrieve Store Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/get?format=json<span class="err">&amp;</span>id=9235927
+http://us.api.capillarytech.com/v1.1/store/get?format=json<span class="err">&amp;</span>id=9235927
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -14177,7 +14106,7 @@ http://us.intouch.capillarytech.com/v1.1/store/get?format=json<span class="err">
 
 <h2 id="retrieve-store-staff-details">Retrieve Store Staff Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/staff?format=json<span class="err">&amp;</span>type=ASSOCIATE
+http://us.api.capillarytech.com/v1.1/store/staff?format=json<span class="err">&amp;</span>type=ASSOCIATE
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -14341,7 +14270,7 @@ http://us.intouch.capillarytech.com/v1.1/store/staff?format=json<span class="err
 
 <h2 id="retrieve-store-tasks">Retrieve Store Tasks</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1/store/tasks?format=json
+http://us.api.capillarytech.com/v1/store/tasks?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -14607,6 +14536,12 @@ http://api.capillary.co.in/v1.1/store/login.json
 http://api.capillary.co.in/v1.1/store/logs.file
 </code></pre>
 <blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span></code></pre><pre class="highlight xml"><code>
+</code></pre>
+<blockquote>
 <p>Success Response</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
@@ -14767,7 +14702,7 @@ http://api.capillary.co.in/v1.1/store/logs.file
 
 <h2 id="get-store-reports">Get Store Reports</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/reports.json
+http://us.api.capillarytech.com/v1.1/store/reports.json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -14997,7 +14932,7 @@ http://us.intouch.capillarytech.com/v1.1/store/reports.json
 
 <h2 id="upload-store-reports">Upload Store Reports</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/reports?format=json
+http://us.api.capillarytech.com/v1.1/store/reports?format=json
 </code></pre>
 <blockquote>
 <p>Sample Request</p>
@@ -15155,7 +15090,7 @@ http://us.intouch.capillarytech.com/v1.1/store/reports?format=json
 
 <h2 id="retrieve-store-configurations">Retrieve Store Configurations</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/store/configurations?format=json
+http://us.api.capillarytech.com/store/configurations?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -15718,7 +15653,7 @@ false
 <p>The product entity holds all products of an org and product related information such as size, color, type, and brand.  Product APIs allow you to fetch details of a specific product, modify existing details, change brand name for a product and create new attributes for a product.</p>
 
 <h2 id="add-product">Add Product</h2>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/product/add.json
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/add.json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -15760,7 +15695,7 @@ false
 <span class="nt">&lt;/root&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31sa84"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12ss21"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22"</span><span class="p">,</span><span class="w">
@@ -15784,7 +15719,7 @@ false
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -15927,7 +15862,7 @@ false
 
 <h2 id="retrieve-products">Retrieve Products</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
+http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -16161,7 +16096,7 @@ http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3B
 
 <h2 id="retrieve-product-attributes">Retrieve Product Attributes</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/product/attributes?format=json
+http://us.api.capillarytech.com/v1.1/product/attributes?format=json
 
 </code></pre>
 <blockquote>
@@ -16419,11 +16354,6 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/get?format=xml&amp;&lt;query_parameters&gt;</code></p>
-
-<h2 id="retrieve-details-of-a-specific-product">Retrieve Details of a Specific Product</h2>
-
-<p>sku
-id</p>
 
 <h2 id="response-codes">Response Codes</h2>
 

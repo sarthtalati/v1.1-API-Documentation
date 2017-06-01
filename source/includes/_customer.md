@@ -21,7 +21,7 @@ The customer APIs allow you to
 * Add, update and retrieve customer preferences 
 * Retrieve transactions of a customer. 
 
-## Register Customer
+## Register Customers
 
 ```shell
 #Sample Request
@@ -242,91 +242,101 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 
 ```json
 # Sample Response
+
 {
-  "root": {
-    "customer": [
-      {
-        "mobile": "44700900000",
-        "email": "tom.sawyer@example.com",
-        "external_id": "XYPZ001",
-        "firstname": "Tom",
-        "lastname": "Sawyer",
-        "gender": "M",
-        "registered_on": "2012-09-11 11:11:11",
-        "extended_fields": {
-          "field": [
-            {
-              "name": "color",
-              "value": "black"
-            },
-            {
-              "name": "ItemWeight",
-              "value": "3"
-            },
-            {
-              "name": "Status",
-              "value": "pending"
-            },
-            { "name": "ser_tax" },
-            {
-              "name": "他他他他",
-              "value": "他他他"
-            }
-          ]
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "SUCCESS"
+    },
+    "customers": {
+      "customer": [
+        {
+          "user_id": "123",
+          "mobile": "44700900000",
+          "email": "tom.sawyer@example.com",
+          "external_id": "XYPZ001",
+          "gender": "M",
+          "registered_on": "2012-09-11 11:11:11",
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Customer Registration Successful"
+          },
+          "side_effects": {
+            "effect": [
+              {
+                "type": "points",
+                "awarded_points": "19490463",
+                "total_points": "19490463"
+              },
+              {
+                "type": "coupon",
+                "coupon_code": "095790",
+                "description": "Sample description",
+                "coupon_type": "CAMPAIGN/DVS",
+                "id": "42601779"
+              }
+            ]
+          },
+          "firstname": "Tom",
+          "lastname": "Sawyer",
+          "lifetime_points": "50",
+          "lifetime_purchases": "180",
+          "loyalty_points": "50",
+          "current_slab": "SILVER",
+          "updated_on": "2016-09-11 11:11:11"
         },
-        "custom_fields": {
-          "field": [
-            {
-              "name": "Hobbies",
-              "value": "[“Playing”]"
-            },
-            {
-              "name": "a",
-              "value": "[“b”]>"
-            }
-          ]
+        {
+          "user_id": "44342",
+          "mobile": "44700900999",
+          "email": "rita.john@example.com",
+          "external_id": "XYPZ006",
+          "gender": "M",
+          "registered_on": "2016-09-11 11:11:15",
+          "extended_fields": {
+            "field": [
+              {
+                "name": "color",
+                "value": "black"
+              },
+              {
+                "name": "ItemWeight",
+                "value": "3"
+              },
+              {
+                "name": "Status",
+                "value": "pending"
+              },
+              { "name": "ser_tax" },
+              {
+                "name": "他他他他",
+                "value": "他他他"
+              }
+            ]
+          },
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Customer Registration Successful"
+          },
+          "side_effects": {
+            
+          },
+          "firstname": "Rita",
+          "lastname": "John",
+          "lifetime_points": "50",
+          "lifetime_purchases": "345",
+          "loyalty_points": "50",
+          "current_slab": "SILVER",
+          "updated_on": "2016-09-11 11:11:15"
         }
-      },
-      {
-        "mobile": "44700900999",
-        "email": "rita.john@example.com",
-        "external_id": "XYPZ006",
-        "firstname": "Rita",
-        "lastname": "John",
-        "gender": "M",
-        "registered_on": "2012-09-11 11:11:15",
-        "subscriptions": {
-          "subscription": [
-            {
-              "priority": "TRANS",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "email"
-            },
-            {
-              "priority": "BULK",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "email"
-            },
-            {
-              "priority": "TRANS",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "sms"
-            },
-            {
-              "priority": "BULK",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "sms"
-            }
-          ]
-        },
-      }
-    ]
+      ]
+    }
   }
 }
+
 ```
 
 ```xml
