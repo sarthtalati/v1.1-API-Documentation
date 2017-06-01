@@ -32,12 +32,12 @@ Before using transaction APIs, understand the transaction configurations of your
 
 ## Make Transactions
 ```html
-http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 ```json
 {
   "root": {
-    "transaction": {
+    "transaction": [{
       "bill_client_id": "1121",
       "type": "regular",
       "number": "MyBill-077",
@@ -85,10 +85,10 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         ]
       },
       "custom_fields": {
-        "field": {
+        "field": [{
           "name": "Bank",
           "value": "SBI"
-        }
+        }]
       },
       "line_items": {
         "line_item": {
@@ -123,7 +123,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         "code": "hiraxdhara",
         "name": "Tom Sawyer"
       }
-    }
+    }]
   }
 }
 ```
@@ -218,7 +218,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
 {
   "response": {
     "transactions": {
-      "transaction": {
+      "transaction": [{
         "id": "5477577",
         "number": "MyBill-077",
         "type": "regular",
@@ -267,7 +267,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       "success": "true",
       "code": "200",
       "message": "SUCCESS"
-    }
+    }]
   }
 }
 ```
@@ -366,137 +366,64 @@ Batch Support | Yes
 ## Make Transaction with Local Currency 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
 > Sample POST Request
 
 ```xml
-					<root>
-						<transaction>
-							<comment/>
-							<customer>
-								<mobile>91000000099</mobile>
-								<email>john@example.com</email>
-								<firstname>autofn_7353409276</firstname>
-							</customer>
-							<billing_time>2014-01-21</billing_time>
-							<type>regular</type>
-							<gross_amount>1000</gross_amount>
-							<number>numbr735ccdcdb34</number>
-							<bill_client_id>1121</bill_client_id>
-							<discount>0</discount>
-							<amount>2000</amount>
-							<credit_note>
-								<comment/>
-								<amount>1800</amount>
-								<notes>Reason for credit</notes>
-								<number>numbr9959104543</number>
-							</credit_note>
-							<notes>Regular Bill with Payment Details</notes>
-						</transaction>
-					</root>
+
+<root>
+   <transaction>
+      <comment />
+      <customer>
+         <mobile>91000000099</mobile>
+         <email>john@example.com</email>
+         <firstname>autofn_7353409276</firstname>
+      </customer>
+      <billing_time>2016-01-21</billing_time>
+      <type>regular</type>
+      <gross_amount>1000</gross_amount>
+      <number>numbr735ccdcdb34</number>
+      <bill_client_id>1121</bill_client_id>
+      <discount>0</discount>
+      <amount>2000</amount>
+      <credit_note>
+         <comment />
+         <amount>1800</amount>
+         <notes>Reason for credit</notes>
+         <number>numbr9959104543</number>
+      </credit_note>
+      <notes>Regular Bill with Payment Details</notes>
+   </transaction>
+</root>
+
+
 ```
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "subscriptions": {
-      "subscription": {
-        "user_id": "249594982",
-        "mobile": "44700900000",
-        "channel": [
-          {
-            "name": "SMS",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          },
-          {
-            "name": "EMAIL",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          },
-          {
-            "name": "SOCIAL",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          },
-          {
-            "name": "CLIENT",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          },
-          {
-            "name": "REMINDER_TEXT",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          },
-          {
-            "name": "RE_ISSUAL_TEXT",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL,COUPON,GENERAL,POINTS"
-              }
-            ]
-          }
-        ],
-        "item_status": {
-          "success": "true",
-          "code": "1000",
-          "message": "Subscription successfully retrieved"
-        }
-      }
-    }
+  "root": {
+    "transaction": [{
+      "customer": {
+        "mobile": "91000000099",
+        "email": "john@example.com",
+        "firstname": "autofn_7353409276"
+      },
+      "billing_time": "2016-01-21",
+      "type": "regular",
+      "gross_amount": "1000",
+      "number": "numbr735ccdcdb34",
+      "bill_client_id": "1121",
+      "discount": "0",
+      "amount": "2000",
+      "credit_note": {
+        "amount": "1800",
+        "notes": "Reason for credit",
+        "number": "numbr9959104543"
+      },
+      "notes": "Regular Bill with Payment Details"
+    }]
   }
 }
 ```
@@ -613,14 +540,14 @@ Batch Support | Yes
 ## Return Transactions
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 > Sample POST Request
 
 ```json
 {
   "root": {
-    "transaction": {
+    "transaction": [{
       "customer": {
         "mobile": "44700900000",
         "custom_fields": {
@@ -633,7 +560,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
         }
       },
       "line_items": {
-        "line_item": {
+        "line_item": [{
           "transaction_number": "2346",
           "rate": "float",
           "value": "float",
@@ -648,7 +575,7 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
           "serial": "0",
           "type": "return",
           "return_type": "full"
-        }
+        }]
       },
       "credit_note": {
         "amount": "1300",
@@ -658,22 +585,22 @@ http://us.intouch.capillarytech.com/v1.1/transaction/add?format=json
       "discount": "float",
       "amount": "float",
       "custom_fields": {
-        "field": {
+        "field": [{
 
-        }
+        }]
       },
       "payment_details": {
         "payment": {
           "attributes": {
-            "attribute": {
+            "attribute": [{
               "name": "Payment Mode",
               "value": "HDFC Credit Card"
-            }
+            }]
           },
           "value": "float"
         }
       }
-    }
+    }]
   }
 }
 ```
@@ -941,10 +868,10 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
           "external_id": "ts1234"
         },
         "custom_fields": {
-          "field": {
+          "field": [{
             "name": "Tom Sawyer",
             "value": "value2"
-          }
+          }]
         }
       }
     ]
@@ -1042,7 +969,7 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
 ```json
 {
   "root": {
-    "transaction": {
+    "transaction": [{
       "customer": {
         "mobile": "44700900999",
         "external_id": "ext_id9931156917",
@@ -1052,7 +979,7 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
       "notes": "Retro Transaction",
       "id": "6464658",
       "old_type": "NOT_INTERESTED"
-    }
+    }]
   }
 }
 ```

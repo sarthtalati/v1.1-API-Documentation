@@ -4,7 +4,7 @@ The store entity holds information about all stores configured for an organizati
 ## Retrieve Store Details
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/get?format=json&id=9235927
+http://us.api.capillarytech.com/v1.1/store/get?format=json&id=9235927
 ```
 
 > Sample Response
@@ -172,7 +172,7 @@ external_id | Returns the store details based on the `external_id` passed. Exter
 ## Retrieve Store Staff Details
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/staff?format=json&type=ASSOCIATE
+http://us.api.capillarytech.com/v1.1/store/staff?format=json&type=ASSOCIATE
 ```
 
 > Sample Response
@@ -303,7 +303,7 @@ type_value | Value: ASSOCIATE, MANAGER. Returns the list of associates when `typ
 ## Retrieve Store Tasks
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1/store/tasks?format=json
+http://us.api.capillarytech.com/v1/store/tasks?format=json
 ```
 
 > Sample Response
@@ -495,6 +495,15 @@ Batch Support | No
 # Sample Request
 http://api.capillary.co.in/v1.1/store/logs.file
 ```
+> Sample POST Request
+
+```json
+
+```
+
+```xml
+
+```
 
 > Success Response
 
@@ -643,7 +652,7 @@ X-CAP-CLIENT-FILE-SIGNATURE - dcac6f31e6805076ecb35f6351ba7e2e8b1794a5 (SHA1 has
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/reports.json
+http://us.api.capillarytech.com/v1.1/store/reports.json
 ```
 
 > Sample Response
@@ -839,7 +848,7 @@ end_date | Returns the store report for the specified duration of start_date and
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/store/reports?format=json
+http://us.api.capillarytech.com/v1.1/store/reports?format=json
 ```
 
 > Sample Request
@@ -977,7 +986,7 @@ Batch Support | No
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/store/configurations?format=json
+http://us.api.capillarytech.com/store/configurations?format=json
 ```
 
 > Sample Response

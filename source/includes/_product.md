@@ -4,7 +4,7 @@ The product entity holds all products of an org and product related information 
 
 ## Add Product
 ```html
-http://us.intouch.capillarytech.com/v1.1/product/add.json
+http://us.api.capillarytech.com/v1.1/product/add.json
 ```
 > Sample POST Request
 
@@ -48,7 +48,7 @@ http://us.intouch.capillarytech.com/v1.1/product/add.json
 ```json
 {
   "root": {
-    "product": {
+    "product": [{
       "sku": "31sa84",
       "ean": "12ss21",
       "price": "22",
@@ -72,7 +72,7 @@ http://us.intouch.capillarytech.com/v1.1/product/add.json
           }
         ]
       }
-    }
+    }]
   }
 }
 ```
@@ -193,7 +193,7 @@ Batch Support | Yes
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=xml
+http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=xml
 ```
 > Sample Response
 
@@ -380,7 +380,7 @@ Then the query string would be as shown below:
 ## Retrieve Product Attributes
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/product/attributes?format=json
+http://us.api.capillarytech.com/v1.1/product/attributes?format=json
 
 ```
 
@@ -578,14 +578,6 @@ id | Returns products based on the product id. This id is assigned by Capillary 
 ### Request URL
 `http://<cluster url>/v1.1/product/get?format=xml&<query_parameters>`
 
-
-
-
-## Retrieve Details of a Specific Product
-
-
-sku
-id
 
 
 

@@ -14,7 +14,7 @@ The communications entity allows you to perform the following tasks:
 
 ```html
 # Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/communications/sms?format=json
+http://us.api.capillarytech.com/v1.1/communications/sms?format=json
 
 ```
 > Sample POST Request
@@ -22,11 +22,11 @@ http://us.intouch.capillarytech.com/v1.1/communications/sms?format=json
 ```json
 {
   "root": {
-    "sms": {
+    "sms": [{
       "to": "447700900000",
       "body": "Hi, wish you a happy wedding anniversary!",
       "scheduled_time": "2012-08-05 22:00:00IST"
-    }
+    }]
   }
 }
 ```
@@ -95,7 +95,7 @@ Batch Support | No
 ## Send Email to Customer
 ```html
 # Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
+http://us.api.capillarytech.com/v1.1/communications/email?format=json
 
 ```
 > Sample POST Request
@@ -103,7 +103,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
 ```json
 {
   "root": {
-    "email": {
+    "email": [{
       "to": "tom.sawyer@example.com",
       "cc": "cashier1@example.com, cashier2@example.com",
       "bcc": "storemanager@example.com",
@@ -116,7 +116,7 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
             
         ",
       "attachments": {
-        "attachment": {
+        "attachment": [{
           "file_name": "asda.pdf",
           "file_type": "pdf",
           "file_data": "  -- base64_encoded file contents
@@ -125,10 +125,11 @@ http://us.intouch.capillarytech.com/v1.1/communications/email?format=json
                 24234234
                 
             "
-        }
+        }]
       },
       "scheduled_time": "2016-08-05 22:00:21"
     }
+  ]
   }
 }
 ```
@@ -229,7 +230,7 @@ Batch Support | No
 ## Retrieve Details of Emails Sent
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/communications/email?format=xml&id=2342344
+http://us.api.capillarytech.com/v1.1/communications/email?format=xml&id=2342344
 ```
 
 
@@ -299,7 +300,7 @@ id* - Pass the message id generated for the sent message
 ## Retrieve Details of SMSs Sent
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/communications/sms?format=xml&id=23423443
+http://us.api.capillarytech.com/v1.1/communications/sms?format=xml&id=23423443
 ```
 
 > Sample Response
