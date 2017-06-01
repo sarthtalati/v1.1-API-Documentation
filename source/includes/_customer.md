@@ -756,7 +756,7 @@ user_id(Boolean) | Returns the unique user ID of the customer if user_id=true
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/update_identity?format=xml
+http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 ```
 > Provide the unique identifier of the customer in <identifier> and current and new identifier values in <old_value> and <new_value> respectively
 
@@ -1624,7 +1624,7 @@ Desc | Sorts the transaction history in the descending order of transaction date
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&format=json
+http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&format=json
 ```
 
 > Sample Response
@@ -1781,7 +1781,7 @@ sort | Sort the results by redemption id (redemption_id) or redemption time(rede
 
 ## Add Customer Notes
 ```html
-http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json
+http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 ```
 
 > Sample POST Request
@@ -1928,7 +1928,7 @@ description | Details or message of the note in a plain text format
 ## Retrieve Customer Notes 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700900999&associate_id=234
+http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700900999&associate_id=234
 ```
 
 ```json
@@ -2177,7 +2177,7 @@ sort_order | Sort the results in ascending (`asc`) or descending (`desc`) order
 ## Create New Ticket
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 
 > Sample POST Request
@@ -2348,7 +2348,7 @@ type | Pass the ticket type <br>Value: STORE, Customer
 ## Retrieve Ticket Details
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 > Sample Response
 
@@ -2463,7 +2463,7 @@ end_date | Retrieve tickets created in a specific duration - between start_date 
 
 ## Refer Customer
 ```html
-http://us.intouch.capillarytech.com/customer/referrals
+http://us.api.capillarytech.com/customer/referrals
 ```
 
 > Sample POST Request
@@ -2753,7 +2753,7 @@ Batch Support | Yes
 
 ## Retrieve Customer Referral Details
 ```html
-http://us.intouch.capillarytech.com/customer/referrals&mobile=9197407983xx
+http://us.api.capillarytech.com/customer/referrals&mobile=9197407983xx
 ```
 
 ```xml
@@ -2939,9 +2939,9 @@ only_referral_code | Set `true` to retrieve the referral code of the campaign (o
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=xml
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=xml
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 ```
 > Sample POST Request
 
@@ -3111,7 +3111,7 @@ Batch Support | Yes
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
+http://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
 
 ```
 
@@ -3236,7 +3236,7 @@ Customer Identifier | Pass any identifiers of the customer for whom you want to 
 ## Retrieve Customer Interactions
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
+http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
 
 ```
 
@@ -3535,7 +3535,7 @@ end_date | Specify the duration for which you want to see the customer interacti
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json
+http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 ```
 
 > Sample POST Request
@@ -3692,7 +3692,7 @@ Batch Support | Yes
 ```html
 # Sample Request
 
-http://us.intouch.capillarytech.com/v1.1/customer/subscriptions?format=json&mobile=447700900000
+http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json&mobile=447700900000
 
 ```
 

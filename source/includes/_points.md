@@ -233,14 +233,14 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
 ```json
 {
   "root": {
-    "redeem": {
+    "redeem": [{
       "points_redeemed": "100",
       "transaction_number": "1234r743",
       "customer": { "mobile": "44700900999" },
       "notes": "Sample notes",
       "validation_code": "6D18DU",
       "redemption_time": "2016-11-21 11:30:11"
-    }
+    }]
   }
 }
 ```

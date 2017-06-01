@@ -240,7 +240,7 @@ this will be considered only when task id “<id>” is positive  -->
 ```json
 {
   "root": {
-    "task": {
+    "task": [{
       "id": "-1",
       "local_id": "213124334342",
       "title": "any title for this task",
@@ -257,6 +257,7 @@ this will be considered only when task id “<id>” is positive  -->
         "type": "manager",
         "id": "55456456"
       },
+	  
       "target_type": "CASHIER/CUSTOMER",
       "customer_ids": "15,82,443399",
       "selected_audience_groups": "443452,432887",
@@ -265,18 +266,18 @@ this will be considered only when task id “<id>” is positive  -->
       "executable_by_ids": "44,33,22,54",
       "possible_statuses": "OPEN,IN_PROGRESS,CLOSED",
       "tags": "[“label” : “birthday task”, “priority” : “1” ]",
-      "reminder": {
+      "reminder": [{
         "-create": "true",
         "time": "2012-12-26 13:35:35",
         "template": "…."
-      },
+      }],
       "entries": {
         "entry": [
           { "status": "CLOSE" },
           { "status": "CLOSE" }
         ]
       }
-    }
+    }]
   }
 }
 ```
@@ -465,7 +466,7 @@ Batch Support | Yes
 
 ## Retrieve List of Tasks
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/metadata?format=xml&assoc=false&action_type=call&created_by=12435&created_by_type=cashier&execute_by_all=false&customer_task=true&start_id=3245&end_id=3345&start_date=2016-18-20+12:12:12&end_date=2016-12-29+12:11:45&batch_size=10
+http://us.api.capillarytech.com/v1.1/task/metadata?format=xml&assoc=false&action_type=call&created_by=12435&created_by_type=cashier&execute_by_all=false&customer_task=true&start_id=3245&end_id=3345&start_date=2016-18-20+12:12:12&end_date=2016-12-29+12:11:45&batch_size=10
 ```
 
 ```xml
@@ -606,7 +607,7 @@ batch_size | Limits the number of tasks to be displayed. For example, if `batch_
 
 ## Update Tasks
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/update?format=json
+http://us.api.capillarytech.com/v1.1/task/update?format=json
 ```
 
 > Sample POST Request 
@@ -645,7 +646,7 @@ http://us.intouch.capillarytech.com/v1.1/task/update?format=json
 ```json
 {
   "root": {
-    "task": {
+    "task": [{
       "id": "15",
       "status": "CLOSED",
       "title": "Sample title",
@@ -660,7 +661,7 @@ http://us.intouch.capillarytech.com/v1.1/task/update?format=json
 [“label” : “birthday task”, “priority” : “1” ]
 
 "
-    }
+    }]
   }
 }
 ```
@@ -750,7 +751,7 @@ Response Object | Modifies status and metadata of existing tasks
 
 ## Retrieve Individual Task Details
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/get?format=xml
+http://us.api.capillarytech.com/v1.1/task/get?format=xml
 ```
 
 > Sample Response
@@ -872,7 +873,7 @@ Parameter | Description
 ## Retrieve Task Logs
 ```html
 # Sample Request URL
-http://us.intouch.capillarytech.com/v1.1/task/log?task_id=12,15
+http://us.api.capillarytech.com/v1.1/task/log?task_id=12,15
 ```
 
 > Sample Response
@@ -985,7 +986,7 @@ Batch Support | Yes
  
 ## Retrieve Status Mappings
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/statusmapping?format=json
+http://us.api.capillarytech.com/v1.1/task/statusmapping?format=json
 ```
 
 ```xml
@@ -1092,7 +1093,7 @@ Response Object | Returns mapping between predefined status and user-defined sta
 
 ## Update Status Mappings
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/statusmapping.xml
+http://us.api.capillarytech.com/v1.1/task/statusmapping.xml
 ```
 
 ```xml
@@ -1381,7 +1382,7 @@ Batch Support | Yes
 
 ## Update Task Reminders
 ```html
-http://us.intouch.capillarytech.com/v1.1/task/reminder?format=xml&only_for_stores=true
+http://us.api.capillarytech.com/v1.1/task/reminder?format=xml&only_for_stores=true
 ```
 > Sample POST Request
 

@@ -6,7 +6,7 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 
 ## Submit Requests
 ```html
-http://us.intouch.capillarytech.com/v1.1/request/add
+http://us.api.capillarytech.com/v1.1/request/add
 ```
 
 > Sample POST Request
@@ -34,7 +34,7 @@ http://us.intouch.capillarytech.com/v1.1/request/add
 ```json
 {
   "root": {
-    "request": {
+    "request": [{
       "reference_id": "1234",
       "type": "CHANGE_IDENTIFIER",
       "base_type": "EMAIL",
@@ -47,7 +47,7 @@ http://us.intouch.capillarytech.com/v1.1/request/add
       "old_value": "Tom.sawyerold@example.com",
       "new_value": "Tom.sawyer@example.com",
       "requested_on": "time in 8601"
-    }
+    }]
   }
 }
 ```
@@ -180,7 +180,7 @@ client_auto_approve | If the value is true, approves request directly when the r
 
 ## Approve Requests
 ```html
-http://us.intouch.capillarytech.com/v1.1/request/approve
+http://us.api.capillarytech.com/v1.1/request/approve
 ```
 > Sample POST Request
 
@@ -201,13 +201,13 @@ http://us.intouch.capillarytech.com/v1.1/request/approve
 ```json
 {
   "root": {
-    "request": {
+    "request": [{
       "type": "GOODWILL",
       "base_type": "POINTS",
       "id": "23423",
       "points": "20",
       "updated_comments": "Seems to a valid request. hence approving"
-    }
+    }]
   }
 }
 ```
@@ -290,7 +290,7 @@ base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_t
 
 ## Reject Request
 ```html
-http://us.intouch.capillarytech.com/v1.1/request/reject
+http://us.api.capillarytech.com/v1.1/request/reject
 ```
 > Sample POST Request
 
@@ -308,12 +308,12 @@ http://us.intouch.capillarytech.com/v1.1/request/reject
 ```json
 {
   "root": {
-    "request": {
+    "request": [{
       "type": "CHANGE_IDENTIFIER",
       "base_type": "MOBILE",
       "id": "346436",
       "updated_comments": "outlier"
-    }
+    }]
   }
 }
 ```
@@ -398,7 +398,7 @@ base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_t
 
 ## Retrieve Request Details
 ```html
-https://us.intouch.capillarytech.com/v1.1/request/get?format=json
+https://us.api.capillarytech.com/v1.1/request/get?format=json
 ```
 
 ```xml
@@ -635,7 +635,7 @@ limit (no of entries to list)
 
 ## Retrieve Request Logs
 ```html
-https://us.intouch.capillarytech.com/v1.1/request/logs?format=json&type=CHANGE_IDENTIFIER&start_date=2016-01-15&end_date=2017-05-08&base_type=EMAIL
+https://us.api.capillarytech.com/v1.1/request/logs?format=json&type=CHANGE_IDENTIFIER&start_date=2016-01-15&end_date=2017-05-08&base_type=EMAIL
 
 ```
 

@@ -8,7 +8,7 @@ You cannot modify the existing information using the organization entity.
 
 ```html
 # Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/get.json
+http://apac.api.capillarytech.com/v1.1/organization/get.json
 ```
 > Sample Response
 
@@ -94,7 +94,7 @@ Batch Support | No
 
 ## Retrieve Org Entities
 ```html
-http://api.intouch.capillarytech.com/v1.1/organization/entities?format=json&type=till
+http://apac.api.capillarytech.com/v1.1/organization/entities?format=json&type=till
 ```
 
 ```xml
@@ -599,7 +599,7 @@ Batch Support | No
 ## Retrieve Org Statistics
 ```html
 # Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/statistics?format=json
+http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 ```
 
 > Sample Response
@@ -666,7 +666,7 @@ Batch Support | No
 ## Retrieve Top Selling Items
 ```html
 # Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/topitems?format=json
+http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 ```
 
 > Sample Response
@@ -795,7 +795,7 @@ Batch Support | No
 ## Retrieve Configured Custom Fields 
 ```html
 # Sample Request
-http://api.intouch.capillarytech.com/v1.1/organization/customfields?format=json
+http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 ```
 
 > Sample Response
@@ -889,7 +889,7 @@ Scope | Value: customer_feedback, loyalty_transaction, loyalty_registration, cus
 ## Retrieve Configured Payment Modes
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/organization/tenders
+http://us.api.capillarytech.com/v1.1/organization/tenders
 ```
 
 > Sample Response

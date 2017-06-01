@@ -245,10 +245,10 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
           "value": "[“Soccer”]"
         }
       }],
-      "transaction": {
+      "transaction": [{
         "number": "bill-110",
         "amount": "1000"
-      }
+      }]
     }]
   }
 }
