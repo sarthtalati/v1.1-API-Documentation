@@ -811,12 +811,12 @@ Batch Support | Yes
 
 ### Request URL
 
-`http://`<cluster URL>``/v1.1/transaction/add?format=json`
+`http://<cluster URL>/v1.1/transaction/add?format=json`
 
 ### Request Parameters
 Parameter | Value |Description
 --------- | ----- | ----------
-Customer identifier | | Unique identifier (mobile no/email id/external id/user id) of the customer whose transaction needs to be returned
+Customer identifier | mobile/email/external_id/id (user id) | Unique identifier (mobile no/email id/external id/user id) of the customer whose transaction needs to be returned
 type | RETURN | Specify type as RETURN for regular/loyalty returns
 type | NOT_INTERESTED_RETURN | For non-loyalty returns
 return_type | FULL | To return an entire transaction
