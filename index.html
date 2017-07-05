@@ -5372,7 +5372,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 <p>Transactions are again classified into two types:</p>
 
 <ul>
-<li><strong>Regular</strong>: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and nnot-interested.</li>
+<li><strong>Regular</strong>: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and not-interested.</li>
 <li><strong>Return</strong> : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.</li>
 </ul>
 
@@ -5809,46 +5809,47 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>                    <span class="nt">&lt;response&gt;</span>
-                        <span class="nt">&lt;status&gt;</span>
-                            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-                            <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-                        <span class="nt">&lt;/status&gt;</span>
-                        <span class="nt">&lt;transactions&gt;</span>
-                            <span class="nt">&lt;transaction&gt;</span>
-                                <span class="nt">&lt;id&gt;</span>34058904<span class="nt">&lt;/id&gt;</span>
-                                <span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
-                                <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
-                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-                                <span class="nt">&lt;customer&gt;</span>
-                                    <span class="nt">&lt;user_id&gt;</span>282100245<span class="nt">&lt;/user_id&gt;</span>
-                                    <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
-                                    <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
-                                    <span class="nt">&lt;lastname/&gt;</span>
-                                    <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
-                                    <span class="nt">&lt;external_id/&gt;</span>
-                                    <span class="nt">&lt;lifetime_points&gt;</span>0<span class="nt">&lt;/lifetime_points&gt;</span>
-                                    <span class="nt">&lt;loyalty_points&gt;</span>0<span class="nt">&lt;/loyalty_points&gt;</span>
-                                    <span class="nt">&lt;current_slab/&gt;</span>
-                                    <span class="nt">&lt;tier_expiry_date/&gt;</span>
-                                    <span class="nt">&lt;lifetime_purchases&gt;</span>2000<span class="nt">&lt;/lifetime_purchases&gt;</span>
-                                    <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
-                                    <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-                                <span class="nt">&lt;/customer&gt;</span>
-                                <span class="nt">&lt;side_effects&gt;</span>
-                                    <span class="nt">&lt;effect/&gt;</span>
-                                <span class="nt">&lt;/side_effects&gt;</span>
-                                <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-                                <span class="nt">&lt;item_status&gt;</span>
-                                    <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-                                    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                    <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
-                                <span class="nt">&lt;/item_status&gt;</span>
-                            <span class="nt">&lt;/transaction&gt;</span>
-                        <span class="nt">&lt;/transactions&gt;</span>
-                    <span class="nt">&lt;/response&gt;</span>
+<pre class="highlight xml"><code>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34058904<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>numbr735ccdcdb34<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
+            <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>282100245<span class="nt">&lt;/user_id&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname/&gt;</span>
+                <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id/&gt;</span>
+                <span class="nt">&lt;lifetime_points&gt;</span>0<span class="nt">&lt;/lifetime_points&gt;</span>
+                <span class="nt">&lt;loyalty_points&gt;</span>0<span class="nt">&lt;/loyalty_points&gt;</span>
+                <span class="nt">&lt;current_slab/&gt;</span>
+                <span class="nt">&lt;tier_expiry_date/&gt;</span>
+                <span class="nt">&lt;lifetime_purchases&gt;</span>2000<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+                <span class="nt">&lt;effect/&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6002,136 +6003,133 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>                            <span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
-                            <span class="nt">&lt;root&gt;</span>
-                                <span class="nt">&lt;transaction&gt;</span>
-                                    <span class="nt">&lt;customer&gt;</span>
-                                        <span class="nt">&lt;user_id/&gt;</span>
-                                        <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
-                                        <span class="nt">&lt;local_id/&gt;</span>
-                                        <span class="nt">&lt;custom_fields&gt;</span>
-                                            <span class="nt">&lt;name&gt;</span>Tom Sawer<span class="nt">&lt;/name&gt;</span>  
-                                            <span class="nt">&lt;value&gt;</span>1200<span class="nt">&lt;/value&gt;</span>
-                                        <span class="nt">&lt;/custom_fields&gt;</span>
-                                        <span class="nt">&lt;external_id/&gt;</span>
-                                        <span class="nt">&lt;email/&gt;</span>
-                                        <span class="nt">&lt;store&gt;</span>
-                                            <span class="nt">&lt;code&gt;</span>123<span class="nt">&lt;/code&gt;</span>
-                                            <span class="nt">&lt;id&gt;</span>234<span class="nt">&lt;/id&gt;</span>
-                                        <span class="nt">&lt;/store&gt;</span>
-                                    <span class="nt">&lt;/customer&gt;</span>
-                                    <span class="nt">&lt;line_items&gt;</span>
-                                        <span class="nt">&lt;line_item&gt;</span>
-                                            <span class="nt">&lt;transaction_number&gt;</span>2346<span class="nt">&lt;/transaction_number&gt;</span>
-                                            <span class="nt">&lt;description/&gt;</span>
-                                            <span class="nt">&lt;billing_time/&gt;</span>
-                                            <span class="nt">&lt;rate&gt;</span>float<span class="nt">&lt;/rate&gt;</span>
-                                            <span class="nt">&lt;value&gt;</span>float<span class="nt">&lt;/value&gt;</span>
-                                            <span class="nt">&lt;qty&gt;</span>2<span class="nt">&lt;/qty&gt;</span>
-                                            <span class="nt">&lt;discount&gt;</span>1.00%<span class="nt">&lt;/discount&gt;</span>
-                                            <span class="nt">&lt;amount&gt;</span>1300<span class="nt">&lt;/amount&gt;</span>
-                                            <span class="nt">&lt;item_code/&gt;</span>
-                                            <span class="nt">&lt;attributes&gt;</span>
-                                                <span class="nt">&lt;attribute&gt;</span>
-                                                    <span class="nt">&lt;name/&gt;</span>
-                                                    <span class="nt">&lt;value/&gt;</span>
-                                                <span class="nt">&lt;/attribute&gt;</span>
-                                            <span class="nt">&lt;/attributes&gt;</span>
-                                            <span class="nt">&lt;serial&gt;</span>0<span class="nt">&lt;/serial&gt;</span>
-                                            <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
-                                            <span class="nt">&lt;return_type&gt;</span>full<span class="nt">&lt;/return_type&gt;</span>
-                                        <span class="nt">&lt;/line_item&gt;</span>
-                                    <span class="nt">&lt;/line_items&gt;</span>
-                                    <span class="nt">&lt;purchase_time/&gt;</span>
-                                    <span class="nt">&lt;billing_time/&gt;</span>
-                                    <span class="nt">&lt;credit_note&gt;</span>
-                                        <span class="nt">&lt;amount&gt;</span>1300<span class="nt">&lt;/amount&gt;</span>
-                                        <span class="nt">&lt;notes/&gt;</span>
-                                        <span class="nt">&lt;number&gt;</span>1267<span class="nt">&lt;/number&gt;</span>
-                                    <span class="nt">&lt;/credit_note&gt;</span>
-                                    <span class="nt">&lt;notes/&gt;</span>
-                                    <span class="nt">&lt;gross_amount&gt;</span>float<span class="nt">&lt;/gross_amount&gt;</span>
-                                    <span class="nt">&lt;number/&gt;</span>
-                                    <span class="nt">&lt;discount&gt;</span>float<span class="nt">&lt;/discount&gt;</span>
-                                    <span class="nt">&lt;amount&gt;</span>float<span class="nt">&lt;/amount&gt;</span>
-                                    <span class="nt">&lt;custom_fields&gt;</span>
-                                        <span class="nt">&lt;field&gt;</span>
-                                            <span class="nt">&lt;name/&gt;</span>
-                                            <span class="nt">&lt;value/&gt;</span>
-                                        <span class="nt">&lt;/field&gt;</span>
-                                    <span class="nt">&lt;/custom_fields&gt;</span>
-                                    <span class="nt">&lt;return_type</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;type</span> <span class="nt">/&gt;</span>
-                                    <span class="nt">&lt;payment_details&gt;</span>
-                                        <span class="nt">&lt;payment&gt;</span>
-                                            <span class="nt">&lt;attributes&gt;</span>
-                                                <span class="nt">&lt;attribute&gt;</span>
-                                                    <span class="nt">&lt;name&gt;</span>Payment Mode<span class="nt">&lt;/name&gt;</span>
-                                                    <span class="nt">&lt;value&gt;</span>HDFC Credit Card<span class="nt">&lt;/value&gt;</span>
-                                                <span class="nt">&lt;/attribute&gt;</span>
-                                            <span class="nt">&lt;/attributes&gt;</span>
-                                            <span class="nt">&lt;notes/&gt;</span>
-                                            <span class="nt">&lt;name/&gt;</span>
-                                            <span class="nt">&lt;value&gt;</span>float<span class="nt">&lt;/value&gt;</span>
-                                        <span class="nt">&lt;/payment&gt;</span>
-                                    <span class="nt">&lt;/payment_details&gt;</span>
-                                <span class="nt">&lt;/transaction&gt;</span>
-                            <span class="nt">&lt;/root&gt;</span>
-
+</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;transaction&gt;</span>
+        <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;user_id/&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;local_id/&gt;</span>
+            <span class="nt">&lt;custom_fields&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Tom Sawer<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>1200<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/custom_fields&gt;</span>
+            <span class="nt">&lt;external_id/&gt;</span>
+            <span class="nt">&lt;email/&gt;</span>
+            <span class="nt">&lt;store&gt;</span>
+                <span class="nt">&lt;code&gt;</span>123<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;id&gt;</span>234<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;/store&gt;</span>
+        <span class="nt">&lt;/customer&gt;</span>
+        <span class="nt">&lt;line_items&gt;</span>
+            <span class="nt">&lt;line_item&gt;</span>
+                <span class="nt">&lt;transaction_number&gt;</span>2346<span class="nt">&lt;/transaction_number&gt;</span>
+                <span class="nt">&lt;description/&gt;</span>
+                <span class="nt">&lt;billing_time/&gt;</span>
+                <span class="nt">&lt;rate&gt;</span>float<span class="nt">&lt;/rate&gt;</span>
+                <span class="nt">&lt;value&gt;</span>float<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;qty&gt;</span>2<span class="nt">&lt;/qty&gt;</span>
+                <span class="nt">&lt;discount&gt;</span>1.00%<span class="nt">&lt;/discount&gt;</span>
+                <span class="nt">&lt;amount&gt;</span>1300<span class="nt">&lt;/amount&gt;</span>
+                <span class="nt">&lt;item_code/&gt;</span>
+                <span class="nt">&lt;attributes&gt;</span>
+                    <span class="nt">&lt;attribute&gt;</span>
+                        <span class="nt">&lt;name/&gt;</span>
+                        <span class="nt">&lt;value/&gt;</span>
+                    <span class="nt">&lt;/attribute&gt;</span>
+                <span class="nt">&lt;/attributes&gt;</span>
+                <span class="nt">&lt;serial&gt;</span>0<span class="nt">&lt;/serial&gt;</span>
+                <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;return_type&gt;</span>full<span class="nt">&lt;/return_type&gt;</span>
+            <span class="nt">&lt;/line_item&gt;</span>
+        <span class="nt">&lt;/line_items&gt;</span>
+        <span class="nt">&lt;purchase_time/&gt;</span>
+        <span class="nt">&lt;billing_time/&gt;</span>
+        <span class="nt">&lt;credit_note&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>1300<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;notes/&gt;</span>
+            <span class="nt">&lt;number&gt;</span>1267<span class="nt">&lt;/number&gt;</span>
+        <span class="nt">&lt;/credit_note&gt;</span>
+        <span class="nt">&lt;notes/&gt;</span>
+        <span class="nt">&lt;gross_amount&gt;</span>float<span class="nt">&lt;/gross_amount&gt;</span>
+        <span class="nt">&lt;number/&gt;</span>
+        <span class="nt">&lt;discount&gt;</span>float<span class="nt">&lt;/discount&gt;</span>
+        <span class="nt">&lt;amount&gt;</span>float<span class="nt">&lt;/amount&gt;</span>
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name/&gt;</span>
+                <span class="nt">&lt;value/&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/custom_fields&gt;</span>
+        <span class="nt">&lt;return_type</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;type</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;payment_details&gt;</span>
+            <span class="nt">&lt;payment&gt;</span>
+                <span class="nt">&lt;attributes&gt;</span>
+                    <span class="nt">&lt;attribute&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Payment Mode<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>HDFC Credit Card<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/attribute&gt;</span>
+                <span class="nt">&lt;/attributes&gt;</span>
+                <span class="nt">&lt;notes/&gt;</span>
+                <span class="nt">&lt;name/&gt;</span>
+                <span class="nt">&lt;value&gt;</span>float<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/payment&gt;</span>
+        <span class="nt">&lt;/payment_details&gt;</span>
+    <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>                            <span class="nt">&lt;response&gt;</span>
-                                <span class="nt">&lt;transactions&gt;</span>
-                                    <span class="nt">&lt;transaction&gt;</span>
-                                        <span class="nt">&lt;id&gt;</span>32<span class="nt">&lt;/id&gt;</span>
-                                        <span class="nt">&lt;number&gt;</span>MyBill-077<span class="nt">&lt;/number&gt;</span>
-                                        <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
-                                        <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
-                                        <span class="nt">&lt;customer&gt;</span>
-                                            <span class="nt">&lt;mobile&gt;</span>918167712150<span class="nt">&lt;/mobile&gt;</span>
-                                            <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
-                                            <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
-                                            <span class="nt">&lt;user_id&gt;</span>55453<span class="nt">&lt;/user_id&gt;</span>
-                                            <span class="c">&lt;!--     
-returned only when query param user_id is true
---&gt;</span>
-                                            <span class="nt">&lt;loyalty_points&gt;</span>8388587<span class="nt">&lt;/loyalty_points&gt;</span>
-                                            <span class="nt">&lt;lifetime_points&gt;</span>2000000620<span class="nt">&lt;/lifetime_points&gt;</span>
-                                            <span class="nt">&lt;lifetime_purchases&gt;</span>100000033000<span class="nt">&lt;/lifetime_purchases&gt;</span>
-                                            <span class="nt">&lt;current_slab&gt;</span>SILVER<span class="nt">&lt;/current_slab&gt;</span>
-                                        <span class="nt">&lt;/customer&gt;</span>
-                                        <span class="nt">&lt;item_status&gt;</span>
-                                            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                            <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-                                            <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
-                                        <span class="nt">&lt;/item_status&gt;</span>
-                                        <span class="nt">&lt;side_effects&gt;</span>
-                                            <span class="nt">&lt;effect&gt;</span>
-                                                <span class="nt">&lt;type&gt;</span>points<span class="nt">&lt;/type&gt;</span>
-                                                <span class="nt">&lt;awarded_points&gt;</span>19490463<span class="nt">&lt;/awarded_points&gt;</span>
-                                                <span class="nt">&lt;total_points&gt;</span>19490463<span class="nt">&lt;/total_points&gt;</span>
-                                            <span class="nt">&lt;/effect&gt;</span>
-                                            <span class="nt">&lt;effect&gt;</span>
-                                                <span class="nt">&lt;type&gt;</span>coupon<span class="nt">&lt;/type&gt;</span>
-                                                <span class="nt">&lt;coupon_code&gt;</span>095790<span class="nt">&lt;/coupon_code&gt;</span>
-                                                <span class="nt">&lt;description&gt;</span>T description<span class="nt">&lt;/description&gt;</span>
-                                                <span class="nt">&lt;coupon_type&gt;</span>CAMPAIGN<span class="nt">&lt;/coupon_type&gt;</span>
-                                                <span class="nt">&lt;valid_till/&gt;</span>
-                                                <span class="nt">&lt;id&gt;</span>42601779<span class="nt">&lt;/id&gt;</span>
-                                            <span class="nt">&lt;/effect&gt;</span>
-                                        <span class="nt">&lt;/side_effects&gt;</span> 
-                                        <span class="nt">&lt;points_deducted&gt;</span>20<span class="nt">&lt;/points_deducted&gt;</span>
-                                        <span class="nt">&lt;points_balance&gt;</span>8388587<span class="nt">&lt;/points_balance&gt;</span>
-                                    <span class="nt">&lt;/transaction&gt;</span>
-                                <span class="nt">&lt;/transactions&gt;</span>
-                                <span class="nt">&lt;status&gt;</span>
-                                    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-                                    <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-                                <span class="nt">&lt;/status&gt;</span>
-                            <span class="nt">&lt;/response&gt;</span>
+<pre class="highlight xml"><code>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>32<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>MyBill-077<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;bill_client_id&gt;</span>1121<span class="nt">&lt;/bill_client_id&gt;</span>
+            <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>918167712150<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>55453<span class="nt">&lt;/user_id&gt;</span>
+                <span class="c">&lt;!-- returned only when query param user_id is true --&gt;</span>
+                <span class="nt">&lt;loyalty_points&gt;</span>8388587<span class="nt">&lt;/loyalty_points&gt;</span>
+                <span class="nt">&lt;lifetime_points&gt;</span>2000000620<span class="nt">&lt;/lifetime_points&gt;</span>
+                <span class="nt">&lt;lifetime_purchases&gt;</span>100000033000<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                <span class="nt">&lt;current_slab&gt;</span>SILVER<span class="nt">&lt;/current_slab&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+                <span class="nt">&lt;effect&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>points<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;awarded_points&gt;</span>19490463<span class="nt">&lt;/awarded_points&gt;</span>
+                    <span class="nt">&lt;total_points&gt;</span>19490463<span class="nt">&lt;/total_points&gt;</span>
+                <span class="nt">&lt;/effect&gt;</span>
+                <span class="nt">&lt;effect&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>coupon<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;coupon_code&gt;</span>095790<span class="nt">&lt;/coupon_code&gt;</span>
+                    <span class="nt">&lt;description&gt;</span>T description<span class="nt">&lt;/description&gt;</span>
+                    <span class="nt">&lt;coupon_type&gt;</span>CAMPAIGN<span class="nt">&lt;/coupon_type&gt;</span>
+                    <span class="nt">&lt;valid_till/&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>42601779<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;/effect&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;points_deducted&gt;</span>20<span class="nt">&lt;/points_deducted&gt;</span>
+            <span class="nt">&lt;points_balance&gt;</span>8388587<span class="nt">&lt;/points_balance&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -6183,15 +6181,13 @@ returned only when query param user_id is true
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to return transactions of only loyalty and non-loyalty customers. You cannot return the transactions of not-interested customers. </p>
-
-<p>This API supports the following types of return transactions based on the request parameters:</p>
+<p>The API allows submitting return transactions for both loyalty and non-loyalty customers. The following are the different return types supported by the API.</p>
 
 <ul>
-<li><strong>Full Return</strong>: Returns an entire transaction. Supported for both loyalty and non-loyalty transactions</li>
-<li><strong>Line-item Return</strong>: Returns an individual line-item of a transaction. Supported for both loyalty and non-loyalty transactions</li>
-<li><strong>Mixed Return</strong>: Returns partial line-items of a transaction and amount for the remaining transaction. Supported only for loyalty transactions</li>
-<li><strong>Amount Return</strong>: Returns transaction amount. Supported only for loyalty and non-loyalty transactions</li>
+<li><strong>Full Return</strong>: To return an entire transaction and exchange with different items. Supported for both loyalty and non-loyalty transactions</li>
+<li><strong>Line-item Return</strong>: To return line-item(s) of a transaction and exchange with other items. Supported for both loyalty and non-loyalty transactions</li>
+<li><strong>Mixed Return</strong>: To exchange part of a transaction (line-items) and to return amount for the remaining transaction. Supported only for loyalty transactions</li>
+<li><strong>Amount Return</strong>: To return the entire transaction amount. Supported both for loyalty and non-loyalty transactions</li>
 </ul>
 
 <h3 id="resource-information">Resource Information</h3>
@@ -6241,24 +6237,39 @@ returned only when query param user_id is true
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Value</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier</td>
+<td></td>
 <td>Unique identifier (mobile no/email id/external id/user id) of the customer whose transaction needs to be returned</td>
 </tr>
 <tr>
-<td>return_type=FULL</td>
+<td>type</td>
+<td>RETURN</td>
+<td>Specify type as RETURN for regular/loyalty returns</td>
+</tr>
+<tr>
+<td>type</td>
+<td>NOT_INTERESTED_RETURN</td>
+<td>For non-loyalty returns</td>
+</tr>
+<tr>
+<td>return_type</td>
+<td>FULL</td>
 <td>To return an entire transaction</td>
 </tr>
 <tr>
-<td>return_type=LINE_ITEM</td>
+<td>return_type</td>
+<td>LINE_ITEM</td>
 <td>To return a particular line-item of a transaction</td>
 </tr>
 <tr>
-<td>return_type=AMOUNT</td>
-<td>To return the transaction amount instead of replacing items</td>
+<td>return_type</td>
+<td>AMOUNT</td>
+<td>To return the transaction amount instead of replacement</td>
 </tr>
 </tbody></table>
 
@@ -6314,57 +6325,58 @@ returned only when query param user_id is true
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>                                <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-                                <span class="nt">&lt;root&gt;</span>
-                                    <span class="nt">&lt;transaction&gt;</span>
-                                        <span class="nt">&lt;id&gt;</span>123234<span class="nt">&lt;/id&gt;</span>
-                                        <span class="c">&lt;!--
+</span></code></pre><pre class="highlight xml"><code>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;transaction&gt;</span>
+        <span class="nt">&lt;id&gt;</span>123234<span class="nt">&lt;/id&gt;</span>
+        <span class="c">&lt;!--
          identifies specific transaction without conflict (first priority to identify transaction
 
          --&gt;</span>
-                                        <span class="nt">&lt;number&gt;</span>BILL-001<span class="nt">&lt;/number&gt;</span>
-                                        <span class="c">&lt;!--
+        <span class="nt">&lt;number&gt;</span>BILL-001<span class="nt">&lt;/number&gt;</span>
+        <span class="c">&lt;!--
          may have conflict as one customer can have multiple transaction having same bill number, will be updated latest transaction in such cases (first transaction in desc order of billing time)
 
          --&gt;</span>
-                                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                        <span class="c">&lt;!-- this can be REGULAR or NOT_INTERESTED --&gt;</span>
-                                        <span class="nt">&lt;customer&gt;</span>
-                                            <span class="nt">&lt;id&gt;</span>34897<span class="nt">&lt;/id&gt;</span>
-                                            <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-                                            <span class="nt">&lt;email&gt;</span>earnshaw.catherine@example.com<span class="nt">&lt;/email&gt;</span>
-                                            <span class="nt">&lt;external_id&gt;</span>ec1234<span class="nt">&lt;/external_id&gt;</span>
-                                        <span class="nt">&lt;/customer&gt;</span>
-                                        <span class="nt">&lt;custom_fields&gt;</span>
-                                            <span class="nt">&lt;field&gt;</span>
-                                                <span class="nt">&lt;name&gt;</span>Earnshaw Catherine<span class="nt">&lt;/name&gt;</span>
-                                                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
-                                            <span class="nt">&lt;/field&gt;</span>
-                                            <span class="nt">&lt;field&gt;</span>
-                                                <span class="nt">&lt;name&gt;</span>field2<span class="nt">&lt;/name&gt;</span>
-                                                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
-                                            <span class="nt">&lt;/field&gt;</span>
-                                        <span class="nt">&lt;/custom_fields&gt;</span>
-                                    <span class="nt">&lt;/transaction&gt;</span>
-                                    <span class="nt">&lt;transaction&gt;</span>
-                                        <span class="nt">&lt;id&gt;</span>123234<span class="nt">&lt;/id&gt;</span>
-                                        <span class="nt">&lt;number&gt;</span>BILL-001<span class="nt">&lt;/number&gt;</span>
-                                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                        <span class="c">&lt;!-- this can be REGULAR or NOT_INTERESTED --&gt;</span>
-                                        <span class="nt">&lt;customer&gt;</span>
-                                            <span class="nt">&lt;id&gt;</span>34897<span class="nt">&lt;/id&gt;</span>
-                                            <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
-                                            <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
-                                            <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
-                                        <span class="nt">&lt;/customer&gt;</span>
-                                        <span class="nt">&lt;custom_fields&gt;</span>
-                                            <span class="nt">&lt;field&gt;</span>
-                                                <span class="nt">&lt;name&gt;</span>Tom Sawyer<span class="nt">&lt;/name&gt;</span>
-                                                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
-                                            <span class="nt">&lt;/field&gt;</span>
-                                        <span class="nt">&lt;/custom_fields&gt;</span>
-                                    <span class="nt">&lt;/transaction&gt;</span>
-                                <span class="nt">&lt;/root&gt;</span>
+        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+        <span class="c">&lt;!-- this can be REGULAR or NOT_INTERESTED --&gt;</span>
+        <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34897<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;email&gt;</span>earnshaw.catherine@example.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;external_id&gt;</span>ec1234<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;/customer&gt;</span>
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Earnshaw Catherine<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>field2<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/custom_fields&gt;</span>
+    <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;transaction&gt;</span>
+        <span class="nt">&lt;id&gt;</span>123234<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;number&gt;</span>BILL-001<span class="nt">&lt;/number&gt;</span>
+        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+        <span class="c">&lt;!-- this can be REGULAR or NOT_INTERESTED --&gt;</span>
+        <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34897<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;external_id&gt;</span>ts1234<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;/customer&gt;</span>
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Tom Sawyer<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>value2<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/custom_fields&gt;</span>
+    <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 
 </code></pre>
 <p>This API allows you to convert a not_interested transaction to a regular transaction and update custom field details of a transaction.</p>
@@ -6452,19 +6464,19 @@ returned only when query param user_id is true
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>                                    <span class="nt">&lt;root&gt;</span>
-                                        <span class="nt">&lt;transaction&gt;</span>
-                                            <span class="nt">&lt;customer&gt;</span>
-                                                <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-                                                <span class="nt">&lt;external_id&gt;</span>ext_id9931156917<span class="nt">&lt;/external_id&gt;</span>
-                                                <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
-                                            <span class="nt">&lt;/customer&gt;</span>
-                                            <span class="nt">&lt;new_type&gt;</span>REGULAR<span class="nt">&lt;/new_type&gt;</span>
-                                            <span class="nt">&lt;notes&gt;</span>Retro Transaction<span class="nt">&lt;/notes&gt;</span>
-                                            <span class="nt">&lt;id&gt;</span>6464658<span class="nt">&lt;/id&gt;</span>
-                                            <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
-                                        <span class="nt">&lt;/transaction&gt;</span>
-                                    <span class="nt">&lt;/root&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;transaction&gt;</span>
+        <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;external_id&gt;</span>ext_id9931156917<span class="nt">&lt;/external_id&gt;</span>
+            <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;/customer&gt;</span>
+        <span class="nt">&lt;new_type&gt;</span>REGULAR<span class="nt">&lt;/new_type&gt;</span>
+        <span class="nt">&lt;notes&gt;</span>Retro Transaction<span class="nt">&lt;/notes&gt;</span>
+        <span class="nt">&lt;id&gt;</span>6464658<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
+    <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -6513,49 +6525,50 @@ returned only when query param user_id is true
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>                                    <span class="nt">&lt;response&gt;</span>
-                                        <span class="nt">&lt;status&gt;</span>
-                                            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-                                            <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-                                        <span class="nt">&lt;/status&gt;</span>
-                                        <span class="nt">&lt;transactions&gt;</span>
-                                            <span class="nt">&lt;transaction&gt;</span>
-                                                <span class="nt">&lt;id&gt;</span>34007568<span class="nt">&lt;/id&gt;</span>
-                                                <span class="nt">&lt;number&gt;</span>retronumbr9931156917<span class="nt">&lt;/number&gt;</span>
-                                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                                <span class="nt">&lt;customer&gt;</span>
-                                                    <span class="nt">&lt;user_id&gt;</span>282024042<span class="nt">&lt;/user_id&gt;</span>
-                                                    <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-                                                    <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
-                                                    <span class="nt">&lt;external_id&gt;</span>ext_id9931156917<span class="nt">&lt;/external_id&gt;</span>
-                                                    <span class="nt">&lt;loyalty_points&gt;</span>75<span class="nt">&lt;/loyalty_points&gt;</span>
-                                                    <span class="nt">&lt;lifetime_points&gt;</span>75<span class="nt">&lt;/lifetime_points&gt;</span>
-                                                    <span class="nt">&lt;lifetime_purchases&gt;</span>1500<span class="nt">&lt;/lifetime_purchases&gt;</span>
-                                                    <span class="nt">&lt;current_slab&gt;</span>Platinum<span class="nt">&lt;/current_slab&gt;</span>
-                                                    <span class="nt">&lt;tier_expiry_date&gt;</span>2117-01-03 23:59:59<span class="nt">&lt;/tier_expiry_date&gt;</span>
-                                                    <span class="nt">&lt;type&gt;</span>loyalty<span class="nt">&lt;/type&gt;</span>
-                                                <span class="nt">&lt;/customer&gt;</span>
-                                                <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-                                                <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-                                                <span class="nt">&lt;item_status&gt;</span>
-                                                    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                                    <span class="nt">&lt;code&gt;</span>1630<span class="nt">&lt;/code&gt;</span>
-                                                    <span class="nt">&lt;message&gt;</span>Transaction retrospectively marked REGULAR, Transaction added successfully<span class="nt">&lt;/message&gt;</span>
-                                                <span class="nt">&lt;/item_status&gt;</span>
-                                                <span class="nt">&lt;side_effects&gt;</span>
-                                                    <span class="nt">&lt;effect&gt;</span>
-                                                        <span class="nt">&lt;type&gt;</span>points<span class="nt">&lt;/type&gt;</span>
-                                                        <span class="nt">&lt;awarded_points&gt;</span>75<span class="nt">&lt;/awarded_points&gt;</span>
-                                                        <span class="nt">&lt;total_points&gt;</span>75<span class="nt">&lt;/total_points&gt;</span>
-                                                    <span class="nt">&lt;/effect&gt;</span>
-                                                <span class="nt">&lt;/side_effects&gt;</span>
-                                                <span class="nt">&lt;old_id&gt;</span>6464658<span class="nt">&lt;/old_id&gt;</span>
-                                                <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
-                                            <span class="nt">&lt;/transaction&gt;</span>
-                                        <span class="nt">&lt;/transactions&gt;</span>
-                                        <span class="nt">&lt;side_effects/&gt;</span>
-                                    <span class="nt">&lt;/response&gt;</span>
+</span></code></pre><pre class="highlight xml"><code>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>34007568<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>retronumbr9931156917<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>282024042<span class="nt">&lt;/user_id&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email&gt;</span>catherine@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ext_id9931156917<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;loyalty_points&gt;</span>75<span class="nt">&lt;/loyalty_points&gt;</span>
+                <span class="nt">&lt;lifetime_points&gt;</span>75<span class="nt">&lt;/lifetime_points&gt;</span>
+                <span class="nt">&lt;lifetime_purchases&gt;</span>1500<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                <span class="nt">&lt;current_slab&gt;</span>Platinum<span class="nt">&lt;/current_slab&gt;</span>
+                <span class="nt">&lt;tier_expiry_date&gt;</span>2117-01-03 23:59:59<span class="nt">&lt;/tier_expiry_date&gt;</span>
+                <span class="nt">&lt;type&gt;</span>loyalty<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+            <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;code&gt;</span>1630<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction retrospectively marked REGULAR, Transaction added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+                <span class="nt">&lt;effect&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>points<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;awarded_points&gt;</span>75<span class="nt">&lt;/awarded_points&gt;</span>
+                    <span class="nt">&lt;total_points&gt;</span>75<span class="nt">&lt;/total_points&gt;</span>
+                <span class="nt">&lt;/effect&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;old_id&gt;</span>6464658<span class="nt">&lt;/old_id&gt;</span>
+            <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+    <span class="nt">&lt;side_effects/&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>In retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once he/she is registered. 
 To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_ENABLE</strong> on InTouch&gt; <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch PoS Configuration</strong> &gt; <strong>Billing</strong> page. </p>
@@ -6666,62 +6679,63 @@ To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_EN
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>                                            <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-                                            <span class="nt">&lt;response&gt;</span>
-                                                <span class="nt">&lt;transactions&gt;</span>
-                                                    <span class="nt">&lt;transaction&gt;</span>
-                                                        <span class="nt">&lt;id&gt;</span>5477576<span class="nt">&lt;/id&gt;</span>
-                                                        <span class="nt">&lt;number&gt;</span>MyBill-076<span class="nt">&lt;/number&gt;</span>
-                                                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                                        <span class="nt">&lt;customer&gt;</span>
-                                                            <span class="nt">&lt;user_id&gt;</span>43445<span class="nt">&lt;/user_id&gt;</span>
-                                                            <span class="c">&lt;!--
+</span></code></pre><pre class="highlight xml"><code>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>5477576<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>MyBill-076<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>43445<span class="nt">&lt;/user_id&gt;</span>
+                <span class="c">&lt;!--
 returned only when query param user_id is true
 --&gt;</span>
-                                                            <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-                                                            <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
-                                                            <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
-                                                            <span class="nt">&lt;firstname&gt;</span>Catherine<span class="nt">&lt;/firstname&gt;</span>
-                                                            <span class="nt">&lt;lastname&gt;</span>Earnshaw<span class="nt">&lt;/lastname&gt;</span>
-                                                        <span class="nt">&lt;/customer&gt;</span>
-                                                        <span class="nt">&lt;item_status&gt;</span>
-                                                            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                                                            <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-                                                            <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
-                                                        <span class="nt">&lt;/item_status&gt;</span>
-                                                        <span class="nt">&lt;amount&gt;</span>1000<span class="nt">&lt;/amount&gt;</span>
-                                                        <span class="nt">&lt;notes&gt;</span>2 line items<span class="nt">&lt;/notes&gt;</span>
-                                                        <span class="nt">&lt;billing_time&gt;</span>2012-04-01 00:00:00<span class="nt">&lt;/billing_time&gt;</span>
-                                                        <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
-                                                        <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                                                        <span class="nt">&lt;store</span> <span class="nt">/&gt;</span>
-                                                        <span class="nt">&lt;custom_fields&gt;</span>
-                                                            <span class="nt">&lt;field&gt;</span>
-                                                                <span class="nt">&lt;name&gt;</span>field name<span class="nt">&lt;/name&gt;</span>
-                                                                <span class="nt">&lt;value&gt;</span>[“value”]<span class="nt">&lt;/value&gt;</span>
-                                                            <span class="nt">&lt;/field&gt;</span>
-                                                        <span class="nt">&lt;/custom_fields&gt;</span>
-                                                        <span class="nt">&lt;line_items&gt;</span>
-                                                            <span class="nt">&lt;line_item&gt;</span>
-                                                                <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-                                                                <span class="nt">&lt;item_code&gt;</span>item-001<span class="nt">&lt;/item_code&gt;</span>
-                                                                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                                                                <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-                                                                <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-                                                                <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-                                                                <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                                                                <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-                                                                <span class="nt">&lt;attributes&gt;</span>
-                                                                    <span class="nt">&lt;attribute&gt;</span>
-                                                                        <span class="nt">&lt;name&gt;</span>color<span class="nt">&lt;/name&gt;</span>
-                                                                        <span class="nt">&lt;value&gt;</span>red<span class="nt">&lt;/value&gt;</span>
-                                                                    <span class="nt">&lt;/attribute&gt;</span>
-                                                                <span class="nt">&lt;/attributes&gt;</span>
-                                                            <span class="nt">&lt;/line_item&gt;</span>
-                                                        <span class="nt">&lt;/line_items&gt;</span>
-                                                    <span class="nt">&lt;/transaction&gt;</span>
-                                                <span class="nt">&lt;/transactions&gt;</span>
-                                            <span class="nt">&lt;/response&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Catherine<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Earnshaw<span class="nt">&lt;/lastname&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>1000<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;notes&gt;</span>2 line items<span class="nt">&lt;/notes&gt;</span>
+            <span class="nt">&lt;billing_time&gt;</span>2012-04-01 00:00:00<span class="nt">&lt;/billing_time&gt;</span>
+            <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
+            <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+            <span class="nt">&lt;store</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;custom_fields&gt;</span>
+                <span class="nt">&lt;field&gt;</span>
+                    <span class="nt">&lt;name&gt;</span>field name<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>[“value”]<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;/custom_fields&gt;</span>
+            <span class="nt">&lt;line_items&gt;</span>
+                <span class="nt">&lt;line_item&gt;</span>
+                    <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                    <span class="nt">&lt;item_code&gt;</span>item-001<span class="nt">&lt;/item_code&gt;</span>
+                    <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                    <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
+                    <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                    <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+                    <span class="nt">&lt;attributes&gt;</span>
+                        <span class="nt">&lt;attribute&gt;</span>
+                            <span class="nt">&lt;name&gt;</span>color<span class="nt">&lt;/name&gt;</span>
+                            <span class="nt">&lt;value&gt;</span>red<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/attribute&gt;</span>
+                    <span class="nt">&lt;/attributes&gt;</span>
+                <span class="nt">&lt;/line_item&gt;</span>
+            <span class="nt">&lt;/line_items&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>This API allows you to fetch the details of a specific transaction based on the transaction id.</p>
 
