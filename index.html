@@ -5962,7 +5962,9 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
       </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2346"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing_time"</span><span class="w">
+          </span><span class="s2">"purchase_time"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2017-06-08"</span><span class="w">
+          </span><span class="s2">"rate"</span><span class="err">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00%"</span><span class="p">,</span><span class="w">
@@ -6024,7 +6026,8 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
             <span class="nt">&lt;line_item&gt;</span>
                 <span class="nt">&lt;transaction_number&gt;</span>2346<span class="nt">&lt;/transaction_number&gt;</span>
                 <span class="nt">&lt;description/&gt;</span>
-                <span class="nt">&lt;billing_time/&gt;</span>
+                <span class="nt">&lt;billing_time&gt;</span> <span class="nt">&lt;/billing_time&gt;</span>
+                <span class="nt">&lt;purchase_time&gt;</span>2017-06-08<span class="nt">&lt;/purchase_time&gt;</span>
                 <span class="nt">&lt;rate&gt;</span>float<span class="nt">&lt;/rate&gt;</span>
                 <span class="nt">&lt;value&gt;</span>float<span class="nt">&lt;/value&gt;</span>
                 <span class="nt">&lt;qty&gt;</span>2<span class="nt">&lt;/qty&gt;</span>
@@ -6181,7 +6184,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The API allows submitting return transactions for both loyalty and non-loyalty customers. The following are the different return types supported by the API.</p>
+<p>The API allows submitting transaction returns of both loyalty and not-interested transactions. There are different types of returns as mentioned in the following.</p>
 
 <ul>
 <li><strong>Full Return</strong>: To return an entire transaction and exchange with different items. Supported for both loyalty and non-loyalty transactions</li>
@@ -6189,6 +6192,13 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 <li><strong>Mixed Return</strong>: To exchange part of a transaction (line-items) and to return amount for the remaining transaction. Supported only for loyalty transactions</li>
 <li><strong>Amount Return</strong>: To return the entire transaction amount. Supported both for loyalty and non-loyalty transactions</li>
 </ul>
+
+<aside class="notice">
+It is important to pass purchase_time in the POST request of a return transaction. 
+
+* Purchase time: The date and time of the actual transaction
+* Billing time: The date and time of the return transaction
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
