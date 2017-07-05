@@ -563,6 +563,8 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
       "line_items": {
         "line_item": [{
           "transaction_number": "2346",
+		  "billing_time": "billing_time"
+		  "purchase_time": "2017-06-08"
           "rate": "float",
           "value": "float",
           "qty": "2",
@@ -628,7 +630,8 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
             <line_item>
                 <transaction_number>2346</transaction_number>
                 <description/>
-                <billing_time/>
+                <billing_time> </billing_time>
+				<purchase_time>2017-06-08</purchase_time>
                 <rate>float</rate>
                 <value>float</value>
                 <qty>2</qty>
@@ -790,12 +793,19 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 }
 ```
 
-The API allows submitting return transactions for both loyalty and non-loyalty customers. The following are the different return types supported by the API.
+The API allows submitting transaction returns of both loyalty and not-interested transactions. There are different types of returns as mentioned in the following.
  
 * **Full Return**: To return an entire transaction and exchange with different items. Supported for both loyalty and non-loyalty transactions
 * **Line-item Return**: To return line-item(s) of a transaction and exchange with other items. Supported for both loyalty and non-loyalty transactions
 * **Mixed Return**: To exchange part of a transaction (line-items) and to return amount for the remaining transaction. Supported only for loyalty transactions
 * **Amount Return**: To return the entire transaction amount. Supported both for loyalty and non-loyalty transactions
+
+<aside class="notice">
+It is important to pass purchase_time in the POST request of a return transaction. 
+
+* Purchase time: The date and time of the actual transaction
+* Billing time: The date and time of the return transaction
+</aside>
 
 
 ### Resource Information
