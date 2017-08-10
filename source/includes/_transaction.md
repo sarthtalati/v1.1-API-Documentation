@@ -1131,7 +1131,7 @@ Batch Support | Yes
 
 ## Fetch Transaction Details
 ```shell
-GET "http://us.api.capillarytech.com/v1.1/customer/get?format=xml&mobile=44700900099"
+GET "http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&mobile=44700900099"
 ```
 > Sample Response
 
@@ -1264,7 +1264,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/get?format=<xml/json>&<identifier_type>=<identifier_value>`
+`http://<cluster url>/v1.1/transaction/get?format=<xml/json>&<identifier_type>=<identifier_value>`
 
 ## Response Codes
 ### Success Codes
