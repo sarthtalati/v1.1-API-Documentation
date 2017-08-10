@@ -237,7 +237,6 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
   "root": {
     "coupon": [{
       "code": "06000041",
-      "validation_code": "XYZ123",
       "customer": { "mobile": "447700900000" },
       "custom_fields": [{
         "field": {
@@ -258,8 +257,6 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <root>
 <coupon>
 <code>06000041</code>
-<!-- validation_code needed only if the brand is using validation code based redemption, can be left out -->
-<validation_code>XYZ123</validation_code>
 <customer>
 <mobile>447700900000</mobile>
 <email></email>
@@ -501,7 +498,7 @@ http://api.capillary.co.in/v1.1/coupon/get?code=06000041&format=xml
 </coupons>
 </response>
 ```
-This API allows you to retrieve details of a specific coupon such as to coupon issued to, current coupon status and the coupon redeemed date/coupon validity.
+This API allows you to retrieve the details of a specific coupon. You can get information such as coupon issued to, current coupon status, coupon redeemed date, and coupon validity.
 
 ### Resource Information
 Entry | Description
@@ -623,10 +620,13 @@ details=extended | Retrieves the details of coupon configurations (set on campai
 
 <aside class="warning"> You can pass either coupon id or code. Any one parameter is required</aside>
 
+
+
 ## Retrieve Coupon Series Details
 ```html
 http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 ```
+> Sample Response
 
 ```json
 {
@@ -634,48 +634,78 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
     "status": {
       "success": "true",
       "code": "200",
-      "message": "SUCCESS"
+      "message": "Success"
     },
-    "customers": {
-      "customer": {
-        "firstname": "test1",
-        "lastname": "test1",
-        "email": "emareddye16@gmail.com",
-        "mobile": "919000050000",
-        "coupons": {
-          "coupon": [
-            {
-              "id": "43367631",
-              "series_id": "7033",
-              "series_name": "newtag",
-              "redemption_count": "0",
-              "created_date": "2017-04-06T16:54:27+08:00",
-              "valid_till": "2017-04-30 23:59:59",
-              "code": "18L6H",
-              "issued_at": {
-                "code": "test_store_code1",
-                "name": "test_store_name1"
-              }
-            },
-            {
-              "id": "43367624",
-              "series_id": "5720",
-              "series_name": "store",
-              "redemption_count": "0",
-              "created_date": "2017-04-06T16:42:58+08:00",
-              "valid_till": "2017-05-06 23:59:59",
-              "code": "RD20O",
-              "issued_at": {
-                "code": "test_store_code1",
-                "name": "test_store_name1"
-              }
-            }
-          ]
-        },
-        "item_status": {
-          "success": "true",
-          "code": "1000",
-          "message": "Coupons retrieved successfully"
+    "series": {
+      "items": {
+        "item": {
+          "id": "405",
+          "description": "API Coupon 3",
+          "series_type": "CAMPAIGN",
+          "client_handling_type": "DISC_CODE",
+          "discount_code": "XYZ123",
+          "valid_till_date": "2017-12-31",
+          "valid_days_from_create": "30",
+          "expiry_strategy_type": "DAYS",
+          "expiry_strategy_value": "30",
+          "max_create": "-1",
+          "max_redeem": "-1",
+          "transferrable": "0",
+          "any_user": "0",
+          "same_user_multiple_redeem": "0",
+          "allow_referral_existing_users": "0",
+          "multiple_use": "0",
+          "is_validation_required": "0",
+          "valid_with_discounted_item": "false",
+          "created_by": "4",
+          "created": "2016-12-09 08:35:15",
+          "last_used": "2016-12-09 08:35:15",
+          "series_code": "G8Z08NZL",
+          "disable_sms": "0",
+          "info": "API Coupon 3",
+          "allow_multiple_vouchers_per_user": "1",
+          "do_not_resend_existing_voucher": "0",
+          "mutual_exclusive_series_ids": "[-1]",
+          "store_ids_json": "[-1]",
+          "dvs_enabled": "0",
+          "dvs_expiry_date": "2017-01-09",
+          "priority": "0",
+          "short_sms_template": "Hello {{cust_name}}, your voucher code is {{voucher_code}}",
+          "max_vouchers_per_user": "-1",
+          "min_days_between_vouchers": "-1",
+          "max_referrals_per_referee": "-1",
+          "discount_on": "BILL",
+          "discount_type": "PERC",
+          "discount_value": "10",
+          "redemption_range": "{\"dom\":[\"-1\"],\"dow\":[\"-1\"],\"hours\":[\"-1\"]}",
+          "min_bill_amount": "0",
+          "max_bill_amount": "0",
+          "redeem_at_store": "[-1]",
+          "campaign_id": "458",
+          "max_redemptions_in_series_per_user": "-1",
+          "min_days_between_redemption": "-1",
+          "redemption_valid_from": "2014-04-30",
+          "source_org_id": "-1",
+          "issue_to_loyalty": "0",
+          "redeem_store_type": "redeemable_stores",
+          "old_flow_enabled": "0",
+          "pre_redeem_event_required": "0",
+          "coupons": {
+            "issued": "4558",
+            "redeemed": "924"
+          },
+          "offline_redemption_enabled": "true",
+          "item_status": {
+            "success": "true",
+            "code": "700",
+            "message": "Coupon series fetched successfully"
+          },
+          "products": "
+",
+          "brands": "
+",
+          "categories": "
+                "
         }
       }
     }
@@ -684,59 +714,92 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 ```
 
 ```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
 <response>
-  <status>
-    <success>true</success>
-    <code>200</code>
-    <message>SUCCESS</message>
-  </status>
-  <customers>
-    <customer>
-      <firstname>test1</firstname>
-      <lastname>test1</lastname>
-      <email>emareddye16@gmail.com</email>
-      <external_id></external_id>
-      <mobile>919000050000</mobile>
-      <coupons>
-        <coupon>
-          <id>43367631</id>
-          <series_id>7033</series_id>
-          <series_name>newtag</series_name>
-          <redemption_count>0</redemption_count>
-          <created_date>2017-04-06T16:54:27+08:00</created_date>
-          <valid_till>2017-04-30 23:59:59</valid_till>
-          <code>18L6H</code>
-          <transaction_number></transaction_number>
-          <issued_at>
-            <code>test_store_code1</code>
-            <name>test_store_name1</name>
-          </issued_at>
-          <redemptions/>
-        </coupon>
-        <coupon>
-          <id>43367624</id>
-          <series_id>5720</series_id>
-          <series_name>store</series_name>
-          <redemption_count>0</redemption_count>
-          <created_date>2017-04-06T16:42:58+08:00</created_date>
-          <valid_till>2017-05-06 23:59:59</valid_till>
-          <code>RD20O</code>
-          <transaction_number></transaction_number>
-          <issued_at>
-            <code>test_store_code1</code>
-            <name>test_store_name1</name>
-          </issued_at>
-          <redemptions/>
-        </coupon>
-      </coupons>
-      <item_status>
-        <success>true</success>
-        <code>1000</code>
-        <message>Coupons retrieved successfully</message>
-      </item_status>
-    </customer>
-  </customers>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <series>
+      <items>
+         <item>
+            <id>405</id>
+            <description>API Coupon 3</description>
+            <series_type>CAMPAIGN</series_type>
+            <client_handling_type>DISC_CODE</client_handling_type>
+            <discount_code>XYZ123</discount_code>
+            <valid_till_date>2017-12-31</valid_till_date>
+            <valid_days_from_create>30</valid_days_from_create>
+            <expiry_strategy_type>DAYS</expiry_strategy_type>
+            <expiry_strategy_value>30</expiry_strategy_value>
+            <max_create>-1</max_create>
+            <max_redeem>-1</max_redeem>
+            <transferrable>0</transferrable>
+            <any_user>0</any_user>
+            <same_user_multiple_redeem>0</same_user_multiple_redeem>
+            <allow_referral_existing_users>0</allow_referral_existing_users>
+            <multiple_use>0</multiple_use>
+            <is_validation_required>0</is_validation_required>
+            <valid_with_discounted_item>false</valid_with_discounted_item>
+            <created_by>4</created_by>
+            <created>2016-12-09 08:35:15</created>
+            <last_used>2016-12-09 08:35:15</last_used>
+            <series_code>G8Z08NZL</series_code>
+            <sms_template />
+            <disable_sms>0</disable_sms>
+            <info>API Coupon 3</info>
+            <allow_multiple_vouchers_per_user>1</allow_multiple_vouchers_per_user>
+            <do_not_resend_existing_voucher>0</do_not_resend_existing_voucher>
+            <mutual_exclusive_series_ids>[-1]</mutual_exclusive_series_ids>
+            <store_ids_json>[-1]</store_ids_json>
+            <dvs_enabled>0</dvs_enabled>
+            <dvs_expiry_date>2017-01-09</dvs_expiry_date>
+            <priority>0</priority>
+            <short_sms_template>Hello {{cust_name}}, your voucher code is {{voucher_code}}</short_sms_template>
+            <max_vouchers_per_user>-1</max_vouchers_per_user>
+            <min_days_between_vouchers>-1</min_days_between_vouchers>
+            <max_referrals_per_referee>-1</max_referrals_per_referee>
+            <discount_on>BILL</discount_on>
+            <discount_type>PERC</discount_type>
+            <discount_value>10</discount_value>
+            <dvs_items />
+            <redemption_range>{&amp;quot;dom&amp;quot;:[&amp;quot;-1&amp;quot;],&amp;quot;dow&amp;quot;:[&amp;quot;-1&amp;quot;],&amp;quot;hours&amp;quot;:[&amp;quot;-1&amp;quot;]}</redemption_range>
+            <min_bill_amount>0</min_bill_amount>
+            <max_bill_amount>0</max_bill_amount>
+            <redeem_at_store>[-1]</redeem_at_store>
+            <campaign_id>458</campaign_id>
+            <tag />
+            <max_redemptions_in_series_per_user>-1</max_redemptions_in_series_per_user>
+            <min_days_between_redemption>-1</min_days_between_redemption>
+            <redemption_valid_from>2014-04-30</redemption_valid_from>
+            <source_org_id>-1</source_org_id>
+            <issue_to_loyalty>0</issue_to_loyalty>
+            <redeem_store_type>redeemable_stores</redeem_store_type>
+            <old_flow_enabled>0</old_flow_enabled>
+            <pre_redeem_event_required>0</pre_redeem_event_required>
+            <coupons>
+               <issued>4558</issued>
+               <redeemed>924</redeemed>
+            </coupons>
+            <offline_redemption_enabled>true</offline_redemption_enabled>
+            <campaign_name />
+            <item_status>
+               <success>true</success>
+               <code>700</code>
+               <message>Coupon series fetched successfully</message>
+            </item_status>
+            <products />
+            <brands />
+            <categories />
+         </item>
+      </items>
+   </series>
 </response>
+
+
 
 ```
 
