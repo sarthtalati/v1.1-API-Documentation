@@ -377,102 +377,6 @@ Then the query string would be as shown below:
 
 
 
-## Retrieve Product Attributes
-```html
-# Sample Request
-http://us.api.capillarytech.com/v1.1/product/attributes?format=json
-
-```
-
-> Sample Request
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Some requests have failed due to errors</message>
-    </status>
-    <product>
-        <attributes>
-            <attribute>
-                <name>Color</name>
-                <label>Color</label>
-                <type>true</type>
-                <search>true</search>
-            </attribute>
-            <attribute>
-                <name>Size</name>
-                <label>Size</label>
-                <type>true</type>
-                <search>true</search>
-            </attribute>
-            <attribute>
-                <name>Deparments</name>
-                <label>部門</label>
-                <type>true</type>
-                <search>false</search>
-            </attribute>
-        </attributes>
-    </product>
-</response>
-```
-
-```json
-{
-    "response": {
-        "status": {
-            "success": "true", 
-            "code": "200", 
-            "message": "Some requests have failed due to errors"
-        }, 
-        "product": {
-            "attributes": {
-                "attribute": [
-                    {
-                        "name": "Color", 
-                        "label": "Color", 
-                        "type": "true", 
-                        "search": "true"
-                    }, 
-                    {
-                        "name": "Size", 
-                        "label": "Size", 
-                        "type": "true", 
-                        "search": "true"
-                    }, 
-                    {
-                        "name": "Deparments", 
-                        "label": "部門", 
-                        "type": "true", 
-                        "search": "false"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
-Returns the list attributes of a specific product.
-
-### Resource Information
-Attribute | Value
---------- | -----
-URI | product/attributes
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-Response Object | Returns attributes of a product
-API Version | v1.1 
-Batch Support | Yes
-
-### Request URL
-`http://<cluster url>/v1.1/product/attributes?format=<xml/json>`
-
-
 ## Retrieve Products Details
 ```html
 # Sample Request
@@ -564,7 +468,7 @@ Rate Limited? | Yes
 Authentication | Yes
 Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns attributes of a product
+Response Object | Returns product details
 API Version | v1.1 
 Batch Support | Yes
 
@@ -1455,7 +1359,7 @@ limit | Limits the number of meta-sizes to be retrieved
 
 ## Retrieve Product Attributes
 ```html
-http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=json'
+http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=json
 ```
 
 > Sample Response
