@@ -493,8 +493,6 @@ http://us.api.capillarytech.com/v1.1/product/categories?format=json
 
 ```xml
 
-
-<?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
       <success>true</success>
@@ -985,7 +983,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/color&<Request Params>?format=<json/json>`
+`http://<Cluster URL>/v1.1/product/color?<Request Params>&format=<json/json>`
 
 ### Request Parameters
 Parameter | Description
@@ -1139,7 +1137,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/product/sizes&<Request Params>?format=<xml/json>`
+`http://<cluster url>/v1.1/product/sizes?<Request Params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
@@ -1342,7 +1340,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/product/meta_sizes&<Request Params>?format=<xml/json>`
+`http://<cluster url>/v1.1/product/meta_sizes?<Request Params>&format=<xml/json>`
 
 
 ### Request Parameters
@@ -1515,7 +1513,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/attributes&<request params>?format=<json/json>`
+`http://<Cluster URL>/v1.1/product/attributes?<request params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
