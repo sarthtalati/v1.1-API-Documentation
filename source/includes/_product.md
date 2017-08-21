@@ -1147,7 +1147,7 @@ name | Retrieves details of specific size details based on the size name passed
 canonical_name | Retrieves the details of a specific size based on the cname. Cannonical names are reference names provided to a specific size
 type | Retrieves sizes of a specific type
 size_family | Retrieves all the sizes of the specified size family
-id | Retrieves the details of a specific size based on the soze id passed
+id | Retrieves the details of a specific size based on the size id passed
 limit | Limits the number of entries to be retrieved
 
 
