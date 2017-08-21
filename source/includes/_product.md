@@ -687,18 +687,18 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/categories?<request params>&format=<json/json>`
+`http://<Cluster URL>/v1.1/product/categories?<Request Params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
 --------- | -----------
 include_id | Retrieves category ids of each category fetched. Value: true/false
-values | Retrieves all child products if values=true
-name | Retrieves the details of a specific product based on the product name (not case sensitive)
-parent_name | Retrieves the details of a specific product and its child products based on the parent name passed
-id | Retrieves the details of a specific product based on the product id
-parent_id | Retrieves the details of a specific product and its child products based on the parent product id passed
-limit | Limits the number of products to be retrieved
+values | Retrieves all child categories if values=true
+name | Retrieves the details of a specific product category based on the category name passed (not case sensitive)
+parent_name | Retrieves the details of a specific product category and its child categories  based on the parent category name passed
+id | Retrieves the details of a specific product category based on the product id
+parent_id | Retrieves the details of a specific product category and its child categories based on the parent product id passed
+limit | Limits the number of product categories to be retrieved
 
 
 ## Retrieve Product Brands
@@ -983,7 +983,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/color?<Request Params>&format=<xml/json>`
+`http://<Cluster URL>/v1.1/product/colors?<Request Params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
@@ -1142,11 +1142,12 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Retrievs ids of each size if include_id is passed as true. Value: true/false
+include_id | Retrieves ids of each size if include_id is passed as true. Value: true/false
 name | Retrieves details of specific size details based on the size name passed
+canonical_name | Retrieves the details of a specific size based on the cname. Cannonical names are reference names provided to a specific size
 type | Retrieves sizes of a specific type
-size_family | Retrieves all the meta-sizes of the specified size family
-id | Retrieves the details of a specific meta-size id 
+size_family | Retrieves all the sizes of the specified size family
+id | Retrieves the details of a specific size based on the soze id passed
 limit | Limits the number of entries to be retrieved
 
 
@@ -1348,7 +1349,6 @@ Parameter | Description
 --------- | -----------
 include_id | Retrieves ids of each meta size if include_id=true. Value: true/false 
 name | Retrieves the details of a specific meta-size based on the name passed
-cannonical_name | Retrieves the details of a specific meta-size based on the cname. Cannonical names are reference names provided to a specific size.
 type | retrieves the meta-sizes of a specific type
 size_family | Retrieves all the meta-sizes of the specified size family
 id | Retrieves the details of a specific meta-size id 
@@ -1518,10 +1518,10 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Pass include_id=true to retrieve attribute ids
-values | Retrieves attribute values if values=true
+include_id | Retrieves ids of each product attribute fetched. Value: true/false
+values | Retrieves all child attributes if values=true
 value_limit | limit number of attribute values to be retrieved per attribute
-name | Specify an attribute name to retrieve the details of that spcific attribute (non-case sensitive)
+name | Specify an attribute name to retrieve the details of that specific attribute (non-case sensitive)
 id | Pass an attribute id to fetch the details of that specific attribute
 limit | Limit the number of attributes that you want to retrieve
 
