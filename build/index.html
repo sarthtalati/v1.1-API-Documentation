@@ -6633,7 +6633,7 @@ To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_EN
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/update?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="fetch-transaction-details">Fetch Transaction Details</h2>
-<pre class="highlight shell"><code>GET <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/get?format=xml&amp;mobile=44700900099"</span>
+<pre class="highlight shell"><code>GET <span class="s2">"http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&amp;mobile=44700900099"</span>
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -6789,7 +6789,7 @@ returned only when query param user_id is true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/get?format=&lt;xml/json&gt;&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
 
 <h2 id="response-codes">Response Codes</h2>
 
@@ -8137,7 +8137,6 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06000041"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ123"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8155,8 +8154,6 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
 <span class="nt">&lt;coupon&gt;</span>
 <span class="nt">&lt;code&gt;</span>06000041<span class="nt">&lt;/code&gt;</span>
-<span class="c">&lt;!-- validation_code needed only if the brand is using validation code based redemption, can be left out --&gt;</span>
-<span class="nt">&lt;validation_code&gt;</span>XYZ123<span class="nt">&lt;/validation_code&gt;</span>
 <span class="nt">&lt;customer&gt;</span>
 <span class="nt">&lt;mobile&gt;</span>447700900000<span class="nt">&lt;/mobile&gt;</span>
 <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
@@ -8441,7 +8438,7 @@ t<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
 <span class="nt">&lt;/coupons&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve details of a specific coupon such as to coupon issued to, current coupon status and the coupon redeemed date/coupon validity.</p>
+<p>This API allows you to retrieve the details of a specific coupon. You can get information such as coupon issued to, current coupon status, coupon redeemed date, and coupon validity.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -8647,111 +8644,178 @@ Cannot redeem same voucher multiple times
 
 <h2 id="retrieve-coupon-series-details">Retrieve Coupon Series Details</h2>
 <pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json<span class="err">&amp;</span>id=7033
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emareddye16@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919000050000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43367631"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7033"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"series_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newtag"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redemption_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-06T16:54:27+08:00"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-30 23:59:59"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18L6H"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"issued_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_store_code1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_store_name1"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"43367624"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5720"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"series_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redemption_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-06T16:42:58+08:00"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-06 23:59:59"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RD20O"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"issued_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_store_code1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_store_name1"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupons retrieved successfully"</span><span class="w">
+    </span><span class="nt">"series"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"405"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Coupon 3"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"series_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAMPAIGN"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"client_handling_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DISC_CODE"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ123"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"valid_till_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-31"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"valid_days_from_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"expiry_strategy_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAYS"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"expiry_strategy_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_create"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_redeem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"transferrable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"any_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"same_user_multiple_redeem"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"allow_referral_existing_users"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"multiple_use"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"is_validation_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"valid_with_discounted_item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 08:35:15"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"last_used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09 08:35:15"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"G8Z08NZL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"disable_sms"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API Coupon 3"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"allow_multiple_vouchers_per_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"do_not_resend_existing_voucher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mutual_exclusive_series_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[-1]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"store_ids_json"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[-1]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dvs_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"dvs_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-09"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"short_sms_template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello {{cust_name}}, your voucher code is {{voucher_code}}"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_vouchers_per_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"min_days_between_vouchers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_referrals_per_referee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"discount_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"discount_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"redemption_range"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"dom\":[\"-1\"],\"dow\":[\"-1\"],\"hours\":[\"-1\"]}"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"min_bill_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_bill_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"redeem_at_store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[-1]"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"458"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"max_redemptions_in_series_per_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"min_days_between_redemption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"redemption_valid_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-04-30"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"source_org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"issue_to_loyalty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"redeem_store_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redeemable_stores"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"old_flow_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"pre_redeem_event_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4558"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"924"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"offline_redemption_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon series fetched successfully"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"brands"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
+                "</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
-  <span class="nt">&lt;status&gt;</span>
-    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-    <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-  <span class="nt">&lt;/status&gt;</span>
-  <span class="nt">&lt;customers&gt;</span>
-    <span class="nt">&lt;customer&gt;</span>
-      <span class="nt">&lt;firstname&gt;</span>test1<span class="nt">&lt;/firstname&gt;</span>
-      <span class="nt">&lt;lastname&gt;</span>test1<span class="nt">&lt;/lastname&gt;</span>
-      <span class="nt">&lt;email&gt;</span>emareddye16@gmail.com<span class="nt">&lt;/email&gt;</span>
-      <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-      <span class="nt">&lt;mobile&gt;</span>919000050000<span class="nt">&lt;/mobile&gt;</span>
-      <span class="nt">&lt;coupons&gt;</span>
-        <span class="nt">&lt;coupon&gt;</span>
-          <span class="nt">&lt;id&gt;</span>43367631<span class="nt">&lt;/id&gt;</span>
-          <span class="nt">&lt;series_id&gt;</span>7033<span class="nt">&lt;/series_id&gt;</span>
-          <span class="nt">&lt;series_name&gt;</span>newtag<span class="nt">&lt;/series_name&gt;</span>
-          <span class="nt">&lt;redemption_count&gt;</span>0<span class="nt">&lt;/redemption_count&gt;</span>
-          <span class="nt">&lt;created_date&gt;</span>2017-04-06T16:54:27+08:00<span class="nt">&lt;/created_date&gt;</span>
-          <span class="nt">&lt;valid_till&gt;</span>2017-04-30 23:59:59<span class="nt">&lt;/valid_till&gt;</span>
-          <span class="nt">&lt;code&gt;</span>18L6H<span class="nt">&lt;/code&gt;</span>
-          <span class="nt">&lt;transaction_number&gt;&lt;/transaction_number&gt;</span>
-          <span class="nt">&lt;issued_at&gt;</span>
-            <span class="nt">&lt;code&gt;</span>test_store_code1<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;name&gt;</span>test_store_name1<span class="nt">&lt;/name&gt;</span>
-          <span class="nt">&lt;/issued_at&gt;</span>
-          <span class="nt">&lt;redemptions/&gt;</span>
-        <span class="nt">&lt;/coupon&gt;</span>
-        <span class="nt">&lt;coupon&gt;</span>
-          <span class="nt">&lt;id&gt;</span>43367624<span class="nt">&lt;/id&gt;</span>
-          <span class="nt">&lt;series_id&gt;</span>5720<span class="nt">&lt;/series_id&gt;</span>
-          <span class="nt">&lt;series_name&gt;</span>store<span class="nt">&lt;/series_name&gt;</span>
-          <span class="nt">&lt;redemption_count&gt;</span>0<span class="nt">&lt;/redemption_count&gt;</span>
-          <span class="nt">&lt;created_date&gt;</span>2017-04-06T16:42:58+08:00<span class="nt">&lt;/created_date&gt;</span>
-          <span class="nt">&lt;valid_till&gt;</span>2017-05-06 23:59:59<span class="nt">&lt;/valid_till&gt;</span>
-          <span class="nt">&lt;code&gt;</span>RD20O<span class="nt">&lt;/code&gt;</span>
-          <span class="nt">&lt;transaction_number&gt;&lt;/transaction_number&gt;</span>
-          <span class="nt">&lt;issued_at&gt;</span>
-            <span class="nt">&lt;code&gt;</span>test_store_code1<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;name&gt;</span>test_store_name1<span class="nt">&lt;/name&gt;</span>
-          <span class="nt">&lt;/issued_at&gt;</span>
-          <span class="nt">&lt;redemptions/&gt;</span>
-        <span class="nt">&lt;/coupon&gt;</span>
-      <span class="nt">&lt;/coupons&gt;</span>
-      <span class="nt">&lt;item_status&gt;</span>
-        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-        <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-        <span class="nt">&lt;message&gt;</span>Coupons retrieved successfully<span class="nt">&lt;/message&gt;</span>
-      <span class="nt">&lt;/item_status&gt;</span>
-    <span class="nt">&lt;/customer&gt;</span>
-  <span class="nt">&lt;/customers&gt;</span>
+</span></code></pre><pre class="highlight xml"><code>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;series&gt;</span>
+      <span class="nt">&lt;items&gt;</span>
+         <span class="nt">&lt;item&gt;</span>
+            <span class="nt">&lt;id&gt;</span>405<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;description&gt;</span>API Coupon 3<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;series_type&gt;</span>CAMPAIGN<span class="nt">&lt;/series_type&gt;</span>
+            <span class="nt">&lt;client_handling_type&gt;</span>DISC_CODE<span class="nt">&lt;/client_handling_type&gt;</span>
+            <span class="nt">&lt;discount_code&gt;</span>XYZ123<span class="nt">&lt;/discount_code&gt;</span>
+            <span class="nt">&lt;valid_till_date&gt;</span>2017-12-31<span class="nt">&lt;/valid_till_date&gt;</span>
+            <span class="nt">&lt;valid_days_from_create&gt;</span>30<span class="nt">&lt;/valid_days_from_create&gt;</span>
+            <span class="nt">&lt;expiry_strategy_type&gt;</span>DAYS<span class="nt">&lt;/expiry_strategy_type&gt;</span>
+            <span class="nt">&lt;expiry_strategy_value&gt;</span>30<span class="nt">&lt;/expiry_strategy_value&gt;</span>
+            <span class="nt">&lt;max_create&gt;</span>-1<span class="nt">&lt;/max_create&gt;</span>
+            <span class="nt">&lt;max_redeem&gt;</span>-1<span class="nt">&lt;/max_redeem&gt;</span>
+            <span class="nt">&lt;transferrable&gt;</span>0<span class="nt">&lt;/transferrable&gt;</span>
+            <span class="nt">&lt;any_user&gt;</span>0<span class="nt">&lt;/any_user&gt;</span>
+            <span class="nt">&lt;same_user_multiple_redeem&gt;</span>0<span class="nt">&lt;/same_user_multiple_redeem&gt;</span>
+            <span class="nt">&lt;allow_referral_existing_users&gt;</span>0<span class="nt">&lt;/allow_referral_existing_users&gt;</span>
+            <span class="nt">&lt;multiple_use&gt;</span>0<span class="nt">&lt;/multiple_use&gt;</span>
+            <span class="nt">&lt;is_validation_required&gt;</span>0<span class="nt">&lt;/is_validation_required&gt;</span>
+            <span class="nt">&lt;valid_with_discounted_item&gt;</span>false<span class="nt">&lt;/valid_with_discounted_item&gt;</span>
+            <span class="nt">&lt;created_by&gt;</span>4<span class="nt">&lt;/created_by&gt;</span>
+            <span class="nt">&lt;created&gt;</span>2016-12-09 08:35:15<span class="nt">&lt;/created&gt;</span>
+            <span class="nt">&lt;last_used&gt;</span>2016-12-09 08:35:15<span class="nt">&lt;/last_used&gt;</span>
+            <span class="nt">&lt;series_code&gt;</span>G8Z08NZL<span class="nt">&lt;/series_code&gt;</span>
+            <span class="nt">&lt;sms_template</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;disable_sms&gt;</span>0<span class="nt">&lt;/disable_sms&gt;</span>
+            <span class="nt">&lt;info&gt;</span>API Coupon 3<span class="nt">&lt;/info&gt;</span>
+            <span class="nt">&lt;allow_multiple_vouchers_per_user&gt;</span>1<span class="nt">&lt;/allow_multiple_vouchers_per_user&gt;</span>
+            <span class="nt">&lt;do_not_resend_existing_voucher&gt;</span>0<span class="nt">&lt;/do_not_resend_existing_voucher&gt;</span>
+            <span class="nt">&lt;mutual_exclusive_series_ids&gt;</span>[-1]<span class="nt">&lt;/mutual_exclusive_series_ids&gt;</span>
+            <span class="nt">&lt;store_ids_json&gt;</span>[-1]<span class="nt">&lt;/store_ids_json&gt;</span>
+            <span class="nt">&lt;dvs_enabled&gt;</span>0<span class="nt">&lt;/dvs_enabled&gt;</span>
+            <span class="nt">&lt;dvs_expiry_date&gt;</span>2017-01-09<span class="nt">&lt;/dvs_expiry_date&gt;</span>
+            <span class="nt">&lt;priority&gt;</span>0<span class="nt">&lt;/priority&gt;</span>
+            <span class="nt">&lt;short_sms_template&gt;</span>Hello {{cust_name}}, your voucher code is {{voucher_code}}<span class="nt">&lt;/short_sms_template&gt;</span>
+            <span class="nt">&lt;max_vouchers_per_user&gt;</span>-1<span class="nt">&lt;/max_vouchers_per_user&gt;</span>
+            <span class="nt">&lt;min_days_between_vouchers&gt;</span>-1<span class="nt">&lt;/min_days_between_vouchers&gt;</span>
+            <span class="nt">&lt;max_referrals_per_referee&gt;</span>-1<span class="nt">&lt;/max_referrals_per_referee&gt;</span>
+            <span class="nt">&lt;discount_on&gt;</span>BILL<span class="nt">&lt;/discount_on&gt;</span>
+            <span class="nt">&lt;discount_type&gt;</span>PERC<span class="nt">&lt;/discount_type&gt;</span>
+            <span class="nt">&lt;discount_value&gt;</span>10<span class="nt">&lt;/discount_value&gt;</span>
+            <span class="nt">&lt;dvs_items</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;redemption_range&gt;</span>{<span class="ni">&amp;amp;</span>quot;dom<span class="ni">&amp;amp;</span>quot;:[<span class="ni">&amp;amp;</span>quot;-1<span class="ni">&amp;amp;</span>quot;],<span class="ni">&amp;amp;</span>quot;dow<span class="ni">&amp;amp;</span>quot;:[<span class="ni">&amp;amp;</span>quot;-1<span class="ni">&amp;amp;</span>quot;],<span class="ni">&amp;amp;</span>quot;hours<span class="ni">&amp;amp;</span>quot;:[<span class="ni">&amp;amp;</span>quot;-1<span class="ni">&amp;amp;</span>quot;]}<span class="nt">&lt;/redemption_range&gt;</span>
+            <span class="nt">&lt;min_bill_amount&gt;</span>0<span class="nt">&lt;/min_bill_amount&gt;</span>
+            <span class="nt">&lt;max_bill_amount&gt;</span>0<span class="nt">&lt;/max_bill_amount&gt;</span>
+            <span class="nt">&lt;redeem_at_store&gt;</span>[-1]<span class="nt">&lt;/redeem_at_store&gt;</span>
+            <span class="nt">&lt;campaign_id&gt;</span>458<span class="nt">&lt;/campaign_id&gt;</span>
+            <span class="nt">&lt;tag</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;max_redemptions_in_series_per_user&gt;</span>-1<span class="nt">&lt;/max_redemptions_in_series_per_user&gt;</span>
+            <span class="nt">&lt;min_days_between_redemption&gt;</span>-1<span class="nt">&lt;/min_days_between_redemption&gt;</span>
+            <span class="nt">&lt;redemption_valid_from&gt;</span>2014-04-30<span class="nt">&lt;/redemption_valid_from&gt;</span>
+            <span class="nt">&lt;source_org_id&gt;</span>-1<span class="nt">&lt;/source_org_id&gt;</span>
+            <span class="nt">&lt;issue_to_loyalty&gt;</span>0<span class="nt">&lt;/issue_to_loyalty&gt;</span>
+            <span class="nt">&lt;redeem_store_type&gt;</span>redeemable_stores<span class="nt">&lt;/redeem_store_type&gt;</span>
+            <span class="nt">&lt;old_flow_enabled&gt;</span>0<span class="nt">&lt;/old_flow_enabled&gt;</span>
+            <span class="nt">&lt;pre_redeem_event_required&gt;</span>0<span class="nt">&lt;/pre_redeem_event_required&gt;</span>
+            <span class="nt">&lt;coupons&gt;</span>
+               <span class="nt">&lt;issued&gt;</span>4558<span class="nt">&lt;/issued&gt;</span>
+               <span class="nt">&lt;redeemed&gt;</span>924<span class="nt">&lt;/redeemed&gt;</span>
+            <span class="nt">&lt;/coupons&gt;</span>
+            <span class="nt">&lt;offline_redemption_enabled&gt;</span>true<span class="nt">&lt;/offline_redemption_enabled&gt;</span>
+            <span class="nt">&lt;campaign_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>700<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Coupon series fetched successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;products</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;brands</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;categories</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/item&gt;</span>
+      <span class="nt">&lt;/items&gt;</span>
+   <span class="nt">&lt;/series&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
+
+
 
 </code></pre>
 <p>This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.</p>
