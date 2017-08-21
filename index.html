@@ -16636,7 +16636,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves details of product categories.</p>
+<p>Retrieves the details of all product categories.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -16678,7 +16678,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/?format=&lt;json/json&gt;</code></p>
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/categories?format=&lt;json/json&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -16690,7 +16690,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves product ids for each product fetched. Value: true/false</td>
+<td>Retrieves category ids of each category fetched. Value: true/false</td>
 </tr>
 <tr>
 <td>values</td>
@@ -16698,15 +16698,15 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>name</td>
-<td>Retrieves details of a specific product based on the product name (not case sensitive)</td>
+<td>Retrieves the details of a specific product based on the product name (not case sensitive)</td>
 </tr>
 <tr>
 <td>parent_name</td>
-<td>Retrieves the details of a specific product and its child products based on the parent product name passed</td>
+<td>Retrieves the details of a specific product and its child products based on the parent name passed</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves details of a specific product based on the product id</td>
+<td>Retrieves the details of a specific product based on the product id</td>
 </tr>
 <tr>
 <td>parent_id</td>
@@ -16852,7 +16852,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the details of product brands.</p>
+<p>Retrieves the details of all product brands created for the org.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -16918,7 +16918,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves the details of the specific brand based on the brand id passed</td>
+<td>Retrieves the details of a specific brand based on the brand id passed</td>
 </tr>
 <tr>
 <td>parent_id</td>
@@ -17023,7 +17023,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <span class="nt">&lt;/response&gt;</span>
 
 </code></pre>
-<p>Retrieves details of prduct colors configured for the org.</p>
+<p>Retrieves the details of all product colors configured for the org.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17210,7 +17210,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the details product sizes configured for the org.</p>
+<p>Retrieves the list of all configured product sizes.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17264,11 +17264,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrievs ids of each size. Value: true/false</td>
+<td>Retrievs ids of each size if include_id is passed as true. Value: true/false</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Retrieves a specific size details based on the size name passed</td>
+<td>Retrieves details of specific size details based on the size name passed</td>
 </tr>
 <tr>
 <td>type</td>
@@ -17454,7 +17454,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves details of product meta-sizes.</p>
+<p>Retrieves details of all product meta-sizes.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17508,11 +17508,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves ids of each meta size. Value: true/false</td>
+<td>Retrieves ids of each meta size if include_id=true. Value: true/false</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Pass the meta_size name that you want to retrieve</td>
+<td>Retrieves the details of a specific meta-size based on the name passed</td>
 </tr>
 <tr>
 <td>cannonical_name</td>
@@ -17545,7 +17545,6 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <pre class="highlight xml"><code>
 <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
-   a
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
       <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
@@ -17674,7 +17673,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves details of product attributes.</p>
+<p>Retrieves the list of all product attributes.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -17728,7 +17727,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Pass include_id=true to retrieve attribute ids in the response</td>
+<td>Pass include_id=true to retrieve attribute ids</td>
 </tr>
 <tr>
 <td>values</td>
@@ -17740,11 +17739,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>name</td>
-<td>Specify the attribute name that you want to retrieve (non-case sensitive)</td>
+<td>Specify an attribute name to retrieve the details of that spcific attribute (non-case sensitive)</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Pass the attribute id to fetch the details of a specific attribute</td>
+<td>Pass an attribute id to fetch the details of that specific attribute</td>
 </tr>
 <tr>
 <td>limit</td>
