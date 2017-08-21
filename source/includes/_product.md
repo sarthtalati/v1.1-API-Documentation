@@ -983,7 +983,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/color?<Request Params>&format=<json/json>`
+`http://<Cluster URL>/v1.1/product/color?<Request Params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
