@@ -16556,7 +16556,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/categories?&lt;request params&gt;&amp;format=&lt;json/json&gt;</code></p>
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/categories?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -16572,27 +16572,27 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>values</td>
-<td>Retrieves all child products if values=true</td>
+<td>Retrieves all child categories if values=true</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Retrieves the details of a specific product based on the product name (not case sensitive)</td>
+<td>Retrieves the details of a specific product category based on the category name passed (not case sensitive)</td>
 </tr>
 <tr>
 <td>parent_name</td>
-<td>Retrieves the details of a specific product and its child products based on the parent name passed</td>
+<td>Retrieves the details of a specific product category and its child categories  based on the parent category name passed</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves the details of a specific product based on the product id</td>
+<td>Retrieves the details of a specific product category based on the product id</td>
 </tr>
 <tr>
 <td>parent_id</td>
-<td>Retrieves the details of a specific product and its child products based on the parent product id passed</td>
+<td>Retrieves the details of a specific product category and its child categories based on the parent product id passed</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limits the number of products to be retrieved</td>
+<td>Limits the number of product categories to be retrieved</td>
 </tr>
 </tbody></table>
 
@@ -16943,7 +16943,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/color?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/colors?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -17142,11 +17142,15 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrievs ids of each size if include_id is passed as true. Value: true/false</td>
+<td>Retrieves ids of each size if include_id is passed as true. Value: true/false</td>
 </tr>
 <tr>
 <td>name</td>
 <td>Retrieves details of specific size details based on the size name passed</td>
+</tr>
+<tr>
+<td>canonical_name</td>
+<td>Retrieves the details of a specific size based on the cname. Cannonical names are reference names provided to a specific size</td>
 </tr>
 <tr>
 <td>type</td>
@@ -17154,11 +17158,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>size_family</td>
-<td>Retrieves all the meta-sizes of the specified size family</td>
+<td>Retrieves all the sizes of the specified size family</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves the details of a specific meta-size id</td>
+<td>Retrieves the details of a specific size based on the soze id passed</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -17393,10 +17397,6 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <td>Retrieves the details of a specific meta-size based on the name passed</td>
 </tr>
 <tr>
-<td>cannonical_name</td>
-<td>Retrieves the details of a specific meta-size based on the cname. Cannonical names are reference names provided to a specific size.</td>
-</tr>
-<tr>
 <td>type</td>
 <td>retrieves the meta-sizes of a specific type</td>
 </tr>
@@ -17605,11 +17605,11 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Pass include_id=true to retrieve attribute ids</td>
+<td>Retrieves ids of each product attribute fetched. Value: true/false</td>
 </tr>
 <tr>
 <td>values</td>
-<td>Retrieves attribute values if values=true</td>
+<td>Retrieves all child attributes if values=true</td>
 </tr>
 <tr>
 <td>value_limit</td>
@@ -17617,7 +17617,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 <tr>
 <td>name</td>
-<td>Specify an attribute name to retrieve the details of that spcific attribute (non-case sensitive)</td>
+<td>Specify an attribute name to retrieve the details of that specific attribute (non-case sensitive)</td>
 </tr>
 <tr>
 <td>id</td>
