@@ -580,6 +580,1052 @@ id | Returns products based on the product id. This id is assigned by Capillary 
 
 
 
+## Retrieve Product Categories
+```html
+http://us.api.capillarytech.com/v1.1/product/categories?format=json
+```
+
+> Sample Response
+
+```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <product>
+      <count>20</count>
+      <categories>
+         <category>
+            <name>AAA</name>
+            <label>a1</label>
+            <description>aa13</description>
+            <parent_name />
+            <parent_label />
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+         <category>
+            <name>BBB</name>
+            <label>b1</label>
+            <description>bb13</description>
+            <parent_name />
+            <parent_label />
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+         <category>
+            <name>EEE</name>
+            <label>e1</label>
+            <description>ee13</description>
+            <parent_name />
+            <parent_label />
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+         <category>
+            <name>ZZZ</name>
+            <label>z1</label>
+            <description>zz13</description>
+            <parent_name>AAA</parent_name>
+            <parent_label>a1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+         <category>
+            <name>LLL</name>
+            <label>l1</label>
+            <description>ll13</description>
+            <parent_name>KKK</parent_name>
+            <parent_label>k1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+         <category>
+            <name>NNN</name>
+            <label>n1</label>
+            <description>nn13</description>
+            <parent_name>MMM</parent_name>
+            <parent_label>m1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9172</code>
+               <message>Category retrieval successful</message>
+            </item_status>
+         </category>
+      </categories>
+   </product>
+</response>
+
+```
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"SUCCESS"
+    },
+    "product":{
+      "count":20,
+      "categories":{
+        "category":[
+          {
+            "name":"AAA",
+            "label":"a1",
+            "description":"aa13",
+            "parent_name":null,
+            "parent_label":null,
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          },
+          {
+            "name":"BBB",
+            "label":"b1",
+            "description":"bb13",
+            "parent_name":null,
+            "parent_label":null,
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          },
+          {
+            "name":"EEE",
+            "label":"e1",
+            "description":"ee13",
+            "parent_name":null,
+            "parent_label":null,
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          },
+          {
+            "name":"ZZZ",
+            "label":"z1",
+            "description":"zz13",
+            "parent_name":"AAA",
+            "parent_label":"a1",
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          },
+          {
+            "name":"LLL",
+            "label":"l1",
+            "description":"ll13",
+            "parent_name":"KKK",
+            "parent_label":"k1",
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          },
+          {
+            "name":"NNN",
+            "label":"n1",
+            "description":"nn13",
+            "parent_name":"MMM",
+            "parent_label":"m1",
+            "item_status":{
+              "success":true,
+              "code":9172,
+              "message":"Category retrieval successful"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+Retrieves details of product categories.
+
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/categories
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+
+### Request URL
+`http://<Cluster URL>/v1.1/product/?format=<json/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+include_id | Retrieves product ids for each product fetched. Value: true/false
+values | Retrieves all child products if values=true
+name | Retrieves details of a specific product based on the product name (not case sensitive)
+parent_name | Retrieves the details of a specific product and its child products based on the parent product name passed
+id | Retrieves details of a specific product based on the product id
+parent_id | Retrieves the details of a specific product and its child products based on the parent product id passed
+limit | Limits the number of products to be retrieved
+
+
+## Retrieve Product Brands
+```html
+http://us.api.capillarytech.com/v1.1/product/brands?format=json
+```
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <product>
+      <count>6</count>
+      <brands>
+         <brand>
+            <name>AA</name>
+            <label>a1</label>
+            <description>aaaa</description>
+            <parent_name />
+            <parent_label />
+            <item_status>
+               <success>true</success>
+               <code>9160</code>
+               <message>Brand retrieval successful</message>
+            </item_status>
+         </brand>
+         <brand>
+            <name>BB</name>
+            <label>b1</label>
+            <description>bbbb</description>
+            <parent_name>AA</parent_name>
+            <parent_label>a1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9160</code>
+               <message>Brand retrieval successful</message>
+            </item_status>
+         </brand>
+         <brand>
+            <name>CC</name>
+            <label>c1</label>
+            <description>cccc</description>
+            <parent_name>BB</parent_name>
+            <parent_label>b1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9160</code>
+               <message>Brand retrieval successful</message>
+            </item_status>
+         </brand>
+         <brand>
+            <name>DD</name>
+            <label>d1</label>
+            <description>dddd</description>
+            <parent_name>BB</parent_name>
+            <parent_label>b1</parent_label>
+            <item_status>
+               <success>true</success>
+               <code>9160</code>
+               <message>Brand retrieval successful</message>
+            </item_status>
+         </brand>
+      </brands>
+   </product>
+</response>
+
+
+```
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"Success"
+    },
+    "product":{
+      "count":6,
+      "brands":{
+        "brand":[
+          {
+            "name":"AA",
+            "label":"a1",
+            "description":"aaaa",
+            "parent_name":"",
+            "parent_label":"",
+            "item_status":{
+              "success":true,
+              "code":9160,
+              "message":"Brand retrieval successful"
+            }
+          },
+          {
+            "name":"BB",
+            "label":"b1",
+            "description":"bbbb",
+            "parent_name":"AA",
+            "parent_label":"a1",
+            "item_status":{
+              "success":true,
+              "code":9160,
+              "message":"Brand retrieval successful"
+            }
+          },
+          {
+            "name":"CC",
+            "label":"c1",
+            "description":"cccc",
+            "parent_name":"BB",
+            "parent_label":"b1",
+            "item_status":{
+              "success":true,
+              "code":9160,
+              "message":"Brand retrieval successful"
+            }
+          },
+          {
+            "name":"DD",
+            "label":"d1",
+            "description":"dddd",
+            "parent_name":"BB",
+            "parent_label":"b1",
+            "item_status":{
+              "success":true,
+              "code":9160,
+              "message":"Brand retrieval successful"
+            }
+          },         
+        ]
+      }
+    }
+  }
+}
+```
+
+Retrieves the details of product brands.
+
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/brands
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+### Request URL
+
+`http://<cluster url>/v1.1/product/brands&<request params>?format=<xml/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+include_id | Retrieves the brand id if include_id is passed as true. Value: true/false 
+name | Retrieves the details of the specific brand based on the name passed(name is not case sensitive)
+parent_name | Retrieves the details of a specific parent brand and its child brands based on the brand name passed
+id | Retrieves the details of the specific brand based on the brand id passed
+parent_id | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed
+limit | Limits the number of brands to be retrieved per request
+
+
+
+
+## Retrieve Product Colors
+```html
+http://us/api.capillarytech.com/v1.1/product/colors?format=json
+```
+> Sample Response
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"Success"
+    },
+    "product":{
+      "count":20,
+      "colors":{
+        "color":[
+          {
+            "pallette":"000000",
+            "name":"Black",
+            "item_status":{
+              "success":true,
+              "code":9178,
+              "message":"Color retrieval successful"
+            }
+          },
+          {
+            "pallette":"000080",
+            "name":"Navy",
+            "item_status":{
+              "success":true,
+              "code":9178,
+              "message":"Color retrieval successful"
+            }
+          },
+          {
+            "pallette":"00bfff",
+            "name":"DeepSkyBlue",
+            "item_status":{
+              "success":true,
+              "code":9178,
+              "message":"Color retrieval successful"
+            }
+          },
+        ]
+      }
+    }
+  }
+}
+```
+
+```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <product>
+      <count>20</count>
+      <colors>
+         <color>
+            <pallette>000000</pallette>
+            <name>Black</name>
+            <item_status>
+               <success>true</success>
+               <code>9178</code>
+               <message>Color retrieval successful</message>
+            </item_status>
+         </color>
+         <color>
+            <pallette>000080</pallette>
+            <name>Navy</name>
+            <item_status>
+               <success>true</success>
+               <code>9178</code>
+               <message>Color retrieval successful</message>
+            </item_status>
+         </color>
+         <color>
+            <pallette>00bfff</pallette>
+            <name>DeepSkyBlue</name>
+            <item_status>
+               <success>true</success>
+               <code>9178</code>
+               <message>Color retrieval successful</message>
+            </item_status>
+         </color>
+      </colors>
+   </product>
+</response>
+
+```
+Retrieves details of prduct colors configured for the org.
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/colors
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+### Request URL
+`http://<Cluster URL>/v1.1/product/color&<Request Params>?format=<json/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+pallette | Retrieves the details of a specific color. Pass the hexa code of the color that you want to fetch.
+limit | Limits the number of entries to be retrieved
+
+
+
+## Retrieve Product Sizes
+```html
+http://us.api.capillarytech.com/v1.1/product/sizes?format=json
+```
+
+> Sample Response
+
+```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <product>
+      <count>7</count>
+      <sizes>
+         <size>
+            <name>L</name>
+            <label>large</label>
+            <canonical_name>Large</canonical_name>
+            <description />
+            <size_family>US</size_family>
+            <type>Mens Shirt</type>
+            <parent_canonical_name>40</parent_canonical_name>
+            <item_status>
+               <success>true</success>
+               <code>9130</code>
+               <message>Size retrieval successful</message>
+            </item_status>
+         </size>
+         <size>
+            <name>M</name>
+            <label>medium</label>
+            <canonical_name>Medium</canonical_name>
+            <description />
+            <size_family>US</size_family>
+            <type>Mens Shirt</type>
+            <parent_canonical_name>38</parent_canonical_name>
+            <item_status>
+               <success>true</success>
+               <code>9130</code>
+               <message>Size retrieval successful</message>
+            </item_status>
+         </size>
+         <size>
+            <name>S</name>
+            <label>small</label>
+            <canonical_name>Small</canonical_name>
+            <description />
+            <size_family>US</size_family>
+            <type>Mens Shirt</type>
+            <parent_canonical_name>37</parent_canonical_name>
+            <item_status>
+               <success>true</success>
+               <code>9130</code>
+               <message>Size retrieval successful</message>
+            </item_status>
+         </size>
+      </sizes>
+   </product>
+</response>
+
+
+```
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"Success"
+    },
+    "product":{
+      "count":7,
+      "sizes":{
+        "size":[
+          {
+            "name":"L",
+            "label":"large",
+            "canonical_name":"Large",
+            "description":"",
+            "size_family":"US",
+            "type":"Mens Shirt",
+            "parent_canonical_name":"40",
+            "item_status":{
+              "success":true,
+              "code":9130,
+              "message":"Size retrieval successful"
+            }
+          },
+          {
+            "name":"M",
+            "label":"medium",
+            "canonical_name":"Medium",
+            "description":"",
+            "size_family":"US",
+            "type":"Mens Shirt",
+            "parent_canonical_name":"38",
+            "item_status":{
+              "success":true,
+              "code":9130,
+              "message":"Size retrieval successful"
+            }
+          },
+          {
+            "name":"S",
+            "label":"small",
+            "canonical_name":"Small",
+            "description":"",
+            "size_family":"US",
+            "type":"Mens Shirt",
+            "parent_canonical_name":"37",
+            "item_status":{
+              "success":true,
+              "code":9130,
+              "message":"Size retrieval successful"
+            }
+          },
+          
+        ]
+      }
+    }
+  }
+}
+```
+Retrieves the details product sizes configured for the org.
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/sizes
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/product/sizes&<Request Params>?format=<xml/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+include_id | Retrievs ids of each size. Value: true/false
+name | Retrieves a specific size details based on the size name passed
+type | Retrieves sizes of a specific type
+size_family | Retrieves all the meta-sizes of the specified size family
+id | Retrieves the details of a specific meta-size id 
+limit | Limits the number of entries to be retrieved
+
+
+
+
+## Retrieve Product Meta-Sizes
+```html
+http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
+```
+
+> Sample Response
+
+```xml
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <product>
+      <count>16</count>
+      <meta_sizes>
+         <meta_size>
+            <name>37</name>
+            <label />
+            <decription />
+            <size_family>CentiMeter</size_family>
+            <type>Mens Shirt</type>
+            <parent_meta_size />
+            <item_status>
+               <success>true</success>
+               <code>9140</code>
+               <message>Meta size retrieval successful</message>
+            </item_status>
+         </meta_size>
+         <meta_size>
+            <name>38</name>
+            <label />
+            <decription />
+            <size_family>CentiMeter</size_family>
+            <type>Mens Shirt</type>
+            <parent_meta_size />
+            <item_status>
+               <success>true</success>
+               <code>9140</code>
+               <message>Meta size retrieval successful</message>
+            </item_status>
+         </meta_size>
+         <meta_size>
+            <name>39</name>
+            <label />
+            <decription />
+            <size_family>CentiMeter</size_family>
+            <type>Mens Shirt</type>
+            <parent_meta_size />
+            <item_status>
+               <success>true</success>
+               <code>9140</code>
+               <message>Meta size retrieval successful</message>
+            </item_status>
+         </meta_size>
+         <meta_size>
+            <name>40</name>
+            <label />
+            <decription />
+            <size_family>CentiMeter</size_family>
+            <type>Mens Shirt</type>
+            <parent_meta_size />
+            <item_status>
+               <success>true</success>
+               <code>9140</code>
+               <message>Meta size retrieval successful</message>
+            </item_status>
+         </meta_size>
+         <meta_size>
+            <name>41</name>
+            <label />
+            <decription />
+            <size_family>CentiMeter</size_family>
+            <type>Mens Shirt</type>
+            <parent_meta_size />
+            <item_status>
+               <success>true</success>
+               <code>9140</code>
+               <message>Meta size retrieval successful</message>
+            </item_status>
+         </meta_size>
+      </meta_sizes>
+   </product>
+</response>
+
+```
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"Success"
+    },
+    "product":{
+      "count":16,
+      "meta_sizes":{
+        "meta_size":[
+          {
+            "name":"37",
+            "label":"",
+            "decription":"",
+            "size_family":"CentiMeter",
+            "type":"Mens Shirt",
+            "parent_meta_size":null,
+            "item_status":{
+              "success":true,
+              "code":9140,
+              "message":"Meta size retrieval successful"
+            }
+          },
+          {
+            "name":"38",
+            "label":"",
+            "decription":"",
+            "size_family":"CentiMeter",
+            "type":"Mens Shirt",
+            "parent_meta_size":null,
+            "item_status":{
+              "success":true,
+              "code":9140,
+              "message":"Meta size retrieval successful"
+            }
+          },
+          {
+            "name":"39",
+            "label":"",
+            "decription":"",
+            "size_family":"CentiMeter",
+            "type":"Mens Shirt",
+            "parent_meta_size":null,
+            "item_status":{
+              "success":true,
+              "code":9140,
+              "message":"Meta size retrieval successful"
+            }
+          },
+          {
+            "name":"40",
+            "label":"",
+            "decription":"",
+            "size_family":"CentiMeter",
+            "type":"Mens Shirt",
+            "parent_meta_size":null,
+            "item_status":{
+              "success":true,
+              "code":9140,
+              "message":"Meta size retrieval successful"
+            }
+          },
+          {
+            "name":"41",
+            "label":"",
+            "decription":"",
+            "size_family":"CentiMeter",
+            "type":"Mens Shirt",
+            "parent_meta_size":null,
+            "item_status":{
+              "success":true,
+              "code":9140,
+              "message":"Meta size retrieval successful"
+            }
+          },
+        ]
+      }
+    }
+  }
+}
+```
+
+
+Retrieves details of product meta-sizes.
+
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/meta_sizes
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+### Request URL
+`http://<cluster url>/v1.1/product/meta_sizes&<Request Params>?format=<xml/json>`
+
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+include_id | Retrieves ids of each meta size. Value: true/false 
+name | Pass the meta_size name that you want to retrieve
+cannonical_name | Retrieves the details of a specific meta-size based on the cname. Cannonical names are reference names provided to a specific size.
+type | retrieves the meta-sizes of a specific type
+size_family | Retrieves all the meta-sizes of the specified size family
+id | Retrieves the details of a specific meta-size id 
+limit | Limits the number of meta-sizes to be retrieved
+
+
+## Retrieve Product Attributes
+```html
+http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=json'
+```
+
+> Sample Response
+
+```xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   a
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <product>
+      <count>5</count>
+      <attributes>
+         <attribute>
+            <name>E1</name>
+            <label>ee1</label>
+            <is_enum>0</is_enum>
+            <type>Int</type>
+            <extraction_rule_type>UPLOAD</extraction_rule_type>
+            <extraction_rule_data>E1</extraction_rule_data>
+            <is_soft_enum>1</is_soft_enum>
+            <use_in_dump>1</use_in_dump>
+            <default_attribute_value_name>e10</default_attribute_value_name>
+            <item_status>
+               <success>true</success>
+               <code>9176</code>
+               <message>Attribute retrieval successful</message>
+            </item_status>
+         </attribute>
+         <attribute>
+            <name>D1</name>
+            <label />
+            <is_enum>0</is_enum>
+            <type>Int</type>
+            <extraction_rule_type>UPLOAD</extraction_rule_type>
+            <extraction_rule_data>D1</extraction_rule_data>
+            <is_soft_enum>1</is_soft_enum>
+            <use_in_dump>1</use_in_dump>
+            <default_attribute_value_name>d10</default_attribute_value_name>
+            <item_status>
+               <success>true</success>
+               <code>9176</code>
+               <message>Attribute retrieval successful</message>
+            </item_status>
+         </attribute>
+         <attribute>
+            <name>C1</name>
+            <label>cc1</label>
+            <is_enum>0</is_enum>
+            <type>Boolean</type>
+            <extraction_rule_type>POS</extraction_rule_type>
+            <extraction_rule_data />
+            <is_soft_enum>0</is_soft_enum>
+            <use_in_dump>1</use_in_dump>
+            <default_attribute_value_name>c11</default_attribute_value_name>
+            <item_status>
+               <success>true</success>
+               <code>9176</code>
+               <message>Attribute retrieval successful</message>
+            </item_status>
+         </attribute>
+      </attributes>
+   </product>
+</response>
+
+
+```
+
+```json
+{
+  "response":{
+    "status":{
+      "success":true,
+      "code":200,
+      "message":"Success"
+    },
+    "product":{
+      "count":5,
+      "attributes":{
+        "attribute":[
+          {
+            "name":"E1",
+            "label":"ee1",
+            "is_enum":"0",
+            "type":"Int",
+            "extraction_rule_type":"UPLOAD",
+            "extraction_rule_data":"E1",
+            "is_soft_enum":"1",
+            "use_in_dump":"1",
+            "default_attribute_value_name":"e10",
+            "item_status":{
+              "success":true,
+              "code":9176,
+              "message":"Attribute retrieval successful"
+            }
+          },
+          {
+            "name":"D1",
+            "label":"",
+            "is_enum":"0",
+            "type":"Int",
+            "extraction_rule_type":"UPLOAD",
+            "extraction_rule_data":"D1",
+            "is_soft_enum":"1",
+            "use_in_dump":"1",
+            "default_attribute_value_name":"d10",
+            "item_status":{
+              "success":true,
+              "code":9176,
+              "message":"Attribute retrieval successful"
+            }
+          },
+          {
+            "name":"C1",
+            "label":"cc1",
+            "is_enum":"0",
+            "type":"Boolean",
+            "extraction_rule_type":"POS",
+            "extraction_rule_data":"",
+            "is_soft_enum":"0",
+            "use_in_dump":"1",
+            "default_attribute_value_name":"c11",
+            "item_status":{
+              "success":true,
+              "code":9176,
+              "message":"Attribute retrieval successful"
+            }
+          },
+          
+          
+        ]
+      }
+    }
+  }
+}
+```
+
+Retrieves details of product attributes.
+
+### Resource Information
+Attribute | Value
+--------- | -----
+URI | product/attributes
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON
+HTTP Methods | GET
+API Version | v1.1 
+Batch Support | Yes
+
+
+### Request URL
+`http://<Cluster URL>/v1.1/product/attributes&<request params>?format=<json/json>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+include_id | Pass include_id=true to retrieve attribute ids in the response 
+values | Retrieves attribute values if values=true
+value_limit | limit number of attribute values to be retrieved per attribute
+name | Specify the attribute name that you want to retrieve (non-case sensitive)
+id | Pass the attribute id to fetch the details of a specific attribute
+limit | Limit the number of attributes that you want to retrieve
+
+
+
 
 ## Response Codes
 ### Success Code
@@ -591,4 +1637,3 @@ Code | Description
 Code | Description
 ---- | -----------
 2101 | Unable to retrieve product details
-
