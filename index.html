@@ -16453,6 +16453,1305 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/get?format=xml&amp;&lt;query_parameters&gt;</code></p>
 
+<h2 id="retrieve-product-categories">Retrieve Product Categories</h2>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/categories?format=json
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>20<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;categories&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>AAA<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>a1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>aa13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;parent_label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>BBB<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>b1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>bb13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;parent_label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>EEE<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>e1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>ee13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;parent_label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>ZZZ<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>z1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>zz13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>AAA<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>a1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>LLL<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>l1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>ll13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>KKK<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>k1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+         <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name&gt;</span>NNN<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>n1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>nn13<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>MMM<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>m1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9172<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Category retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/category&gt;</span>
+      <span class="nt">&lt;/categories&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"categories"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"category"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"AAA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"aa13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"BBB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"bb13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"EEE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"e1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"ee13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"ZZZ"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"z1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"zz13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"AAA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"LLL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"l1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"ll13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"KKK"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"k1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"NNN"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"n1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"nn13"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"MMM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"m1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9172</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Category retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves details of product categories.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/categories</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/?format=&lt;json/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_id</td>
+<td>Retrieves product ids for each product fetched. Value: true/false</td>
+</tr>
+<tr>
+<td>values</td>
+<td>Retrieves all child products if values=true</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Retrieves details of a specific product based on the product name (not case sensitive)</td>
+</tr>
+<tr>
+<td>parent_name</td>
+<td>Retrieves the details of a specific product and its child products based on the parent product name passed</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Retrieves details of a specific product based on the product id</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>Retrieves the details of a specific product and its child products based on the parent product id passed</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of products to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-product-brands">Retrieve Product Brands</h2>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/brands?format=json
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>6<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;brands&gt;</span>
+         <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>AA<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>a1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>aaaa<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;parent_label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9160<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Brand retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/brand&gt;</span>
+         <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>BB<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>b1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>bbbb<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>AA<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>a1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9160<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Brand retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/brand&gt;</span>
+         <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>CC<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>c1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>cccc<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>BB<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>b1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9160<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Brand retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/brand&gt;</span>
+         <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name&gt;</span>DD<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>d1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;description&gt;</span>dddd<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;parent_name&gt;</span>BB<span class="nt">&lt;/parent_name&gt;</span>
+            <span class="nt">&lt;parent_label&gt;</span>b1<span class="nt">&lt;/parent_label&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9160<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Brand retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/brand&gt;</span>
+      <span class="nt">&lt;/brands&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"brands"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"brand"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"aaaa"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9160</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Brand retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"bbbb"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9160</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Brand retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"c1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"cccc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9160</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Brand retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"DD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"d1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"dddd"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9160</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Brand retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">         
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details of product brands.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/brands</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/brands&amp;&lt;request params&gt;?format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_id</td>
+<td>Retrieves the brand id if include_id is passed as true. Value: true/false</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Retrieves the details of the specific brand based on the name passed(name is not case sensitive)</td>
+</tr>
+<tr>
+<td>parent_name</td>
+<td>Retrieves the details of a specific parent brand and its child brands based on the brand name passed</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Retrieves the details of the specific brand based on the brand id passed</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of brands to be retrieved per request</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-product-colors">Retrieve Product Colors</h2>
+<pre class="highlight html"><code>http://us/api.capillarytech.com/v1.1/product/colors?format=json
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"colors"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"color"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pallette"</span><span class="p">:</span><span class="s2">"000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9178</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Color retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pallette"</span><span class="p">:</span><span class="s2">"000080"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Navy"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9178</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Color retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pallette"</span><span class="p">:</span><span class="s2">"00bfff"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"DeepSkyBlue"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9178</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Color retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>20<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;colors&gt;</span>
+         <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;pallette&gt;</span>000000<span class="nt">&lt;/pallette&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Black<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9178<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Color retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/color&gt;</span>
+         <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;pallette&gt;</span>000080<span class="nt">&lt;/pallette&gt;</span>
+            <span class="nt">&lt;name&gt;</span>Navy<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9178<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Color retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/color&gt;</span>
+         <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;pallette&gt;</span>00bfff<span class="nt">&lt;/pallette&gt;</span>
+            <span class="nt">&lt;name&gt;</span>DeepSkyBlue<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9178<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Color retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/color&gt;</span>
+      <span class="nt">&lt;/colors&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre>
+<p>Retrieves details of prduct colors configured for the org.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/colors</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/color&amp;&lt;Request Params&gt;?format=&lt;json/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pallette</td>
+<td>Retrieves the details of a specific color. Pass the hexa code of the color that you want to fetch.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of entries to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-product-sizes">Retrieve Product Sizes</h2>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/sizes?format=json
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>7<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;sizes&gt;</span>
+         <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>L<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>large<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;canonical_name&gt;</span>Large<span class="nt">&lt;/canonical_name&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>US<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_canonical_name&gt;</span>40<span class="nt">&lt;/parent_canonical_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9130<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/size&gt;</span>
+         <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>M<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>medium<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;canonical_name&gt;</span>Medium<span class="nt">&lt;/canonical_name&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>US<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_canonical_name&gt;</span>38<span class="nt">&lt;/parent_canonical_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9130<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/size&gt;</span>
+         <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>S<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>small<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;canonical_name&gt;</span>Small<span class="nt">&lt;/canonical_name&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>US<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_canonical_name&gt;</span>37<span class="nt">&lt;/parent_canonical_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9130<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/size&gt;</span>
+      <span class="nt">&lt;/sizes&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sizes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"size"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"large"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canonical_name"</span><span class="p">:</span><span class="s2">"Large"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_canonical_name"</span><span class="p">:</span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9130</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canonical_name"</span><span class="p">:</span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_canonical_name"</span><span class="p">:</span><span class="s2">"38"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9130</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"small"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"canonical_name"</span><span class="p">:</span><span class="s2">"Small"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_canonical_name"</span><span class="p">:</span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9130</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves the details product sizes configured for the org.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/sizes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/sizes&amp;&lt;Request Params&gt;?format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_id</td>
+<td>Retrievs ids of each size. Value: true/false</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Retrieves a specific size details based on the size name passed</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Retrieves sizes of a specific type</td>
+</tr>
+<tr>
+<td>size_family</td>
+<td>Retrieves all the meta-sizes of the specified size family</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Retrieves the details of a specific meta-size id</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of entries to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-product-meta-sizes">Retrieve Product Meta-Sizes</h2>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>16<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;meta_sizes&gt;</span>
+         <span class="nt">&lt;meta_size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>37<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9140<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Meta size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/meta_size&gt;</span>
+         <span class="nt">&lt;meta_size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>38<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9140<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Meta size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/meta_size&gt;</span>
+         <span class="nt">&lt;meta_size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>39<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9140<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Meta size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/meta_size&gt;</span>
+         <span class="nt">&lt;meta_size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>40<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9140<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Meta size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/meta_size&gt;</span>
+         <span class="nt">&lt;meta_size&gt;</span>
+            <span class="nt">&lt;name&gt;</span>41<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9140<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Meta size retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/meta_size&gt;</span>
+      <span class="nt">&lt;/meta_sizes&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"meta_sizes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"meta_size"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"37"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9140</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Meta size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"38"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9140</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Meta size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9140</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Meta size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9140</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Meta size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"41"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9140</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Meta size retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves details of product meta-sizes.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/meta_sizes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/meta_sizes&amp;&lt;Request Params&gt;?format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_id</td>
+<td>Retrieves ids of each meta size. Value: true/false</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Pass the meta_size name that you want to retrieve</td>
+</tr>
+<tr>
+<td>cannonical_name</td>
+<td>Retrieves the details of a specific meta-size based on the cname. Cannonical names are reference names provided to a specific size.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>retrieves the meta-sizes of a specific type</td>
+</tr>
+<tr>
+<td>size_family</td>
+<td>Retrieves all the meta-sizes of the specified size family</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Retrieves the details of a specific meta-size id</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limits the number of meta-sizes to be retrieved</td>
+</tr>
+</tbody></table>
+
+<h2 id="retrieve-product-attributes">Retrieve Product Attributes</h2>
+<pre class="highlight html"><code>http://api.us.capillarytech.com/v1.1/product/attributes<span class="nt">&lt;request</span> <span class="na">params</span><span class="nt">&gt;</span>?format=json'
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   a
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;product&gt;</span>
+      <span class="nt">&lt;count&gt;</span>5<span class="nt">&lt;/count&gt;</span>
+      <span class="nt">&lt;attributes&gt;</span>
+         <span class="nt">&lt;attribute&gt;</span>
+            <span class="nt">&lt;name&gt;</span>E1<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>ee1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;is_enum&gt;</span>0<span class="nt">&lt;/is_enum&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;extraction_rule_type&gt;</span>UPLOAD<span class="nt">&lt;/extraction_rule_type&gt;</span>
+            <span class="nt">&lt;extraction_rule_data&gt;</span>E1<span class="nt">&lt;/extraction_rule_data&gt;</span>
+            <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+            <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+            <span class="nt">&lt;default_attribute_value_name&gt;</span>e10<span class="nt">&lt;/default_attribute_value_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9176<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Attribute retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/attribute&gt;</span>
+         <span class="nt">&lt;attribute&gt;</span>
+            <span class="nt">&lt;name&gt;</span>D1<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;is_enum&gt;</span>0<span class="nt">&lt;/is_enum&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;extraction_rule_type&gt;</span>UPLOAD<span class="nt">&lt;/extraction_rule_type&gt;</span>
+            <span class="nt">&lt;extraction_rule_data&gt;</span>D1<span class="nt">&lt;/extraction_rule_data&gt;</span>
+            <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+            <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+            <span class="nt">&lt;default_attribute_value_name&gt;</span>d10<span class="nt">&lt;/default_attribute_value_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9176<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Attribute retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/attribute&gt;</span>
+         <span class="nt">&lt;attribute&gt;</span>
+            <span class="nt">&lt;name&gt;</span>C1<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;label&gt;</span>cc1<span class="nt">&lt;/label&gt;</span>
+            <span class="nt">&lt;is_enum&gt;</span>0<span class="nt">&lt;/is_enum&gt;</span>
+            <span class="nt">&lt;type&gt;</span>Boolean<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+            <span class="nt">&lt;extraction_rule_data</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;is_soft_enum&gt;</span>0<span class="nt">&lt;/is_soft_enum&gt;</span>
+            <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+            <span class="nt">&lt;default_attribute_value_name&gt;</span>c11<span class="nt">&lt;/default_attribute_value_name&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;code&gt;</span>9176<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Attribute retrieval successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;/attribute&gt;</span>
+      <span class="nt">&lt;/attributes&gt;</span>
+   <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+
+
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"E1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"ee1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="s2">"UPLOAD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="s2">"E1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="s2">"e10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9176</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Attribute retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"D1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="s2">"UPLOAD"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="s2">"D1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="s2">"d10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9176</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Attribute retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"cc1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Boolean"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="s2">"c11"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9176</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Attribute retrieval successful"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+
+
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Retrieves details of product attributes.</p>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td>product/attributes</td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Response Formats</td>
+<td>XML, JSON</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>API Version</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/attributes&amp;&lt;request params&gt;?format=&lt;json/json&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_id</td>
+<td>Pass include_id=true to retrieve attribute ids in the response</td>
+</tr>
+<tr>
+<td>values</td>
+<td>Retrieves attribute values if values=true</td>
+</tr>
+<tr>
+<td>value_limit</td>
+<td>limit number of attribute values to be retrieved per attribute</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Specify the attribute name that you want to retrieve (non-case sensitive)</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Pass the attribute id to fetch the details of a specific attribute</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limit the number of attributes that you want to retrieve</td>
+</tr>
+</tbody></table>
+
 <h2 id="response-codes">Response Codes</h2>
 
 <h3 id="success-code">Success Code</h3>
