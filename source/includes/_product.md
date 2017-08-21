@@ -769,7 +769,7 @@ http://us.api.capillarytech.com/v1.1/product/categories?format=json
 }
 ```
 
-Retrieves details of product categories.
+Retrieves the details of all product categories.
 
 
 ### Resource Information
@@ -785,16 +785,16 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/?format=<json/json>`
+`http://<Cluster URL>/v1.1/product/categories?format=<json/json>`
 
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Retrieves product ids for each product fetched. Value: true/false
+include_id | Retrieves category ids of each category fetched. Value: true/false
 values | Retrieves all child products if values=true
-name | Retrieves details of a specific product based on the product name (not case sensitive)
-parent_name | Retrieves the details of a specific product and its child products based on the parent product name passed
-id | Retrieves details of a specific product based on the product id
+name | Retrieves the details of a specific product based on the product name (not case sensitive)
+parent_name | Retrieves the details of a specific product and its child products based on the parent name passed
+id | Retrieves the details of a specific product based on the product id
 parent_id | Retrieves the details of a specific product and its child products based on the parent product id passed
 limit | Limits the number of products to be retrieved
 
@@ -939,7 +939,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
 }
 ```
 
-Retrieves the details of product brands.
+Retrieves the details of all product brands created for the org.
 
 
 ### Resource Information
@@ -963,7 +963,7 @@ Parameter | Description
 include_id | Retrieves the brand id if include_id is passed as true. Value: true/false 
 name | Retrieves the details of the specific brand based on the name passed(name is not case sensitive)
 parent_name | Retrieves the details of a specific parent brand and its child brands based on the brand name passed
-id | Retrieves the details of the specific brand based on the brand id passed
+id | Retrieves the details of a specific brand based on the brand id passed
 parent_id | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed
 limit | Limits the number of brands to be retrieved per request
 
@@ -1067,7 +1067,7 @@ http://us/api.capillarytech.com/v1.1/product/colors?format=json
 </response>
 
 ```
-Retrieves details of prduct colors configured for the org.
+Retrieves the details of all product colors configured for the org.
 
 ### Resource Information
 Attribute | Value
@@ -1221,7 +1221,7 @@ http://us.api.capillarytech.com/v1.1/product/sizes?format=json
   }
 }
 ```
-Retrieves the details product sizes configured for the org.
+Retrieves the list of all configured product sizes.
 
 ### Resource Information
 Attribute | Value
@@ -1240,8 +1240,8 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Retrievs ids of each size. Value: true/false
-name | Retrieves a specific size details based on the size name passed
+include_id | Retrievs ids of each size if include_id is passed as true. Value: true/false
+name | Retrieves details of specific size details based on the size name passed
 type | Retrieves sizes of a specific type
 size_family | Retrieves all the meta-sizes of the specified size family
 id | Retrieves the details of a specific meta-size id 
@@ -1423,7 +1423,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
 ```
 
 
-Retrieves details of product meta-sizes.
+Retrieves details of all product meta-sizes.
 
 
 ### Resource Information
@@ -1444,8 +1444,8 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Retrieves ids of each meta size. Value: true/false 
-name | Pass the meta_size name that you want to retrieve
+include_id | Retrieves ids of each meta size if include_id=true. Value: true/false 
+name | Retrieves the details of a specific meta-size based on the name passed
 cannonical_name | Retrieves the details of a specific meta-size based on the cname. Cannonical names are reference names provided to a specific size.
 type | retrieves the meta-sizes of a specific type
 size_family | Retrieves all the meta-sizes of the specified size family
@@ -1464,7 +1464,6 @@ http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=j
 
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
-   a
    <status>
       <success>true</success>
       <code>200</code>
@@ -1597,7 +1596,7 @@ http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=j
 }
 ```
 
-Retrieves details of product attributes.
+Retrieves the list of all product attributes.
 
 ### Resource Information
 Attribute | Value
@@ -1617,11 +1616,11 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-include_id | Pass include_id=true to retrieve attribute ids in the response 
+include_id | Pass include_id=true to retrieve attribute ids
 values | Retrieves attribute values if values=true
 value_limit | limit number of attribute values to be retrieved per attribute
-name | Specify the attribute name that you want to retrieve (non-case sensitive)
-id | Pass the attribute id to fetch the details of a specific attribute
+name | Specify an attribute name to retrieve the details of that spcific attribute (non-case sensitive)
+id | Pass an attribute id to fetch the details of that specific attribute
 limit | Limit the number of attributes that you want to retrieve
 
 
