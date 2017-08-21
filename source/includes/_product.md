@@ -687,7 +687,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/categories?<request params>&format=<json/json>`
+`http://<Cluster URL>/v1.1/product/categories?<request params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
@@ -983,7 +983,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/color?<Request Params>&format=<xml/json>`
+`http://<Cluster URL>/v1.1/product/colors?<Request Params>&format=<xml/json>`
 
 ### Request Parameters
 Parameter | Description
