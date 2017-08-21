@@ -1359,7 +1359,7 @@ limit | Limits the number of meta-sizes to be retrieved
 
 ## Retrieve Product Attributes
 ```html
-http://api.us.capillarytech.com/v1.1/product/attributes<request params>?format=json
+http://api.us.capillarytech.com/v1.1/product/attributes?format=json
 ```
 
 > Sample Response
