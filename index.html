@@ -6633,7 +6633,7 @@ To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_EN
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/update?format=&lt;xml/json&gt;</code></p>
 
 <h2 id="fetch-transaction-details">Fetch Transaction Details</h2>
-<pre class="highlight shell"><code>GET <span class="s2">"http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&amp;mobile=44700900099"</span>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/get?format=xml<span class="err">&amp;</span>id=5477576
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -6790,6 +6790,84 @@ returned only when query param user_id is true
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Fetch the details of a specific transaction</td>
+</tr>
+<tr>
+<td>store_code</td>
+<td>Fetch the transactions of a specific store</td>
+</tr>
+<tr>
+<td>till_code</td>
+<td>Fetch the transactions made at a specific TILL</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>-@DefaultValue(&ldquo;false&rdquo;),</td>
+</tr>
+<tr>
+<td>credit_notes</td>
+<td>&ldquo;-@DefaultValue(&quot;false&rdquo;),</td>
+</tr>
+<tr>
+<td>tenders</td>
+<td>@DefaultValue(&ldquo;false&rdquo;),</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Fetch the transactions of a specific amount</td>
+</tr>
+<tr>
+<td>min_amount</td>
+<td>Fetch transactions of a specific amount range, i.e., min_amount - max_amount</td>
+</tr>
+<tr>
+<td>max_amount</td>
+<td>Fetch the transactions of a specific amount range, i.e., min_amount - max_amount</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Fetch transactions of a specific duration., between start_date and end_date</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Fetch transactions of a specific duration., between start_date and end_date</td>
+</tr>
+<tr>
+<td>start_id</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transacton ids between 1000 - 4999</td>
+</tr>
+<tr>
+<td>end_id</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transacton ids between 1000 - 4999</td>
+</tr>
+<tr>
+<td>number</td>
+<td>Fetch the details of a specific transaction based on the transaction number passed</td>
+</tr>
+<tr>
+<td>date</td>
+<td>Fetch transactions of a specific date</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Fetch a specific type of transaction. Possible values: REGULAR, NOT_INTERESTED, RETURN, NOT_INTERESTED_RETURN, MIXED. By default it shows the details of regular transaction</td>
+</tr>
+</tbody></table>
 
 <h2 id="response-codes">Response Codes</h2>
 
