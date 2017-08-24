@@ -1130,8 +1130,8 @@ Batch Support | Yes
 
 
 ## Fetch Transaction Details
-```shell
-GET "http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&mobile=44700900099"
+```html
+http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
 ```
 > Sample Response
 
@@ -1265,6 +1265,30 @@ Batch Support | Yes
 
 ### Request URL
 `http://<cluster url>/v1.1/transaction/get?format=<xml/json>&<identifier_type>=<identifier_value>`
+
+### Request Parameters
+Parameter | Description
+--------- | -----------
+id | Fetch the details of a specific transaction 
+store_code | Fetch the transactions of a specific store 
+till_code | Fetch the transactions made at a specific TILL
+user_id | -@DefaultValue("false"),
+credit_notes | "-@DefaultValue("false"),
+tenders | @DefaultValue("false"),
+amount | Fetch the transactions of a specific amount
+min_amount | Fetch transactions of a specific amount range, i.e., min_amount - max_amount
+max_amount | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount
+start_date | Fetch transactions of a specific duration., between start_date and end_date
+end_date | Fetch transactions of a specific duration., between start_date and end_date
+start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transacton ids between 1000 - 4999
+end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transacton ids between 1000 - 4999
+number | Fetch the details of a specific transaction based on the transaction number passed
+date | Fetch transactions of a specific date
+limit | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100
+type | Fetch a specific type of transaction. Possible values: REGULAR, NOT_INTERESTED, RETURN, NOT_INTERESTED_RETURN, MIXED. By default it shows the details of regular transaction
+
+
+
 
 ## Response Codes
 ### Success Codes
