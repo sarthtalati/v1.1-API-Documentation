@@ -5396,7 +5396,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 <li>Maximum and minimum amount allowed per line-item</li>
 </ul>
 
-<h2 id="make-transactions">Make Transactions</h2>
+<h2 id="add-transaction">Add Transaction</h2>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5685,7 +5685,7 @@ bill_client_id will be returned only if it is passed in request xml
     <span class="nt">&lt;/status&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to make regular or not interested transactions. You can submit multiple transactions in an API call time by passing the details of each transaction in a separate <code class="prettyprint">transaction</code> tag. If a new customer identifier is passed, the customer will be registered automatically.</p>
+<p>This API lets you make regular or not-interested transactions. To submit multiple transactions in a request, pass each transaction details in a <code class="prettyprint">transaction</code> payload. If you pass a new customer identifier along with transaction details, the customer will be registered in the org automatically.</p>
 
 <ul>
 <li><strong>Regular Transactions</strong>: To make regular transactions, set <code class="prettyprint">type</code> as <code class="prettyprint">regular</code> and pass the customer’s unique identifier of the customer in the respective tag.</li>
@@ -5747,7 +5747,7 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add?format=&lt;xml/json&gt;</code></p>
 
-<h2 id="make-transaction-with-local-currency">Make Transaction with Local Currency</h2>
+<h2 id="add-transaction-with-local-currency">Add Transaction with Local Currency</h2>
 <pre class="highlight html"><code># Sample Request
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
@@ -5889,12 +5889,15 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to make a transaction in different currency using the currency conversion ratio. To support this feature, you need to have<br>
-* disabled ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
-* Added relevant currency conversion ratios in the back-end
-* the destination currency id. If no currency id is passed, the transaction gets converted to the org&rsquo;s base currency</p>
+<p>This API lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have</p>
 
-<p>Through this API call, coupon or points to be issued or redeemed for the transaction will be as per the destination currency. </p>
+<ul>
+<li>disabled <code class="prettyprint">ERR_CURRENCY_CONVERSION_DISABLED</code> on the Billing Configuration page of InTouch Settings</li>
+<li>Added relevant currency conversion ratios in the back-end</li>
+<li>the destination currency id. If no currency id is passed, the transaction gets converted to the org&rsquo;s base currency</li>
+</ul>
+
+<p>The issual of points/coupon or redemption is calculated automatically as per the destination currency. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -6184,17 +6187,19 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The API allows submitting transaction returns of both loyalty and not-interested transactions. There are different types of returns as mentioned in the following.</p>
+<p>The API allows submitting transaction returns of both loyalty and not-interested transactions. </p>
+
+<p>The following are different return types supported for both loyalty and not-interested transactions.</p>
 
 <ul>
-<li><strong>Full Return</strong>: To return an entire transaction and exchange with different items. Supported for both loyalty and non-loyalty transactions</li>
-<li><strong>Line-item Return</strong>: To return line-item(s) of a transaction and exchange with other items. Supported for both loyalty and non-loyalty transactions</li>
-<li><strong>Mixed Return</strong>: To exchange part of a transaction (line-items) and to return amount for the remaining transaction. Supported only for loyalty transactions</li>
-<li><strong>Amount Return</strong>: To return the entire transaction amount. Supported both for loyalty and non-loyalty transactions</li>
+<li><strong>Full Return</strong>: To return an entire transaction and exchange with different items</li>
+<li><strong>Line-item Return</strong>: To return line-item(s) of a transaction and exchange with other items</li>
+<li><strong>Mixed Return</strong>: To exchange one or more line items of a transaction (line-items)</li>
+<li><strong>Amount Return</strong>: To return the entire transaction amount</li>
 </ul>
 
 <aside class="notice">
-It is important to pass purchase_time in the POST request of a return transaction. 
+For return transactions, it is required to pass return item&rsquo;s purchased transaction number and purchase_time.
 
 * Purchase time: The date and time of the actual transaction
 * Billing time: The date and time of the return transaction
@@ -6280,6 +6285,16 @@ It is important to pass purchase_time in the POST request of a return transactio
 <td>return_type</td>
 <td>AMOUNT</td>
 <td>To return the transaction amount instead of replacement</td>
+</tr>
+<tr>
+<td>purchase_time*</td>
+<td>-</td>
+<td>Specify the date of purchase of the item that is returned</td>
+</tr>
+<tr>
+<td>number*</td>
+<td>-</td>
+<td>The actual transaction number of the returned item</td>
 </tr>
 </tbody></table>
 
@@ -6580,8 +6595,9 @@ It is important to pass purchase_time in the POST request of a return transactio
     <span class="nt">&lt;side_effects/&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>In retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once he/she is registered. 
-To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_ENABLE</strong> on InTouch&gt; <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch PoS Configuration</strong> &gt; <strong>Billing</strong> page. </p>
+<p>In a retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once the customer is registered. </p>
+
+<p>To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_ENABLE</strong> on InTouch&gt; <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch PoS Configuration</strong> &gt; <strong>Billing</strong> page. </p>
 
 <p>On the Billing page, you will also see a configuration to set the maximum duration allowed convert a not-interested transaction regular.</p>
 
