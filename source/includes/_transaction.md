@@ -30,7 +30,7 @@ Before using transaction APIs, understand the transaction configurations of your
 * Maximum and minimum amount allowed per transaction
 * Maximum and minimum amount allowed per line-item
 
-## Make Transactions
+## Add Transaction
 ```html
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
@@ -329,7 +329,7 @@ bill_client_id will be returned only if it is passed in request xml
 </response>
 ```
 
-This API allows you to make regular or not interested transactions. You can submit multiple transactions in an API call time by passing the details of each transaction in a separate `transaction` tag. If a new customer identifier is passed, the customer will be registered automatically.
+This API lets you make regular or not-interested transactions. To submit multiple transactions in a request, pass each transaction details in a `transaction` payload. If you pass a new customer identifier along with transaction details, the customer will be registered in the org automatically.
 
 * **Regular Transactions**: To make regular transactions, set `type` as `regular` and pass the customer’s unique identifier of the customer in the respective tag.
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
@@ -363,7 +363,7 @@ Batch Support | Yes
 
 
 
-## Make Transaction with Local Currency 
+## Add Transaction with Local Currency 
 ```html
 # Sample Request
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json
@@ -515,12 +515,13 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 }
 ```
 
-This API allows you to make a transaction in different currency using the currency conversion ratio. To support this feature, you need to have  
-* disabled ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
+This API lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have
+  
+* disabled `ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
 * Added relevant currency conversion ratios in the back-end
 * the destination currency id. If no currency id is passed, the transaction gets converted to the org's base currency
 
-Through this API call, coupon or points to be issued or redeemed for the transaction will be as per the destination currency. 
+The issual of points/coupon or redemption is calculated automatically as per the destination currency. 
 
 ### Resource Information
 Parameter | Description
@@ -793,15 +794,17 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 }
 ```
 
-The API allows submitting transaction returns of both loyalty and not-interested transactions. There are different types of returns as mentioned in the following.
+The API allows submitting transaction returns of both loyalty and not-interested transactions. 
+
+The following are different return types supported for both loyalty and not-interested transactions.
  
-* **Full Return**: To return an entire transaction and exchange with different items. Supported for both loyalty and non-loyalty transactions
-* **Line-item Return**: To return line-item(s) of a transaction and exchange with other items. Supported for both loyalty and non-loyalty transactions
-* **Mixed Return**: To exchange part of a transaction (line-items) and to return amount for the remaining transaction. Supported only for loyalty transactions
-* **Amount Return**: To return the entire transaction amount. Supported both for loyalty and non-loyalty transactions
+* **Full Return**: To return an entire transaction and exchange with different items
+* **Line-item Return**: To return line-item(s) of a transaction and exchange with other items
+* **Mixed Return**: To exchange one or more line items of a transaction (line-items)
+* **Amount Return**: To return the entire transaction amount
 
 <aside class="notice">
-It is important to pass purchase_time in the POST request of a return transaction. 
+For return transactions, it is required to pass return item's purchased transaction number and purchase_time.
 
 * Purchase time: The date and time of the actual transaction
 * Billing time: The date and time of the return transaction
@@ -832,6 +835,10 @@ type | NOT_INTERESTED_RETURN | For non-loyalty returns
 return_type | FULL | To return an entire transaction
 return_type | LINE_ITEM | To return a particular line-item of a transaction
 return_type | AMOUNT | To return the transaction amount instead of replacement
+purchase_time* | - | Specify the date of purchase of the item that is returned
+number* | - | The actual transaction number of the returned item 
+
+
 
 ## Update Transaction Details
 ```shell
@@ -1106,7 +1113,8 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
 </response>
 ```
 
-In retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once he/she is registered. 
+In a retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once the customer is registered. 
+
 To avail Retro Transaction, you need to enable **CONF_RETRO_TRANSACTION_ENABLE** on InTouch> **Settings** > **Systems & Deployment** > **InTouch PoS Configuration** > **Billing** page. 
 
 On the Billing page, you will also see a configuration to set the maximum duration allowed convert a not-interested transaction regular.
