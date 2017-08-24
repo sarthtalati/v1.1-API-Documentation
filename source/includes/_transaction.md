@@ -518,7 +518,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 This API lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have
   
 * disabled `ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
-* Added relevant currency conversion ratios in the back-end
+* added relevant currency conversion ratios in the back-end
 * the destination currency id. If no currency id is passed, the transaction gets converted to the org's base currency
 
 The issual of points/coupon or redemption is calculated automatically as per the destination currency. 
