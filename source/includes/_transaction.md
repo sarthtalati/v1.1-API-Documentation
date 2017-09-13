@@ -549,246 +549,139 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```json
 {
   "root": {
-    "transaction": [{
-      "customer": {
-        "mobile": "44700900000",
-        "custom_fields": {
-          "name": "Tom Sawer",
-          "value": "1200"
-        },
-        "store": {
-          "code": "123",
-          "id": "234"
-        }
-      },
+    "transaction": {
+      "type": "not_interested_return",
+      "country": "true",
+      "number": "may30001",
+      "not_interested_reason": "Example resson",
+      "return_type": "AMOUNT",
+      "purchase_time": "2017-05-31",
+      "amount": "500",
+      "billing_time": "2017-05-31",
       "line_items": {
-        "line_item": [{
-          "transaction_number": "2346",
-		  "billing_time": "billing_time"
-		  "purchase_time": "2017-06-08"
-          "rate": "float",
-          "value": "float",
-          "qty": "2",
-          "discount": "1.00%",
-          "amount": "1300",
+        "line_item": {
+          "serial": "1",
+          "amount": "500",
+          "description": "soap",
+          "item_code": "item-001",
+          "qty": "50",
+          "rate": "10",
+          "value": "500",
           "attributes": {
             "attribute": {
-
+              "name": "brand",
+              "value": "Levis"
             }
-          },
-          "serial": "0",
-          "type": "return",
-          "return_type": "full"
-        }]
-      },
-      "credit_note": {
-        "amount": "1300",
-        "number": "1267"
-      },
-      "gross_amount": "float",
-      "discount": "float",
-      "amount": "float",
-      "custom_fields": {
-        "field": [{
-
-        }]
-      },
-      "payment_details": {
-        "payment": {
-          "attributes": {
-            "attribute": [{
-              "name": "Payment Mode",
-              "value": "HDFC Credit Card"
-            }]
-          },
-          "value": "float"
+          }
         }
+      },
+      "custom_fields_data": {
+        "custom_data_item": {
+          "field_name": "paymentmode",
+          "field_value": "CASH"
+        }
+      },
+      "associate_details": {
+        
       }
-    }]
+    }
   }
 }
+
 ```
 
 ```xml
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <transaction>
-        <customer>
-            <user_id/>
-            <mobile>44700900000</mobile>
-            <local_id/>
-            <custom_fields>
-                <name>Tom Sawer</name>
-                <value>1200</value>
-            </custom_fields>
-            <external_id/>
-            <email/>
-            <store>
-                <code>123</code>
-                <id>234</id>
-            </store>
-        </customer>
-        <line_items>
-            <line_item>
-                <transaction_number>2346</transaction_number>
-                <description/>
-                <billing_time> </billing_time>
-				<purchase_time>2017-06-08</purchase_time>
-                <rate>float</rate>
-                <value>float</value>
-                <qty>2</qty>
-                <discount>1.00%</discount>
-                <amount>1300</amount>
-                <item_code/>
-                <attributes>
-                    <attribute>
-                        <name/>
-                        <value/>
-                    </attribute>
-                </attributes>
-                <serial>0</serial>
-                <type>return</type>
-                <return_type>full</return_type>
-            </line_item>
-        </line_items>
-        <purchase_time/>
-        <billing_time/>
-        <credit_note>
-            <amount>1300</amount>
-            <notes/>
-            <number>1267</number>
-        </credit_note>
-        <notes/>
-        <gross_amount>float</gross_amount>
-        <number/>
-        <discount>float</discount>
-        <amount>float</amount>
-        <custom_fields>
-            <field>
-                <name/>
-                <value/>
-            </field>
-        </custom_fields>
-        <return_type />
-        <type />
-        <payment_details>
-            <payment>
-                <attributes>
-                    <attribute>
-                        <name>Payment Mode</name>
-                        <value>HDFC Credit Card</value>
-                    </attribute>
-                </attributes>
-                <notes/>
-                <name/>
-                <value>float</value>
-            </payment>
-        </payment_details>
-    </transaction>
+	<transaction>
+		<type>not_interested_return</type>
+		<country>true</country>
+		<number>may30001</number>
+		<not_interested_reason>Example resson</not_interested_reason>
+		<return_type>AMOUNT</return_type>
+		<purchase_time>2017-05-31</purchase_time>
+		<amount>500</amount>
+		<billing_time>2017-05-31</billing_time>
+		<line_items>
+			<line_item>
+				<serial>1</serial>
+				<amount>500</amount>
+				<description>soap</description>
+				<item_code>item-001</item_code>
+				<qty>50</qty>
+				<rate>10</rate>
+				<value>500</value>
+				<attributes>
+					<attribute>
+						<name>brand</name>
+						<value>Levis</value>
+					</attribute>
+				</attributes>
+			</line_item>
+		</line_items>
+		<custom_fields_data>
+			<custom_data_item>
+				<field_name>paymentmode</field_name>
+				<field_value>CASH</field_value>
+			</custom_data_item>
+		</custom_fields_data>
+		<associate_details />
+	</transaction>
 </root>
 ```
 
 > Sample Response
 
 ```xml
-							
+<?xml version="1.0" encoding="UTF-8" ?>
 <response>
-    <transactions>
-        <transaction>
-            <id>32</id>
-            <number>MyBill-077</number>
-            <bill_client_id>1121</bill_client_id>
-            <type>return</type>
-            <customer>
-                <mobile>918167712150</mobile>
-                <email>tom.sawyer@example.com</email>
-                <external_id>ts1234</external_id>
-                <user_id>55453</user_id>
-                <!-- returned only when query param user_id is true -->
-                <loyalty_points>8388587</loyalty_points>
-                <lifetime_points>2000000620</lifetime_points>
-                <lifetime_purchases>100000033000</lifetime_purchases>
-                <current_slab>SILVER</current_slab>
-            </customer>
-            <item_status>
-                <success>true</success>
-                <code>600</code>
-                <message>Transaction added successfully</message>
-            </item_status>
-            <side_effects>
-                <effect>
-                    <type>points</type>
-                    <awarded_points>19490463</awarded_points>
-                    <total_points>19490463</total_points>
-                </effect>
-                <effect>
-                    <type>coupon</type>
-                    <coupon_code>095790</coupon_code>
-                    <description>T description</description>
-                    <coupon_type>CAMPAIGN</coupon_type>
-                    <valid_till/>
-                    <id>42601779</id>
-                </effect>
-            </side_effects>
-            <points_deducted>20</points_deducted>
-            <points_balance>8388587</points_balance>
-        </transaction>
-    </transactions>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>SUCCESS</message>
-    </status>
+	<status>
+		<success>true</success>
+		<code>200</code>
+		<message>Success</message>
+	</status>
+	<transactions>
+		<transaction>
+			<id>3425</id>
+			<number>may30001</number>
+			<bill_client_id></bill_client_id>
+			<type>NOT_INTERESTED_RETURN</type>
+			<delivery_status>DELIVERED</delivery_status>
+			<source>instore</source>
+			<item_status>
+				<success>true</success>
+				<code>600</code>
+				<message>Transaction added successfully</message>
+			</item_status>
+		</transaction>
+	</transactions>
 </response>
 ```
 
 ```json
 {
-  "response": {
-    "transactions": {
-      "transaction": {
-        "id": "32",
-        "number": "MyBill-077",
-        "bill_client_id": "1121",
-        "type": "return",
-        "customer": {
-          "mobile": "918167712150",
-          "email": "tom.sawyer@example.com",
-          "external_id": "ts1234",
-          "user_id": "55453",
-          "loyalty_points": "8388587",
-          "lifetime_points": "2000000620",
-          "lifetime_purchases": "100000033000",
-          "current_slab": "SILVER"
-        },
-        "item_status": {
-          "success": "true",
-          "code": "600",
-          "message": "Transaction added successfully"
-        },
-        "side_effects": {
-          "effect": [
-            {
-              "type": "points",
-              "awarded_points": "19490463",
-              "total_points": "19490463"
-            },
-            {
-              "type": "coupon",
-              "coupon_code": "095790",
-              "description": "T description",
-              "coupon_type": "CAMPAIGN",
-              "id": "42601779"
-            }
-          ]
-        },
-        "points_deducted": "20",
-        "points_balance": "8388587"
-      }
+  "response":{
+    "status":{
+      "success":"true",
+      "code":200,
+      "message":"Success"
     },
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
+    "transactions":{
+      "transaction":[
+        {
+          "id":3425,
+          "number":"may30001",
+          "bill_client_id":"",
+          "type":"NOT_INTERESTED_RETURN",
+          "delivery_status":"DELIVERED",
+          "source":"instore",
+          "item_status":{
+            "success":"true",
+            "code":600,
+            "message":"Transaction added successfully"
+          }
+        }
+      ]
     }
   }
 }
@@ -809,6 +702,12 @@ For return transactions, it is required to pass return item's purchased transact
 * Purchase time: The date and time of the actual transaction
 * Billing time: The date and time of the return transaction
 </aside>
+
+Before submitting return transactions, you should know the configurations set of the Return Transactions page of InTouch **Settings** > **Systems & Deployment** > **InTouch POS Configuration**.
+
+
+
+
 
 
 ### Resource Information
