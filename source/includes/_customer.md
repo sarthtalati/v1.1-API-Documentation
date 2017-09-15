@@ -1389,7 +1389,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 </response>
 ```
 
-This API retrieves loyalty customer details such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
+This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
 
 ### Resource Information
 Parameter | Value
