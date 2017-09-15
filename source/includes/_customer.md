@@ -1138,8 +1138,9 @@ The following is a formal definition of the Query Grammer
 http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 ```
 
+> Sample Response
+
 ```json
-# Sample Response
 {
   "response": {
     "status": {
@@ -1272,7 +1273,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 ```
 
 ```xml
-# Sample Response
+<?xml version="1.0" encoding="UTF-8"?>
 <response>
     <status>
         <success>true</success>
@@ -1388,7 +1389,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 </response>
 ```
 
-This API allows you to retrieve details of loyalty customers of your organization. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer's unique id.
+This API retrieves loyalty customer details such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
 
 ### Resource Information
 Parameter | Value
