@@ -1586,8 +1586,11 @@ Custom fields | Retrieves the list of customers whose custom field values matche
 <h2 id="retrieve-customer-details">Retrieve Customer Details</h2>
 <pre class="highlight html"><code># Sample Request URL
 http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
@@ -1716,7 +1719,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code># Sample Response
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -1831,7 +1834,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
     <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve details of loyalty customers of your organization. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer&rsquo;s unique id.</p>
+<p>This API retrieves loyalty customer details such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer&rsquo;s unique id.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
