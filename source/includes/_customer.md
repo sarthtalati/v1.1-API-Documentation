@@ -1135,302 +1135,257 @@ The following is a formal definition of the Query Grammer
 ## Retrieve Customer Details
 ```html
 # Sample Request URL
-http://api.capillary.co.in/v1.1/customer/get?format=xml&mobile=44700900000,44700900999
+http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 ```
 
 ```json
 # Sample Response
 {
-"status": {
-"success": "true", 
-"code": "200", 
-"message": "SUCCESS"
-}, 
-"customers": [
-{
-"firstname": "Tom", 
-"lastname": "Swayer", 
-"mobile": "44700900000", 
-"email": "tomsawyer@example.com", 
-"external_id": "ts1234", 
-"lifetime_points": "0", 
-"lifetime_purchases": "0", 
-"loyalty_points": "0", 
-"current_slab": [ ], 
-"registered_on": "2013-01-21 11:23:45", 
-"updated_on": "2013-01-21 10:23:45", 
-"gender": "M", 
-"registered_by": "vimal store", 
-"registered_store": {
-"code": "vimal.store", 
-"name": "vimal store"
-}, 
-"registered_till": {
-"code": "vimal.till", 
-"name": "vimal.till"
-}, 
-"fraud_details": {
-"status": "NONE", 
-"marked_by": [ ], 
-"modified_on": [ ]
-}, 
-"ndnc_status": "NONE", 
-"optin_status": "NONE", 
-"expiry_schedule": [
-{
-"points": "10", 
-"expiry_date": "2014-03-25"
-}
-], 
-"expired_points": [
-{
-"points": "10", 
-"expired_on": "2013-12-20"
-}
-], 
-"slab_history": [
-{
-"to": "TIER2-GOLD", 
-"from": "TIER1-SILVER", 
-"store": {
-"code": "store.code", 
-"name": "store.name"
-}, 
-"type": "UPGRADE", 
-"changed_on": "2014-01-24T19:29:40+05:30", 
-"notes": "done by the scron"
-}
-], 
-"points_summary": {
-"expired": "103", 
-"redeemed": "120", 
-"adjusted": "10", 
-"returned": "30"
-}, 
-"promotion_points": {
-"customer": [
-{
-"points": "30", 
-"expiry_date": "2014-11-02", 
-"issued_at": {
-"code": "storecode", 
-"name": "storename"
-}, 
-"issued_on": "2014-01-23"
-}, 
-{
-"points": "30", 
-"expiry_date": "2014-11-02", 
-"issued_at": {
-"code": "storecode", 
-"name": "storename"
-}, 
-"issued_on": "2014-01-21"
-}
-], 
-"transactions": [
-{
-"transaction_id": "4325", 
-"points": "349", 
-"expiry_date": "2014-11-21", 
-"issued_at": {
-"code": "storecode", 
-"name": "storename"
-}, 
-"issued_on": "2014-01-21"
-}
-], 
-"lineitems": [
-{
-"lineitem_id": "10342", 
-"transaction_id": "245", 
-"points": "13", 
-"expiry_date": "2014-11-20", 
-"issued_at": {
-"code": "storecode", 
-"name": "storename"
-}
-}
-]
-}, 
-"current_nps_status": [ ], 
-"custom_fields": [
-[ ]
-], 
-"segments": [
-[ ]
-], 
-"transactions": [
-[ ]
-], 
-"coupons": [
-{
-"id": "3495", 
-"series_id": "6", 
-"code": "00b5nis2", 
-"description": "redemptions", 
-"created_date": "2009-09-30 16:29:58", 
-"valid_till": "2009-10-01", 
-"redeemed": "true"
-}
-], 
-"notes": [ ], 
-"item_status": {
-"success": "true", 
-"code": "1000", 
-"message": "Customer successfully retrieved"
-}
-}
-]
+  "response": {
+    "status": {
+      "success": "true",
+      "code": 200,
+      "message": "Success",
+      "total": "1",
+      "success_count": "1"
+    },
+    "customers": {
+      "customer": [
+        {
+          "firstname": "Rati",
+          "lastname": "Ranjan",
+          "mobile": "19889999999",
+          "email": "919090080344343422@mail.com",
+          "external_id": null,
+          "lifetime_points": 442,
+          "lifetime_purchases": 12338,
+          "loyalty_points": 242,
+          "current_slab": "SILVER",
+          "registered_on": "2014-12-10 04:46:38",
+          "updated_on": "2017-05-09 15:58:29",
+          "type": "LOYALTY",
+          "source": "instore",
+          "identifiers": [],
+          "gender": null,
+          "registered_by": "MERGE FRONT ONE",
+          "registered_store": {
+            "code": "mergestore1",
+            "name": "MERGE FRONT ONE"
+          },
+          "registered_till": {
+            "code": "cm.1",
+            "name": "cm.1"
+          },
+          "fraud_details": {
+            "status": "NONE",
+            "marked_by": "",
+            "modified_on": ""
+          },
+          "trackers": "",
+          "current_nps_status": null,
+          "custom_fields": {
+            "field": []
+          },
+          "extended_fields": {
+            "field": [
+              {
+                "name": "marital_status",
+                "value": "Single"
+              },
+              {
+                "name": "City",
+                "value": "Bangalore"
+              },
+              {
+                "name": "nationality",
+                "value": "Indian"
+              },
+              {
+                "name": "gender",
+                "value": "Male"
+              }
+            ]
+          },
+          "transactions": {
+            "transaction": [
+              {
+                "id": "32650346",
+                "number": "90384",
+                "type": "REGULAR",
+                "created_date": "2017-05-09 16:00:10",
+                "store": "cm.1"
+              },
+              {
+                "id": "32650345",
+                "number": "testbil90",
+                "type": "REGULAR",
+                "created_date": "2017-05-09 15:55:27",
+                "store": "cm.1"
+              },
+              {
+                "id": "32650339",
+                "number": "test0",
+                "type": "REGULAR",
+                "created_date": "2017-05-09 14:47:29",
+                "store": "cm.1"
+              },
+              {
+                "id": "32650338",
+                "number": "uash0",
+                "type": "REGULAR",
+                "created_date": "2017-05-09 14:45:23",
+                "store": "cm.1"
+              },
+              {
+                "id": "32650337",
+                "number": "txnsubmit1",
+                "type": "REGULAR",
+                "created_date": "2017-05-09 14:33:54",
+                "store": "cm.1"
+              },
+              {
+                "id": "31718568",
+                "number": "wefrw455",
+                "type": "REGULAR",
+                "created_date": "2016-08-24 17:35:51",
+                "store": "cm.1"
+              }
+            ]
+          },
+          "coupons": {
+            "coupon": []
+          },
+          "notes": [],
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Customer successfully retrieved",
+            "warnings": {
+              "warning": []
+            }
+          }
+        }
+      ]
+    }
+  }
 }
 ```
 
 ```xml
 # Sample Response
-																																												<?xml version="1.0" encoding="UTF-8"?>
-																																												<response>
-																																													<status>
-																																														<success>true</success>
-																																														<code>200</code>
-																																														<message>SUCCESS</message>
-																																													</status>
-																																													<customers>
-																																														<customer>
-																																															<firstname>Tom</firstname>
-																																															<lastname>Swayer</lastname>
-																																															<mobile>44700900000</mobile>
-																																															<email>tomsawyer@example.com</email>
-																																															<external_id>ts1234</external_id>
-																																															<lifetime_points>0</lifetime_points>
-																																															<lifetime_purchases>0</lifetime_purchases>
-																																															<loyalty_points>0</loyalty_points>
-																																															<current_slab />
-																																															<registered_on>2013-01-21 11:23:45</registered_on>
-																																															<updated_on>2013-01-21 10:23:45</updated_on>
-																																															<gender>M</gender>
-																																															<registered_by>vimal store</registered_by>
-																																															<registered_store>
-																																																<code>vimal.store</code>
-																																																<name>vimal store</name>
-																																															</registered_store>
-																																															<registered_till>
-																																																<code>vimal.till</code>
-																																																<name>vimal.till</name>
-																																															</registered_till>
-																																															<fraud_details>
-																																																<status>NONE</status>
-																																																<marked_by />
-																																																<modified_on />
-																																															</fraud_details>
-																																															<ndnc_status>NONE</ndnc_status>
-																																															<optin_status>NONE</optin_status>
-																																															<expiry_schedule>
-																																																<schedule>
-																																																	<points>10</points>
-																																																	<expiry_date>2014-03-25</expiry_date>
-																																																</schedule>
-																																															</expiry_schedule>
-																																															<expired_points>
-																																																<item>
-																																																	<points>10</points>
-																																																	<expired_on>2013-12-20</expired_on>
-																																																</item>
-																																															</expired_points>
-																																															<slab_history>
-																																																<history>
-																																																	<to>TIER2-GOLD</to>
-																																																	<from>TIER1-SILVER</from>
-																																																	<store>
-																																																		<code>store.code</code>
-																																																		<name>store.name</name>
-																																																	</store>
-																																																	<type>UPGRADE</type>
-																																																	<changed_on>2014-01-24T19:29:40+05:30</changed_on>
-																																																	<notes>done by the scron</notes>
-																																																</history>
-																																															</slab_history>
-																																															<points_summary>
-																																																<expired>103</expired>
-																																																<redeemed>120</redeemed>
-																																																<adjusted>10</adjusted>
-																																																<returned>30</returned>
-																																															</points_summary>
-																																															<promotion_points>
-																																																<customer>
-																																																	<item>
-																																																		<points>30</points>
-																																																		<expiry_date>2014-11-02</expiry_date>
-																																																		<issued_at>
-																																																			<code>storecode</code>
-																																																			<name>storename</name>
-																																																		</issued_at>
-																																																		<issued_on>2014-01-23</issued_on>
-																																																	</item>
-																																																	<item>
-																																																		<points>30</points>
-																																																		<expiry_date>2014-11-02</expiry_date>
-																																																		<issued_at>
-																																																			<code>storecode</code>
-																																																			<name>storename</name>
-																																																		</issued_at>
-																																																		<issued_on>2014-01-21</issued_on>
-																																																	</item>
-																																																</customer>
-																																																<transactions>
-																																																	<item>
-																																																		<transaction_id>4325</transaction_id>
-																																																		<points>349</points>
-																																																		<expiry_date>2014-11-21</expiry_date>
-																																																		<issued_at>
-																																																			<code>storecode</code>
-																																																			<name>storename</name>
-																																																		</issued_at>
-																																																		<issued_on>2014-01-21</issued_on>
-																																																	</item>
-																																																</transactions>
-																																																<lineitems>
-																																																	<item>
-																																																		<lineitem_id>10342</lineitem_id>
-																																																		<transaction_id>245</transaction_id>
-																																																		<points>13</points>
-																																																		<expiry_date>2014-11-20</expiry_date>
-																																																		<issued_at>
-																																																			<code>storecode</code>
-																																																			<name>storename</name>
-																																																		</issued_at>
-																																																	</item>
-																																																</lineitems>
-																																															</promotion_points>
-																																															<current_nps_status />
-																																															<custom_fields>
-																																																<field />
-																																															</custom_fields>
-																																															<segments>
-																																																<segment />
-																																															</segments>
-																																															<transactions>
-																																																<transaction />
-																																															</transactions>
-																																															<coupons>
-																																																<coupon>
-																																																	<id>3495</id>
-																																																	<series_id>6</series_id>
-																																																	<code>00b5nis2</code>
-																																																	<description>redemptions</description>
-																																																	<created_date>2009-09-30 16:29:58</created_date>
-																																																	<valid_till>2009-10-01</valid_till>
-																																																	<redeemed>true</redeemed>
-																																																</coupon>
-																																															</coupons>
-																																															<notes />
-																																															<item_status>
-																																																<success>true</success>
-																																																<code>1000</code>
-																																																<message>Customer successfully retrieved</message>
-																																															</item_status>
-																																														</customer>
-																																													</customers>
-																																												</response>
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>Success</message>
+        <total>1</total>
+        <success_count>1</success_count>
+    </status>
+    <customers>
+        <customer>
+            <firstname>Rati</firstname>
+            <lastname>Ranjan</lastname>
+            <mobile>19889999999</mobile>
+            <email>919090080344343422@mail.com</email>
+            <external_id />
+            <lifetime_points>442</lifetime_points>
+            <lifetime_purchases>12338</lifetime_purchases>
+            <loyalty_points>242</loyalty_points>
+            <current_slab>SILVER</current_slab>
+            <registered_on>2014-12-10 04:46:38</registered_on>
+            <updated_on>2017-05-09 15:58:29</updated_on>
+            <type>LOYALTY</type>
+            <source>instore</source>
+            <gender />
+            <registered_by>MERGE FRONT ONE</registered_by>
+            <registered_store>
+                <code>mergestore1</code>
+                <name>MERGE FRONT ONE</name>
+            </registered_store>
+            <registered_till>
+                <code>cm.1</code>
+                <name>cm.1</name>
+            </registered_till>
+            <fraud_details>
+                <status>NONE</status>
+                <marked_by></marked_by>
+                <modified_on></modified_on>
+            </fraud_details>
+            <trackers></trackers>
+            <current_nps_status />
+            <custom_fields></custom_fields>
+            <extended_fields>
+                <field>
+                    <name>marital_status</name>
+                    <value>Single</value>
+                </field>
+                <field>
+                    <name>City</name>
+                    <value>Bangalore</value>
+                </field>
+                <field>
+                    <name>nationality</name>
+                    <value>Indian</value>
+                </field>
+                <field>
+                    <name>gender</name>
+                    <value>Male</value>
+                </field>
+            </extended_fields>
+            <transactions>
+                <transaction>
+                    <id>32650346</id>
+                    <number>90384</number>
+                    <type>REGULAR</type>
+                    <created_date>2017-05-09 16:00:10</created_date>
+                    <store>cm.1</store>
+                </transaction>
+                <transaction>
+                    <id>32650345</id>
+                    <number>testbil90</number>
+                    <type>REGULAR</type>
+                    <created_date>2017-05-09 15:55:27</created_date>
+                    <store>cm.1</store>
+                </transaction>
+                <transaction>
+                    <id>32650339</id>
+                    <number>test0</number>
+                    <type>REGULAR</type>
+                    <created_date>2017-05-09 14:47:29</created_date>
+                    <store>cm.1</store>
+                </transaction>
+                <transaction>
+                    <id>32650338</id>
+                    <number>uash0</number>
+                    <type>REGULAR</type>
+                    <created_date>2017-05-09 14:45:23</created_date>
+                    <store>cm.1</store>
+                </transaction>
+                <transaction>
+                    <id>32650337</id>
+                    <number>txnsubmit1</number>
+                    <type>REGULAR</type>
+                    <created_date>2017-05-09 14:33:54</created_date>
+                    <store>cm.1</store>
+                </transaction>
+                <transaction>
+                    <id>31718568</id>
+                    <number>wefrw455</number>
+                    <type>REGULAR</type>
+                    <created_date>2016-08-24 17:35:51</created_date>
+                    <store>cm.1</store>
+                </transaction>
+            </transactions>
+            <coupons></coupons>
+            <item_status>
+                <success>true</success>
+                <code>1000</code>
+                <message>Customer successfully retrieved</message>
+                <warnings></warnings>
+            </item_status>
+        </customer>
+    </customers>
+</response>
 ```
 
 This API allows you to retrieve details of loyalty customers of your organization. You can retrieve profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions and customer's unique id.
@@ -1528,55 +1483,52 @@ http://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=4470090
 ```
 
 ```xml
-																																															<?xml version="1.0" encoding="UTF-8" ?>
-																																															<response>
-																																																<status>
-																																																	<success>true</success>
-																																																	<code>200</code>
-																																																	<message>SUCCESS</message>
-																																																</status>
-																																																<customer>
-																																																	<mobile>44700900000</mobile>
-																																																	<email>tom.sawyer@example.com</email>
-																																																	<external_id>ts1234</external_id>
-																																																	<firstname>Tom</firstname>
-																																																	<lastname>Sawyer</lastname>
-																																																	<lifetime_points>13700</lifetime_points>
-																																																	<lifetime_purchases>138000</lifetime_purchases>
-																																																	<loyalty_points>12000</loyalty_points>
-																																																	<registered_on>2016-07-10 11:11:15</registered_on>
-																																																	<updated_on>2016-12-25 11:19:11</updated_on>
-																																																	<current_slab>gold</current_slab>
-																																																	<count>26</count>
-																																																	<start>23622808</start>
-																																																	<rows>10</rows>
-																																																	<transactions>
-																																																		<transaction>
-																																																			<id>23622808</id>
-																																																			<number>ANBDCGD</number>
-																																																			<type>REGULAR</type>
-																																																			<amount>3000</amount>
-																																																			<notes>Bill added by mobile</notes>
-																																																			<billing_time>2013-12-16 17:02:22</billing_time>
-																																																			<gross_amount>3000</gross_amount>
-																																																			<discount>10</discount>
-																																																			<store/>
-																																																			<points>
-																																																				<issued>30</issued>
-																																																				<redeemed>20</redeemed>
-																																																			</points>
-																																																			<coupons/>
-																																																			<basket_size>10</basket_size>
-																																																			<line_items>
-																																																				<line_item/>
-																																																			</line_items>
-																																																		</transaction>
-																																																	</transactions>
-																																																</customer>
-																																															</response>
-
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>SUCCESS</message>
+    </status>
+    <customer>
+        <mobile>44700900000</mobile>
+        <email>tom.sawyer@example.com</email>
+        <external_id>ts1234</external_id>
+        <firstname>Tom</firstname>
+        <lastname>Sawyer</lastname>
+        <lifetime_points>13700</lifetime_points>
+        <lifetime_purchases>138000</lifetime_purchases>
+        <loyalty_points>12000</loyalty_points>
+        <registered_on>2016-07-10 11:11:15</registered_on>
+        <updated_on>2016-12-25 11:19:11</updated_on>
+        <current_slab>gold</current_slab>
+        <count>26</count>
+        <start>23622808</start>
+        <rows>10</rows>
+        <transactions>
+            <transaction>
+                <id>23622808</id>
+                <number>ANBDCGD</number>
+                <type>REGULAR</type>
+                <amount>3000</amount>
+                <notes>Bill added by mobile</notes>
+                <billing_time>2013-12-16 17:02:22</billing_time>
+                <gross_amount>3000</gross_amount>
+                <discount>10</discount>
+                <store />
+                <points>
+                    <issued>30</issued>
+                    <redeemed>20</redeemed>
+                </points>
+                <coupons />
+                <basket_size>10</basket_size>
+                <line_items>
+                    <line_item />
+                </line_items>
+            </transaction>
+        </transactions>
+    </customer>
+</response>
 ```
 
 This API allows you to retrieve transaction history of a customer which includes the following information.
@@ -2473,7 +2425,7 @@ end_date | Retrieve tickets created in a specific duration - between start_date 
 
 ## Refer Customer
 ```html
-http://us.api.capillarytech.com/customer/referrals
+http://us.api.capillarytech.com/v1.1/customer/referrals
 ```
 
 > Sample POST Request
@@ -2757,13 +2709,13 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/customer/referrals??format=<xml/json>&<query-params>`
+`http://<cluster url>/v1.1/customer/referrals??format=<xml/json>&<query-params>`
 
 
 
 ## Retrieve Customer Referral Details
 ```html
-http://us.api.capillarytech.com/customer/referrals&mobile=9197407983xx
+http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
 ```
 
 ```xml
@@ -2933,7 +2885,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/customer/referrals?<query-params>`
+`http://<cluster url>/v1.1/customer/referrals?<query-params>`
 
 ### Request Parameters
 Parameter | Description
