@@ -820,7 +820,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
             "item_status": {
                "success": "true",
                "code": "1040",
-               "message": "Customer Identity change request added successfully"
+               "message": "Customer Identity change request added successfully",
             }
          }
       }
