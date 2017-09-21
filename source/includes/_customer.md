@@ -780,7 +780,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 {
    "root": {
       "customer": {
-         "identifier": "mobile", "_comment": "Pass mobile/email/external_id that you want to update",
+         "identifier": "mobile", 
          "old_value": "44700900000"
 		 "new_value": "44700900090",
       }
