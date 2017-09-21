@@ -872,7 +872,7 @@ Batch Support | No
 Parameter | Description
 --------- | -----------
 identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
-old_identifier* | Provide the existing value of the identifier (mobile number, email id or external id) that you want to update
+old_identifier* | Provide the existing value of the specific identifier that you want to update
 new_identifier* | Provide the new value of the identifier that you want to replace with
 
 
