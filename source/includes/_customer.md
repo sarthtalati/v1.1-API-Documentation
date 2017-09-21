@@ -776,9 +776,9 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 {
    "root": {
       "customer": {
-         "new_value": "44700900090",
-         "identifier": "44700900000",
+         "identifier": "44700900000", "_comment": "You can pass mobile number/email id/external_id of the customer...",
          "old_value": "44700900000"
+		 "new_value": "44700900090",
       }
    }
 }
@@ -790,7 +790,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
 	<customer>
-		<new_value>44700900090</new_value>
+		<new_value>44700900090</new_value> <!-- "You can pass mobile/email/external_id of the customer... -->
 		<identifier>44700900000</identifier>
 		<old_value>44700900000</old_value>
 	</customer>
@@ -810,8 +810,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
       "customers": {
          "customer": {
             "identifier": "mobile",  
-			"_comment": "You can use mobile/email/external_id here...",
-            "old_value": "44700900000",
+			"old_value": "44700900000",
             "new_value": "44700900090",
             "updated": "true",
             "item_status": {
