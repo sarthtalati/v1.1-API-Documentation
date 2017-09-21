@@ -780,8 +780,8 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 {
    "root": {
       "customer": {
-         "identifier": "mobile", "_comment": "Pass mobile/email/external_id that you want to update",
-         "old_value": "44700900000"
+         "identifier": "mobile",
+         "old_value": "44700900000",
 		 "new_value": "44700900090",
       }
    }
@@ -872,7 +872,7 @@ Batch Support | No
 Parameter | Description
 --------- | -----------
 identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
-old_identifier* | Provide the existing value of the identifier (mobile number, email id or external id) that you want to update
+old_identifier* | Provide the existing value of the specific identifier that you want to update
 new_identifier* | Provide the new value of the identifier that you want to replace with
 
 
