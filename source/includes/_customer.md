@@ -554,45 +554,46 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 ```xml
 # Sample Post XML
 
-					<?xml version="1.0" encoding="UTF-8"?>
-					<root>
-						<customer>
-							<mobile>44700900000</mobile>
-							<email>tom.sawyer@example.com</email>
-							<external_id>ts1234</external_id>
-							<firstname>Tom</firstname>
-							<lastname>Sawyer</lastname>
-							<gender>M</gender>
-							<extended_fields>
-								<field>
-									<name>color</name>
-									<value>black</value>
-								</field>
-								<field>
-									<name>ItemWeight</name>
-									<value>3</value>
-								</field>
-								<field>
-									<name>Status</name>
-									<value>pending</value>
-								</field>
-								<field>
-									<name>ser_tax</name>
-									<value />
-								</field>
-								<field>
-									<name>他他他他</name>
-									<value>他他他</value>
-								</field>
-							</extended_fields>
-							<custom_fields>
-								<field>
-									<name>age</name>
-									<value>[“46”]</value>
-								</field>
-							</custom_fields>
-						</customer>
-					</root>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <customer>
+      <mobile>44700900000</mobile>
+      <email>tom.sawyer@example.com</email>
+      <external_id>ts1234</external_id>
+      <firstname>Tom</firstname>
+      <lastname>Sawyer</lastname>
+      <gender>M</gender>
+      <extended_fields>
+         <field>
+            <name>color</name>
+            <value>black</value>
+         </field>
+         <field>
+            <name>ItemWeight</name>
+            <value>3</value>
+         </field>
+         <field>
+            <name>Status</name>
+            <value>pending</value>
+         </field>
+         <field>
+            <name>ser_tax</name>
+            <value />
+         </field>
+         <field>
+            <name>他他他他</name>
+            <value>他他他</value>
+         </field>
+      </extended_fields>
+      <custom_fields>
+         <field>
+            <name>age</name>
+            <value>[“46”]</value>
+         </field>
+      </custom_fields>
+   </customer>
+</root>
 
 ```
 
@@ -661,64 +662,67 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 
 ```xml
 # Sample Response
-					<?xml version="1.0" encoding="UTF-8" ?>
-					<response>
-						<status>
-							<success>true</success>
-							<code>200</code>
-							<message>SUCCESS</message>
-						</status>
-						<customers>
-							<customer>
-								<user_id>776538</user_id>
-								<mobile>44700900000</mobile>
-								<email>tom.sawyer@example.com</email>
-								<external_id>TOM123</external_id>
-								<firstname>Tom</firstname>
-								<lastname>Sawyer</lastname>
-								<gender>M</gender>
-								<extended_fields>
-									<field>
-										<name>color</name>
-										<value>black</value>
-									</field>
-									<field>
-										<name>ItemWeight</name>
-										<value>3</value>
-									</field>
-									<field>
-										<name>Status</name>
-										<value>pending</value>
-									</field>
-									<field>
-										<name>ser_tax</name>
-										<value />
-									</field>
-									<field>
-										<name>他他他他</name>
-										<value>他他他</value>
-									</field>
-								</extended_fields>
-								<custom_fields>
-									<field>
-										<name>hobbies</name>
-										<value>[“Playing”]</value>
-									</field>
-								</custom_fields>
-								<item_status>
-									<success>true</success>
-									<code>1000</code>
-									<message>User Successfully Updated.</message>
-								</item_status>
-								<lifetime_points>245</lifetime_points>
-								<lifetime_purchases>24500</lifetime_purchases>
-								<loyalty_points>60</loyalty_points>
-								<current_slab>SILVER</current_slab>
-								<registered_on>2012-08-16 15:13:16</registered_on>
-								<updated_on>2012-09-22 10:48:00</updated_on>
-							</customer>
-						</customers>
-					</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <user_id>776538</user_id>
+         <mobile>44700900000</mobile>
+         <email>tom.sawyer@example.com</email>
+         <external_id>TOM123</external_id>
+         <firstname>Tom</firstname>
+         <lastname>Sawyer</lastname>
+         <gender>M</gender>
+         <extended_fields>
+            <field>
+               <name>color</name>
+               <value>black</value>
+            </field>
+            <field>
+               <name>ItemWeight</name>
+               <value>3</value>
+            </field>
+            <field>
+               <name>Status</name>
+               <value>pending</value>
+            </field>
+            <field>
+               <name>ser_tax</name>
+               <value />
+            </field>
+            <field>
+               <name>他他他他</name>
+               <value>他他他</value>
+            </field>
+         </extended_fields>
+         <custom_fields>
+            <field>
+               <name>hobbies</name>
+               <value>[“Playing”]</value>
+            </field>
+         </custom_fields>
+         <item_status>
+            <success>true</success>
+            <code>1000</code>
+            <message>User Successfully Updated.</message>
+         </item_status>
+         <lifetime_points>245</lifetime_points>
+         <lifetime_purchases>24500</lifetime_purchases>
+         <loyalty_points>60</loyalty_points>
+         <current_slab>SILVER</current_slab>
+         <registered_on>2012-08-16 15:13:16</registered_on>
+         <updated_on>2012-09-22 10:48:00</updated_on>
+      </customer>
+   </customers>
+</response>
+
 
 ```
 
@@ -776,7 +780,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 {
    "root": {
       "customer": {
-         "identifier": "44700900000", "_comment": "You can pass mobile number/email id/external_id of the customer...",
+         "identifier": "44700900000", "_comment": "Pass mobile/email/external_id that you want to update",
          "old_value": "44700900000"
 		 "new_value": "44700900090",
       }
@@ -790,8 +794,8 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
 	<customer>
-		<new_value>44700900090</new_value> <!-- "You can pass mobile/email/external_id of the customer... -->
-		<identifier>44700900000</identifier>
+		<identifier>mobile</identifier>  <!-- Pass mobile/email/external_id that you want to update -->
+		<new_value>44700900090</new_value> 
 		<old_value>44700900000</old_value>
 	</customer>
 </root>
@@ -849,7 +853,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </response>
 ```
 
-This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through `customer/update_identity` will be in pending state by default. Capillary back-end team verifies each such requests and process it accordingly.
+This API lets you send request to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through `customer/update_identity` will be in pending state by default. Capillary back-end team verifies the requests and process it accordingly.
 
 ### Resource Information
 Parameter | Value
@@ -867,9 +871,9 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-identifier* | Provide mobile/email/external_id of the customer whose identifier you want to modify
-old_identifier* | Provide the existing identifer value of the customer that you want to be update, i.e., mobile number, email id or external id
-new_identifier* | Provide the new identifier value that you want to replace with
+identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
+old_identifier* | Provide the existing value of the identifier (mobile number, email id or external id) that you want to update
+new_identifier* | Provide the new value of the identifier that you want to replace with
 
 
 
@@ -1018,70 +1022,74 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 ```
 
 ```xml
-														<?xml version="1.0" encoding="UTF-8" ?>
-														<response>
-															<status>
-																<success>true</success>
-																<code>200</code>
-																<message>SUCCESS</message>
-															</status>
-															<customer>
-																<count>2</count>
-																<start>0</start>
-																<rows>10</rows>
-																<results>
-																	<item>
-																		<user_id>102</user_id>
-																		<org_id>29</org_id>
-																		<firstname>Tom</firstname>
-																		<lastname>Sawyer</lastname>
-																		<mobile>44700900000</mobile>
-																		<email>tom.sawyer@example.com</email>
-																		<external_id>None</external_id>
-																		<gender>M</gender>
-																		<loyalty_points>355</loyalty_points>
-																		<lifetime_points>5400</lifetime_points>
-																		<lifetime_purchases>10800</lifetime_purchases>
-																		<current_slab>CLASSIC</current_slab>
-																		<registered_on>2012-12-25 11:25:32</registered_on>
-																		<registered_by>pe.london.bondstreet</registered_by>
-																		<last_trans_value>1000</last_trans_value>
-																		<attributes>
-																			<attribute>
-																				<name>customer_age</name>
-																				<value>26-35</value>
-																			</attribute>
-																		</attributes>
-																	</item>
-																	<item>
-																		<user_id>122</user_id>
-																		<org_id>29</org_id>
-																		<firstname>John</firstname>
-																		<lastname>Smith</lastname>
-																		<mobile>44700900888</mobile>
-																		<email>john.smith@example.com</email>
-																		<external_id>None</external_id>
-																		<loyalty_points>355</loyalty_points>
-																		<lifetime_points>355</lifetime_points>
-																		<lifetime_purchases>4598</lifetime_purchases>
-																		<current_slab>CLASSIC</current_slab>
-																		<registered_on>2012-12-25 11:25:32</registered_on>
-																		<registered_by>pe.london.bondstreet</registered_by>
-																		<last_trans_value>1000</last_trans_value>
-																		<attributes>
-																			<attribute>
-																				<name>occupation</name>
-																				<value>Student</value>
-																			</attribute>
-																			<attribute>
-																				<name>customer_age</name>
-																				<value>19-25</value>
-																			</attribute>
-																		</attributes>
-																	</item>
-																</results>
-															</customer>
-														</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customer>
+      <count>2</count>
+      <start>0</start>
+      <rows>10</rows>
+      <results>
+         <item>
+            <user_id>102</user_id>
+            <org_id>29</org_id>
+            <firstname>Tom</firstname>
+            <lastname>Sawyer</lastname>
+            <mobile>44700900000</mobile>
+            <email>tom.sawyer@example.com</email>
+            <external_id>None</external_id>
+            <gender>M</gender>
+            <loyalty_points>355</loyalty_points>
+            <lifetime_points>5400</lifetime_points>
+            <lifetime_purchases>10800</lifetime_purchases>
+            <current_slab>CLASSIC</current_slab>
+            <registered_on>2012-12-25 11:25:32</registered_on>
+            <registered_by>pe.london.bondstreet</registered_by>
+            <last_trans_value>1000</last_trans_value>
+            <attributes>
+               <attribute>
+                  <name>customer_age</name>
+                  <value>26-35</value>
+               </attribute>
+            </attributes>
+         </item>
+         <item>
+            <user_id>122</user_id>
+            <org_id>29</org_id>
+            <firstname>John</firstname>
+            <lastname>Smith</lastname>
+            <mobile>44700900888</mobile>
+            <email>john.smith@example.com</email>
+            <external_id>None</external_id>
+            <loyalty_points>355</loyalty_points>
+            <lifetime_points>355</lifetime_points>
+            <lifetime_purchases>4598</lifetime_purchases>
+            <current_slab>CLASSIC</current_slab>
+            <registered_on>2012-12-25 11:25:32</registered_on>
+            <registered_by>pe.london.bondstreet</registered_by>
+            <last_trans_value>1000</last_trans_value>
+            <attributes>
+               <attribute>
+                  <name>occupation</name>
+                  <value>Student</value>
+               </attribute>
+               <attribute>
+                  <name>customer_age</name>
+                  <value>19-25</value>
+               </attribute>
+            </attributes>
+         </item>
+      </results>
+   </customer>
+</response>
+
+
 ```
 
 
@@ -1653,58 +1661,58 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&for
 ```
 
 ```xml
-																																																									<?xml version="1.0" encoding="UTF-8"?>
-																																																									<response>
-																																																										<status>
-																																																											<success>true</success>
-																																																											<code>200</code>
-																																																											<message>SUCCESS</message>
-																																																										</status>
-																																																										<customer>
-																																																											<mobile>44700900000</mobile>
-																																																											<email>tom.sawyer@example.com</email>
-																																																											<external_id>1234</external_id>
-																																																											<firstname>Tom</firstname>
-																																																											<lastname>Sawyer</lastname>
-																																																											<rows>3</rows>
-																																																											<coupons_count>3</coupons_count>
-																																																											<points_count>15</points_count>
-																																																											<coupons_start_id>2</coupons_start_id>
-																																																											<points_start_id>121613</points_start_id>
-																																																											<redemptions>
-																																																												<coupons>
-																																																													<coupon>
-																																																														<id>3</id>
-																																																														<code>832-pghhi6u1</code>
-																																																														<series_id>832</series_id>
-																																																														<description>abctest</description>
-																																																														<discount_code>abc</discount_code>
-																																																														<discount_type>PERC</discount_type>              
-																																																														<transaction_number>TestBill-1234</transaction_number>
-																																																														<redeemed_time>2013-04-18 14:00:27</redeemed_time>
-																																																														<redeemed_at>Test store  store.server</redeemed_at>
-																																																													</coupon>
-																																																												</coupons>
-																																																												<points>
-																																																													<point>
-																																																														<id>121614</id>
-																																																														<points_redeemed>200</points_redeemed>
-																																																														<transaction_number>bill-83</transaction_number>
-																																																														<redeemed_time>2011-03-17 16:03:31</redeemed_time>
-																																																														<redeemed_at>Test store  store.server</redeemed_at>
-																																																													</point>
-																																																													<point>
-																																																														<id>121615</id>
-																																																														<points_redeemed>200</points_redeemed>
-																																																														<transaction_number>bill-121</transaction_number>
-																																																														<redeemed_time>2011-03-17 16:05:22</redeemed_time>
-																																																														<redeemed_at>Test store  store.server</redeemed_at>
-																																																													</point>
-																																																												</points>
-																																																											</redemptions>
-																																																										</customer>
-																																																									</response>
 
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customer>
+      <mobile>44700900000</mobile>
+      <email>tom.sawyer@example.com</email>
+      <external_id>1234</external_id>
+      <firstname>Tom</firstname>
+      <lastname>Sawyer</lastname>
+      <rows>3</rows>
+      <coupons_count>3</coupons_count>
+      <points_count>15</points_count>
+      <coupons_start_id>2</coupons_start_id>
+      <points_start_id>121613</points_start_id>
+      <redemptions>
+         <coupons>
+            <coupon>
+               <id>3</id>
+               <code>832-pghhi6u1</code>
+               <series_id>832</series_id>
+               <description>abctest</description>
+               <discount_code>abc</discount_code>
+               <discount_type>PERC</discount_type>
+               <transaction_number>TestBill-1234</transaction_number>
+               <redeemed_time>2013-04-18 14:00:27</redeemed_time>
+               <redeemed_at>Test store  store.server</redeemed_at>
+            </coupon>
+         </coupons>
+         <points>
+            <point>
+               <id>121614</id>
+               <points_redeemed>200</points_redeemed>
+               <transaction_number>bill-83</transaction_number>
+               <redeemed_time>2011-03-17 16:03:31</redeemed_time>
+               <redeemed_at>Test store  store.server</redeemed_at>
+            </point>
+            <point>
+               <id>121615</id>
+               <points_redeemed>200</points_redeemed>
+               <transaction_number>bill-121</transaction_number>
+               <redeemed_time>2011-03-17 16:05:22</redeemed_time>
+               <redeemed_at>Test store  store.server</redeemed_at>
+            </point>
+         </points>
+      </redemptions>
+   </customer>
+</response>
 ```
 
 
@@ -2065,50 +2073,50 @@ BIL2042040",
 ```
 
 ```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
 <response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>SUCCESS</message>
-    </status>
-    <customers>
-        <customer>
-            <firstname>John</firstname>
-            <lastname>Doe</lastname>
-            <email>johndoe@example.com</email>
-            <mobile>44700900999</mobile>
-            <external_id>EXT001</external_id>
-            <id>1034</id>
-            <coupons>
-                <coupon>
-                    <id>2423525</id>
-                    <redemption_count>1</redemption_count>
-                    <created_date>
-2013-12-13T16:14:54+05:30</created_date>
-                    <valid_till>2016-12-21</valid_till>
-                    <code>VOCU24902</code>
-                    <transaction_number>
-BILL-10304</transaction_number>
-                    <redemptions>
-                        <redemption>
-                            <date>2016-12-12 12:12:12</date>
-                            <transaction_number>
-BIL2042040</transaction_number>
-                            <redeemed_at>
-                                <code>storecode</code>
-                                <name>My store</name>
-                            </redeemed_at>
-                        </redemption>
-                    </redemptions>
-                </coupon>
-            </coupons>
-            <item_status>
-                <success>true</success>
-                <code>1000</code>
-                <message>Issued coupons retrieved successfully</message>
-            </item_status>
-        </customer>
-    </customers>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <firstname>John</firstname>
+         <lastname>Doe</lastname>
+         <email>johndoe@example.com</email>
+         <mobile>44700900999</mobile>
+         <external_id>EXT001</external_id>
+         <id>1034</id>
+         <coupons>
+            <coupon>
+               <id>2423525</id>
+               <redemption_count>1</redemption_count>
+               <created_date>2013-12-13T16:14:54+05:30</created_date>
+               <valid_till>2016-12-21</valid_till>
+               <code>VOCU24902</code>
+               <transaction_number>BILL-10304</transaction_number>
+               <redemptions>
+                  <redemption>
+                     <date>2016-12-12 12:12:12</date>
+                     <transaction_number>BIL2042040</transaction_number>
+                     <redeemed_at>
+                        <code>storecode</code>
+                        <name>My store</name>
+                     </redeemed_at>
+                  </redemption>
+               </redemptions>
+            </coupon>
+         </coupons>
+         <item_status>
+            <success>true</success>
+            <code>1000</code>
+            <message>Issued coupons retrieved successfully</message>
+         </item_status>
+      </customer>
+   </customers>
 </response>
 	
 ```
@@ -2248,40 +2256,45 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 
 ```xml
-																																																																									<response>
-																																																																										<status>
-																																																																											<success>true</success>
-																																																																											<code>200</code>
-																																																																											<message>SUCCESS</message>
-																																																																										</status>
-																																																																										<customers>
-																																																																											<customer>
-																																																																												<email>johndoe@example.com</email>
-																																																																												<mobile>44700900999</mobile>
-																																																																												<external_id>EXT001</external_id>
-																																																																												<id>1034</id>
-																																																																												<ticket>
-																																																																													<code>35t40ld04</code>
-																																																																													<status>OPEN</status>
-																																																																													<priority>HIGH</priority>
-																																																																													<department>INTERNAL</department>
-																																																																													<subject>points issue</subject>
-																																																																													<message>Unable to redeem points</message>
-																																																																													<custom_fields>
-																																																																														<field>
-																																																																															<name>field1</name>
-																																																																															<value>value1</value>
-																																																																														</field>
-																																																																													</custom_fields>
-																																																																												</ticket>
-																																																																												<item_status>
-																																																																													<success>true</success>
-																																																																													<code>1300</code>
-																																																																													<message>Ticket added successfully</message>
-																																																																												</item_status>
-																																																																											</customer>
-																																																																										</customers>
-																																																																									</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <email>johndoe@example.com</email>
+         <mobile>44700900999</mobile>
+         <external_id>EXT001</external_id>
+         <id>1034</id>
+         <ticket>
+            <code>35t40ld04</code>
+            <status>OPEN</status>
+            <priority>HIGH</priority>
+            <department>INTERNAL</department>
+            <subject>points issue</subject>
+            <message>Unable to redeem points</message>
+            <custom_fields>
+               <field>
+                  <name>field1</name>
+                  <value>value1</value>
+               </field>
+            </custom_fields>
+         </ticket>
+         <item_status>
+            <success>true</success>
+            <code>1300</code>
+            <message>Ticket added successfully</message>
+         </item_status>
+      </customer>
+   </customers>
+</response>
+
+
 ```
 
 This API allows you to create tickets for a specific customer.
@@ -2360,42 +2373,46 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 
 ```xml
-																																																																															<response>
-																																																																																<status>
-																																																																																	<success>true</success>
-																																																																																	<code>200</code>
-																																																																																	<message>SUCCESS</message>
-																																																																																</status>
-																																																																																<customer>
-																																																																																	<firstname>John</firstname>
-																																																																																	<lastname>Doe</lastname>
-																																																																																	<email>johndoe@example.com</email>
-																																																																																	<mobile>44700900999</mobile>
-																																																																																	<external_id>EXT001</external_id>
-																																																																																	<id>1034</id>
-																																																																																	<tickets>
-																																																																																		<ticket>
-																																																																																			<code>35t40ld04</code>
-																																																																																			<status>OPEN</status>
-																																																																																			<priority>HIGH</priority>
-																																																																																			<department>INTERNAL</department>
-																																																																																			<subject>points issue</subject>
-																																																																																			<message>Product received is damaged</message>
-																																																																																			<custom_fields>
-																																																																																				<field>
-																																																																																					<name>field1</name>
-																																																																																					<value>value1</value>
-																																																																																				</field>
-																																																																																			</custom_fields>                
-																																																																																		</ticket>
-																																																																																	</tickets>
-																																																																																	<item_status>
-																																																																																		<success>true</success>
-																																																																																		<code>1300</code>
-																																																																																		<message>Ticket retrieved successfully</message>
-																																																																																	</item_status>
-																																																																																</customer>
-																																																																															</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customer>
+      <firstname>John</firstname>
+      <lastname>Doe</lastname>
+      <email>johndoe@example.com</email>
+      <mobile>44700900999</mobile>
+      <external_id>EXT001</external_id>
+      <id>1034</id>
+      <tickets>
+         <ticket>
+            <code>35t40ld04</code>
+            <status>OPEN</status>
+            <priority>HIGH</priority>
+            <department>INTERNAL</department>
+            <subject>points issue</subject>
+            <message>Product received is damaged</message>
+            <custom_fields>
+               <field>
+                  <name>field1</name>
+                  <value>value1</value>
+               </field>
+            </custom_fields>
+         </ticket>
+      </tickets>
+      <item_status>
+         <success>true</success>
+         <code>1300</code>
+         <message>Ticket retrieved successfully</message>
+      </item_status>
+   </customer>
+</response>
+
 ```
 
 This API allows you to fetch the details of tickets of a specific customer.
@@ -2435,44 +2452,45 @@ http://us.api.capillarytech.com/v1.1/customer/referrals
 > Sample POST Request
 
 ```xml
-																																																																																					<root>
-																																																																																						<customer>
-																																																																																							<!-- Any one identifier is required -->
-																																																																																							<email/>
-																																																																																							<mobile>9174116390xx</mobile>
-																																																																																							<id/>
-																																																																																							<external_id/>
-																																																																																							<referrals>
-																																																																																								<!-- If no campaign id passed, default campaign is considered -->
-																																																																																								<campaign_token>12511</campaign_token>
-																																																																																								<referral_type>
-																																																																																									<type>EMAIL</type>
-																																																																																									<referral>
-																																																																																										<id>1</id>
-																																																																																										<name>Dexter Morgan</name>
-																																																																																										<identifier>dexter.morgan@mpd.com</identifier>
-																																																																																										<invited_on>20160912T15:
-19:21+05:30</invited_on>
-																																																																																									</referral>
-																																																																																									<referral>
-																																																																																										<id>2</id>
-																																																																																										<name>Debra Morgan</name>
-																																																																																										<identifier>debra.morgan@elwaydetectives.com</identifier
->
-																																																																																										<invited_on>20130912T15:
-19:21+05:30</invited_on>
-																																																																																									</referral>
-																																																																																									<referral>
-																																																																																										<id>3</id>
-																																																																																										<name>Eddard ‘Ned’ Stark</name>
-																																																																																										<identifier>eddard.stark@winterfell.com</identifier>
-																																																																																										<invited_on>2016-09-12 T15:19:21+05:30</invited_on>
-																																																																																									</referral>
-																																																																																								</referral_type>
-																																																																																							</referrals>
-																																																																																						</customer>
-																																																																																					</root>
 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <customer>
+      <!-- Any one identifier is required -->
+      <email />
+      <mobile>9174116390xx</mobile>
+      <id />
+      <external_id />
+      <referrals>
+         <!-- If no campaign id passed, default campaign is considered -->
+         <campaign_token>12511</campaign_token>
+         <referral_type>
+            <type>EMAIL</type>
+            <referral>
+               <id>1</id>
+               <name>Dexter Morgan</name>
+               <identifier>dexter.morgan@mpd.com</identifier>
+               <invited_on>20160912T15:
+19:21+05:30</invited_on>
+            </referral>
+            <referral>
+               <id>2</id>
+               <name>Debra Morgan</name>
+               <identifier>debra.morgan@elwaydetectives.com</identifier>
+               <invited_on>20130912T15:
+19:21+05:30</invited_on>
+            </referral>
+            <referral>
+               <id>3</id>
+               <name>Eddard ‘Ned’ Stark</name>
+               <identifier>eddard.stark@winterfell.com</identifier>
+               <invited_on>2016-09-12 T15:19:21+05:30</invited_on>
+            </referral>
+         </referral_type>
+      </referrals>
+   </customer>
+</root>
 ```
 
 ```json
@@ -2608,87 +2626,7 @@ http://us.api.capillarytech.com/v1.1/customer/referrals
 ```
 
 ```xml
-																																																																																					<?xml version="1.0" encoding="UTF-8"?>
-																																																																																					<response>
-																																																																																						<status>
-																																																																																							<success>true</success>
-																																																																																							<code>200</code>
-																																																																																							<message>success</message>
-																																																																																						</status>
-																																																																																						<customers>
-																																																																																							<customer>
-																																																																																								<email>vimalsudhan@gmail.com</email>
-																																																																																								<mobile>919740798372</mobile>
-																																																																																								<external_id>VIMAL004</external_id>
-																																																																																								<id>4596849</id>
-																																																																																								<firstname>Vimal</firstname>
-																																																																																								<lastname>Sudhan</lastname>
-																																																																																								<referrals>
-																																																																																									<referral_type>
-																																																																																										<type>EMAIL</type>
-																																																																																										<referral>
-																																																																																											<id>1</id>
-																																																																																											<name>Dexter Morgan</name>
-																																																																																											<identifier>dexter.morgan@mpd.com</identifier>
-																																																																																											<invited_on>2016-09-12T15:19:21+05:30</invited_on>
-																																																																																											<status>
-																																																																																												<success>true</success>            
-																																																																																												<code>100</code>
-																																																																																												<message>Invitee added
- successfully</message>
-																																																																																											</status>
-																																																																																										</referral>
-																																																																																										<referral>
-																																																																																											<id>2</id>
-																																																																																											<name>Debra Morgan</name>
-																																																																																											<identifier>debra.morgan@elwaydetectives.com</identifier>
-																																																																																											<invited_on>2013-09-12T15:19:21+05:30</invited_on>
-																																																																																											<status>
-																																																																																												<success>true</success>            
-																																																																																												<code>100</code>
-																																																																																												<message>Invitee added
- successfully</message>
-																																																																																											</status>
-																																																																																										</referral>
 
-																																																																																									</referral_type>
-																																																																																									<referral_type>
-																																																																																										<type>MOBILE</type>
-																																																																																										<referral>
-																																																																																											<id>5</id>
-																																																																																											<name>Heisenberg</name>
-																																																																																											<identifier>919123456789</identifier>
-																																																																																											<invited_on>2016-09-12T15:19:21+05:30</invited_on>
-																																																																																											<status>
-																																																																																												<success>true</success>
-																																																																																												<code>100</code>
-
-																																																																																												<message>Invitee added
- successfully</message>
-																																																																																											</status>
-																																																																																										</referral>
-																																																																																										<referral>
-																																																																																											<id>10</id>
-																																																																																											<name>Walt Jr</name>
-																																																																																											<identifier>919876543211</identifier>
-																																																																																											<invited_on> 2016-09-12T15:19:21+05:30</invited_on>
-																																																																																											<status>
-																																																																																												<success>true</success>
-																																																																																												<code>100</code>
-																																																																																												<message>Invitee added
- successfully</message>
-																																																																																											</status>
-																																																																																										</referral>
-																																																																																									</referral_type>
-																																																																																								</referrals>
-																																																																																								<item_status>        
-																																																																																									<success>true</success>        
-																																																																																									<code>1000</code>        
-																																																																																									<message>Referrals are invited Successfully</message>     
-																																																																																								</item_status>
-																																																																																							</customer>
-																																																																																						</customers>
-																																																																																					</response>
 ```
 
 This API allows you to send the referral code of a specific campaign to a customer (auto generated referral code).
@@ -2723,7 +2661,89 @@ http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
 ```
 
 ```xml
-	
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>success</message>
+   </status>
+   <customers>
+      <customer>
+         <email>vimalsudhan@gmail.com</email>
+         <mobile>919740798372</mobile>
+         <external_id>VIMAL004</external_id>
+         <id>4596849</id>
+         <firstname>Vimal</firstname>
+         <lastname>Sudhan</lastname>
+         <referrals>
+            <referral_type>
+               <type>EMAIL</type>
+               <referral>
+                  <id>1</id>
+                  <name>Dexter Morgan</name>
+                  <identifier>dexter.morgan@mpd.com</identifier>
+                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                  <status>
+                     <success>true</success>
+                     <code>100</code>
+                     <message>Invitee added
+ successfully</message>
+                  </status>
+               </referral>
+               <referral>
+                  <id>2</id>
+                  <name>Debra Morgan</name>
+                  <identifier>debra.morgan@elwaydetectives.com</identifier>
+                  <invited_on>2013-09-12T15:19:21+05:30</invited_on>
+                  <status>
+                     <success>true</success>
+                     <code>100</code>
+                     <message>Invitee added
+ successfully</message>
+                  </status>
+               </referral>
+            </referral_type>
+            <referral_type>
+               <type>MOBILE</type>
+               <referral>
+                  <id>5</id>
+                  <name>Heisenberg</name>
+                  <identifier>919123456789</identifier>
+                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                  <status>
+                     <success>true</success>
+                     <code>100</code>
+                     <message>Invitee added
+ successfully</message>
+                  </status>
+               </referral>
+               <referral>
+                  <id>10</id>
+                  <name>Walt Jr</name>
+                  <identifier>919876543211</identifier>
+                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                  <status>
+                     <success>true</success>
+                     <code>100</code>
+                     <message>Invitee added
+ successfully</message>
+                  </status>
+               </referral>
+            </referral_type>
+         </referrals>
+         <item_status>
+            <success>true</success>
+            <code>1000</code>
+            <message>Referrals are invited Successfully</message>
+         </item_status>
+      </customer>
+   </customers>
+</response>
+
+
 ```
 
 ```json
@@ -3084,48 +3104,51 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=447
 > Sample Response
 
 ```xml
-																																																																																												<response>
-																																																																																													<status>
-																																																																																														<success>true</success>
-																																																																																														<code>200</code>
-																																																																																														<message>SUCCESS</message>
-																																																																																													</status>
-																																																																																													<customers>
-																																																																																														<customer>
-																																																																																															<user_id>5532354</user_id>
-																																																																																															<!-- user_id will return according to
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <user_id>5532354</user_id>
+         <!-- user_id will return according to
 the extra query parameter “user_id”=true/false -->
-																																																																																															<mobile>44700900000</mobile>
-																																																																																															<email>tom.sawyer@example.com</email>
-																																																																																															<external_id>ts1234</external_id>
-																																																																																															<custom_fields>
-																																																																																																<field>
-																																																																																																	<name>Favorite Color</name>
-																																																																																																	<value>Green</value>
-																																																																																																</field>
-																																																																																																<field>
-																																																																																																	<name>Favorite Brand</name>
-																																																																																																	<value>Puma</value>
-																																																																																																</field>
-																																																																																																<field>
-																																																																																																	<name>Likes</name>
-																																																																																																	<value>Shoes</value>
-																																																																																																</field>
-																																																																																																<field>
-																																																																																																	<name>PREFERRED_STORE</name>
-																																																																																																	<value>Store name</value>
-																																																																																																</field>
-																																																																																															</custom_fields>
-																																																																																															<item_status>
-																																																																																																<success>true</success>
-																																																																																																<code>200</code>
-																																																																																																<message>
-Preferences retrieved successfully
-																																																																																																</message>
-																																																																																															</item_status>
-																																																																																														</customer>
-																																																																																													</customers>
-																																																																																												</response>
+         <mobile>44700900000</mobile>
+         <email>tom.sawyer@example.com</email>
+         <external_id>ts1234</external_id>
+         <custom_fields>
+            <field>
+               <name>Favorite Color</name>
+               <value>Green</value>
+            </field>
+            <field>
+               <name>Favorite Brand</name>
+               <value>Puma</value>
+            </field>
+            <field>
+               <name>Likes</name>
+               <value>Shoes</value>
+            </field>
+            <field>
+               <name>PREFERRED_STORE</name>
+               <value>Store name</value>
+            </field>
+         </custom_fields>
+         <item_status>
+            <success>true</success>
+            <code>200</code>
+            <message>Preferences retrieved successfully</message>
+         </item_status>
+      </customer>
+   </customers>
+</response>
+
+
 ```
 
 ```json
@@ -3209,131 +3232,131 @@ http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=4470
 > Sample Response
 
 ```xml
-																																																																																																<?xml version="1.0" encoding="UTF-8"?>
-																																																																																																<response>
-																																																																																																	<status>
-																																																																																																		<success>true</success>
-																																																																																																		<response_code>200</response_code>
-																																																																																																		<message>Success</message>     
-																																																																																																	</status>
-																																																																																																	<customer>
-																																																																																																		<id>24243</id>
-																																																																																																		<mobile>44700900000</mobile>
-																																																																																																		<email>tom.sawyer@example.com</email>
-																																																																																																		<external_id>ts1234</external_id>    
-																																																																																																		<interactions>
-																																																																																																			<network>        
-																																																																																																				<name>facebook</name>
-																																																																																																				<interaction>
-																																																																																																					<type>checkin</type>    
-																																																																																																					<count>1</count>
-																																																																																																					<locs>
-																																																																																																						<loc>
-																																																																																																							<lat>22.23</lat>    
-																																																																																																							<long>23.33</long>
-																																																																																																							<time>2012-3-12 11:33:23</time>
-																																																																																																						</loc>    
-																																																																																																					</locs>    
-																																																																																																				</interaction>
-																																																																																																			</network>                                      
-																																																																																																			<network>
-																																																																																																				<name>twitter</name>
-																																																																																																				<interaction>
-																																																																																																					<type>tweet</type>
-																																																																																																					<count>10</count>
-																																																																																																				</interaction>
-																																																																																																				<interaction>
-																																																																																																					<type>retweet</type>
-																																																																																																					<count>5</count>
-																																																																																																				</interaction>
-																																																																																																			</network>
-																																																																																																			<network>
-																																																																																																				<name>capillary</name>
-																																																																																																				<interaction>
-																																																																																																					<type>email</type>
-																																																																																																					<count>1</count>
-																																																																																																					<messages>
-																																																																																																						<message>
-																																																																																																							<id>554</id>
-																																																																																																							<sender>abc@xyz.com</sender>
-																																																																																																							<receiver>
-def@xyz.com
-																																																																																																							</receiver>
-																																																																																																							<subject>Sample subject</subject>
-																																																																																																							<sent_time>45837-06-15 02:56:40</sent_time>
-																																																																																																							<delivered_time/>
-																																																																																																							<status>SENT</status>
-																																																																																																						</message>
-																																																																																																					</messages>
-																																																																																																				</interaction>
-																																																																																																				<interaction>
-																																																																																																					<type>sms</type>
-																																																																																																					<count>1</count>
-																																																																																																					<messages>
-																																																																																																						<message>
-																																																																																																							<id>555</id>
-																																																																																																							<sender>918867702348</sender>
-																																																																																																							<receiver>
-918867702349
-																																																																																																							</receiver>
-																																																																																																							<subject>Example subject</subject>
-																																																																																																							<sent_time>45837-06-15 02:56:40</sent_time>
-																																																																																																						</message>
-																																																																																																					</messages>
-																																																																																																				</interaction>
-																																																																																																				<interaction>
-																																																																																																					<type>survey</type>
-																																																																																																					<latest_nps_score>9</latest_nps_score>
-																																																																																																					<latest_survey_name>Customer Satisfaction Survey 5</latest_survey_name>
-																																																																																																					<latest_survey_interaction_time>2013-12-16 12:14:37</latest_survey_interaction_time>
-																																																																																																					<surveys>
-																																																																																																						<survey>
-																																																																																																							<name>Customer Satisfaction Survey</name>
-																																																																																																							<nps_score>9</nps_score>
-																																																																																																							<sent_by>Nayan Kumar</sent_by>
-																																																																																																							<response_url/>
-																																																																																																							<sent_time>2013-11-20 12:56:55</sent_time>
-																																																																																																							<completion_time>2013-11-14 13:23:05</completion_time>
-																																																																																																						</survey>
-																																																																																																						<survey>
-																																																																																																							<name>Customer Satisfaction Survey</name>
-																																																																																																							<nps_score>10</nps_score>
-																																																																																																							<sent_by>Shilpa</sent_by>
-																																																																																																							<response_url/>
-																																																																																																							<sent_time>2013-12-11 11:43:55</sent_time>
-																																																																																																							<completion_time>2013-12-11 11:43:55</completion_time>
-																																																																																																						</survey>
-																																																																																																						<survey>
-																																																																																																							<name>Customer Feedback</name>
-																																																																																																							<nps_score>9</nps_score>
-																																																																																																							<sent_by>Shilpa </sent_by>
-																																																																																																							<response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=14&amp;t=R0C9I313&amp;u=true</response_url>
-																																																																																																							<sent_time>2013-12-11 12:17:13</sent_time>
-																																																																																																							<completion_time>2013-12-11 12:17:13</completion_time>
-																																																																																																						</survey>
-																																																																																																						<survey>
-																																																																																																							<name>Customer Review</name>
-																																																																																																							<nps_score>8</nps_score>
-																																																																																																							<sent_by>Shilpa </sent_by>
-																																																																																																							<response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=1&amp;t=7Q81C41Z&amp;u=true</response_url>
-																																																																																																							<sent_time>2013-12-13 15:22:48</sent_time>
-																																																																																																							<completion_time>2013-12-13 15:22:48</completion_time>
-																																																																																																						</survey>
-																																																																																																						<survey>
-																																																																																																							<name>Customer Satisfaction Survey 5</name>
-																																																																																																							<nps_score>9</nps_score>
-																																																																																																							<sent_by>Shilpa </sent_by>
-																																																																																																							<response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=93&amp;t=3LWIXC9Y&amp;u=true</response_url>
-																																																																																																							<sent_time>2013-12-16 12:14:37</sent_time>
-																																																																																																							<completion_time>2013-12-16 12:14:37</completion_time>
-																																																																																																						</survey>
-																																																																																																					</surveys>
-																																																																																																					<count>5</count>
-																																																																																																				</interaction>
-																																																																																																			</network>
-																																																																																																		</interactions>
-																																																																																																	</customer>
-																																																																																																</response>    
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <response_code>200</response_code>
+      <message>Success</message>
+   </status>
+   <customer>
+      <id>24243</id>
+      <mobile>44700900000</mobile>
+      <email>tom.sawyer@example.com</email>
+      <external_id>ts1234</external_id>
+      <interactions>
+         <network>
+            <name>facebook</name>
+            <interaction>
+               <type>checkin</type>
+               <count>1</count>
+               <locs>
+                  <loc>
+                     <lat>22.23</lat>
+                     <long>23.33</long>
+                     <time>2012-3-12 11:33:23</time>
+                  </loc>
+               </locs>
+            </interaction>
+         </network>
+         <network>
+            <name>twitter</name>
+            <interaction>
+               <type>tweet</type>
+               <count>10</count>
+            </interaction>
+            <interaction>
+               <type>retweet</type>
+               <count>5</count>
+            </interaction>
+         </network>
+         <network>
+            <name>capillary</name>
+            <interaction>
+               <type>email</type>
+               <count>1</count>
+               <messages>
+                  <message>
+                     <id>554</id>
+                     <sender>abc@xyz.com</sender>
+                     <receiver>def@xyz.com</receiver>
+                     <subject>Sample subject</subject>
+                     <sent_time>45837-06-15 02:56:40</sent_time>
+                     <delivered_time />
+                     <status>SENT</status>
+                  </message>
+               </messages>
+            </interaction>
+            <interaction>
+               <type>sms</type>
+               <count>1</count>
+               <messages>
+                  <message>
+                     <id>555</id>
+                     <sender>918867702348</sender>
+                     <receiver>918867702349</receiver>
+                     <subject>Example subject</subject>
+                     <sent_time>45837-06-15 02:56:40</sent_time>
+                  </message>
+               </messages>
+            </interaction>
+            <interaction>
+               <type>survey</type>
+               <latest_nps_score>9</latest_nps_score>
+               <latest_survey_name>Customer Satisfaction Survey 5</latest_survey_name>
+               <latest_survey_interaction_time>2013-12-16 12:14:37</latest_survey_interaction_time>
+               <surveys>
+                  <survey>
+                     <name>Customer Satisfaction Survey</name>
+                     <nps_score>9</nps_score>
+                     <sent_by>Nayan Kumar</sent_by>
+                     <response_url />
+                     <sent_time>2013-11-20 12:56:55</sent_time>
+                     <completion_time>2013-11-14 13:23:05</completion_time>
+                  </survey>
+                  <survey>
+                     <name>Customer Satisfaction Survey</name>
+                     <nps_score>10</nps_score>
+                     <sent_by>Shilpa</sent_by>
+                     <response_url />
+                     <sent_time>2013-12-11 11:43:55</sent_time>
+                     <completion_time>2013-12-11 11:43:55</completion_time>
+                  </survey>
+                  <survey>
+                     <name>Customer Feedback</name>
+                     <nps_score>9</nps_score>
+                     <sent_by>Shilpa</sent_by>
+                     <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=14&amp;t=R0C9I313&amp;u=true</response_url>
+                     <sent_time>2013-12-11 12:17:13</sent_time>
+                     <completion_time>2013-12-11 12:17:13</completion_time>
+                  </survey>
+                  <survey>
+                     <name>Customer Review</name>
+                     <nps_score>8</nps_score>
+                     <sent_by>Shilpa</sent_by>
+                     <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=1&amp;t=7Q81C41Z&amp;u=true</response_url>
+                     <sent_time>2013-12-13 15:22:48</sent_time>
+                     <completion_time>2013-12-13 15:22:48</completion_time>
+                  </survey>
+                  <survey>
+                     <name>Customer Satisfaction Survey 5</name>
+                     <nps_score>9</nps_score>
+                     <sent_by>Shilpa</sent_by>
+                     <response_url>https://survey-devint.capillary.in?sc=O5JHLN95&amp;sfc=93&amp;t=3LWIXC9Y&amp;u=true</response_url>
+                     <sent_time>2013-12-16 12:14:37</sent_time>
+                     <completion_time>2013-12-16 12:14:37</completion_time>
+                  </survey>
+               </surveys>
+               <count>5</count>
+            </interaction>
+         </network>
+      </interactions>
+   </customer>
+</response>
+
+  
 ```
 
 ```json
