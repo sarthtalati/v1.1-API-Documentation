@@ -1157,7 +1157,7 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </code></pre>
 <blockquote>
-<p>Provide the unique identifier of the customer in <identifier> and current and new identifier values in <old_value> and <new_value> respectively</p>
+<p>Provide the unique identifier of the customer in identifier and and pass the old and new identifier value that you want to update in old_value and new_value respectively.</p>
 </blockquote>
 <pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">json</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1170,14 +1170,14 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code># Sample POST xml
-                                                <span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
-                                                <span class="nt">&lt;root&gt;</span>
-                                                    <span class="nt">&lt;customer&gt;</span>
-                                                        <span class="nt">&lt;new_value&gt;</span>44700900090<span class="nt">&lt;/new_value&gt;</span>
-                                                        <span class="nt">&lt;identifier&gt;</span>44700900000<span class="nt">&lt;/identifier&gt;</span>
-                                                        <span class="nt">&lt;old_value&gt;</span>44700900000<span class="nt">&lt;/old_value&gt;</span>
-                                                    <span class="nt">&lt;/customer&gt;</span>
-                                                <span class="nt">&lt;/root&gt;</span>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;new_value&gt;</span>44700900090<span class="nt">&lt;/new_value&gt;</span>
+        <span class="nt">&lt;identifier&gt;</span>44700900000<span class="nt">&lt;/identifier&gt;</span>
+        <span class="nt">&lt;old_value&gt;</span>44700900000<span class="nt">&lt;/old_value&gt;</span>
+    <span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
