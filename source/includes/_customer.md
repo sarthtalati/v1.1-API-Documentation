@@ -773,7 +773,7 @@ user_id(Boolean) | Returns the unique user ID of the customer if user_id=true
 http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 ```
 
-> Provide the unique identifier of the customer in identifier and and pass the old and new identifier value that you want to update in old_value and new_value respectively.
+> Pass the identifier name (mobile/email/external_id) that you want to update in identifier and pass the old and new identifier value in old_value and new_value respectively.
 
 ```json
 # Sample POST json
