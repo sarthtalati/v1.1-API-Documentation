@@ -808,7 +808,8 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
       },
       "customers": {
          "customer": {
-            "identifier": "mobile",
+            "identifier": "mobile",  
+			"_comment": "You can use mobile/email/external_id here...",
             "old_value": "44700900000",
             "new_value": "44700900090",
             "updated": "true",
@@ -825,27 +826,27 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 
 
 ```xml
-												<?xml version="1.0" encoding="UTF-8" ?>
-												<response>
-													<status>
-														<success>true</success>
-														<code>200</code>
-														<message>SUCCESS</message>
-													</status>
-													<customers>
-														<customer>
-															<identifier>mobile</identifier>
-															<old_value>44700900000</old_value>
-															<new_value>44700900090</new_value>
-															<updated>true</updated>
-															<item_status>
-																<success>true</success>
-																<code>1040</code>
-																<message>Customer Identity change request added successfully</message>
-															</item_status>
-														</customer>
-													</customers>
-												</response>
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>SUCCESS</message>
+   </status>
+   <customers>
+      <customer>
+         <identifier>mobile</identifier>  <!--mobile/email/external_id--> 
+         <old_value>44700900000</old_value>
+         <new_value>44700900090</new_value>
+         <updated>true</updated>
+         <item_status>
+            <success>true</success>
+            <code>1040</code>
+            <message>Customer Identity change request added successfully</message>
+         </item_status>
+      </customer>
+   </customers>
+</response>
 ```
 
 This API allows you to send requests to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through `customer/update_identity` will be in pending state by default. Capillary back-end team verifies each such requests and process it accordingly.
@@ -867,8 +868,10 @@ Batch Support | No
 Parameter | Description
 --------- | -----------
 identifier* | Provide mobile/email/external_id of the customer whose identifier you want to modify
-old_identifier* | Existing identifer value of the customer that needs to be updated
-new_identifier* | New identifer value
+old_identifier* | Provide the existing identifer value of the customer that you want to be update, i.e., mobile number, email id or external id
+new_identifier* | Provide the new identifier value that you want to replace with
+
+
 
 ## Retrieve Customers (Advanced Search)
 ```html

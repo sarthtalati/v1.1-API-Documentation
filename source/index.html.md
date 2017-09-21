@@ -8,7 +8,7 @@ language_tabs:
 
 toc_footers:
   - <a href='#'>Capillary V1.1 API Documentation</a>
-  - <a href='https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf'>Download API Document in PDF</a>
+
 
 includes:
   - customer
@@ -29,7 +29,7 @@ search: true
 # Getting Started
 The Capillary APIs are RESTful APIs that help third party applications manage an Organization’s CRM and Loyalty Program through the Capillary platform. This document provides all the APIs that can be used to integrate with the Capillary Applications, their descriptions, resource information, request parameters, request URIs, and sample requests.
 
-To download the v1.1 API documentation, click [here] (https://s3.amazonaws.com/test_files_cache_bkp/sharingan/66fc5cbebb61b24b5175.pdf "Download Capillary API Document v1.1").
+
 
 ## Organization Setup
 Every organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
