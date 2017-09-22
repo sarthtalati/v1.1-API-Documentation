@@ -9602,7 +9602,7 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample ID Change Request</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
 <span class="nt">&lt;request&gt;</span>
@@ -9637,6 +9637,44 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
       </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time in 8601"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Goodwill Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;request&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;id&gt;</span>2345<span class="nt">&lt;/id&gt;</span>
+         <span class="nt">&lt;mobile&gt;&lt;/mobile&gt;</span>
+         <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
+         <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;comments&gt;</span>API Service request - Awarding him 200 points.<span class="nt">&lt;/comments&gt;</span>
+      <span class="nt">&lt;reason&gt;</span>POINTS_ISSUE<span class="nt">&lt;/reason&gt;</span>
+      <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;base_type&gt;</span>POINTS<span class="nt">&lt;/base_type&gt;</span>
+      <span class="nt">&lt;points&gt;</span>200<span class="nt">&lt;/points&gt;</span>
+   <span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">"API Service request - Awarding him 200 points."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">"Issue Goodwill points"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"points"</span><span class="p">:</span><span class="s2">"200"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
