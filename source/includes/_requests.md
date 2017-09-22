@@ -9,7 +9,7 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 http://us.api.capillarytech.com/v1.1/request/add
 ```
 
-> Sample POST Request
+> Sample ID Change Request
 
 ```xml
 <root>
@@ -51,6 +51,52 @@ http://us.api.capillarytech.com/v1.1/request/add
   }
 }
 ```
+
+> Sample Goodwill Request
+
+```xml
+<root>
+   <request>
+      <customer>
+         <id>2345</id>
+		 <mobile></mobile>
+		 <email></email>
+		 <external_id></external_id>
+      </customer>
+      <comments>API Service request - Awarding him 200 points.</comments>
+      <reason>POINTS_ISSUE</reason>
+      <type>GOODWILL</type>
+      <base_type>POINTS</base_type>
+      <points>200</points>
+   </request>
+</root>
+```
+
+```json
+{
+  "root":{
+    "request":[
+      {
+        "customer":{
+          "id":"2345",
+		  "mobile":"",
+		  "email":"",
+		  "external_id":""
+        },
+        "comments":"API Service request - Awarding him 200 points.",
+        "reason":"Issue Goodwill points",
+        "type":"GOODWILL",
+        "base_type":"POINTS",
+        "points":"200"
+      }
+    ]
+  }
+}
+```
+
+
+
+
 
 > Sample Response
 
