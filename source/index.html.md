@@ -70,7 +70,7 @@ First convert the password ‘123’ in md5 form. i,e., 202cb962ac59075b964b0715
 
 Then encode the username and md5 password to Base64. i.e. <br>
 
-`Base64(till1: 202cb962ac59075b964b07152d234b70)` which is `Authorization: Basic dGlsbDE6IDIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0Yjcw`
+`Base64(till1:202cb962ac59075b964b07152d234b70)` which is `Authorization: Basic dGlsbDE6IDIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0Yjcw`
 </aside>
 
 
