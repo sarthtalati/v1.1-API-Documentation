@@ -7419,7 +7419,7 @@ Points cannot be issued through APIs. It can be issued only through modules such
 
 <h2 id="check-if-points-are-redeemable">Check If Points are Redeemable</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span class="err">&amp;</span>points=100<span class="err">&amp;</span>validation_code=6D18DU<span class="err">&amp;</span>mobile=919591228668
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span class="err">&amp;</span>points=100<span class="err">&amp;</span>issue_otp=true<span class="err">&amp;</span>mobile=44700900999
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -7508,9 +7508,9 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span cl
 <span class="nt">&lt;/responses&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to verify whether a customer can redeem a specific number of points. Active points of a customer can be redeemed based on the redemption criteria set on your organization&rsquo;s Loyalty Program. </p>
+<p>Customers can redeem their active points according to the redemption criteria set for the organization (Loyalty Program). For example, points can be redeemed only in the denominations of 10 with a maximum of 200 points per time.</p>
 
-<p>For example, a redemption criteria could be, points can be redeemed only in the denominations of 10 and a maximum of 200 points can be redeemed at a time. </p>
+<p>This API lets you verify whether a specific number of points can be redeemed by a customer. With this API, you can now issue validation code to the customer  automatically upon successful validation. This will reduce an additional step of calling points/validationcode API to issue validation code.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -7552,7 +7552,11 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span cl
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/points/isredeemable?format=&lt;xml/json&gt;&amp;points=&lt;points to redeem&gt;&amp;validation_code=&lt;OTP&gt;&amp;mobile=&lt;mobile no.&gt;</code></p>
+<p>To validate points and issue code if the validation is successful
+<code class="prettyprint">http://&lt;cluster url&gt;/v1.1/points/isredeemable?format=&lt;xml/json&gt;&amp;points=&lt;points to redeem&gt;&amp;issue_otp=true&amp;mobile/email=&lt;mobile no./email id&gt;</code></p>
+
+<p>To just validate points
+<code class="prettyprint">http://&lt;cluster url&gt;/v1.1/points/isredeemable?format=&lt;xml/json&gt;&amp;points=&lt;points to redeem&gt;&amp;validation_code=&lt;OTP&gt;&amp;mobile/email=&lt;mobile no./email id&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -7563,15 +7567,19 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json<span cl
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile*</td>
-<td>Provide the registered mobile number of the customer to issue validation code - mobile,email, external_id, user_id</td>
+<td>mobile/email/external_id/user_id*</td>
+<td>Provide the registered mobile number or email id of the customer to issue validation code</td>
 </tr>
 <tr>
 <td>points*</td>
 <td>Number of points to redeem</td>
 </tr>
 <tr>
-<td>validation_code*</td>
+<td>issue_otp=true</td>
+<td>Issues OTP to the customer if the points are validated successfully</td>
+</tr>
+<tr>
+<td>validation_code</td>
 <td>OTP issued to the customer&rsquo;s mobile number</td>
 </tr>
 </tbody></table>
@@ -7625,7 +7633,7 @@ Validation Code Issued by SMS/Email
 </code></pre>
 <p>Before making <code class="prettyprint">points/redeem</code> API call, you need to validate the customer by issuing validation code to the registered mobile number/email id. </p>
 
-<p>This API allows you to issue a dynamic validation code to the customer&rsquo;s registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validaty period, same code will be issued again.</p>
+<p>This API allows you to issue a dynamic validation code to the customer&rsquo;s registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validity period, same code will be issued again.</p>
 
 <p>The validity period and communicate via is set on the <strong>OTPConfigurations</strong> page of InTouch &gt; <strong>Settings</strong> &gt; <strong>Organization Setup</strong></p>
 
@@ -7955,7 +7963,7 @@ You need to use the validation code within the validity period. You can check th
 <p>819 | Points you are trying to redeem are more than the maximum allowed redemption limit
  | Unable to send message to customer
 820 | Unable to process. Customer is marked as fraud
-821 | Points you are trying to redeem are less than the minimum redemption limit | 
+821 | Points you are trying to redeem are less than the minimum redemption limit
 822 | Unable to find missed call from the registered mobile number
 823 | Missed call redemption is disabled for your organization
 824 | Mobile number validation is mandatory for redeeming points
@@ -8256,7 +8264,7 @@ on the request param --&gt;</span>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>Any one among the folloing parameters is mandatory.</p>
+<p>Any one among the following parameters is mandatory.</p>
 
 <table><thead>
 <tr>
@@ -8458,7 +8466,7 @@ t<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
 </tr>
 <tr>
 <td>validation_code</td>
-<td>Valodation code is required for the orgs that require validation based redemption</td>
+<td>Validation code is required for the orgs that use validation based redemption</td>
 </tr>
 <tr>
 <td>number</td>
