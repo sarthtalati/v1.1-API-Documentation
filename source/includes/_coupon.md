@@ -214,7 +214,7 @@ Batch Support  | No
 `http://<cluster url>/value>&format=v1.1/coupon/resend?<identifier>=<xml/json>&<input_params>`
 
 ### Request Parameters
-Any one among the folloing parameters is mandatory.
+Any one among the following parameters is mandatory.
 
 Parameter | Description
 --------- | -----------
@@ -372,7 +372,7 @@ Parameter | Description
 Customer identifier* | Unique identifier of the customer whose coupon needs to be redeemed
 id | Coupon id that needs to be redeemed
 code | Coupon code that need to be redeemed
-validation_code | Valodation code is required for the orgs that require validation based redemption
+validation_code | Validation code is required for the orgs that use validation based redemption
 number | Transaction number against which the coupon needs to be redeemed
 amount | Transaction amount against which the coupon is redeemed
 

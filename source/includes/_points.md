@@ -16,7 +16,7 @@ The points entity allows you to perform the following tasks:
 ## Check If Points are Redeemable
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=100&validation_code=6D18DU&mobile=919591228668
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=100&issue_otp=true&mobile=44700900999
 ```
 > Sample Response
 
@@ -109,10 +109,11 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=
 </response>
 ```
 
-This API allows you to verify whether a customer can redeem a specific number of points. Active points of a customer can be redeemed based on the redemption criteria set on your organization's Loyalty Program. 
+Customers can redeem their active points according to the redemption criteria set for the organization (Loyalty Program). For example, points can be redeemed only in the denominations of 10 with a maximum of 200 points per time.
 
-For example, a redemption criteria could be, points can be redeemed only in the denominations of 10 and a maximum of 200 points can be redeemed at a time. 
+This API lets you verify whether a specific number of points can be redeemed by a customer. With this API, you can now issue validation code to the customer  automatically upon successful validation. This will reduce an additional step of calling points/validationcode API to issue validation code.
 
+ 
 ### Resource Information
 Entry | Description
 --------- | -----------
@@ -125,14 +126,19 @@ API Version | v1.1
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/points/isredeemable?format=<xml/json>&points=<points to redeem>&validation_code=<OTP>&mobile=<mobile no.>`
+To validate points and issue code if the validation is successful
+`http://<cluster url>/v1.1/points/isredeemable?format=<xml/json>&points=<points to redeem>&issue_otp=true&mobile/email=<mobile no./email id>`
+
+To just validate points
+`http://<cluster url>/v1.1/points/isredeemable?format=<xml/json>&points=<points to redeem>&validation_code=<OTP>&mobile/email=<mobile no./email id>`
 
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-mobile* | Provide the registered mobile number of the customer to issue validation code - mobile,email, external_id, user_id 
+mobile/email/external_id/user_id* | Provide the registered mobile number or email id of the customer to issue validation code 
 points* | Number of points to redeem
-validation_code* | OTP issued to the customer's mobile number
+issue_otp=true | Issues OTP to the customer if the points are validated successfully
+validation_code | OTP issued to the customer's mobile number
 
 ## Issue Validation Code for Redeeming Points
 
@@ -192,7 +198,7 @@ Validation Code Issued by SMS/Email
 
 Before making `points/redeem` API call, you need to validate the customer by issuing validation code to the registered mobile number/email id. 
 
-This API allows you to issue a dynamic validation code to the customer's registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validaty period, same code will be issued again.
+This API allows you to issue a dynamic validation code to the customer's registered mobile number/email id which is required to pass while redeeming points. The validation code is valid only for a specific time period post which it expires automatically. If you try to issue validation code within the validity period, same code will be issued again.
 
 The validity period and communicate via is set on the **OTPConfigurations** page of InTouch > **Settings** > **Organization Setup**
 
@@ -375,7 +381,7 @@ Code | Description
 819 | Points you are trying to redeem are more than the maximum allowed redemption limit
  | Unable to send message to customer
 820 | Unable to process. Customer is marked as fraud
-821 | Points you are trying to redeem are less than the minimum redemption limit | 
+821 | Points you are trying to redeem are less than the minimum redemption limit
 822 | Unable to find missed call from the registered mobile number
 823 | Missed call redemption is disabled for your organization
 824 | Mobile number validation is mandatory for redeeming points
