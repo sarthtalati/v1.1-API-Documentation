@@ -109,7 +109,7 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=
 </response>
 ```
 
-Customers can redeem their active points according to the redemption criteria set for the organization (Loyalty Program). For example, points can be redeemed only in the denominations of 10 with a maximum of 200 points per time.
+Customers can redeem their active points according to the redemption criteria set for the organization (Loyalty Program). For example, I could set redemption criteria as allow redemption only in multiples of 10 and a maximum of 200 points per time.
 
 This API lets you verify whether a specific number of points can be redeemed by a customer. With this API, you can now issue validation code to the customer  automatically upon successful validation. This will reduce an additional step of calling points/validationcode API to issue validation code.
 
