@@ -39,7 +39,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "external_id": "XYPZ001",
         "firstname": "Tom",
         "lastname": "Sawyer",
-        "gender": "M",
         "registered_on": "2012-09-11 11:11:11",
         "extended_fields": {
           "field": [
@@ -81,7 +80,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "external_id": "XYPZ006",
         "firstname": "Rita",
         "lastname": "John",
-        "gender": "M",
         "registered_on": "2012-09-11 11:11:15",
         "subscriptions": {
           "subscription": [
@@ -138,7 +136,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<external_id>XYPZ001</external_id>
 		<firstname>Tom</firstname>
 		<lastname>Sawyer</lastname>
-		<gender>M</gender>
+		
 		<registered_on>2012-09-11 11:11:11</registered_on>
 		<extended_fields>
 			<field>
@@ -179,7 +177,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<external_id>XYPZ006</external_id>
 		<firstname>Rita</firstname>
 		<lastname>John</lastname>
-		<gender>M</gender>
+		
 		<registered_on>2012-09-11 11:11:15</registered_on>
 		<extended_fields>
 			<field>
@@ -257,7 +255,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
           "mobile": "44700900000",
           "email": "tom.sawyer@example.com",
           "external_id": "XYPZ001",
-          "gender": "M",
           "registered_on": "2012-09-11 11:11:11",
           "item_status": {
             "success": "true",
@@ -293,7 +290,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
           "mobile": "44700900999",
           "email": "rita.john@example.com",
           "external_id": "XYPZ006",
-          "gender": "M",
           "registered_on": "2016-09-11 11:11:15",
           "extended_fields": {
             "field": [
@@ -353,7 +349,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 			<mobile>44700900000</mobile>
 			<email>tom.sawyer@example.com</email>
 			<external_id>XYPZ001</external_id>
-			<gender>M</gender>
 			<registered_on>2012-09-11 11:11:11</registered_on>
 			<item_status>
 				<success>true</success>
@@ -392,7 +387,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 			<mobile>44700900999</mobile>
 			<email>rita.john@example.com</email>
 			<external_id>XYPZ006</external_id>
-			<gender>M</gender>
 			<registered_on>2016-09-11 11:11:15</registered_on>
 			<extended_fields>
 				<field>
@@ -438,13 +432,13 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 </response>
 ```
 
-This API allows you to  register  customers into your organization’s loyalty program. You can register multiple customers at a time. If you pass an existing identifer, the respective customer details will be updated with the new details.
+This API allows you to  register  customers into your organization’s loyalty program. You can register multiple customers at a time. If you pass an existing identifier, the respective customer details will be updated with the new details.
 
-Following are the appliations and limitations of register customer API:
+Following are the applications and limitations of register customer API:
 
 * Registers customer with the provided details when a new identifier(mobile no/email id/external id) is passed
 * Updates existing customer details, other than existing customer identifier(s), when a registered identifier is passed
-* Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifers cannot be updated through this API</i>
+* Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
 * Adds/updates custom field details of the customer
 * Allows adding/updating **extended field** details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes.
 
@@ -513,7 +507,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "external_id":"ts1234",
         "firstname":"Tom",
         "lastname":"Sawyer",
-        "gender":"M",
+        
         "extended_fields":{
           "field":[
             {
@@ -563,7 +557,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
       <external_id>ts1234</external_id>
       <firstname>Tom</firstname>
       <lastname>Sawyer</lastname>
-      <gender>M</gender>
+      
       <extended_fields>
          <field>
             <name>color</name>
@@ -615,8 +609,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "external_id": "ts1234",
         "firstname": "Tom",
         "lastname": "Sawyer",
-        "gender": "M",
-		"extended_fields": {
+        "extended_fields": {
         "field": [
           {
             "name": "color",
@@ -679,7 +672,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
          <external_id>TOM123</external_id>
          <firstname>Tom</firstname>
          <lastname>Sawyer</lastname>
-         <gender>M</gender>
+         
          <extended_fields>
             <field>
                <name>color</name>
@@ -731,7 +724,7 @@ This API allows you to update customer’s profile information based on the cust
 The customer update API allows you to update the following parameters:
 
 * Existing customer details, other than primary/secondary identifiers
-* Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifers cannot be updated through this API</i>
+* Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
 * Custom field details of the customer
 * Extended field details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes
 * Cannot update primary identifier of the customer
@@ -779,11 +772,13 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 # Sample POST json
 {
    "root": {
-      "customer": {
+      "customer": [
+	  {
          "identifier": "mobile",
          "old_value": "44700900000",
-		 "new_value": "44700900090",
+		 "new_value": "44700900090"
       }
+	  ]
    }
 }
 ```
@@ -820,7 +815,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
             "item_status": {
                "success": "true",
                "code": "1040",
-               "message": "Customer Identity change request added successfully",
+               "message": "Customer Identity change request added successfully"
             }
          }
       }
@@ -871,9 +866,9 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
-old_identifier* | Provide the existing value of the specific identifier that you want to update
-new_identifier* | Provide the new value of the identifier that you want to replace with
+identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id
+old_value* | Provide the existing value of the specific identifier that you want to update
+new_value* | Provide the new value of the identifier that you want to replace with
 
 
 
@@ -923,8 +918,6 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
                         "email": "tom.sawyer@example.com",
 
                         "external_id": "None",
-
-                        "gender": "M",
 
                         "loyalty_points": "355",
 
@@ -1044,7 +1037,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
             <mobile>44700900000</mobile>
             <email>tom.sawyer@example.com</email>
             <external_id>None</external_id>
-            <gender>M</gender>
+            
             <loyalty_points>355</loyalty_points>
             <lifetime_points>5400</lifetime_points>
             <lifetime_purchases>10800</lifetime_purchases>
@@ -1130,7 +1123,7 @@ last_trans_value | Retrieves the list of customers whose transaction amount matc
 Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br>**Query**: `<Field Name>:<Field Value>`
 
 ### Query Grammar
-The following is a formal definition of the Query Grammer
+The following is a formal definition of the Query Grammar
 
 **QUERY**: `(CONDITION) | (CONDITION & (CONDITION)*)`
 
@@ -1178,7 +1171,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
           "type": "LOYALTY",
           "source": "instore",
           "identifiers": [],
-          "gender": null,
+          
           "registered_by": "MERGE FRONT ONE",
           "registered_store": {
             "code": "mergestore1",
@@ -1308,7 +1301,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
             <updated_on>2017-05-09 15:58:29</updated_on>
             <type>LOYALTY</type>
             <source>instore</source>
-            <gender />
+            
             <registered_by>MERGE FRONT ONE</registered_by>
             <registered_store>
                 <code>mergestore1</code>

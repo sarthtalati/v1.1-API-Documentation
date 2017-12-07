@@ -113,6 +113,12 @@ Customers can redeem their active points according to the redemption criteria se
 
 This API lets you verify whether a specific number of points can be redeemed by a customer. With this API, you can now issue validation code to the customer  automatically upon successful validation. This will reduce an additional step of calling points/validationcode API to issue validation code.
 
+<aside class="notice">
+* If there is any problem in issuing validation code, Points Redeemable but OTP Generation failed error will be displayed (876)
+
+* if points validation itself fails, then the relevant error message will be displayed
+</aside>
+
  
 ### Resource Information
 Entry | Description
