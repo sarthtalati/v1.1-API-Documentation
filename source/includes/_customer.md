@@ -1,7 +1,7 @@
 # Customer
 A customer is an individual who buys goods or services, or subscribes for organization’s newsletters. An organization can be a store, business firm, hospitals or restaurants).
 
-In Capillary’s platform the customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. 
+The customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. 
 
 Capillary supports three types of customers based on the loyalty type:
 
