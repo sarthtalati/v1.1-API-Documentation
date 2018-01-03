@@ -1762,12 +1762,9 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
         "mobile":"44700900999",
         "email":"catherine@example.com",
         "external_id":"ct123",
-        "loyalty_id":"434412",
-        "associate_id":"443",
         "notes":{
           "note":[
             {
-              "id":"15",
               "date":"2016-05-05 15:15:00",
               "description":"Likes Maggi"
             }
@@ -1788,11 +1785,9 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
         <mobile>44700900999</mobile>
         <email>catherine@example.com</email>
         <external_id>ct123</external_id>
-        <loyalty_id>434412</loyalty_id>
-        <associate_id>443</associate_id>
         <notes>
             <note>
-                <id>15</id>
+			    
                 <date>2016-05-05 15:15:00</date>
                 <description>Likes Maggi</description>
             </note>
@@ -1817,10 +1812,9 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
       "mobile": "44700900999",
       "email": "catherine@example.com",
       "external_id": "ct123",
-      "associate_id": "443",
       "notes": {
         "note": {
-          "id": "-1",
+		  "id":"1",
           "date": "2012-05-05 15:15:00",
           "description": "Likes Maggi"
         }
@@ -1850,10 +1844,9 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
         <mobile>44700900999</mobile>
         <email>catherine@example.com</email>
         <external_id>ct123</external_id>
-        <associate_id>443</associate_id>
         <notes>
             <note>
-                <id>-1</id>
+			   <id>1</id>
                 <date>2012-05-05 15:15:00</date>
                 <description>Likes Maggi</description>
             </note>
@@ -1867,7 +1860,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 </response>
 ```
 
-This API allows you to record additional information about the customer.
+This API allows you to capture additional information about the customer.
 
 ### Resource Information
 Parameter | Description
@@ -1886,16 +1879,173 @@ Batch Support | No
 Parameter | Description
 --------- | -----------
 Customer id* | Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)
-associate_id* | Unique id of the associate who is creating the notes
 date* | Date on which the customer note is added
 description | Details or message of the note in a plain text format
+
+
+
+## Update Customer Notes
+```html
+http://us.api.capillarytech.com/v1.1/customer/notes?format=json
+```
+
+> Sample POST Request
+
+```json
+{
+  "root": {
+    "customer": {
+      "mobile": "44700900999",
+      "email": "catherine@example.com",
+      "associate_id": "50010823",
+      "notes": {
+        "note": [
+          {
+            "id": "8378",
+            
+            "description": "Likes jeans"
+          },
+          {
+            "id": "8379",
+            
+            "description": "Likes new arrivals"
+          }
+        ]
+      }
+    }
+
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <customer>
+       <mobile>44700900999</mobile>
+       <email>catherine@example.com</email>
+       <associate_id>50010823</associate_id>
+       <notes>
+           <note>
+               <id>8378</id>
+               <description>Likes Jeans</description>
+           </note>
+           <note>
+               <id>8379</id>
+               
+               <description>Likes new arrivals</description>
+           </note>
+       </notes>
+   </customer>
+</root>						
+```
+> Sample Response
+
+```json
+{
+  "response": {
+    "status": {
+      "success": "true",
+      "code": "200",
+      "message": "Success",
+      "total": "1",
+      "success_count": "1"
+    },
+    "customer": {
+      "user_id": "29361138",
+      "firstname": "Catherine",
+      "lastname": "Thomas",
+      "mobile": "44700900999",
+      "email": "catherine@example.com",
+      "external_id": "ext12",
+      "notes": {
+        "note": [
+          {
+            "id": "8378",
+            "date": "2017-11-05 15:15:00",
+            "description": "Likes jeans"
+          },
+          {
+            "id": "8379",
+            "date": "2017-10-05 15:15:00",
+            "description": "Likes new arrivals"
+          }
+        ]
+      },
+      "item_status": {
+        "success": "true",
+        "code": "1000",
+        "message": "Customer note added/updated successfully"
+      }
+    }
+  }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+       <success>true</success>
+       <code>200</code>
+       <message>Success</message>
+       <total>1</total>
+       <success_count>1</success_count>
+   </status>
+   <customer>
+       <user_id>29361138</user_id>
+       <firstname>Catherine</firstname>
+       <lastname>Thomas</lastname>
+       <mobile>44700900999</mobile>
+       <email>catherine@example.com</email>
+       <external_id>ext12</external_id>
+       <notes>
+           <note>
+               <id>8378</id>
+               <description>Likes jeans</description>
+           </note>
+           <note>
+               <id>8379</id>
+               <description>Likes new arrivals</description>
+           </note>
+       </notes>
+       <item_status>
+           <success>true</success>
+           <code>1000</code>
+           <message>Customer note added/updated successfully</message>
+           <warnings/>
+       </item_status>
+   </customer>
+</response>
+```
+
+This API lets you update existing customer notes.
+
+### Resource Information
+Parameter | Description
+--------- | -----------
+URI | customer/notes
+Rate Limited? | Yes
+Authentication | Yes
+Response Formats | XML, JSON 
+HTTP Method | POST
+Batch Support | No
+
+### Request URL
+`http://<cluster url>/v1.1/customer/notes?format=xml/json`
+
+### Request Attributes
+Parameter | Description
+--------- | -----------
+Customer id* | Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id)
+description | Details or message of the note in a plain text format
+id | Unique id of the customer note that you want to update
+
 
 
 
 ## Retrieve Customer Notes 
 ```html
 # Sample Request
-http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700900999&associate_id=234
+http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700900999
 ```
 
 ```json
@@ -1916,7 +2066,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700
       "notes": {
         "note": [
           {
-            "id": "1",
+		    "id":"1",
             "description": "Like to play cricket",
             "added_on": "2016-09-04 15:12:00"
           },
@@ -1988,7 +2138,7 @@ user_id tag will be returned only if query param user_id = true
 
 ```
 
-This API allows you to fetch  customer notes created by a specific associate.
+This API allows you to fetch notes created for a specific customer.
 
 ### Resource Information
 Parameter | Value
@@ -2001,13 +2151,12 @@ HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/notes?format=<xml/json>&<identifier>=<value>&associate_id=<ids>`
+`http://<cluster url>/v1.1/customer/notes?format=<xml/json>&<identifier>=<value>`
 
 ### Request Parameters
 Parameter | Description
 --------- | -----------
 Customer id* | Unique identifier of the customer whose notes need to be retrieved - mobile/email/external_id/user_id
-associate_id | Returns notes created by a specific associate based on the associate id passed 
 
 ## Retrieve Customer Coupons
 ```html
