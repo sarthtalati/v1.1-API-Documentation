@@ -324,7 +324,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 
 <p>A customer is an individual who buys goods or services, or subscribes for organization’s newsletters. An organization can be a store, business firm, hospitals or restaurants).</p>
 
-<p>In Capillary’s platform the customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. </p>
+<p>The customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. </p>
 
 <p>Capillary supports three types of customers based on the loyalty type:</p>
 
@@ -2472,8 +2472,8 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2501,8 +2501,9 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
         <span class="nt">&lt;/notes&gt;</span>
         <span class="nt">&lt;item_status&gt;</span>
             <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Operation Successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Customer note added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;warnings/&gt;</span>
         <span class="nt">&lt;/item_status&gt;</span>
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
@@ -2585,12 +2586,10 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
         </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8378"</span><span class="p">,</span><span class="w">
-
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likes jeans"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8379"</span><span class="p">,</span><span class="w">
-
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likes new arrivals"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -2610,7 +2609,6 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
            <span class="nt">&lt;/note&gt;</span>
            <span class="nt">&lt;note&gt;</span>
                <span class="nt">&lt;id&gt;</span>8379<span class="nt">&lt;/id&gt;</span>
-
                <span class="nt">&lt;description&gt;</span>Likes new arrivals<span class="nt">&lt;/description&gt;</span>
            <span class="nt">&lt;/note&gt;</span>
        <span class="nt">&lt;/notes&gt;</span>
@@ -2653,7 +2651,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added/updated successfully"</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note updated successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2687,7 +2685,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
        <span class="nt">&lt;item_status&gt;</span>
            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-           <span class="nt">&lt;message&gt;</span>Customer note added/updated successfully<span class="nt">&lt;/message&gt;</span>
+           <span class="nt">&lt;message&gt;</span>Customer note updated successfully<span class="nt">&lt;/message&gt;</span>
            <span class="nt">&lt;warnings/&gt;</span>
        <span class="nt">&lt;/item_status&gt;</span>
    <span class="nt">&lt;/customer&gt;</span>
@@ -2794,7 +2792,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json<span class="err"
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note retrieved successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2837,7 +2835,8 @@ user_id tag will be returned only if query param user_id = true
         <span class="nt">&lt;item_status&gt;</span>
             <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
             <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Operation Successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Customer note retrieved successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;warnings/&gt;</span>
         <span class="nt">&lt;/item_status&gt;</span>
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
