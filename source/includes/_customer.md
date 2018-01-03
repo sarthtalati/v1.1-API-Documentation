@@ -1821,8 +1821,8 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
       },
       "item_status": {
         "success": "true",
-        "code": "200",
-        "message": "Operation Successful"
+        "code": "1000",
+        "message": "Customer note added successfully"
       }
     }
   }
@@ -1852,9 +1852,10 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
             </note>
         </notes>
         <item_status>
-            <success>true</success>
-            <code>200</code>
-            <message>Operation Successful</message>
+			<success>true</success>
+			<code>1000</code>
+			<message>Customer note added successfully</message>
+			<warnings/>
         </item_status>
     </customer>
 </response>
@@ -1902,12 +1903,10 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
         "note": [
           {
             "id": "8378",
-            
             "description": "Likes jeans"
           },
           {
             "id": "8379",
-            
             "description": "Likes new arrivals"
           }
         ]
@@ -1930,7 +1929,6 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
            </note>
            <note>
                <id>8379</id>
-               
                <description>Likes new arrivals</description>
            </note>
        </notes>
@@ -1973,7 +1971,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
       "item_status": {
         "success": "true",
         "code": "1000",
-        "message": "Customer note added/updated successfully"
+        "message": "Customer note updated successfully"
       }
     }
   }
@@ -2010,7 +2008,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
        <item_status>
            <success>true</success>
            <code>1000</code>
-           <message>Customer note added/updated successfully</message>
+           <message>Customer note updated successfully</message>
            <warnings/>
        </item_status>
    </customer>
@@ -2085,7 +2083,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700
       "item_status": {
         "success": "true",
         "code": "1000",
-        "message": "Operation Successful"
+        "message": "Customer note retrieved successfully"
       }
     }
   }
@@ -2131,7 +2129,8 @@ user_id tag will be returned only if query param user_id = true
         <item_status>
             <success>true</success>
             <code>1000</code>
-            <message>Operation Successful</message>
+            <message>Customer note retrieved successfully</message>
+			<warnings/>
         </item_status>
     </customer>
 </response>
