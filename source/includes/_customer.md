@@ -1,25 +1,23 @@
 # Customer
-A customer is an individual who buys goods or services, or subscribes for organization’s newsletters. An organization can be a store, business firm, hospitals or restaurants).
+A customer is an individual who either buys goods/services, or subscribes to the organization’s newsletters. An organization refers to a store, business firm, hospital or restaurant.
 
-The customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. 
+Based on the registration status, customers are categorized into three types:
 
-Capillary supports three types of customers based on the loyalty type:
+* **Loyalty customers**: Customers who have registered into the organization’s loyalty program 
+* **Non-loyalty customers**: Customers who have subscribed (mobile number or email id) to organization's newsletter to receive campaign/transaction messages but not enrolled into the organization’s loyalty program 
+* **Not-interested or anonymous customers**: Customers who have neither enrolled in the loyalty program nor subscribed to the organization's newsletter 
 
-* **Loyalty customers**: Customers who have enrolled into the organization’s loyalty program 
-* **Non-loyalty customers**: Customers who have subscribed their mobile number or email id with the organization (through subscriptions, guest transactions etc) but not enrolled into the organization’s loyalty program 
-* **Not-interested or anonymous customers**: Customers who have neither enrolled in the loyalty program nor subscribed their mobile numbers/email ids 
+The customer entity contains APIs related to registering customers into the loyalty program, managing loyalty accounts and updating subscription status of both registered and non-registered customers. It stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.
 
-The customer entity stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.
-
-The customer APIs allow you to
+Customer APIs allow you to:
 
 * Register customers into your organization’s loyalty program 
-* Update customer’s profile information 
+* Update loyalty customers' profile information
 * Update primary or secondary identifiers (mobile no, email id, or external id)
-* Retrieve customer details (loyalty/non-loyalty)
-* Submit tickets on behalf of customers and fetch their tickets  
-* Add, update and retrieve customer preferences 
-* Retrieve transactions of a customer. 
+* Retrieve customer details of loyalty and non-loyalty customers
+* Capture complaints and feedback of loyalty customers
+* Add, update and retrieve customer preferences of loyalty customers
+* Retrieve transactions of loyalty/non-loyalty customers
 
 ## Register Customers
 
@@ -432,22 +430,21 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 </response>
 ```
 
-This API allows you to  register  customers into your organization’s loyalty program. You can register multiple customers at a time. If you pass an existing identifier, the respective customer details will be updated with the new details.
+This API lets you register customers in the organization’s loyalty program with mobile number/email id/external id. If you try to register an existing identifier, the respective customer details will be updated with the new details.
 
-Following are the applications and limitations of register customer API:
+Behavior of the API in different cases:
 
 * Registers customer with the provided details when a new identifier(mobile no/email id/external id) is passed
 * Updates existing customer details, other than existing customer identifier(s), when a registered identifier is passed
 * Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
 * Adds/updates custom field details of the customer
-* Allows adding/updating **extended field** details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes.
+* Adds/updates **extended field** values of the customer
 
-Pass the custom field details in the custom_fields element and extended fields in the extended_fields element.
 
 
 <aside class="notice">
 
-You can also update the secondary identifiers (mobile no./email id./external id) of the customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
+You can also update secondary identifiers (mobile no./email id./external id) of a customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
 
 * CONF_ALLOW_MOBILE_UPDATE (for mobile number)<br>
 * CONF_ALLOW_EMAIL_UPDATE (for email id) <br>
@@ -719,15 +716,21 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 
 ```
 
-This API allows you to update customer’s profile information based on the customer identifier (mobile no/email id/external id) passed. If an identifier you pass already exists then the customer details will be merged automatically.
+This API lets you update the details of loyalty customer. If any of the identifiers you pass already exists for another account, then the customer details will be merged automatically.
 
 The customer update API allows you to update the following parameters:
 
-* Existing customer details, other than primary/secondary identifiers
+* Existing customer details other than primary/secondary identifiers
 * Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
 * Custom field details of the customer
 * Extended field details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes
-* Cannot update primary identifier of the customer
+
+<aside class="notice">
+
+* A customer's primary identifier cannot be updated through this API
+* To retrieve custom field values and extended field values, use the customer/get API
+
+</aside>
 
 Pass the custom field details in the custom_fields element and extended fields in the extended_fields element. To retrieve custom field values and extended field values, use the customer/get API.
 
@@ -1086,7 +1089,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 ```
 
 
-This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. Besides these you can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.
+This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.
 
 ### Resource Information
 Parameter | Value
@@ -1114,7 +1117,7 @@ mobile* | Retrieves customers whose registered mobile numbers matches with the s
 email* | Retrieves the list of registered customers whose email id matches with the string passed. <br>**Query**: `email:EQUALS:<email id>`
 external_id | Retrieves customers whose external id matches with the string passed. <br>**Query**: `external_id:EQUALS:<external id>`
 registered_date | Retrieves customers whose registered date matches the specified date.
-loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br>**Query**: `loyalty_points:GREATER:<lyalty points>`
+loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br>**Query**: `loyalty_points:GREATER:<loyalty points>`
 lifetime_points | Retrieves the list of customers whose lifetime points matches the specified query. <br>**Query**: `lifetime_points:GREATER:<lifetime points>`
 lifetime_purchases | Retrieves the list of customers whose lifetime purchases amount matches the specified query. **Query**: `lifetime_purchases:GREATER:<lifetime purchases>`
 slab | Retrieves the list of customers whose current loyalty tier matches the specified value. <br>**Query**: `slab:EQUALS:<Slab name>`
@@ -1542,7 +1545,7 @@ Transaction type, gross transaction amount, transaction date, points issued, poi
 
 You can filter the results for better understanding and sort the information in ascending or descending order.
 
-																																															<aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
+<aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
 You can filter results using various parameters to analyze the data that you want to see and hide that you don’t want to see. For more details on supported filters, see the ***Request Parameters*** table below.
 
@@ -3814,6 +3817,15 @@ Batch Support | Yes
 
 ### Request URL
 `http://<cluster url>/v1.1/customer/subscriptions?format=<xml/json>`
+
+### Request Attributes
+Attribute | Description
+--------- | -----------
+Customer id* (mobile/email/external_id/user_id) | Provide any identifier of the customers whose subscription details need to be updated
+priority | Specify the service that you want to update - TRANS for personalized messages and BULK for campaign/bulk messages
+scope | Set scope to 'all' always
+channel | Pass the communication channel that you want to update. Value: sms/email
+is_subscribed | Specify `0` to unsubscribe and `1` to subscribe
 
 
 
