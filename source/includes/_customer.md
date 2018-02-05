@@ -2167,105 +2167,121 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 ```
 
 ```json
+
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "customers": {
-      "customer": {
-        "firstname": "John",
-        "lastname": "Doe",
-        "email": "johndoe@example.com",
-        "mobile": "44700900999",
-        "external_id": "EXT001",
-        "id": "1034",
-        "coupons": {
-          "coupon": {
-            "id": "2423525",
-            "redemption_count": "1",
-            "created_date": "
-2013-12-13T16:14:54+05:30",
-            "valid_till": "2016-12-21",
-            "code": "VOCU24902",
-            "transaction_number": "
-BILL-10304",
-            "redemptions": {
-              "redemption": {
-                "date": "2016-12-12 12:12:12",
-                "transaction_number": "
-BIL2042040",
-                "redeemed_at": {
-                  "code": "storecode",
-                  "name": "My store"
-                }
-              }
+   "response":{
+      "pagination":{
+         "limit":"100",
+         "offset":"0",
+         "total":1
+      },
+      "status":{
+         "success":"true",
+         "code":"200",
+         "message":"SUCCESS"
+      },
+      "customers":{
+         "customer":{
+            "firstname":"John",
+            "lastname":"Doe",
+            "email":"johndoe@example.com",
+            "mobile":"44700900999",
+            "external_id":"EXT001",
+            "id":"1034",
+            "coupons":{
+               "coupon":{
+                  "id":"2423525",
+                  "redemption_count":"1",
+                  "created_date":"2013-12-13T16:14:54+05:30",
+                  "valid_till":"2016-12-21",
+                  "code":"VOCU24902",
+                  "transaction_number":"BILL-10304",
+                  "redemptions":{
+                     "redemption":{
+                        "date":"2016-12-12 12:12:12",
+                        "transaction_number":"BIL2042040",
+                        "redeemed_at":{
+                           "code":"storecode",
+                           "name":"My store"
+                        }
+                     }
+                  }
+               }
+            },
+            "item_status":{
+               "success":"true",
+               "code":"1000",
+               "message":"Issued coupons retrieved successfully"
             }
-          }
-        },
-        "item_status": {
-          "success": "true",
-          "code": "1000",
-          "message": "Issued coupons retrieved successfully"
-        }
+         }
       }
-    }
-  }
+   }
 }
+
+
 ```
 
 ```xml
 
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-   <status>
-      <success>true</success>
-      <code>200</code>
-      <message>SUCCESS</message>
-   </status>
-   <customers>
-      <customer>
-         <firstname>John</firstname>
-         <lastname>Doe</lastname>
-         <email>johndoe@example.com</email>
-         <mobile>44700900999</mobile>
-         <external_id>EXT001</external_id>
-         <id>1034</id>
-         <coupons>
-            <coupon>
-               <id>2423525</id>
-               <redemption_count>1</redemption_count>
-               <created_date>2013-12-13T16:14:54+05:30</created_date>
-               <valid_till>2016-12-21</valid_till>
-               <code>VOCU24902</code>
-               <transaction_number>BILL-10304</transaction_number>
-               <redemptions>
-                  <redemption>
-                     <date>2016-12-12 12:12:12</date>
-                     <transaction_number>BIL2042040</transaction_number>
-                     <redeemed_at>
-                        <code>storecode</code>
-                        <name>My store</name>
-                     </redeemed_at>
-                  </redemption>
-               </redemptions>
-            </coupon>
-         </coupons>
-         <item_status>
-            <success>true</success>
-            <code>1000</code>
-            <message>Issued coupons retrieved successfully</message>
-         </item_status>
-      </customer>
-   </customers>
-</response>
+<root>
+   <response>
+      <customers>
+         <customer>
+            <coupons>
+               <coupon>
+                  <code>VOCU24902</code>
+                  <created_date>2013-12-13T16:14:54+05:30</created_date>
+                  <id>2423525</id>
+                  <redemption_count>1</redemption_count>
+                  <redemptions>
+                     <redemption>
+                        <date>2016-12-12 12:12:12</date>
+                        <redeemed_at>
+                           <code>storecode</code>
+                           <name>My store</name>
+                        </redeemed_at>
+                        <transaction_number>BIL2042040</transaction_number>
+                     </redemption>
+                  </redemptions>
+                  <transaction_number>BILL-10304</transaction_number>
+                  <valid_till>2016-12-21</valid_till>
+               </coupon>
+            </coupons>
+            <email>johndoe@example.com</email>
+            <external_id>EXT001</external_id>
+            <firstname>John</firstname>
+            <id>1034</id>
+            <item_status>
+               <code>1000</code>
+               <message>Issued coupons retrieved successfully</message>
+               <success>true</success>
+            </item_status>
+            <lastname>Doe</lastname>
+            <mobile>44700900999</mobile>
+         </customer>
+      </customers>
+      <pagination>
+         <limit>100</limit>
+         <offset>0</offset>
+         <total>1</total>
+      </pagination>
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+
+
 	
 ```
 
-This API allows you to retrieve the details of coupon history of a specific customer, i.e., the details of coupons issued to the customer, and redeemed by the customer.
+This API lets you track the history of coupons issued to a specific customer, i.e., the details of coupons issued and redeemed.
 
 ### Resource Information
 Parameter | Value
@@ -2291,6 +2307,7 @@ series_id | Retrieve details of a specific coupon series issued to the customer
 store_id | Retrieves the details of active coupons of the customer that can be redeemed at a specific store
 order_by | Order the results by created date, amount or issued TILL (`created_date`, `amount`, `valid_till`) based on the type passed
 sort_order | Sort the results in ascending (`asc`) or descending (`desc`) order
+limit | Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer 
 
 ## Create New Ticket
 ```html
@@ -3788,7 +3805,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
           "user_id": "608",
           "email": "tom.sawyer@example.com",
           "channel": "SMS",
-          "priority": "BULK",
+          "priority": "TRANS",
           "scope": "ALL",
           "is_subscribed": "0",
           "item_status": {

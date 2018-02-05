@@ -322,30 +322,28 @@ When an API call is made with 4 batch transactions, A response header is generat
 
           <h1 id="customer">Customer</h1>
 
-<p>A customer is an individual who buys goods or services, or subscribes for organization’s newsletters. An organization can be a store, business firm, hospitals or restaurants).</p>
+<p>A customer is an individual who either buys goods/services, or subscribes to the organization’s newsletters. An organization refers to a store, business firm, hospital or restaurant.</p>
 
-<p>In Capillary’s platform the customer entity represents loyalty customers of the respective organization or just the customers who have subscribed to the organization’s newsletters. </p>
-
-<p>Capillary supports three types of customers based on the loyalty type:</p>
+<p>Based on the registration status, customers are categorized into three types:</p>
 
 <ul>
-<li><strong>Loyalty customers</strong>: Customers who have enrolled into the organization’s loyalty program </li>
-<li><strong>Non-loyalty customers</strong>: Customers who have subscribed their mobile number or email id with the organization (through subscriptions, guest transactions etc) but not enrolled into the organization’s loyalty program </li>
-<li><strong>Not-interested or anonymous customers</strong>: Customers who have neither enrolled in the loyalty program nor subscribed their mobile numbers/email ids </li>
+<li><strong>Loyalty customers</strong>: Customers who have registered into the organization’s loyalty program </li>
+<li><strong>Non-loyalty customers</strong>: Customers who have subscribed (mobile number or email id) to organization&rsquo;s newsletter to receive campaign/transaction messages but not enrolled into the organization’s loyalty program </li>
+<li><strong>Not-interested or anonymous customers</strong>: Customers who have neither enrolled in the loyalty program nor subscribed to the organization&rsquo;s newsletter </li>
 </ul>
 
-<p>The customer entity stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.</p>
+<p>The customer entity contains APIs related to registering customers into the loyalty program, managing loyalty accounts and updating subscription status of both registered and non-registered customers. It stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.</p>
 
-<p>The customer APIs allow you to</p>
+<p>Customer APIs allow you to:</p>
 
 <ul>
 <li>Register customers into your organization’s loyalty program </li>
-<li>Update customer’s profile information </li>
+<li>Update loyalty customers&rsquo; profile information</li>
 <li>Update primary or secondary identifiers (mobile no, email id, or external id)</li>
-<li>Retrieve customer details (loyalty/non-loyalty)</li>
-<li>Submit tickets on behalf of customers and fetch their tickets<br></li>
-<li>Add, update and retrieve customer preferences </li>
-<li>Retrieve transactions of a customer. </li>
+<li>Retrieve customer details of loyalty and non-loyalty customers</li>
+<li>Capture complaints and feedback of loyalty customers</li>
+<li>Add, update and retrieve customer preferences of loyalty customers</li>
+<li>Retrieve transactions of loyalty/non-loyalty customers</li>
 </ul>
 
 <h2 id="register-customers">Register Customers</h2>
@@ -744,23 +742,21 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
     <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to  register  customers into your organization’s loyalty program. You can register multiple customers at a time. If you pass an existing identifier, the respective customer details will be updated with the new details.</p>
+<p>This API lets you register customers in the organization’s loyalty program with mobile number/email id/external id. If you try to register an existing identifier, the respective customer details will be updated with the new details.</p>
 
-<p>Following are the applications and limitations of register customer API:</p>
+<p>Behavior of the API in different cases:</p>
 
 <ul>
 <li>Registers customer with the provided details when a new identifier(mobile no/email id/external id) is passed</li>
 <li>Updates existing customer details, other than existing customer identifier(s), when a registered identifier is passed</li>
 <li>Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i></li>
 <li>Adds/updates custom field details of the customer</li>
-<li>Allows adding/updating <strong>extended field</strong> details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes.</li>
+<li>Adds/updates <strong>extended field</strong> values of the customer</li>
 </ul>
-
-<p>Pass the custom field details in the custom_fields element and extended fields in the extended_fields element.</p>
 
 <aside class="notice">
 
-You can also update the secondary identifiers (mobile no./email id./external id) of the customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
+You can also update secondary identifiers (mobile no./email id./external id) of a customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
 
 * CONF_ALLOW_MOBILE_UPDATE (for mobile number)<br>
 * CONF_ALLOW_EMAIL_UPDATE (for email id) <br>
@@ -1070,17 +1066,23 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 
 
 </code></pre>
-<p>This API allows you to update customer’s profile information based on the customer identifier (mobile no/email id/external id) passed. If an identifier you pass already exists then the customer details will be merged automatically.</p>
+<p>This API lets you update the details of loyalty customer. If any of the identifiers you pass already exists for another account, then the customer details will be merged automatically.</p>
 
 <p>The customer update API allows you to update the following parameters:</p>
 
 <ul>
-<li>Existing customer details, other than primary/secondary identifiers</li>
+<li>Existing customer details other than primary/secondary identifiers</li>
 <li>Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i></li>
 <li>Custom field details of the customer</li>
 <li>Extended field details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes</li>
-<li>Cannot update primary identifier of the customer</li>
 </ul>
+
+<aside class="notice">
+
+* A customer&rsquo;s primary identifier cannot be updated through this API
+* To retrieve custom field values and extended field values, use the customer/get API
+
+</aside>
 
 <p>Pass the custom field details in the custom_fields element and extended fields in the extended_fields element. To retrieve custom field values and extended field values, use the customer/get API.</p>
 
@@ -1493,7 +1495,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
 
 </code></pre>
-<p>This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. Besides these you can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.</p>
+<p>This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1559,7 +1561,7 @@ mobile* | Retrieves customers whose registered mobile numbers matches with the s
 email* | Retrieves the list of registered customers whose email id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">email:EQUALS:&lt;email id&gt;</code>
 external_id | Retrieves customers whose external id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">external_id:EQUALS:&lt;external id&gt;</code>
 registered_date | Retrieves customers whose registered date matches the specified date.
-loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">loyalty_points:GREATER:&lt;lyalty points&gt;</code>
+loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">loyalty_points:GREATER:&lt;loyalty points&gt;</code>
 lifetime_points | Retrieves the list of customers whose lifetime points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">lifetime_points:GREATER:&lt;lifetime points&gt;</code>
 lifetime_purchases | Retrieves the list of customers whose lifetime purchases amount matches the specified query. <strong>Query</strong>: <code class="prettyprint">lifetime_purchases:GREATER:&lt;lifetime purchases&gt;</code>
 slab | Retrieves the list of customers whose current loyalty tier matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">slab:EQUALS:&lt;Slab name&gt;</code>
@@ -2045,7 +2047,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 
 <p>You can filter the results for better understanding and sort the information in ascending or descending order.</p>
 
-<p><aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside></p>
+<aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
 <p>You can filter results using various parameters to analyze the data that you want to see and hide that you don’t want to see. For more details on supported filters, see the <strong><em>Request Parameters</em></strong> table below.</p>
 
@@ -2472,8 +2474,8 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2501,8 +2503,9 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
         <span class="nt">&lt;/notes&gt;</span>
         <span class="nt">&lt;item_status&gt;</span>
             <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Operation Successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Customer note added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;warnings/&gt;</span>
         <span class="nt">&lt;/item_status&gt;</span>
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
@@ -2585,12 +2588,10 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
         </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8378"</span><span class="p">,</span><span class="w">
-
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likes jeans"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8379"</span><span class="p">,</span><span class="w">
-
             </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Likes new arrivals"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -2610,7 +2611,6 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
            <span class="nt">&lt;/note&gt;</span>
            <span class="nt">&lt;note&gt;</span>
                <span class="nt">&lt;id&gt;</span>8379<span class="nt">&lt;/id&gt;</span>
-
                <span class="nt">&lt;description&gt;</span>Likes new arrivals<span class="nt">&lt;/description&gt;</span>
            <span class="nt">&lt;/note&gt;</span>
        <span class="nt">&lt;/notes&gt;</span>
@@ -2653,7 +2653,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added/updated successfully"</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note updated successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2687,7 +2687,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
        <span class="nt">&lt;item_status&gt;</span>
            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-           <span class="nt">&lt;message&gt;</span>Customer note added/updated successfully<span class="nt">&lt;/message&gt;</span>
+           <span class="nt">&lt;message&gt;</span>Customer note updated successfully<span class="nt">&lt;/message&gt;</span>
            <span class="nt">&lt;warnings/&gt;</span>
        <span class="nt">&lt;/item_status&gt;</span>
    <span class="nt">&lt;/customer&gt;</span>
@@ -2794,7 +2794,7 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json<span class="err"
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note retrieved successfully"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2837,7 +2837,8 @@ user_id tag will be returned only if query param user_id = true
         <span class="nt">&lt;item_status&gt;</span>
             <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
             <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Operation Successful<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Customer note retrieved successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;warnings/&gt;</span>
         <span class="nt">&lt;/item_status&gt;</span>
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
@@ -4840,6 +4841,36 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/subscriptions?format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-attributes">Request Attributes</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer id* (mobile/email/external_id/user_id)</td>
+<td>Provide any identifier of the customers whose subscription details need to be updated</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Specify the service that you want to update - TRANS for personalized messages and BULK for campaign/bulk messages</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>Set scope to &lsquo;all&rsquo; always</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>Pass the communication channel that you want to update. Value: sms/email</td>
+</tr>
+<tr>
+<td>is_subscribed</td>
+<td>Specify <code class="prettyprint">0</code> to unsubscribe and <code class="prettyprint">1</code> to subscribe</td>
+</tr>
+</tbody></table>
 
 <h2 id="retrieve-subscription-details">Retrieve Subscription Details</h2>
 <pre class="highlight html"><code># Sample Request
