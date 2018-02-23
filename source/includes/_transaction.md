@@ -553,7 +553,7 @@ Batch Support | Yes
 ## Add Transaction with Local Currency 
 ```html
 # Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 ```
 
 > Sample POST Request
