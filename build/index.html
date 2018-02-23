@@ -2901,101 +2901,117 @@ user_id tag will be returned only if query param user_id = true
 <h2 id="retrieve-customer-coupons">Retrieve Customer Coupons</h2>
 <pre class="highlight html"><code># Sample Request
 http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johndoe@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXT001"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1034"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2423525"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"redemption_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-2013-12-13T16:14:54+05:30"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-21"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VOCU24902"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-BILL-10304"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"redemptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"redemption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-12 12:12:12"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-BIL2042040"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My store"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"pagination"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"limit"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"offset"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"total"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"customers"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"johndoe@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"EXT001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"1034"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coupons"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"coupon"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"2423525"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"redemption_count"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"created_date"</span><span class="p">:</span><span class="s2">"2013-12-13T16:14:54+05:30"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="s2">"2016-12-21"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"VOCU24902"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"BILL-10304"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"redemptions"</span><span class="p">:{</span><span class="w">
+                     </span><span class="nt">"redemption"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"2016-12-12 12:12:12"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"BIL2042040"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"redeemed_at"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"My store"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Issued coupons retrieved successfully"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Issued coupons retrieved successfully"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+
+
 </span></code></pre><pre class="highlight xml"><code>
 
+
+
 <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;response&gt;</span>
-   <span class="nt">&lt;status&gt;</span>
-      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-      <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-   <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;customers&gt;</span>
-      <span class="nt">&lt;customer&gt;</span>
-         <span class="nt">&lt;firstname&gt;</span>John<span class="nt">&lt;/firstname&gt;</span>
-         <span class="nt">&lt;lastname&gt;</span>Doe<span class="nt">&lt;/lastname&gt;</span>
-         <span class="nt">&lt;email&gt;</span>johndoe@example.com<span class="nt">&lt;/email&gt;</span>
-         <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-         <span class="nt">&lt;external_id&gt;</span>EXT001<span class="nt">&lt;/external_id&gt;</span>
-         <span class="nt">&lt;id&gt;</span>1034<span class="nt">&lt;/id&gt;</span>
-         <span class="nt">&lt;coupons&gt;</span>
-            <span class="nt">&lt;coupon&gt;</span>
-               <span class="nt">&lt;id&gt;</span>2423525<span class="nt">&lt;/id&gt;</span>
-               <span class="nt">&lt;redemption_count&gt;</span>1<span class="nt">&lt;/redemption_count&gt;</span>
-               <span class="nt">&lt;created_date&gt;</span>2013-12-13T16:14:54+05:30<span class="nt">&lt;/created_date&gt;</span>
-               <span class="nt">&lt;valid_till&gt;</span>2016-12-21<span class="nt">&lt;/valid_till&gt;</span>
-               <span class="nt">&lt;code&gt;</span>VOCU24902<span class="nt">&lt;/code&gt;</span>
-               <span class="nt">&lt;transaction_number&gt;</span>BILL-10304<span class="nt">&lt;/transaction_number&gt;</span>
-               <span class="nt">&lt;redemptions&gt;</span>
-                  <span class="nt">&lt;redemption&gt;</span>
-                     <span class="nt">&lt;date&gt;</span>2016-12-12 12:12:12<span class="nt">&lt;/date&gt;</span>
-                     <span class="nt">&lt;transaction_number&gt;</span>BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
-                     <span class="nt">&lt;redeemed_at&gt;</span>
-                        <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
-                        <span class="nt">&lt;name&gt;</span>My store<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;/redeemed_at&gt;</span>
-                  <span class="nt">&lt;/redemption&gt;</span>
-               <span class="nt">&lt;/redemptions&gt;</span>
-            <span class="nt">&lt;/coupon&gt;</span>
-         <span class="nt">&lt;/coupons&gt;</span>
-         <span class="nt">&lt;item_status&gt;</span>
-            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Issued coupons retrieved successfully<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;/item_status&gt;</span>
-      <span class="nt">&lt;/customer&gt;</span>
-   <span class="nt">&lt;/customers&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;customers&gt;</span>
+         <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;coupons&gt;</span>
+               <span class="nt">&lt;coupon&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>VOCU24902<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;created_date&gt;</span>2013-12-13T16:14:54+05:30<span class="nt">&lt;/created_date&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>2423525<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;redemption_count&gt;</span>1<span class="nt">&lt;/redemption_count&gt;</span>
+                  <span class="nt">&lt;redemptions&gt;</span>
+                     <span class="nt">&lt;redemption&gt;</span>
+                        <span class="nt">&lt;date&gt;</span>2016-12-12 12:12:12<span class="nt">&lt;/date&gt;</span>
+                        <span class="nt">&lt;redeemed_at&gt;</span>
+                           <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>My store<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/redeemed_at&gt;</span>
+                        <span class="nt">&lt;transaction_number&gt;</span>BIL2042040<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;/redemption&gt;</span>
+                  <span class="nt">&lt;/redemptions&gt;</span>
+                  <span class="nt">&lt;transaction_number&gt;</span>BILL-10304<span class="nt">&lt;/transaction_number&gt;</span>
+                  <span class="nt">&lt;valid_till&gt;</span>2016-12-21<span class="nt">&lt;/valid_till&gt;</span>
+               <span class="nt">&lt;/coupon&gt;</span>
+            <span class="nt">&lt;/coupons&gt;</span>
+            <span class="nt">&lt;email&gt;</span>johndoe@example.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;external_id&gt;</span>EXT001<span class="nt">&lt;/external_id&gt;</span>
+            <span class="nt">&lt;firstname&gt;</span>John<span class="nt">&lt;/firstname&gt;</span>
+            <span class="nt">&lt;id&gt;</span>1034<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Issued coupons retrieved successfully<span class="nt">&lt;/message&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;lastname&gt;</span>Doe<span class="nt">&lt;/lastname&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;/customers&gt;</span>
+      <span class="nt">&lt;pagination&gt;</span>
+         <span class="nt">&lt;limit&gt;</span>100<span class="nt">&lt;/limit&gt;</span>
+         <span class="nt">&lt;offset&gt;</span>0<span class="nt">&lt;/offset&gt;</span>
+         <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
+      <span class="nt">&lt;/pagination&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+
 
 </code></pre>
-<p>This API allows you to retrieve the details of coupon history of a specific customer, i.e., the details of coupons issued to the customer, and redeemed by the customer.</p>
+<p>This API lets you track the history of coupons issued to a specific customer, i.e., the details of coupons issued and redeemed.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -3074,6 +3090,10 @@ BIL2042040"</span><span class="p">,</span><span class="w">
 <tr>
 <td>sort_order</td>
 <td>Sort the results in ascending (<code class="prettyprint">asc</code>) or descending (<code class="prettyprint">desc</code>) order</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer</td>
 </tr>
 </tbody></table>
 
@@ -4788,7 +4808,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"608"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"is_subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
