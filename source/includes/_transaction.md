@@ -897,6 +897,198 @@ Before submitting return transactions, you should know the configurations set of
 
 
 
+
+### Request URL
+`http://<cluster url>/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+
+
+
+## Cancel a Line-Item of a Transactions
+```html
+# Sample Request
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+```
+> Sample POST Request
+
+```json
+{
+   "transaction": {
+      "comment": "cancel line_item",
+      "customer": {
+         "mobile": "919111111111",
+         "lastname": "Sawyer",
+         "external_id": "ts8674477501",
+         "email": "tom.sawyer@example.com",
+         "firstname": "Tom"
+      },
+      "line_items": {
+         "line_item": {
+            "description": "Ordered a different item",
+            "rate": "50",
+            "value": "50",
+            "qty": "1",
+            "amount": "50",
+            "item_code": "number0-1",
+            "cashier_id": [],
+            "discount_value": "0",
+            "return_type": "cancelled",
+            "type": "return",
+            "serial": "0"
+         }
+      },
+      "notes": "one line item cancel",
+      "billing_time": "2018-02-14",
+      "number": "numbr8674477501",
+      "return_type": "cancelled",
+      "type": "return"
+   }
+}
+
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <transaction>
+      <comment>cancel line_item</comment>
+      <customer>
+         <mobile>919111111111</mobile>
+         <lastname>Sawyer</lastname>
+         <external_id>ts8674477501</external_id>
+         <email>tom.sawyer@example.com</email>
+         <firstname>Tom</firstname>
+      </customer>
+      <line_items>
+         <line_item>
+            <description>Ordered a different item</description>
+            <rate>50</rate>
+            <value>50</value>
+            <qty>1</qty>
+            <amount>50</amount>
+            <item_code>number0-1</item_code>
+            <cashier_id />
+            <discount_value>0</discount_value>
+            <return_type>cancelled</return_type>
+            <type>return</type>
+            <serial>0</serial>
+         </line_item>
+      </line_items>
+      <notes>one line item cancel</notes>
+      <billing_time>2018-02-14</billing_time>
+      <number>numbr8674477501</number>
+      <return_type>cancelled</return_type>
+      <type>return</type>
+   </transaction>
+</root>
+```
+
+> Sample Response
+
+```xml
+<response>
+    <status>
+        <success>true</success>
+        <code>200</code>
+        <message>Success</message>
+    </status>
+    <transactions>
+        <transaction>
+            <id>176536</id>
+            <number>numbr8674477502</number>
+            <bill_client_id/>
+            <type>RETURN</type>
+            <delivery_status>DELIVERED</delivery_status>
+            <outlier_status>NORMAL</outlier_status>
+            <customer>
+                <user_id>32411221</user_id>
+                <mobile>919111111111</mobile>
+                <firstname>Tom</firstname>
+                <lastname>Sawyer</lastname>
+                <email>tom.sawyer@example.com</email>
+                <external_id>ext_id8674477501</external_id>
+                <lifetime_points>0</lifetime_points>
+                <loyalty_points>0</loyalty_points>
+                <current_slab/>
+                <tier_expiry_date/>
+                <lifetime_purchases>0</lifetime_purchases>
+                <type>LOYALTY</type>
+                <source>instore</source>
+            </customer>
+            <side_effects>
+                <effect/>
+            </side_effects>
+            <points_deducted>0</points_deducted>
+            <points_balance>0</points_balance>
+            <source/>
+            <item_status>
+                <code>600</code>
+                <success>true</success>
+                <message>Transaction added successfully</message>
+            </item_status>
+        </transaction>
+    </transactions>
+</response>
+```
+
+```json
+{
+   "status": {
+      "success": "true",
+      "code": "200",
+      "message": "Success"
+   },
+   "transactions": {
+      "transaction": {
+         "id": "176536",
+         "number": "numbr8674477502",
+         "bill_client_id": [],
+         "type": "RETURN",
+         "delivery_status": "DELIVERED",
+         "outlier_status": "NORMAL",
+         "customer": {
+            "user_id": "32411221",
+            "mobile": "919111111111",
+            "firstname": "Tom",
+            "lastname": "Sawyer",
+            "email": "tom.sawyer@example.com",
+            "external_id": "ts123",
+            "lifetime_points": "0",
+            "loyalty_points": "0",
+            "current_slab": [],
+            "tier_expiry_date": [],
+            "lifetime_purchases": "0",
+            "type": "LOYALTY",
+            "source": "instore"
+         },
+         "side_effects": {
+            "effect": []
+         },
+         "points_deducted": "0",
+         "points_balance": "0",
+         "source": [],
+         "item_status": {
+            "code": "600",
+            "success": "true",
+            "message": "Transaction added successfully"
+         }
+      }
+   }
+}
+```
+
+Lets you cancel a line-item of a transaction. For example, it can be used for e-commerce platforms where the brand allows a customer to cancel an item (of a transaction) before it is shipped/delivered.
+
+<aside class="notice">
+To cancel a line-item, it is required to pass return item's purchased transaction number and purchase_time.
+
+* Purchase time: The date and time of the actual transaction
+* Billing time: The date and time of the return transaction
+</aside>
+
+
+
+
+
 ### Resource Information
 Entry | Description
 ----- | -----------
