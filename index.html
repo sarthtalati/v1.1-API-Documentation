@@ -1141,12 +1141,8 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 </tr>
 </thead><tbody>
 <tr>
-<td>Mobile/email/external_id*</td>
+<td>Mobile/email/external_id/id*</td>
 <td>Pass any one of the following identifiers of the customer whose details need to be updated</td>
-</tr>
-<tr>
-<td>user_id(Boolean)</td>
-<td>Returns the unique user ID of the customer if user_id=true</td>
 </tr>
 </tbody></table>
 
@@ -1387,7 +1383,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
                         </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-12-25 11:25:32"</span><span class="p">,</span><span class="w">
 
-                        </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pe.london.bondstreet"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"px.london.bondstreet"</span><span class="p">,</span><span class="w">
 
                         </span><span class="nt">"last_trans_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
 
@@ -1585,254 +1581,271 @@ Custom fields | Retrieves the list of customers whose custom field values matche
 
 <h2 id="retrieve-customer-details">Retrieve Customer Details</h2>
 <pre class="highlight html"><code># Sample Request URL
-http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
+http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"success_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rati"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ranjan"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19889999999"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919090080344343422@mail.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">442</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">12338</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">242</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SILVER"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-12-10 04:46:38"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 15:58:29"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-
-          </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE FRONT ONE"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"registered_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mergestore1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE FRONT ONE"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"fraud_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919889999999"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts123"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2600"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-14 00:00:00"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-19 17:27:19"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north_store"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"registered_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north_store"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north_store"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"fraud_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"marked_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"modified_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"trackers"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"current_nps_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"marked_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"modified_on"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"trackers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"current_nps_status"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marital_status"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Single"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nationality"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indian"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32650346"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90384"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 16:00:10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32650345"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testbil90"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 15:55:27"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32650339"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 14:47:29"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32650338"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uash0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 14:45:23"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32650337"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"txnsubmit1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-09 14:33:54"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31718568"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wefrw455"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-24 17:35:51"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm.1"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33084753"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-4001"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-19 00:00:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33076050"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-4000"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-14 00:00:00"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"north"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27361878"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12367"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X2TLL9YD"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCD1"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-22 11:50:02"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-24 23:59:59"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27361879"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12368"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ICRHTAY0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCD2"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-22 12:05:32"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-24 23:59:59"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"points_summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"programId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1252"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"lifetimePoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"loyaltyPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"cumulativePurchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2600"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"currentSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Diamond"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlabSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlabDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tier 3"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"slabSNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"slabExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2118-02-19 23:59:59"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"totalPoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"programId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1253"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"47"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"lifetimePoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"loyaltyPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"145"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"cumulativePurchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2600"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"currentSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"White"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pink"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlabSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"nextSlabDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"slab 3"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"slabSNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"slabExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2118-02-14 23:59:59"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"totalPoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer successfully retrieved"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+            </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
-    <span class="nt">&lt;status&gt;</span>
-        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-        <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
-        <span class="nt">&lt;success_count&gt;</span>1<span class="nt">&lt;/success_count&gt;</span>
-    <span class="nt">&lt;/status&gt;</span>
-    <span class="nt">&lt;customers&gt;</span>
-        <span class="nt">&lt;customer&gt;</span>
-            <span class="nt">&lt;firstname&gt;</span>Rati<span class="nt">&lt;/firstname&gt;</span>
-            <span class="nt">&lt;lastname&gt;</span>Ranjan<span class="nt">&lt;/lastname&gt;</span>
-            <span class="nt">&lt;mobile&gt;</span>19889999999<span class="nt">&lt;/mobile&gt;</span>
-            <span class="nt">&lt;email&gt;</span>919090080344343422@mail.com<span class="nt">&lt;/email&gt;</span>
-            <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;lifetime_points&gt;</span>442<span class="nt">&lt;/lifetime_points&gt;</span>
-            <span class="nt">&lt;lifetime_purchases&gt;</span>12338<span class="nt">&lt;/lifetime_purchases&gt;</span>
-            <span class="nt">&lt;loyalty_points&gt;</span>242<span class="nt">&lt;/loyalty_points&gt;</span>
-            <span class="nt">&lt;current_slab&gt;</span>SILVER<span class="nt">&lt;/current_slab&gt;</span>
-            <span class="nt">&lt;registered_on&gt;</span>2014-12-10 04:46:38<span class="nt">&lt;/registered_on&gt;</span>
-            <span class="nt">&lt;updated_on&gt;</span>2017-05-09 15:58:29<span class="nt">&lt;/updated_on&gt;</span>
-            <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
-            <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-
-            <span class="nt">&lt;registered_by&gt;</span>MERGE FRONT ONE<span class="nt">&lt;/registered_by&gt;</span>
-            <span class="nt">&lt;registered_store&gt;</span>
-                <span class="nt">&lt;code&gt;</span>mergestore1<span class="nt">&lt;/code&gt;</span>
-                <span class="nt">&lt;name&gt;</span>MERGE FRONT ONE<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/registered_store&gt;</span>
-            <span class="nt">&lt;registered_till&gt;</span>
-                <span class="nt">&lt;code&gt;</span>cm.1<span class="nt">&lt;/code&gt;</span>
-                <span class="nt">&lt;name&gt;</span>cm.1<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/registered_till&gt;</span>
-            <span class="nt">&lt;fraud_details&gt;</span>
-                <span class="nt">&lt;status&gt;</span>NONE<span class="nt">&lt;/status&gt;</span>
-                <span class="nt">&lt;marked_by&gt;&lt;/marked_by&gt;</span>
-                <span class="nt">&lt;modified_on&gt;&lt;/modified_on&gt;</span>
-            <span class="nt">&lt;/fraud_details&gt;</span>
-            <span class="nt">&lt;trackers&gt;&lt;/trackers&gt;</span>
-            <span class="nt">&lt;current_nps_status</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;custom_fields&gt;&lt;/custom_fields&gt;</span>
-            <span class="nt">&lt;extended_fields&gt;</span>
-                <span class="nt">&lt;field&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>marital_status<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;value&gt;</span>Single<span class="nt">&lt;/value&gt;</span>
-                <span class="nt">&lt;/field&gt;</span>
-                <span class="nt">&lt;field&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>City<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;value&gt;</span>Bangalore<span class="nt">&lt;/value&gt;</span>
-                <span class="nt">&lt;/field&gt;</span>
-                <span class="nt">&lt;field&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>nationality<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;value&gt;</span>Indian<span class="nt">&lt;/value&gt;</span>
-                <span class="nt">&lt;/field&gt;</span>
-                <span class="nt">&lt;field&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;value&gt;</span>Male<span class="nt">&lt;/value&gt;</span>
-                <span class="nt">&lt;/field&gt;</span>
-            <span class="nt">&lt;/extended_fields&gt;</span>
-            <span class="nt">&lt;transactions&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>32650346<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>90384<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2017-05-09 16:00:10<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>32650345<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>testbil90<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2017-05-09 15:55:27<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>32650339<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>test0<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2017-05-09 14:47:29<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>32650338<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>uash0<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2017-05-09 14:45:23<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>32650337<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>txnsubmit1<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2017-05-09 14:33:54<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-                <span class="nt">&lt;transaction&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>31718568<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>wefrw455<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                    <span class="nt">&lt;created_date&gt;</span>2016-08-24 17:35:51<span class="nt">&lt;/created_date&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>cm.1<span class="nt">&lt;/store&gt;</span>
-                <span class="nt">&lt;/transaction&gt;</span>
-            <span class="nt">&lt;/transactions&gt;</span>
-            <span class="nt">&lt;coupons&gt;&lt;/coupons&gt;</span>
-            <span class="nt">&lt;item_status&gt;</span>
-                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-                <span class="nt">&lt;message&gt;</span>Customer successfully retrieved<span class="nt">&lt;/message&gt;</span>
-                <span class="nt">&lt;warnings&gt;&lt;/warnings&gt;</span>
-            <span class="nt">&lt;/item_status&gt;</span>
-        <span class="nt">&lt;/customer&gt;</span>
-    <span class="nt">&lt;/customers&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+      <span class="nt">&lt;total&gt;</span>1<span class="nt">&lt;/total&gt;</span>
+      <span class="nt">&lt;success_count&gt;</span>1<span class="nt">&lt;/success_count&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;customers&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+         <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>919889999999<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+         <span class="nt">&lt;external_id&gt;</span>ts123<span class="nt">&lt;/external_id&gt;</span>
+         <span class="nt">&lt;lifetime_points&gt;</span>30<span class="nt">&lt;/lifetime_points&gt;</span>
+         <span class="nt">&lt;lifetime_purchases&gt;</span>2600<span class="nt">&lt;/lifetime_purchases&gt;</span>
+         <span class="nt">&lt;loyalty_points&gt;</span>15<span class="nt">&lt;/loyalty_points&gt;</span>
+         <span class="nt">&lt;current_slab&gt;</span>Gold<span class="nt">&lt;/current_slab&gt;</span>
+         <span class="nt">&lt;registered_on&gt;</span>2018-02-14 00:00:00<span class="nt">&lt;/registered_on&gt;</span>
+         <span class="nt">&lt;updated_on&gt;</span>2018-02-19 17:27:19<span class="nt">&lt;/updated_on&gt;</span>
+         <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+         <span class="nt">&lt;identifiers</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;gender</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;registered_by&gt;</span>north_store<span class="nt">&lt;/registered_by&gt;</span>
+         <span class="nt">&lt;registered_store&gt;</span>
+            <span class="nt">&lt;code&gt;</span>north_store<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;name&gt;</span>north_store<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;/registered_store&gt;</span>
+         <span class="nt">&lt;registered_till&gt;</span>
+            <span class="nt">&lt;code&gt;</span>north<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;name&gt;</span>north<span class="nt">&lt;/name&gt;</span>
+         <span class="nt">&lt;/registered_till&gt;</span>
+         <span class="nt">&lt;fraud_details&gt;</span>
+            <span class="nt">&lt;status&gt;</span>NONE<span class="nt">&lt;/status&gt;</span>
+            <span class="nt">&lt;marked_by</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;modified_on</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/fraud_details&gt;</span>
+         <span class="nt">&lt;trackers</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;current_nps_status</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/custom_fields&gt;</span>
+         <span class="nt">&lt;extended_fields&gt;</span>
+            <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/extended_fields&gt;</span>
+         <span class="nt">&lt;transactions&gt;</span>
+            <span class="nt">&lt;transaction&gt;</span>
+               <span class="nt">&lt;id&gt;</span>33084753<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;number&gt;</span>n-4001<span class="nt">&lt;/number&gt;</span>
+               <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+               <span class="nt">&lt;created_date&gt;</span>2018-02-19 00:00:00<span class="nt">&lt;/created_date&gt;</span>
+               <span class="nt">&lt;store&gt;</span>north<span class="nt">&lt;/store&gt;</span>
+            <span class="nt">&lt;/transaction&gt;</span>
+            <span class="nt">&lt;transaction&gt;</span>
+               <span class="nt">&lt;id&gt;</span>33076050<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;number&gt;</span>n-4000<span class="nt">&lt;/number&gt;</span>
+               <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+               <span class="nt">&lt;created_date&gt;</span>2018-02-14 00:00:00<span class="nt">&lt;/created_date&gt;</span>
+               <span class="nt">&lt;store&gt;</span>north<span class="nt">&lt;/store&gt;</span>
+            <span class="nt">&lt;/transaction&gt;</span>
+         <span class="nt">&lt;/transactions&gt;</span>
+         <span class="nt">&lt;coupons&gt;</span>
+            <span class="nt">&lt;coupon&gt;</span>
+               <span class="nt">&lt;id&gt;</span>27361878<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;series_id&gt;</span>12367<span class="nt">&lt;/series_id&gt;</span>
+               <span class="nt">&lt;code&gt;</span>X2TLL9YD<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;description&gt;</span>ABCD1<span class="nt">&lt;/description&gt;</span>
+               <span class="nt">&lt;created_date&gt;</span>2018-02-22 11:50:02<span class="nt">&lt;/created_date&gt;</span>
+               <span class="nt">&lt;valid_till&gt;</span>2018-03-24 23:59:59<span class="nt">&lt;/valid_till&gt;</span>
+               <span class="nt">&lt;redeemed&gt;</span>true<span class="nt">&lt;/redeemed&gt;</span>
+            <span class="nt">&lt;/coupon&gt;</span>
+            <span class="nt">&lt;coupon&gt;</span>
+               <span class="nt">&lt;id&gt;</span>27361879<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;series_id&gt;</span>12368<span class="nt">&lt;/series_id&gt;</span>
+               <span class="nt">&lt;code&gt;</span>ICRHTAY0<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;description&gt;</span>ABCD2<span class="nt">&lt;/description&gt;</span>
+               <span class="nt">&lt;created_date&gt;</span>2018-02-22 12:05:32<span class="nt">&lt;/created_date&gt;</span>
+               <span class="nt">&lt;valid_till&gt;</span>2018-03-24 23:59:59<span class="nt">&lt;/valid_till&gt;</span>
+               <span class="nt">&lt;redeemed&gt;</span>true<span class="nt">&lt;/redeemed&gt;</span>
+            <span class="nt">&lt;/coupon&gt;</span>
+         <span class="nt">&lt;/coupons&gt;</span>
+         <span class="nt">&lt;notes</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;points_summaries&gt;</span>
+            <span class="nt">&lt;points_summary&gt;</span>
+               <span class="nt">&lt;programId&gt;</span>1252<span class="nt">&lt;/programId&gt;</span>
+               <span class="nt">&lt;redeemed&gt;</span>15<span class="nt">&lt;/redeemed&gt;</span>
+               <span class="nt">&lt;expired&gt;</span>0<span class="nt">&lt;/expired&gt;</span>
+               <span class="nt">&lt;returned&gt;</span>0<span class="nt">&lt;/returned&gt;</span>
+               <span class="nt">&lt;adjusted&gt;</span>0<span class="nt">&lt;/adjusted&gt;</span>
+               <span class="nt">&lt;lifetimePoints&gt;</span>30<span class="nt">&lt;/lifetimePoints&gt;</span>
+               <span class="nt">&lt;loyaltyPoints&gt;</span>15<span class="nt">&lt;/loyaltyPoints&gt;</span>
+               <span class="nt">&lt;cumulativePurchases&gt;</span>2600<span class="nt">&lt;/cumulativePurchases&gt;</span>
+               <span class="nt">&lt;currentSlab&gt;</span>Gold<span class="nt">&lt;/currentSlab&gt;</span>
+               <span class="nt">&lt;nextSlab&gt;</span>Diamond<span class="nt">&lt;/nextSlab&gt;</span>
+               <span class="nt">&lt;nextSlabSerialNumber&gt;</span>3<span class="nt">&lt;/nextSlabSerialNumber&gt;</span>
+               <span class="nt">&lt;nextSlabDescription&gt;</span>tier 3<span class="nt">&lt;/nextSlabDescription&gt;</span>
+               <span class="nt">&lt;slabSNo&gt;</span>2<span class="nt">&lt;/slabSNo&gt;</span>
+               <span class="nt">&lt;slabExpiryDate&gt;</span>2118-02-19 23:59:59<span class="nt">&lt;/slabExpiryDate&gt;</span>
+               <span class="nt">&lt;totalPoints</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/points_summary&gt;</span>
+            <span class="nt">&lt;points_summary&gt;</span>
+               <span class="nt">&lt;programId&gt;</span>1253<span class="nt">&lt;/programId&gt;</span>
+               <span class="nt">&lt;redeemed&gt;</span>47<span class="nt">&lt;/redeemed&gt;</span>
+               <span class="nt">&lt;expired&gt;</span>8<span class="nt">&lt;/expired&gt;</span>
+               <span class="nt">&lt;returned&gt;</span>0<span class="nt">&lt;/returned&gt;</span>
+               <span class="nt">&lt;adjusted&gt;</span>0<span class="nt">&lt;/adjusted&gt;</span>
+               <span class="nt">&lt;lifetimePoints&gt;</span>200<span class="nt">&lt;/lifetimePoints&gt;</span>
+               <span class="nt">&lt;loyaltyPoints&gt;</span>145<span class="nt">&lt;/loyaltyPoints&gt;</span>
+               <span class="nt">&lt;cumulativePurchases&gt;</span>2600<span class="nt">&lt;/cumulativePurchases&gt;</span>
+               <span class="nt">&lt;currentSlab&gt;</span>White<span class="nt">&lt;/currentSlab&gt;</span>
+               <span class="nt">&lt;nextSlab&gt;</span>Pink<span class="nt">&lt;/nextSlab&gt;</span>
+               <span class="nt">&lt;nextSlabSerialNumber&gt;</span>3<span class="nt">&lt;/nextSlabSerialNumber&gt;</span>
+               <span class="nt">&lt;nextSlabDescription&gt;</span>slab 3<span class="nt">&lt;/nextSlabDescription&gt;</span>
+               <span class="nt">&lt;slabSNo&gt;</span>2<span class="nt">&lt;/slabSNo&gt;</span>
+               <span class="nt">&lt;slabExpiryDate&gt;</span>2118-02-14 23:59:59<span class="nt">&lt;/slabExpiryDate&gt;</span>
+               <span class="nt">&lt;totalPoints</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/points_summary&gt;</span>
+         <span class="nt">&lt;/points_summaries&gt;</span>
+         <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Customer successfully retrieved<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;warnings</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;/item_status&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+   <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
+
 </code></pre>
 <p>This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer&rsquo;s unique id.</p>
 
@@ -1884,11 +1897,11 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any identifier (mobile/email/external_id/user_id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
+<td>Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
-<td>user_id</td>
-<td>Returns the unique id of the customer generated at our end when the customer is registered</td>
+<td>user_id=true</td>
+<td>Returns the unique id of the customer (generated at our end when the customer is registered)</td>
 </tr>
 <tr>
 <td>next_slab=true</td>
@@ -1938,11 +1951,15 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 <td>membership_retention_criteria=true</td>
 <td>Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership</td>
 </tr>
+<tr>
+<td>mlp=true</td>
+<td>Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)</td>
+</tr>
 </tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
+<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;&amp;mlp=true</code></p>
 
 <h2 id="retrieve-customer-transactions">Retrieve Customer Transactions</h2>
 <pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
@@ -2089,6 +2106,10 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
 
+<p>For MLP</p>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
+
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
@@ -2099,7 +2120,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/user_id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
+<td>Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
 <td>start_date</td>
@@ -2230,15 +2251,17 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
         </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121614"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121614</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
               </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-83"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17 16:03:31"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121615"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121656</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
               </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-121"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17 16:05:22"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
@@ -2401,6 +2424,10 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 <tr>
 <td>sort</td>
 <td>Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time</td>
+</tr>
+<tr>
+<td>mlp=true</td>
+<td>Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)</td>
 </tr>
 </tbody></table>
 
@@ -3996,7 +4023,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the customer identifier (mobile/email/external_id) for whom you want to track the referral details</td>
+<td>Pass the customer identifier (mobile/email/external_id/id) for whom you want to track the referral details</td>
 </tr>
 <tr>
 <td>campaign_token</td>
@@ -4355,7 +4382,7 @@ Preferences retrieved successfully
 </thead><tbody>
 <tr>
 <td>Customer Identifier</td>
-<td>Pass any identifiers of the customer for whom you want to see the preference values. Values: mobile, email, external_id, user_id</td>
+<td>Pass any identifiers of the customer for whom you want to see the preference values. Value: mobile/email/external_id/id</td>
 </tr>
 </tbody></table>
 
@@ -4674,7 +4701,7 @@ def@xyz.com
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any one of the identifiers(mobile/email/external_id/user_id) to retrieve interactions</td>
+<td>Pass any one of the identifiers(mobile/email/external_id/id) to retrieve interactions</td>
 </tr>
 <tr>
 <td>network</td>
@@ -4871,7 +4898,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id* (mobile/email/external_id/user_id)</td>
+<td>Customer id* (mobile/email/external_id/id)</td>
 <td>Provide any identifier of the customers whose subscription details need to be updated</td>
 </tr>
 <tr>
@@ -5111,7 +5138,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any one of the identifiers(mobile/email/external_id/user_id) whose subscription details needs to be retrieved</td>
+<td>Pass any one of the identifiers(mobile/email/external_id/id) whose subscription details needs to be retrieved</td>
 </tr>
 <tr>
 <td>channel</td>
@@ -6475,6 +6502,183 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 </aside>
 
 <p>Before submitting return transactions, you should know the configurations set of the Return Transactions page of InTouch <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong>.</p>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
+
+<h2 id="cancel-a-line-item-of-a-transactions">Cancel a Line-Item of a Transactions</h2>
+<pre class="highlight html"><code># Sample Request
+http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancel line_item"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919111111111"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts8674477501"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ordered a different item"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"number0-1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"cashier_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"discount_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"return_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelled"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"return"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one line item cancel"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-02-14"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr8674477501"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"return_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelled"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"return"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;transaction&gt;</span>
+      <span class="nt">&lt;comment&gt;</span>cancel line_item<span class="nt">&lt;/comment&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>919111111111<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+         <span class="nt">&lt;external_id&gt;</span>ts8674477501<span class="nt">&lt;/external_id&gt;</span>
+         <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+         <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;line_items&gt;</span>
+         <span class="nt">&lt;line_item&gt;</span>
+            <span class="nt">&lt;description&gt;</span>Ordered a different item<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;rate&gt;</span>50<span class="nt">&lt;/rate&gt;</span>
+            <span class="nt">&lt;value&gt;</span>50<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>50<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;item_code&gt;</span>number0-1<span class="nt">&lt;/item_code&gt;</span>
+            <span class="nt">&lt;cashier_id</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;discount_value&gt;</span>0<span class="nt">&lt;/discount_value&gt;</span>
+            <span class="nt">&lt;return_type&gt;</span>cancelled<span class="nt">&lt;/return_type&gt;</span>
+            <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;serial&gt;</span>0<span class="nt">&lt;/serial&gt;</span>
+         <span class="nt">&lt;/line_item&gt;</span>
+      <span class="nt">&lt;/line_items&gt;</span>
+      <span class="nt">&lt;notes&gt;</span>one line item cancel<span class="nt">&lt;/notes&gt;</span>
+      <span class="nt">&lt;billing_time&gt;</span>2018-02-14<span class="nt">&lt;/billing_time&gt;</span>
+      <span class="nt">&lt;number&gt;</span>numbr8674477501<span class="nt">&lt;/number&gt;</span>
+      <span class="nt">&lt;return_type&gt;</span>cancelled<span class="nt">&lt;/return_type&gt;</span>
+      <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
+   <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;transactions&gt;</span>
+        <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;id&gt;</span>176536<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;number&gt;</span>numbr8674477502<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;bill_client_id/&gt;</span>
+            <span class="nt">&lt;type&gt;</span>RETURN<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+            <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+                <span class="nt">&lt;user_id&gt;</span>32411221<span class="nt">&lt;/user_id&gt;</span>
+                <span class="nt">&lt;mobile&gt;</span>919111111111<span class="nt">&lt;/mobile&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+                <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                <span class="nt">&lt;external_id&gt;</span>ext_id8674477501<span class="nt">&lt;/external_id&gt;</span>
+                <span class="nt">&lt;lifetime_points&gt;</span>0<span class="nt">&lt;/lifetime_points&gt;</span>
+                <span class="nt">&lt;loyalty_points&gt;</span>0<span class="nt">&lt;/loyalty_points&gt;</span>
+                <span class="nt">&lt;current_slab/&gt;</span>
+                <span class="nt">&lt;tier_expiry_date/&gt;</span>
+                <span class="nt">&lt;lifetime_purchases&gt;</span>0<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+                <span class="nt">&lt;effect/&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;points_deducted&gt;</span>0<span class="nt">&lt;/points_deducted&gt;</span>
+            <span class="nt">&lt;points_balance&gt;</span>0<span class="nt">&lt;/points_balance&gt;</span>
+            <span class="nt">&lt;source/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+                <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+        <span class="nt">&lt;/transaction&gt;</span>
+    <span class="nt">&lt;/transactions&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"176536"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr8674477502"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RETURN"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"32411221"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919111111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"points_deducted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"points_balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"600"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction added successfully"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lets you cancel a line-item of a transaction. For example, it can be used for e-commerce platforms where the brand allows a customer to cancel an item (of a transaction) before it is shipped/delivered.</p>
+
+<aside class="notice">
+To cancel a line-item, it is required to pass return item&rsquo;s purchased transaction number and purchase_time.
+
+* Purchase time: The date and time of the actual transaction
+* Billing time: The date and time of the return transaction
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
