@@ -758,9 +758,7 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Mobile/email/external_id* | Pass any one of the following identifiers of the customer whose details need to be updated
-user_id(Boolean) | Returns the unique user ID of the customer if user_id=true
-
+Mobile/email/external_id/id* | Pass any one of the following identifiers of the customer whose details need to be updated
 
 ## Update Customer Identifiers
 ```html
@@ -976,7 +974,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 
                         "registered_on": "2012-12-25 11:25:32",
 
-                        "registered_by": "pe.london.bondstreet",
+                        "registered_by": "px.london.bondstreet",
 
                         "last_trans_value": "1000",
 
@@ -1142,258 +1140,275 @@ The following is a formal definition of the Query Grammar
 ## Retrieve Customer Details
 ```html
 # Sample Request URL
-http://api.capillary.co.in/v1.1/customer/get?mobile=19889999999
+http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
 ```
 
 > Sample Response
 
 ```json
 {
-  "response": {
-    "status": {
+   "status": {
       "success": "true",
-      "code": 200,
+      "code": "200",
       "message": "Success",
       "total": "1",
       "success_count": "1"
-    },
-    "customers": {
-      "customer": [
-        {
-          "firstname": "Rati",
-          "lastname": "Ranjan",
-          "mobile": "19889999999",
-          "email": "919090080344343422@mail.com",
-          "external_id": null,
-          "lifetime_points": 442,
-          "lifetime_purchases": 12338,
-          "loyalty_points": 242,
-          "current_slab": "SILVER",
-          "registered_on": "2014-12-10 04:46:38",
-          "updated_on": "2017-05-09 15:58:29",
-          "type": "LOYALTY",
-          "source": "instore",
-          "identifiers": [],
-          
-          "registered_by": "MERGE FRONT ONE",
-          "registered_store": {
-            "code": "mergestore1",
-            "name": "MERGE FRONT ONE"
-          },
-          "registered_till": {
-            "code": "cm.1",
-            "name": "cm.1"
-          },
-          "fraud_details": {
+   },
+   "customers": {
+      "customer": {
+         "firstname": "Tom",
+         "lastname": "Sawyer",
+         "mobile": "919889999999",
+         "email": "tom.sawyer@example.com",
+         "external_id": "ts123",
+         "lifetime_points": "30",
+         "lifetime_purchases": "2600",
+         "loyalty_points": "15",
+         "current_slab": "Gold",
+         "registered_on": "2018-02-14 00:00:00",
+         "updated_on": "2018-02-19 17:27:19",
+         "type": "LOYALTY",
+         "source": "instore",
+         "identifiers": [],
+         "gender": [],
+         "registered_by": "north_store",
+         "registered_store": {
+            "code": "north_store",
+            "name": "north_store"
+         },
+         "registered_till": {
+            "code": "north",
+            "name": "north"
+         },
+         "fraud_details": {
             "status": "NONE",
-            "marked_by": "",
-            "modified_on": ""
-          },
-          "trackers": "",
-          "current_nps_status": null,
-          "custom_fields": {
+            "marked_by": [],
+            "modified_on": []
+         },
+         "trackers": [],
+         "current_nps_status": [],
+         "custom_fields": {
             "field": []
-          },
-          "extended_fields": {
-            "field": [
-              {
-                "name": "marital_status",
-                "value": "Single"
-              },
-              {
-                "name": "City",
-                "value": "Bangalore"
-              },
-              {
-                "name": "nationality",
-                "value": "Indian"
-              },
-              {
-                "name": "gender",
-                "value": "Male"
-              }
-            ]
-          },
-          "transactions": {
-            "transaction": [
-              {
-                "id": "32650346",
-                "number": "90384",
-                "type": "REGULAR",
-                "created_date": "2017-05-09 16:00:10",
-                "store": "cm.1"
-              },
-              {
-                "id": "32650345",
-                "number": "testbil90",
-                "type": "REGULAR",
-                "created_date": "2017-05-09 15:55:27",
-                "store": "cm.1"
-              },
-              {
-                "id": "32650339",
-                "number": "test0",
-                "type": "REGULAR",
-                "created_date": "2017-05-09 14:47:29",
-                "store": "cm.1"
-              },
-              {
-                "id": "32650338",
-                "number": "uash0",
-                "type": "REGULAR",
-                "created_date": "2017-05-09 14:45:23",
-                "store": "cm.1"
-              },
-              {
-                "id": "32650337",
-                "number": "txnsubmit1",
-                "type": "REGULAR",
-                "created_date": "2017-05-09 14:33:54",
-                "store": "cm.1"
-              },
-              {
-                "id": "31718568",
-                "number": "wefrw455",
-                "type": "REGULAR",
-                "created_date": "2016-08-24 17:35:51",
-                "store": "cm.1"
-              }
-            ]
-          },
-          "coupons": {
-            "coupon": []
-          },
-          "notes": [],
-          "item_status": {
+         },
+         "extended_fields": {
+            "field": []
+         },
+         "transactions": [
+            {
+               "id": "33084753",
+               "number": "n-4001",
+               "type": "REGULAR",
+               "created_date": "2018-02-19 00:00:00",
+               "store": "north"
+            },
+            {
+               "id": "33076050",
+               "number": "n-4000",
+               "type": "REGULAR",
+               "created_date": "2018-02-14 00:00:00",
+               "store": "north"
+            }
+         ],
+         "coupons": [
+            {
+               "id": "27361878",
+               "series_id": "12367",
+               "code": "X2TLL9YD",
+               "description": "ABCD1",
+               "created_date": "2018-02-22 11:50:02",
+               "valid_till": "2018-03-24 23:59:59",
+               "redeemed": "true"
+            },
+            {
+               "id": "27361879",
+               "series_id": "12368",
+               "code": "ICRHTAY0",
+               "description": "ABCD2",
+               "created_date": "2018-02-22 12:05:32",
+               "valid_till": "2018-03-24 23:59:59",
+               "redeemed": "true"
+            }
+         ],
+         "notes": [],
+         "points_summaries": [
+            {
+               "programId": "1252",
+               "redeemed": "15",
+               "expired": "0",
+               "returned": "0",
+               "adjusted": "0",
+               "lifetimePoints": "30",
+               "loyaltyPoints": "15",
+               "cumulativePurchases": "2600",
+               "currentSlab": "Gold",
+               "nextSlab": "Diamond",
+               "nextSlabSerialNumber": "3",
+               "nextSlabDescription": "tier 3",
+               "slabSNo": "2",
+               "slabExpiryDate": "2118-02-19 23:59:59",
+               "totalPoints": []
+            },
+            {
+               "programId": "1253",
+               "redeemed": "47",
+               "expired": "8",
+               "returned": "0",
+               "adjusted": "0",
+               "lifetimePoints": "200",
+               "loyaltyPoints": "145",
+               "cumulativePurchases": "2600",
+               "currentSlab": "White",
+               "nextSlab": "Pink",
+               "nextSlabSerialNumber": "3",
+               "nextSlabDescription": "slab 3",
+               "slabSNo": "2",
+               "slabExpiryDate": "2118-02-14 23:59:59",
+               "totalPoints": []
+            }
+         ],
+         "item_status": {
             "success": "true",
             "code": "1000",
             "message": "Customer successfully retrieved",
-            "warnings": {
-              "warning": []
-            }
-          }
-        }
-      ]
-    }
-  }
+            "warnings": []
+         }
+      }
+   }
 }
 ```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Success</message>
-        <total>1</total>
-        <success_count>1</success_count>
-    </status>
-    <customers>
-        <customer>
-            <firstname>Rati</firstname>
-            <lastname>Ranjan</lastname>
-            <mobile>19889999999</mobile>
-            <email>919090080344343422@mail.com</email>
-            <external_id />
-            <lifetime_points>442</lifetime_points>
-            <lifetime_purchases>12338</lifetime_purchases>
-            <loyalty_points>242</loyalty_points>
-            <current_slab>SILVER</current_slab>
-            <registered_on>2014-12-10 04:46:38</registered_on>
-            <updated_on>2017-05-09 15:58:29</updated_on>
-            <type>LOYALTY</type>
-            <source>instore</source>
-            
-            <registered_by>MERGE FRONT ONE</registered_by>
-            <registered_store>
-                <code>mergestore1</code>
-                <name>MERGE FRONT ONE</name>
-            </registered_store>
-            <registered_till>
-                <code>cm.1</code>
-                <name>cm.1</name>
-            </registered_till>
-            <fraud_details>
-                <status>NONE</status>
-                <marked_by></marked_by>
-                <modified_on></modified_on>
-            </fraud_details>
-            <trackers></trackers>
-            <current_nps_status />
-            <custom_fields></custom_fields>
-            <extended_fields>
-                <field>
-                    <name>marital_status</name>
-                    <value>Single</value>
-                </field>
-                <field>
-                    <name>City</name>
-                    <value>Bangalore</value>
-                </field>
-                <field>
-                    <name>nationality</name>
-                    <value>Indian</value>
-                </field>
-                <field>
-                    <name>gender</name>
-                    <value>Male</value>
-                </field>
-            </extended_fields>
-            <transactions>
-                <transaction>
-                    <id>32650346</id>
-                    <number>90384</number>
-                    <type>REGULAR</type>
-                    <created_date>2017-05-09 16:00:10</created_date>
-                    <store>cm.1</store>
-                </transaction>
-                <transaction>
-                    <id>32650345</id>
-                    <number>testbil90</number>
-                    <type>REGULAR</type>
-                    <created_date>2017-05-09 15:55:27</created_date>
-                    <store>cm.1</store>
-                </transaction>
-                <transaction>
-                    <id>32650339</id>
-                    <number>test0</number>
-                    <type>REGULAR</type>
-                    <created_date>2017-05-09 14:47:29</created_date>
-                    <store>cm.1</store>
-                </transaction>
-                <transaction>
-                    <id>32650338</id>
-                    <number>uash0</number>
-                    <type>REGULAR</type>
-                    <created_date>2017-05-09 14:45:23</created_date>
-                    <store>cm.1</store>
-                </transaction>
-                <transaction>
-                    <id>32650337</id>
-                    <number>txnsubmit1</number>
-                    <type>REGULAR</type>
-                    <created_date>2017-05-09 14:33:54</created_date>
-                    <store>cm.1</store>
-                </transaction>
-                <transaction>
-                    <id>31718568</id>
-                    <number>wefrw455</number>
-                    <type>REGULAR</type>
-                    <created_date>2016-08-24 17:35:51</created_date>
-                    <store>cm.1</store>
-                </transaction>
-            </transactions>
-            <coupons></coupons>
-            <item_status>
-                <success>true</success>
-                <code>1000</code>
-                <message>Customer successfully retrieved</message>
-                <warnings></warnings>
-            </item_status>
-        </customer>
-    </customers>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+      <total>1</total>
+      <success_count>1</success_count>
+   </status>
+   <customers>
+      <customer>
+         <firstname>Tom</firstname>
+         <lastname>Sawyer</lastname>
+         <mobile>919889999999</mobile>
+         <email>tom.sawyer@example.com</email>
+         <external_id>ts123</external_id>
+         <lifetime_points>30</lifetime_points>
+         <lifetime_purchases>2600</lifetime_purchases>
+         <loyalty_points>15</loyalty_points>
+         <current_slab>Gold</current_slab>
+         <registered_on>2018-02-14 00:00:00</registered_on>
+         <updated_on>2018-02-19 17:27:19</updated_on>
+         <type>LOYALTY</type>
+         <source>instore</source>
+         <identifiers />
+         <gender />
+         <registered_by>north_store</registered_by>
+         <registered_store>
+            <code>north_store</code>
+            <name>north_store</name>
+         </registered_store>
+         <registered_till>
+            <code>north</code>
+            <name>north</name>
+         </registered_till>
+         <fraud_details>
+            <status>NONE</status>
+            <marked_by />
+            <modified_on />
+         </fraud_details>
+         <trackers />
+         <current_nps_status />
+         <custom_fields>
+            <field />
+         </custom_fields>
+         <extended_fields>
+            <field />
+         </extended_fields>
+         <transactions>
+            <transaction>
+               <id>33084753</id>
+               <number>n-4001</number>
+               <type>REGULAR</type>
+               <created_date>2018-02-19 00:00:00</created_date>
+               <store>north</store>
+            </transaction>
+            <transaction>
+               <id>33076050</id>
+               <number>n-4000</number>
+               <type>REGULAR</type>
+               <created_date>2018-02-14 00:00:00</created_date>
+               <store>north</store>
+            </transaction>
+         </transactions>
+         <coupons>
+            <coupon>
+               <id>27361878</id>
+               <series_id>12367</series_id>
+               <code>X2TLL9YD</code>
+               <description>ABCD1</description>
+               <created_date>2018-02-22 11:50:02</created_date>
+               <valid_till>2018-03-24 23:59:59</valid_till>
+               <redeemed>true</redeemed>
+            </coupon>
+            <coupon>
+               <id>27361879</id>
+               <series_id>12368</series_id>
+               <code>ICRHTAY0</code>
+               <description>ABCD2</description>
+               <created_date>2018-02-22 12:05:32</created_date>
+               <valid_till>2018-03-24 23:59:59</valid_till>
+               <redeemed>true</redeemed>
+            </coupon>
+         </coupons>
+         <notes />
+         <points_summaries>
+            <points_summary>
+               <programId>1252</programId>
+               <redeemed>15</redeemed>
+               <expired>0</expired>
+               <returned>0</returned>
+               <adjusted>0</adjusted>
+               <lifetimePoints>30</lifetimePoints>
+               <loyaltyPoints>15</loyaltyPoints>
+               <cumulativePurchases>2600</cumulativePurchases>
+               <currentSlab>Gold</currentSlab>
+               <nextSlab>Diamond</nextSlab>
+               <nextSlabSerialNumber>3</nextSlabSerialNumber>
+               <nextSlabDescription>tier 3</nextSlabDescription>
+               <slabSNo>2</slabSNo>
+               <slabExpiryDate>2118-02-19 23:59:59</slabExpiryDate>
+               <totalPoints />
+            </points_summary>
+            <points_summary>
+               <programId>1253</programId>
+               <redeemed>47</redeemed>
+               <expired>8</expired>
+               <returned>0</returned>
+               <adjusted>0</adjusted>
+               <lifetimePoints>200</lifetimePoints>
+               <loyaltyPoints>145</loyaltyPoints>
+               <cumulativePurchases>2600</cumulativePurchases>
+               <currentSlab>White</currentSlab>
+               <nextSlab>Pink</nextSlab>
+               <nextSlabSerialNumber>3</nextSlabSerialNumber>
+               <nextSlabDescription>slab 3</nextSlabDescription>
+               <slabSNo>2</slabSNo>
+               <slabExpiryDate>2118-02-14 23:59:59</slabExpiryDate>
+               <totalPoints />
+            </points_summary>
+         </points_summaries>
+         <item_status>
+            <success>true</success>
+            <code>1000</code>
+            <message>Customer successfully retrieved</message>
+            <warnings />
+         </item_status>
+      </customer>
+   </customers>
 </response>
+
 ```
 
 This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
@@ -1413,8 +1428,8 @@ Batch Support | Yes
 
 Parameter | Description
 --------- | ----------- 
-Customer Identifier* | Pass any identifier (mobile/email/external_id/user_id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`
-user_id | Returns the unique id of the customer generated at our end when the customer is registered
+Customer Identifier* | Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`
+user_id=true | Returns the unique id of the customer (generated at our end when the customer is registered)
 next_slab=true | Returns the details of next tier of the  loyalty customer
 slab_history=true | Returns the details of loyalty tier changes of the customer
 registered_store | Returns the store at which the customer is registered. This is returned by default.
@@ -1427,9 +1442,10 @@ expired_points=true | Returns the details of expired points of the customer
 points_summary=true | Returns the history of points issued and redeemed
 promotion_points=true | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued
 membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership
+mlp=true | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)
 
 ### Request URL
-`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>`
+`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
 
 
 
@@ -1562,10 +1578,14 @@ Batch Support | Yes
 ### Request URL
 `http://<cluster url>/v1.1/customer/transactions?format=<xml/json>&<input_params>`
 
+For MLP
+
+`http://<cluster url>/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
+
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/user_id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
 start_date | Retrieves transactions made in a specific duration (start_date to end_date)
 end_date | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
 transaction_id | Retrieves the details of a specific transaction
@@ -1635,15 +1655,17 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&for
         "points": {
           "point": [
             {
-              "id": "121614",
-              "points_redeemed": "200",
+              "id": 121614,
+			  "program_id": 1234,
+              "points_redeemed": 200,
               "transaction_number": "bill-83",
               "redeemed_time": "2011-03-17 16:03:31",
               "redeemed_at": "Test store  store.server"
             },
             {
-              "id": "121615",
-              "points_redeemed": "200",
+              "id": 121656,
+			  "program_id": 1234,
+              "points_redeemed": 30,
               "transaction_number": "bill-121",
               "redeemed_time": "2011-03-17 16:05:22",
               "redeemed_at": "Test store  store.server"
@@ -1743,6 +1765,7 @@ points_start_id | Filter the results by points redemption id starting with a spe
 points_end_id | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed
 order | Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time
 sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time
+mlp=true | Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)
 
 
 
@@ -3075,7 +3098,7 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer identifier* | Pass the customer identifier (mobile/email/external_id) for whom you want to track the referral details
+Customer identifier* | Pass the customer identifier (mobile/email/external_id/id) for whom you want to track the referral details
 campaign_token | Pass the specific token id of the referral campaign that you want to fetch. If no campaign id is passed, the details of the customer's referral history of the default campaign will be retrieved
 start_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
 end_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
@@ -3380,7 +3403,7 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier | Pass any identifiers of the customer for whom you want to see the preference values. Values: mobile, email, external_id, user_id
+Customer Identifier | Pass any identifiers of the customer for whom you want to see the preference values. Value: mobile/email/external_id/id
 
 
 ## Retrieve Customer Interactions
@@ -3673,7 +3696,7 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) to retrieve interactions
+Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/id) to retrieve interactions
 network | Filter data by communication network. Values: facebook, twitter, foursquare, capillary
 type | Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).
 start_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
@@ -3838,7 +3861,7 @@ Batch Support | Yes
 ### Request Attributes
 Attribute | Description
 --------- | -----------
-Customer id* (mobile/email/external_id/user_id) | Provide any identifier of the customers whose subscription details need to be updated
+Customer id* (mobile/email/external_id/id) | Provide any identifier of the customers whose subscription details need to be updated
 priority | Specify the service that you want to update - TRANS for personalized messages and BULK for campaign/bulk messages
 scope | Set scope to 'all' always
 channel | Pass the communication channel that you want to update. Value: sms/email
@@ -4040,7 +4063,7 @@ Batch Support | Yes
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/user_id) whose subscription details needs to be retrieved
+Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/id) whose subscription details needs to be retrieved
 channel | Filter the results by communication channel. Value: SMS, EMAIL, WECHAT, SOCIAL, REMINDER_TEXT, RE_ISSUAL_TEXT, CLIENT.
 priority | Filter the results by transaction or bulk messages. Value: TRANS, BULK
 scope | Pass scope=ALL. It retrieves the details of all subscription modules. For example, points, coupons, general etc.
