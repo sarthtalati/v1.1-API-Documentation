@@ -175,7 +175,7 @@ This API allows you to submit requests for changing customer identifier, merging
 
 Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
 
-If `client_auto_approve=true`, the request will be created in pending status by default.
+If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
 
 However, requests can be approved automatically based on the following configs set on Member Care.
 
@@ -192,6 +192,12 @@ CI_MOBILEREALLOC_AUTO_APPROVE | Approves mobile number reallocation requests aut
 <aside class="warning">
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
 </aside>
+
+Request Parameters
+Parameter | Description
+--------- | -----------
+program_id | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true
+client_auto_approve=true | Allows processing a request directly
 
 
 ### Resource Information
