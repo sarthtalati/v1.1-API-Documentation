@@ -32,7 +32,7 @@ The Capillary APIs are RESTful APIs that help third party applications manage an
 
 
 ## Organization Setup
-Every organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
+An organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
 
 To set up an organization as a Capillary admin, see Setting up Organization. 
  
