@@ -653,67 +653,66 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 ```xml
 # Sample Response
 
-
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-   <status>
-      <success>true</success>
-      <code>200</code>
-      <message>SUCCESS</message>
-   </status>
-   <customers>
-      <customer>
-         <user_id>776538</user_id>
-         <mobile>44700900000</mobile>
-         <email>tom.sawyer@example.com</email>
-         <external_id>TOM123</external_id>
-         <firstname>Tom</firstname>
-         <lastname>Sawyer</lastname>
-         
-         <extended_fields>
-            <field>
-               <name>color</name>
-               <value>black</value>
-            </field>
-            <field>
-               <name>ItemWeight</name>
-               <value>3</value>
-            </field>
-            <field>
-               <name>Status</name>
-               <value>pending</value>
-            </field>
-            <field>
-               <name>ser_tax</name>
-               <value />
-            </field>
-            <field>
-               <name>他他他他</name>
-               <value>他他他</value>
-            </field>
-         </extended_fields>
-         <custom_fields>
-            <field>
-               <name>hobbies</name>
-               <value>[“Playing”]</value>
-            </field>
-         </custom_fields>
-         <item_status>
-            <success>true</success>
-            <code>1000</code>
-            <message>User Successfully Updated.</message>
-         </item_status>
-         <lifetime_points>245</lifetime_points>
-         <lifetime_purchases>24500</lifetime_purchases>
-         <loyalty_points>60</loyalty_points>
-         <current_slab>SILVER</current_slab>
-         <registered_on>2012-08-16 15:13:16</registered_on>
-         <updated_on>2012-09-22 10:48:00</updated_on>
-      </customer>
-   </customers>
-</response>
-
-
+<root>
+   <response>
+      <customers>
+         <customer>
+            <current_slab>SILVER</current_slab>
+            <custom_fields>
+               <field>
+                  <name>hobbies</name>
+                  <value>[“Playing”]</value>
+               </field>
+            </custom_fields>
+            <email>tom.sawyer@example.com</email>
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>color</name>
+                     <value>black</value>
+                  </element>
+                  <element>
+                     <name>ItemWeight</name>
+                     <value>3</value>
+                  </element>
+                  <element>
+                     <name>Status</name>
+                     <value>pending</value>
+                  </element>
+                  <element>
+                     <name>ser_tax</name>
+                  </element>
+                  <element>
+                     <name>他他他他</name>
+                     <value>他他他</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <external_id>ts1234</external_id>
+            <firstname>Tom</firstname>
+            <item_status>
+               <code>1000</code>
+               <message>User Successfully Updated.</message>
+               <success>true</success>
+            </item_status>
+            <lastname>Sawyer</lastname>
+            <lifetime_points>245</lifetime_points>
+            <lifetime_purchases>24500</lifetime_purchases>
+            <loyalty_points>60</loyalty_points>
+            <mobile>44700900000</mobile>
+            <registered_on>2012-08-16 15:13:16</registered_on>
+            <updated_on>2012-09-22 10:48:00</updated_on>
+            <user_id>776538</user_id>
+         </customer>
+      </customers>
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
 ```
 
 This API lets you update the details of loyalty customer. If any of the identifiers you pass already exists for another account, then the customer details will be merged automatically.
@@ -767,7 +766,7 @@ Mobile/email/external_id/id* | Pass any one of the following identifiers of the 
 http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 ```
 
-> Pass the identifier name (mobile/email/external_id) that you want to update in identifier and pass the old and new identifier value in old_value and new_value respectively.
+> Pass the identifier name (mobile/email/external_id) that you want to update inn identifier and pass the old and new identifier value in old_value and new_value respectively.
 
 ```json
 # Sample POST json
@@ -1158,27 +1157,27 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
       "customer": {
          "firstname": "Tom",
          "lastname": "Sawyer",
-         "mobile": "919889999999",
+         "mobile": "91900000000",
          "email": "tom.sawyer@example.com",
-         "external_id": "ts123",
-         "lifetime_points": "30",
-         "lifetime_purchases": "2600",
-         "loyalty_points": "15",
-         "current_slab": "Gold",
-         "registered_on": "2018-02-14 00:00:00",
-         "updated_on": "2018-02-19 17:27:19",
+         "external_id": "TS123",
+         "lifetime_points": "2300",
+         "lifetime_purchases": "25000",
+         "loyalty_points": "500",
+         "current_slab": "Silver",
+         "registered_on": "2017-05-31 14:57:04",
+         "updated_on": "2018-05-31 14:57:04",
          "type": "LOYALTY",
          "source": "instore",
          "identifiers": [],
-         "gender": [],
-         "registered_by": "north_store",
+         "gender": "Male",
+         "registered_by": "Jim",
          "registered_store": {
-            "code": "north_store",
-            "name": "north_store"
+            "code": "autotest2_one",
+            "name": "autotest2_one"
          },
          "registered_till": {
-            "code": "north",
-            "name": "north"
+            "code": "one.till01",
+            "name": "one.till01"
          },
          "fraud_details": {
             "status": "NONE",
@@ -1188,84 +1187,38 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
          "trackers": [],
          "current_nps_status": [],
          "custom_fields": {
-            "field": []
+            "field": {
+               "name": "gender",
+               "value": "value_308645"
+            }
          },
          "extended_fields": {
             "field": []
          },
-         "transactions": [
-            {
-               "id": "33084753",
-               "number": "n-4001",
-               "type": "REGULAR",
-               "created_date": "2018-02-19 00:00:00",
-               "store": "north"
-            },
-            {
-               "id": "33076050",
-               "number": "n-4000",
-               "type": "REGULAR",
-               "created_date": "2018-02-14 00:00:00",
-               "store": "north"
-            }
-         ],
+         "transactions": {
+            "transaction": []
+         },
          "coupons": [
             {
-               "id": "27361878",
-               "series_id": "12367",
-               "code": "X2TLL9YD",
-               "description": "ABCD1",
-               "created_date": "2018-02-22 11:50:02",
-               "valid_till": "2018-03-24 23:59:59",
+               "id": "44521519",
+               "series_id": "19293",
+               "code": "4OZ1UDDA",
+               "description": "API Coupon 3",
+               "created_date": "2018-05-31 14:57:06",
+               "valid_till": "2018-06-30 23:59:59",
                "redeemed": "true"
             },
             {
-               "id": "27361879",
-               "series_id": "12368",
-               "code": "ICRHTAY0",
-               "description": "ABCD2",
-               "created_date": "2018-02-22 12:05:32",
-               "valid_till": "2018-03-24 23:59:59",
-               "redeemed": "true"
+               "id": "44521520",
+               "series_id": "19290",
+               "code": "ZBW1S4QT",
+               "description": "API Series",
+               "created_date": "2018-05-31 14:57:07",
+               "valid_till": "2018-06-01 23:59:59",
+               "redeemed": "false"
             }
          ],
          "notes": [],
-         "points_summaries": [
-            {
-               "programId": "1252",
-               "redeemed": "15",
-               "expired": "0",
-               "returned": "0",
-               "adjusted": "0",
-               "lifetimePoints": "30",
-               "loyaltyPoints": "15",
-               "cumulativePurchases": "2600",
-               "currentSlab": "Gold",
-               "nextSlab": "Diamond",
-               "nextSlabSerialNumber": "3",
-               "nextSlabDescription": "tier 3",
-               "slabSNo": "2",
-               "slabExpiryDate": "2118-02-19 23:59:59",
-               "totalPoints": []
-            },
-            {
-               "programId": "1253",
-               "redeemed": "47",
-               "expired": "8",
-               "returned": "0",
-               "adjusted": "0",
-               "lifetimePoints": "200",
-               "loyaltyPoints": "145",
-               "cumulativePurchases": "2600",
-               "currentSlab": "White",
-               "nextSlab": "Pink",
-               "nextSlabSerialNumber": "3",
-               "nextSlabDescription": "slab 3",
-               "slabSNo": "2",
-               "slabExpiryDate": "2118-02-14 23:59:59",
-               "totalPoints": []
-            }
-         ],
          "item_status": {
             "success": "true",
             "code": "1000",
@@ -1291,27 +1244,27 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
       <customer>
          <firstname>Tom</firstname>
          <lastname>Sawyer</lastname>
-         <mobile>919889999999</mobile>
+         <mobile>91900000000</mobile>
          <email>tom.sawyer@example.com</email>
-         <external_id>ts123</external_id>
-         <lifetime_points>30</lifetime_points>
-         <lifetime_purchases>2600</lifetime_purchases>
-         <loyalty_points>15</loyalty_points>
-         <current_slab>Gold</current_slab>
-         <registered_on>2018-02-14 00:00:00</registered_on>
-         <updated_on>2018-02-19 17:27:19</updated_on>
+         <external_id>TS123</external_id>
+         <lifetime_points>2300</lifetime_points>
+         <lifetime_purchases>25000</lifetime_purchases>
+         <loyalty_points>500</loyalty_points>
+         <current_slab>Silver</current_slab>
+         <registered_on>2017-05-31 14:57:04</registered_on>
+         <updated_on>2018-05-31 14:57:04</updated_on>
          <type>LOYALTY</type>
          <source>instore</source>
          <identifiers />
-         <gender />
-         <registered_by>north_store</registered_by>
+         <gender>Male</gender>
+         <registered_by>Jim</registered_by>
          <registered_store>
-            <code>north_store</code>
-            <name>north_store</name>
+            <code>autotest2_one</code>
+            <name>autotest2_one</name>
          </registered_store>
          <registered_till>
-            <code>north</code>
-            <name>north</name>
+            <code>one.till01</code>
+            <name>one.till01</name>
          </registered_till>
          <fraud_details>
             <status>NONE</status>
@@ -1321,84 +1274,38 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
          <trackers />
          <current_nps_status />
          <custom_fields>
-            <field />
+            <field>
+               <name>gender</name>
+               <value>value_308645</value>
+            </field>
          </custom_fields>
          <extended_fields>
             <field />
          </extended_fields>
          <transactions>
-            <transaction>
-               <id>33084753</id>
-               <number>n-4001</number>
-               <type>REGULAR</type>
-               <created_date>2018-02-19 00:00:00</created_date>
-               <store>north</store>
-            </transaction>
-            <transaction>
-               <id>33076050</id>
-               <number>n-4000</number>
-               <type>REGULAR</type>
-               <created_date>2018-02-14 00:00:00</created_date>
-               <store>north</store>
-            </transaction>
+            <transaction />
          </transactions>
          <coupons>
             <coupon>
-               <id>27361878</id>
-               <series_id>12367</series_id>
-               <code>X2TLL9YD</code>
-               <description>ABCD1</description>
-               <created_date>2018-02-22 11:50:02</created_date>
-               <valid_till>2018-03-24 23:59:59</valid_till>
+               <id>44521519</id>
+               <series_id>19293</series_id>
+               <code>4OZ1UDDA</code>
+               <description>API Coupon 3</description>
+               <created_date>2018-05-31 14:57:06</created_date>
+               <valid_till>2018-06-30 23:59:59</valid_till>
                <redeemed>true</redeemed>
             </coupon>
             <coupon>
-               <id>27361879</id>
-               <series_id>12368</series_id>
-               <code>ICRHTAY0</code>
-               <description>ABCD2</description>
-               <created_date>2018-02-22 12:05:32</created_date>
-               <valid_till>2018-03-24 23:59:59</valid_till>
-               <redeemed>true</redeemed>
+               <id>44521520</id>
+               <series_id>19290</series_id>
+               <code>ZBW1S4QT</code>
+               <description>API Series</description>
+               <created_date>2018-05-31 14:57:07</created_date>
+               <valid_till>2018-06-01 23:59:59</valid_till>
+               <redeemed>false</redeemed>
             </coupon>
          </coupons>
          <notes />
-         <points_summaries>
-            <points_summary>
-               <programId>1252</programId>
-               <redeemed>15</redeemed>
-               <expired>0</expired>
-               <returned>0</returned>
-               <adjusted>0</adjusted>
-               <lifetimePoints>30</lifetimePoints>
-               <loyaltyPoints>15</loyaltyPoints>
-               <cumulativePurchases>2600</cumulativePurchases>
-               <currentSlab>Gold</currentSlab>
-               <nextSlab>Diamond</nextSlab>
-               <nextSlabSerialNumber>3</nextSlabSerialNumber>
-               <nextSlabDescription>tier 3</nextSlabDescription>
-               <slabSNo>2</slabSNo>
-               <slabExpiryDate>2118-02-19 23:59:59</slabExpiryDate>
-               <totalPoints />
-            </points_summary>
-            <points_summary>
-               <programId>1253</programId>
-               <redeemed>47</redeemed>
-               <expired>8</expired>
-               <returned>0</returned>
-               <adjusted>0</adjusted>
-               <lifetimePoints>200</lifetimePoints>
-               <loyaltyPoints>145</loyaltyPoints>
-               <cumulativePurchases>2600</cumulativePurchases>
-               <currentSlab>White</currentSlab>
-               <nextSlab>Pink</nextSlab>
-               <nextSlabSerialNumber>3</nextSlabSerialNumber>
-               <nextSlabDescription>slab 3</nextSlabDescription>
-               <slabSNo>2</slabSNo>
-               <slabExpiryDate>2118-02-14 23:59:59</slabExpiryDate>
-               <totalPoints />
-            </points_summary>
-         </points_summaries>
          <item_status>
             <success>true</success>
             <code>1000</code>
@@ -1408,7 +1315,6 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
       </customer>
    </customers>
 </response>
-
 ```
 
 This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
@@ -1443,6 +1349,10 @@ points_summary=true | Returns the history of points issued and redeemed
 promotion_points=true | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued
 membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership
 mlp=true | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)
+coupon_limit | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions
+coupon_offset | Retrieve all results avove the specified coupon number. For example, coupon_offset=1500, returns the details of all coupons with coupon numbers above 1500
+coupon_order_by | Orders the coupon history by created date, created by, or coupon validity. Values: created_date, created_by, valid_till (based on expiry) respectively
+
 
 ### Request URL
 `https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
