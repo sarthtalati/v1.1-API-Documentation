@@ -38,6 +38,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "firstname": "Tom",
         "lastname": "Sawyer",
         "registered_on": "2012-09-11 11:11:11",
+		"registered_till": "NorthEast",
         "extended_fields": {
           "field": [
             {
@@ -134,7 +135,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<external_id>XYPZ001</external_id>
 		<firstname>Tom</firstname>
 		<lastname>Sawyer</lastname>
-		
+		<registered_till>NorthEast</registered_till>
 		<registered_on>2012-09-11 11:11:11</registered_on>
 		<extended_fields>
 			<field>
