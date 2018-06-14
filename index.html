@@ -1868,11 +1868,11 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tr>
 <tr>
 <td>coupon_offset</td>
-<td>Retrieves coupons according to the issued serial number for that customer. For example, coupon_offset=1, returns all coupons other than the first coupon issued to the customer</td>
+<td>Retrieves next set of coupons according to issual sequence. For example, coupon_offset=1, fetches all coupons excluding the first coupon issued to the customer; coupon_offset=5, excludes the first 5 coupons issued to the customer and returns remaining coupons.</td>
 </tr>
 <tr>
 <td>coupon_order_by</td>
-<td>Orders the coupon history by created date, created by, or coupon validity. Values: created_date, created_by, valid_till (based on expiry) respectively</td>
+<td>Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively</td>
 </tr>
 </tbody></table>
 
