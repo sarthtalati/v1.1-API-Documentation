@@ -1351,8 +1351,8 @@ promotion_points=true | Returns the history of promotional points issued and red
 membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership
 mlp=true | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)
 coupon_limit | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions
-coupon_offset | Retrieves coupons according to the issued serial number for that customer. For example, coupon_offset=1, returns all coupons other than the first coupon issued to the customer 
-coupon_order_by | Orders the coupon history by created date, created by, or coupon validity. Values: created_date, created_by, valid_till (based on expiry) respectively
+coupon_offset | Retrieves next set of coupons according to issual sequence. For example, coupon_offset=1, fetches all coupons excluding the first coupon issued to the customer; coupon_offset=5, excludes the first 5 coupons issued to the customer and returns remaining coupons.
+coupon_order_by | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively
 
 
 ### Request URL
