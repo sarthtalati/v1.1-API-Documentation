@@ -19,7 +19,7 @@ Customer APIs allow you to:
 * Add, update and retrieve customer preferences of loyalty customers
 * Retrieve transactions of loyalty/non-loyalty customers
 
-## Register Customers
+## Register Customer
 
 ```shell
 #Sample Request
@@ -80,7 +80,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "firstname": "Rita",
         "lastname": "John",
         "registered_on": "2012-09-11 11:11:15",
-        "subscriptions": {
+		"subscriptions": {
           "subscription": [
             {
               "priority": "TRANS",
@@ -480,6 +480,7 @@ firstname | First name of the customer
 lastname | Last name of the customer
 type | Registration type: LOYALTY, NON_LOYALTY, NOT_INTERESTED
 registered_on | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
+registered_till | The TILL at which customer is registered
 custom_fields | Provide the custom fields configured for your org in name and value pairs <br>`<field>` `<name>Hobbies</name>` <br> `<value>[“Playing”]</value>`  `</field>`
 extended_fields | Provide the details of extended fields of the customer in name and value pairs
 
@@ -505,6 +506,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "external_id":"ts1234",
         "firstname":"Tom",
         "lastname":"Sawyer",
+		"registered_till":"NorthEast"
         
         "extended_fields":{
           "field":[
@@ -1351,7 +1353,7 @@ promotion_points=true | Returns the history of promotional points issued and red
 membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership
 mlp=true | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)
 coupon_limit | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions
-coupon_offset | Retrieves next set of coupons according to issual sequence. For example, coupon_offset=1, fetches all coupons excluding the first coupon issued to the customer; coupon_offset=5, excludes the first 5 coupons issued to the customer and returns remaining coupons.
+coupon_offset | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons)
 coupon_order_by | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively
 
 
