@@ -6994,7 +6994,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
     <span class="nt">&lt;side_effects/&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>In a retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once the customer is registered. </p>
+<p>Retro transaction means you can convert a not-interested transaction to a loyalty transaction (by tagging a not-interested transaction to the respective customer once registered). </p>
 
 <p>To avail Retro Transaction, you need to enable <strong>CONF_RETRO_TRANSACTION_ENABLE</strong> on InTouch&gt; <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch PoS Configuration</strong> &gt; <strong>Billing</strong> page. </p>
 
@@ -7004,6 +7004,14 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <li>CONF_CLIENT_RETRO_DELAY_SINCE_REGISTRATION_HOURS<br></li>
 <li>CONF_CLIENT_RETRO_MAX_ALLOWED_AGE_DAYS</li>
 </ul>
+
+<h3 id="additional-header-required-for-retro-transaction">Additional Header Required for Retro Transaction</h3>
+
+<p>&lsquo;X-CAP-CLIENT-SIGNATURE&rsquo;</p>
+
+<p>To recognize which source has made the retro call, you need to pass the name of the source. It is recommended to use a single name for a source so that it would be easy to track retro transactions of each source.  </p>
+
+<p>Example &rsquo;&ldquo;X-CAP-CLIENT-SIGNATURE&rdquo;:&ldquo;INTOUCH_BLR&rdquo;&rsquo;</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
