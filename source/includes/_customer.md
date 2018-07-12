@@ -42,21 +42,17 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "extended_fields": {
           "field": [
             {
-              "name": "color",
-              "value": "black"
+              "name": "gender",
+              "value": "Male"
             },
             {
-              "name": "ItemWeight",
-              "value": "3"
+              "name": "city",
+              "value": "Bangalore"
             },
+            
             {
-              "name": "Status",
-              "value": "pending"
-            },
-            { "name": "ser_tax" },
-            {
-              "name": "他他他他",
-              "value": "他他他"
+              "name": "dob",
+              "value": "1998/12/01"
             }
           ]
         },
@@ -67,8 +63,8 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
               "value": "[“Playing”]"
             },
             {
-              "name": "a",
-              "value": "[“b”]>"
+              "name": "Favorite Color",
+              "value": "Green"
             }
           ]
         }
@@ -80,6 +76,23 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "firstname": "Rita",
         "lastname": "John",
         "registered_on": "2012-09-11 11:11:15",
+		"extended_fields": {
+          "field": [
+            {
+              "name": "gender",
+              "value": "female"
+            },
+            {
+              "name": "city",
+              "value": "Bangalore"
+            },
+            
+            {
+              "name": "dob",
+              "value": "1998/09/01"
+            }
+          ]
+        },
 		"subscriptions": {
           "subscription": [
             {
@@ -115,8 +128,8 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
               "value": "[“Singing”]>"
             },
             {
-              "name": "a",
-              "value": "[“b”]"
+              "name": "Favorite Color",
+              "value": "Blue"
             }
           ]
         }
@@ -139,24 +152,17 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<registered_on>2012-09-11 11:11:11</registered_on>
 		<extended_fields>
 			<field>
-				<name>color</name>
-				<value>black</value>
+				<name>gender</name>
+				<value>male</value>
+			</field>
+			
+			<field>
+				<name>city</name>
+				<value>Bangalore</value>
 			</field>
 			<field>
-				<name>ItemWeight</name>
-				<value>3</value>
-			</field>
-			<field>
-				<name>Status</name>
-				<value>pending</value>
-			</field>
-			<field>
-				<name>ser_tax</name>
-				<value />
-			</field>
-			<field>
-				<name>他他他他</name>
-				<value>他他他</value>
+				<name>dob</name>
+				<value>1998/09/01</value>
 			</field>
 		</extended_fields>
 		<custom_fields>
@@ -164,10 +170,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 				<name>Hobbies</name>
 				<value>[“Playing”]</value>
 			</field>
-			<field>
-				<name>a</name>
-				<value>[“b”]&gt;</value>
-			</field>
+			
 		</custom_fields>
 	</customer>
 	<customer>
@@ -180,20 +183,17 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<registered_on>2012-09-11 11:11:15</registered_on>
 		<extended_fields>
 			<field>
-				<name>color</name>
-				<value>black</value>
+				<name>gender</name>
+				<value>female</value>
+			</field>
+			
+			<field>
+				<name>city</name>
+				<value>Bangalore</value>
 			</field>
 			<field>
-				<name>ItemWeight</name>
-				<value>3</value>
-			</field>
-			<field>
-				<name>Status</name>
-				<value>pending</value>
-			</field>
-			<field>
-				<name>他他他他</name>
-				<value>他他他</value>
+				<name>dob</name>
+				<value>1998/12/01</value>
 			</field>
 		</extended_fields>
 		<subscriptions>
@@ -304,11 +304,8 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
                 "name": "Status",
                 "value": "pending"
               },
-              { "name": "ser_tax" },
-              {
-                "name": "他他他他",
-                "value": "他他他"
-              }
+              { "name": "ser_tax" }
+             
             ]
           },
           "item_status": {
@@ -349,6 +346,21 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 			<email>tom.sawyer@example.com</email>
 			<external_id>XYPZ001</external_id>
 			<registered_on>2012-09-11 11:11:11</registered_on>
+			<extended_fields>
+				<field>
+					<name>gender</name>
+					<value>male</value>
+				</field>
+				<field>
+					<name>city</name>
+					<value>Bangalore</value>
+				</field>
+				<field>
+					<name>dob</name>
+					<value>1998/09/01</value>
+				</field>
+				
+			</extended_fields>
 			<item_status>
 				<success>true</success>
 				<code>1000</code>
@@ -389,25 +401,18 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 			<registered_on>2016-09-11 11:11:15</registered_on>
 			<extended_fields>
 				<field>
-					<name>color</name>
-					<value>black</value>
+					<name>gender</name>
+					<value>Female</value>
 				</field>
 				<field>
-					<name>ItemWeight</name>
-					<value>3</value>
+					<name>city</name>
+					<value>Bangalore</value>
 				</field>
 				<field>
-					<name>Status</name>
-					<value>pending</value>
+					<name>dob</name>
+					<value>1998/12/01</value>
 				</field>
-				<field>
-					<name>ser_tax</name>
-					<value />
-				</field>
-				<field>
-					<name>他他他他</name>
-					<value>他他他</value>
-				</field>
+				
 			</extended_fields>
 			<item_status>
 				<success>true</success>
@@ -511,24 +516,16 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "extended_fields":{
           "field":[
             {
-              "name":"color",
-              "value":"black"
+              "name":"gender",
+              "value":"male"
             },
+            
             {
-              "name":"ItemWeight",
-              "value":"3"
-            },
-            {
-              "name":"Status",
-              "value":"pending"
-            },
-            {
-              "name":"ser_tax"
-            },
-            {
-              "name":"他他他他",
-              "value":"他他他"
+              "name":"Nationality",
+              "value":"Indian"
             }
+            
+           
           ]
         },
         "custom_fields":{
@@ -560,25 +557,14 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
       
       <extended_fields>
          <field>
-            <name>color</name>
-            <value>black</value>
+            <name>gender</name>
+            <value>Male</value>
          </field>
          <field>
-            <name>ItemWeight</name>
-            <value>3</value>
+            <name>nationality</name>
+            <value>Indian</value>
          </field>
-         <field>
-            <name>Status</name>
-            <value>pending</value>
-         </field>
-         <field>
-            <name>ser_tax</name>
-            <value />
-         </field>
-         <field>
-            <name>他他他他</name>
-            <value>他他他</value>
-         </field>
+        
       </extended_fields>
       <custom_fields>
          <field>
@@ -612,22 +598,14 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "extended_fields": {
         "field": [
           {
-            "name": "color",
-            "value": "black"
+            "name": "gender",
+            "value": "male"
           },
           {
-            "name": "ItemWeight",
-            "value": "3"
-          },
-          {
-            "name": "Status",
-            "value": "pending"
-          },
-          { "name": "ser_tax" },
-          {
-            "name": "他他他他",
-            "value": "他他他"
+            "name": "nationality",
+            "value": "Indian"
           }
+          
         ]
       },
         "custom_fields": {
@@ -672,24 +650,14 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
             <extended_fields>
                <field>
                   <element>
-                     <name>color</name>
-                     <value>black</value>
+                     <name>gender</name>
+                     <value>Male</value>
                   </element>
                   <element>
-                     <name>ItemWeight</name>
-                     <value>3</value>
+                     <name>Nationality</name>
+                     <value>Indian</value>
                   </element>
-                  <element>
-                     <name>Status</name>
-                     <value>pending</value>
-                  </element>
-                  <element>
-                     <name>ser_tax</name>
-                  </element>
-                  <element>
-                     <name>他他他他</name>
-                     <value>他他他</value>
-                  </element>
+                  
                </field>
             </extended_fields>
             <external_id>ts1234</external_id>

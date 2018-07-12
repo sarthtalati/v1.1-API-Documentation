@@ -36,370 +36,432 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 ```json
 {
-  "root":{
-    "transaction":[
-      {
-        "bill_client_id":"",
-        "type":"regular",
-        "number":"Trans99",
-        "amount":"1000",
-        "notes":"2 line items",
-        "billing_time":"2017-04-01",
-        "gross_amount":"1000",
-        "discount":"10",
-        "customer":{
-          "mobile":"917901810xxxx",
-          "email":"",
-          "external_id":"",
-          "firstname":"",
-          "lastname":""
-        },
-        "payment_details":{
-          "payment":[
-            {
-              "mode":"CASH",
-              "value":"100"
-            },
-            {
-              "mode":[
-                "CREDIT",
-                "CHECKAPI"
-              ],
-              "value":[
-                "4000",
-                "500"
-              ],
-              "attributes":{
-                "attribute":[
-                  {
-                    "name":"BankNameAPI",
-                    "value":"value_602656"
-                  },
-                  {
-                    "name":"branch_nameAPI",
-                    "value":"value_602656"
-                  }
-                ]
-              },
-              "notes":"notes_602656"
-            }
-          ]
-        },
-        "custom_fields":{
-          "field":[
-            {
-              "name":"Bank",
-              "value":"SBI"
-            }
-          ]
-        },
-        "line_items":{
-          "line_item":[
-            {
-              "serial":"1",
-              "amount":"500",
-              "description":"soap",
-              "item_code":"skuattr9",
-              "variant":"",
-              "addon_items":{
-                "addon_item":[
-                  {
-                    "item_code":"Addon-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  },
-                  {
-                    "item_code":"Addon-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  }
-                ]
-              },
-              "combo_items":{
-                "combo_item":[
-                  {
-                    "item_code":"combo-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  },
-                  {
-                    "item_code":"combo-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  }
-                ]
-              },
-              "split_items":{
-                "split_item":[
-                  {
-                    "item_code":"Cheese dip",
-                    "quantity":"1",
-                    "description":"Cheese dip"
-                  },
-                  {
-                    "item_code":"Cheese dip",
-                    "quantity":"1",
-                    "description":"Cheese dip"
-                  }
-                ]
-              },
-              "qty":"50",
-              "rate":"10",
-              "value":"500",
-              "attributes":{
-                "attribute":{
-                  "name":"brand",
-                  "value":"Levis"
-                }
-              }
-            },
-            {
-              "serial":"1",
-              "transaction_number":"dkjjhdkjahdks",
-              "amount":"500",
-              "description":"soap",
-              "item_code":"skuattr9",
-              "variant":"variant-33",
-              "addon_items":{
-                "addon_item":[
-                  {
-                    "item_code":"Addon-043",
-                    "quantity":"1",
-                    "rate":"10",
-                    "value":"500",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  },
-                  {
-                    "item_code":"Addon-043",
-                    "quantity":"1",
-                    "rate":"10",
-                    "value":"500",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  }
-                ]
-              },
-              "combo_items":{
-                "combo_item":[
-                  {
-                    "item_code":"combo-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  },
-                  {
-                    "item_code":"combo-033",
-                    "quantity":"1",
-                    "description":"你想要塊起司配麵包吃嗎"
-                  }
-                ]
-              },
-              "split_items":{
-                "split_item":[
-                  {
-                    "item_code":"Cheese dip",
-                    "quantity":"1",
-                    "rate":"10",
-                    "value":"500",
-                    "description":"Cheese dip"
-                  },
-                  {
-                    "item_code":"Cheese dip",
-                    "quantity":"1",
-                    "rate":"10",
-                    "value":"500",
-                    "description":"Cheese dip"
-                  }
-                ]
-              },
-              "qty":"50",
-              "rate":"10",
-              "value":"500",
-              "attributes":{
-                "attribute":{
-                  "name":"brand",
-                  "value":"Levis"
-                }
-              }
-            }
-          ]
-        },
-        "associate_details":{
-          "code":"hiraxdhara",
-          "name":"Tom Sawyer"
-        }
-      }
-    ]
-  }
+	"root": {
+		"transaction": [{
+			"bill_client_id": "",
+			"type": "regular",
+			"number": "Trans99",
+			"amount": "1000",
+			"notes": "2 line items",
+			"billing_time": "2017-04-01",
+			"gross_amount": "1000",
+			"discount": "10",
+			"customer": {
+				"mobile": "917901810xxxx",
+				"email": "",
+				"external_id": "",
+				"firstname": "",
+				"lastname": ""
+			},
+			"extended_fields": {
+				"field": [{
+						"name": "CentralGST",
+						"value": "8.5"
+					},
+					{
+						"name": "cashier_id",
+						"value": "12345678"
+					}
+
+				]
+			},
+			"payment_details": {
+				"payment": [{
+						"mode": "CASH",
+						"value": "100"
+					},
+					{
+						"mode": [
+							"CREDIT",
+							"CHECKAPI"
+						],
+						"value": [
+							"4000",
+							"500"
+						],
+						"attributes": {
+							"attribute": [{
+									"name": "BankNameAPI",
+									"value": "value_602656"
+								},
+								{
+									"name": "branch_nameAPI",
+									"value": "value_602656"
+								}
+							]
+						},
+						"notes": "notes_602656"
+					}
+				]
+			},
+			"custom_fields": {
+				"field": [{
+					"name": "Bank",
+					"value": "SBI"
+				}]
+			},
+			"line_items": {
+				"line_item": [{
+						"serial": "1",
+						"amount": "500",
+						"description": "soap",
+						"item_code": "skuattr9",
+						"extended_fields": {
+							"field": [{
+									"name": "booking_type",
+									"value": "Online"
+								},
+								{
+									"name": "MetalRate",
+									"value": "120.55"
+								}
+							]
+						},
+						"variant": "",
+						"addon_items": {
+							"addon_item": [{
+									"item_code": "Addon-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "Addon-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"combo_items": {
+							"combo_item": [{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"split_items": {
+							"split_item": [{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"description": "Cheese dip"
+								},
+								{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"description": "Cheese dip"
+								}
+							]
+						},
+						"qty": "50",
+						"rate": "10",
+						"value": "500",
+						"attributes": {
+							"attribute": {
+								"name": "brand",
+								"value": "Levis"
+							}
+						}
+					},
+					{
+						"serial": "1",
+						"transaction_number": "Trans99",
+						"amount": "500",
+						"description": "soap",
+						"item_code": "skuattr9",
+						"variant": "variant-33",
+						"addon_items": {
+							"addon_item": [{
+									"item_code": "Addon-043",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": ""
+								},
+								{
+									"item_code": "Addon-043",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": ""
+								}
+							]
+						},
+						"combo_items": {
+							"combo_item": [{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"split_items": {
+							"split_item": [{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": "Cheese dip"
+								},
+								{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": "Cheese dip"
+								}
+							]
+						},
+						"qty": "50",
+						"rate": "10",
+						"value": "500",
+						"attributes": {
+							"attribute": {
+								"name": "brand",
+								"value": "Levis"
+							}
+						}
+					}
+				]
+			},
+			"associate_details": {
+				"code": "hiraxdhara",
+				"name": "Chin"
+			}
+		}]
+	}
 }
 ```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <transaction>
-        <bill_client_id></bill_client_id>
-        <type>regular</type>
-        <number>Trans99</number>
-        <amount>1000</amount>
-        <notes>2 line items</notes>
-        <billing_time>2017-04-01</billing_time>
-        <gross_amount>1000</gross_amount>
-        <discount>10</discount>
-        <customer>
-            <mobile>917901810xxxx</mobile>
-            <email></email>
-            <external_id></external_id>
-            <firstname></firstname>
-            <lastname></lastname>
-        </customer>
-        <payment_details>
-            <payment>
-                <mode>CASH</mode>
-                <value>100</value>
-            </payment>
-            <payment>
-                <mode>CREDIT</mode>
-                <mode>CHECKAPI</mode>
-                <value>4000</value>
-                <value>500</value>
-                <attributes>
-                    <attribute>
-                        <name>BankNameAPI</name>
-                        <value>value_602656</value>
-                    </attribute>
-                    <attribute>
-                        <name>branch_nameAPI</name>
-                        <value>value_602656</value>
-                    </attribute>
-                </attributes>
-                <notes>notes_602656</notes>
-            </payment>
-        </payment_details>
-        <custom_fields>
-            <field>
-                <name>Bank</name>
-                <value>SBI</value>
-            </field>
-        </custom_fields>
-        <line_items>
-            <line_item>
-                <serial>1</serial>
-                <amount>500</amount>
-                <description>soap</description>
-                <item_code>skuattr9</item_code>
-                <variant></variant>
-                <addon_items>
-                    <addon_item>
-                        <item_code>Addon-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </addon_item>
-                    <addon_item>
-                        <item_code>Addon-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </addon_item>
-                </addon_items>
-                <combo_items>
-                    <combo_item>
-                        <item_code>combo-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </combo_item>
-                    <combo_item>
-                        <item_code>combo-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </combo_item>
-                </combo_items>
-                <split_items>
-                    <split_item>
-                        <item_code>Cheese dip</item_code>
-                        <quantity>1</quantity>
-                        <description>Cheese dip</description>
-                    </split_item>
-                    <split_item>
-                        <item_code>Cheese dip</item_code>
-                        <quantity>1</quantity>
-                        <description>Cheese dip</description>
-                    </split_item>
-                </split_items>
-                <qty>50</qty>
-                <rate>10</rate>
-                <value>500</value>
-                <attributes>
-                    <attribute>
-                        <name>brand</name>
-                        <value>Levis</value>
-                    </attribute>
-                </attributes>
-            </line_item>
-            <line_item>
-                <serial>1</serial>
-                <transaction_number>dkjjhdkjahdks</transaction_number>
-                <amount>500</amount>
-                <description>soap</description>
-                <item_code>skuattr9</item_code>
-                <variant>variant-33</variant>
-                <addon_items>
-                    <addon_item>
-                        <item_code>Addon-043</item_code>
-                        <quantity>1</quantity>
-                        <rate>10</rate>
-                        <value>500</value>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </addon_item>
-                    <addon_item>
-                        <item_code>Addon-043</item_code>
-                        <quantity>1</quantity>
-                        <rate>10</rate>
-                        <value>500</value>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </addon_item>
-                </addon_items>
-                <combo_items>
-                    <combo_item>
-                        <item_code>combo-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </combo_item>
-                    <combo_item>
-                        <item_code>combo-033</item_code>
-                        <quantity>1</quantity>
-                        <description>你想要塊起司配麵包吃嗎</description>
-                    </combo_item>
-                </combo_items>
-                <split_items>
-                    <split_item>
-                        <item_code>Cheese dip</item_code>
-                        <quantity>1</quantity>
-                        <rate>10</rate>
-                        <value>500</value>
-                        <description>Cheese dip</description>
-                    </split_item>
-                    <split_item>
-                        <item_code>Cheese dip</item_code>
-                        <quantity>1</quantity>
-                        <rate>10</rate>
-                        <value>500</value>
-                        <description>Cheese dip</description>
-                    </split_item>
-                </split_items>
-                <qty>50</qty>
-                <rate>10</rate>
-                <value>500</value>
-                <attributes>
-                    <attribute>
-                        <name>brand</name>
-                        <value>Levis</value>
-                    </attribute>
-                </attributes>
-            </line_item>
-        </line_items>
-        <associate_details>
-            <code>hiraxdhara</code>
-            <name>Tom Sawyer</name>
-        </associate_details>
-    </transaction>
+   <root>
+      <transaction>
+         <element>
+            <amount>1000</amount>
+            <associate_details>
+               <code>hiraxdhara</code>
+               <name>Chin</name>
+            </associate_details>
+            <bill_client_id />
+            <billing_time>2017-04-01</billing_time>
+            <custom_fields>
+               <field>
+                  <element>
+                     <name>Bank</name>
+                     <value>SBI</value>
+                  </element>
+               </field>
+            </custom_fields>
+            <customer>
+               <email />
+               <external_id />
+               <firstname />
+               <lastname />
+               <mobile>917901810xxxx</mobile>
+            </customer>
+            <discount>10</discount>
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>CentralGST</name>
+                     <value>8.5</value>
+                  </element>
+                  <element>
+                     <name>cashier_id</name>
+                     <value>12345678</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <gross_amount>1000</gross_amount>
+            <line_items>
+               <line_item>
+                  <element>
+                     <addon_items>
+                        <addon_item>
+                           <element>
+                              <description />
+                              <item_code>Addon-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>Addon-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </addon_item>
+                     </addon_items>
+                     <amount>500</amount>
+                     <attributes>
+                        <attribute>
+                           <name>brand</name>
+                           <value>Levis</value>
+                        </attribute>
+                     </attributes>
+                     <combo_items>
+                        <combo_item>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </combo_item>
+                     </combo_items>
+                     <description>soap</description>
+                     <extended_fields>
+                        <field>
+                           <element>
+                              <name>booking_type</name>
+                              <value>Online</value>
+                           </element>
+                           <element>
+                              <name>MetalRate</name>
+                              <value>120.55</value>
+                           </element>
+                        </field>
+                     </extended_fields>
+                     <item_code>skuattr9</item_code>
+                     <qty>50</qty>
+                     <rate>10</rate>
+                     <serial>1</serial>
+                     <split_items>
+                        <split_item>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </split_item>
+                     </split_items>
+                     <value>500</value>
+                     <variant />
+                  </element>
+                  <element>
+                     <addon_items>
+                        <addon_item>
+                           <element>
+                              <description />
+                              <item_code>Addon-043</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>Addon-043</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                        </addon_item>
+                     </addon_items>
+                     <amount>500</amount>
+                     <attributes>
+                        <attribute>
+                           <name>brand</name>
+                           <value>Levis</value>
+                        </attribute>
+                     </attributes>
+                     <combo_items>
+                        <combo_item>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </combo_item>
+                     </combo_items>
+                     <description>soap</description>
+                     <item_code>skuattr9</item_code>
+                     <qty>50</qty>
+                     <rate>10</rate>
+                     <serial>1</serial>
+                     <split_items>
+                        <split_item>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                        </split_item>
+                     </split_items>
+                     <transaction_number>Trans99</transaction_number>
+                     <value>500</value>
+                     <variant>variant-33</variant>
+                  </element>
+               </line_item>
+            </line_items>
+            <notes>2 line items</notes>
+            <number>Trans99</number>
+            <payment_details>
+               <payment>
+                  <element>
+                     <mode>CASH</mode>
+                     <value>100</value>
+                  </element>
+                  <element>
+                     <attributes>
+                        <attribute>
+                           <element>
+                              <name>BankNameAPI</name>
+                              <value>value_602656</value>
+                           </element>
+                           <element>
+                              <name>branch_nameAPI</name>
+                              <value>value_602656</value>
+                           </element>
+                        </attribute>
+                     </attributes>
+                     <mode>
+                        <element>CREDIT</element>
+                        <element>CHECKAPI</element>
+                     </mode>
+                     <notes>notes_602656</notes>
+                     <value>
+                        <element>4000</element>
+                        <element>500</element>
+                     </value>
+                  </element>
+               </payment>
+            </payment_details>
+            <type>regular</type>
+         </element>
+      </transaction>
+   </root>
 </root>
 
 ```
@@ -522,14 +584,14 @@ To add transaction with variant details, pass the variant id at the line-item le
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
 
 <aside class="notice">
-When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended custom fields will be updated to the new values. <br>
+When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended fields will be updated to the new values. <br>
 If a new customer identifier is passed along with the transaction details, the customer will be registered automatically. 
 </aside>
 
 
-You can update custom field details and extended custom field details for either regular or return transaction. To retrieve these details, use customer/get, customer/transaction APIs.
+You can update custom field details and extended field details for either regular or return transactions. To retrieve these details, use customer/get, customer/transaction APIs.
 
-* Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes
+* Extended fields are a kind of custom fields with defined field names and values that help generate reports on basis of extended fields. In transactions, extended field details can be captured at transaction level, or line-item level. Examples of transaction level extended fields include additional_discount, centralGST, GrossWeight etc and examples of line-item level extended fields include DesignCode, imei_number, MakingCharge etc.  
 * Pass custom field details in the custom_fields element and extended fields in the extended_fields element
 * To retrieve custom field values and extended field values, use the customer/get or customer/transaction API
 
@@ -1138,6 +1200,18 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
           "email": "earnshaw.catherine@example.com",
           "external_id": "ec1234"
         },
+		"extended_fields": {
+				"field": [{
+						"name": "CentralGST",
+						"value": "8.5"
+					},
+					{
+						"name": "cashier_id",
+						"value": "12345678"
+					}
+
+				]
+			},
         "custom_fields": {
           "field": [
             {
@@ -1145,8 +1219,8 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
               "value": "value2"
             },
             {
-              "name": "field2",
-              "value": "value2"
+              "name": "Favorite Color",
+              "value": "Green"
             }
           ]
         }
@@ -1160,13 +1234,8 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
           "mobile": "44700900000",
           "email": "tom.sawyer@example.com",
           "external_id": "ts1234"
-        },
-        "custom_fields": {
-          "field": [{
-            "name": "Tom Sawyer",
-            "value": "value2"
-          }]
         }
+        
       }
     ]
   }
@@ -1196,6 +1265,18 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
             <email>earnshaw.catherine@example.com</email>
             <external_id>ec1234</external_id>
         </customer>
+		<extended_fields>
+               <field>
+                  <element>
+                     <name>CentralGST</name>
+                     <value>8.5</value>
+                  </element>
+                  <element>
+                     <name>cashier_id</name>
+                     <value>12345678</value>
+                  </element>
+               </field>
+            </extended_fields>
         <custom_fields>
             <field>
                 <name>Earnshaw Catherine</name>
@@ -1391,7 +1472,7 @@ http://api.capillary.co.in/v1.1/transaction/update?format=json
 </response>
 ```
 
-In a retro transaction, you can convert a not-interested transaction to a regular by tagging the transaction to the respective customer once the customer is registered. 
+Retro transaction means you can convert a not-interested transaction to a loyalty transaction (by tagging a not-interested transaction to the respective customer once registered). 
 
 To avail Retro Transaction, you need to enable **CONF_RETRO_TRANSACTION_ENABLE** on InTouch> **Settings** > **Systems & Deployment** > **InTouch PoS Configuration** > **Billing** page. 
 
@@ -1399,6 +1480,15 @@ On the Billing page, you will also see a configuration to set the maximum durati
 
 * CONF_CLIENT_RETRO_DELAY_SINCE_REGISTRATION_HOURS	
 * CONF_CLIENT_RETRO_MAX_ALLOWED_AGE_DAYS
+
+### Additional Header Required for Retro Transaction
+
+'X-CAP-CLIENT-SIGNATURE'
+
+To recognize which source has made the retro call, you need to pass the name of the source. It is recommended to use a single name for a source so that it would be easy to track retro transactions of each source.  
+
+
+Example '"X-CAP-CLIENT-SIGNATURE":"INTOUCH_BLR"'
 
 ### Resource Information
 Entry | Description
