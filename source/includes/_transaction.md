@@ -802,7 +802,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
       "type": "not_interested_return",
       "country": "true",
       "number": "may30001",
-      "not_interested_reason": "Example resson",
+      "not_interested_reason": "Example reason",
       "return_type": "AMOUNT",
       "purchase_time": "2017-05-31",
       "amount": "500",
@@ -846,7 +846,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 		<type>not_interested_return</type>
 		<country>true</country>
 		<number>may30001</number>
-		<not_interested_reason>Example resson</not_interested_reason>
+		<not_interested_reason>Example reason</not_interested_reason>
 		<return_type>AMOUNT</return_type>
 		<purchase_time>2017-05-31</purchase_time>
 		<amount>500</amount>
