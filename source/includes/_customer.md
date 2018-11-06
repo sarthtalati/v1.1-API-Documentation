@@ -514,7 +514,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 		"registered_till":"NorthEast",
 		"associated_with":"two.till01",
         
-        "extended_fields":{
+        "extended_fields": {
           "field":[
             {
               "name":"gender",
