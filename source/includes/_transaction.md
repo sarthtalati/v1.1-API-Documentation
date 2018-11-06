@@ -788,7 +788,7 @@ Batch Support | Yes
 
 
 
-## Return Transactions
+## Return Transaction
 ```html
 # Sample Request
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json
@@ -938,6 +938,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 The API allows submitting transaction returns of both loyalty and not-interested transactions. 
 
+
 The following are different return types supported for both loyalty and not-interested transactions.
  
 * **Full Return**: To return an entire transaction and exchange with different items
@@ -965,7 +966,7 @@ Before submitting return transactions, you should know the configurations set of
 
 
 
-## Cancel a Line-Item of a Transactions
+## Cancel a Transaction Line-Item
 ```html
 # Sample Request
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json

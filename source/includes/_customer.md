@@ -511,7 +511,8 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "external_id":"ts1234",
         "firstname":"Tom",
         "lastname":"Sawyer",
-		"registered_till":"NorthEast"
+		"registered_till":"NorthEast",
+		"associated_with":"two.till01",
         
         "extended_fields":{
           "field":[
@@ -554,7 +555,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
       <external_id>ts1234</external_id>
       <firstname>Tom</firstname>
       <lastname>Sawyer</lastname>
-      
+      <associated_with>two.till01</associated_with>
       <extended_fields>
          <field>
             <name>gender</name>
@@ -595,6 +596,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "external_id": "ts1234",
         "firstname": "Tom",
         "lastname": "Sawyer",
+		"associated_with": "two.till01",
         "extended_fields": {
         "field": [
           {
@@ -668,6 +670,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
                <success>true</success>
             </item_status>
             <lastname>Sawyer</lastname>
+			 <associated_with>two.till01</associated_with>
             <lifetime_points>245</lifetime_points>
             <lifetime_purchases>24500</lifetime_purchases>
             <loyalty_points>60</loyalty_points>
