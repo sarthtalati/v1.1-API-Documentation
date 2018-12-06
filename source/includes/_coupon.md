@@ -281,36 +281,36 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 
 ```json
 {
-  "response": {
-    "status": {
+   "status": {
       "success": "true",
       "code": "200",
       "message": "SUCCESS"
-    },
-    "coupons": {
+   },
+   "coupons": {
       "coupon": {
-        "code": "06000041",
-        "customer": {
-          "mobile": "447700900000",
-          "user_id": "55434"
-        },
-        "transaction": {
-          "number": "bill-110",
-          "amount": "1000"
-        },
-        "series_code": "227f0",
-        "is_absolute": "true",
-        "coupon_value": "0",
-        "item_status": {
-          "success": "true",
-          "#text": "        
-t",
-          "code": "200",
-          "message": "SUCCESS"
-        }
+         "code": "06000041",
+         "customer": {
+            "mobile": "447700900000",
+            "email": [],
+            "external_id": [],
+            "user_id": "55434"
+         },
+         "transaction": {
+            "number": "bill-110",
+            "amount": "1000"
+         },
+         "discount_code": [],
+         "series_code": "227f0",
+         "is_absolute": "true",
+         "coupon_value": "0",
+         "item_status": {
+            "success": "true",
+            "#text": "t",
+            "code": "200",
+            "message": "SUCCESS"
+         }
       }
-    }
-  }
+   }
 }
 ```
 

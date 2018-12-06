@@ -9,7 +9,7 @@ Based on the registration status, customers are categorized into three types:
 
 The customer entity contains APIs related to registering customers into the loyalty program, managing loyalty accounts and updating subscription status of both registered and non-registered customers. It stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.
 
-Customer APIs allow you to:
+Customer APIs allow you to :
 
 * Register customers into your organization’s loyalty program 
 * Update loyalty customers' profile information
@@ -39,6 +39,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
         "lastname": "Sawyer",
         "registered_on": "2012-09-11 11:11:11",
 		"registered_till": "NorthEast",
+		"associated_with":"two.till01",
         "extended_fields": {
           "field": [
             {
@@ -179,7 +180,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 		<external_id>XYPZ006</external_id>
 		<firstname>Rita</firstname>
 		<lastname>John</lastname>
-		
+		<associated_with>two.till01</associated_with>
 		<registered_on>2012-09-11 11:11:15</registered_on>
 		<extended_fields>
 			<field>
@@ -513,7 +514,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "lastname":"Sawyer",
 		"registered_till":"NorthEast",
 		"associated_with":"two.till01",
-        
+        "ndnc_status":"NDNC"
         "extended_fields": {
           "field":[
             {
@@ -556,6 +557,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
       <firstname>Tom</firstname>
       <lastname>Sawyer</lastname>
       <associated_with>two.till01</associated_with>
+	  <ndnc_status>NDNC</ndnc_status> <! Possible Values: NDNC, INVALID, NONE >
       <extended_fields>
          <field>
             <name>gender</name>
@@ -732,6 +734,8 @@ Batch Support | No
 Parameter | Description
 --------- | -----------
 Mobile/email/external_id/id* | Pass any one of the following identifiers of the customer whose details need to be updated
+
+
 
 ## Update Customer Identifiers
 ```html
