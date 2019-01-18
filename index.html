@@ -113,6 +113,9 @@
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Capillary V1.1 API Documentation</a></li>
+            <li><a href="https://capillary.github.io/api-documentation/">Capillary CRM API Documentation v2.0</a></li>
+            <li><a href="https://capillary.github.io/ecom-api-document/">Capillary Anywhere Commerce API Documentation</a></li>
+            <li><a href='#'>Capillary V2.0 API Documentation</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -362,6 +365,7 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-11 11:11:11"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NorthEast"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"associated_with"</span><span class="p">:</span><span class="s2">"two.till01"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -499,7 +503,7 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
         <span class="nt">&lt;external_id&gt;</span>XYPZ006<span class="nt">&lt;/external_id&gt;</span>
         <span class="nt">&lt;firstname&gt;</span>Rita<span class="nt">&lt;/firstname&gt;</span>
         <span class="nt">&lt;lastname&gt;</span>John<span class="nt">&lt;/lastname&gt;</span>
-
+        <span class="nt">&lt;associated_with&gt;</span>two.till01<span class="nt">&lt;/associated_with&gt;</span>
         <span class="nt">&lt;registered_on&gt;</span>2012-09-11 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
         <span class="nt">&lt;extended_fields&gt;</span>
             <span class="nt">&lt;field&gt;</span>
@@ -877,8 +881,8 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="s2">"NorthEast"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"associated_with"</span><span class="p">:</span><span class="s2">"two.till01"</span><span class="p">,</span><span class="w">
-
-        </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">"NDNC"</span><span class="w">
+        </span><span class="s2">"extended_fields"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
@@ -917,6 +921,7 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
       <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
       <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
       <span class="nt">&lt;associated_with&gt;</span>two.till01<span class="nt">&lt;/associated_with&gt;</span>
+      <span class="nt">&lt;ndnc_status&gt;</span>NDNC<span class="nt">&lt;/ndnc_status&gt;</span> <span class="cp">&lt;! Possible Values: NDNC, INVALID, NONE &gt;</span>
       <span class="nt">&lt;extended_fields&gt;</span>
          <span class="nt">&lt;field&gt;</span>
             <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
@@ -1850,6 +1855,10 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <tr>
 <td>coupon_order_by</td>
 <td>Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively</td>
+</tr>
+<tr>
+<td>user_group=true</td>
+<td>Retrieves the details of user group associated to the user (if available)</td>
 </tr>
 </tbody></table>
 
@@ -8746,36 +8755,36 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06000041"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55434"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227f0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"is_absolute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coupon_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"#text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"        
-t"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06000041"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55434"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227f0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"is_absolute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"coupon_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"#text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>  
 <span class="nt">&lt;status&gt;</span>    
