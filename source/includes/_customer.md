@@ -1330,7 +1330,7 @@ mlp=true | Retrieves the details of each loyalty program of the customer if the 
 coupon_limit | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions
 coupon_offset | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons)
 coupon_order_by | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively
-
+user_group=true | Retrieves the details of user group associated to the user (if available)
 
 ### Request URL
 `https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
