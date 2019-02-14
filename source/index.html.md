@@ -26,6 +26,7 @@ includes:
   - store
   - product
   - wallet
+  - storeCare
 
 search: true
 ---
