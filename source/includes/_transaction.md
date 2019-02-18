@@ -34,211 +34,230 @@ Before using transaction APIs, understand the transaction configurations of your
 ```html
 http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
+
+> Sample Response
+
+
 ```json
 {
-	"root": {
-		"transaction": [{
-			"bill_client_id": "",
-			"type": "regular",
-			"number": "Trans99",
-			"amount": "1000",
-			"notes": "2 line items",
-			"billing_time": "2017-04-01",
-			"gross_amount": "1000",
-			"discount": "10",
-			"customer": {
-				"mobile": "917901810xxxx",
-				"email": "",
-				"external_id": "",
-				"firstname": "",
-				"lastname": ""
-			},
-			"extended_fields": {
-				"field": [{
-						"name": "CentralGST",
-						"value": "8.5"
-					},
-					{
-						"name": "cashier_id",
-						"value": "12345678"
-					}
-
-				]
-			},
-			"payment_details": {
-				"payment": [{
-						"mode": "CASH",
-						"value": "100"
-					},
-					{
-						"mode": [
-							"CREDIT",
-							"CHECKAPI"
-						],
-						"value": [
-							"4000",
-							"500"
-						],
-						"attributes": {
-							"attribute": [{
-									"name": "BankNameAPI",
-									"value": "value_602656"
-								},
-								{
-									"name": "branch_nameAPI",
-									"value": "value_602656"
-								}
-							]
-						},
-						"notes": "notes_602656"
-					}
-				]
-			},
-			"custom_fields": {
-				"field": [{
-					"name": "Bank",
-					"value": "SBI"
-				}]
-			},
-			"line_items": {
-				"line_item": [{
-						"serial": "1",
-						"amount": "500",
-						"description": "soap",
-						"item_code": "skuattr9",
-						"extended_fields": {
-							"field": [{
-									"name": "booking_type",
-									"value": "Online"
-								},
-								{
-									"name": "MetalRate",
-									"value": "120.55"
-								}
-							]
-						},
-						"variant": "",
-						"addon_items": {
-							"addon_item": [{
-									"item_code": "Addon-033",
-									"quantity": "1",
-									"description": ""
-								},
-								{
-									"item_code": "Addon-033",
-									"quantity": "1",
-									"description": ""
-								}
-							]
-						},
-						"combo_items": {
-							"combo_item": [{
-									"item_code": "combo-033",
-									"quantity": "1",
-									"description": ""
-								},
-								{
-									"item_code": "combo-033",
-									"quantity": "1",
-									"description": ""
-								}
-							]
-						},
-						"split_items": {
-							"split_item": [{
-									"item_code": "Cheese dip",
-									"quantity": "1",
-									"description": "Cheese dip"
-								},
-								{
-									"item_code": "Cheese dip",
-									"quantity": "1",
-									"description": "Cheese dip"
-								}
-							]
-						},
-						"qty": "50",
-						"rate": "10",
-						"value": "500",
-						"attributes": {
-							"attribute": {
-								"name": "brand",
-								"value": "Levis"
-							}
-						}
-					},
-					{
-						"serial": "1",
-						"transaction_number": "Trans99",
-						"amount": "500",
-						"description": "soap",
-						"item_code": "skuattr9",
-						"variant": "variant-33",
-						"addon_items": {
-							"addon_item": [{
-									"item_code": "Addon-043",
-									"quantity": "1",
-									"rate": "10",
-									"value": "500",
-									"description": ""
-								},
-								{
-									"item_code": "Addon-043",
-									"quantity": "1",
-									"rate": "10",
-									"value": "500",
-									"description": ""
-								}
-							]
-						},
-						"combo_items": {
-							"combo_item": [{
-									"item_code": "combo-033",
-									"quantity": "1",
-									"description": ""
-								},
-								{
-									"item_code": "combo-033",
-									"quantity": "1",
-									"description": ""
-								}
-							]
-						},
-						"split_items": {
-							"split_item": [{
-									"item_code": "Cheese dip",
-									"quantity": "1",
-									"rate": "10",
-									"value": "500",
-									"description": "Cheese dip"
-								},
-								{
-									"item_code": "Cheese dip",
-									"quantity": "1",
-									"rate": "10",
-									"value": "500",
-									"description": "Cheese dip"
-								}
-							]
-						},
-						"qty": "50",
-						"rate": "10",
-						"value": "500",
-						"attributes": {
-							"attribute": {
-								"name": "brand",
-								"value": "Levis"
-							}
-						}
-					}
-				]
-			},
-			"associate_details": {
-				"code": "hiraxdhara",
-				"name": "Chin"
-			}
-		}]
-	}
+   "root":{
+      "transaction":[
+         {
+            "bill_client_id":"",
+            "type":"regular",
+            "number":"Trans99",
+            "amount":"1000",
+			"currency_code" : "INR",
+            "notes":"2 line items",
+            "billing_time":"2017-04-01",
+            "gross_amount":"1000",
+            "discount":"10",
+            "customer":{
+               "mobile":"917901810xxxx",
+               "email":"",
+               "external_id":"",
+               "firstname":"Tom",
+               "lastname":"Sawyer"
+            },
+            "extended_fields":{
+               "field":[
+                  {
+                     "name":"CentralGST",
+                     "value":"8.5"
+                  },
+                  {
+                     "name":"cashier_id",
+                     "value":"12345678"
+                  }
+               ]
+            },
+            "payment_details":{
+               "payment":[
+                  {
+                     "mode":"CASH",
+                     "value":"100"
+                  },
+                  {
+                     "mode":[
+                        "CREDIT",
+                        "CHECKAPI"
+                     ],
+                     "value":[
+                        "4000",
+                        "500"
+                     ],
+                     "attributes":{
+                        "attribute":[
+                           {
+                              "name":"BankNameAPI",
+                              "value":"value_602656"
+                           },
+                           {
+                              "name":"branch_nameAPI",
+                              "value":"value_602656"
+                           }
+                        ]
+                     },
+                     "notes":"notes_602656"
+                  }
+               ]
+            },
+            "custom_fields":{
+               "field":[
+                  {
+                     "name":"Bank",
+                     "value":"SBI"
+                  }
+               ]
+            },
+            "line_items":{
+               "line_item":[
+                  {
+                     "serial":"1",
+                     "amount":"500",
+                     "description":"soap",
+                     "item_code":"skuattr9",
+                     "extended_fields":{
+                        "field":[
+                           {
+                              "name":"booking_type",
+                              "value":"Online"
+                           },
+                           {
+                              "name":"MetalRate",
+                              "value":"120.55"
+                           }
+                        ]
+                     },
+                     "variant":"",
+                     "addon_items":{
+                        "addon_item":[
+                           {
+                              "item_code":"Addon-033",
+                              "quantity":"1",
+                              "description":""
+                           },
+                           {
+                              "item_code":"Addon-033",
+                              "quantity":"1",
+                              "description":""
+                           }
+                        ]
+                     },
+                     "combo_items":{
+                        "combo_item":[
+                           {
+                              "item_code":"combo-033",
+                              "quantity":"1",
+                              "description":""
+                           },
+                           {
+                              "item_code":"combo-033",
+                              "quantity":"1",
+                              "description":""
+                           }
+                        ]
+                     },
+                     "split_items":{
+                        "split_item":[
+                           {
+                              "item_code":"Cheese dip",
+                              "quantity":"1",
+                              "description":"Cheese dip"
+                           },
+                           {
+                              "item_code":"Cheese dip",
+                              "quantity":"1",
+                              "description":"Cheese dip"
+                           }
+                        ]
+                     },
+                     "qty":"50",
+                     "rate":"10",
+                     "value":"500",
+                     "attributes":{
+                        "attribute":{
+                           "name":"brand",
+                           "value":"Levis"
+                        }
+                     }
+                  },
+                  {
+                     "serial":"1",
+                     "transaction_number":"Trans99",
+                     "amount":"500",
+                     "description":"soap",
+                     "item_code":"skuattr9",
+                     "variant":"variant-33",
+                     "addon_items":{
+                        "addon_item":[
+                           {
+                              "item_code":"Addon-043",
+                              "quantity":"1",
+                              "rate":"10",
+                              "value":"500",
+                              "description":""
+                           },
+                           {
+                              "item_code":"Addon-043",
+                              "quantity":"1",
+                              "rate":"10",
+                              "value":"500",
+                              "description":""
+                           }
+                        ]
+                     },
+                     "combo_items":{
+                        "combo_item":[
+                           {
+                              "item_code":"combo-033",
+                              "quantity":"1",
+                              "description":""
+                           },
+                           {
+                              "item_code":"combo-033",
+                              "quantity":"1",
+                              "description":""
+                           }
+                        ]
+                     },
+                     "split_items":{
+                        "split_item":[
+                           {
+                              "item_code":"Cheese dip",
+                              "quantity":"1",
+                              "rate":"10",
+                              "value":"500",
+                              "description":"Cheese dip"
+                           },
+                           {
+                              "item_code":"Cheese dip",
+                              "quantity":"1",
+                              "rate":"10",
+                              "value":"500",
+                              "description":"Cheese dip"
+                           }
+                        ]
+                     },
+                     "qty":"50",
+                     "rate":"10",
+                     "value":"500",
+                     "attributes":{
+                        "attribute":{
+                           "name":"brand",
+                           "value":"Levis"
+                        }
+                     }
+                  }
+               ]
+            },
+            "associate_details":{
+               "code":"hiraxdhara",
+               "name":"Chin"
+            }
+         }
+      ]
+   }
 }
 ```
 
@@ -465,6 +484,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </root>
 
 ```
+
 > Sample Response
 
 ```json
