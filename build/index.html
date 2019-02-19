@@ -5519,210 +5519,229 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 
 <h2 id="add-transaction">Add Transaction</h2>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/add?format=json
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trans99"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 line items"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"917901810xxxx"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"regular"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"Trans99"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"INR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"2 line items"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="s2">"2017-04-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"917901810xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CentralGST"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8.5"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cashier_id"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-
-                </span><span class="p">]</span><span class="w">
+            </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"CentralGST"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"8.5"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"cashier_id"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"payment_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                        </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                            </span><span class="s2">"CREDIT"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"CHECKAPI"</span><span class="w">
-                        </span><span class="p">],</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                            </span><span class="s2">"4000"</span><span class="p">,</span><span class="w">
-                            </span><span class="s2">"500"</span><span class="w">
-                        </span><span class="p">],</span><span class="w">
-                        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BankNameAPI"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_602656"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"branch_nameAPI"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value_602656"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notes_602656"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
+            </span><span class="nt">"payment_details"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"payment"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"mode"</span><span class="p">:</span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"100"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"mode"</span><span class="p">:[</span><span class="w">
+                        </span><span class="s2">"CREDIT"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"CHECKAPI"</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:[</span><span class="w">
+                        </span><span class="s2">"4000"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"500"</span><span class="w">
+                     </span><span class="p">],</span><span class="w">
+                     </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"BankNameAPI"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"value_602656"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"branch_nameAPI"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"value_602656"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"notes_602656"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SBI"</span><span class="w">
-                </span><span class="p">}]</span><span class="w">
+            </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Bank"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"SBI"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"booking_type"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MetalRate"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"120.55"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brand"</span><span class="p">,</span><span class="w">
-                                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Levis"</span><span class="w">
-                            </span><span class="p">}</span><span class="w">
+            </span><span class="nt">"line_items"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"line_item"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"booking_type"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Online"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"MetalRate"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"120.55"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"variant"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Addon-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Addon-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"attribute"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Levis"</span><span class="w">
                         </span><span class="p">}</span><span class="w">
-                    </span><span class="p">},</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trans99"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"variant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"variant-33"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon-043"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Addon-043"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="w">
-                                </span><span class="p">},</span><span class="w">
-                                </span><span class="p">{</span><span class="w">
-                                    </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cheese dip"</span><span class="w">
-                                </span><span class="p">}</span><span class="w">
-                            </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brand"</span><span class="p">,</span><span class="w">
-                                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Levis"</span><span class="w">
-                            </span><span class="p">}</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"Trans99"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"variant"</span><span class="p">:</span><span class="s2">"variant-33"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Addon-043"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Addon-043"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"combo-033"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="p">{</span><span class="w">
+                              </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"quantity"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Cheese dip"</span><span class="w">
+                           </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"attribute"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"brand"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Levis"</span><span class="w">
                         </span><span class="p">}</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"associate_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hiraxdhara"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chin"</span><span class="w">
+            </span><span class="nt">"associate_details"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"hiraxdhara"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Chin"</span><span class="w">
             </span><span class="p">}</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
