@@ -193,7 +193,8 @@ CI_MOBILEREALLOC_AUTO_APPROVE | Approves mobile number reallocation requests aut
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
 </aside>
 
-Request Parameters
+### Request Parameters
+
 Parameter | Description
 --------- | -----------
 program_id | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true
