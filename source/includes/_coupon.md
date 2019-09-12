@@ -152,24 +152,26 @@ http://us.intouch.capillarytech.com/v1.1/coupon/resend?format=xml&id=13596576
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "coupons": {
-      "coupon": [{
-        "id": "13596576",
-        "code": "4R5A33",
-        "item_status": {
-          "success": "true",
-          "code": "700",
-          "message": "Coupon Resent"
-        }]
+   "response":{
+      "status":{
+         "success":"true",
+         "code":"200",
+         "message":"SUCCESS"
+      },
+      "coupons":{
+         "coupon":[
+            {
+               "id":"13596576",
+               "code":"4R5A33",
+               "item_status":{
+                  "success":"true",
+                  "code":"700",
+                  "message":"Coupon Resent"
+               }
+            }
+         ]
       }
-    }
-  }
+   }
 }
 ```
 

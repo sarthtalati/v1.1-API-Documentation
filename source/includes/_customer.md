@@ -850,7 +850,7 @@ new_value* | Provide the new value of the identifier that you want to replace wi
 
 
 
-## Retrieve Customers (Advanced Search)
+## Search Customers (Advanced Search)
 ```html
 # Sample Request
 http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&format=json
@@ -1066,6 +1066,20 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 
 This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.
 
+<aside class="notice">
+If customer details are not found, then customer data is not retrieved. However, currently, `customer not found error` is not shown in V1.1. 
+As there are no integrations built on V1.1 `customer/search`, it is recommended to use V2.0 [customer/Search] (https://capillary.github.io/api-documentation/#fetch-customers-advanced-customer-search) API to see proper response status.
+</aside>
+
+
+<aside class="notice">
+**Error Code: 461**
+
+This represents timeout error when you try to fetch customers with all the three identifiers - mobile, email, and external id - and Solr DB times out.
+<br>
+This is because, when you make an API call, Solr DB is queried firstly. If Solr times out, MySQL is searched, but MySQL does not support search on multiple identifiers.
+</aside>
+
 ### Resource Information
 Parameter | Value
 --------- | -----
@@ -1112,6 +1126,12 @@ The following is a formal definition of the Query Grammar
 **Dynamic List**
 * **OPERATOR**: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN
 * **VALUES**: ALPHANUMERIC | ALPHANUMERIC;ALPHANUMERIC(for RANGE, IN OPERATOR, separator is ';' )
+
+
+
+
+
+
 
 
 ## Retrieve Customer Details
@@ -1308,6 +1328,19 @@ Response Object | Details of loyalty customers
 API Version | v1.1
 Batch Support | Yes
 
+
+### Request URL
+`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
+
+
+### Additional Header
+
+Header | Description
+------ | -----------
+language | Specify the ISO language code to get customer level extended field details in your preferred language (other than English). For example, `zh` for Chinese, `id` for Indonesian, `ar` for Arabic.
+
+
+
 ### Request Parameters
 
 Parameter | Description
@@ -1332,8 +1365,7 @@ coupon_offset | Retrieves next set of coupons according to issual sequence. For 
 coupon_order_by | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively
 user_group=true | Retrieves the details of user group associated to the user (if available)
 
-### Request URL
-`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
+
 
 
 

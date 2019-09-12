@@ -1,9 +1,9 @@
 # Transaction
-In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:
+A transaction represents a purchase or return event. Based on the customers' loyalty status, transactions are categorized into three types.
 
 * **Loyalty Transactions**: Transactions made by registered customers of your organization's loyalty program. A customer can be tagged to a loyalty transaction.
 
-* **Non-loyalty Transactions**: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)
+* **Non-loyalty Transactions**: Transactions made by customers who are not registered into your loyalty program, but subscribed their mobile number or email id with the organization. These transactions are tagged to the respective identifiers (mobile no/email id)
 
 * **Not-interested Transactions**: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
 
@@ -583,17 +583,17 @@ This API lets you add transactions of both loyalty and not-interested customers.
 Following are the other key functionalities of the transaction/add API:
 
 * Registers customers automatically when a new identifier is passed with the transaction details
-* Updates customer details if an existing identifier is passed with different customer details (other than customer indentifiers)
+* Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers)
 * Supports transactions with Product Variant and Product Bundle details
 * Adds product variant to the database when a new variant product is passed with an existing base product
-* Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant prouct
+* Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant product
 
 **Variant Product**: A same product having different variations in terms of common properties such as size, and color.
 
-**Product Bundle**: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace haing gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) 
+**Product Bundle**: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace having gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) 
 
 <aside class="notice">
-To add transaction with variant details, pass the variant id at the line-item level. For buldle products, pass each line item details in the respective bundle type (split/combo/add-on).
+To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
 
 </aside>
 
@@ -1663,22 +1663,30 @@ Batch Support | Yes
 ### Request URL
 `http://<cluster url>/v1.1/transaction/get?format=<xml/json>&<identifier_type>=<identifier_value>`
 
+### Additional Header
+
+Header | Description
+------ | -----------
+language | Specify the ISO language code to get transaction level extended field details in your preferred language (other than English). For example, `zh` for Chinese, `id` for Indonesian, `ar` for Arabic.
+
+
+
 ### Request Parameters
 Parameter | Description
 --------- | -----------
 id | Fetch the details of a specific transaction 
 store_code | Fetch the transactions of a specific store 
 till_code | Fetch the transactions made at a specific TILL
-user_id | -@DefaultValue("false"),
-credit_notes | "-@DefaultValue("false"),
-tenders | @DefaultValue("false"),
+user_id | Get transaction details of a specific customer. Pass the user id of the customer 
+credit_notes | 
+tenders | 
 amount | Fetch the transactions of a specific amount
 min_amount | Fetch transactions of a specific amount range, i.e., min_amount - max_amount
 max_amount | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount
 start_date | Fetch transactions of a specific duration., between start_date and end_date
 end_date | Fetch transactions of a specific duration., between start_date and end_date
-start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transacton ids between 1000 - 4999
-end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transacton ids between 1000 - 4999
+start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999
+end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999
 number | Fetch the details of a specific transaction based on the transaction number passed
 date | Fetch transactions of a specific date
 limit | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100

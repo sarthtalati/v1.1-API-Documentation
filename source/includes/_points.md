@@ -239,7 +239,8 @@ points* | Number of points to redeem
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
+http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&program_id=504'
+format=json
 ```
 
 ```json
@@ -344,7 +345,7 @@ API Version | v1.1
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/points/redeem?format=<xml/json>`
+`http://<cluster url>/v1.1/points/redeem?format=<xml/json>&{query_param}={param_value}`
 
 ### Request Parameters
 Parameter | Description
@@ -354,6 +355,8 @@ points_redeemed* | Provide the number of points to be redeemed
 transaction_number | Provide the transaction number for which the points has to be redeemed
 validation_code* | Provide the validation code received by the customer through `points/validationcode`
 redemption_time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format
+program_id | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled
+
 
 ## Response Codes
 ### Success Codes

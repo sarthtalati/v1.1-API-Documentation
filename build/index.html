@@ -8614,25 +8614,27 @@ http://us.intouch.capillarytech.com/v1.1/coupon/resend?format=xml<span class="er
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13596576"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4R5A33"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon Resent"</span><span class="w">
-        </span><span class="p">}</span><span class="err">]</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"coupons"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"coupon"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"13596576"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"4R5A33"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"700"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Coupon Resent"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="err">}</span><span class="w">
-  </span><span class="err">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>  
 <span class="nt">&lt;status&gt;</span>    
 <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>    
@@ -10421,11 +10423,23 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
 </aside>
 
-<p>Request Parameters
-Parameter | Description
-&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-program_id | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true
-client_auto_approve=true | Allows processing a request directly</p>
+<h3 id="request-parameters">Request Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>program_id</td>
+<td>Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true</td>
+</tr>
+<tr>
+<td>client_auto_approve=true</td>
+<td>Allows processing a request directly</td>
+</tr>
+</tbody></table>
 
 <h3 id="resource-information">Resource Information</h3>
 
