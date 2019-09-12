@@ -1266,7 +1266,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-customers-advanced-search">Retrieve Customers (Advanced Search)</h2>
+<h2 id="search-customers-advanced-search">Search Customers (Advanced Search)</h2>
 <pre class="highlight html"><code># Sample Request
 http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span class="err">&amp;</span>format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w"> 
@@ -1473,6 +1473,19 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
 </code></pre>
 <p>This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.</p>
+
+<aside class="notice">
+If customer details are not found, then customer data is not retrieved. However, currently, `customer not found error` is not shown in V1.1. 
+As there are no integrations built on V1.1 `customer/search`, it is recommended to use <a href="https://capillary.github.io/api-documentation/#fetch-customers-advanced-customer-search"> V2.0 customer/Search </a> API to see proper response status.
+</aside>
+
+<aside class="notice">
+<b>Error Code: 461</b> <br>
+
+This represents timeout error when you try to fetch customers with all the three identifiers - mobile, email, and external id - and Solr DB times out.
+<br>
+This is because, when you make an API call, Solr DB is queried firstly. If Solr times out, MySQL is searched, but MySQL does not support search on multiple identifiers.
+</aside>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -1775,6 +1788,24 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tr>
 </tbody></table>
 
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;&amp;mlp=true</code></p>
+
+<h3 id="additional-header">Additional Header</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>Specify the ISO language code to get customer level extended field details in your preferred language (other than English). For example, <code class="prettyprint">zh</code> for Chinese, <code class="prettyprint">id</code> for Indonesian, <code class="prettyprint">ar</code> for Arabic.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
@@ -1860,10 +1891,6 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <td>Retrieves the details of user group associated to the user (if available)</td>
 </tr>
 </tbody></table>
-
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;&amp;mlp=true</code></p>
 
 <h2 id="retrieve-customer-transactions">Retrieve Customer Transactions</h2>
 <pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
@@ -5482,11 +5509,11 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 
           <h1 id="transaction">Transaction</h1>
 
-<p>In Capillary’s platform a transaction represents a purchase or return event. Transactions are categorized into three types based on customer type as explained in the following:</p>
+<p>A transaction represents a purchase or return event. Based on the customers&rsquo; loyalty status, transactions are categorized into three types.</p>
 
 <ul>
 <li><p><strong>Loyalty Transactions</strong>: Transactions made by registered customers of your organization&rsquo;s loyalty program. A customer can be tagged to a loyalty transaction.</p></li>
-<li><p><strong>Non-loyalty Transactions</strong>: Transactions made by customers who are not registered into your loyalty program, but shared their mobile number or email id with your organization. These transactions are tagged to the respective identifiers (mobile no/email id)</p></li>
+<li><p><strong>Non-loyalty Transactions</strong>: Transactions made by customers who are not registered into your loyalty program, but subscribed their mobile number or email id with the organization. These transactions are tagged to the respective identifiers (mobile no/email id)</p></li>
 <li><p><strong>Not-interested Transactions</strong>: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. </p></li>
 </ul>
 
@@ -6060,18 +6087,18 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 
 <ul>
 <li>Registers customers automatically when a new identifier is passed with the transaction details</li>
-<li>Updates customer details if an existing identifier is passed with different customer details (other than customer indentifiers)</li>
+<li>Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers)</li>
 <li>Supports transactions with Product Variant and Product Bundle details</li>
 <li>Adds product variant to the database when a new variant product is passed with an existing base product</li>
-<li>Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant prouct</li>
+<li>Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant product</li>
 </ul>
 
 <p><strong>Variant Product</strong>: A same product having different variations in terms of common properties such as size, and color.</p>
 
-<p><strong>Product Bundle</strong>: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace haing gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) </p>
+<p><strong>Product Bundle</strong>: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace having gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) </p>
 
 <aside class="notice">
-To add transaction with variant details, pass the variant id at the line-item level. For buldle products, pass each line item details in the respective bundle type (split/combo/add-on).
+To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
 
 </aside>
 
@@ -7294,6 +7321,20 @@ returned only when query param user_id is true
 
 <p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
 
+<h3 id="additional-header">Additional Header</h3>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>language</td>
+<td>Specify the ISO language code to get transaction level extended field details in your preferred language (other than English). For example, <code class="prettyprint">zh</code> for Chinese, <code class="prettyprint">id</code> for Indonesian, <code class="prettyprint">ar</code> for Arabic.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
@@ -7316,15 +7357,15 @@ returned only when query param user_id is true
 </tr>
 <tr>
 <td>user_id</td>
-<td>-@DefaultValue(&ldquo;false&rdquo;),</td>
+<td>Get transaction details of a specific customer. Pass the user id of the customer</td>
 </tr>
 <tr>
 <td>credit_notes</td>
-<td>&ldquo;-@DefaultValue(&quot;false&rdquo;),</td>
+<td></td>
 </tr>
 <tr>
 <td>tenders</td>
-<td>@DefaultValue(&ldquo;false&rdquo;),</td>
+<td></td>
 </tr>
 <tr>
 <td>amount</td>
@@ -7348,11 +7389,11 @@ returned only when query param user_id is true
 </tr>
 <tr>
 <td>start_id</td>
-<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transacton ids between 1000 - 4999</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999</td>
 </tr>
 <tr>
 <td>end_id</td>
-<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transacton ids between 1000 - 4999</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999</td>
 </tr>
 <tr>
 <td>number</td>
@@ -8145,7 +8186,8 @@ The validation code is issued either to mobile number, or email id or both, base
 
 <h2 id="redeem-points">Redeem Points</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/redeem?format=json
+http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS<span class="err">&amp;</span>program_id=504'
+format=json
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -8267,7 +8309,7 @@ You need to use the validation code within the validity period. You can check th
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/points/redeem?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/points/redeem?format=&lt;xml/json&gt;&amp;{query_param}={param_value}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -8296,6 +8338,10 @@ You need to use the validation code within the validity period. You can check th
 <tr>
 <td>redemption_time</td>
 <td>Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled</td>
 </tr>
 </tbody></table>
 

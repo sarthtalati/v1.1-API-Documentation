@@ -1068,12 +1068,12 @@ This API allows you to fetch customers based on different parameters such as suc
 
 <aside class="notice">
 If customer details are not found, then customer data is not retrieved. However, currently, `customer not found error` is not shown in V1.1. 
-As there are no integrations built on V1.1 `customer/search`, it is recommended to use V2.0 [customer/Search] (https://capillary.github.io/api-documentation/#fetch-customers-advanced-customer-search) API to see proper response status.
+As there are no integrations built on V1.1 `customer/search`, it is recommended to use <a href="https://capillary.github.io/api-documentation/#fetch-customers-advanced-customer-search"> V2.0 customer/Search </a> API to see proper response status.
 </aside>
 
 
 <aside class="notice">
-**Error Code: 461**
+<b>Error Code: 461</b> <br>
 
 This represents timeout error when you try to fetch customers with all the three identifiers - mobile, email, and external id - and Solr DB times out.
 <br>
