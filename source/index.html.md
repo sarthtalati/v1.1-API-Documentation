@@ -37,13 +37,13 @@ The Capillary APIs are RESTful APIs that help third party applications manage an
 
 
 ## Organization Setup
-An organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL /Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
+An organization associated with Capillary is registered in InTouch. Based on the organization's architecture, store TILL or Store Center accounts are created besides zones, concepts, and stores. Only Capillary users have access to register an organization in inTouch. For more information, contact your  Account Manager or Delivery Manager of Capillary.
 
 To set up an organization as a Capillary admin, see Setting up Organization. 
  
 
 ## Authentication
-Capillary APIs are accessed using the TILL/Store Center credentials created when the organization is registered. Please note that it is mandatory to use only the store specific Till/Store center credentials of the organization as the data in the API response depends on this identification.
+Capillary APIs are accessed using the TILL/Store Center credentials created when the organization is registered. Please note that it is mandatory to use only the store specific Till/Store Center credentials of the organization as the data in the API response depends on this identification.
 
 <aside class="notice">
 Use Case: 
