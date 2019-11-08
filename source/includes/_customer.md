@@ -21,13 +21,16 @@ Customer APIs allow you to :
 
 ## Register Customer
 
-```shell
-#Sample Request
-POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
+> Sample Request URL
+
+```html
+POST http://us.api.capillarytech.com/v1.1/customer/add?format=json
 ```
 
+> Sample POST Request
+
 ```json
-# Sample POST JSON
+
 {
   "root": {
     "customer": [
@@ -141,7 +144,7 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 ```
 
 ```xml
-# Sample POST XML
+
 <root>
 	<customer>
 		<mobile>44700900000</mobile>
@@ -238,9 +241,9 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 
 ```
 
-```json
-# Sample Response
+> Sample Response
 
+```json
 {
   "response": {
     "status": {
@@ -333,7 +336,6 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 ```
 
 ```xml
-# Sample Response
 <response>
 	<status>
 		<success>true</success>
@@ -437,71 +439,72 @@ POST "http://us.api.capillarytech.com/v1.1/customer/add?format=json"
 </response>
 ```
 
-This API lets you register customers in the organization’s loyalty program with mobile number/email id/external id. If you try to register an existing identifier, the respective customer details will be updated with the new details.
+Registers customers in the org’s loyalty program with the primary identifier (mobile number/email id/external id). 
 
-Behavior of the API in different cases:
+Updates existing customer details (other than identifiers such as mobile number, email id, and external id) if you try registering an existing identifier. 
 
-* Registers customer with the provided details when a new identifier(mobile no/email id/external id) is passed
-* Updates existing customer details, other than existing customer identifier(s), when a registered identifier is passed
-* Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
-* Adds/updates custom field details of the customer
-* Adds/updates **extended field** values of the customer
-
-
-
-<aside class="notice">
-
-You can also update secondary identifiers (mobile no./email id./external id) of a customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
-
-* CONF_ALLOW_MOBILE_UPDATE (for mobile number)<br>
-* CONF_ALLOW_EMAIL_UPDATE (for email id) <br>
-* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id)
-</aside>
+Behavior of the API when an existing identifier is passed.
+* Updates existing customer details other than existing identifier(s) such as mobile number, email id, or external id.
+* Updates null identifiers from null to a value, but not value to value. <i>Existing identifiers cannot be updated</i>.
+* Updates secondary identifiers if the respective configuration is enabled on InTouch **Settings** > **Miscellaneous** > **Registration Configuration** page.
+	* CONF_ALLOW_MOBILE_UPDATE (for mobile number).
+	* CONF_ALLOW_EMAIL_UPDATE (for email id).
+	* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
+* Adds/updates **custom field** details.
+* Adds/updates **extended field** values.
 
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI	| customer/add
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI	| `/add`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/add?format=<xml/json>`
-
-### Request Attributes
-The mandatory attributes for customer registration depends on the configurations set on InTouch. For example, you could set email id and one or more custom fields as a mandatory params for registering a customer.
-		<aside class="warning">Before using customer registration API, know the mandatory and optional fields set on the **Registration Configuration** page of InTouch.</aside>
-
-Attribute | Description
---------- | -----------
-mobile* | Mobile number that the customer wants to register with your org. Pass the mobile number with country code
-email* | Email id that the customer wants to register with your org. 
-external_id* | External id of the customer that is accepted by your org. Required only if it is supported for your org
-firstname | First name of the customer
-lastname | Last name of the customer
-type | Registration type: LOYALTY, NON_LOYALTY, NOT_INTERESTED
-registered_on | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
-registered_till | The TILL at which customer is registered
-custom_fields | Provide the custom fields configured for your org in name and value pairs <br>`<field>` `<name>Hobbies</name>` <br> `<value>[“Playing”]</value>`  `</field>`
-extended_fields | Provide the details of extended fields of the customer in name and value pairs
+`http://{host}/v1.1/customer/add?format={xml/json}`
 
 
+
+### Request Body Parameters
+
+The mandatory attributes for customer registration depends on the configurations set on InTouch **Settings** > **Registration Configuration**. You need to know your org configurations before using this API.
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile** | long | Mobile number of the customer with country code.
+email** | string | Email ID of the customer. 
+external_id** | string | External ID of the customer if applicable for the org.
+firstname | string | First name of the customer.
+lastname | string | Last name of the customer.
+type | enum | Type of registration. Values: LOYALTY (for loyalty customer), NON_LOYALTY (registered one or more identifiers but not enrolled in the loyalty program), NOT_INTERESTED (not interested to register identifiers or enrol in the loyalty program).
+registered_on | date-time | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
+registered_till | string | The TILL at which customer is registered.
+custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
+extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
+subscriptions | obj | Provide the subscription details of the customer.
+priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
+is_subscribed | enum | Value 0, 1
+channel | enum | Current communication channel. Value: `sms`, `email`.
+
+
+<aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
 
 ## Update Customer Details
 
-```shell
-# Sample Request URL
-POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
+> Sample Request URL
+
+
+```html
+POST http://api.capillary.co.in/v1.1/customer/update?format=json
 ```
 
+> Sample POST Request
+
 ```json
-# Sample Post JSON
 
 {
   "root":{
@@ -514,7 +517,7 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
         "lastname":"Sawyer",
 		"registered_till":"NorthEast",
 		"associated_with":"two.till01",
-        "ndnc_status":"NDNC"
+        "ndnc_status":"NDNC",
         "extended_fields": {
           "field":[
             {
@@ -545,8 +548,6 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 ```
 
 ```xml
-# Sample Post XML
-
 
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
@@ -580,9 +581,9 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 
 ```
 
-```json
-# Sample Response
+> Sample Response
 
+```json
 {
   "response": {
     "status": {
@@ -636,8 +637,6 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 ```
 
 ```xml
-# Sample Response
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
    <response>
@@ -691,63 +690,66 @@ POST "http://api.capillary.co.in/v1.1/customer/update?format=json"
 </root>
 ```
 
-This API lets you update the details of loyalty customer. If any of the identifiers you pass already exists for another account, then the customer details will be merged automatically.
+Lets you update the details of an existing customer other than primary or secondary identifiers. If any of the identifiers you pass already exists for a different account, then the customer details will be merged automatically.
 
-The customer update API allows you to update the following parameters:
+Behavior of the API:
 
-* Existing customer details other than primary/secondary identifiers
-* Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i>
-* Custom field details of the customer
-* Extended field details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes
+* Updates existing customer details other than primary/secondary identifiers including custom fields and extended fields. 
+* Updates secondary identifiers only with null values will be updated. Hence, <i>existing identifiers cannot be updated with this API</i>.
 
 <aside class="notice">
+You can update secondary identifiers (mobile no./email id./external id) only if the respective config mentioned in the following are enabled on InTouch **Settings** > **Miscellaneous** > **Registration Configuration**.
 
-* A customer's primary identifier cannot be updated through this API
-* To retrieve custom field values and extended field values, use the customer/get API
+* CONF_ALLOW_MOBILE_UPDATE (for mobile number).
+* CONF_ALLOW_EMAIL_UPDATE (for email id).
+* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
 
 </aside>
 
-Pass the custom field details in the custom_fields element and extended fields in the extended_fields element. To retrieve custom field values and extended field values, use the customer/get API.
-
-
-You can update secondary identifiers (mobile no./email id./external id) only if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration**
-
-* CONF_ALLOW_MOBILE_UPDATE (for mobile number)
-* CONF_ALLOW_EMAIL_UPDATE (for email id)
-* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id) 
-
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI	| customer/update
-Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/update?format=<xml/json>`
+`http://{host}/v1.1/customer/update?format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Mobile/email/external_id/id* | Pass any one of the following identifiers of the customer whose details need to be updated
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Mobile/email/external_id/id* | string | Pass any one of the following identifiers of the customer whose details you want to update.
+firstname | string | First name of the customer.
+lastname | string | Last name of the customer.
+registered_on | date-time | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
+registered_till | string | The TILL at which customer is registered.
+associated_with | string | Till code that you want to associate with the customer.
+ndnc_status | enum | National Do not Call status of the customer.
+custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
+extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
+subscriptions | obj | Provide the subscription details of the customer.
+priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
+channel | enum | Current communication channel. Value: `sms`, `email`.
+
+
+<aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
 
 
 ## Update Customer Identifiers
-```html
-# Sample Request
 
+> Sample Request
+
+```html
 http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 ```
 
-> Pass the identifier name (mobile/email/external_id) that you want to update inn identifier and pass the old and new identifier value in old_value and new_value respectively.
+> Sample POST Request
 
 ```json
-# Sample POST json
 {
    "root": {
       "customer": [
@@ -763,7 +765,6 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 
 
 ```xml
-# Sample POST xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
 	<customer>
@@ -826,35 +827,39 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </response>
 ```
 
-This API lets you send request to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through `customer/update_identity` will be in pending state by default. Capillary back-end team verifies the requests and process it accordingly.
+Lets you submit request to update primary and secondary identifiers (mobile no./email id/external id) of a loyalty customer. Requests submitted through `customer/update_identity` will be in pending state by default. Capillary back-end team verifies the requests and process it accordingly.
 
 ### Resource Information
-Parameter | Value
---------- | -----
+| | |
+--------- | ----------- |
 URI	| customer/update_identity
-Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/update_identity?format=<xml/json>`
+`http://{host}/v1.1/customer/update_identity?format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-identifier* | Pass the identifier name that you want to update. **Value**: mobile, email, external_id
-old_value* | Provide the existing value of the specific identifier that you want to update
-new_value* | Provide the new value of the identifier that you want to replace with
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier* | enum | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
+old_value* | string | Provide the existing value the identifier that you want to update.
+new_value* | string | Provide the new value of the identifier.
 
 
 
 ## Search Customers (Advanced Search)
+
+> Sample Request
+
 ```html
-# Sample Request
-http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&format=json
+http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
 ```
+
+
+> Sample Response
+
 ```json
 { 
     "response": {
@@ -993,8 +998,6 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 ```
 
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
@@ -1064,7 +1067,8 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000&form
 ```
 
 
-This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.
+Lets you fetch customers based on partial or complete keywords passed. You can fetch customers by name, customer identifier, registered store id, registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount, and custom field values.
+
 
 <aside class="notice">
 If customer details are not found, then customer data is not retrieved. However, currently, `customer not found error` is not shown in V1.1. 
@@ -1081,19 +1085,17 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </aside>
 
 ### Resource Information
-Parameter | Value
---------- | -----
-URI	| customer/search
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI	| `/search?q={param}:{Query}:{value}&format={xml/json}
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/search?format=<xml/json>&<input_params>`
+`http://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&format={xml/json}`
 
-### Request Parameters
+### Request Query Parameters
 You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.
 
 Parameter | Description
@@ -1113,15 +1115,16 @@ slab | Retrieves the list of customers whose current loyalty tier matches the sp
 registered_store | Retrieves the list of customers who are registered at a specific store. <br>**Query**: `registered_store:EQUALS:<Store id>`
 last_trans_value | Retrieves the list of customers whose transaction amount matches the specified query. <br>**Query**: `transaction_value:GREATER:<transaction amount>`
 Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br>**Query**: `<Field Name>:<Field Value>`
+Operator | enum | Predefined conditions based on which you want to fetch results. Values: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN. For more details, see the following section, Search Query Grammar.
 
-### Query Grammar
+### Search Query Grammar
 The following is a formal definition of the Query Grammar
 
 **QUERY**: `(CONDITION) | (CONDITION & (CONDITION)*)`
 
 **CONDITION**: `ATTRIBUTE:OPERATOR:VALUES`
 
-**ATTRIBUTE**: Set of inventory/customer attributes that are searchable
+**ATTRIBUTE**: Set of inventory/customer attributes that are searchable.
 
 **Dynamic List**
 * **OPERATOR**: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN
@@ -1134,7 +1137,7 @@ The following is a formal definition of the Query Grammar
 
 
 
-## Retrieve Customer Details
+## Get Customer Details
 ```html
 # Sample Request URL
 http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
@@ -1315,22 +1318,19 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
 </response>
 ```
 
-This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer's unique id.
+Retrieve details of a specific loyalty customer such as loyalty information, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields, and customer's unique id.
 
 ### Resource Information
-Parameter | Value
---------- | -----
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/get`
 Authentication |  Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Details of loyalty customers
-API Version | v1.1
 Batch Support | Yes
 
 
 ### Request URL
-`https://api.capillary.co.in/v1.1/customer/get?format=xml&<identifier_type>=<identifier_value>&mlp=true`
+`https://api.capillary.co.in/v1.1/customer/get?{identifier_type}={identifier_value}&mlp=true&format={xml/json}`
 
 
 ### Additional Header
@@ -1341,39 +1341,44 @@ language | Specify the ISO language code to get customer level extended field de
 
 
 
-### Request Parameters
+### Request Query Parameters
 
-Parameter | Description
---------- | ----------- 
-Customer Identifier* | Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`
-user_id=true | Returns the unique id of the customer (generated at our end when the customer is registered)
-next_slab=true | Returns the details of next tier of the  loyalty customer
-slab_history=true | Returns the details of loyalty tier changes of the customer
-registered_store | Returns the store at which the customer is registered. This is returned by default.
+Parameter | Datatype | Description
+--------- | -------- | ----------- 
+Identifier* | string | Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
+coupon_limit | int | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves five recent coupon interactions.
+coupon_offset | int | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons).
+coupon_order_by | date-time | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.
+user_id=true | - | Returns the unique id of the customer (generated at our end when the customer is registered).
+next_slab=true | - | Returns the details of next tier of the  loyalty customer.
+slab_history=true | - | Returns the details of loyalty tier changes of the customer.
+registered_store | string | Returns the store at which the customer is registered. This is returned by default.
 registered_till | Returns the store-TILL at which the customer is registered. This is returned by default. 
-fraud_details=true | Returns the fraud details of a customer. This field is returned by default
-ndsc_status=true | Returns the status of the customer's registered mobile number on NDSC/DND
-optin_status=true | Returns the services (sms/email) to which the customer has opted in and opted out
-expiry_schedule=true | Returns the details of points expiry summary
-expired_points=true | Returns the details of expired points of the customer
-points_summary=true | Returns the history of points issued and redeemed
-promotion_points=true | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued
-membership_retention_criteria=true | Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership
-mlp=true | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)
-coupon_limit | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions
-coupon_offset | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons)
-coupon_order_by | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively
-user_group=true | Retrieves the details of user group associated to the user (if available)
+fraud_details=true | - | Returns the fraud details of a customer. This field is returned by default.
+ndsc_status=true | - | Returns the status of the customer's registered mobile number on NDSC/DND.
+optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
+expiry_schedule=true | - | Returns the details of points expiry summary.
+expired_points=true | - | Returns the details of expired points of the customer.
+points_summary=true | - | Returns the history of points issued and redeemed.
+promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
+membership_retention_criteria=true | - | Returns the criteria set for membership retention (for membership based loyalty program).
+mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
+user_group=true | - | Retrieves the details of user group associated to the user (if available).
+
+<aside class="notice">Parameter marked by * is mandatory. </aside>
 
 
 
 
+## Get Customer Transactions
 
+> Sample Request
 
-## Retrieve Customer Transactions
 ```html
 http://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=44700900000&start_date=2016-12-21+23:45:45&end_date=2016-12-29+12:11:45
 ```
+
+> Sample Response
 
 ```json
 {
@@ -1475,7 +1480,7 @@ http://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=4470090
 </response>
 ```
 
-This API allows you to retrieve transaction history of a customer which includes the following information.
+Retrieves transaction history of a customer which includes the following information.
 
 Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. 
 
@@ -1486,55 +1491,52 @@ You can filter the results for better understanding and sort the information in 
 You can filter results using various parameters to analyze the data that you want to see and hide that you don’t want to see. For more details on supported filters, see the ***Request Parameters*** table below.
 
 ### Resource Information
-Parameter | Value
---------- | -----
-URI | customer/transactions
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/transactions`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/transactions?format=<xml/json>&<input_params>`
+`http://{host}/v1.1/customer/transactions?format={xml/json}&<input_params>`
 
 For MLP
 
-`http://<cluster url>/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
+`http://{host}/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-Customer Identifier* | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
-start_date | Retrieves transactions made in a specific duration (start_date to end_date)
-end_date | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
-transaction_id | Retrieves the details of a specific transaction
-transaction_date | Retrieves the transactions made on a particular date. Date format: YYYY-MM-DD
-amount | Retrieves transactions by transaction amount. Pass the specific transaction amount that you want to fetch
-number | Retrieves the details of a specific transaction based on the transaction number passed
-till_id | Retrieves the transactions made at a specific TILL based on the TILL id passed
-till_name | Retrieves the transactions made at a specific TILL based on the TILL name passed
-till_code | Retrieves the transactions made at a specific TILL based on the TILL code passed
-store_id | Retrieves transactions made at a specific store based on the store id passed
-store_name | Retrieves transactions made at a specific store based on the store name passed
-store_code | Retrieves transactions made at a specific store based on the store code passed
-start_id | Retrieves transactions with transaction ids starting with a specific value passed
-end_id | Retrieves transactions with transaction ids ending with a specific value passed
-credit_notes | Retrieves the credit notes of the transactions. **Value**: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes: A receipt given by a cashier to a customer for returned goods which can be used for future purchases.
-custom_fields | Retrieves the details of custom fields of the respective transactions. **Value**: true,false.
-limit | Limits the number of results to be displayed. For example, if `limit=10` a maximum of 10 transactions will be displayed
-sort | Arranges the transactions by transaction date or transaction id based on the value set <br>**Value**: trans_id, trans_date
-order | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id
-asc | Sorts the transaction history in the ascending order of transaction date or transaction id. <br>**Query**: sort=desc
-Desc | Sorts the transaction history in the descending order of transaction date or transaction id. <br>**Query**: sort=desc
-
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer Identifier* | string | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+start_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date).
+end_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
+transaction_date | date | Filter transactions by transaction date. Pass the date in `YYYY-MM-DD` format.
+amount | int | Fetch transaction details by transaction amount.
+number | string | Fetch transaction details by transaction number.
+transaction_id | int | Fetch details of a transaction by transaction ID (internally generated unique ID for a transaction).
+till_id | string | Filter transactions by associated TILL ID.
+till_name | string | Filter transactions associated to a specific TILL name.
+till_code | string | Filter transactions associated to a TILL code.
+store_id | string | Filter transactions associated to a specific store id.
+store_name | string | Filter transactions associated to a specific store name.
+store_code | string | Filter transactions associated to a specific store code.
+start_id | int | Filter transactions by transaction ids starting with a specific value.
+end_id | int | Filter transactions by transaction ids ending with a specific value.
+credit_notes | boolean | Retrieves the credit notes of the transactions. **Value**: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes is a receipt given by a cashier to a customer for returned goods which can be used for future purchases.
+custom_fields | boolean | Pass `true` to retrieve transaction level custom field details.
+limit | int | Limit the number of results to be displayed. For example, if `limit=10` a maximum of 10 transactions will be displayed.
+sort | enum | Arranges the transactions by transaction date or transaction id based on the value set. Supported value: trans_id, trans_date.
+order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id.
+asc | Sorts the transaction history in the ascending order of transaction date or transaction id (based on `sort` type). Query: `sort=asc`
+Desc | Sorts the transaction history in the descending order of transaction date or transaction id. Query: `sort=desc`
 
 ## Retrieve Customer Redemptions
 
 ```html
 # Sample Request
 
-http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&format=json
+http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 ```
 
 > Sample Response
@@ -1564,7 +1566,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&for
             "id": "3",
             "code": "832-pghhi6u1",
             "series_id": "832",
-            "description": "abctest",
+            "description": "Sample description",
             "discount_code": "abc",
             "discount_type": "PERC",
             "transaction_number": "TestBill-1234",
@@ -1624,7 +1626,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&for
                <id>3</id>
                <code>832-pghhi6u1</code>
                <series_id>832</series_id>
-               <description>abctest</description>
+               <description>Sample description</description>
                <discount_code>abc</discount_code>
                <discount_type>PERC</discount_type>
                <transaction_number>TestBill-1234</transaction_number>
@@ -1657,17 +1659,15 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000&for
 This API allows you to retrieve points and coupons redemption history of a customer. You can filter the results by type, duration, coupon ids start with, and coupon ids end with. Besides filters you can also sort the results by ascending or descending order by redemption id/time and limit number of results to retrieve.
 
 ### Resource Information
-Parameter | Value
---------- | -----
-URI | customer/redemptions
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/redemptions`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/redemptions?format=<xml/json>&<input_params>`
+`http://{host}/v1.1/customer/redemptions?<query_params>`
 
 ### Request Parameters
 Parameter | Description
@@ -1686,7 +1686,7 @@ points_end_id | Filter the results by points redemption id ending with a specifi
 order | Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time
 sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time
 mlp=true | Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)
-
+format | enum | Pass the desired representation of response content - `format=xml`, or `format=json`. 
 
 
 
@@ -1810,17 +1810,15 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 This API allows you to capture additional information about the customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/notes
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/notes`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/notes?format=xml/json`
+`http://{host}/v1.1/customer/notes?format=xml/json`
 
 ### Request Parameters
 Parameter | Description
@@ -1964,17 +1962,15 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 This API lets you update existing customer notes.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
+| | |
+--------- | ----------- |
 URI | customer/notes
-Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/notes?format=xml/json`
+`http://{host}/v1.1/customer/notes?format=xml/json`
 
 ### Request Attributes
 Parameter | Description
@@ -2086,17 +2082,15 @@ user_id tag will be returned only if query param user_id = true
 This API allows you to fetch notes created for a specific customer.
 
 ### Resource Information
-Parameter | Value
---------- | -----------
-URI | customer/notes
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/notes`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/notes?format=<xml/json>&<identifier>=<value>`
+`http://{host}/v1.1/customer/notes?format={xml/json}&<identifier>=<value>`
 
 ### Request Parameters
 Parameter | Description
@@ -2227,17 +2221,15 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 This API lets you track the history of coupons issued to a specific customer, i.e., the details of coupons issued and redeemed.
 
 ### Resource Information
-Parameter | Value
---------- | -----------
-URI | customer/coupons
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/coupons`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/coupons?format=<json/xml>&<input_params>`
+`http://{host}/v1.1/customer/coupons?format=<json/xml>&<input_params>`
 
 ### Request Parameters
 Parameter | Description
@@ -2404,17 +2396,15 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 This API allows you to create tickets for a specific customer.
 
 ### Resource Information
-Parameter | Value
---------- | -----------
-URI | customer/tickets
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/tickets`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/tickets?format=<xml/json>&<input_params>`
+`http://{host}/v1.1/customer/tickets?format={xml/json}&<input_params>`
 
 ### Request Parameters
 Parameter | Description
@@ -2522,17 +2512,15 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 This API allows you to fetch the details of tickets of a specific customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/tickets
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/tickets`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/tickets?format=<xml/json>&<input_params>`
+`http://{host}/v1.1/customer/tickets?format={xml/json}&<input_params>`
 
 ### Request Parameters
 Parameter | Description
@@ -2745,17 +2733,15 @@ It is important to understand the following terminologies that you may come acro
 * **scope**: The channel through which the referral was made. Currently, the referrals are supported only through email and mobile number. Scopes are used as name-value pairs, the value could be referees, invitees, or incentives as per the context.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/referrals
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/referrals`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/referrals??format=<xml/json>&<query-params>`
+`http://{host}/v1.1/customer/referrals??format={xml/json}&<query-params>`
 
 
 
@@ -3003,17 +2989,15 @@ eddard.stark@winterfell.com",
 Returns the stats of the referrals sent, and gets the unique referral code of a referral campaign sent to the specific  customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/referrals
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/referrals`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/referrals?<query-params>`
+`http://{host}/v1.1/customer/referrals?<query-params>`
 
 ### Request Parameters
 Parameter | Description
@@ -3183,17 +3167,15 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 Preferences are custom fields created under the preferences category which helps in capturing specific interests of a customer. Example: favorite color, favorite brand. This API allows you to set or update preferences of a customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/preferences
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/preferences`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/preferences?format=<xml/json>`
+`http://{host}/v1.1/customer/preferences?format={xml/json}`
 
 
 
@@ -3308,17 +3290,15 @@ Preferences retrieved successfully
 This API allows you to fetch preference values set for a specific customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/preferences
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/preferences`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/preferences?format=<xml/json>&<customer_identifier>=<identifier value>`
+`http://{host}/v1.1/customer/preferences?format={xml/json}&<customer_identifier>=<identifier value>`
 
 ### Request Parameters
 Parameter | Description
@@ -3601,17 +3581,15 @@ def@xyz.com
 This API allows you to fetch store interactions with a specific customer such as SMSs sent, emails sent, missed calls received from the customer's registered mobile number, and surveys submitted by the customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/interaction
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/interaction`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/interaction?format=<xml/json>&<parameters>`
+`http://{host}/v1.1/customer/interaction?format={xml/json}&<parameters>`
 
 ### Request Parameters
 Parameter | Description
@@ -3766,17 +3744,15 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 This API allows you to update sms/email subscription statuses of a customer.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/subscriptions
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/subscriptions`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/subscriptions?format=<xml/json>`
+`http://{host}/v1.1/customer/subscriptions?format={xml/json}`
 
 ### Request Attributes
 Attribute | Description
@@ -3968,17 +3944,15 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json&mobile=4
 This API allows you to fetch the sms/email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | customer/subscriptions
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/subscriptions`
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/customer/subscriptions?format=<xml/json>`
+`http://{host}/v1.1/customer/subscriptions?format={xml/json}`
 
 ### Request Parameters
 Parameter | Description

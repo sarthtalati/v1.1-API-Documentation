@@ -103,15 +103,32 @@ It is recommended to note the `X-Cap-Requestid` of a request for future requirem
 When an API call is made with 4 batch transactions, A response header is generated with the `X-Cap-Requestid` as shown above. This id can be used to track the details of the entire API call (both request and response).
 </aside>
 
-## HTTP Request
+## Required Headers
+Capillary CRM V1.1 APIs support both XML and JSON formats for requests and responses. You can set header as per your required format. 
+
+Header | Description | Value
+------ | ----------- | -----
+Accept | Request format from the server side | Pass `application/json` for JSON format, `application/xml` for XML format.
+Content-Type | Determine desired representation client the side | Pass `application/json` for JSON format, `application/xml` for XML format.
+
+<aside class="notice"> You can also manually set the format for an API by passing the query parameter `format=xml` or `format=json`. </aside>
+
+## Resource Information
 Type | Description
 ---- | -----------
-Request URL Format | `http://<host>/<API version no.>/<entity>/<method>.<format>`
+Request URL | `http://{host}/v1.1/{entity}/{method}?{QueryParama}&{format=}`
 Host | The server to which the API calls are made (cluster URL). <br>**India**: apac.api.capillary.co.in <br>**APAC2**: apac2.api.capillarytech.com <br>**EU**: eu.api.capillarytech.com <br>**US**: us.api.capillarytech.com <br>**China**: cdn-api.capillarytech.cn.com [or] api.capillarytech.cn.com
 API Version Number | v1.1
 Entity | Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST
-Response Format | The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify `format=json` or just pass the request url with `.json` extension. <br>Example: `http://eu.api.capillarytech.com/v1.1/customer/add.json`
+Format | Preferred format of requesting data - `xml`, `json`. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing `format=json` or `format=xml` <br>Example: `http://eu.api.capillarytech.com/v1.1/customer/add?format=json`
+
+
+
+
+
+
+
 
 ## Response Codes
 ```xml
