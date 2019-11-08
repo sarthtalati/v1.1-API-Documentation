@@ -187,7 +187,32 @@ It is recommended to note the <code class="prettyprint">X-Cap-Requestid</code> o
 When an API call is made with 4 batch transactions, A response header is generated with the `X-Cap-Requestid` as shown above. This id can be used to track the details of the entire API call (both request and response).
 </aside>
 
-<h2 id="http-request">HTTP Request</h2>
+<h2 id="required-headers">Required Headers</h2>
+
+<p>Capillary CRM V1.1 APIs support both XML and JSON formats for requests and responses. You can set header as per your required format. </p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accept</td>
+<td>Request format from the server side</td>
+<td>Pass <code class="prettyprint">application/json</code> for JSON format, <code class="prettyprint">application/xml</code> for XML format.</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>Determine desired representation client the side</td>
+<td>Pass <code class="prettyprint">application/json</code> for JSON format, <code class="prettyprint">application/xml</code> for XML format.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice"> You can also manually set the format for an API by passing the query parameter `format=xml` or `format=json`. </aside>
+
+<h2 id="resource-information">Resource Information</h2>
 
 <table><thead>
 <tr>
@@ -196,8 +221,8 @@ When an API call is made with 4 batch transactions, A response header is generat
 </tr>
 </thead><tbody>
 <tr>
-<td>Request URL Format</td>
-<td><code class="prettyprint">http://&lt;host&gt;/&lt;API version no.&gt;/&lt;entity&gt;/&lt;method&gt;.&lt;format&gt;</code></td>
+<td>Request URL</td>
+<td><code class="prettyprint">http://{host}/v1.1/{entity}/{method}?{QueryParama}&amp;{format=}</code></td>
 </tr>
 <tr>
 <td>Host</td>
@@ -216,8 +241,8 @@ When an API call is made with 4 batch transactions, A response header is generat
 <td>The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST</td>
 </tr>
 <tr>
-<td>Response Format</td>
-<td>The format for requesting data from the APIs (xml, json). By default, these APIs return information in XML. To get json response, you need to explicitly specify <code class="prettyprint">format=json</code> or just pass the request url with <code class="prettyprint">.json</code> extension. <br>Example: <code class="prettyprint">http://eu.api.capillarytech.com/v1.1/customer/add.json</code></td>
+<td>Format</td>
+<td>Preferred format of requesting data - <code class="prettyprint">xml</code>, <code class="prettyprint">json</code>. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing <code class="prettyprint">format=json</code> or <code class="prettyprint">format=xml</code> <br>Example: <code class="prettyprint">http://eu.api.capillarytech.com/v1.1/customer/add?format=json</code></td>
 </tr>
 </tbody></table>
 
@@ -350,9 +375,16 @@ When an API call is made with 4 batch transactions, A response header is generat
 </ul>
 
 <h2 id="register-customer">Register Customer</h2>
-<pre class="highlight shell"><code><span class="c">#Sample Request</span>
-POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=json"</span>
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
+<pre class="highlight html"><code>POST http://us.api.capillarytech.com/v1.1/customer/add?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -463,7 +495,7 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code># Sample POST XML
+</span></code></pre><pre class="highlight xml"><code>
 <span class="nt">&lt;root&gt;</span>
     <span class="nt">&lt;customer&gt;</span>
         <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
@@ -558,9 +590,11 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
@@ -649,8 +683,7 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><pre class="highlight xml"><code># Sample Response
-<span class="nt">&lt;response&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
@@ -752,50 +785,35 @@ POST <span class="s2">"http://us.api.capillarytech.com/v1.1/customer/add?format=
     <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API lets you register customers in the organization’s loyalty program with mobile number/email id/external id. If you try to register an existing identifier, the respective customer details will be updated with the new details.</p>
+<p>Registers customers in the org’s loyalty program with the primary identifier (mobile number/email id/external id). </p>
 
-<p>Behavior of the API in different cases:</p>
+<p>Updates existing customer details (other than identifiers such as mobile number, email id, and external id) if you try registering an existing identifier. </p>
 
-<ul>
-<li>Registers customer with the provided details when a new identifier(mobile no/email id/external id) is passed</li>
-<li>Updates existing customer details, other than existing customer identifier(s), when a registered identifier is passed</li>
-<li>Updates null identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i></li>
-<li>Adds/updates custom field details of the customer</li>
-<li>Adds/updates <strong>extended field</strong> values of the customer</li>
-</ul>
-
-<aside class="notice">
-
-You can also update secondary identifiers (mobile no./email id./external id) of a customer if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch > **Settings** > **Miscellaneous** > **Registration Configuration** <br>
-
-* CONF_ALLOW_MOBILE_UPDATE (for mobile number)<br>
-* CONF_ALLOW_EMAIL_UPDATE (for email id) <br>
-* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id)
-</aside>
+<p>Behavior of the API when an existing identifier is passed.
+* Updates existing customer details other than existing identifier(s) such as mobile number, email id, or external id.
+* Updates null identifiers from null to a value, but not value to value. <i>Existing identifiers cannot be updated</i>.
+* Updates secondary identifiers if the respective configuration is enabled on InTouch <strong>Settings</strong> &gt; <strong>Miscellaneous</strong> &gt; <strong>Registration Configuration</strong> page.
+    * CONF_ALLOW_MOBILE_UPDATE (for mobile number).
+    * CONF_ALLOW_EMAIL_UPDATE (for email id).
+    * CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
+* Adds/updates <strong>custom field</strong> details.
+* Adds/updates <strong>extended field</strong> values.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/add</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/add</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -809,66 +827,104 @@ You can also update secondary identifiers (mobile no./email id./external id) of 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/add?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/add?format={xml/json}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
-<p>The mandatory attributes for customer registration depends on the configurations set on InTouch. For example, you could set email id and one or more custom fields as a mandatory params for registering a customer.
-        <aside class="warning">Before using customer registration API, know the mandatory and optional fields set on the <strong>Registration Configuration</strong> page of InTouch.</aside></p>
+<p>The mandatory attributes for customer registration depends on the configurations set on InTouch <strong>Settings</strong> &gt; <strong>Registration Configuration</strong>. You need to know your org configurations before using this API.</p>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile*</td>
-<td>Mobile number that the customer wants to register with your org. Pass the mobile number with country code</td>
+<td>mobile**</td>
+<td>long</td>
+<td>Mobile number of the customer with country code.</td>
 </tr>
 <tr>
-<td>email*</td>
-<td>Email id that the customer wants to register with your org.</td>
+<td>email**</td>
+<td>string</td>
+<td>Email ID of the customer.</td>
 </tr>
 <tr>
-<td>external_id*</td>
-<td>External id of the customer that is accepted by your org. Required only if it is supported for your org</td>
+<td>external_id**</td>
+<td>string</td>
+<td>External ID of the customer if applicable for the org.</td>
 </tr>
 <tr>
 <td>firstname</td>
-<td>First name of the customer</td>
+<td>string</td>
+<td>First name of the customer.</td>
 </tr>
 <tr>
 <td>lastname</td>
-<td>Last name of the customer</td>
+<td>string</td>
+<td>Last name of the customer.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Registration type: LOYALTY, NON_LOYALTY, NOT_INTERESTED</td>
+<td>enum</td>
+<td>Type of registration. Values: LOYALTY (for loyalty customer), NON_LOYALTY (registered one or more identifiers but not enrolled in the loyalty program), NOT_INTERESTED (not interested to register identifiers or enrol in the loyalty program).</td>
 </tr>
 <tr>
 <td>registered_on</td>
+<td>date-time</td>
 <td>Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11</td>
 </tr>
 <tr>
 <td>registered_till</td>
-<td>The TILL at which customer is registered</td>
+<td>string</td>
+<td>The TILL at which customer is registered.</td>
 </tr>
 <tr>
 <td>custom_fields</td>
-<td>Provide the custom fields configured for your org in name and value pairs <br><code class="prettyprint">&lt;field&gt;</code> <code class="prettyprint">&lt;name&gt;Hobbies&lt;/name&gt;</code> <br> <code class="prettyprint">&lt;value&gt;[“Playing”]&lt;/value&gt;</code>  <code class="prettyprint">&lt;/field&gt;</code></td>
+<td>obj</td>
+<td>Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.</td>
 </tr>
 <tr>
 <td>extended_fields</td>
-<td>Provide the details of extended fields of the customer in name and value pairs</td>
+<td>obj</td>
+<td>Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.</td>
+</tr>
+<tr>
+<td>subscriptions</td>
+<td>obj</td>
+<td>Provide the subscription details of the customer.</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>enum</td>
+<td>Type of message. Value: <code class="prettyprint">TRANS</code> for personalized or transaction messages, <code class="prettyprint">BULK</code> for promotional messages.</td>
+</tr>
+<tr>
+<td>is_subscribed</td>
+<td>enum</td>
+<td>Value 0, 1</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>enum</td>
+<td>Current communication channel. Value: <code class="prettyprint">sms</code>, <code class="prettyprint">email</code>.</td>
 </tr>
 </tbody></table>
 
-<h2 id="update-customer-details">Update Customer Details</h2>
-<pre class="highlight shell"><code><span class="c"># Sample Request URL</span>
-POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=json"</span>
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Post</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+<aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
+<h2 id="update-customer-details">Update Customer Details</h2>
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
+<pre class="highlight html"><code>POST http://api.capillary.co.in/v1.1/customer/update?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"customer"</span><span class="p">:[</span><span class="w">
@@ -880,8 +936,8 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="s2">"NorthEast"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"associated_with"</span><span class="p">:</span><span class="s2">"two.till01"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">"NDNC"</span><span class="w">
-        </span><span class="s2">"extended_fields"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">"NDNC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
@@ -908,9 +964,7 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code># Sample Post XML
-
-
+</span></code></pre><pre class="highlight xml"><code>
 <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;customer&gt;</span>
@@ -941,9 +995,11 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
    <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">Response</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
@@ -993,9 +1049,7 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code># Sample Response
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;response&gt;</span>
       <span class="nt">&lt;customers&gt;</span>
@@ -1047,40 +1101,30 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
-<p>This API lets you update the details of loyalty customer. If any of the identifiers you pass already exists for another account, then the customer details will be merged automatically.</p>
+<p>Lets you update the details of an existing customer other than primary or secondary identifiers. If any of the identifiers you pass already exists for a different account, then the customer details will be merged automatically.</p>
 
-<p>The customer update API allows you to update the following parameters:</p>
+<p>Behavior of the API:</p>
 
 <ul>
-<li>Existing customer details other than primary/secondary identifiers</li>
-<li>Null secondary identifiers, i.e., null to value, but not value to value. Hence, <i>existing identifiers cannot be updated through this API</i></li>
-<li>Custom field details of the customer</li>
-<li>Extended field details of the customer. Extended fields are configured at the global level to capture some additional details of the customer that are required for business purposes</li>
+<li>Updates existing customer details other than primary/secondary identifiers including custom fields and extended fields. </li>
+<li>Updates secondary identifiers only with null values will be updated. Hence, <i>existing identifiers cannot be updated with this API</i>.</li>
 </ul>
 
 <aside class="notice">
+You can update secondary identifiers (mobile no./email id./external id) only if the respective config mentioned in the following are enabled on InTouch **Settings** > **Miscellaneous** > **Registration Configuration**.
 
-* A customer&rsquo;s primary identifier cannot be updated through this API
-* To retrieve custom field values and extended field values, use the customer/get API
+* CONF_ALLOW_MOBILE_UPDATE (for mobile number).
+* CONF_ALLOW_EMAIL_UPDATE (for email id).
+* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
 
 </aside>
-
-<p>Pass the custom field details in the custom_fields element and extended fields in the extended_fields element. To retrieve custom field values and extended field values, use the customer/get API.</p>
-
-<p>You can update secondary identifiers (mobile no./email id./external id) only if the respective configs mentioned below are enabled on InTouch, i.e., Capillary InTouch &gt; <strong>Settings</strong> &gt; <strong>Miscellaneous</strong> &gt; <strong>Registration Configuration</strong></p>
-
-<ul>
-<li>CONF_ALLOW_MOBILE_UPDATE (for mobile number)</li>
-<li>CONF_ALLOW_EMAIL_UPDATE (for email id)</li>
-<li>CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id) </li>
-</ul>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1088,16 +1132,8 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 <td>customer/update</td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -1111,32 +1147,92 @@ POST <span class="s2">"http://api.capillary.co.in/v1.1/customer/update?format=js
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/update?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/update?format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Mobile/email/external_id/id*</td>
-<td>Pass any one of the following identifiers of the customer whose details need to be updated</td>
+<td>string</td>
+<td>Pass any one of the following identifiers of the customer whose details you want to update.</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td>First name of the customer.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td>Last name of the customer.</td>
+</tr>
+<tr>
+<td>registered_on</td>
+<td>date-time</td>
+<td>Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11</td>
+</tr>
+<tr>
+<td>registered_till</td>
+<td>string</td>
+<td>The TILL at which customer is registered.</td>
+</tr>
+<tr>
+<td>associated_with</td>
+<td>string</td>
+<td>Till code that you want to associate with the customer.</td>
+</tr>
+<tr>
+<td>ndnc_status</td>
+<td>enum</td>
+<td>National Do not Call status of the customer.</td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td>obj</td>
+<td>Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.</td>
+</tr>
+<tr>
+<td>extended_fields</td>
+<td>obj</td>
+<td>Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.</td>
+</tr>
+<tr>
+<td>subscriptions</td>
+<td>obj</td>
+<td>Provide the subscription details of the customer.</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>enum</td>
+<td>Type of message. Value: <code class="prettyprint">TRANS</code> for personalized or transaction messages, <code class="prettyprint">BULK</code> for promotional messages.</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>enum</td>
+<td>Current communication channel. Value: <code class="prettyprint">sms</code>, <code class="prettyprint">email</code>.</td>
 </tr>
 </tbody></table>
 
-<h2 id="update-customer-identifiers">Update Customer Identifiers</h2>
-<pre class="highlight html"><code># Sample Request
+<aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
-http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
+<h2 id="update-customer-identifiers">Update Customer Identifiers</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </code></pre>
 <blockquote>
-<p>Pass the identifier name (mobile/email/external_id) that you want to update inn identifier and pass the old and new identifier value in old_value and new_value respectively.</p>
+<p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">Sample</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -1147,8 +1243,7 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
       </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code># Sample POST xml
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
     <span class="nt">&lt;customer&gt;</span>
         <span class="nt">&lt;identifier&gt;</span>mobile<span class="nt">&lt;/identifier&gt;</span>  <span class="c">&lt;!-- Pass mobile/email/external_id that you want to update --&gt;</span>
@@ -1204,14 +1299,14 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
    <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API lets you send request to update primary and secondary identifiers (mobile no./email id/external id) of loyalty customers. Requests submitted through <code class="prettyprint">customer/update_identity</code> will be in pending state by default. Capillary back-end team verifies the requests and process it accordingly.</p>
+<p>Lets you submit request to update primary and secondary identifiers (mobile no./email id/external id) of a loyalty customer. Requests submitted through <code class="prettyprint">customer/update_identity</code> will be in pending state by default. Capillary back-end team verifies the requests and process it accordingly.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -1219,16 +1314,8 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 <td>customer/update_identity</td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -1242,34 +1329,45 @@ http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/update_identity?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/update_identity?format={xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>identifier*</td>
-<td>Pass the identifier name that you want to update. <strong>Value</strong>: mobile, email, external_id</td>
+<td>enum</td>
+<td>Pass the identifier name that you want to update. <strong>Value</strong>: mobile, email, external_id.</td>
 </tr>
 <tr>
 <td>old_value*</td>
-<td>Provide the existing value of the specific identifier that you want to update</td>
+<td>string</td>
+<td>Provide the existing value the identifier that you want to update.</td>
 </tr>
 <tr>
 <td>new_value*</td>
-<td>Provide the new value of the identifier that you want to replace with</td>
+<td>string</td>
+<td>Provide the new value of the identifier.</td>
 </tr>
 </tbody></table>
 
 <h2 id="search-customers-advanced-search">Search Customers (Advanced Search)</h2>
-<pre class="highlight html"><code># Sample Request
-http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span class="err">&amp;</span>format=json
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w"> 
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
     </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 
         </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1403,9 +1501,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
     </span><span class="p">}</span><span class="w">
 
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -1472,7 +1568,7 @@ http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000<span
 
 
 </code></pre>
-<p>This API allows you to fetch customers based on different parameters such as such as name, customer identifier, duration and store id. You can also fetch customers based on registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount and custom field values.</p>
+<p>Lets you fetch customers based on partial or complete keywords passed. You can fetch customers by name, customer identifier, registered store id, registered date, loyalty points, lifetime points, lifetime purchases amount, current tier, transaction amount, and custom field values.</p>
 
 <aside class="notice">
 If customer details are not found, then customer data is not retrieved. However, currently, `customer not found error` is not shown in V1.1. 
@@ -1491,25 +1587,17 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/search</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td>`/search?q={param}:{Query}:{value}&amp;format={xml/json}</td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -1523,9 +1611,9 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/search?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <p>You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.</p>
 
@@ -1557,9 +1645,10 @@ lifetime_purchases | Retrieves the list of customers whose lifetime purchases am
 slab | Retrieves the list of customers whose current loyalty tier matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">slab:EQUALS:&lt;Slab name&gt;</code>
 registered_store | Retrieves the list of customers who are registered at a specific store. <br><strong>Query</strong>: <code class="prettyprint">registered_store:EQUALS:&lt;Store id&gt;</code>
 last_trans_value | Retrieves the list of customers whose transaction amount matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">transaction_value:GREATER:&lt;transaction amount&gt;</code>
-Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">&lt;Field Name&gt;:&lt;Field Value&gt;</code></p>
+Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">&lt;Field Name&gt;:&lt;Field Value&gt;</code>
+Operator | enum | Predefined conditions based on which you want to fetch results. Values: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN. For more details, see the following section, Search Query Grammar.</p>
 
-<h3 id="query-grammar">Query Grammar</h3>
+<h3 id="search-query-grammar">Search Query Grammar</h3>
 
 <p>The following is a formal definition of the Query Grammar</p>
 
@@ -1567,13 +1656,13 @@ Custom fields | Retrieves the list of customers whose custom field values matche
 
 <p><strong>CONDITION</strong>: <code class="prettyprint">ATTRIBUTE:OPERATOR:VALUES</code></p>
 
-<p><strong>ATTRIBUTE</strong>: Set of inventory/customer attributes that are searchable</p>
+<p><strong>ATTRIBUTE</strong>: Set of inventory/customer attributes that are searchable.</p>
 
 <p><strong>Dynamic List</strong>
 * <strong>OPERATOR</strong>: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN
 * <strong>VALUES</strong>: ALPHANUMERIC | ALPHANUMERIC;ALPHANUMERIC(for RANGE, IN OPERATOR, separator is &rsquo;;&rsquo; )</p>
 
-<h2 id="retrieve-customer-details">Retrieve Customer Details</h2>
+<h2 id="get-customer-details">Get Customer Details</h2>
 <pre class="highlight html"><code># Sample Request URL
 http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
 </code></pre>
@@ -1748,39 +1837,27 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
    <span class="nt">&lt;/customers&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API lets retrieve details of a specific loyalty customer such as profile information, loyalty details, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields and customer&rsquo;s unique id.</p>
+<p>Retrieve details of a specific loyalty customer such as loyalty information, subscription status, 10 recent transactions, active coupons, recent store interactions, custom fields, extended fields, and customer&rsquo;s unique id.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td>URI</td>
+<td><code class="prettyprint">/get</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Details of loyalty customers</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -1790,7 +1867,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?format=xml&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;&amp;mlp=true</code></p>
+<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?{identifier_type}={identifier_value}&amp;mlp=true&amp;format={xml/json}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -1806,95 +1883,125 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer Identifier*</td>
-<td>Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
+<td>Identifier*</td>
+<td>string</td>
+<td>Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code>.</td>
+</tr>
+<tr>
+<td>coupon_limit</td>
+<td>int</td>
+<td>Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves five recent coupon interactions.</td>
+</tr>
+<tr>
+<td>coupon_offset</td>
+<td>int</td>
+<td>Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons).</td>
+</tr>
+<tr>
+<td>coupon_order_by</td>
+<td>date-time</td>
+<td>Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.</td>
 </tr>
 <tr>
 <td>user_id=true</td>
-<td>Returns the unique id of the customer (generated at our end when the customer is registered)</td>
+<td>-</td>
+<td>Returns the unique id of the customer (generated at our end when the customer is registered).</td>
 </tr>
 <tr>
 <td>next_slab=true</td>
-<td>Returns the details of next tier of the  loyalty customer</td>
+<td>-</td>
+<td>Returns the details of next tier of the  loyalty customer.</td>
 </tr>
 <tr>
 <td>slab_history=true</td>
-<td>Returns the details of loyalty tier changes of the customer</td>
+<td>-</td>
+<td>Returns the details of loyalty tier changes of the customer.</td>
 </tr>
 <tr>
 <td>registered_store</td>
+<td>string</td>
 <td>Returns the store at which the customer is registered. This is returned by default.</td>
 </tr>
 <tr>
 <td>registered_till</td>
 <td>Returns the store-TILL at which the customer is registered. This is returned by default.</td>
+<td></td>
 </tr>
 <tr>
 <td>fraud_details=true</td>
-<td>Returns the fraud details of a customer. This field is returned by default</td>
+<td>-</td>
+<td>Returns the fraud details of a customer. This field is returned by default.</td>
 </tr>
 <tr>
 <td>ndsc_status=true</td>
-<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND</td>
+<td>-</td>
+<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND.</td>
 </tr>
 <tr>
 <td>optin_status=true</td>
-<td>Returns the services (sms/email) to which the customer has opted in and opted out</td>
+<td>-</td>
+<td>Returns the services (SMS/email) to which the customer has opted in and opted out.</td>
 </tr>
 <tr>
 <td>expiry_schedule=true</td>
-<td>Returns the details of points expiry summary</td>
+<td>-</td>
+<td>Returns the details of points expiry summary.</td>
 </tr>
 <tr>
 <td>expired_points=true</td>
-<td>Returns the details of expired points of the customer</td>
+<td>-</td>
+<td>Returns the details of expired points of the customer.</td>
 </tr>
 <tr>
 <td>points_summary=true</td>
-<td>Returns the history of points issued and redeemed</td>
+<td>-</td>
+<td>Returns the history of points issued and redeemed.</td>
 </tr>
 <tr>
 <td>promotion_points=true</td>
-<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued</td>
+<td>-</td>
+<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.</td>
 </tr>
 <tr>
 <td>membership_retention_criteria=true</td>
-<td>Returns the criteria set for membership retention (for membership based loyalty program) - in a specific duration, the minimum number of visits and minimum lifetime purchases amount required to continue in the same tier/membership</td>
+<td>-</td>
+<td>Returns the criteria set for membership retention (for membership based loyalty program).</td>
 </tr>
 <tr>
 <td>mlp=true</td>
-<td>Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty)</td>
-</tr>
-<tr>
-<td>coupon_limit</td>
-<td>Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves 5 recent coupon interactions</td>
-</tr>
-<tr>
-<td>coupon_offset</td>
-<td>Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons)</td>
-</tr>
-<tr>
-<td>coupon_order_by</td>
-<td>Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively</td>
+<td>-</td>
+<td>Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).</td>
 </tr>
 <tr>
 <td>user_group=true</td>
-<td>Retrieves the details of user group associated to the user (if available)</td>
+<td>-</td>
+<td>Retrieves the details of user group associated to the user (if available).</td>
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-customer-transactions">Retrieve Customer Transactions</h2>
+<aside class="notice">Parameter marked by * is mandatory. </aside>
+
+<h2 id="get-customer-transactions">Get Customer Transactions</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
 </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
@@ -1989,7 +2096,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to retrieve transaction history of a customer which includes the following information.</p>
+<p>Retrieves transaction history of a customer which includes the following information.</p>
 
 <p>Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. </p>
 
@@ -2003,25 +2110,17 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/transactions</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/transactions</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -2035,114 +2134,137 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/transactions?format={xml/json}&amp;&lt;input_params&gt;</code></p>
 
 <p>For MLP</p>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
+<td>string</td>
 <td>Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Retrieves transactions made in a specific duration (start_date to end_date)</td>
+<td>date-time</td>
+<td>Retrieves transactions made in a specific duration (start_date to end_date).</td>
 </tr>
 <tr>
 <td>end_date</td>
+<td>date-time</td>
 <td>Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: <code class="prettyprint">start_date=2013-12-21+23:45:45&amp;end_date=2013-12-29+12:11:45</code></td>
 </tr>
 <tr>
-<td>transaction_id</td>
-<td>Retrieves the details of a specific transaction</td>
-</tr>
-<tr>
 <td>transaction_date</td>
-<td>Retrieves the transactions made on a particular date. Date format: YYYY-MM-DD</td>
+<td>date</td>
+<td>Filter transactions by transaction date. Pass the date in <code class="prettyprint">YYYY-MM-DD</code> format.</td>
 </tr>
 <tr>
 <td>amount</td>
-<td>Retrieves transactions by transaction amount. Pass the specific transaction amount that you want to fetch</td>
+<td>int</td>
+<td>Fetch transaction details by transaction amount.</td>
 </tr>
 <tr>
 <td>number</td>
-<td>Retrieves the details of a specific transaction based on the transaction number passed</td>
+<td>string</td>
+<td>Fetch transaction details by transaction number.</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>int</td>
+<td>Fetch details of a transaction by transaction ID (internally generated unique ID for a transaction).</td>
 </tr>
 <tr>
 <td>till_id</td>
-<td>Retrieves the transactions made at a specific TILL based on the TILL id passed</td>
+<td>string</td>
+<td>Filter transactions by associated TILL ID.</td>
 </tr>
 <tr>
 <td>till_name</td>
-<td>Retrieves the transactions made at a specific TILL based on the TILL name passed</td>
+<td>string</td>
+<td>Filter transactions associated to a specific TILL name.</td>
 </tr>
 <tr>
 <td>till_code</td>
-<td>Retrieves the transactions made at a specific TILL based on the TILL code passed</td>
+<td>string</td>
+<td>Filter transactions associated to a TILL code.</td>
 </tr>
 <tr>
 <td>store_id</td>
-<td>Retrieves transactions made at a specific store based on the store id passed</td>
+<td>string</td>
+<td>Filter transactions associated to a specific store id.</td>
 </tr>
 <tr>
 <td>store_name</td>
-<td>Retrieves transactions made at a specific store based on the store name passed</td>
+<td>string</td>
+<td>Filter transactions associated to a specific store name.</td>
 </tr>
 <tr>
 <td>store_code</td>
-<td>Retrieves transactions made at a specific store based on the store code passed</td>
+<td>string</td>
+<td>Filter transactions associated to a specific store code.</td>
 </tr>
 <tr>
 <td>start_id</td>
-<td>Retrieves transactions with transaction ids starting with a specific value passed</td>
+<td>int</td>
+<td>Filter transactions by transaction ids starting with a specific value.</td>
 </tr>
 <tr>
 <td>end_id</td>
-<td>Retrieves transactions with transaction ids ending with a specific value passed</td>
+<td>int</td>
+<td>Filter transactions by transaction ids ending with a specific value.</td>
 </tr>
 <tr>
 <td>credit_notes</td>
-<td>Retrieves the credit notes of the transactions. <strong>Value</strong>: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes: A receipt given by a cashier to a customer for returned goods which can be used for future purchases.</td>
+<td>boolean</td>
+<td>Retrieves the credit notes of the transactions. <strong>Value</strong>: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes is a receipt given by a cashier to a customer for returned goods which can be used for future purchases.</td>
 </tr>
 <tr>
 <td>custom_fields</td>
-<td>Retrieves the details of custom fields of the respective transactions. <strong>Value</strong>: true,false.</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve transaction level custom field details.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limits the number of results to be displayed. For example, if <code class="prettyprint">limit=10</code> a maximum of 10 transactions will be displayed</td>
+<td>int</td>
+<td>Limit the number of results to be displayed. For example, if <code class="prettyprint">limit=10</code> a maximum of 10 transactions will be displayed.</td>
 </tr>
 <tr>
 <td>sort</td>
-<td>Arranges the transactions by transaction date or transaction id based on the value set <br><strong>Value</strong>: trans_id, trans_date</td>
+<td>enum</td>
+<td>Arranges the transactions by transaction date or transaction id based on the value set. Supported value: trans_id, trans_date.</td>
 </tr>
 <tr>
 <td>order</td>
-<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id</td>
+<td>enum</td>
+<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id.</td>
 </tr>
 <tr>
 <td>asc</td>
-<td>Sorts the transaction history in the ascending order of transaction date or transaction id. <br><strong>Query</strong>: sort=desc</td>
+<td>Sorts the transaction history in the ascending order of transaction date or transaction id (based on <code class="prettyprint">sort</code> type). Query: <code class="prettyprint">sort=asc</code></td>
+<td></td>
 </tr>
 <tr>
 <td>Desc</td>
-<td>Sorts the transaction history in the descending order of transaction date or transaction id. <br><strong>Query</strong>: sort=desc</td>
+<td>Sorts the transaction history in the descending order of transaction date or transaction id. Query: <code class="prettyprint">sort=desc</code></td>
+<td></td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-customer-redemptions">Retrieve Customer Redemptions</h2>
 <pre class="highlight html"><code># Sample Request
 
-http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<span class="err">&amp;</span>format=json
+http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2171,7 +2293,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
             </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832-pghhi6u1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abctest"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestBill-1234"</span><span class="p">,</span><span class="w">
@@ -2228,7 +2350,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
                <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
                <span class="nt">&lt;code&gt;</span>832-pghhi6u1<span class="nt">&lt;/code&gt;</span>
                <span class="nt">&lt;series_id&gt;</span>832<span class="nt">&lt;/series_id&gt;</span>
-               <span class="nt">&lt;description&gt;</span>abctest<span class="nt">&lt;/description&gt;</span>
+               <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
                <span class="nt">&lt;discount_code&gt;</span>abc<span class="nt">&lt;/discount_code&gt;</span>
                <span class="nt">&lt;discount_type&gt;</span>PERC<span class="nt">&lt;/discount_type&gt;</span>
                <span class="nt">&lt;transaction_number&gt;</span>TestBill-1234<span class="nt">&lt;/transaction_number&gt;</span>
@@ -2262,25 +2384,17 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/redemptions</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/redemptions</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -2294,7 +2408,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/redemptions?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/redemptions?&lt;query_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2359,6 +2473,10 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 <tr>
 <td>mlp=true</td>
 <td>Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)</td>
+</tr>
+<tr>
+<td>format</td>
+<td>enum</td>
 </tr>
 </tbody></table>
 
@@ -2474,25 +2592,17 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/notes</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/notes</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -2506,7 +2616,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=xml/json</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2657,8 +2767,8 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -2666,16 +2776,8 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 <td>customer/notes</td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -2689,7 +2791,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000<spa
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=xml/json</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
@@ -2808,25 +2910,17 @@ user_id tag will be returned only if query param user_id = true
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/notes</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/notes</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -2840,7 +2934,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/notes?format=&lt;xml/json&gt;&amp;&lt;identifier&gt;=&lt;value&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format={xml/json}&amp;&lt;identifier&gt;=&lt;value&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2975,25 +3069,17 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&a
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/coupons</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/coupons</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -3007,7 +3093,7 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&a
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/coupons?format=&lt;json/xml&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/coupons?format=&lt;json/xml&gt;&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -3200,25 +3286,17 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/tickets</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/tickets</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -3232,7 +3310,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/tickets?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?format={xml/json}&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -3364,25 +3442,17 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/tickets</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/tickets</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -3396,7 +3466,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/tickets?format=&lt;xml/json&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?format={xml/json}&amp;&lt;input_params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -3637,25 +3707,17 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/referrals</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/referrals</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -3669,7 +3731,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/referrals??format=&lt;xml/json&gt;&amp;&lt;query-params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/referrals??format={xml/json}&amp;&lt;query-params&gt;</code></p>
 
 <h2 id="retrieve-customer-referral-details">Retrieve Customer Referral Details</h2>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
@@ -3910,25 +3972,17 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/referrals</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/referrals</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -3942,7 +3996,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/referrals?&lt;query-params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?&lt;query-params&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -4130,25 +4184,17 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/preferences</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/preferences</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -4162,7 +4208,7 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/preferences?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?format={xml/json}</code></p>
 
 <h2 id="fetch-customer-preferences">Fetch Customer Preferences</h2>
 <pre class="highlight html"><code># Sample Request
@@ -4269,25 +4315,17 @@ Preferences retrieved successfully
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/preferences</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/preferences</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -4301,7 +4339,7 @@ Preferences retrieved successfully
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/preferences?format=&lt;xml/json&gt;&amp;&lt;customer_identifier&gt;=&lt;identifier value&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?format={xml/json}&amp;&lt;customer_identifier&gt;=&lt;identifier value&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -4588,25 +4626,17 @@ def@xyz.com
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/interaction</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/interaction</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -4620,7 +4650,7 @@ def@xyz.com
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/interaction?format=&lt;xml/json&gt;&amp;&lt;parameters&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/interaction?format={xml/json}&amp;&lt;parameters&gt;</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -4786,25 +4816,17 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/subscriptions</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/subscriptions</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -4818,7 +4840,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/subscriptions?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
@@ -5025,25 +5047,17 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/subscriptions</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/subscriptions</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Method</td>
@@ -5057,7 +5071,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/customer/subscriptions?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
