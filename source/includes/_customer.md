@@ -1353,7 +1353,7 @@ user_id=true | - | Returns the unique id of the customer (generated at our end w
 next_slab=true | - | Returns the details of next tier of the  loyalty customer.
 slab_history=true | - | Returns the details of loyalty tier changes of the customer.
 registered_store | string | Returns the store at which the customer is registered. This is returned by default.
-registered_till | Returns the store-TILL at which the customer is registered. This is returned by default. 
+registered_till | string | Returns the store-TILL at which the customer is registered. This is returned by default. 
 fraud_details=true | - | Returns the fraud details of a customer. This field is returned by default.
 ndsc_status=true | - | Returns the status of the customer's registered mobile number on NDSC/DND.
 optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
@@ -1365,7 +1365,7 @@ membership_retention_criteria=true | - | Returns the criteria set for membership
 mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
 user_group=true | - | Retrieves the details of user group associated to the user (if available).
 
-<aside class="notice">Parameter marked by * is mandatory. </aside>
+<aside class="notice">Parameter marked with * is mandatory. </aside>
 
 
 
@@ -1526,16 +1526,15 @@ end_id | int | Filter transactions by transaction ids ending with a specific val
 credit_notes | boolean | Retrieves the credit notes of the transactions. **Value**: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes is a receipt given by a cashier to a customer for returned goods which can be used for future purchases.
 custom_fields | boolean | Pass `true` to retrieve transaction level custom field details.
 limit | int | Limit the number of results to be displayed. For example, if `limit=10` a maximum of 10 transactions will be displayed.
-sort | enum | Arranges the transactions by transaction date or transaction id based on the value set. Supported value: trans_id, trans_date.
+sort | enum | Arranges the transactions by transaction date or transaction id based on the `order` value passed. Supported value: `trans_id`, `trans_date`. By default, results are shown in descending order.
 order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id.
-asc | Sorts the transaction history in the ascending order of transaction date or transaction id (based on `sort` type). Query: `sort=asc`
-Desc | Sorts the transaction history in the descending order of transaction date or transaction id. Query: `sort=desc`
+
 
 ## Retrieve Customer Redemptions
 
-```html
-# Sample Request
+> Sample Request
 
+```html
 http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 ```
 
@@ -1667,32 +1666,34 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/redemptions?<query_params>`
+`http://{host}/v1.1/customer/redemptions?{query_params}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-Customer Identifier* | Provide the primary identifier of the customer whose redemption details needs to be fetched - mobile no./email id/external id. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
-type | Filter the results by redemption - points or coupons
-start_date | Filter the results by redemptions made in a specific duration - between start_date to end_date
-end_date | Filter the results by redemptions made in a specific duration - between start_date to end_date
-coupons_limit | Limit the number of coupon redemptions to be displayed. Example:`coupons_limit=10` to show only 10 coupon redemption details. Use only when the `type` parameter is not passed
-points_limit | Limit the number of points redemption results to be displayed. Example:`points_limit=10` to show only 10 points redemption details. Use only when the `type` parameter is not passed
-limit | Limit the number of redemption details (points and/or coupons). Use only when the `type` parameter is not passed
-coupons_start_id | Filter the results by coupon redemption id starting with a specific number. Use only when the `type` parameter is not passed
-coupons_end_id | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed
-points_start_id | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed
-points_end_id | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed
-order | Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time
-sort | Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time
-mlp=true | Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer Identifier* | string | Provide the primary identifier of the customer whose redemption details needs to be fetched - mobile no./email id/external id. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+type | enum | Filter the results either by `points` redemption or `coupons` redemption.
+start_date | date | Get redemptions done on or after a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
+end_date | date | Get redemptions made before a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
+coupons_limit | int | Limit the number of coupon redemptions to be displayed. Example:`coupons_limit=10` to show only 10 coupon redemption details. Use only when the `type` parameter is not passed.
+points_limit | int | Limit the number of points redemption results to be displayed. Example:`points_limit=10` to show only 10 points redemption details. Use only when the `type` parameter is not passed.
+limit | int | Limit the number of redemption details (points and/or coupons). Use only when the `type` parameter is not passed.
+coupons_start_id | int | Filter the results by coupon redemption id starting with a specific number. Use only when the `type` parameter is not passed.
+coupons_end_id | int | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed.
+points_start_id | int | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed.
+points_end_id | int | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed.
+sort | enum | Sort the results either by redemption id (`redemption_id`) or redemption time(`redeemed_time`). By default, the results are sorted in the descending order of redeemed time.
+order | enum | Order the results in ascending (`asc`) or descending order (`desc`). By default, the results are shown in the descending order of redeemed time.
+mlp=true | - | Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty).
 format | enum | Pass the desired representation of response content - `format=xml`, or `format=json`. 
 
 
 
 
-
 ## Add Customer Notes
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 ```
@@ -1766,9 +1767,12 @@ http://us.api.capillarytech.com/v1.1/customer/notes?format=json
         }
       },
       "item_status": {
-        "success": "true",
-        "code": "1000",
-        "message": "Customer note added successfully"
+        "success": true,
+        "code": 1000,
+        "message": "Customer note added/updated successfully",
+        "warnings": {
+			"warning": []
+            }
       }
     }
   }
@@ -1823,9 +1827,9 @@ Batch Support | No
 ### Request Parameters
 Parameter | Description
 --------- | -----------
-Customer id* | Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)
-date* | Date on which the customer note is added
-description | Details or message of the note in a plain text format
+Customer identifier* | string | Pass any of the unique identifiers of the customer for whom you want to add notes (mobile no/email id/external id/user_id)
+date | date | Date that you associate to the notes. By default, current date will be considered.
+description* | Details or message of the note in a plain text format
 
 
 
@@ -1964,7 +1968,7 @@ This API lets you update existing customer notes.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | customer/notes
+URI | `customer/notes`
 Authentication | Yes
 HTTP Method | POST
 Batch Support | No
@@ -1975,17 +1979,19 @@ Batch Support | No
 ### Request Attributes
 Parameter | Description
 --------- | -----------
-Customer id* | Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id)
-description | Details or message of the note in a plain text format
-id | Unique id of the customer note that you want to update
+Customer identifier* | Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id/user_id).
+description* | New notes that you want to update with (plain text).
+id* | Unique id of the customer note that you want to update.
 
 
 
 
 ## Retrieve Customer Notes 
+
+> Sample Request
+
 ```html
-# Sample Request
-http://us.api.capillarytech.com/v1.1/customer/notes?format=json&identifier=44700900999
+http://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
 ```
 
 ```json
@@ -2079,7 +2085,7 @@ user_id tag will be returned only if query param user_id = true
 
 ```
 
-This API allows you to fetch notes created for a specific customer.
+Retrieves notes of a specific customer.
 
 ### Resource Information
 | | |
@@ -2090,16 +2096,22 @@ HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/notes?format={xml/json}&<identifier>=<value>`
+`http://{host}/v1.1/customer/notes?{identifier}={value}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-Customer id* | Unique identifier of the customer whose notes need to be retrieved - mobile/email/external_id/user_id
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier* | enum | Identifier you want to use to identify the customer. Value: `mobile`, `email`, `external_id`, `id`.
+value* | string | Value of the specified identifier. For example, if `identifier` is `mobile`, value should be the customer's mobile number.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 ## Retrieve Customer Coupons
+
+> Sample Request
+
+
 ```html
-# Sample Request
 http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 ```
 
@@ -2159,10 +2171,6 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 ```
 
 ```xml
-
-
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
    <response>
@@ -2218,7 +2226,7 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 	
 ```
 
-This API lets you track the history of coupons issued to a specific customer, i.e., the details of coupons issued and redeemed.
+Retrieves the details of coupons of a specific customer - both issued and redeemed.
 
 ### Resource Information
 | | |
@@ -2229,24 +2237,32 @@ HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/coupons?format=<json/xml>&<input_params>`
+`http://{host}/v1.1/customer/coupons?{identifier}={value}&{input_params}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Pass the mobile no/email id/external id of the customer to retrieve coupon history
-start_date | Retrieve coupons issued in a specific duration - coupons issued between start_date and end_date
-end_date | Retrieve coupons issued in a specific duration - coupons issued between start_date and end_date
-status | Retrieve coupons by coupon status. <br>**Values**: redeemed, expired, active. <br>You can also pass more than one status separating each ; (semi-colon)
-series_id | Retrieve details of a specific coupon series issued to the customer
-store_id | Retrieves the details of active coupons of the customer that can be redeemed at a specific store
-order_by | Order the results by created date, amount or issued TILL (`created_date`, `amount`, `valid_till`) based on the type passed
-sort_order | Sort the results in ascending (`asc`) or descending (`desc`) order
-limit | Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer 
+### Request Query Parameters
 
-## Create New Ticket
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier* | enum | Identifier you want to use to identify the customer. Value: `mobile`, `email`, `external_id`, `id`.
+value* | string | Value of the specified identifier. For example, if `identifier` is `mobile`, value should be the customer's mobile number.
+start_date | date | Get coupons issued or redeemed on or after a specific date (`YYYY-MM-DD`). To get coupon history of a specific duration, pass the date range in `start_date` and `end_date`.
+end_date | date | Get coupons issued or redeemed before a specific date (`YYYY-MM-DD`). To get coupon history of a specific duration, pass the date range in `start_date` and `end_date`.
+status | enum | Retrieve coupons by coupon status. <br>**Values**: `redeemed`, `expired`, `active`. <br>You can also pass more than one status separating each with ; (semi-colon). for example, `status=redeemed;expired`.
+series_id | int | Retrieve details of a specific coupon series by series id.
+store_id | int | Retrieves the details of active coupons of the customer that can be redeemed at a specific store
+order_by | enum | Order the results by a specific entry. Value: `created_date, `amount`, `valid_till` (issued till).
+sort_order | enum | Sort the results in ascending (`asc`) or descending (`desc`) order.
+limit | int | Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
+
+## Create Ticket
+
+> Sample Request
+
+
 ```html
-# Sample Request
 http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 
@@ -2393,7 +2409,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 ```
 
-This API allows you to create tickets for a specific customer.
+Lets you to create a new ticket for a customer.
 
 ### Resource Information
 | | |
@@ -2404,24 +2420,24 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/tickets?format={xml/json}&<input_params>`
+`http://{host}/v1.1/customer/tickets
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Pass the customer identifier (mobile/email/external_id) for whom you want to create the ticket
-status | Set the status of the ticket 
-priority | Set the ticket priority. <br>Value: low, medium, high
-department | Set the department for which the ticket needs to be assigned
-ticket_code | Pass the ticket id
-reported_from | Source from which the ticket needs to be created <br> Values: EMAIL, INTOUCH, CALLCENTER, CLIENT, MICROSITE, SOCIAL
-type | Pass the ticket type <br>Value: STORE, Customer
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer identifier* | string | Pass any one identifiers of the customer - mobile, email, external_id, or id (user_id).
+status | enum | Status of the ticket. Accepts only values configured for the org. Sample values: Open, Close, InProgress. 
+priority | enum | Priority of the ticket. Value: `low`, `medium`, `high`.
+department | string | Set the department for which the ticket needs to be assigned
+ticket_code | string | Pass the ticket id.
+reported_from | enum | Source from which the ticket is created. Values: `EMAIL`, `INTOUCH`, `CALLCENTER`, `CLIENT`, `MICROSITE`, `SOCIAL`.
+type | enum | Type of the ticket. Value: `STORE`, `Customer`.
 
 
 ## Retrieve Ticket Details
 ```html
 # Sample Request
-http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets
 ```
 > Sample Response
 
@@ -2520,23 +2536,28 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/tickets?format={xml/json}&<input_params>`
+`http://{host}/v1.1/customer/tickets?{identifier}={value}&{input_params}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Pass the customer identifier (mobile/email/external_id) whose tickets you want to fetch
-status | Retrieve tickets by its status 
-priority | Filter results by ticket priority. <br>Value: low, medium, high
-department | Retrieve tickets assigned to a specific department
-ticket_code | Retrieve details of a specific ticket
-reported_from | Retrieve tickets of a specific source <br> Values: EMAIL, INTOUCH, CALLCENTER, CLIENT, MICROSITE, SOCIAL
-type | Retrieve tickets by type <br>Value: STORE, Customer
-start_date | Retrieve tickets created in a specific duration - between start_date to end_date
-end_date | Retrieve tickets created in a specific duration - between start_date to end_date
+### Request Query Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer identifier* | enum | Pass any of the customer identifiers to retrieve ticket details. Values: mobile, email, external_id, id.
+value | string | Pass the respective identifier value.
+status | enum | Filter tickets by status. Pass only from statuses that are defined for your org.
+priority | enum |  Filter results by ticket priority. <br>Value: `low`, `medium`, `high`. Pass only priorities that are defined for your org.
+department | string | Retrieve tickets assigned to a specific department. Pass only predefined departments of your org.
+ticket_code | string | Retrieve details of a specific ticket
+reported_from | enum | Retrieve tickets of a specific source. <br> Values: `EMAIL`, `INTOUCH`, `CALLCENTER`, `CLIENT`, `MICROSITE`, `SOCIAL`.
+type | enum | Retrieve tickets by type. <br>Value: `STORE`, `Customer`.
+start_date | Retrieve tickets created on or after in a specific date (`YYYY-MM-DD`).  To get tickets created in a specific date range, pass the duration in `start_date` and `end_date`.
+end_date | date | Retrieve tickets created after a specific date (`YYYY-MM-DD`) - between start_date to end_date. To get tickets created in a specific date range, pass the duration in `start_date` and `end_date`.
 
 
 ## Refer Customer
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/customer/referrals
 ```
@@ -2544,8 +2565,6 @@ http://us.api.capillarytech.com/v1.1/customer/referrals
 > Sample POST Request
 
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
    <customer>
@@ -2637,7 +2656,7 @@ http://us.api.capillarytech.com/v1.1/customer/referrals
     },
     "customers": {
       "customer": {
-        "email": "vimalsudhan@gmail.com",
+        "email": "tom.sawyer@example.com",
         "mobile": "9197407983xx",
         "external_id": "VIMAL004",
         "id": "4596849",
@@ -2741,18 +2760,36 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/referrals??format={xml/json}&<query-params>`
+`http://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}`
 
+### Request Body Parameters
+
+Parameter | Type | Description
+-------- | ----- | -----------
+Customer identifier* | enum | Pass any of the customer identifiers who needs to refer. Value: `mobile`, `email`, `external_id`, `id`.
+campaign_token | | 
+referral_type | obj | Details of referees.
+type | enum | Mode of communication of the referral. Values: `SMS`, `EMAIL`
+id | int | 
+name | string | Name of the referee.
+identifier | string | Identifier of the referee according to the type set. For example, if `"type":"EMAIL"`, `identifier` will be the email ID. 
+invited_on | date-time | Date and time of the invite.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
 ## Retrieve Customer Referral Details
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
 ```
 
+
+> Sample Response
+
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
@@ -2763,7 +2800,7 @@ http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
    <customers>
       <customer>
          <email>vimalsudhan@gmail.com</email>
-         <mobile>919740798372</mobile>
+         <mobile>9197407983xx</mobile>
          <external_id>VIMAL004</external_id>
          <id>4596849</id>
          <firstname>Vimal</firstname>
@@ -2846,7 +2883,7 @@ http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
     },
     "customer": {
       "email": "vimalsudhan@gmail.com",
-      "mobile": "919740798372",
+      "mobile": "9197407983xx",
       "external_id": "VIMAL004",
       "id": "4596849",
       "firstname": "Vimal",
@@ -2986,37 +3023,38 @@ eddard.stark@winterfell.com",
 }
 ```
 
-Returns the stats of the referrals sent, and gets the unique referral code of a referral campaign sent to the specific  customer.
+Retrieves the stats of the referrals along with the unique referral code of a specific  customer.
 
 ### Resource Information
 | | |
 --------- | ----------- |
 URI | `/referrals`
 Authentication | Yes
-HTTP Method | POST
+HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/referrals?<query-params>`
+`http://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Pass the customer identifier (mobile/email/external_id/id) for whom you want to track the referral details
-campaign_token | Pass the specific token id of the referral campaign that you want to fetch. If no campaign id is passed, the details of the customer's referral history of the default campaign will be retrieved
-start_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
-end_date | The duration for which you want to track the referral history of the customer (between start_date and end_date)
-store_code | Retrieve referral stats of the specific store. Default value will be the current store. Set `all` to track details from all the stores
-only_referral_code | Set `true` to retrieve the referral code of the campaign (of the specific customer)
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer identifier* | enum | Pass any of the customer identifiers to fetch referral details. Value: `mobile`, `email`, `external_id`, `id`.
+value* | string | Pass the respective identifier value.
+campaign_token | string | Pass the specific token id of the referral campaign that you want to fetch. If no campaign id is passed, the details of the customer's referral history of the default campaign will be retrieved
+start_date | date | Get customer referrals on or after a specific duration (`YYYY-MM-DD`). To get referrals of a specific duration, pass the date range in `start_date` and `end_date`.
+end_date | date | Get customer referrals after a specific date (`YYYY-MM-DD`). To get referrals of a specific duration, pass the date range in `start_date` and `end_date`.
+store_code | string | Retrieve referral stats of the specific store. Default value will be the current store. Set `all` to track details from all the stores
+only_referral_code |boolean | Set `true` to retrieve the referral code of the respective referral campaigns (of the specific customer).
 
 ## Update Customer Preferences
+
+> Sample Request
+
 ```html
-# Sample Request
-
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=xml
-
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
+http://us.api.capillarytech.com/v1.1/customer/preferences
 ```
+
 > Sample POST Request
 
 ```xml
@@ -3178,11 +3216,25 @@ Batch Support | Yes
 `http://{host}/v1.1/customer/preferences?format={xml/json}`
 
 
+### Request Body Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile/email/external_id/user_id* | string | Pass any of the identifiers of the customer whose preferences you want to update.
+store | obj | 
+code | string | 
+id | int | Unique store id 
+custom_fields | obj | Update customer level custom field details as name and value pairs.
+ 
+
+
 
 ## Fetch Customer Preferences
-```html
-# Sample Request
 
+> Sample Request
+
+
+```html
 http://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
 
 ```
@@ -3190,8 +3242,6 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=447
 > Sample Response
 
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
@@ -3287,7 +3337,7 @@ Preferences retrieved successfully
 
 
 
-This API allows you to fetch preference values set for a specific customer.
+Retrieves preferences of a specific customer.
 
 ### Resource Information
 | | |
@@ -3298,17 +3348,20 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/preferences?format={xml/json}&<customer_identifier>=<identifier value>`
+`http://{host}/v1.1/customer/preferences?{customer_identifier}={value}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer Identifier | Pass any identifiers of the customer for whom you want to see the preference values. Value: mobile/email/external_id/id
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer Identifier* | enum | Pass any of the customer identifiers to get preferences. Value: `mobile`, `email`, `external_id`, `id`.
+value* | string | Pass the respective identifier values.
 
 
 ## Retrieve Customer Interactions
+
+> Sample Request
+
 ```html
-# Sample Request
 http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
 
 ```
@@ -3578,7 +3631,7 @@ def@xyz.com
 ```
 
 
-This API allows you to fetch store interactions with a specific customer such as SMSs sent, emails sent, missed calls received from the customer's registered mobile number, and surveys submitted by the customer.
+Lets you to fetch store interactions with a specific customer. This includes SMSs, emails, sent to the customer; missed calls received from the customer's registered mobile number; and surveys submitted by the customer.
 
 ### Resource Information
 | | |
@@ -3589,22 +3642,25 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/interaction?format={xml/json}&<parameters>`
+`http://{host}/v1.1/customer/interaction?{customer_identifier}={value}&{params}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
+### Request Query Parameters
+Parameter | Datatype | Description
 --------- | -----------
-Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/id) to retrieve interactions
-network | Filter data by communication network. Values: facebook, twitter, foursquare, capillary
-type | Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).
-start_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
-end_date | Specify the duration for which you want to see the customer interactions in start_date and end_date
+Customer Identifier* | enum | Pass any of the identifiers of the customer to retrieve interactions. Value: `mobile`, `email`, `external_id`, `id`.
+value* | string | Pass the respective identifier value.
+network | enum | Filter results by communication network. Values: `facebook`, `twitter`, `foursquare`, `capillary`.
+type | enum | Filter results by interaction type. Values: `email` (for transaction email), `emailbulk` (for bulk email), `checkin` (applicable only for foursquare/facebook), `like`, `comment` (for facebook); `mention`, `retweet`, `tweet` (only for Twitter network); `feedback` (only for Capillary).
+start_date | date | Specify the duration for which you want to see the customer interactions in `start_date` and `end_date`.
+end_date | date  | Specify the duration for which you want to see the customer interactions in `start_date` and `end_date`.
 
 
 ## Update Subscription Details
 
+
+> Sample Request
+
 ```html
-# Sample Request
 
 http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 ```
@@ -3754,194 +3810,325 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/v1.1/customer/subscriptions?format={xml/json}`
 
-### Request Attributes
-Attribute | Description
---------- | -----------
-Customer id* (mobile/email/external_id/id) | Provide any identifier of the customers whose subscription details need to be updated
-priority | Specify the service that you want to update - TRANS for personalized messages and BULK for campaign/bulk messages
-scope | Set scope to 'all' always
-channel | Pass the communication channel that you want to update. Value: sms/email
-is_subscribed | Specify `0` to unsubscribe and `1` to subscribe
+### Request Body Parameters
+Attribute | Datatype | Description
+--------- | -------- | -----------
+mobile/email/external_id/id* | Provide any of the customer identifiers to update subscription details.
+priority* | enum | Specify the service that you want to update. Value: `TRANS` for personalized messages, and `BULK` for campaign or promotional messages.
+scope | enum | Set scope to 'all' always.
+channel* | enum | Pass the communication channel that you want to update. Value: `sms`, `email`.
+is_subscribed* | enum | Specify `0` to unsubscribe, `1` to subscribe.
 
+<aside class="notice"> Parameters marked with * are mandatory. </aside>
 
 
 ## Retrieve Subscription Details
 
-```html
-# Sample Request
+> Sample Request
 
-http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json&mobile=447700900000
+```html
+https://nightly.capillary.in/v1.1/customer/subscriptions?mobile=447700900000,919999000012
 
 ```
 
 > Sample Response
 
 ```xml
+
+
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Success</message>
-    </status>
-    <subscriptions>
-        <subscription>
-            <user_id>28997193</user_id>
-            <mobile>447700900000</mobile>
-            <email>autoemail8069801251@gmail.com</email>
-            <external_id>ext_id8069801251</external_id>
-            <channel>
-                <name>EMAIL</name>
-                <priority>
-                    <name>TRANS</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>SUBSCRIBED</user_preference>
-                </priority>
-                <priority>
-                    <name>BULK</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>SUBSCRIBED</user_preference>
-                </priority>
-            </channel>
-            <channel>
-                <name>SMS</name>
-                <priority>
-                    <name>TRANS</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>SUBSCRIBED</user_preference>
-                </priority>
-                <priority>
-                    <name>BULK</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>SUBSCRIBED</user_preference>
-                </priority>
-            </channel>
-            <channel>
-                <name>ANDROID</name>
-                <priority>
-                    <name>TRANS</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>NOT_SET</user_preference>
-                </priority>
-                <priority>
-                    <name>BULK</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>NOT_SET</user_preference>
-                </priority>
-            </channel>
-            <channel>
-                <name>IOS</name>
-                <priority>
-                    <name>TRANS</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>NOT_SET</user_preference>
-                </priority>
-                <priority>
-                    <name>BULK</name>
-                    <subscribed>ALL</subscribed>
-                    <user_preference>NOT_SET</user_preference>
-                </priority>
-            </channel>
-            <item_status>
-                <code>1000</code>
-                <message>Subscription successfully retrieved</message>
-                <success>true</success>
-            </item_status>
-        </subscription>
-    </subscriptions>
-</response>
+<root>
+   <response>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+      <subscriptions>
+         <subscription>
+            <element>
+               <channel>
+                  <element>
+                     <name>SMS</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>SUBSCRIBED</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed />
+                           <unsubscribed>ALL</unsubscribed>
+                           <user_preference>UNSUBSCRIBED</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+                  <element>
+                     <name>POSTMAIL</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+                  <element>
+                     <name>EMAIL</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>SUBSCRIBED</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed />
+                           <unsubscribed>ALL</unsubscribed>
+                           <user_preference>UNSUBSCRIBED</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+               </channel>
+               <email>tom.sawyer@example.com</email>
+               <external_id>XYPZ001</external_id>
+               <item_status>
+                  <code>1000</code>
+                  <message>Subscription successfully retrieved</message>
+                  <success>true</success>
+               </item_status>
+               <mobile>447700900000</mobile>
+               <orgUnitSubscriptions />
+               <user_id>29372667</user_id>
+            </element>
+            <element>
+               <channel>
+                  <element>
+                     <name>SMS</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+                  <element>
+                     <name>POSTMAIL</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+                  <element>
+                     <name>EMAIL</name>
+                     <priority>
+                        <element>
+                           <name>TRANS</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                        <element>
+                           <name>BULK</name>
+                           <subscribed>ALL</subscribed>
+                           <unsubscribed />
+                           <user_preference>NOT_SET</user_preference>
+                        </element>
+                     </priority>
+                  </element>
+               </channel>
+               <item_status>
+                  <code>1000</code>
+                  <message>Subscription successfully retrieved</message>
+                  <success>true</success>
+               </item_status>
+               <mobile>919999000012</mobile>
+               <orgUnitSubscriptions />
+               <user_id>343040815</user_id>
+            </element>
+         </subscription>
+      </subscriptions>
+   </response>
+</root>
+
+
 
 ```
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "Success"
-    },
-    "subscriptions": {
-      "subscription": {
-        "user_id": "28997193",
-        "mobile": "447700900000",
-        "email": "autoemail8069801251@gmail.com",
-        "external_id": "ext_id8069801251",
-        "channel": [
-          {
-            "name": "EMAIL",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL",
-                "user_preference": "SUBSCRIBED"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL",
-                "user_preference": "SUBSCRIBED"
-              }
-            ]
-          },
-          {
-            "name": "SMS",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL",
-                "user_preference": "SUBSCRIBED"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL",
-                "user_preference": "SUBSCRIBED"
-              }
-            ]
-          },
-          {
-            "name": "ANDROID",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL",
-                "user_preference": "NOT_SET"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL",
-                "user_preference": "NOT_SET"
-              }
-            ]
-          },
-          {
-            "name": "IOS",
-            "priority": [
-              {
-                "name": "TRANS",
-                "subscribed": "ALL",
-                "user_preference": "NOT_SET"
-              },
-              {
-                "name": "BULK",
-                "subscribed": "ALL",
-                "user_preference": "NOT_SET"
-              }
-            ]
-          }
-        ],
-        "item_status": {
-          "code": "1000",
-          "message": "Subscription successfully retrieved",
-          "success": "true"
-        }
-      }
-    }
-  }
+	"response": {
+		"status": {
+			"success": "true",
+			"code": 200,
+			"message": "Success"
+		},
+		"subscriptions": {
+			"subscription": [
+				{
+					"user_id": "29372667",
+					"mobile": "447700900000",
+					"email": "tom.sawyer@example.com",
+					"external_id": "XYPZ001",
+					"channel": [
+						{
+							"name": "SMS",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "SUBSCRIBED"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "",
+									"unsubscribed": "ALL",
+									"user_preference": "UNSUBSCRIBED"
+								}
+							]
+						},
+						{
+							"name": "POSTMAIL",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								}
+							]
+						},
+						{
+							"name": "EMAIL",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "SUBSCRIBED"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "",
+									"unsubscribed": "ALL",
+									"user_preference": "UNSUBSCRIBED"
+								}
+							]
+						}
+					],
+					"orgUnitSubscriptions": [],
+					"item_status": {
+						"code": "1000",
+						"message": "Subscription successfully retrieved",
+						"success": "true"
+					}
+				},
+				{
+					"user_id": "343040815",
+					"mobile": "919999000012",
+					"channel": [
+						{
+							"name": "SMS",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								}
+							]
+						},
+						{
+							"name": "POSTMAIL",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								}
+							]
+						},
+						{
+							"name": "EMAIL",
+							"priority": [
+								{
+									"name": "TRANS",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								},
+								{
+									"name": "BULK",
+									"subscribed": "ALL",
+									"unsubscribed": "",
+									"user_preference": "NOT_SET"
+								}
+							]
+						}
+					],
+					"orgUnitSubscriptions": [],
+					"item_status": {
+						"code": "1000",
+						"message": "Subscription successfully retrieved",
+						"success": "true"
+					}
+				}
+			]
+		}
+	}
 }
 
 ```
 
-This API allows you to fetch the sms/email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.
+Retrieves sms and email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.
 
 ### Resource Information
 | | |
@@ -3952,16 +4139,18 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/subscriptions?format={xml/json}`
+`http://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer Identifier* | Pass any one of the identifiers(mobile/email/external_id/id) whose subscription details needs to be retrieved
-channel | Filter the results by communication channel. Value: SMS, EMAIL, WECHAT, SOCIAL, REMINDER_TEXT, RE_ISSUAL_TEXT, CLIENT.
-priority | Filter the results by transaction or bulk messages. Value: TRANS, BULK
-scope | Pass scope=ALL. It retrieves the details of all subscription modules. For example, points, coupons, general etc.
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+Customer Identifier* | enum | Pass any of the customer identifiers to retrieve subscription details.
+value* | string | Pass the respective identifier values of all customers that you want to retrieve subscription details separating each value with comma. For example, `mobile=918036151000,919999000012`
+channel | enum | Filter the results by communication channel. Value: `SMS`, `EMAIL`, `WECHAT`, `SOCIAL`, `REMINDER_TEXT`, `RE_ISSUAL_TEXT`, `CLIENT`.
+priority | enum | Filter the results by message type. Value: `TRANS`, `BULK`.
+scope | enum | Pass `scope=ALL`. It retrieves the details of all subscription modules. For example, points, coupons, general etc.
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 ## Response Codes
 ### Success Codes
