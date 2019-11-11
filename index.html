@@ -1934,8 +1934,8 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tr>
 <tr>
 <td>registered_till</td>
+<td>string</td>
 <td>Returns the store-TILL at which the customer is registered. This is returned by default.</td>
-<td></td>
 </tr>
 <tr>
 <td>fraud_details=true</td>
@@ -1989,7 +1989,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tr>
 </tbody></table>
 
-<aside class="notice">Parameter marked by * is mandatory. </aside>
+<aside class="notice">Parameter marked with * is mandatory. </aside>
 
 <h2 id="get-customer-transactions">Get Customer Transactions</h2>
 
@@ -2242,29 +2242,21 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <tr>
 <td>sort</td>
 <td>enum</td>
-<td>Arranges the transactions by transaction date or transaction id based on the value set. Supported value: trans_id, trans_date.</td>
+<td>Arranges the transactions by transaction date or transaction id based on the <code class="prettyprint">order</code> value passed. Supported value: <code class="prettyprint">trans_id</code>, <code class="prettyprint">trans_date</code>. By default, results are shown in descending order.</td>
 </tr>
 <tr>
 <td>order</td>
 <td>enum</td>
 <td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id.</td>
 </tr>
-<tr>
-<td>asc</td>
-<td>Sorts the transaction history in the ascending order of transaction date or transaction id (based on <code class="prettyprint">sort</code> type). Query: <code class="prettyprint">sort=asc</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Desc</td>
-<td>Sorts the transaction history in the descending order of transaction date or transaction id. Query: <code class="prettyprint">sort=desc</code></td>
-<td></td>
-</tr>
 </tbody></table>
 
 <h2 id="retrieve-customer-redemptions">Retrieve Customer Redemptions</h2>
-<pre class="highlight html"><code># Sample Request
 
-http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2408,79 +2400,99 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/redemptions?&lt;query_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/redemptions?{query_params}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
+<td>string</td>
 <td>Provide the primary identifier of the customer whose redemption details needs to be fetched - mobile no./email id/external id. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br><strong>Example</strong>: <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code></td>
 </tr>
 <tr>
 <td>type</td>
-<td>Filter the results by redemption - points or coupons</td>
+<td>enum</td>
+<td>Filter the results either by <code class="prettyprint">points</code> redemption or <code class="prettyprint">coupons</code> redemption.</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Filter the results by redemptions made in a specific duration - between start_date to end_date</td>
+<td>date</td>
+<td>Get redemptions done on or after a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get redemptions made in a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Filter the results by redemptions made in a specific duration - between start_date to end_date</td>
+<td>date</td>
+<td>Get redemptions made before a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get redemptions made in a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>coupons_limit</td>
-<td>Limit the number of coupon redemptions to be displayed. Example:<code class="prettyprint">coupons_limit=10</code> to show only 10 coupon redemption details. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Limit the number of coupon redemptions to be displayed. Example:<code class="prettyprint">coupons_limit=10</code> to show only 10 coupon redemption details. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>points_limit</td>
-<td>Limit the number of points redemption results to be displayed. Example:<code class="prettyprint">points_limit=10</code> to show only 10 points redemption details. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Limit the number of points redemption results to be displayed. Example:<code class="prettyprint">points_limit=10</code> to show only 10 points redemption details. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limit the number of redemption details (points and/or coupons). Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Limit the number of redemption details (points and/or coupons). Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>coupons_start_id</td>
-<td>Filter the results by coupon redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Filter the results by coupon redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>coupons_end_id</td>
-<td>Filter the results by coupon redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Filter the results by coupon redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>points_start_id</td>
-<td>Filter the results by points redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
+<td>int</td>
+<td>Filter the results by points redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>points_end_id</td>
-<td>Filter the results by points redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed</td>
-</tr>
-<tr>
-<td>order</td>
-<td>Order the results in ascending (asc) or descending order (desc). By default, the results are ordered in the descending order of redeemed time</td>
+<td>int</td>
+<td>Filter the results by points redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>sort</td>
-<td>Sort the results by redemption id (redemption_id) or redemption time(redeemed_time). By default, the results are sorted in the descending order of redeemed time</td>
+<td>enum</td>
+<td>Sort the results either by redemption id (<code class="prettyprint">redemption_id</code>) or redemption time(<code class="prettyprint">redeemed_time</code>). By default, the results are sorted in the descending order of redeemed time.</td>
+</tr>
+<tr>
+<td>order</td>
+<td>enum</td>
+<td>Order the results in ascending (<code class="prettyprint">asc</code>) or descending order (<code class="prettyprint">desc</code>). By default, the results are shown in the descending order of redeemed time.</td>
 </tr>
 <tr>
 <td>mlp=true</td>
-<td>Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty)</td>
+<td>-</td>
+<td>Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty).</td>
 </tr>
 <tr>
 <td>format</td>
 <td>enum</td>
+<td>Pass the desired representation of response content - <code class="prettyprint">format=xml</code>, or <code class="prettyprint">format=json</code>.</td>
 </tr>
 </tbody></table>
 
 <h2 id="add-customer-notes">Add Customer Notes</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
@@ -2549,9 +2561,12 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added successfully"</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer note added/updated successfully"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -2627,15 +2642,15 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id*</td>
-<td>Unique identifier of the customer for whom you want to create notes (mobile no/email id/external id)</td>
+<td>Customer identifier*</td>
+<td>string</td>
 </tr>
 <tr>
-<td>date*</td>
-<td>Date on which the customer note is added</td>
+<td>date</td>
+<td>date</td>
 </tr>
 <tr>
-<td>description</td>
+<td>description*</td>
 <td>Details or message of the note in a plain text format</td>
 </tr>
 </tbody></table>
@@ -2773,7 +2788,7 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/notes</td>
+<td><code class="prettyprint">customer/notes</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2802,22 +2817,25 @@ http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id*</td>
-<td>Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id)</td>
+<td>Customer identifier*</td>
+<td>Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id/user_id).</td>
 </tr>
 <tr>
-<td>description</td>
-<td>Details or message of the note in a plain text format</td>
+<td>description*</td>
+<td>New notes that you want to update with (plain text).</td>
 </tr>
 <tr>
-<td>id</td>
-<td>Unique id of the customer note that you want to update</td>
+<td>id*</td>
+<td>Unique id of the customer note that you want to update.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-customer-notes">Retrieve Customer Notes</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/customer/notes?format=json<span class="err">&amp;</span>identifier=44700900999
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2904,7 +2922,7 @@ user_id tag will be returned only if query param user_id = true
 <span class="nt">&lt;/response&gt;</span>
 
 </code></pre>
-<p>This API allows you to fetch notes created for a specific customer.</p>
+<p>Retrieves notes of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -2934,25 +2952,37 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format={xml/json}&amp;&lt;identifier&gt;=&lt;value&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/notes?{identifier}={value}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id*</td>
-<td>Unique identifier of the customer whose notes need to be retrieved - mobile/email/external_id/user_id</td>
+<td>identifier*</td>
+<td>enum</td>
+<td>Identifier you want to use to identify the customer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Value of the specified identifier. For example, if <code class="prettyprint">identifier</code> is <code class="prettyprint">mobile</code>, value should be the customer&rsquo;s mobile number.</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 <h2 id="retrieve-customer-coupons">Retrieve Customer Coupons</h2>
-<pre class="highlight html"><code># Sample Request
-http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
 </code></pre><pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
@@ -3005,11 +3035,7 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&a
 </span><span class="p">}</span><span class="w">
 
 
-</span></code></pre><pre class="highlight xml"><code>
-
-
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;response&gt;</span>
       <span class="nt">&lt;customers&gt;</span>
@@ -3063,7 +3089,7 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&a
 
 
 </code></pre>
-<p>This API lets you track the history of coupons issued to a specific customer, i.e., the details of coupons issued and redeemed.</p>
+<p>Retrieves the details of coupons of a specific customer - both issued and redeemed.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -3093,57 +3119,77 @@ http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&a
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/coupons?format=&lt;json/xml&gt;&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/coupons?{identifier}={value}&amp;{input_params}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer identifier*</td>
-<td>Pass the mobile no/email id/external id of the customer to retrieve coupon history</td>
+<td>identifier*</td>
+<td>enum</td>
+<td>Identifier you want to use to identify the customer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Value of the specified identifier. For example, if <code class="prettyprint">identifier</code> is <code class="prettyprint">mobile</code>, value should be the customer&rsquo;s mobile number.</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Retrieve coupons issued in a specific duration - coupons issued between start_date and end_date</td>
+<td>date</td>
+<td>Get coupons issued or redeemed on or after a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get coupon history of a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Retrieve coupons issued in a specific duration - coupons issued between start_date and end_date</td>
+<td>date</td>
+<td>Get coupons issued or redeemed before a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get coupon history of a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>status</td>
-<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: redeemed, expired, active. <br>You can also pass more than one status separating each ; (semi-colon)</td>
+<td>enum</td>
+<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code>. <br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
 </tr>
 <tr>
 <td>series_id</td>
-<td>Retrieve details of a specific coupon series issued to the customer</td>
+<td>int</td>
+<td>Retrieve details of a specific coupon series by series id.</td>
 </tr>
 <tr>
 <td>store_id</td>
+<td>int</td>
 <td>Retrieves the details of active coupons of the customer that can be redeemed at a specific store</td>
 </tr>
 <tr>
 <td>order_by</td>
-<td>Order the results by created date, amount or issued TILL (<code class="prettyprint">created_date</code>, <code class="prettyprint">amount</code>, <code class="prettyprint">valid_till</code>) based on the type passed</td>
+<td>enum</td>
+<td>Order the results by a specific entry. Value: <code class="prettyprint">created_date,</code>amount<code class="prettyprint">,</code>valid_till` (issued till).</td>
 </tr>
 <tr>
 <td>sort_order</td>
-<td>Sort the results in ascending (<code class="prettyprint">asc</code>) or descending (<code class="prettyprint">desc</code>) order</td>
+<td>enum</td>
+<td>Sort the results in ascending (<code class="prettyprint">asc</code>) or descending (<code class="prettyprint">desc</code>) order.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer</td>
+<td>int</td>
+<td>Limit the number of results to be retrieved. For example: limit=10 to retrieve the history of ten recent coupons of the customer.</td>
 </tr>
 </tbody></table>
 
-<h2 id="create-new-ticket">Create New Ticket</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
+<h2 id="create-ticket">Create Ticket</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -3280,7 +3326,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 
 </code></pre>
-<p>This API allows you to create tickets for a specific customer.</p>
+<p>Lets you to create a new ticket for a customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -3310,49 +3356,57 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?format={xml/json}&amp;&lt;input_params&gt;</code></p>
+<p>`http://{host}/v1.1/customer/tickets</p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the customer identifier (mobile/email/external_id) for whom you want to create the ticket</td>
+<td>string</td>
+<td>Pass any one identifiers of the customer - mobile, email, external_id, or id (user_id).</td>
 </tr>
 <tr>
 <td>status</td>
-<td>Set the status of the ticket</td>
+<td>enum</td>
+<td>Status of the ticket. Accepts only values configured for the org. Sample values: Open, Close, InProgress.</td>
 </tr>
 <tr>
 <td>priority</td>
-<td>Set the ticket priority. <br>Value: low, medium, high</td>
+<td>enum</td>
+<td>Priority of the ticket. Value: <code class="prettyprint">low</code>, <code class="prettyprint">medium</code>, <code class="prettyprint">high</code>.</td>
 </tr>
 <tr>
 <td>department</td>
+<td>string</td>
 <td>Set the department for which the ticket needs to be assigned</td>
 </tr>
 <tr>
 <td>ticket_code</td>
-<td>Pass the ticket id</td>
+<td>string</td>
+<td>Pass the ticket id.</td>
 </tr>
 <tr>
 <td>reported_from</td>
-<td>Source from which the ticket needs to be created <br> Values: EMAIL, INTOUCH, CALLCENTER, CLIENT, MICROSITE, SOCIAL</td>
+<td>enum</td>
+<td>Source from which the ticket is created. Values: <code class="prettyprint">EMAIL</code>, <code class="prettyprint">INTOUCH</code>, <code class="prettyprint">CALLCENTER</code>, <code class="prettyprint">CLIENT</code>, <code class="prettyprint">MICROSITE</code>, <code class="prettyprint">SOCIAL</code>.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Pass the ticket type <br>Value: STORE, Customer</td>
+<td>enum</td>
+<td>Type of the ticket. Value: <code class="prettyprint">STORE</code>, <code class="prettyprint">Customer</code>.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-ticket-details">Retrieve Ticket Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
+http://us.api.capillarytech.com/v1.1/customer/tickets
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -3466,63 +3520,80 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?format={xml/json}&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?{identifier}={value}&amp;{input_params}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the customer identifier (mobile/email/external_id) whose tickets you want to fetch</td>
+<td>enum</td>
+<td>Pass any of the customer identifiers to retrieve ticket details. Values: mobile, email, external_id, id.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>Pass the respective identifier value.</td>
 </tr>
 <tr>
 <td>status</td>
-<td>Retrieve tickets by its status</td>
+<td>enum</td>
+<td>Filter tickets by status. Pass only from statuses that are defined for your org.</td>
 </tr>
 <tr>
 <td>priority</td>
-<td>Filter results by ticket priority. <br>Value: low, medium, high</td>
+<td>enum</td>
+<td>Filter results by ticket priority. <br>Value: <code class="prettyprint">low</code>, <code class="prettyprint">medium</code>, <code class="prettyprint">high</code>. Pass only priorities that are defined for your org.</td>
 </tr>
 <tr>
 <td>department</td>
-<td>Retrieve tickets assigned to a specific department</td>
+<td>string</td>
+<td>Retrieve tickets assigned to a specific department. Pass only predefined departments of your org.</td>
 </tr>
 <tr>
 <td>ticket_code</td>
+<td>string</td>
 <td>Retrieve details of a specific ticket</td>
 </tr>
 <tr>
 <td>reported_from</td>
-<td>Retrieve tickets of a specific source <br> Values: EMAIL, INTOUCH, CALLCENTER, CLIENT, MICROSITE, SOCIAL</td>
+<td>enum</td>
+<td>Retrieve tickets of a specific source. <br> Values: <code class="prettyprint">EMAIL</code>, <code class="prettyprint">INTOUCH</code>, <code class="prettyprint">CALLCENTER</code>, <code class="prettyprint">CLIENT</code>, <code class="prettyprint">MICROSITE</code>, <code class="prettyprint">SOCIAL</code>.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Retrieve tickets by type <br>Value: STORE, Customer</td>
+<td>enum</td>
+<td>Retrieve tickets by type. <br>Value: <code class="prettyprint">STORE</code>, <code class="prettyprint">Customer</code>.</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Retrieve tickets created in a specific duration - between start_date to end_date</td>
+<td>Retrieve tickets created on or after in a specific date (<code class="prettyprint">YYYY-MM-DD</code>).  To get tickets created in a specific date range, pass the duration in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
+<td></td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Retrieve tickets created in a specific duration - between start_date to end_date</td>
+<td>date</td>
+<td>Retrieve tickets created after a specific date (<code class="prettyprint">YYYY-MM-DD</code>) - between start_date to end_date. To get tickets created in a specific date range, pass the duration in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 </tbody></table>
 
 <h2 id="refer-customer">Refer Customer</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;customer&gt;</span>
       <span class="c">&lt;!-- Any one identifier is required --&gt;</span>
@@ -3609,7 +3680,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vimalsudhan@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9197407983xx"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIMAL004"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4596849"</span><span class="p">,</span><span class="w">
@@ -3731,13 +3802,72 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/referrals??format={xml/json}&amp;&lt;query-params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer identifier*</td>
+<td>enum</td>
+<td>Pass any of the customer identifiers who needs to refer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>campaign_token</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>referral_type</td>
+<td>obj</td>
+<td>Details of referees.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Mode of communication of the referral. Values: <code class="prettyprint">SMS</code>, <code class="prettyprint">EMAIL</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the referee.</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>string</td>
+<td>Identifier of the referee according to the type set. For example, if <code class="prettyprint">&quot;type&quot;:&quot;EMAIL&quot;</code>, <code class="prettyprint">identifier</code> will be the email ID.</td>
+</tr>
+<tr>
+<td>invited_on</td>
+<td>date-time</td>
+<td>Date and time of the invite.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 <h2 id="retrieve-customer-referral-details">Retrieve Customer Referral Details</h2>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
-</code></pre><pre class="highlight xml"><code>
 
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -3747,7 +3877,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
    <span class="nt">&lt;customers&gt;</span>
       <span class="nt">&lt;customer&gt;</span>
          <span class="nt">&lt;email&gt;</span>vimalsudhan@gmail.com<span class="nt">&lt;/email&gt;</span>
-         <span class="nt">&lt;mobile&gt;</span>919740798372<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>9197407983xx<span class="nt">&lt;/mobile&gt;</span>
          <span class="nt">&lt;external_id&gt;</span>VIMAL004<span class="nt">&lt;/external_id&gt;</span>
          <span class="nt">&lt;id&gt;</span>4596849<span class="nt">&lt;/id&gt;</span>
          <span class="nt">&lt;firstname&gt;</span>Vimal<span class="nt">&lt;/firstname&gt;</span>
@@ -3827,7 +3957,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vimalsudhan@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919740798372"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9197407983xx"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIMAL004"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4596849"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vimal"</span><span class="p">,</span><span class="w">
@@ -3966,7 +4096,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns the stats of the referrals sent, and gets the unique referral code of a referral campaign sent to the specific  customer.</p>
+<p>Retrieves the stats of the referrals along with the unique referral code of a specific  customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -3986,7 +4116,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 </tr>
 <tr>
 <td>HTTP Method</td>
-<td>POST</td>
+<td>GET</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -3996,48 +4126,60 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?&lt;query-params&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
-<td>Pass the customer identifier (mobile/email/external_id/id) for whom you want to track the referral details</td>
+<td>enum</td>
+<td>Pass any of the customer identifiers to fetch referral details. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Pass the respective identifier value.</td>
 </tr>
 <tr>
 <td>campaign_token</td>
+<td>string</td>
 <td>Pass the specific token id of the referral campaign that you want to fetch. If no campaign id is passed, the details of the customer&rsquo;s referral history of the default campaign will be retrieved</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>The duration for which you want to track the referral history of the customer (between start_date and end_date)</td>
+<td>date</td>
+<td>Get customer referrals on or after a specific duration (<code class="prettyprint">YYYY-MM-DD</code>). To get referrals of a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>The duration for which you want to track the referral history of the customer (between start_date and end_date)</td>
+<td>date</td>
+<td>Get customer referrals after a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get referrals of a specific duration, pass the date range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>store_code</td>
+<td>string</td>
 <td>Retrieve referral stats of the specific store. Default value will be the current store. Set <code class="prettyprint">all</code> to track details from all the stores</td>
 </tr>
 <tr>
 <td>only_referral_code</td>
-<td>Set <code class="prettyprint">true</code> to retrieve the referral code of the campaign (of the specific customer)</td>
+<td>boolean</td>
+<td>Set <code class="prettyprint">true</code> to retrieve the referral code of the respective referral campaigns (of the specific customer).</td>
 </tr>
 </tbody></table>
 
 <h2 id="update-customer-preferences">Update Customer Preferences</h2>
-<pre class="highlight html"><code># Sample Request
 
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=xml
-
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/preferences
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -4210,18 +4352,54 @@ http://us.api.capillarytech.com/v1.1/customer/preferences?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/customer/preferences?format={xml/json}</code></p>
 
-<h2 id="fetch-customer-preferences">Fetch Customer Preferences</h2>
-<pre class="highlight html"><code># Sample Request
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mobile/email/external_id/user_id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer whose preferences you want to update.</td>
+</tr>
+<tr>
+<td>store</td>
+<td>obj</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Unique store id</td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td>obj</td>
+<td>Update customer level custom field details as name and value pairs.</td>
+</tr>
+</tbody></table>
+
+<h2 id="fetch-customer-preferences">Fetch Customer Preferences</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -4309,7 +4487,7 @@ Preferences retrieved successfully
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to fetch preference values set for a specific customer.</p>
+<p>Retrieves preferences of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -4339,25 +4517,35 @@ Preferences retrieved successfully
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?format={xml/json}&amp;&lt;customer_identifier&gt;=&lt;identifier value&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?{customer_identifier}={value}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer Identifier</td>
-<td>Pass any identifiers of the customer for whom you want to see the preference values. Value: mobile/email/external_id/id</td>
+<td>Customer Identifier*</td>
+<td>enum</td>
+<td>Pass any of the customer identifiers to get preferences. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Pass the respective identifier values.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-customer-interactions">Retrieve Customer Interactions</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
@@ -4620,7 +4808,7 @@ def@xyz.com
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to fetch store interactions with a specific customer such as SMSs sent, emails sent, missed calls received from the customer&rsquo;s registered mobile number, and surveys submitted by the customer.</p>
+<p>Lets you to fetch store interactions with a specific customer. This includes SMSs, emails, sent to the customer; missed calls received from the customer&rsquo;s registered mobile number; and surveys submitted by the customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -4650,41 +4838,25 @@ def@xyz.com
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/interaction?format={xml/json}&amp;&lt;parameters&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/interaction?{customer_identifier}={value}&amp;{params}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Customer Identifier*</td>
-<td>Pass any one of the identifiers(mobile/email/external_id/id) to retrieve interactions</td>
-</tr>
-<tr>
-<td>network</td>
-<td>Filter data by communication network. Values: facebook, twitter, foursquare, capillary</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Filter the results by interaction type. <br> Values: email (for transaction email), emailbulk (for bulk email), checkin (applicable only for foursquare/facebook), like, comment (for facebook); mention, retweet, tweet (only for Twitter network); feedback (only for Capillary).</td>
-</tr>
-<tr>
-<td>start_date</td>
-<td>Specify the duration for which you want to see the customer interactions in start_date and end_date</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>Specify the duration for which you want to see the customer interactions in start_date and end_date</td>
-</tr>
-</tbody></table>
+<p>Parameter | Datatype | Description
+&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
+Customer Identifier* | enum | Pass any of the identifiers of the customer to retrieve interactions. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.
+value* | string | Pass the respective identifier value.
+network | enum | Filter results by communication network. Values: <code class="prettyprint">facebook</code>, <code class="prettyprint">twitter</code>, <code class="prettyprint">foursquare</code>, <code class="prettyprint">capillary</code>.
+type | enum | Filter results by interaction type. Values: <code class="prettyprint">email</code> (for transaction email), <code class="prettyprint">emailbulk</code> (for bulk email), <code class="prettyprint">checkin</code> (applicable only for foursquare/facebook), <code class="prettyprint">like</code>, <code class="prettyprint">comment</code> (for facebook); <code class="prettyprint">mention</code>, <code class="prettyprint">retweet</code>, <code class="prettyprint">tweet</code> (only for Twitter network); <code class="prettyprint">feedback</code> (only for Capillary).
+start_date | date | Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.
+end_date | date  | Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</p>
 
 <h2 id="update-subscription-details">Update Subscription Details</h2>
-<pre class="highlight html"><code># Sample Request
 
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>
 http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </code></pre>
 <blockquote>
@@ -4842,206 +5014,346 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Attribute</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer id* (mobile/email/external_id/id)</td>
-<td>Provide any identifier of the customers whose subscription details need to be updated</td>
+<td>mobile/email/external_id/id*</td>
+<td>Provide any of the customer identifiers to update subscription details.</td>
+<td></td>
 </tr>
 <tr>
-<td>priority</td>
-<td>Specify the service that you want to update - TRANS for personalized messages and BULK for campaign/bulk messages</td>
+<td>priority*</td>
+<td>enum</td>
+<td>Specify the service that you want to update. Value: <code class="prettyprint">TRANS</code> for personalized messages, and <code class="prettyprint">BULK</code> for campaign or promotional messages.</td>
 </tr>
 <tr>
 <td>scope</td>
-<td>Set scope to &lsquo;all&rsquo; always</td>
+<td>enum</td>
+<td>Set scope to &lsquo;all&rsquo; always.</td>
 </tr>
 <tr>
-<td>channel</td>
-<td>Pass the communication channel that you want to update. Value: sms/email</td>
+<td>channel*</td>
+<td>enum</td>
+<td>Pass the communication channel that you want to update. Value: <code class="prettyprint">sms</code>, <code class="prettyprint">email</code>.</td>
 </tr>
 <tr>
-<td>is_subscribed</td>
-<td>Specify <code class="prettyprint">0</code> to unsubscribe and <code class="prettyprint">1</code> to subscribe</td>
+<td>is_subscribed*</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">0</code> to unsubscribe, <code class="prettyprint">1</code> to subscribe.</td>
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-subscription-details">Retrieve Subscription Details</h2>
-<pre class="highlight html"><code># Sample Request
+<aside class="notice"> Parameters marked with * are mandatory. </aside>
 
-http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span class="err">&amp;</span>mobile=447700900000
+<h2 id="retrieve-subscription-details">Retrieve Subscription Details</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://nightly.capillary.in/v1.1/customer/subscriptions?mobile=447700900000,919999000012
 
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;response&gt;</span>
-    <span class="nt">&lt;status&gt;</span>
-        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-    <span class="nt">&lt;/status&gt;</span>
-    <span class="nt">&lt;subscriptions&gt;</span>
-        <span class="nt">&lt;subscription&gt;</span>
-            <span class="nt">&lt;user_id&gt;</span>28997193<span class="nt">&lt;/user_id&gt;</span>
-            <span class="nt">&lt;mobile&gt;</span>447700900000<span class="nt">&lt;/mobile&gt;</span>
-            <span class="nt">&lt;email&gt;</span>autoemail8069801251@gmail.com<span class="nt">&lt;/email&gt;</span>
-            <span class="nt">&lt;external_id&gt;</span>ext_id8069801251<span class="nt">&lt;/external_id&gt;</span>
-            <span class="nt">&lt;channel&gt;</span>
-                <span class="nt">&lt;name&gt;</span>EMAIL<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-            <span class="nt">&lt;/channel&gt;</span>
-            <span class="nt">&lt;channel&gt;</span>
-                <span class="nt">&lt;name&gt;</span>SMS<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-            <span class="nt">&lt;/channel&gt;</span>
-            <span class="nt">&lt;channel&gt;</span>
-                <span class="nt">&lt;name&gt;</span>ANDROID<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-            <span class="nt">&lt;/channel&gt;</span>
-            <span class="nt">&lt;channel&gt;</span>
-                <span class="nt">&lt;name&gt;</span>IOS<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-                <span class="nt">&lt;priority&gt;</span>
-                    <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
-                    <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
-                <span class="nt">&lt;/priority&gt;</span>
-            <span class="nt">&lt;/channel&gt;</span>
-            <span class="nt">&lt;item_status&gt;</span>
-                <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-                <span class="nt">&lt;message&gt;</span>Subscription successfully retrieved<span class="nt">&lt;/message&gt;</span>
-                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-            <span class="nt">&lt;/item_status&gt;</span>
-        <span class="nt">&lt;/subscription&gt;</span>
-    <span class="nt">&lt;/subscriptions&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
+<pre class="highlight xml"><code>
+
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+      <span class="nt">&lt;subscriptions&gt;</span>
+         <span class="nt">&lt;subscription&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;channel&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>SMS<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;unsubscribed&gt;</span>ALL<span class="nt">&lt;/unsubscribed&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>UNSUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>POSTMAIL<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>EMAIL<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>SUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;unsubscribed&gt;</span>ALL<span class="nt">&lt;/unsubscribed&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>UNSUBSCRIBED<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/channel&gt;</span>
+               <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+               <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Subscription successfully retrieved<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>447700900000<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;orgUnitSubscriptions</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;user_id&gt;</span>29372667<span class="nt">&lt;/user_id&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;channel&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>SMS<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>POSTMAIL<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>EMAIL<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;priority&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>TRANS<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>BULK<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;subscribed&gt;</span>ALL<span class="nt">&lt;/subscribed&gt;</span>
+                           <span class="nt">&lt;unsubscribed</span> <span class="nt">/&gt;</span>
+                           <span class="nt">&lt;user_preference&gt;</span>NOT_SET<span class="nt">&lt;/user_preference&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/priority&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/channel&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Subscription successfully retrieved<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919999000012<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;orgUnitSubscriptions</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;user_id&gt;</span>343040815<span class="nt">&lt;/user_id&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/subscription&gt;</span>
+      <span class="nt">&lt;/subscriptions&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+
 
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28997193"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autoemail8069801251@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ext_id8069801251"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29372667"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNSUBSCRIBED"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POSTMAIL"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNSUBSCRIBED"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nt">"orgUnitSubscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscription successfully retrieved"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"343040815"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919999000012"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POSTMAIL"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">},</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"unsubscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nt">"orgUnitSubscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+                    </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscription successfully retrieved"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUBSCRIBED"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANDROID"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IOS"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"user_preference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOT_SET"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscription successfully retrieved"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This API allows you to fetch the sms/email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.</p>
+<p>Retrieves sms and email subscription details of a customer. You can filter the results by priority and communication channel. To retrieve subscription details of multiple customers, pass each customer identifier separating by comma.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -5071,33 +5383,45 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json<span cla
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer Identifier*</td>
-<td>Pass any one of the identifiers(mobile/email/external_id/id) whose subscription details needs to be retrieved</td>
+<td>enum</td>
+<td>Pass any of the customer identifiers to retrieve subscription details.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Pass the respective identifier values of all customers that you want to retrieve subscription details separating each value with comma. For example, <code class="prettyprint">mobile=918036151000,919999000012</code></td>
 </tr>
 <tr>
 <td>channel</td>
-<td>Filter the results by communication channel. Value: SMS, EMAIL, WECHAT, SOCIAL, REMINDER_TEXT, RE_ISSUAL_TEXT, CLIENT.</td>
+<td>enum</td>
+<td>Filter the results by communication channel. Value: <code class="prettyprint">SMS</code>, <code class="prettyprint">EMAIL</code>, <code class="prettyprint">WECHAT</code>, <code class="prettyprint">SOCIAL</code>, <code class="prettyprint">REMINDER_TEXT</code>, <code class="prettyprint">RE_ISSUAL_TEXT</code>, <code class="prettyprint">CLIENT</code>.</td>
 </tr>
 <tr>
 <td>priority</td>
-<td>Filter the results by transaction or bulk messages. Value: TRANS, BULK</td>
+<td>enum</td>
+<td>Filter the results by message type. Value: <code class="prettyprint">TRANS</code>, <code class="prettyprint">BULK</code>.</td>
 </tr>
 <tr>
 <td>scope</td>
-<td>Pass scope=ALL. It retrieves the details of all subscription modules. For example, points, coupons, general etc.</td>
+<td>enum</td>
+<td>Pass <code class="prettyprint">scope=ALL</code>. It retrieves the details of all subscription modules. For example, points, coupons, general etc.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 <h2 id="response-codes">Response Codes</h2>
 
