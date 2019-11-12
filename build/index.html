@@ -6942,7 +6942,7 @@ Extended fields and custom fields in transactions are used to capture additional
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -7535,7 +7535,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/transaction/update?format=xml/json</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/update?format={xml/json}</code></p>
 
 <h2 id="retro-transaction">Retro Transaction</h2>
 
@@ -7904,7 +7904,7 @@ returned only when query param user_id is true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;{identifier_type}={value}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/get?{identifier_type}={value}&amp;format={xml/json}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -7951,12 +7951,12 @@ returned only when query param user_id is true
 </tr>
 <tr>
 <td>credit_notes</td>
-<td></td>
+<td>string</td>
 <td></td>
 </tr>
 <tr>
 <td>tenders</td>
-<td></td>
+<td>-</td>
 <td></td>
 </tr>
 <tr>
@@ -7986,13 +7986,13 @@ returned only when query param user_id is true
 </tr>
 <tr>
 <td>start_id</td>
+<td>int</td>
 <td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.</td>
-<td></td>
 </tr>
 <tr>
 <td>end_id</td>
+<td>int</td>
 <td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.</td>
-<td></td>
 </tr>
 <tr>
 <td>number</td>

@@ -923,7 +923,7 @@ API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+`https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}`
 
 
 ### Request Body Parameters
@@ -1478,7 +1478,7 @@ number** | string | Transaction number that you need to update.
 
 
 ### Request URL
-`https://{host}/v1.1/transaction/update?format=xml/json`
+`https://{host}/v1.1/transaction/update?format={xml/json}`
 
 
 ## Retro Transaction
@@ -1800,7 +1800,7 @@ Authentication | Yes
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/transaction/get?format=<xml/json>&{identifier_type}={value}`
+`https://{host}/v1.1/transaction/get?{identifier_type}={value}&format={xml/json}`
 
 ### Additional Header
 
@@ -1817,15 +1817,15 @@ identifier_type* | enum | Pass any of the identifier types you want to use to id
 value | string | Pass the respective identifier value.
 store_code | string | Fetch the transactions of a specific store. Pass the store code.
 till_code | string | Fetch the transactions made at a specific TILL. Pass the respective TILL code.
-credit_notes | 
-tenders | 
+credit_notes | string | 
+tenders | - | 
 amount | float | Fetch the transactions of a specific amount.
 min_amount | float | Fetch transactions of a specific amount range in `min_amount` and `max_amount`.
 max_amount | float | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount.
 start_date | date | Fetch transactions of a specific duration., between start_date and end_date.
 end_date | date | Fetch transactions of a specific duration., between start_date and end_date.
-start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.
-end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.
+start_id | int | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.
+end_id | int | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.
 number | string | Fetch the details of a specific transaction based on the transaction number passed.
 date | date | Fetch transactions of a specific date.
 limit | int | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100.

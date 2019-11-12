@@ -68,7 +68,9 @@ html, body {
   width: $nav-width;
   background-color: $nav-bg;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 500;
+  box-shadow: inset -1px 0 0 0 #e3e8ee;
+			
 
   // language selector for mobile devices
   .lang-selector {
@@ -83,6 +85,8 @@ html, body {
   &>img {
     display: block;
     max-width: 100%;
+	margin-bottom: $logo-margin;
+	padding: 24px 14px;
   }
 
   &>.search {
