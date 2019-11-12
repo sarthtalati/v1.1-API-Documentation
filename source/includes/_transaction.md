@@ -7,15 +7,16 @@ A transaction represents a purchase or return event. Based on the customers' loy
 
 * **Not-interested Transactions**: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. 
 
-Transactions are again classified into two types:
+Transactions are again classified into the following types:
 
 * **Regular**: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and not-interested.
 * **Return** : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.
+* **Mixed**: A transaction that involves both regular and return is termed as mixed transaction.
 
-The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), and custom fields. 
+The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), extended fields, and custom fields. 
 
 <aside class="notice">
-Note: Custom fields are additional fields created in InStore to capture a specific information from customers. For example, favorite color, birthday, favorite brand etc.
+Extended fields and custom fields in transactions are used to capture additional information of a transaction or transaction line-item. The extended fields are predefined defined in the system with specific values, whereas, custom fields can have any name and value as required for the org.
 </aside>
 
 
@@ -31,11 +32,14 @@ Before using transaction APIs, understand the transaction configurations of your
 * Maximum and minimum amount allowed per line-item
 
 ## Add Transaction
+
+> Sample Request
+
 ```html
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
-> Sample Response
+> Sample POST Request
 
 
 ```json
@@ -53,7 +57,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
             "gross_amount":"1000",
             "discount":"10",
             "customer":{
-               "mobile":"917901810xxxx",
+               "mobile":"919999000000",
                "email":"",
                "external_id":"",
                "firstname":"Tom",
@@ -287,7 +291,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
                <external_id />
                <firstname />
                <lastname />
-               <mobile>917901810xxxx</mobile>
+               <mobile>919999000000</mobile>
             </customer>
             <discount>10</discount>
             <extended_fields>
@@ -489,124 +493,196 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 ```json
 {
-"response": {
-"status": {
-"success": "true",
-"code": 200,
-"message": "Success"
-},
-"transactions": {
-"transaction": [
-  {
-"id": 34417088,
-"number": "Trans99",
-"bill_client_id": "",
-"type": "REGULAR",
-"delivery_status": "DELIVERED",
-"customer": {
-"user_id": "313654605",
-"mobile": "91790181xxxx",
-"firstname": "",
-"lastname": "",
-"email": "",
-"external_id": "",
-"lifetime_points": "3450",
-"loyalty_points": "234",
-"current_slab": "Gold",
-"tier_expiry_date": "",
-"lifetime_purchases": "2000",
-"type": "LOYALTY",
-"source": "instore"
-},
-"side_effects": {
-"effect": [],
-},
-"source": "instore",
-"item_status": {
-"success": "true",
-"code": 600,
-"message": "Transaction added successfully"
-}
-}
-],
-}
-}
+    "response": {
+        "status": {
+            "success": "true",
+            "code": 200,
+            "message": "Success"
+        },
+        "transactions": {
+            "transaction": [
+                {
+                    "id": 37708927,
+                    "shipping_source_till_code": "",
+                    "number": "Tran324",
+                    "bill_client_id": "",
+                    "type": "REGULAR",
+                    "delivery_status": "DELIVERED",
+                    "parent_bill_number": "",
+                    "outlier_status": "NORMAL",
+                    "customer": {
+                        "user_id": "29372667",
+                        "mobile": "919999000000",
+                        "firstname": "Tom",
+                        "lastname": "Sawyer",
+                        "email": "tom.sawyer@example.com",
+                        "external_id": "XYPZ001",
+                        "lifetime_points": "200",
+                        "loyalty_points": "160",
+                        "current_slab": "bronze",
+                        "tier_expiry_date": "2117-08-08 23:59:59",
+                        "points_summaries": {
+                            "points_summary": [
+                                {
+                                    "programId": "1016",
+                                    "redeemed": "0",
+                                    "expired": "40",
+                                    "returned": "0",
+                                    "adjusted": "0",
+                                    "lifetimePoints": "200",
+                                    "loyaltyPoints": "160",
+                                    "cumulativePurchases": "48000",
+                                    "currentSlab": "bronze",
+                                    "nextSlab": "silver",
+                                    "nextSlabSerialNumber": "2",
+                                    "nextSlabDescription": "silver",
+                                    "slabSNo": "1",
+                                    "slabExpiryDate": "2117-08-08 23:59:59",
+                                    "totalPoints": ""
+                                }
+                            ]
+                        },
+                        "lifetime_purchases": "48000",
+                        "type": "LOYALTY",
+                        "source": "instore"
+                    },
+                    "side_effects": {
+                        "effect": [
+                            {
+                                "id": 33272081,
+                                "coupon_type": "PE",
+                                "coupon_code": "Z3AHIFML",
+                                "valid_till": "2020-05-29 23:59:59",
+                                "description": "Mobile Push offer 1",
+                                "discount_code": "MobilePush",
+                                "type": "coupon"
+                            }
+                        ]
+                    },
+                    "source": "instore",
+                    "item_status": {
+                        "success": "true",
+                        "code": 600,
+                        "message": "Transaction added successfully."
+                    }
+                }
+            ]
+        }
+    }
 }
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<response>
-  <status>
-    <success>true</success>
-    <code>200</code>
-    <message>Success</message>
-  </status>
-  <transactions>
-    <transaction>
-      <id>34417088</id>
-      <number>Trans99</number>
-      <bill_client_id></bill_client_id>
-      <type>REGULAR</type>
-      <delivery_status>DELIVERED</delivery_status>
-      <customer>
-        <user_id>313654605</user_id>
-        <mobile>91790181xxxx</mobile>
-        <firstname></firstname>
-        <lastname></lastname>
-        <email></email>
-        <external_id></external_id>
-        <lifetime_points>3450</lifetime_points>
-        <loyalty_points>234</loyalty_points>
-        <current_slab>Gold</current_slab>
-        <tier_expiry_date></tier_expiry_date>
-        <lifetime_purchases>2000</lifetime_purchases>
-        <type>LOYALTY</type>
-        <source>instore</source>
-      </customer>
-      <side_effects>
-        <effect/>
-      </side_effects>
-      <source>instore</source>
-      <item_status>
-        <success>true</success>
-        <code>600</code>
-        <message>Transaction added successfully</message>
-      </item_status>
-    </transaction>
-  </transactions>
-</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+      <transactions>
+         <transaction>
+            <element>
+               <bill_client_id />
+               <customer>
+                  <current_slab>bronze</current_slab>
+                  <email>tom.sawyer@example.com</email>
+                  <external_id>XYPZ001</external_id>
+                  <firstname>Tom</firstname>
+                  <lastname>Sawyer</lastname>
+                  <lifetime_points>200</lifetime_points>
+                  <lifetime_purchases>48000</lifetime_purchases>
+                  <loyalty_points>160</loyalty_points>
+                  <mobile>919999000000</mobile>
+                  <points_summaries>
+                     <points_summary>
+                        <element>
+                           <adjusted>0</adjusted>
+                           <cumulativePurchases>48000</cumulativePurchases>
+                           <currentSlab>bronze</currentSlab>
+                           <expired>40</expired>
+                           <lifetimePoints>200</lifetimePoints>
+                           <loyaltyPoints>160</loyaltyPoints>
+                           <nextSlab>silver</nextSlab>
+                           <nextSlabDescription>silver</nextSlabDescription>
+                           <nextSlabSerialNumber>2</nextSlabSerialNumber>
+                           <programId>1016</programId>
+                           <redeemed>0</redeemed>
+                           <returned>0</returned>
+                           <slabExpiryDate>2117-08-08 23:59:59</slabExpiryDate>
+                           <slabSNo>1</slabSNo>
+                           <totalPoints />
+                        </element>
+                     </points_summary>
+                  </points_summaries>
+                  <source>instore</source>
+                  <tier_expiry_date>2117-08-08 23:59:59</tier_expiry_date>
+                  <type>LOYALTY</type>
+                  <user_id>29372667</user_id>
+               </customer>
+               <delivery_status>DELIVERED</delivery_status>
+               <id>37708927</id>
+               <item_status>
+                  <code>600</code>
+                  <message>Transaction added successfully.</message>
+                  <success>true</success>
+               </item_status>
+               <number>Tran324</number>
+               <outlier_status>NORMAL</outlier_status>
+               <parent_bill_number />
+               <shipping_source_till_code />
+               <side_effects>
+                  <effect>
+                     <element>
+                        <coupon_code>Z3AHIFML</coupon_code>
+                        <coupon_type>PE</coupon_type>
+                        <description>Mobile Push offer 1</description>
+                        <discount_code>MobilePush</discount_code>
+                        <id>33272081</id>
+                        <type>coupon</type>
+                        <valid_till>2020-05-29 23:59:59</valid_till>
+                     </element>
+                  </effect>
+               </side_effects>
+               <source>instore</source>
+               <type>REGULAR</type>
+            </element>
+         </transaction>
+      </transactions>
+   </response>
+</root>
+
+
 ```
 
-This API lets you add transactions of both loyalty and not-interested customers. You can add batch transactions by passing each transaction details in a separate `transaction` attribute.
+Lets you add transactions of loyalty, non-loyalty, or not-interested customers. You can add batch transactions by passing each transaction details in a separate `transaction` attribute.
 
-Following are the other key functionalities of the transaction/add API:
+Following are the key functionalities of the `transaction/add` API.
 
-* Registers customers automatically when a new identifier is passed with the transaction details
-* Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers)
-* Supports transactions with Product Variant and Product Bundle details
-* Adds product variant to the database when a new variant product is passed with an existing base product
-* Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant product
+* Registers customers automatically when a new identifier is passed with the transaction details.
+* Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers).
+* Supports transactions with Product Variant and Product Bundle details.
+* Adds product variant to the database when a new variant product is passed with an existing base product.
+* Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant .
 
 **Variant Product**: A same product having different variations in terms of common properties such as size, and color.
 
 **Product Bundle**: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace having gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) 
 
 <aside class="notice">
-To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
-
+* To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
+* When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended fields will be updated to the new values. 
+* 
 </aside>
-
 
 
 
 * **Regular Transactions**: To make regular transactions, set `type` as `regular` and pass the customer’s unique identifier of the customer in the respective tag.
 * **Non-Interested Transactions**: To make not-interested transactions, set `type` as `not_interested` and customer identifiers are not required for not-interested transactions.
 
-<aside class="notice">
-When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended fields will be updated to the new values. <br>
-If a new customer identifier is passed along with the transaction details, the customer will be registered automatically. 
-</aside>
 
 
 You can update custom field details and extended field details for either regular or return transactions. To retrieve these details, use customer/get, customer/transaction APIs.
@@ -617,25 +693,73 @@ You can update custom field details and extended field details for either regula
 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | transaction/add
+| | |
+--------- | ----------- |
+URI | `/add`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/add?format=<xml/json>`
+`https://{host}/v1.1/transaction/add?format={xml/json}`
 
+
+### Request Body Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+bill_client_id | string | 
+type | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+number | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
+amount | float | Net transaction amount.
+currency_code | string | ISO currency code of the transaction. For example, `INR` for Indian Rupee, SGD for Singapore Dollar, `EUR` for Euro, `IQD` for Iraqi Dinar.
+notes | string | Additional information about the transaction.
+qty | int | Quantity of the current line-item.
+rate | float | Price of each line-item.
+value | float | Gross transaction amount (transaction amount excluding discount).
+amount | float | Net transaction amount - the actual transaction amount after discount.
+billing_time | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
+gross_amount | float | Transaction amount excluding discount.
+discount | float | Discount availed for the transaction (discount amouunt).
+customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
+mobile/email/external_id | string | Pass any of the registered identifiers of the customer.
+firstname | string | First name of the customer.
+lastname | string | Last name of the customer.
+extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
+payment_details | obj | Payment details for the transaction.
+attributes | obj | Attributes  of the current line-item in name and value pairs.
+mode | string | Mode of payment. This has to be the mode configured for your org.
+value | float | Amount paid through the current mode.
+attributes | obj | Payment mode attributes in name and value pairs.
+custom_fields | obj | Transaction level custom field details. Pass line-item level custom field details in `line_item` object.
+line_items | obj | Details of transaction line-items.
+serial | int | Serial number of the current line-item.
+description | string | Description of the line-item.
+item_code | string | Unique line-item code.
+variant | string | Variant code of the item. Applicable for variant product.
+addon_items | obj | Details of add-on items. For example, pizza with extra cheese, and personalized toppings.
+combo_items | obj | Details of combo or bundle items. For example, buy 1 shirt get one free, shirt+pant, pack of 5 soaps. 
+split_items | obj | Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.
+item_code | string | Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.
+quantity | int | Quantity of the current add-on, split, or combo item.
+associate_details | obj | Details of store associate or cashier who did the transaction.
+code | string | Unique code of the store associate.
+name | string | Name of the store associate.
+
+
+
+
+
+
+ 
 
 
 ## Add Transaction with Local Currency 
+
+> Sample Request
+
 ```html
-# Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
+https://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 ```
 
 > Sample POST Request
@@ -666,8 +790,6 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
       <notes>Regular Bill with Payment Details</notes>
    </transaction>
 </root>
-
-
 ```
 
 ```json
@@ -717,7 +839,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
             <customer>
                 <user_id>282100245</user_id>
                 <mobile>91000000099</mobile>
-                <firstname>autofn_7353409276</firstname>
+                <firstname>Tom</firstname>
                 <lastname/>
                 <email>john@example.com</email>
                 <external_id/>
@@ -761,7 +883,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
         "customer": {
           "user_id": "282100245",
           "mobile": "91000000099",
-          "firstname": "autofn_7353409276",
+          "firstname": "Tom",
           "email": "john@example.com",
           "lifetime_points": "0",
           "loyalty_points": "0",
@@ -784,7 +906,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 }
 ```
 
-This API lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have
+Lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have
   
 * disabled `ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
 * added relevant currency conversion ratios in the back-end
@@ -793,25 +915,28 @@ This API lets you add transactions with a different currency using the currency 
 The issual of points/coupon or redemption is calculated automatically as per the destination currency. 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | transaction/add_with_local_currency
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
+| | |
+--------- | ----------- |
+URI | `/add_with_local_currency`
 HTTP Methods | POST
 API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+`https://{host}/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+
+
+### Request Body Parameters
+
+
+
 
 
 
 ## Return Transaction
 ```html
 # Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 > Sample POST Request
 
@@ -956,10 +1081,10 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
 }
 ```
 
-The API allows submitting transaction returns of both loyalty and not-interested transactions. 
+Lets you submit a return transaction of any transaction type. 
 
 
-The following are different return types supported for both loyalty and not-interested transactions.
+The following are different return types supported for a transaction.
  
 * **Full Return**: To return an entire transaction and exchange with different items
 * **Line-item Return**: To return line-item(s) of a transaction and exchange with other items
@@ -973,7 +1098,7 @@ For return transactions, it is required to pass return item's purchased transact
 * Billing time: The date and time of the return transaction
 </aside>
 
-Before submitting return transactions, you should know the configurations set of the Return Transactions page of InTouch **Settings** > **Systems & Deployment** > **InTouch POS Configuration**.
+Before using this API, you need to know the configurations set of the Return Transactions page of InTouch **Settings** > **Systems & Deployment** > **InTouch POS Configuration**.
 
 
 
@@ -982,15 +1107,18 @@ Before submitting return transactions, you should know the configurations set of
 
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/add_with_local_currency?format=<xml/json>`
+`https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}`
 
 
 
 ## Cancel a Transaction Line-Item
+
+> Sample Request
+
 ```html
-# Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
+
 > Sample POST Request
 
 ```json
@@ -1173,37 +1301,35 @@ To cancel a line-item, it is required to pass return item's purchased transactio
 
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | transaction/add
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
+| | |
+--------- | ----------- |
+URI | `/add`
 HTTP Methods | POST
 API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
 
-`http://<cluster URL>/v1.1/transaction/add?format=json`
+`https://{host}/v1.1/transaction/add?format=json`
 
-### Request Parameters
-Parameter | Value |Description
---------- | ----- | ----------
-Customer identifier | mobile/email/external_id/id (user id) | Unique identifier (mobile no/email id/external id/user id) of the customer whose transaction needs to be returned
-type | RETURN | Specify type as RETURN for regular/loyalty returns
-type | NOT_INTERESTED_RETURN | For non-loyalty returns
-return_type | FULL | To return an entire transaction
-return_type | LINE_ITEM | To return a particular line-item of a transaction
-return_type | AMOUNT | To return the transaction amount instead of replacement
-purchase_time* | - | Specify the date of purchase of the item that is returned
-number* | - | The actual transaction number of the returned item 
+### Request Body Parameters
+Parameter | Datatype |Description
+--------- | -------- | ----------
+Customer identifier | enum | Pass any of the identifiers of customers for loyalty or non-loyalty returns. Value: `mobile`, `email`, `external_id`, `id`.
+purchase_time* | date-time | Date and time of the actual purchase of the return items.
+number* | string | The actual transaction number of the returned item.
+type* | enum | Specify type as `RETURN` for regular transaction returns, `NOT_INTERESTED_RETURN` for not-interested transaction returns.
+return_type* | enum | Specify `FULL` to return the entire transaction, `LINE_ITEM` to return a particular line-item of the transaction, `AMOUNT` to return the transaction amount instead of replacement.
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
 ## Update Transaction Details
-```shell
-POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
+
+> Sample Request
+
+```html
+https://api.capillary.co.in/v1.1/transaction/update?format=xml
 ```
 > Sample POST Request
 
@@ -1334,31 +1460,33 @@ POST "http://api.capillary.co.in/v1.1/transaction/update?format=xml"
 This API allows you to convert a not_interested transaction to a regular transaction and update custom field details of a transaction.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | transaction/update
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
+| | |
+--------- | ----------- |
+URI | `/update`
 HTTP Methods | POST
 API Version | v1.1 
 Batch Support | Yes 
 
-### Request Parameters 
-Any one of the following parameter is mandatory.
+### Request Body Parameters 
 
-Parameter | Description
---------- | -----------
-id | Transaction id that needs to be updated
-number | Transaction number that needs to be updated
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id** | int | Unique id of the transaction that you want to update.
+number** | string | Transaction number that you need to update.
+
+<aside class="notice">Any one among the parameters marked with ** is mandatory. </aside>
+
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/update?format=xml/json`
+`https://{host}/v1.1/transaction/update?format=xml/json`
 
 
 ## Retro Transaction
+
+> Sample Request
+
 ```html
-http://api.capillary.co.in/v1.1/transaction/update?format=json
+https://api.capillary.co.in/v1.1/transaction/update?format=json
 ```
 
 > Sample POST Request
@@ -1512,23 +1640,37 @@ To recognize which source has made the retro call, you need to pass the name of 
 Example '"X-CAP-CLIENT-SIGNATURE":"INTOUCH_BLR"'
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | transaction/update
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
+| | |
+--------- | ----------- |
+URI | `/update`
 HTTP Methods | POST
 API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/update?format=<xml/json>`
+`https://{host}/v1.1/transaction/update?format={xml/json}`
+
+
+### Request Body Parameters 
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile/external_id/email/id* | string | Pass any one of the customer identifiers.
+new_type* | enum | Specify `REGULAR` to convert to regular transaction.
+notes | string | Provide any additional information about the conversion for reference.
+id* | int | Unique ID of the transaction that you want to convert.
+old_type* | enum | Earlier type of transaction. Usually, it will be `NOT_INTERESTED`.
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 
 ## Fetch Transaction Details
+
+> Sample Request
+
+
 ```html
-http://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
+https://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
 ```
 > Sample Response
 
@@ -1650,18 +1792,15 @@ returned only when query param user_id is true
 This API allows you to fetch the details of a specific transaction based on the transaction id.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | transaction/get
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
+| | |
+--------- | ----------- |
+URI | `/get`
 HTTP Methods | GET
-API Version | v1.1
+Authentication | Yes
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/transaction/get?format=<xml/json>&<identifier_type>=<identifier_value>`
+`https://{host}/v1.1/transaction/get?format=<xml/json>&{identifier_type}={value}`
 
 ### Additional Header
 
@@ -1671,28 +1810,28 @@ language | Specify the ISO language code to get transaction level extended field
 
 
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-id | Fetch the details of a specific transaction 
-store_code | Fetch the transactions of a specific store 
-till_code | Fetch the transactions made at a specific TILL
-user_id | Get transaction details of a specific customer. Pass the user id of the customer 
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier_type* | enum | Pass any of the identifier types you want to use to identify customer. Value: `mobile`, `email`, `external_id`, `id` (customer id or user id).
+value | string | Pass the respective identifier value.
+store_code | string | Fetch the transactions of a specific store. Pass the store code.
+till_code | string | Fetch the transactions made at a specific TILL. Pass the respective TILL code.
 credit_notes | 
 tenders | 
-amount | Fetch the transactions of a specific amount
-min_amount | Fetch transactions of a specific amount range, i.e., min_amount - max_amount
-max_amount | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount
-start_date | Fetch transactions of a specific duration., between start_date and end_date
-end_date | Fetch transactions of a specific duration., between start_date and end_date
-start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999
-end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999
-number | Fetch the details of a specific transaction based on the transaction number passed
-date | Fetch transactions of a specific date
-limit | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100
-type | Fetch a specific type of transaction. Possible values: REGULAR, NOT_INTERESTED, RETURN, NOT_INTERESTED_RETURN, MIXED. By default it shows the details of regular transaction
+amount | float | Fetch the transactions of a specific amount.
+min_amount | float | Fetch transactions of a specific amount range in `min_amount` and `max_amount`.
+max_amount | float | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount.
+start_date | date | Fetch transactions of a specific duration., between start_date and end_date.
+end_date | date | Fetch transactions of a specific duration., between start_date and end_date.
+start_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.
+end_id | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.
+number | string | Fetch the details of a specific transaction based on the transaction number passed.
+date | date | Fetch transactions of a specific date.
+limit | int | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100.
+type | enum | Fetch a specific type of transaction. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`. By default it shows the details of regular transaction.
 
-
+<aside class="notice">Parameters marked with * is mandatory.</aside>
 
 
 ## Response Codes

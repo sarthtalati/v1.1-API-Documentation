@@ -24,7 +24,7 @@ Customer APIs allow you to :
 > Sample Request URL
 
 ```html
-POST http://us.api.capillarytech.com/v1.1/customer/add?format=json
+POST https://us.api.capillarytech.com/v1.1/customer/add?format=json
 ```
 
 > Sample POST Request
@@ -464,7 +464,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/add?format={xml/json}`
+`https://{host}/v1.1/customer/add?format={xml/json}`
 
 
 
@@ -499,7 +499,7 @@ channel | enum | Current communication channel. Value: `sms`, `email`.
 
 
 ```html
-POST http://api.capillary.co.in/v1.1/customer/update?format=json
+POST https://api.capillary.co.in/v1.1/customer/update?format=json
 ```
 
 > Sample POST Request
@@ -716,7 +716,7 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/update?format={xml/json}`
+`https://{host}/v1.1/customer/update?format={xml/json}`
 
 ### Request Body Parameters
 Parameter | Datatype | Description
@@ -744,7 +744,7 @@ channel | enum | Current communication channel. Value: `sms`, `email`.
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
+https://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 ```
 
 > Sample POST Request
@@ -838,7 +838,7 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/update_identity?format={xml/json}`
+`https://{host}/v1.1/customer/update_identity?format={xml/json}`
 
 ### Request Parameters
 Parameter | Datatype | Description
@@ -854,7 +854,7 @@ new_value* | string | Provide the new value of the identifier.
 > Sample Request
 
 ```html
-http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
+https://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
 ```
 
 
@@ -1093,7 +1093,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&format={xml/json}`
+`https://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&format={xml/json}`
 
 ### Request Query Parameters
 You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.
@@ -1140,7 +1140,7 @@ The following is a formal definition of the Query Grammar
 ## Get Customer Details
 ```html
 # Sample Request URL
-http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
+https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
 ```
 
 > Sample Response
@@ -1375,7 +1375,7 @@ user_group=true | - | Retrieves the details of user group associated to the user
 > Sample Request
 
 ```html
-http://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=44700900000&start_date=2016-12-21+23:45:45&end_date=2016-12-29+12:11:45
+https://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=44700900000&start_date=2016-12-21+23:45:45&end_date=2016-12-29+12:11:45
 ```
 
 > Sample Response
@@ -1499,11 +1499,11 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/transactions?format={xml/json}&<input_params>`
+`https://{host}/v1.1/customer/transactions?format={xml/json}&<input_params>`
 
 For MLP
 
-`http://{host}/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
+`https://{host}/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
 
 ### Request Parameters
 Parameter | Datatype | Description
@@ -1535,7 +1535,7 @@ order | enum | Arranges the transactions based on the value set in `sort` in asc
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
+https://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 ```
 
 > Sample Response
@@ -1666,7 +1666,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/redemptions?{query_params}`
+`https://{host}/v1.1/customer/redemptions?{query_params}`
 
 ### Request Parameters
 Parameter | Datatype | Description
@@ -1695,7 +1695,7 @@ format | enum | Pass the desired representation of response content - `format=xm
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/notes?format=json
+https://us.api.capillarytech.com/v1.1/customer/notes?format=json
 ```
 
 > Sample POST Request
@@ -1822,7 +1822,7 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/notes?format=xml/json`
+`https://{host}/v1.1/customer/notes?format=xml/json`
 
 ### Request Parameters
 Parameter | Description
@@ -1835,7 +1835,7 @@ description* | Details or message of the note in a plain text format
 
 ## Update Customer Notes
 ```html
-http://us.api.capillarytech.com/v1.1/customer/notes?format=json
+https://us.api.capillarytech.com/v1.1/customer/notes?format=json
 ```
 
 > Sample POST Request
@@ -1974,7 +1974,7 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/notes?format=xml/json`
+`https://{host}/v1.1/customer/notes?format=xml/json`
 
 ### Request Attributes
 Parameter | Description
@@ -1991,7 +1991,7 @@ id* | Unique id of the customer note that you want to update.
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
+https://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
 ```
 
 ```json
@@ -2096,7 +2096,7 @@ HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/notes?{identifier}={value}`
+`https://{host}/v1.1/customer/notes?{identifier}={value}`
 
 ### Request Parameters
 Parameter | Datatype | Description
@@ -2112,7 +2112,7 @@ value* | string | Value of the specified identifier. For example, if `identifier
 
 
 ```html
-http://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
+https://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 ```
 
 ```json
@@ -2237,7 +2237,7 @@ HTTP Method | GET
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/coupons?{identifier}={value}&{input_params}`
+`https://{host}/v1.1/customer/coupons?{identifier}={value}&{input_params}`
 
 ### Request Query Parameters
 
@@ -2263,7 +2263,7 @@ limit | int | Limit the number of results to be retrieved. For example: limit=10
 
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
+https://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 ```
 
 > Sample POST Request
@@ -2420,7 +2420,7 @@ HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`http://{host}/v1.1/customer/tickets
+`https://{host}/v1.1/customer/tickets
 
 ### Request Body Parameters
 Parameter | Datatype | Description
@@ -2437,7 +2437,7 @@ type | enum | Type of the ticket. Value: `STORE`, `Customer`.
 ## Retrieve Ticket Details
 ```html
 # Sample Request
-http://us.api.capillarytech.com/v1.1/customer/tickets
+https://us.api.capillarytech.com/v1.1/customer/tickets
 ```
 > Sample Response
 
@@ -2536,7 +2536,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/tickets?{identifier}={value}&{input_params}&format={xml/json}`
+`https://{host}/v1.1/customer/tickets?{identifier}={value}&{input_params}&format={xml/json}`
 
 ### Request Query Parameters
 
@@ -2559,7 +2559,7 @@ end_date | date | Retrieve tickets created after a specific date (`YYYY-MM-DD`) 
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/referrals
+https://us.api.capillarytech.com/v1.1/customer/referrals
 ```
 
 > Sample POST Request
@@ -2760,7 +2760,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}`
+`https://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}`
 
 ### Request Body Parameters
 
@@ -2783,7 +2783,7 @@ invited_on | date-time | Date and time of the invite.
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
+https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
 ```
 
 
@@ -3034,7 +3034,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}&format={xml/json}`
+`https://{host}/v1.1/customer/referrals?{identifier}={value}&{query-params}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -3052,7 +3052,7 @@ only_referral_code |boolean | Set `true` to retrieve the referral code of the re
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/preferences
+https://us.api.capillarytech.com/v1.1/customer/preferences
 ```
 
 > Sample POST Request
@@ -3213,7 +3213,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/preferences?format={xml/json}`
+`https://{host}/v1.1/customer/preferences?format={xml/json}`
 
 
 ### Request Body Parameters
@@ -3235,7 +3235,7 @@ custom_fields | obj | Update customer level custom field details as name and val
 
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
+https://us.api.capillarytech.com/v1.1/customer/preferences?format=json&mobile=44700900000
 
 ```
 
@@ -3348,7 +3348,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/preferences?{customer_identifier}={value}&format={xml/json}`
+`https://{host}/v1.1/customer/preferences?{customer_identifier}={value}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -3362,7 +3362,7 @@ value* | string | Pass the respective identifier values.
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
+https://us.api.capillarytech.com/v1.1/customer/interaction?format=xml&mobile=44700900000
 
 ```
 
@@ -3642,7 +3642,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/interaction?{customer_identifier}={value}&{params}&format={xml/json}`
+`https://{host}/v1.1/customer/interaction?{customer_identifier}={value}&{params}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -3662,7 +3662,7 @@ end_date | date  | Specify the duration for which you want to see the customer i
 
 ```html
 
-http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
+https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 ```
 
 > Sample POST Request
@@ -3808,7 +3808,7 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/subscriptions?format={xml/json}`
+`https://{host}/v1.1/customer/subscriptions?format={xml/json}`
 
 ### Request Body Parameters
 Attribute | Datatype | Description
@@ -4139,7 +4139,7 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}`
+`https://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description

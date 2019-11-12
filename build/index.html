@@ -222,7 +222,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 </thead><tbody>
 <tr>
 <td>Request URL</td>
-<td><code class="prettyprint">http://{host}/v1.1/{entity}/{method}?{QueryParama}&amp;{format=}</code></td>
+<td><code class="prettyprint">https://{host}/v1.1/{entity}/{method}?{QueryParams}&amp;{format}</code></td>
 </tr>
 <tr>
 <td>Host</td>
@@ -242,7 +242,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 </tr>
 <tr>
 <td>Format</td>
-<td>Preferred format of requesting data - <code class="prettyprint">xml</code>, <code class="prettyprint">json</code>. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing <code class="prettyprint">format=json</code> or <code class="prettyprint">format=xml</code> <br>Example: <code class="prettyprint">http://eu.api.capillarytech.com/v1.1/customer/add?format=json</code></td>
+<td>Preferred format of requesting data - <code class="prettyprint">xml</code>, <code class="prettyprint">json</code>. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing <code class="prettyprint">format=json</code> or <code class="prettyprint">format=xml</code> <br>Example: <code class="prettyprint">https://eu.api.capillarytech.com/v1.1/customer/add?format=json</code></td>
 </tr>
 </tbody></table>
 
@@ -379,7 +379,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <blockquote>
 <p>Sample Request URL</p>
 </blockquote>
-<pre class="highlight html"><code>POST http://us.api.capillarytech.com/v1.1/customer/add?format=json
+<pre class="highlight html"><code>POST https://us.api.capillarytech.com/v1.1/customer/add?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -827,7 +827,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/add?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/add?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -919,7 +919,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <blockquote>
 <p>Sample Request URL</p>
 </blockquote>
-<pre class="highlight html"><code>POST http://api.capillary.co.in/v1.1/customer/update?format=json
+<pre class="highlight html"><code>POST https://api.capillary.co.in/v1.1/customer/update?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -1147,7 +1147,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/update?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/update?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -1227,7 +1227,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/update_identity?format=xml
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -1329,7 +1329,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/update_identity?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/update_identity?format={xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -1362,7 +1362,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -1611,7 +1611,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -1664,7 +1664,7 @@ Operator | enum | Predefined conditions based on which you want to fetch results
 
 <h2 id="get-customer-details">Get Customer Details</h2>
 <pre class="highlight html"><code># Sample Request URL
-http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
+https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -1996,7 +1996,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2134,11 +2134,11 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/transactions?format={xml/json}&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?format={xml/json}&amp;&lt;input_params&gt;</code></p>
 
 <p>For MLP</p>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2256,7 +2256,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2400,7 +2400,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/redemptions?{query_params}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/redemptions?{query_params}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2493,7 +2493,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?format=json
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2631,7 +2631,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format=xml/json</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2656,7 +2656,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 </tbody></table>
 
 <h2 id="update-customer-notes">Update Customer Notes</h2>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?format=json
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/notes?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2806,7 +2806,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/notes?format=xml/json</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
 <h3 id="request-attributes">Request Attributes</h3>
 
@@ -2835,7 +2835,7 @@ http://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/notes?mobile=44700900999
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2952,7 +2952,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/notes?{identifier}={value}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/notes?{identifier}={value}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
@@ -2982,7 +2982,7 @@ user_id tag will be returned only if query param user_id = true
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
 </code></pre><pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
@@ -3119,7 +3119,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/coupons?{identifier}={value}&amp;{input_params}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/coupons?{identifier}={value}&amp;{input_params}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -3189,7 +3189,7 @@ user_id tag will be returned only if query param user_id = true
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/tickets?format=json
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/tickets?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -3356,7 +3356,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h3 id="request-url">Request URL</h3>
 
-<p>`http://{host}/v1.1/customer/tickets</p>
+<p>`https://{host}/v1.1/customer/tickets</p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -3406,7 +3406,7 @@ user_id tag will be returned only if query param user_id = true
 
 <h2 id="retrieve-ticket-details">Retrieve Ticket Details</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/customer/tickets
+https://us.api.capillarytech.com/v1.1/customer/tickets
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -3520,7 +3520,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/tickets?{identifier}={value}&amp;{input_params}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/tickets?{identifier}={value}&amp;{input_params}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -3588,7 +3588,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/referrals
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -3802,7 +3802,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -3862,7 +3862,7 @@ http://us.api.capillarytech.com/v1.1/customer/tickets
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/referrals<span class="err">&amp;</span>mobile=9197407983xx
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -4126,7 +4126,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/referrals?{identifier}={value}&amp;{query-params}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -4179,7 +4179,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/preferences
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/preferences
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -4350,7 +4350,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/preferences?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -4393,7 +4393,7 @@ eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/preferences?format=json<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
@@ -4517,7 +4517,7 @@ Preferences retrieved successfully
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/preferences?{customer_identifier}={value}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/preferences?{customer_identifier}={value}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -4545,7 +4545,7 @@ Preferences retrieved successfully
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/interaction?format=xml<span class="err">&amp;</span>mobile=44700900000
 
 </code></pre>
 <blockquote>
@@ -4838,7 +4838,7 @@ def@xyz.com
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/interaction?{customer_identifier}={value}&amp;{params}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/interaction?{customer_identifier}={value}&amp;{params}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -4857,7 +4857,7 @@ end_date | date  | Specify the duration for which you want to see the customer i
 <p>Sample Request</p>
 </blockquote>
 <pre class="highlight html"><code>
-http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
+https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -5012,7 +5012,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -5383,7 +5383,7 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/subscriptions?{customer_identifier}={value1,value2}format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -5855,17 +5855,18 @@ http://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 <li><p><strong>Not-interested Transactions</strong>: Transactions made by customers who are not interested to register into your organization’s loyalty program. These transactions are also considered as anonymous transactions. </p></li>
 </ul>
 
-<p>Transactions are again classified into two types:</p>
+<p>Transactions are again classified into the following types:</p>
 
 <ul>
 <li><strong>Regular</strong>: Normal transactions made at the PoS. Regular transactions could be loyalty, non-loyalty and not-interested.</li>
 <li><strong>Return</strong> : Transactions that are returned at the PoS. Return transactions need an identifier reference. Hence, only loyalty and non-loyalty transactions can be returned through APIs. See Transaction Return API for more details.</li>
+<li><strong>Mixed</strong>: A transaction that involves both regular and return is termed as mixed transaction.</li>
 </ul>
 
-<p>The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), and custom fields. </p>
+<p>The transaction entity contains all the necessary APIs to manage transactions and retrieve transaction details. The transaction entity stores regular/return transactions, points/coupons redeemed against transactions, retro transactions (converting not interested transactions to loyalty), extended fields, and custom fields. </p>
 
 <aside class="notice">
-Note: Custom fields are additional fields created in InStore to capture a specific information from customers. For example, favorite color, birthday, favorite brand etc.
+Extended fields and custom fields in transactions are used to capture additional information of a transaction or transaction line-item. The extended fields are predefined defined in the system with specific values, whereas, custom fields can have any name and value as required for the org.
 </aside>
 
 <h2 id="prerequisites">Prerequisites</h2>
@@ -5883,10 +5884,14 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 </ul>
 
 <h2 id="add-transaction">Add Transaction</h2>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
-<p>Sample Response</p>
+<p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
@@ -5902,7 +5907,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
             </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
-               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"917901810xxxx"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919999000000"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
                </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
                </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
@@ -6133,7 +6138,7 @@ Note: Custom fields are additional fields created in InStore to capture a specif
                <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
                <span class="nt">&lt;firstname</span> <span class="nt">/&gt;</span>
                <span class="nt">&lt;lastname</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;mobile&gt;</span>917901810xxxx<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919999000000<span class="nt">&lt;/mobile&gt;</span>
             <span class="nt">&lt;/customer&gt;</span>
             <span class="nt">&lt;discount&gt;</span>10<span class="nt">&lt;/discount&gt;</span>
             <span class="nt">&lt;extended_fields&gt;</span>
@@ -6334,101 +6339,177 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34417088</span><span class="p">,</span><span class="w">
-</span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trans99"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"313654605"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91790181xxxx"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3450"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gold"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-</span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-</span><span class="err">}</span><span class="p">,</span><span class="w">
-</span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-</span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction added successfully"</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37708927</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"shipping_source_till_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tran324"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"bill_client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"parent_bill_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29372667"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919999000000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2117-08-08 23:59:59"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"points_summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"points_summary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                                </span><span class="p">{</span><span class="w">
+                                    </span><span class="nt">"programId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1016"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"lifetimePoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"loyaltyPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"cumulativePurchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48000"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"currentSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"nextSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"nextSlabSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"nextSlabDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"slabSNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"slabExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2117-08-08 23:59:59"</span><span class="p">,</span><span class="w">
+                                    </span><span class="nt">"totalPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                                </span><span class="p">}</span><span class="w">
+                            </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48000"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                            </span><span class="p">{</span><span class="w">
+                                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">33272081</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"coupon_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PE"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"coupon_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Z3AHIFML"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-29 23:59:59"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobile Push offer 1"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MobilePush"</span><span class="p">,</span><span class="w">
+                                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon"</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction added successfully."</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">],</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
-<span class="nt">&lt;response&gt;</span>
-  <span class="nt">&lt;status&gt;</span>
-    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-    <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-  <span class="nt">&lt;/status&gt;</span>
-  <span class="nt">&lt;transactions&gt;</span>
-    <span class="nt">&lt;transaction&gt;</span>
-      <span class="nt">&lt;id&gt;</span>34417088<span class="nt">&lt;/id&gt;</span>
-      <span class="nt">&lt;number&gt;</span>Trans99<span class="nt">&lt;/number&gt;</span>
-      <span class="nt">&lt;bill_client_id&gt;&lt;/bill_client_id&gt;</span>
-      <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-      <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-      <span class="nt">&lt;customer&gt;</span>
-        <span class="nt">&lt;user_id&gt;</span>313654605<span class="nt">&lt;/user_id&gt;</span>
-        <span class="nt">&lt;mobile&gt;</span>91790181xxxx<span class="nt">&lt;/mobile&gt;</span>
-        <span class="nt">&lt;firstname&gt;&lt;/firstname&gt;</span>
-        <span class="nt">&lt;lastname&gt;&lt;/lastname&gt;</span>
-        <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-        <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-        <span class="nt">&lt;lifetime_points&gt;</span>3450<span class="nt">&lt;/lifetime_points&gt;</span>
-        <span class="nt">&lt;loyalty_points&gt;</span>234<span class="nt">&lt;/loyalty_points&gt;</span>
-        <span class="nt">&lt;current_slab&gt;</span>Gold<span class="nt">&lt;/current_slab&gt;</span>
-        <span class="nt">&lt;tier_expiry_date&gt;&lt;/tier_expiry_date&gt;</span>
-        <span class="nt">&lt;lifetime_purchases&gt;</span>2000<span class="nt">&lt;/lifetime_purchases&gt;</span>
-        <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
-        <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-      <span class="nt">&lt;/customer&gt;</span>
-      <span class="nt">&lt;side_effects&gt;</span>
-        <span class="nt">&lt;effect/&gt;</span>
-      <span class="nt">&lt;/side_effects&gt;</span>
-      <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-      <span class="nt">&lt;item_status&gt;</span>
-        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-        <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-        <span class="nt">&lt;message&gt;</span>Transaction added successfully<span class="nt">&lt;/message&gt;</span>
-      <span class="nt">&lt;/item_status&gt;</span>
-    <span class="nt">&lt;/transaction&gt;</span>
-  <span class="nt">&lt;/transactions&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
-</code></pre>
-<p>This API lets you add transactions of both loyalty and not-interested customers. You can add batch transactions by passing each transaction details in a separate <code class="prettyprint">transaction</code> attribute.</p>
+</span></code></pre><pre class="highlight xml"><code>
 
-<p>Following are the other key functionalities of the transaction/add API:</p>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+      <span class="nt">&lt;transactions&gt;</span>
+         <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;bill_client_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer&gt;</span>
+                  <span class="nt">&lt;current_slab&gt;</span>bronze<span class="nt">&lt;/current_slab&gt;</span>
+                  <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                  <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+                  <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+                  <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+                  <span class="nt">&lt;lifetime_points&gt;</span>200<span class="nt">&lt;/lifetime_points&gt;</span>
+                  <span class="nt">&lt;lifetime_purchases&gt;</span>48000<span class="nt">&lt;/lifetime_purchases&gt;</span>
+                  <span class="nt">&lt;loyalty_points&gt;</span>160<span class="nt">&lt;/loyalty_points&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>919999000000<span class="nt">&lt;/mobile&gt;</span>
+                  <span class="nt">&lt;points_summaries&gt;</span>
+                     <span class="nt">&lt;points_summary&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;adjusted&gt;</span>0<span class="nt">&lt;/adjusted&gt;</span>
+                           <span class="nt">&lt;cumulativePurchases&gt;</span>48000<span class="nt">&lt;/cumulativePurchases&gt;</span>
+                           <span class="nt">&lt;currentSlab&gt;</span>bronze<span class="nt">&lt;/currentSlab&gt;</span>
+                           <span class="nt">&lt;expired&gt;</span>40<span class="nt">&lt;/expired&gt;</span>
+                           <span class="nt">&lt;lifetimePoints&gt;</span>200<span class="nt">&lt;/lifetimePoints&gt;</span>
+                           <span class="nt">&lt;loyaltyPoints&gt;</span>160<span class="nt">&lt;/loyaltyPoints&gt;</span>
+                           <span class="nt">&lt;nextSlab&gt;</span>silver<span class="nt">&lt;/nextSlab&gt;</span>
+                           <span class="nt">&lt;nextSlabDescription&gt;</span>silver<span class="nt">&lt;/nextSlabDescription&gt;</span>
+                           <span class="nt">&lt;nextSlabSerialNumber&gt;</span>2<span class="nt">&lt;/nextSlabSerialNumber&gt;</span>
+                           <span class="nt">&lt;programId&gt;</span>1016<span class="nt">&lt;/programId&gt;</span>
+                           <span class="nt">&lt;redeemed&gt;</span>0<span class="nt">&lt;/redeemed&gt;</span>
+                           <span class="nt">&lt;returned&gt;</span>0<span class="nt">&lt;/returned&gt;</span>
+                           <span class="nt">&lt;slabExpiryDate&gt;</span>2117-08-08 23:59:59<span class="nt">&lt;/slabExpiryDate&gt;</span>
+                           <span class="nt">&lt;slabSNo&gt;</span>1<span class="nt">&lt;/slabSNo&gt;</span>
+                           <span class="nt">&lt;totalPoints</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/points_summary&gt;</span>
+                  <span class="nt">&lt;/points_summaries&gt;</span>
+                  <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+                  <span class="nt">&lt;tier_expiry_date&gt;</span>2117-08-08 23:59:59<span class="nt">&lt;/tier_expiry_date&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+                  <span class="nt">&lt;user_id&gt;</span>29372667<span class="nt">&lt;/user_id&gt;</span>
+               <span class="nt">&lt;/customer&gt;</span>
+               <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+               <span class="nt">&lt;id&gt;</span>37708927<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Transaction added successfully.<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;number&gt;</span>Tran324<span class="nt">&lt;/number&gt;</span>
+               <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+               <span class="nt">&lt;parent_bill_number</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;shipping_source_till_code</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;side_effects&gt;</span>
+                  <span class="nt">&lt;effect&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;coupon_code&gt;</span>Z3AHIFML<span class="nt">&lt;/coupon_code&gt;</span>
+                        <span class="nt">&lt;coupon_type&gt;</span>PE<span class="nt">&lt;/coupon_type&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>Mobile Push offer 1<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;discount_code&gt;</span>MobilePush<span class="nt">&lt;/discount_code&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>33272081<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;type&gt;</span>coupon<span class="nt">&lt;/type&gt;</span>
+                        <span class="nt">&lt;valid_till&gt;</span>2020-05-29 23:59:59<span class="nt">&lt;/valid_till&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;/effect&gt;</span>
+               <span class="nt">&lt;/side_effects&gt;</span>
+               <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+               <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/transaction&gt;</span>
+      <span class="nt">&lt;/transactions&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+
+
+</code></pre>
+<p>Lets you add transactions of loyalty, non-loyalty, or not-interested customers. You can add batch transactions by passing each transaction details in a separate <code class="prettyprint">transaction</code> attribute.</p>
+
+<p>Following are the key functionalities of the <code class="prettyprint">transaction/add</code> API.</p>
 
 <ul>
-<li>Registers customers automatically when a new identifier is passed with the transaction details</li>
-<li>Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers)</li>
-<li>Supports transactions with Product Variant and Product Bundle details</li>
-<li>Adds product variant to the database when a new variant product is passed with an existing base product</li>
-<li>Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant product</li>
+<li>Registers customers automatically when a new identifier is passed with the transaction details.</li>
+<li>Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers).</li>
+<li>Supports transactions with Product Variant and Product Bundle details.</li>
+<li>Adds product variant to the database when a new variant product is passed with an existing base product.</li>
+<li>Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant .</li>
 </ul>
 
 <p><strong>Variant Product</strong>: A same product having different variations in terms of common properties such as size, and color.</p>
@@ -6436,19 +6517,15 @@ Note: Custom fields are additional fields created in InStore to capture a specif
 <p><strong>Product Bundle</strong>: A group of items that are sold as a single pack. This can include Combo items (Example: pack of 2, combo offers), Split items (Example: a necklace having gold rate, store rate, making charge, wastage charge and so on) and add-on items (Example: Pizza with extra cheese, and personalized toppings) </p>
 
 <aside class="notice">
-To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
-
+* To add transaction with variant details, pass the variant id at the line-item level. For bundle products, pass each line item details in the respective bundle type (split/combo/add-on).
+* When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended fields will be updated to the new values. 
+* 
 </aside>
 
 <ul>
 <li><strong>Regular Transactions</strong>: To make regular transactions, set <code class="prettyprint">type</code> as <code class="prettyprint">regular</code> and pass the customer’s unique identifier of the customer in the respective tag.</li>
 <li><strong>Non-Interested Transactions</strong>: To make not-interested transactions, set <code class="prettyprint">type</code> as <code class="prettyprint">not_interested</code> and customer identifiers are not required for not-interested transactions.</li>
 </ul>
-
-<aside class="notice">
-When customer information is passed along with the transaction details, customer’s basic information  like name, email id (if it not the customer’s unique identifier), custom fields and extended fields will be updated to the new values. <br>
-If a new customer identifier is passed along with the transaction details, the customer will be registered automatically. 
-</aside>
 
 <p>You can update custom field details and extended field details for either regular or return transactions. To retrieve these details, use customer/get, customer/transaction APIs.</p>
 
@@ -6462,33 +6539,21 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/add</td>
+<td><code class="prettyprint">/add</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>POST</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -6498,11 +6563,210 @@ If a new customer identifier is passed along with the transaction details, the c
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add?format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bill_client_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Type of transaction. <code class="prettyprint">regular</code> for loyalty transaction, <code class="prettyprint">not_interested</code> for non-loyalty or not-interested transactions.</td>
+</tr>
+<tr>
+<td>number</td>
+<td>string</td>
+<td>Unique transaction number. The uniqueness depends on the configuration <code class="prettyprint">CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS</code> set on InTouch <strong>Settings</strong> &gt; <strong>System &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong> &gt; <strong>Billing</strong>.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>Net transaction amount.</td>
+</tr>
+<tr>
+<td>currency_code</td>
+<td>string</td>
+<td>ISO currency code of the transaction. For example, <code class="prettyprint">INR</code> for Indian Rupee, SGD for Singapore Dollar, <code class="prettyprint">EUR</code> for Euro, <code class="prettyprint">IQD</code> for Iraqi Dinar.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>Additional information about the transaction.</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>int</td>
+<td>Quantity of the current line-item.</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>float</td>
+<td>Price of each line-item.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>float</td>
+<td>Gross transaction amount (transaction amount excluding discount).</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>float</td>
+<td>Net transaction amount - the actual transaction amount after discount.</td>
+</tr>
+<tr>
+<td>billing_time</td>
+<td>date-time</td>
+<td>Date and time of the transaction. By default, the  current system date and time will be considered.</td>
+</tr>
+<tr>
+<td>gross_amount</td>
+<td>float</td>
+<td>Transaction amount excluding discount.</td>
+</tr>
+<tr>
+<td>discount</td>
+<td>float</td>
+<td>Discount availed for the transaction (discount amouunt).</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Pass customer information. Applicable for non-loyalty and not-interested transactions.</td>
+</tr>
+<tr>
+<td>mobile/email/external_id</td>
+<td>string</td>
+<td>Pass any of the registered identifiers of the customer.</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td>First name of the customer.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td>Last name of the customer.</td>
+</tr>
+<tr>
+<td>extended_fields</td>
+<td>obj</td>
+<td>Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in <code class="prettyprint">line_item</code> object.</td>
+</tr>
+<tr>
+<td>payment_details</td>
+<td>obj</td>
+<td>Payment details for the transaction.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>obj</td>
+<td>Attributes  of the current line-item in name and value pairs.</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>string</td>
+<td>Mode of payment. This has to be the mode configured for your org.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>float</td>
+<td>Amount paid through the current mode.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>obj</td>
+<td>Payment mode attributes in name and value pairs.</td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td>obj</td>
+<td>Transaction level custom field details. Pass line-item level custom field details in <code class="prettyprint">line_item</code> object.</td>
+</tr>
+<tr>
+<td>line_items</td>
+<td>obj</td>
+<td>Details of transaction line-items.</td>
+</tr>
+<tr>
+<td>serial</td>
+<td>int</td>
+<td>Serial number of the current line-item.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Description of the line-item.</td>
+</tr>
+<tr>
+<td>item_code</td>
+<td>string</td>
+<td>Unique line-item code.</td>
+</tr>
+<tr>
+<td>variant</td>
+<td>string</td>
+<td>Variant code of the item. Applicable for variant product.</td>
+</tr>
+<tr>
+<td>addon_items</td>
+<td>obj</td>
+<td>Details of add-on items. For example, pizza with extra cheese, and personalized toppings.</td>
+</tr>
+<tr>
+<td>combo_items</td>
+<td>obj</td>
+<td>Details of combo or bundle items. For example, buy 1 shirt get one free, shirt+pant, pack of 5 soaps.</td>
+</tr>
+<tr>
+<td>split_items</td>
+<td>obj</td>
+<td>Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.</td>
+</tr>
+<tr>
+<td>item_code</td>
+<td>string</td>
+<td>Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>int</td>
+<td>Quantity of the current add-on, split, or combo item.</td>
+</tr>
+<tr>
+<td>associate_details</td>
+<td>obj</td>
+<td>Details of store associate or cashier who did the transaction.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Unique code of the store associate.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the store associate.</td>
+</tr>
+</tbody></table>
 
 <h2 id="add-transaction-with-local-currency">Add Transaction with Local Currency</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -6532,8 +6796,6 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
       <span class="nt">&lt;notes&gt;</span>Regular Bill with Payment Details<span class="nt">&lt;/notes&gt;</span>
    <span class="nt">&lt;/transaction&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-
-
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -6579,7 +6841,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
             <span class="nt">&lt;customer&gt;</span>
                 <span class="nt">&lt;user_id&gt;</span>282100245<span class="nt">&lt;/user_id&gt;</span>
                 <span class="nt">&lt;mobile&gt;</span>91000000099<span class="nt">&lt;/mobile&gt;</span>
-                <span class="nt">&lt;firstname&gt;</span>autofn_7353409276<span class="nt">&lt;/firstname&gt;</span>
+                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
                 <span class="nt">&lt;lastname/&gt;</span>
                 <span class="nt">&lt;email&gt;</span>john@example.com<span class="nt">&lt;/email&gt;</span>
                 <span class="nt">&lt;external_id/&gt;</span>
@@ -6620,7 +6882,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
         </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"282100245"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91000000099"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autofn_7353409276"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
@@ -6642,7 +6904,7 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have</p>
+<p>Lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have</p>
 
 <ul>
 <li>disabled <code class="prettyprint">ERR_CURRENCY_CONVERSION_DISABLED</code> on the Billing Configuration page of InTouch Settings</li>
@@ -6656,25 +6918,13 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/add_with_local_currency</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
+<td><code class="prettyprint">/add_with_local_currency</code></td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
@@ -6692,11 +6942,13 @@ http://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <h2 id="return-transaction">Return Transaction</h2>
 <pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -6833,9 +7085,9 @@ http://us.api.capillarytech.com/v1.1/transaction/add?format=json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The API allows submitting transaction returns of both loyalty and not-interested transactions. </p>
+<p>Lets you submit a return transaction of any transaction type. </p>
 
-<p>The following are different return types supported for both loyalty and not-interested transactions.</p>
+<p>The following are different return types supported for a transaction.</p>
 
 <ul>
 <li><strong>Full Return</strong>: To return an entire transaction and exchange with different items</li>
@@ -6851,15 +7103,18 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 * Billing time: The date and time of the return transaction
 </aside>
 
-<p>Before submitting return transactions, you should know the configurations set of the Return Transactions page of InTouch <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong>.</p>
+<p>Before using this API, you need to know the configurations set of the Return Transactions page of InTouch <strong>Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong>.</p>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/add_with_local_currency?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}</code></p>
 
 <h2 id="cancel-a-transaction-line-item">Cancel a Transaction Line-Item</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/transaction/add?format=json
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -7034,25 +7289,13 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/add</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
+<td><code class="prettyprint">/add</code></td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
@@ -7070,61 +7313,52 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster URL&gt;/v1.1/transaction/add?format=json</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add?format=json</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Value</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier</td>
-<td>mobile/email/external_id/id (user id)</td>
-<td>Unique identifier (mobile no/email id/external id/user id) of the customer whose transaction needs to be returned</td>
-</tr>
-<tr>
-<td>type</td>
-<td>RETURN</td>
-<td>Specify type as RETURN for regular/loyalty returns</td>
-</tr>
-<tr>
-<td>type</td>
-<td>NOT_INTERESTED_RETURN</td>
-<td>For non-loyalty returns</td>
-</tr>
-<tr>
-<td>return_type</td>
-<td>FULL</td>
-<td>To return an entire transaction</td>
-</tr>
-<tr>
-<td>return_type</td>
-<td>LINE_ITEM</td>
-<td>To return a particular line-item of a transaction</td>
-</tr>
-<tr>
-<td>return_type</td>
-<td>AMOUNT</td>
-<td>To return the transaction amount instead of replacement</td>
+<td>enum</td>
+<td>Pass any of the identifiers of customers for loyalty or non-loyalty returns. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
 </tr>
 <tr>
 <td>purchase_time*</td>
-<td>-</td>
-<td>Specify the date of purchase of the item that is returned</td>
+<td>date-time</td>
+<td>Date and time of the actual purchase of the return items.</td>
 </tr>
 <tr>
 <td>number*</td>
-<td>-</td>
-<td>The actual transaction number of the returned item</td>
+<td>string</td>
+<td>The actual transaction number of the returned item.</td>
+</tr>
+<tr>
+<td>type*</td>
+<td>enum</td>
+<td>Specify type as <code class="prettyprint">RETURN</code> for regular transaction returns, <code class="prettyprint">NOT_INTERESTED_RETURN</code> for not-interested transaction returns.</td>
+</tr>
+<tr>
+<td>return_type*</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">FULL</code> to return the entire transaction, <code class="prettyprint">LINE_ITEM</code> to return a particular line-item of the transaction, <code class="prettyprint">AMOUNT</code> to return the transaction amount instead of replacement.</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 <h2 id="update-transaction-details">Update Transaction Details</h2>
-<pre class="highlight shell"><code>POST <span class="s2">"http://api.capillary.co.in/v1.1/transaction/update?format=xml"</span>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/transaction/update?format=xml
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -7254,25 +7488,13 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/update</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
+<td><code class="prettyprint">/update</code></td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
@@ -7288,32 +7510,39 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<p>Any one of the following parameter is mandatory.</p>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Transaction id that needs to be updated</td>
+<td>id**</td>
+<td>int</td>
+<td>Unique id of the transaction that you want to update.</td>
 </tr>
 <tr>
-<td>number</td>
-<td>Transaction number that needs to be updated</td>
+<td>number**</td>
+<td>string</td>
+<td>Transaction number that you need to update.</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">Any one among the parameters marked with ** is mandatory. </aside>
+
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/update?format=xml/json</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/update?format=xml/json</code></p>
 
 <h2 id="retro-transaction">Retro Transaction</h2>
-<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/transaction/update?format=json
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/transaction/update?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -7462,25 +7691,13 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/update</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
+<td><code class="prettyprint">/update</code></td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
@@ -7498,10 +7715,52 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/update?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/update?format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mobile/external_id/email/id*</td>
+<td>string</td>
+<td>Pass any one of the customer identifiers.</td>
+</tr>
+<tr>
+<td>new_type*</td>
+<td>enum</td>
+<td>Specify <code class="prettyprint">REGULAR</code> to convert to regular transaction.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>Provide any additional information about the conversion for reference.</td>
+</tr>
+<tr>
+<td>id*</td>
+<td>int</td>
+<td>Unique ID of the transaction that you want to convert.</td>
+</tr>
+<tr>
+<td>old_type*</td>
+<td>enum</td>
+<td>Earlier type of transaction. Usually, it will be <code class="prettyprint">NOT_INTERESTED</code>.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 <h2 id="fetch-transaction-details">Fetch Transaction Details</h2>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/transaction/get?format=xml<span class="err">&amp;</span>id=5477576
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/transaction/get?format=xml<span class="err">&amp;</span>id=5477576
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -7621,33 +7880,21 @@ returned only when query param user_id is true
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>transaction/get</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
+<td><code class="prettyprint">/get</code></td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
 <td>GET</td>
 </tr>
 <tr>
-<td>API Version</td>
-<td>v1.1</td>
+<td>Authentication</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -7657,7 +7904,7 @@ returned only when query param user_id is true
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;&lt;identifier_type&gt;=&lt;identifier_value&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/get?format=&lt;xml/json&gt;&amp;{identifier_type}={value}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -7673,83 +7920,103 @@ returned only when query param user_id is true
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Fetch the details of a specific transaction</td>
+<td>identifier_type*</td>
+<td>enum</td>
+<td>Pass any of the identifier types you want to use to identify customer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code> (customer id or user id).</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string</td>
+<td>Pass the respective identifier value.</td>
 </tr>
 <tr>
 <td>store_code</td>
-<td>Fetch the transactions of a specific store</td>
+<td>string</td>
+<td>Fetch the transactions of a specific store. Pass the store code.</td>
 </tr>
 <tr>
 <td>till_code</td>
-<td>Fetch the transactions made at a specific TILL</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>Get transaction details of a specific customer. Pass the user id of the customer</td>
+<td>string</td>
+<td>Fetch the transactions made at a specific TILL. Pass the respective TILL code.</td>
 </tr>
 <tr>
 <td>credit_notes</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>tenders</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>amount</td>
-<td>Fetch the transactions of a specific amount</td>
+<td>float</td>
+<td>Fetch the transactions of a specific amount.</td>
 </tr>
 <tr>
 <td>min_amount</td>
-<td>Fetch transactions of a specific amount range, i.e., min_amount - max_amount</td>
+<td>float</td>
+<td>Fetch transactions of a specific amount range in <code class="prettyprint">min_amount</code> and <code class="prettyprint">max_amount</code>.</td>
 </tr>
 <tr>
 <td>max_amount</td>
-<td>Fetch the transactions of a specific amount range, i.e., min_amount - max_amount</td>
+<td>float</td>
+<td>Fetch the transactions of a specific amount range, i.e., min_amount - max_amount.</td>
 </tr>
 <tr>
 <td>start_date</td>
-<td>Fetch transactions of a specific duration., between start_date and end_date</td>
+<td>date</td>
+<td>Fetch transactions of a specific duration., between start_date and end_date.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Fetch transactions of a specific duration., between start_date and end_date</td>
+<td>date</td>
+<td>Fetch transactions of a specific duration., between start_date and end_date.</td>
 </tr>
 <tr>
 <td>start_id</td>
-<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.</td>
+<td></td>
 </tr>
 <tr>
 <td>end_id</td>
-<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999</td>
+<td>Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.</td>
+<td></td>
 </tr>
 <tr>
 <td>number</td>
-<td>Fetch the details of a specific transaction based on the transaction number passed</td>
+<td>string</td>
+<td>Fetch the details of a specific transaction based on the transaction number passed.</td>
 </tr>
 <tr>
 <td>date</td>
-<td>Fetch transactions of a specific date</td>
+<td>date</td>
+<td>Fetch transactions of a specific date.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100</td>
+<td>int</td>
+<td>Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Fetch a specific type of transaction. Possible values: REGULAR, NOT_INTERESTED, RETURN, NOT_INTERESTED_RETURN, MIXED. By default it shows the details of regular transaction</td>
+<td>enum</td>
+<td>Fetch a specific type of transaction. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>. By default it shows the details of regular transaction.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with * is mandatory.</aside>
 
 <h2 id="response-codes">Response Codes</h2>
 

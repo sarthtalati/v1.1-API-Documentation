@@ -116,12 +116,12 @@ Content-Type | Determine desired representation client the side | Pass `applicat
 ## Resource Information
 Type | Description
 ---- | -----------
-Request URL | `http://{host}/v1.1/{entity}/{method}?{QueryParama}&{format=}`
+Request URL | `https://{host}/v1.1/{entity}/{method}?{QueryParams}&{format}`
 Host | The server to which the API calls are made (cluster URL). <br>**India**: apac.api.capillary.co.in <br>**APAC2**: apac2.api.capillarytech.com <br>**EU**: eu.api.capillarytech.com <br>**US**: us.api.capillarytech.com <br>**China**: cdn-api.capillarytech.cn.com [or] api.capillarytech.cn.com
 API Version Number | v1.1
 Entity | Resource for which actions are performed. Example: communications, coupon, customer, organization, points, product, store, and transaction
 HTTP Methods | The Capillary Cloud REST APIs support the standard HTTP methods - GET and POST
-Format | Preferred format of requesting data - `xml`, `json`. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing `format=json` or `format=xml` <br>Example: `http://eu.api.capillarytech.com/v1.1/customer/add?format=json`
+Format | Preferred format of requesting data - `xml`, `json`. By default, these APIs return data in the format represented in Headers. You can explicitly override by passing `format=json` or `format=xml` <br>Example: `https://eu.api.capillarytech.com/v1.1/customer/add?format=json`
 
 
 
