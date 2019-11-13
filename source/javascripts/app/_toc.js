@@ -55,3 +55,32 @@
   });
 })(window);
 
+
+
+
+$(document).ready(function () {
+    $('.tocify-subheader li.tocify-item a').each(function () {
+        $(this).attr('title', $(this).text());
+    });
+    $('body').append('<div class="fab">↑</div>');
+
+    $('.fab').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'slow');
+    });
+});
+
+
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        $('.fab').css('opacity', '0.2');
+    } else {
+        $('.fab').css('opacity', '0');
+    }
+}
+
+window.onscroll = function () {
+    scrollFunction();
+};
