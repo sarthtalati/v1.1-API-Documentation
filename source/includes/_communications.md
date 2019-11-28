@@ -79,17 +79,15 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=json
 This API allows you to send sms to a specific mobile number. You can schedule the date and time you wish to send the message.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | communications/sms
+| | |
+--------- | ----------- |
+URI | `/sms`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/communications/sms?format=<xml/json>`
+`http://{host}/v1.1/communications/sms?format={xml/json}`
 
 
 ## Send Email to Customer
@@ -117,7 +115,7 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
         ",
       "attachments": {
         "attachment": [{
-          "file_name": "asda.pdf",
+          "file_name": "sample.pdf",
           "file_type": "pdf",
           "file_data": "  -- base64_encoded file contents
                 adsdsadd21121dasd12123123assdad1212123
@@ -149,7 +147,7 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
         </body>    
         <attachments>
             <attachment>
-            <file_name>asda.pdf</file_name>
+            <file_name>sample.pdf</file_name>
             <file_type>pdf</file_type>
             <file_data><![CDATA[  -- base64_encoded file contents
                 adsdsadd21121dasd12123123assdad1212123
@@ -214,17 +212,15 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
 This API allows you to send email to a specific email id. You can schedule the date and time you wish to send the message.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | communications/email
+| | |
+--------- | ----------- |
+URI | `/email`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/communications/email?format=<xml/json>`
+`http://{host}/v1.1/communications/email?format={xml/json}`
 
 
 ## Retrieve Details of Emails Sent
@@ -281,20 +277,18 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=xml&id=2342344
 Returns the details of a specific sent email based on the message id you pass. 
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | communications/email
+| | |
+--------- | ----------- |
+URI | `/email`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/communications/email?format=<xml/json>&<parameters>`
+`http://{host}/v1.1/communications/email?format={xml/json}&id={id}`
 
 ### Request Parameters
-id* - Pass the message id generated for the sent message
+id* - Pass the message id generated of the sent message.
 
 
 ## Retrieve Details of SMSs Sent
@@ -347,22 +341,18 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml&id=23423443
 Returns the details of a specific sent SMS based on the message id you pass.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | communications/sms
+| | |
+--------- | ----------- |
+URI | `/sms`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/communications/sms?format=<xml/json>&<parameters>`
+`http://{host}/v1.1/communications/sms?format=<xml/json>&<parameters>`
 
 ### Request Parameters
 id* - Pass the unique id of the message that you want to retrieve
-
-
 
 
 

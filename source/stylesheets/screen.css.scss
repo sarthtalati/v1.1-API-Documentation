@@ -810,12 +810,10 @@ body {
 
 .content code.prettyprint,
 .content table code {
-    background-color: #EEE;
+    background-color: rgba(0,0,0,0.03);
+    color: #cd3d64;
     padding: 3px;
     border-radius: 3px;
-    color: #444;
-    text-shadow: none;
-    font-family: monospace;
 }
 
 .highlight .kc {
@@ -845,15 +843,24 @@ body {
 }
 
 .content aside.notice {
-    background: #0A60AB;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+    color: #07F;
+    background: #f0f8fd;
+    line-height: 1.6;
+    border-radius: 6px;
+    text-indent: -26px;
+    padding-left: 42px;
 }
 
 .content aside.warning {
-    background: #D65E64;
+    background: #D65E64; 
 }
 
 .content aside.warning,
-.content aside.notice,
 .content aside.success {
     color: #FFF;
     text-shadow: none;

@@ -2648,96 +2648,175 @@ https://us.api.capillarytech.com/v1.1/customer/referrals
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "success"
-    },
-    "customers": {
-      "customer": {
-        "email": "tom.sawyer@example.com",
-        "mobile": "9197407983xx",
-        "external_id": "VIMAL004",
-        "id": "4596849",
-        "firstname": "Vimal",
-        "lastname": "Sudhan",
-        "referrals": {
-          "referral_type": [
-            {
-              "type": "EMAIL",
-              "referral": [
-                {
-                  "id": "1",
-                  "name": "Dexter Morgan",
-                  "identifier": "dexter.morgan@mpd.com",
-                  "invited_on": "2016-09-12T15:19:21+05:30",
-                  "status": {
-                    "success": "true",
-                    "code": "100",
-                    "message": "Invitee added
- successfully"
+   "response":{
+      "status":{
+         "success":"true",
+         "code":"200",
+         "message":"success"
+      },
+      "customers":{
+         "customer":{
+            "email":"tom.sawyer@example.com",
+            "mobile":"9197407983xx",
+            "external_id":"VIMAL004",
+            "id":"4596849",
+            "firstname":"Vimal",
+            "lastname":"Sudhan",
+            "referrals":{
+               "referral_type":[
+                  {
+                     "type":"EMAIL",
+                     "referral":[
+                        {
+                           "id":"1",
+                           "name":"Dexter Morgan",
+                           "identifier":"dexter.morgan@mpd.com",
+                           "invited_on":"2016-09-12T15:19:21+05:30",
+                           "status":{
+                              "success":"true",
+                              "code":"100",
+                              "message":"Invitee added successfully"
+                           }
+                        },
+                        {
+                           "id":"2",
+                           "name":"Debra Morgan",
+                           "identifier":"debra.morgan@elwaydetectives.com",
+                           "invited_on":"2013-09-12T15:19:21+05:30",
+                           "status":{
+                              "success":"true",
+                              "code":"100",
+                              "message":"Invitee added successfully"
+                           }
+                        }
+                     ]
+                  },
+                  {
+                     "type":"MOBILE",
+                     "referral":[
+                        {
+                           "id":"4",
+                           "name":"Arya Stark",
+                           "identifier":"919911223xx",
+                           "invited_on":"2016-09-12T15:19:21+05:30",
+                           "status":{
+                              "success":"true",
+                              "code":"100",
+                              "message":"Invitee added successfully"
+                           }
+                        },
+                        {
+                           "id":"10",
+                           "name":"Walt Jr",
+                           "identifier":"919876543211",
+                           "invited_on":" 2016-09-12T15:19:21+05:30",
+                           "status":{
+                              "success":"true",
+                              "code":"100",
+                              "message":"Invitee added successfully"
+                           }
+                        }
+                     ]
                   }
-                },
-                {
-                  "id": "2",
-                  "name": "Debra Morgan",
-                  "identifier": "debra.morgan@elwaydetectives.com",
-                  "invited_on": "2013-09-12T15:19:21+05:30",
-                  "status": {
-                    "success": "true",
-                    "code": "100",
-                    "message": "Invitee added
- successfully"
-                  }
-                }
-              ]
+               ]
             },
-            {
-              "type": "MOBILE",
-              "referral": [
-                {
-                  "id": "4",
-                  "name": "Arya Stark",
-                  "identifier": "919911223xx",
-                  "invited_on": "2016-09-12T15:19:21+05:30",
-                  "status": {
-                    "success": "true",
-                    "code": "100",
-                    "message": "Invitee added
- successfully"
-                  }
-                },
-
-                {
-                  "id": "10",
-                  "name": "Walt Jr",
-                  "identifier": "919876543211",
-                  "invited_on": " 2016-09-12T15:19:21+05:30",
-                  "status": {
-                    "success": "true",
-                    "code": "100",
-                    "message": "Invitee added
- successfully"
-                  }
-                }
-              ]
+            "item_status":{
+               "success":"true",
+               "code":"1000",
+               "message":"Referrals are invited Successfully"
             }
-          ]
-        },
-        "item_status": {
-          "success": "true",
-          "code": "1000",
-          "message": "Referrals are invited Successfully"
-        }
+         }
       }
-    }
-  }
+   }
 }
 ```
 
 ```xml
 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <customers>
+         <customer>
+            <email>tom.sawyer@example.com</email>
+            <external_id>VIMAL004</external_id>
+            <firstname>Vimal</firstname>
+            <id>4596849</id>
+            <item_status>
+               <code>1000</code>
+               <message>Referrals are invited Successfully</message>
+               <success>true</success>
+            </item_status>
+            <lastname>Sudhan</lastname>
+            <mobile>9197407983xx</mobile>
+            <referrals>
+               <referral_type>
+                  <element>
+                     <referral>
+                        <element>
+                           <id>1</id>
+                           <identifier>dexter.morgan@mpd.com</identifier>
+                           <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                           <name>Dexter Morgan</name>
+                           <status>
+                              <code>100</code>
+                              <message>Invitee added successfully</message>
+                              <success>true</success>
+                           </status>
+                        </element>
+                        <element>
+                           <id>2</id>
+                           <identifier>debra.morgan@elwaydetectives.com</identifier>
+                           <invited_on>2013-09-12T15:19:21+05:30</invited_on>
+                           <name>Debra Morgan</name>
+                           <status>
+                              <code>100</code>
+                              <message>Invitee added successfully</message>
+                              <success>true</success>
+                           </status>
+                        </element>
+                     </referral>
+                     <type>EMAIL</type>
+                  </element>
+                  <element>
+                     <referral>
+                        <element>
+                           <id>4</id>
+                           <identifier>919911223xx</identifier>
+                           <invited_on>2016-09-12T15:19:21+05:30</invited_on>
+                           <name>Arya Stark</name>
+                           <status>
+                              <code>100</code>
+                              <message>Invitee added successfully</message>
+                              <success>true</success>
+                           </status>
+                        </element>
+                        <element>
+                           <id>10</id>
+                           <identifier>919876543211</identifier>
+                           <invited_on> 2016-09-12T15:19:21+05:30</invited_on>
+                           <name>Walt Jr</name>
+                           <status>
+                              <code>100</code>
+                              <message>Invitee added successfully</message>
+                              <success>true</success>
+                           </status>
+                        </element>
+                     </referral>
+                     <type>MOBILE</type>
+                  </element>
+               </referral_type>
+            </referrals>
+         </customer>
+      </customers>
+      <status>
+         <code>200</code>
+         <message>success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
 ```
 
 This API allows you to send the referral code of a specific campaign to a customer (auto generated referral code).
@@ -2767,12 +2846,11 @@ Batch Support | Yes
 Parameter | Type | Description
 -------- | ----- | -----------
 Customer identifier* | enum | Pass any of the customer identifiers who needs to refer. Value: `mobile`, `email`, `external_id`, `id`.
-campaign_token | | 
-referral_type | obj | Details of referees.
-type | enum | Mode of communication of the referral. Values: `SMS`, `EMAIL`
-id | int | 
+campaign_token* | string | Unique token of the referral campaign.
+type* | enum | Mode of communication of the referral. Values: `SMS`, `EMAIL`
+id | int | Sequence id of the referee.
 name | string | Name of the referee.
-identifier | string | Identifier of the referee according to the type set. For example, if `"type":"EMAIL"`, `identifier` will be the email ID. 
+identifier | string | Identifier of the referee according to the type set. For example, if `type:"EMAIL"`, `identifier` will be the email ID. 
 invited_on | date-time | Date and time of the invite.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>

@@ -123,8 +123,8 @@ and that is set to “true” -->
 This API allows you to issue a specific coupon series to a customer.
 
 ### Resource Information
-Entry | Description
------ | -----------
+| | |
+--------- | ----------- |
 URI | coupon/issue
 Rate Limited? | Yes
 Authentication  | Yes
@@ -202,8 +202,8 @@ on the request param -->
 This API allows you to reissue active coupons of a loyalty customer. You can reissue only the coupon code and the coupon validity.
 
 ### Resource Information
-Entry | Description
------ | -----------
+| | |
+--------- | ----------- |
 URI | coupon/resend
 Rate Limited? | Yes
 Authentication  | Yes
@@ -355,8 +355,8 @@ t<code>200</code>
 This API allows you to redeem coupons issued to the loyalty customer.
 
 ### Resource Information
-Entry | Description
------ | -----------
+| | |
+--------- | ----------- |
 URI | coupon/resend
 Rate Limited? | Yes
 Authentication  | Yes
@@ -503,8 +503,8 @@ http://api.capillary.co.in/v1.1/coupon/get?code=06000041&format=xml
 This API allows you to retrieve the details of a specific coupon. You can get information such as coupon issued to, current coupon status, coupon redeemed date, and coupon validity.
 
 ### Resource Information
-Entry | Description
------ | -----------
+| | |
+--------- | ----------- |
 URI | coupon/get
 Rate Limited? | Yes
 Authentication  | Yes
@@ -599,14 +599,12 @@ Cannot redeem same voucher multiple times
 This API allows you to verify whether a coupon is redeemable by a specific customer.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | coupon/isredeemable
+| | |
+--------- | ----------- |
+URI | `/isredeemable`
 Rate Limited? | Yes
 Authentication  | Yes
-Response Formats  | XML, JSON
 HTTP Method  | GET
-API Version  | v1.1
 Batch Support  | No
 
 ### Request URL
@@ -808,15 +806,12 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
 
 ### Resource Information
-Entry | Description
------ | -----------
-URI | coupon/series
+| | |
+--------- | ----------- |
+URI | `/series`
 Rate Limited? | Yes
-Authentication  | Yes
-Response Formats  | XML, JSON
-HTTP Method  | GET
-API Version  | v1.1
-Batch Support  | Yes
+Authentication | Yes
+Batch Support | Yes
 
 ### Request URL
 `http://<cluster url>/v1.1/coupon/series?format=<xml/json>&id=<series id>&expired=<true/false/extended>`
