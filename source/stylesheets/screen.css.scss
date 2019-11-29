@@ -86,6 +86,8 @@ body {
     & > img {
         display: block;
         max-width: 100%;
+		margin-bottom: 0px;
+        padding: 24px 14px;
     }
 
     & > .search {
@@ -687,10 +689,12 @@ body {
 // This is the logo at the top of the ToC
 .tocify-wrapper > img {
     display: block;
-    max-width: 200px;
+    max-width: 100px;
     height: 30px;
-    margin: 18px 14px 14px;
-    padding: 10px 0 0 0;
+   // margin: 18px 14px 14px;
+    // padding: 10px 0 0 0;
+    margin-bottom: 0px;
+    padding: 24px 14px;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
