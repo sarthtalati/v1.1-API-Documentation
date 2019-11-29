@@ -1059,3 +1059,10 @@ pre ::selection {
     margin: 0;
 }
 
+.content pre {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding: 2em 28px;
+    margin-bottom: 24px;
+    border-radius: 0 0 8px 8px;
+}
