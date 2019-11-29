@@ -756,16 +756,16 @@ body {
     background: #14283C;
 }
 
-.content pre,
-.content blockquote {
-    background: #14283C;
-}
+
 
 .content blockquote > p {
-    background: #121E29;
-    border: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+	background-color: #3c4257;
+    padding: 13px 2em;
+    color: #b4bace;
+    border-radius: 8px 8px 0 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .lang-selector {
@@ -858,7 +858,7 @@ body {
     margin-bottom: 1.5em;
     margin-left: 1.5em;
     color: #07F;
-    background: #f0f8fd;
+    background: #0077ff0a;
     line-height: 1.6;
     border-radius: 6px;
     text-indent: -26px;
@@ -868,14 +868,14 @@ body {
 
 .content aside.warning,
 .content aside.success {
-    color: #FFF;
+    color: #F01111;
 	text-shadow: none;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin-top: 1.5em;
 	margin-bottom: 1.5em;
 	margin-left: 1.5em;
-	background: #D65E64;
+	background: #FF26310A;
 	line-height: 1.6;
 	border-radius: 6px;
 	text-indent: -26px;
@@ -1001,7 +1001,13 @@ li.tocify-item:hover {
 
 .content pre,
 .content blockquote {
-    width: 42%;
+	background-color: #4f566b;
+    color: #fff;
+    margin: 0;
+    width: 50%;
+    float: right;
+    clear: right;
+    box-sizing: border-box;
 }
 
 .tocify-wrapper .tocify-item > a,
