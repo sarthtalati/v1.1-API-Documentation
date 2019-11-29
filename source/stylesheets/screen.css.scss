@@ -999,7 +999,7 @@ li.tocify-item:hover {
 	background-color: #4f566b;
     color: #fff;
     margin: 0;
-    width: 45%;
+    width: 50%;
     float: right;
     clear: right;
     box-sizing: border-box;
@@ -1059,10 +1059,3 @@ pre ::selection {
     margin: 0;
 }
 
-.content pre {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    // padding: 2em 28px;
-    margin-bottom: 24px;
-    border-radius: 0 0 8px 8px;
-}
