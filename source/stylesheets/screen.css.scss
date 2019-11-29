@@ -349,6 +349,7 @@ body {
     // to place content above the dark box
     position: relative;
     z-index: 30;
+	background: #FFF;
 
     &:after {
         content: '';
@@ -689,7 +690,7 @@ body {
 // This is the logo at the top of the ToC
 .tocify-wrapper > img {
     display: block;
-    max-width: 100px;
+    max-width: 200px;
     height: 30px;
    // margin: 18px 14px 14px;
     // padding: 10px 0 0 0;
@@ -768,7 +769,8 @@ body {
 }
 
 .lang-selector {
-    background-color: #14283C;
+    // background-color: #14283C;
+	background: #FFF;
 }
 
 .page-wrapper .lang-selector {
@@ -776,12 +778,15 @@ body {
 }
 
 .lang-selector a.active {
-    background: none;
+   // background: none;
     text-transform: uppercase;
     font-weight: 800;
     font-size: .9rem;
-    border-bottom: 2px solid #066CC1;
+    // border-bottom: 2px solid #066CC1;
     margin: 10px 22px;
+	background-color: #FFF;
+    color: #07F;
+    border-bottom: 2px solid #07F
 }
 
 .lang-selector a {
