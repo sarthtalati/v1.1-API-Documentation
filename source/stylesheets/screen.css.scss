@@ -680,7 +680,7 @@ body {
 
 .highlight,
 .highlight .w {
-    background-color: $code-bg;
+    background-color: #14283C00;
 }
 
 
@@ -1004,7 +1004,7 @@ li.tocify-item:hover {
 	background-color: #4f566b;
     color: #fff;
     margin: 0;
-    width: 50%;
+    width: 45%;
     float: right;
     clear: right;
     box-sizing: border-box;
@@ -1060,3 +1060,14 @@ pre ::selection {
     cursor: pointer;
 }
 
+.content pre > p, .content blockquote > p {
+    margin: 0;
+}
+
+.content pre {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding: 2em 28px;
+    margin-bottom: 24px;
+    border-radius: 0 0 8px 8px;
+}
