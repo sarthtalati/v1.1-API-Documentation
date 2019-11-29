@@ -706,7 +706,7 @@ body {
 /* TO BE REPLACED IN MAIN CSS SOURCE */
 
 .tocify-wrapper {
-    background: #EEF1F5;
+    background: #FFF;
 }
 
 .tocify-wrapper .tocify-item > a,
@@ -743,8 +743,8 @@ body {
 }
 
 .tocify-wrapper .tocify-subheader {
-    background: #EEF1F5;
-    background-color: #EEF1F5;
+    background: #FFF;
+   // background-color: #EEF1F5;
 }
 
 .tocify-wrapper .tocify-focus {
@@ -865,14 +865,21 @@ body {
     padding-left: 42px;
 }
 
-.content aside.warning {
-    background: #D65E64; 
-}
 
 .content aside.warning,
 .content aside.success {
     color: #FFF;
-    text-shadow: none;
+	text-shadow: none;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	margin-left: 1.5em;
+	background: #D65E64;
+	line-height: 1.6;
+	border-radius: 6px;
+	text-indent: -26px;
+	padding-left: 42px;
 }
 
 .tocify-wrapper .search-results.visible li {
