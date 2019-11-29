@@ -1062,7 +1062,11 @@ pre ::selection {
 .content pre {
     padding-top: 2em;
     padding-bottom: 2em;
-    // padding: 2em 28px;
+    padding: 2em 28px;
     margin-bottom: 24px;
     border-radius: 0 0 8px 8px;
+}
+
+.content blockquote {
+    border-radius: 8px 8px 0 0;
 }
