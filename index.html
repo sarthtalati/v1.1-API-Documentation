@@ -1129,7 +1129,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>customer/update</td>
+<td><code class="prettyprint">/update</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1331,7 +1331,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 
 <p><code class="prettyprint">https://{host}/v1.1/customer/update_identity?format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -1593,7 +1593,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>`/search?q={param}:{Query}:{value}&amp;format={xml/json}</td>
+<td><code class="prettyprint">/search?q={param}:{Query}:{value}&amp;format={xml/json}</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1849,7 +1849,7 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/get</code></td>
+<td><code class="prettyprint">/get?{identifier_type}={value}&amp;{query_params}</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1867,7 +1867,7 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://api.capillary.co.in/v1.1/customer/get?{identifier_type}={identifier_value}&amp;mlp=true&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/get?{identifier_type}={identifier_value}&amp;mlp=true&amp;format={xml/json}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -2134,13 +2134,13 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?format={xml/json}&amp;&lt;input_params&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?format={xml/json}&amp;{input_params}</code></p>
 
 <p>For MLP</p>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?&lt;customer identifier&gt;=&lt;value&gt;&amp;mlp=true</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?{customer identifier}={value}&amp;mlp=true</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2402,7 +2402,7 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 
 <p><code class="prettyprint">https://{host}/v1.1/customer/redemptions?{query_params}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -2633,27 +2633,33 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 
 <p><code class="prettyprint">https://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Customer identifier*</td>
 <td>string</td>
+<td>Pass any of the unique identifiers of the customer for whom you want to add notes (mobile no/email id/external id/user_id)</td>
 </tr>
 <tr>
 <td>date</td>
 <td>date</td>
+<td>Date that you associate to the notes. By default, current date will be considered.</td>
 </tr>
 <tr>
 <td>description*</td>
 <td>Details or message of the note in a plain text format</td>
+<td></td>
 </tr>
 </tbody></table>
+
+<aside class="note">Parameters marked with * are mandatory.</aside>
 
 <h2 id="update-customer-notes">Update Customer Notes</h2>
 <pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/notes?format=json
@@ -2788,7 +2794,7 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">customer/notes</code></td>
+<td><code class="prettyprint">/notes</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2808,27 +2814,33 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="er
 
 <p><code class="prettyprint">https://{host}/v1.1/customer/notes?format=xml/json</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer identifier*</td>
+<td>mobile/email/external_id/user_id**</td>
+<td>enum</td>
 <td>Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id/user_id).</td>
 </tr>
 <tr>
 <td>description*</td>
 <td>New notes that you want to update with (plain text).</td>
+<td></td>
 </tr>
 <tr>
 <td>id*</td>
 <td>Unique id of the customer note that you want to update.</td>
+<td></td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with *, and any one among the parameters marked with * are mandatory. </aside> 
 
 <h2 id="retrieve-customer-notes">Retrieve Customer Notes</h2>
 
@@ -2954,7 +2966,7 @@ user_id tag will be returned only if query param user_id = true
 
 <p><code class="prettyprint">https://{host}/v1.1/customer/notes?{identifier}={value}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -4916,14 +4928,46 @@ def@xyz.com
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
-<p>Parameter | Datatype | Description
-&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-Customer Identifier* | enum | Pass any of the identifiers of the customer to retrieve interactions. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.
-value* | string | Pass the respective identifier value.
-network | enum | Filter results by communication network. Values: <code class="prettyprint">facebook</code>, <code class="prettyprint">twitter</code>, <code class="prettyprint">foursquare</code>, <code class="prettyprint">capillary</code>.
-type | enum | Filter results by interaction type. Values: <code class="prettyprint">email</code> (for transaction email), <code class="prettyprint">emailbulk</code> (for bulk email), <code class="prettyprint">checkin</code> (applicable only for foursquare/facebook), <code class="prettyprint">like</code>, <code class="prettyprint">comment</code> (for facebook); <code class="prettyprint">mention</code>, <code class="prettyprint">retweet</code>, <code class="prettyprint">tweet</code> (only for Twitter network); <code class="prettyprint">feedback</code> (only for Capillary).
-start_date | date | Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.
-end_date | date  | Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Customer Identifier*</td>
+<td>enum</td>
+<td>Pass any of the identifiers of the customer to retrieve interactions. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Pass the respective identifier value.</td>
+</tr>
+<tr>
+<td>network</td>
+<td>enum</td>
+<td>Filter results by communication network. Values: <code class="prettyprint">facebook</code>, <code class="prettyprint">twitter</code>, <code class="prettyprint">foursquare</code>, <code class="prettyprint">capillary</code>.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Filter results by interaction type. Values: <code class="prettyprint">email</code> (for transaction email), <code class="prettyprint">emailbulk</code> (for bulk email), <code class="prettyprint">checkin</code> (applicable only for foursquare/facebook), <code class="prettyprint">like</code>, <code class="prettyprint">comment</code> (for facebook); <code class="prettyprint">mention</code>, <code class="prettyprint">retweet</code>, <code class="prettyprint">tweet</code> (only for Twitter network); <code class="prettyprint">feedback</code> (only for Capillary).</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>date</td>
+<td>Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>date</td>
+<td>Specify the duration for which you want to see the customer interactions in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 <h2 id="update-subscription-details">Update Subscription Details</h2>
 
@@ -21505,6 +21549,8 @@ https://sg.storecare.capillarytech.com/v2/add/ffcDetails?eventType=0
   gtag('config', 'UA-136354191-1');
 </script>
 
+
+<!-- Feedback widget -->
 
 <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
 <style type="text/css" media="screen, projection">
