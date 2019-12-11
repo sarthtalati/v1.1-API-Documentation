@@ -16,7 +16,7 @@ The points entity allows you to perform the following tasks:
 ## Check If Points are Redeemable
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?format=json&points=100&issue_otp=true&mobile=44700900999
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?points=100&issue_otp=true&mobile=44700900999&format=json
 ```
 > Sample Response
 
@@ -121,36 +121,44 @@ This API lets you verify whether a specific number of points can be redeemed by 
 
  
 ### Resource Information
-Entry | Description
---------- | -----------
-URI | points/isredeemable
+| | |
+--------- | ----------- |
+URI | `/isredeemable`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
-API Version | v1.1
 Batch Support | No
 
 ### Request URL
 To validate points and issue code if the validation is successful
-`http://<cluster url>/v1.1/points/isredeemable?format=<xml/json>&points=<points to redeem>&issue_otp=true&mobile/email=<mobile no./email id>`
+`https://{host}/v1.1/points/isredeemable?points={points to redeem}&issue_otp=true&{mobile/email}={mobile no./email id}&format={xml/json}`
 
 To just validate points
-`http://<cluster url>/v1.1/points/isredeemable?format=<xml/json>&points=<points to redeem>&validation_code=<OTP>&mobile/email=<mobile no./email id>`
+`https://{host}/v1.1/points/isredeemable?points={points to redeem}&validation_code={OTP}&{mobile/email}={mobile no./email id}&format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-mobile/email/external_id/user_id* | Provide the registered mobile number or email id of the customer to issue validation code 
-points* | Number of points to redeem
-issue_otp=true | Issues OTP to the customer if the points are validated successfully
-validation_code | OTP issued to the customer's mobile number
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier* | enum | Pass any of the identifier type of the customer.
+value | string | Pass the respective identifier value of the customer to issue validation code.
+points* | int | Number of points to redeem.
+issue_otp | boolean | Pass `true` to issue OTP if the validation is successful.
+validation_code | string | OTP issued to the customer's mobile number.
+skip_validation | boolean | Pass `true` if you want to skip validation.
+validation_type | enum | Preferred mode of validation. Value: `MISSED_CALL`, `SMS`, `INVALID`. Use invalid if you want to `skip_validation`.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 
 ## Issue Validation Code for Redeeming Points
 
+> Sample Request
+
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=json&mobile=447700900000&points=50
+http://us.intouch.capillarytech.com/v1.1/points/validationcode?mobile=447700900000&points=50&format=json
 ```
+
+> Sample Response
 
 ```json
 {
@@ -168,9 +176,7 @@ http://us.intouch.capillarytech.com/v1.1/points/validationcode?format=json&mobil
         "item_status": {
           "success": "true",
           "code": "200",
-          "message": "
-Validation Code Issued by SMS/Email
-"
+          "message": "Validation Code Issued by SMS/Email"
         }
       }
     }
@@ -216,32 +222,36 @@ The validation code is issued either to mobile number, or email id or both, base
 </aside>
 
 ### Resource Information
-Entry | Value
---------- | -----------
-URI | points/validationcode
+| | |
+--------- | ----------- |
+URI | `/validationcode`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | GET
-API Version | v1.1
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/points/validationcode?format=<xml/json>&<query_param>=<value>&points=<points_to_be_redeemed>`
+`https://{host}/v1.1/points/validationcode?{identifier}={value}&points={points_to_be_redeemed}&format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-Customer Identifier* | Pass any identifier (mobile/email/external_id/user_id)of the customer to issue validation code 
-points* | Number of points to redeem
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifier* | enum | Pass any of the identifier types of the customer to issue validation code. Value: `mobile`, `email`, `external_id`, `user_id`.
+value* | string | Pass the respective identifier value. For example, `email=tom.sawyer@example.com`
+points* | int | Number of points to redeem.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 
 ## Redeem Points
 
+> Sample Request
+
 ```html
-# Sample Request
-http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&program_id=504'
-format=json
+http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&program_id=504&format=json
 ```
+
+> Sample POST Request
 
 ```json
 {
@@ -334,29 +344,28 @@ You need to use the validation code within the validity period. You can check th
 </aside>
 
 ### Resource Information
-Entry | Value
---------- | -----------
-URI | points/redeem
+| | |
+--------- | ----------- |
+URI | `/redeem`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON 
 HTTP Method | POST
-API Version | v1.1
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/points/redeem?format=<xml/json>&{query_param}={param_value}`
+`https://{host}/v1.1/points/redeem?{query_param}={param_value}&format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
+Parameter | Datatype | Description
 --------- | -----------
-mobile* | Provide the registered mobile number of the customer to redeem points
-points_redeemed* | Provide the number of points to be redeemed
-transaction_number | Provide the transaction number for which the points has to be redeemed
-validation_code* | Provide the validation code received by the customer through `points/validationcode`
-redemption_time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format
-program_id | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled
+mobile* | string | Provide the registered mobile number of the customer to redeem points.
+points_redeemed* | int | Provide the number of points to be redeemed.
+transaction_number | string | Provide the transaction number for which the points has to be redeemed.
+validation_code* | string | Provide the validation code received by the customer through `points/validationcode`.
+redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.
+program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 ## Response Codes
 ### Success Codes
@@ -386,9 +395,7 @@ Code | Description
 816 | Unable to find customer in this organization
 817 | Points redemption failed
 818 | Points you are trying to redeem are more than the available points
-
-819 | Points you are trying to redeem are more than the maximum allowed redemption limit
- | Unable to send message to customer
+819 | Points you are trying to redeem are more than the maximum allowed redemption limit.<br> Unable to send message to customer
 820 | Unable to process. Customer is marked as fraud
 821 | Points you are trying to redeem are less than the minimum redemption limit
 822 | Unable to find missed call from the registered mobile number

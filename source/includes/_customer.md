@@ -9,7 +9,7 @@ Based on the registration status, customers are categorized into three types:
 
 The customer entity contains APIs related to registering customers into the loyalty program, managing loyalty accounts and updating subscription status of both registered and non-registered customers. It stores customer related information such as identifiers, profile details, custom field details, transactions, preferences, subscription details (mobile number/email id), tier details, points history and coupons history.
 
-Customer APIs allow you to :
+Customer APIs allow you to do the following.
 
 * Register customers into your organization’s loyalty program 
 * Update loyalty customers' profile information
@@ -19,226 +19,322 @@ Customer APIs allow you to :
 * Add, update and retrieve customer preferences of loyalty customers
 * Retrieve transactions of loyalty/non-loyalty customers
 
+
+
 ## Register Customer
 
 > Sample Request URL
 
 ```html
-POST https://us.api.capillarytech.com/v1.1/customer/add?format=json
+https://us.api.capillarytech.com/v1.1/customer/add?format=json
 ```
 
 > Sample POST Request
 
 ```json
-
-{
-  "root": {
-    "customer": [
-      {
-        "mobile": "44700900000",
-        "email": "tom.sawyer@example.com",
-        "external_id": "XYPZ001",
-        "firstname": "Tom",
-        "lastname": "Sawyer",
-        "registered_on": "2012-09-11 11:11:11",
-		"registered_till": "NorthEast",
-		"associated_with":"two.till01",
-        "extended_fields": {
-          "field": [
-            {
-              "name": "gender",
-              "value": "Male"
+{ 
+   "root":{ 
+      "customer":[ 
+         { 
+            "mobile":"44700900000",
+            "email":"tom@example.com",
+            "external_id":"TOM345",
+            "firstname":"Tom",
+            "lastname":"Cruise",
+            "registered_on":"2012-09-11 11:11:11",
+            "updated_on":"",
+            "registered_till":"NorthEast",
+            "associated_with":"two.till01",
+            "referral_code":"SDX123",
+            "source":"INSTORE",
+            "type":"LOYALTY",
+            "test_control_status":"TEST",
+            "ndnc_status":"INVALID",
+			"subscriptions":{ 
+               "subscription":[ 
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"sms"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"sms"
+                  }
+               ]
             },
-            {
-              "name": "city",
-              "value": "Bangalore"
+            "extended_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"gender",
+                     "value":"Male"
+                  },
+                  { 
+                     "name":"city",
+                     "value":"Bangalore"
+                  },
+                  { 
+                     "name":"dob",
+                     "value":"1998/12/01"
+                  }
+               ]
             },
-            
-            {
-              "name": "dob",
-              "value": "1998/12/01"
+            "custom_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"Hobbies",
+                     "value":"[“Playing”]"
+                  },
+                  { 
+                     "name":"FavoriteColor",
+                     "value":"Green"
+                  }
+               ]
             }
-          ]
-        },
-        "custom_fields": {
-          "field": [
-            {
-              "name": "Hobbies",
-              "value": "[“Playing”]"
+         },
+         { 
+            "mobile":"44700900011",
+            "email":"rita.john@example.com",
+            "external_id":"XYPZ006",
+            "firstname":"Rita",
+            "lastname":"John",
+            "registered_on":"2018-09-11 11:11:15",
+			"referral_code":"BGH123",
+            "source":"WECHAT",
+            "type":"NON_LOYALTY",
+            "test_control_status":"CONTROL",
+            "ndnc_status":"NDNC",
+            "ndnc_status":"",
+            "extended_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"gender",
+                     "value":"female"
+                  },
+                  { 
+                     "name":"city",
+                     "value":"Bangalore"
+                  },
+                  { 
+                     "name":"dob",
+                     "value":"1998/09/01"
+                  }
+               ]
             },
-            {
-              "name": "Favorite Color",
-              "value": "Green"
+            "subscriptions":{ 
+               "subscription":[ 
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"sms"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"sms"
+                  }
+               ]
+            },
+            "custom_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"Hobbies",
+                     "value":"[“Singing”]>"
+                  },
+                  { 
+                     "name":"FavoriteColor",
+                     "value":"Blue"
+                  }
+               ]
             }
-          ]
-        }
-      },
-      {
-        "mobile": "44700900999",
-        "email": "rita.john@example.com",
-        "external_id": "XYPZ006",
-        "firstname": "Rita",
-        "lastname": "John",
-        "registered_on": "2012-09-11 11:11:15",
-		"extended_fields": {
-          "field": [
-            {
-              "name": "gender",
-              "value": "female"
-            },
-            {
-              "name": "city",
-              "value": "Bangalore"
-            },
-            
-            {
-              "name": "dob",
-              "value": "1998/09/01"
-            }
-          ]
-        },
-		"subscriptions": {
-          "subscription": [
-            {
-              "priority": "TRANS",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "email"
-            },
-            {
-              "priority": "BULK",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "email"
-            },
-            {
-              "priority": "TRANS",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "sms"
-            },
-            {
-              "priority": "BULK",
-              "scope": "all",
-              "is_subscribed": "0",
-              "channel": "sms"
-            }
-          ]
-        },
-        "custom_fields": {
-          "field": [
-            {
-              "name": "Hobbies",
-              "value": "[“Singing”]>"
-            },
-            {
-              "name": "Favorite Color",
-              "value": "Blue"
-            }
-          ]
-        }
-      }
-    ]
-  }
+         }
+      ]
+   }
 }
 ```
 
+
 ```xml
-
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<customer>
-		<mobile>44700900000</mobile>
-		<email>tom.sawyer@example.com</email>
-		<external_id>XYPZ001</external_id>
-		<firstname>Tom</firstname>
-		<lastname>Sawyer</lastname>
-		<registered_till>NorthEast</registered_till>
-		<registered_on>2012-09-11 11:11:11</registered_on>
-		<extended_fields>
-			<field>
-				<name>gender</name>
-				<value>male</value>
-			</field>
-			
-			<field>
-				<name>city</name>
-				<value>Bangalore</value>
-			</field>
-			<field>
-				<name>dob</name>
-				<value>1998/09/01</value>
-			</field>
-		</extended_fields>
-		<custom_fields>
-			<field>
-				<name>Hobbies</name>
-				<value>[“Playing”]</value>
-			</field>
-			
-		</custom_fields>
-	</customer>
-	<customer>
-		<mobile>44700900999</mobile>
-		<email>rita.john@example.com</email>
-		<external_id>XYPZ006</external_id>
-		<firstname>Rita</firstname>
-		<lastname>John</lastname>
-		<associated_with>two.till01</associated_with>
-		<registered_on>2012-09-11 11:11:15</registered_on>
-		<extended_fields>
-			<field>
-				<name>gender</name>
-				<value>female</value>
-			</field>
-			
-			<field>
-				<name>city</name>
-				<value>Bangalore</value>
-			</field>
-			<field>
-				<name>dob</name>
-				<value>1998/12/01</value>
-			</field>
-		</extended_fields>
-		<subscriptions>
-			<subscription>
-				<priority>TRANS</priority>
-				<scope>all</scope>
-				<is_subscribed>0</is_subscribed>
-				<channel>email</channel>
-			</subscription>
-			<subscription>
-				<priority>BULK</priority>
-				<scope>all</scope>
-				<is_subscribed>0</is_subscribed>
-				<channel>email</channel>
-			</subscription>
-			<subscription>
-				<priority>TRANS</priority>
-				<scope>all</scope>
-				<is_subscribed>0</is_subscribed>
-				<channel>sms</channel>
-			</subscription>
-			<subscription>
-				<priority>BULK</priority>
-				<scope>all</scope>
-				<is_subscribed>0</is_subscribed>
-				<channel>sms</channel>
-			</subscription>
-		</subscriptions>
-		<custom_fields>
-			<field>
-				<name>Hobbies</name>
-				<value>[“Singing”]&gt;</value>
-			</field>
-			<field>
-				<name>a</name>
-				<value>[“b”]</value>
-			</field>
-		</custom_fields>
-	</customer>
+   <root>
+      <customer>
+         <element>
+            <associated_with>two.till01</associated_with>
+            <custom_fields>
+               <field>
+                  <element>
+                     <name>Hobbies</name>
+                     <value>[“Playing”]</value>
+                  </element>
+                  <element>
+                     <name>FavoriteColor</name>
+                     <value>Green</value>
+                  </element>
+               </field>
+            </custom_fields>
+            <email>tom@example.com</email>
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>gender</name>
+                     <value>Male</value>
+                  </element>
+                  <element>
+                     <name>city</name>
+                     <value>Bangalore</value>
+                  </element>
+                  <element>
+                     <name>dob</name>
+                     <value>1998/12/01</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <external_id>TOM345</external_id>
+            <firstname>Tom</firstname>
+            <lastname>Cruise</lastname>
+            <mobile>44700900000</mobile>
+            <ndnc_status>INVALID</ndnc_status>
+            <referral_code>SDX123</referral_code>
+            <registered_on>2012-09-11 11:11:11</registered_on>
+            <registered_till>NorthEast</registered_till>
+            <source>INSTORE</source>
+            <subscriptions>
+               <subscription>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+               </subscription>
+            </subscriptions>
+            <test_control_status>TEST</test_control_status>
+            <type>LOYALTY</type>
+            <updated_on />
+         </element>
+         <element>
+            <custom_fields>
+               <field>
+                  <element>
+                     <name>Hobbies</name>
+                     <value>[“Singing”]&gt;</value>
+                  </element>
+                  <element>
+                     <name>FavoriteColor</name>
+                     <value>Blue</value>
+                  </element>
+               </field>
+            </custom_fields>
+            <email>rita.john@example.com</email>
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>gender</name>
+                     <value>female</value>
+                  </element>
+                  <element>
+                     <name>city</name>
+                     <value>Bangalore</value>
+                  </element>
+                  <element>
+                     <name>dob</name>
+                     <value>1998/09/01</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <external_id>XYPZ006</external_id>
+            <firstname>Rita</firstname>
+            <lastname>John</lastname>
+            <mobile>44700900011</mobile>
+            <ndnc_status>
+               <element>NDNC</element>
+               <element />
+            </ndnc_status>
+            <referral_code>BGH123</referral_code>
+            <registered_on>2018-09-11 11:11:15</registered_on>
+            <source>WECHAT</source>
+            <subscriptions>
+               <subscription>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+               </subscription>
+            </subscriptions>
+            <test_control_status>CONTROL</test_control_status>
+            <type>NON_LOYALTY</type>
+         </element>
+      </customer>
+   </root>
 </root>
-
 ```
 
 > Sample Response
@@ -248,195 +344,382 @@ POST https://us.api.capillarytech.com/v1.1/customer/add?format=json
   "response": {
     "status": {
       "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
+      "code": 200,
+      "message": "Success",
+      "total": "2",
+      "success_count": "2"
     },
     "customers": {
       "customer": [
         {
-          "user_id": "123",
+          "user_id": 343445381,
+          "firstname": "Tom",
+          "lastname": "Cruise",
           "mobile": "44700900000",
-          "email": "tom.sawyer@example.com",
-          "external_id": "XYPZ001",
-          "registered_on": "2012-09-11 11:11:11",
-          "item_status": {
-            "success": "true",
-            "code": "1000",
-            "message": "Customer Registration Successful"
-          },
-          "side_effects": {
-            "effect": [
+          "email": "tom@example.com",
+          "external_id": "TOM345",
+          "lifetime_points": 0,
+          "loyalty_points": 0,
+          "current_slab": "bronze",
+          "tier_expiry_date": "2112-09-11 23:59:59",
+          "points_summaries": {
+            "points_summary": [
               {
-                "type": "points",
-                "awarded_points": "19490463",
-                "total_points": "19490463"
-              },
-              {
-                "type": "coupon",
-                "coupon_code": "095790",
-                "description": "Sample description",
-                "coupon_type": "CAMPAIGN/DVS",
-                "id": "42601779"
+                "programId": "1016",
+                "redeemed": "0",
+                "expired": "0",
+                "returned": "0",
+                "adjusted": "0",
+                "lifetimePoints": "0",
+                "loyaltyPoints": "0",
+                "cumulativePurchases": "0",
+                "currentSlab": "bronze",
+                "nextSlab": "silver",
+                "nextSlabSerialNumber": "2",
+                "nextSlabDescription": "silver",
+                "slabSNo": "1",
+                "slabExpiryDate": "2112-09-11 23:59:59",
+                "totalPoints": ""
               }
             ]
           },
-          "firstname": "Tom",
-          "lastname": "Sawyer",
-          "lifetime_points": "50",
-          "lifetime_purchases": "180",
-          "loyalty_points": "50",
-          "current_slab": "SILVER",
-          "updated_on": "2016-09-11 11:11:11"
-        },
-        {
-          "user_id": "44342",
-          "mobile": "44700900999",
-          "email": "rita.john@example.com",
-          "external_id": "XYPZ006",
-          "registered_on": "2016-09-11 11:11:15",
+          "lifetime_purchases": 0,
+          "registered_on": "2012-09-11 11:11:11",
+          "updated_on": "2019-12-09 11:19:23",
+          "type": "LOYALTY",
+          "source": "instore",
+          "test_control_status": "TEST",
+          "custom_fields": {
+            "field": []
+          },
           "extended_fields": {
             "field": [
               {
-                "name": "color",
-                "value": "black"
+                "name": "gender",
+                "value": "Male"
               },
               {
-                "name": "ItemWeight",
-                "value": "3"
+                "name": "city",
+                "value": "Bangalore"
               },
               {
-                "name": "Status",
-                "value": "pending"
-              },
-              { "name": "ser_tax" }
-             
+                "name": "dob",
+                "value": "1998-12-01"
+              }
             ]
+          },
+          "subscriptions": {
+            "subscription": []
+          },
+          "side_effects": {
+            "effect": []
           },
           "item_status": {
             "success": "true",
             "code": "1000",
-            "message": "Customer Registration Successful"
-          },
-          "side_effects": {
-            
-          },
+            "message": "Customer registration successful",
+            "warnings": {
+              "warning": [
+                "1017"
+              ]
+            }
+          }
+        },
+        {
+          "user_id": 343445382,
           "firstname": "Rita",
           "lastname": "John",
-          "lifetime_points": "50",
-          "lifetime_purchases": "345",
-          "loyalty_points": "50",
-          "current_slab": "SILVER",
-          "updated_on": "2016-09-11 11:11:15"
+          "mobile": "44700900011",
+          "email": "rita.john@example.com",
+          "external_id": "XYPZ006",
+          "lifetime_points": 0,
+          "loyalty_points": 0,
+          "current_slab": "bronze",
+          "tier_expiry_date": "2112-09-11 23:59:59",
+          "points_summaries": {
+            "points_summary": [
+              {
+                "programId": "1016",
+                "redeemed": "0",
+                "expired": "0",
+                "returned": "0",
+                "adjusted": "0",
+                "lifetimePoints": "0",
+                "loyaltyPoints": "0",
+                "cumulativePurchases": "0",
+                "currentSlab": "bronze",
+                "nextSlab": "silver",
+                "nextSlabSerialNumber": "2",
+                "nextSlabDescription": "silver",
+                "slabSNo": "1",
+                "slabExpiryDate": "2112-09-11 23:59:59",
+                "totalPoints": ""
+              }
+            ]
+          },
+          "lifetime_purchases": 0,
+          "registered_on": "2012-09-11 11:11:15",
+          "updated_on": "2019-12-09 11:19:23",
+          "type": "LOYALTY",
+          "source": "instore",
+          "fraud_status": "NONE",
+          "custom_fields": {
+            "field": []
+          },
+          "extended_fields": {
+            "field": [
+              {
+                "name": "gender",
+                "value": "Female"
+              },
+              {
+                "name": "city",
+                "value": "Bangalore"
+              },
+              {
+                "name": "dob",
+                "value": "1998-09-01"
+              }
+            ]
+          },
+          "subscriptions": {
+            "subscription": [
+              {
+                "channel": "SMS",
+                "priority": "TRANS",
+                "scope": "ALL",
+                "status": "0"
+              },
+              {
+                "channel": "EMAIL",
+                "priority": "BULK",
+                "scope": "ALL",
+                "status": "0"
+              },
+              {
+                "channel": "SMS",
+                "priority": "BULK",
+                "scope": "ALL",
+                "status": "0"
+              },
+              {
+                "channel": "EMAIL",
+                "priority": "TRANS",
+                "scope": "ALL",
+                "status": "0"
+              }
+            ]
+          },
+          "side_effects": {
+            "effect": []
+          },
+          "item_status": {
+            "success": "true",
+            "code": "1000",
+            "message": "Customer registration successful",
+            "warnings": {
+              "warning": [
+                "1017"
+              ]
+            }
+          }
         }
       ]
     }
   }
 }
-
 ```
 
 ```xml
-<response>
-	<status>
-		<success>true</success>
-		<code>200</code>
-		<message>SUCCESS</message>
-	</status>
-	<customers>
-		<customer>
-			<user_id>123</user_id>
-			<mobile>44700900000</mobile>
-			<email>tom.sawyer@example.com</email>
-			<external_id>XYPZ001</external_id>
-			<registered_on>2012-09-11 11:11:11</registered_on>
-			<extended_fields>
-				<field>
-					<name>gender</name>
-					<value>male</value>
-				</field>
-				<field>
-					<name>city</name>
-					<value>Bangalore</value>
-				</field>
-				<field>
-					<name>dob</name>
-					<value>1998/09/01</value>
-				</field>
-				
-			</extended_fields>
-			<item_status>
-				<success>true</success>
-				<code>1000</code>
-				<message>Customer Registration Successful</message>
-			</item_status>
-			<side_effects>
-				<effect>
-					<type>points</type>
-					<awarded_points>19490463</awarded_points>
-					<total_points>19490463</total_points>
-				</effect>
-				<effect>
-					<type>coupon</type>
-					<coupon_code>095790</coupon_code>
-					<description>Sample description</description>
-					<coupon_type>CAMPAIGN/DVS</coupon_type>
-					<discount_code/>
-					<discount_value/>
-					<valid_till/>
-					<id>42601779</id>
-				</effect>
-			</side_effects>
-			<!-- new fields start -->
-			<firstname>Tom</firstname>
-			<lastname>Sawyer</lastname>
-			<lifetime_points>50</lifetime_points>
-			<lifetime_purchases>180</lifetime_purchases>
-			<loyalty_points>50</loyalty_points>
-			<current_slab>SILVER</current_slab>
-			<updated_on>2016-09-11 11:11:11</updated_on>
-			<!-- new fields end : these fields will come after implementing register by email functionality -->
-		</customer>
-		<customer>
-			<user_id>44342</user_id>
-			<mobile>44700900999</mobile>
-			<email>rita.john@example.com</email>
-			<external_id>XYPZ006</external_id>
-			<registered_on>2016-09-11 11:11:15</registered_on>
-			<extended_fields>
-				<field>
-					<name>gender</name>
-					<value>Female</value>
-				</field>
-				<field>
-					<name>city</name>
-					<value>Bangalore</value>
-				</field>
-				<field>
-					<name>dob</name>
-					<value>1998/12/01</value>
-				</field>
-				
-			</extended_fields>
-			<item_status>
-				<success>true</success>
-				<code>1000</code>
-				<message>Customer Registration Successful</message>
-			</item_status>
-			<side_effects>
-				<effect />
-			</side_effects>
-			<!-- new fields start -->
-			<firstname>Rita</firstname>
-			<lastname>John</lastname>
-			<lifetime_points>50</lifetime_points>
-			<lifetime_purchases>345</lifetime_purchases>
-			<loyalty_points>50</loyalty_points>
-			<current_slab>SILVER</current_slab>
-			<updated_on>2016-09-11 11:11:15</updated_on>
-			<!-- new fields end : these fields will come after implementing register by email functionality -->
-		</customer>
-	</customers>
-</response>
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <customers>
+         <customer>
+            <element>
+               <current_slab>bronze</current_slab>
+               <custom_fields>
+                  <field />
+               </custom_fields>
+               <email>tom@example.com</email>
+               <extended_fields>
+                  <field>
+                     <element>
+                        <name>gender</name>
+                        <value>Male</value>
+                     </element>
+                     <element>
+                        <name>city</name>
+                        <value>Bangalore</value>
+                     </element>
+                     <element>
+                        <name>dob</name>
+                        <value>1998-12-01</value>
+                     </element>
+                  </field>
+               </extended_fields>
+               <external_id>TOM345</external_id>
+               <firstname>Tom</firstname>
+               <item_status>
+                  <code>1000</code>
+                  <message>Customer registration successful</message>
+                  <success>true</success>
+                  <warnings>
+                     <warning>
+                        <element>1017</element>
+                     </warning>
+                  </warnings>
+               </item_status>
+               <lastname>Cruise</lastname>
+               <lifetime_points>0</lifetime_points>
+               <lifetime_purchases>0</lifetime_purchases>
+               <loyalty_points>0</loyalty_points>
+               <mobile>44700900000</mobile>
+               <points_summaries>
+                  <points_summary>
+                     <element>
+                        <adjusted>0</adjusted>
+                        <cumulativePurchases>0</cumulativePurchases>
+                        <currentSlab>bronze</currentSlab>
+                        <expired>0</expired>
+                        <lifetimePoints>0</lifetimePoints>
+                        <loyaltyPoints>0</loyaltyPoints>
+                        <nextSlab>silver</nextSlab>
+                        <nextSlabDescription>silver</nextSlabDescription>
+                        <nextSlabSerialNumber>2</nextSlabSerialNumber>
+                        <programId>1016</programId>
+                        <redeemed>0</redeemed>
+                        <returned>0</returned>
+                        <slabExpiryDate>2112-09-11 23:59:59</slabExpiryDate>
+                        <slabSNo>1</slabSNo>
+                        <totalPoints />
+                     </element>
+                  </points_summary>
+               </points_summaries>
+               <registered_on>2012-09-11 11:11:11</registered_on>
+               <side_effects>
+                  <effect />
+               </side_effects>
+               <source>instore</source>
+               <subscriptions>
+                  <subscription />
+               </subscriptions>
+               <test_control_status>TEST</test_control_status>
+               <tier_expiry_date>2112-09-11 23:59:59</tier_expiry_date>
+               <type>LOYALTY</type>
+               <updated_on>2019-12-09 11:19:23</updated_on>
+               <user_id>343445381</user_id>
+            </element>
+            <element>
+               <current_slab>bronze</current_slab>
+               <custom_fields>
+                  <field />
+               </custom_fields>
+               <email>rita.john@example.com</email>
+               <extended_fields>
+                  <field>
+                     <element>
+                        <name>gender</name>
+                        <value>Female</value>
+                     </element>
+                     <element>
+                        <name>city</name>
+                        <value>Bangalore</value>
+                     </element>
+                     <element>
+                        <name>dob</name>
+                        <value>1998-09-01</value>
+                     </element>
+                  </field>
+               </extended_fields>
+               <external_id>XYPZ006</external_id>
+               <firstname>Rita</firstname>
+               <fraud_status>NONE</fraud_status>
+               <item_status>
+                  <code>1000</code>
+                  <message>Customer registration successful</message>
+                  <success>true</success>
+                  <warnings>
+                     <warning>
+                        <element>1017</element>
+                     </warning>
+                  </warnings>
+               </item_status>
+               <lastname>John</lastname>
+               <lifetime_points>0</lifetime_points>
+               <lifetime_purchases>0</lifetime_purchases>
+               <loyalty_points>0</loyalty_points>
+               <mobile>44700900011</mobile>
+               <points_summaries>
+                  <points_summary>
+                     <element>
+                        <adjusted>0</adjusted>
+                        <cumulativePurchases>0</cumulativePurchases>
+                        <currentSlab>bronze</currentSlab>
+                        <expired>0</expired>
+                        <lifetimePoints>0</lifetimePoints>
+                        <loyaltyPoints>0</loyaltyPoints>
+                        <nextSlab>silver</nextSlab>
+                        <nextSlabDescription>silver</nextSlabDescription>
+                        <nextSlabSerialNumber>2</nextSlabSerialNumber>
+                        <programId>1016</programId>
+                        <redeemed>0</redeemed>
+                        <returned>0</returned>
+                        <slabExpiryDate>2112-09-11 23:59:59</slabExpiryDate>
+                        <slabSNo>1</slabSNo>
+                        <totalPoints />
+                     </element>
+                  </points_summary>
+               </points_summaries>
+               <registered_on>2012-09-11 11:11:15</registered_on>
+               <side_effects>
+                  <effect />
+               </side_effects>
+               <source>instore</source>
+               <subscriptions>
+                  <subscription>
+                     <element>
+                        <channel>SMS</channel>
+                        <priority>TRANS</priority>
+                        <scope>ALL</scope>
+                        <status>0</status>
+                     </element>
+                     <element>
+                        <channel>EMAIL</channel>
+                        <priority>BULK</priority>
+                        <scope>ALL</scope>
+                        <status>0</status>
+                     </element>
+                     <element>
+                        <channel>SMS</channel>
+                        <priority>BULK</priority>
+                        <scope>ALL</scope>
+                        <status>0</status>
+                     </element>
+                     <element>
+                        <channel>EMAIL</channel>
+                        <priority>TRANS</priority>
+                        <scope>ALL</scope>
+                        <status>0</status>
+                     </element>
+                  </subscription>
+               </subscriptions>
+               <tier_expiry_date>2112-09-11 23:59:59</tier_expiry_date>
+               <type>LOYALTY</type>
+               <updated_on>2019-12-09 11:19:23</updated_on>
+               <user_id>343445382</user_id>
+            </element>
+         </customer>
+      </customers>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+         <success_count>2</success_count>
+         <total>2</total>
+      </status>
+   </response>
+</root>
 ```
 
 Registers customers in the org’s loyalty program with the primary identifier (mobile number/email id/external id). 
@@ -482,11 +765,12 @@ lastname | string | Last name of the customer.
 type | enum | Type of registration. Values: LOYALTY (for loyalty customer), NON_LOYALTY (registered one or more identifiers but not enrolled in the loyalty program), NOT_INTERESTED (not interested to register identifiers or enrol in the loyalty program).
 registered_on | date-time | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
 registered_till | string | The TILL at which customer is registered.
+source | enum | Source from which the customer is  registered. Value: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
 custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
 extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
 subscriptions | obj | Provide the subscription details of the customer.
 priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
-is_subscribed | enum | Value 0, 1
+is_subscribed | enum | Specify `1` for subscribed, `0` for unsubscribed.
 channel | enum | Current communication channel. Value: `sms`, `email`.
 
 
@@ -499,140 +783,280 @@ channel | enum | Current communication channel. Value: `sms`, `email`.
 
 
 ```html
-POST https://api.capillary.co.in/v1.1/customer/update?format=json
+https://api.capillary.co.in/v1.1/customer/update?format=json
 ```
 
 > Sample POST Request
 
 ```json
-
-{
-  "root":{
-    "customer":[
-      {
-        "mobile":"44700900000",
-        "email":"tom.sawyer@example.com",
-        "external_id":"ts1234",
-        "firstname":"Tom",
-        "lastname":"Sawyer",
-		"registered_till":"NorthEast",
-		"associated_with":"two.till01",
-        "ndnc_status":"NDNC",
-        "extended_fields": {
-          "field":[
-            {
-              "name":"gender",
-              "value":"male"
+{ 
+   "root":{ 
+      "customer":[ 
+         { 
+            "mobile":"44700900011",
+            "email":"",
+            "external_id":"",
+            "firstname":"Rita",
+            "lastname":"James",
+            "updated_on":"2019-09-11 10:12:00",
+            "registered_till":"",
+            "associated_with":"",
+            "ndnc_status":"",
+            "type":"LOYALTY",
+            "test_control_status":"CONTROL",
+            "fraud_status":{ 
+               "status":""
             },
-            
-            {
-              "name":"Nationality",
-              "value":"Indian"
+            "subscriptions":{ 
+               "subscription":[ 
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"1",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"0",
+                     "channel":"email"
+                  },
+                  { 
+                     "priority":"TRANS",
+                     "scope":"all",
+                     "is_subscribed":"1",
+                     "channel":"sms"
+                  },
+                  { 
+                     "priority":"BULK",
+                     "scope":"all",
+                     "is_subscribed":"1",
+                     "channel":"sms"
+                  }
+               ]
+            },
+            "extended_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"gender",
+                     "value":"male"
+                  },
+                  { 
+                     "name":"Nationality",
+                     "value":"Indian"
+                  }
+               ]
+            },
+            "custom_fields":{ 
+               "field":[ 
+                  { 
+                     "name":"age",
+                     "value":"[“46”]"
+                  }
+               ]
             }
-            
-           
-          ]
-        },
-        "custom_fields":{
-          "field":[
-            {
-              "name":"age",
-              "value":"[“46”]"
-            }
-          ]
-        }
-      }
-    ]
-  }
+         }
+      ]
+   }
 }
 ```
 
 ```xml
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-   <customer>
-      <mobile>44700900000</mobile>
-      <email>tom.sawyer@example.com</email>
-      <external_id>ts1234</external_id>
-      <firstname>Tom</firstname>
-      <lastname>Sawyer</lastname>
-      <associated_with>two.till01</associated_with>
-	  <ndnc_status>NDNC</ndnc_status> <! Possible Values: NDNC, INVALID, NONE >
-      <extended_fields>
-         <field>
-            <name>gender</name>
-            <value>Male</value>
-         </field>
-         <field>
-            <name>nationality</name>
-            <value>Indian</value>
-         </field>
-        
-      </extended_fields>
-      <custom_fields>
-         <field>
-            <name>age</name>
-            <value>[“46”]</value>
-         </field>
-      </custom_fields>
-   </customer>
+   <root>
+      <customer>
+         <element>
+            <associated_with />
+            <custom_fields>
+               <field>
+                  <element>
+                     <name>age</name>
+                     <value>[“46”]</value>
+                  </element>
+               </field>
+            </custom_fields>
+            <email />
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>gender</name>
+                     <value>male</value>
+                  </element>
+                  <element>
+                     <name>Nationality</name>
+                     <value>Indian</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <external_id />
+            <firstname>Rita</firstname>
+            <fraud_status>
+               <status />
+            </fraud_status>
+            <lastname>James</lastname>
+            <mobile>917713643123</mobile>
+            <ndnc_status />
+            <registered_till />
+            <subscriptions>
+               <subscription>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>1</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>email</channel>
+                     <is_subscribed>0</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>1</is_subscribed>
+                     <priority>TRANS</priority>
+                     <scope>all</scope>
+                  </element>
+                  <element>
+                     <channel>sms</channel>
+                     <is_subscribed>1</is_subscribed>
+                     <priority>BULK</priority>
+                     <scope>all</scope>
+                  </element>
+               </subscription>
+            </subscriptions>
+            <test_control_status>CONTROL</test_control_status>
+            <type>LOYALTY</type>
+            <updated_on>2019-09-11 10:12:00</updated_on>
+         </element>
+      </customer>
+   </root>
 </root>
-
 ```
 
 > Sample Response
 
 ```json
-{
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "customers": {
-      "customer": {
-        "user_id": "776538",
-        "mobile": "44700900000",
-        "email": "tom.sawyer@example.com",
-        "external_id": "ts1234",
-        "firstname": "Tom",
-        "lastname": "Sawyer",
-		"associated_with": "two.till01",
-        "extended_fields": {
-        "field": [
-          {
-            "name": "gender",
-            "value": "male"
-          },
-          {
-            "name": "nationality",
-            "value": "Indian"
-          }
-          
-        ]
+{ 
+   "response":{ 
+      "status":{ 
+         "success":"true",
+         "code":200,
+         "message":"Success",
+         "total":"1",
+         "success_count":"1"
       },
-        "custom_fields": {
-          "field": {
-            "name": "hobbies",
-            "value": "[“Playing”]"
-          }
-        },
-        "item_status": {
-          "success": "true",
-          "code": "1000",
-          "message": "User Successfully Updated."
-        },
-        "lifetime_points": "245",
-        "lifetime_purchases": "24500",
-        "loyalty_points": "60",
-        "current_slab": "SILVER",
-        "registered_on": "2012-08-16 15:13:16",
-        "updated_on": "2012-09-22 10:48:00"
+      "customers":{ 
+         "customer":[ 
+            { 
+               "user_id":343445382,
+               "firstname":"Rita",
+               "lastname":"James",
+               "mobile":"917713643123",
+               "email":"rita.john@example.com",
+               "external_id":"XYPZ006",
+               "lifetime_points":0,
+               "loyalty_points":0,
+               "current_slab":"bronze",
+               "tier_expiry_date":"2112-09-11 23:59:59",
+               "points_summaries":{ 
+                  "points_summary":[ 
+                     { 
+                        "programId":"1016",
+                        "redeemed":"100",
+                        "expired":"20",
+                        "returned":"0",
+                        "adjusted":"0",
+                        "lifetimePoints":"2400",
+                        "loyaltyPoints":"2280",
+                        "cumulativePurchases":"23400",
+                        "currentSlab":"bronze",
+                        "nextSlab":"silver",
+                        "nextSlabSerialNumber":"2",
+                        "nextSlabDescription":"silver",
+                        "slabSNo":"1",
+                        "slabExpiryDate":"2119-09-11 23:59:59",
+                        "totalPoints":""
+                     }
+                  ]
+               },
+               "lifetime_purchases":0,
+               "registered_on":"2012-09-11 11:11:15",
+               "updated_on":"2019-12-09 14:59:49",
+               "type":"LOYALTY",
+               "source":"instore",
+               "fraud_status":"NONE",
+               "test_control_status":"CONTROL",
+               "custom_fields":{ 
+                  "field":[ 
+
+                  ]
+               },
+               "extended_fields":{ 
+                  "field":[ 
+                     { 
+                        "name":"gender",
+                        "value":"Male"
+                     },
+                     { 
+                        "name":"city",
+                        "value":"Bangalore"
+                     },
+                     { 
+                        "name":"dob",
+                        "value":"1998-09-01"
+                     }
+                  ]
+               },
+               "subscriptions":{ 
+                  "subscription":[ 
+                     { 
+                        "channel":"SMS",
+                        "priority":"BULK",
+                        "scope":"ALL",
+                        "status":"1"
+                     },
+                     { 
+                        "channel":"SMS",
+                        "priority":"TRANS",
+                        "scope":"ALL",
+                        "status":"1"
+                     },
+                     { 
+                        "channel":"EMAIL",
+                        "priority":"BULK",
+                        "scope":"ALL",
+                        "status":"0"
+                     },
+                     { 
+                        "channel":"EMAIL",
+                        "priority":"TRANS",
+                        "scope":"ALL",
+                        "status":"1"
+                     }
+                  ]
+               },
+               "side_effects":{ 
+                  "effect":[ 
+
+                  ]
+               },
+               "item_status":{ 
+                  "success":"true",
+                  "code":"1000",
+                  "message":"Customer successfully updated",
+                  "warnings":{ 
+                     "warning":[ 
+                        "91017",
+                        "1017"
+                     ]
+                  }
+               }
+            }
+         ]
       }
-    }
-  }
+   }
 }
 ```
 
@@ -642,49 +1066,115 @@ POST https://api.capillary.co.in/v1.1/customer/update?format=json
    <response>
       <customers>
          <customer>
-            <current_slab>SILVER</current_slab>
-            <custom_fields>
-               <field>
-                  <name>hobbies</name>
-                  <value>[“Playing”]</value>
-               </field>
-            </custom_fields>
-            <email>tom.sawyer@example.com</email>
-            <extended_fields>
-               <field>
-                  <element>
-                     <name>gender</name>
-                     <value>Male</value>
-                  </element>
-                  <element>
-                     <name>Nationality</name>
-                     <value>Indian</value>
-                  </element>
-                  
-               </field>
-            </extended_fields>
-            <external_id>ts1234</external_id>
-            <firstname>Tom</firstname>
-            <item_status>
-               <code>1000</code>
-               <message>User Successfully Updated.</message>
-               <success>true</success>
-            </item_status>
-            <lastname>Sawyer</lastname>
-			 <associated_with>two.till01</associated_with>
-            <lifetime_points>245</lifetime_points>
-            <lifetime_purchases>24500</lifetime_purchases>
-            <loyalty_points>60</loyalty_points>
-            <mobile>44700900000</mobile>
-            <registered_on>2012-08-16 15:13:16</registered_on>
-            <updated_on>2012-09-22 10:48:00</updated_on>
-            <user_id>776538</user_id>
+            <element>
+               <current_slab>bronze</current_slab>
+               <custom_fields>
+                  <field />
+               </custom_fields>
+               <email>rita.john@example.com</email>
+               <extended_fields>
+                  <field>
+                     <element>
+                        <name>gender</name>
+                        <value>Male</value>
+                     </element>
+                     <element>
+                        <name>city</name>
+                        <value>Bangalore</value>
+                     </element>
+                     <element>
+                        <name>dob</name>
+                        <value>1998-09-01</value>
+                     </element>
+                  </field>
+               </extended_fields>
+               <external_id>XYPZ006</external_id>
+               <firstname>Rita</firstname>
+               <fraud_status>NONE</fraud_status>
+               <item_status>
+                  <code>1000</code>
+                  <message>Customer successfully updated</message>
+                  <success>true</success>
+                  <warnings>
+                     <warning>
+                        <element>91017</element>
+                        <element>1017</element>
+                     </warning>
+                  </warnings>
+               </item_status>
+               <lastname>James</lastname>
+               <lifetime_points>0</lifetime_points>
+               <lifetime_purchases>0</lifetime_purchases>
+               <loyalty_points>0</loyalty_points>
+               <mobile>917713643123</mobile>
+               <points_summaries>
+                  <points_summary>
+                     <element>
+                        <adjusted>0</adjusted>
+                        <cumulativePurchases>23400</cumulativePurchases>
+                        <currentSlab>bronze</currentSlab>
+                        <expired>20</expired>
+                        <lifetimePoints>2400</lifetimePoints>
+                        <loyaltyPoints>2280</loyaltyPoints>
+                        <nextSlab>silver</nextSlab>
+                        <nextSlabDescription>silver</nextSlabDescription>
+                        <nextSlabSerialNumber>2</nextSlabSerialNumber>
+                        <programId>1016</programId>
+                        <redeemed>100</redeemed>
+                        <returned>0</returned>
+                        <slabExpiryDate>2112-09-11 23:59:59</slabExpiryDate>
+                        <slabSNo>1</slabSNo>
+                        <totalPoints />
+                     </element>
+                  </points_summary>
+               </points_summaries>
+               <registered_on>2012-09-11 11:11:15</registered_on>
+               <side_effects>
+                  <effect />
+               </side_effects>
+               <source>instore</source>
+               <subscriptions>
+                  <subscription>
+                     <element>
+                        <channel>SMS</channel>
+                        <priority>BULK</priority>
+                        <scope>ALL</scope>
+                        <status>1</status>
+                     </element>
+                     <element>
+                        <channel>SMS</channel>
+                        <priority>TRANS</priority>
+                        <scope>ALL</scope>
+                        <status>1</status>
+                     </element>
+                     <element>
+                        <channel>EMAIL</channel>
+                        <priority>BULK</priority>
+                        <scope>ALL</scope>
+                        <status>0</status>
+                     </element>
+                     <element>
+                        <channel>EMAIL</channel>
+                        <priority>TRANS</priority>
+                        <scope>ALL</scope>
+                        <status>1</status>
+                     </element>
+                  </subscription>
+               </subscriptions>
+               <test_control_status>CONTROL</test_control_status>
+               <tier_expiry_date>2112-09-11 23:59:59</tier_expiry_date>
+               <type>LOYALTY</type>
+               <updated_on>2019-12-09 14:59:49</updated_on>
+               <user_id>343445382</user_id>
+            </element>
          </customer>
       </customers>
       <status>
          <code>200</code>
-         <message>SUCCESS</message>
+         <message>Success</message>
          <success>true</success>
+         <success_count>1</success_count>
+         <total>1</total>
       </status>
    </response>
 </root>
@@ -692,7 +1182,7 @@ POST https://api.capillary.co.in/v1.1/customer/update?format=json
 
 Lets you update the details of an existing customer other than primary or secondary identifiers. If any of the identifiers you pass already exists for a different account, then the customer details will be merged automatically.
 
-Behavior of the API:
+**API Behavior**:
 
 * Updates existing customer details other than primary/secondary identifiers including custom fields and extended fields. 
 * Updates secondary identifiers only with null values will be updated. Hence, <i>existing identifiers cannot be updated with this API</i>.
@@ -710,7 +1200,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| customer/update
+URI	| `/update`
 Authentication | Yes
 HTTP Method | POST
 Batch Support | No
@@ -724,18 +1214,20 @@ Parameter | Datatype | Description
 Mobile/email/external_id/id* | string | Pass any one of the following identifiers of the customer whose details you want to update.
 firstname | string | First name of the customer.
 lastname | string | Last name of the customer.
-registered_on | date-time | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
+registered_on | date-time | Date on which the customer is registered. Format: `YYYY-MM-DD HH:MM:SS`, <br>Example: 2016-09-11 11:11:11 
 registered_till | string | The TILL at which customer is registered.
 associated_with | string | Till code that you want to associate with the customer.
-ndnc_status | enum | National Do not Call status of the customer.
+ndnc_status | enum | National Do not call or disturb status of the customer. Value: `NDNC`,`INVALID`,`DND` (Do not disturb), `UNKNOWN`.
+type | enum | Pass `LOYALTY` to convert a non_loyalty customer to loyalty. You cannot change a loyalty customer non-loyalty (NON_LOYALTY).
+test_control_status | enum | Pass `TEST` to put the customer in Test group, `CONTROL` for control group, `INVALID` if not applicable.
 custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
 extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
 subscriptions | obj | Provide the subscription details of the customer.
 priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
 channel | enum | Current communication channel. Value: `sms`, `email`.
+fraud_status | obj | Update the fraud status of the customer in `status`. Values: `CONFIRMED`, `NONE`.  
 
-
-<aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
+<aside class="notice">Parameter marked with * is mandatory.</aside>
 
 
 
@@ -840,7 +1332,7 @@ Batch Support | No
 ### Request URL
 `https://{host}/v1.1/customer/update_identity?format={xml/json}`
 
-### Request Parameters
+### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
@@ -1087,7 +1579,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| `/search?q={param}:{Query}:{value}&format={xml/json}
+URI	| `/search?q={param}:{Query}:{value}&format={xml/json}`
 Authentication | Yes
 HTTP Method | GET
 Batch Support | Yes
@@ -1138,8 +1630,10 @@ The following is a formal definition of the Query Grammar
 
 
 ## Get Customer Details
+
+> Sample Request URL
+
 ```html
-# Sample Request URL
 https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
 ```
 
@@ -1323,17 +1817,17 @@ Retrieve details of a specific loyalty customer such as loyalty information, sub
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/get`
+URI | `/get?{identifier_type}={value}&{query_params}`
 Authentication |  Yes
 HTTP Methods | GET
 Batch Support | Yes
 
 
 ### Request URL
-`https://api.capillary.co.in/v1.1/customer/get?{identifier_type}={identifier_value}&mlp=true&format={xml/json}`
+`https://{host}/v1.1/customer/get?{identifier_type}={identifier_value}&mlp=true&format={xml/json}`
 
 
-### Additional Header
+### Additional Header 
 
 Header | Description
 ------ | -----------
@@ -1345,15 +1839,16 @@ language | Specify the ISO language code to get customer level extended field de
 
 Parameter | Datatype | Description
 --------- | -------- | ----------- 
-Identifier* | string | Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
+mobile/email/external_id/id* | string | Pass any one of the identifiers of the customer along with the identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
 coupon_limit | int | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves five recent coupon interactions.
 coupon_offset | int | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons).
 coupon_order_by | date-time | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.
+coupon_sort_order | enum | asc, desc. Orders coupons in ascending or descending order of `coupon_order_by` parameter
 user_id=true | - | Returns the unique id of the customer (generated at our end when the customer is registered).
 next_slab=true | - | Returns the details of next tier of the  loyalty customer.
 slab_history=true | - | Returns the details of loyalty tier changes of the customer.
-registered_store | string | Returns the store at which the customer is registered. This is returned by default.
-registered_till | string | Returns the store-TILL at which the customer is registered. This is returned by default. 
+registered_store=true | - | Returns the store at which the customer is registered. This is returned by default.
+registered_till=true | - | Returns the store-TILL at which the customer is registered. This is returned by default. 
 fraud_details=true | - | Returns the fraud details of a customer. This field is returned by default.
 ndsc_status=true | - | Returns the status of the customer's registered mobile number on NDSC/DND.
 optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
@@ -1361,9 +1856,15 @@ expiry_schedule=true | - | Returns the details of points expiry summary.
 expired_points=true | - | Returns the details of expired points of the customer.
 points_summary=true | - | Returns the history of points issued and redeemed.
 promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
-membership_retention_criteria=true | - | Returns the criteria set for membership retention (for membership based loyalty program).
+membership_retention_criteria=true | - | Returns the criteria set for membership or tier retention (usually for membership based loyalty program).
+tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.
 mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
 user_group=true | - | Retrieves the details of user group associated to the user (if available).
+customer_image=true | - | Retrieves the customer's profile image.
+transactions=true | - | Retrieves transaction details of the customer.
+subscriptions=true | - | Retrieves subscription details of the customer.
+segments=true | - | Retrieves segment details of the customers if applicable. Segments are logical grouping of customers based on one or more parameters.
+member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user 
 
 <aside class="notice">Parameter marked with * is mandatory. </aside>
 
@@ -1499,13 +2000,13 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/customer/transactions?format={xml/json}&<input_params>`
+`https://{host}/v1.1/customer/transactions?format={xml/json}&{input_params}`
 
 For MLP
 
-`https://{host}/v1.1/customer/transactions?<customer identifier>=<value>&mlp=true`
+`https://{host}/v1.1/customer/transactions?{customer identifier}={value}&mlp=true`
 
-### Request Parameters
+### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 Customer Identifier* | string | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
@@ -1666,12 +2167,12 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/customer/redemptions?{query_params}`
+`https://{host}/v1.1/customer/redemptions?{identifier}={value}&{query_params}`
 
-### Request Parameters
+### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-Customer Identifier* | string | Provide the primary identifier of the customer whose redemption details needs to be fetched - mobile no./email id/external id. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+Identifier* | enum | Provide the identifier you want to use to identify customer. Value: `mobile`, `email`, `external_id`, `id`. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
 type | enum | Filter the results either by `points` redemption or `coupons` redemption.
 start_date | date | Get redemptions done on or after a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
 end_date | date | Get redemptions made before a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
@@ -1824,13 +2325,14 @@ Batch Support | No
 ### Request URL
 `https://{host}/v1.1/customer/notes?format=xml/json`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
 Customer identifier* | string | Pass any of the unique identifiers of the customer for whom you want to add notes (mobile no/email id/external id/user_id)
 date | date | Date that you associate to the notes. By default, current date will be considered.
-description* | Details or message of the note in a plain text format
+description* | string | Details or message of the note in a plain text format.
 
+<aside class="note">Parameters marked with * are mandatory.</aside>
 
 
 ## Update Customer Notes
@@ -1968,22 +2470,22 @@ This API lets you update existing customer notes.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `customer/notes`
+URI | `/notes`
 Authentication | Yes
 HTTP Method | POST
 Batch Support | No
 
 ### Request URL
-`https://{host}/v1.1/customer/notes?format=xml/json`
+`https://{host}/v1.1/customer/notes?format={xml/json}`
 
-### Request Attributes
-Parameter | Description
---------- | -----------
-Customer identifier* | Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id/user_id).
-description* | New notes that you want to update with (plain text).
-id* | Unique id of the customer note that you want to update.
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile/email/external_id/user_id** | enum | Unique identifier of the customer for which you want to update customer notes (mobile no/email id/external id/user_id).
+description* | string | New notes that you want to update with (plain text).
+id* | int | Unique id of the customer note that you want to update.
 
-
+<aside class="notice">Parameters marked with *, and any one among the parameters marked with * are mandatory. </aside> 
 
 
 ## Retrieve Customer Notes 
@@ -2098,7 +2600,7 @@ Batch Support | No
 ### Request URL
 `https://{host}/v1.1/customer/notes?{identifier}={value}`
 
-### Request Parameters
+### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Identifier you want to use to identify the customer. Value: `mobile`, `email`, `external_id`, `id`.
@@ -3724,7 +4226,7 @@ Batch Support | Yes
 
 ### Request Query Parameters
 Parameter | Datatype | Description
---------- | -----------
+--------- | -------- | -----------
 Customer Identifier* | enum | Pass any of the identifiers of the customer to retrieve interactions. Value: `mobile`, `email`, `external_id`, `id`.
 value* | string | Pass the respective identifier value.
 network | enum | Filter results by communication network. Values: `facebook`, `twitter`, `foursquare`, `capillary`.
@@ -3732,6 +4234,7 @@ type | enum | Filter results by interaction type. Values: `email` (for transacti
 start_date | date | Specify the duration for which you want to see the customer interactions in `start_date` and `end_date`.
 end_date | date  | Specify the duration for which you want to see the customer interactions in `start_date` and `end_date`.
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 ## Update Subscription Details
 

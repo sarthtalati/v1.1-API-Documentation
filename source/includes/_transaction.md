@@ -44,447 +44,432 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 ```json
 {
-   "root":{
-      "transaction":[
-         {
-            "bill_client_id":"",
-            "type":"regular",
-            "number":"Trans99",
-            "amount":"1000",
-			"currency_code" : "INR",
-            "notes":"2 line items",
-            "billing_time":"2017-04-01",
-            "gross_amount":"1000",
-            "discount":"10",
-            "customer":{
-               "mobile":"919999000000",
-               "email":"",
-               "external_id":"",
-               "firstname":"Tom",
-               "lastname":"Sawyer"
+  "root": {
+    "transaction": [
+      {
+        "bill_client_id": "",
+        "type": "regular",
+        "number": "BILL99",
+        "amount": "5000",
+        "currency_code": "INR",
+        "notes": "2 line items",
+        "billing_time": "2018-04-01",
+        "gross_amount": "1000",
+        "delivery_status": "DELIVERED",
+        "shipping_source_till_code": "",
+        "source": "ECOMM",
+        "outlier_status": "NORMAL",
+        "credit_notes": "",
+        "discount": "10",
+        "customer": {
+          "mobile": "919999000000",
+          "email": "",
+          "external_id": "",
+          "firstname": "Tom",
+          "lastname": "Sawyer"
+        },
+        "extended_fields": {
+          "field": [
+            {
+              "name": "CentralGST",
+              "value": "8.5"
             },
-            "extended_fields":{
-               "field":[
-                  {
-                     "name":"CentralGST",
-                     "value":"8.5"
-                  },
-                  {
-                     "name":"cashier_id",
-                     "value":"12345678"
-                  }
-               ]
-            },
-            "payment_details":{
-               "payment":[
-                  {
-                     "mode":"CASH",
-                     "value":"100"
-                  },
-                  {
-                     "mode":[
-                        "CREDIT",
-                        "CHECKAPI"
-                     ],
-                     "value":[
-                        "4000",
-                        "500"
-                     ],
-                     "attributes":{
-                        "attribute":[
-                           {
-                              "name":"BankNameAPI",
-                              "value":"value_602656"
-                           },
-                           {
-                              "name":"branch_nameAPI",
-                              "value":"value_602656"
-                           }
-                        ]
-                     },
-                     "notes":"notes_602656"
-                  }
-               ]
-            },
-            "custom_fields":{
-               "field":[
-                  {
-                     "name":"Bank",
-                     "value":"SBI"
-                  }
-               ]
-            },
-            "line_items":{
-               "line_item":[
-                  {
-                     "serial":"1",
-                     "amount":"500",
-                     "description":"soap",
-                     "item_code":"skuattr9",
-                     "extended_fields":{
-                        "field":[
-                           {
-                              "name":"booking_type",
-                              "value":"Online"
-                           },
-                           {
-                              "name":"MetalRate",
-                              "value":"120.55"
-                           }
-                        ]
-                     },
-                     "variant":"",
-                     "addon_items":{
-                        "addon_item":[
-                           {
-                              "item_code":"Addon-033",
-                              "quantity":"1",
-                              "description":""
-                           },
-                           {
-                              "item_code":"Addon-033",
-                              "quantity":"1",
-                              "description":""
-                           }
-                        ]
-                     },
-                     "combo_items":{
-                        "combo_item":[
-                           {
-                              "item_code":"combo-033",
-                              "quantity":"1",
-                              "description":""
-                           },
-                           {
-                              "item_code":"combo-033",
-                              "quantity":"1",
-                              "description":""
-                           }
-                        ]
-                     },
-                     "split_items":{
-                        "split_item":[
-                           {
-                              "item_code":"Cheese dip",
-                              "quantity":"1",
-                              "description":"Cheese dip"
-                           },
-                           {
-                              "item_code":"Cheese dip",
-                              "quantity":"1",
-                              "description":"Cheese dip"
-                           }
-                        ]
-                     },
-                     "qty":"50",
-                     "rate":"10",
-                     "value":"500",
-                     "attributes":{
-                        "attribute":{
-                           "name":"brand",
-                           "value":"Levis"
-                        }
-                     }
-                  },
-                  {
-                     "serial":"1",
-                     "transaction_number":"Trans99",
-                     "amount":"500",
-                     "description":"soap",
-                     "item_code":"skuattr9",
-                     "variant":"variant-33",
-                     "addon_items":{
-                        "addon_item":[
-                           {
-                              "item_code":"Addon-043",
-                              "quantity":"1",
-                              "rate":"10",
-                              "value":"500",
-                              "description":""
-                           },
-                           {
-                              "item_code":"Addon-043",
-                              "quantity":"1",
-                              "rate":"10",
-                              "value":"500",
-                              "description":""
-                           }
-                        ]
-                     },
-                     "combo_items":{
-                        "combo_item":[
-                           {
-                              "item_code":"combo-033",
-                              "quantity":"1",
-                              "description":""
-                           },
-                           {
-                              "item_code":"combo-033",
-                              "quantity":"1",
-                              "description":""
-                           }
-                        ]
-                     },
-                     "split_items":{
-                        "split_item":[
-                           {
-                              "item_code":"Cheese dip",
-                              "quantity":"1",
-                              "rate":"10",
-                              "value":"500",
-                              "description":"Cheese dip"
-                           },
-                           {
-                              "item_code":"Cheese dip",
-                              "quantity":"1",
-                              "rate":"10",
-                              "value":"500",
-                              "description":"Cheese dip"
-                           }
-                        ]
-                     },
-                     "qty":"50",
-                     "rate":"10",
-                     "value":"500",
-                     "attributes":{
-                        "attribute":{
-                           "name":"brand",
-                           "value":"Levis"
-                        }
-                     }
-                  }
-               ]
-            },
-            "associate_details":{
-               "code":"hiraxdhara",
-               "name":"Chin"
+            {
+              "name": "cashier_id",
+              "value": "12345678"
             }
-         }
-      ]
-   }
+          ]
+        },
+        "payment_details": {
+          "payment": [
+            {
+              "mode": "CASH",
+              "value": "100"
+            },
+            {
+              "mode": [
+                "CREDIT",
+                "CHECKAPI"
+              ],
+              "value": [
+                "4000",
+                "500"
+              ],
+              "attributes": {
+                "attribute": [
+                  {
+                    "name": "BankNameAPI",
+                    "value": "value_602656"
+                  },
+                  {
+                    "name": "branch_nameAPI",
+                    "value": "value_602656"
+                  }
+                ]
+              },
+              "notes": "notes_602656"
+            }
+          ]
+        },
+        "custom_fields": {
+          "field": [
+            {
+              "name": "Bank",
+              "value": "SBI"
+            }
+          ]
+        },
+        "line_items": {
+          "line_item": [
+            {
+              "serial": "1",
+              "amount": "500",
+              "description": "soap",
+              "item_code": "skuattr9",
+              "base_item_code": "",
+              "discount_value": 234,
+              "extended_fields": {
+                "field": [
+                  {
+                    "name": "booking_type",
+                    "value": "Online"
+                  },
+                  {
+                    "name": "MetalRate",
+                    "value": "120.55"
+                  }
+                ]
+              },
+              "variant": "",
+              "addon_items": {
+                "addon_item": [
+                  {
+                    "item_code": "Addon-033",
+                    "quantity": "1",
+                    "description": ""
+                  },
+                  {
+                    "item_code": "Addon-033",
+                    "quantity": "1",
+                    "description": ""
+                  }
+                ]
+              },
+              "combo_items": {
+                "combo_item": [
+                  {
+                    "item_code": "combo-033",
+                    "quantity": "1",
+                    "description": ""
+                  },
+                  {
+                    "item_code": "combo-033",
+                    "quantity": "1",
+                    "description": ""
+                  }
+                ]
+              },
+              "split_items": {
+                "split_item": [
+                  {
+                    "item_code": "Cheese dip",
+                    "quantity": "1",
+                    "description": "Cheese dip"
+                  },
+                  {
+                    "item_code": "Cheese dip",
+                    "quantity": "1",
+                    "description": "Cheese dip"
+                  }
+                ]
+              },
+              "qty": "50",
+              "rate": "10",
+              "value": "500",
+              "attributes": {
+                "attribute": {
+                  "name": "brand",
+                  "value": "Levis"
+                }
+              }
+            },
+            {
+              "serial": "1",
+              "transaction_number": "Trans99",
+              "amount": "500",
+              "description": "soap",
+              "item_code": "skuattr9",
+              "variant": "variant-33",
+              "notes": "",
+              "addon_items": {
+                "addon_item": [
+                  {
+                    "item_code": "Addon-043",
+                    "quantity": "1",
+                    "rate": "10",
+                    "value": "500",
+                    "description": ""
+                  },
+                  {
+                    "item_code": "Addon-043",
+                    "quantity": "1",
+                    "rate": "10",
+                    "value": "500",
+                    "description": ""
+                  }
+                ]
+              },
+              "combo_items": {
+                "combo_item": [
+                  {
+                    "item_code": "combo-033",
+                    "quantity": "1",
+                    "description": ""
+                  },
+                  {
+                    "item_code": "combo-033",
+                    "quantity": "1",
+                    "description": ""
+                  }
+                ]
+              },
+              "split_items": {
+                "split_item": [
+                  {
+                    "item_code": "Cheese dip",
+                    "quantity": "1",
+                    "rate": "10",
+                    "value": "500",
+                    "description": "Cheese dip"
+                  },
+                  {
+                    "item_code": "Cheese dip",
+                    "quantity": "1",
+                    "rate": "10",
+                    "value": "500",
+                    "description": "Cheese dip"
+                  }
+                ]
+              },
+              "qty": "50",
+              "rate": "10",
+              "value": "500",
+              "attributes": {
+                "attribute": {
+                  "name": "brand",
+                  "value": "Levis"
+                }
+              }
+            }
+          ]
+        },
+        "associate_details": {
+          "code": "hiraxdhara",
+          "name": "Chin"
+        }
+      }
+    ]
+  }
 }
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-   <root>
-      <transaction>
-         <element>
-            <amount>1000</amount>
-            <associate_details>
-               <code>hiraxdhara</code>
-               <name>Chin</name>
-            </associate_details>
-            <bill_client_id />
-            <billing_time>2017-04-01</billing_time>
-            <custom_fields>
-               <field>
-                  <element>
-                     <name>Bank</name>
-                     <value>SBI</value>
-                  </element>
-               </field>
-            </custom_fields>
-            <customer>
-               <email />
-               <external_id />
-               <firstname />
-               <lastname />
-               <mobile>919999000000</mobile>
-            </customer>
-            <discount>10</discount>
-            <extended_fields>
-               <field>
-                  <element>
-                     <name>CentralGST</name>
-                     <value>8.5</value>
-                  </element>
-                  <element>
-                     <name>cashier_id</name>
-                     <value>12345678</value>
-                  </element>
-               </field>
-            </extended_fields>
-            <gross_amount>1000</gross_amount>
-            <line_items>
-               <line_item>
-                  <element>
-                     <addon_items>
-                        <addon_item>
-                           <element>
-                              <description />
-                              <item_code>Addon-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                           <element>
-                              <description />
-                              <item_code>Addon-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                        </addon_item>
-                     </addon_items>
-                     <amount>500</amount>
-                     <attributes>
-                        <attribute>
-                           <name>brand</name>
-                           <value>Levis</value>
-                        </attribute>
-                     </attributes>
-                     <combo_items>
-                        <combo_item>
-                           <element>
-                              <description />
-                              <item_code>combo-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                           <element>
-                              <description />
-                              <item_code>combo-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                        </combo_item>
-                     </combo_items>
-                     <description>soap</description>
-                     <extended_fields>
-                        <field>
-                           <element>
-                              <name>booking_type</name>
-                              <value>Online</value>
-                           </element>
-                           <element>
-                              <name>MetalRate</name>
-                              <value>120.55</value>
-                           </element>
-                        </field>
-                     </extended_fields>
-                     <item_code>skuattr9</item_code>
-                     <qty>50</qty>
-                     <rate>10</rate>
-                     <serial>1</serial>
-                     <split_items>
-                        <split_item>
-                           <element>
-                              <description>Cheese dip</description>
-                              <item_code>Cheese dip</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                           <element>
-                              <description>Cheese dip</description>
-                              <item_code>Cheese dip</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                        </split_item>
-                     </split_items>
-                     <value>500</value>
-                     <variant />
-                  </element>
-                  <element>
-                     <addon_items>
-                        <addon_item>
-                           <element>
-                              <description />
-                              <item_code>Addon-043</item_code>
-                              <quantity>1</quantity>
-                              <rate>10</rate>
-                              <value>500</value>
-                           </element>
-                           <element>
-                              <description />
-                              <item_code>Addon-043</item_code>
-                              <quantity>1</quantity>
-                              <rate>10</rate>
-                              <value>500</value>
-                           </element>
-                        </addon_item>
-                     </addon_items>
-                     <amount>500</amount>
-                     <attributes>
-                        <attribute>
-                           <name>brand</name>
-                           <value>Levis</value>
-                        </attribute>
-                     </attributes>
-                     <combo_items>
-                        <combo_item>
-                           <element>
-                              <description />
-                              <item_code>combo-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                           <element>
-                              <description />
-                              <item_code>combo-033</item_code>
-                              <quantity>1</quantity>
-                           </element>
-                        </combo_item>
-                     </combo_items>
-                     <description>soap</description>
-                     <item_code>skuattr9</item_code>
-                     <qty>50</qty>
-                     <rate>10</rate>
-                     <serial>1</serial>
-                     <split_items>
-                        <split_item>
-                           <element>
-                              <description>Cheese dip</description>
-                              <item_code>Cheese dip</item_code>
-                              <quantity>1</quantity>
-                              <rate>10</rate>
-                              <value>500</value>
-                           </element>
-                           <element>
-                              <description>Cheese dip</description>
-                              <item_code>Cheese dip</item_code>
-                              <quantity>1</quantity>
-                              <rate>10</rate>
-                              <value>500</value>
-                           </element>
-                        </split_item>
-                     </split_items>
-                     <transaction_number>Trans99</transaction_number>
-                     <value>500</value>
-                     <variant>variant-33</variant>
-                  </element>
-               </line_item>
-            </line_items>
-            <notes>2 line items</notes>
-            <number>Trans99</number>
-            <payment_details>
-               <payment>
-                  <element>
-                     <mode>CASH</mode>
-                     <value>100</value>
-                  </element>
-                  <element>
-                     <attributes>
-                        <attribute>
-                           <element>
-                              <name>BankNameAPI</name>
-                              <value>value_602656</value>
-                           </element>
-                           <element>
-                              <name>branch_nameAPI</name>
-                              <value>value_602656</value>
-                           </element>
-                        </attribute>
-                     </attributes>
-                     <mode>
-                        <element>CREDIT</element>
-                        <element>CHECKAPI</element>
-                     </mode>
-                     <notes>notes_602656</notes>
-                     <value>
-                        <element>4000</element>
-                        <element>500</element>
-                     </value>
-                  </element>
-               </payment>
-            </payment_details>
-            <type>regular</type>
-         </element>
-      </transaction>
-   </root>
+  <transaction>
+    <bill_client_id></bill_client_id>
+    <type>regular</type>
+    <number>BILL99</number>
+    <amount>5000</amount>
+    <currency_code>INR</currency_code>
+    <notes>2 line items</notes>
+    <billing_time>2018-04-01</billing_time>
+    <gross_amount>1000</gross_amount>
+    <delivery_status>DELIVERED</delivery_status>
+    <shipping_source_till_code></shipping_source_till_code>
+    <source>ECOMM</source>
+    <outlier_status>NORMAL</outlier_status>
+    <credit_notes></credit_notes>
+    <discount>10</discount>
+    <customer>
+      <mobile>919999000000</mobile>
+      <email></email>
+      <external_id></external_id>
+      <firstname>Tom</firstname>
+      <lastname>Sawyer</lastname>
+    </customer>
+    <extended_fields>
+      <field>
+        <name>CentralGST</name>
+        <value>8.5</value>
+      </field>
+      <field>
+        <name>cashier_id</name>
+        <value>12345678</value>
+      </field>
+    </extended_fields>
+    <payment_details>
+      <payment>
+        <mode>CASH</mode>
+        <value>100</value>
+      </payment>
+      <payment>
+        <mode>CREDIT</mode>
+        <mode>CHECKAPI</mode>
+        <value>4000</value>
+        <value>500</value>
+        <attributes>
+          <attribute>
+            <name>BankNameAPI</name>
+            <value>value_602656</value>
+          </attribute>
+          <attribute>
+            <name>branch_nameAPI</name>
+            <value>value_602656</value>
+          </attribute>
+        </attributes>
+        <notes>notes_602656</notes>
+      </payment>
+    </payment_details>
+    <custom_fields>
+      <field>
+        <name>Bank</name>
+        <value>SBI</value>
+      </field>
+    </custom_fields>
+    <line_items>
+      <line_item>
+        <serial>1</serial>
+        <amount>500</amount>
+        <description>soap</description>
+        <item_code>skuattr9</item_code>
+        <base_item_code></base_item_code>
+        <discount_value>234</discount_value>
+        <extended_fields>
+          <field>
+            <name>booking_type</name>
+            <value>Online</value>
+          </field>
+          <field>
+            <name>MetalRate</name>
+            <value>120.55</value>
+          </field>
+        </extended_fields>
+        <variant></variant>
+        <addon_items>
+          <addon_item>
+            <item_code>Addon-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </addon_item>
+          <addon_item>
+            <item_code>Addon-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </addon_item>
+        </addon_items>
+        <combo_items>
+          <combo_item>
+            <item_code>combo-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </combo_item>
+          <combo_item>
+            <item_code>combo-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </combo_item>
+        </combo_items>
+        <split_items>
+          <split_item>
+            <item_code>Cheese dip</item_code>
+            <quantity>1</quantity>
+            <description>Cheese dip</description>
+          </split_item>
+          <split_item>
+            <item_code>Cheese dip</item_code>
+            <quantity>1</quantity>
+            <description>Cheese dip</description>
+          </split_item>
+        </split_items>
+        <qty>50</qty>
+        <rate>10</rate>
+        <value>500</value>
+        <attributes>
+          <attribute>
+            <name>brand</name>
+            <value>Levis</value>
+          </attribute>
+        </attributes>
+      </line_item>
+      <line_item>
+        <serial>1</serial>
+        <transaction_number>Trans99</transaction_number>
+        <amount>500</amount>
+        <description>soap</description>
+        <item_code>skuattr9</item_code>
+        <variant>variant-33</variant>
+        <notes></notes>
+        <addon_items>
+          <addon_item>
+            <item_code>Addon-043</item_code>
+            <quantity>1</quantity>
+            <rate>10</rate>
+            <value>500</value>
+            <description></description>
+          </addon_item>
+          <addon_item>
+            <item_code>Addon-043</item_code>
+            <quantity>1</quantity>
+            <rate>10</rate>
+            <value>500</value>
+            <description></description>
+          </addon_item>
+        </addon_items>
+        <combo_items>
+          <combo_item>
+            <item_code>combo-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </combo_item>
+          <combo_item>
+            <item_code>combo-033</item_code>
+            <quantity>1</quantity>
+            <description></description>
+          </combo_item>
+        </combo_items>
+        <split_items>
+          <split_item>
+            <item_code>Cheese dip</item_code>
+            <quantity>1</quantity>
+            <rate>10</rate>
+            <value>500</value>
+            <description>Cheese dip</description>
+          </split_item>
+          <split_item>
+            <item_code>Cheese dip</item_code>
+            <quantity>1</quantity>
+            <rate>10</rate>
+            <value>500</value>
+            <description>Cheese dip</description>
+          </split_item>
+        </split_items>
+        <qty>50</qty>
+        <rate>10</rate>
+        <value>500</value>
+        <attributes>
+          <attribute>
+            <name>brand</name>
+            <value>Levis</value>
+          </attribute>
+        </attributes>
+      </line_item>
+    </line_items>
+    <associate_details>
+      <code>hiraxdhara</code>
+      <name>Chin</name>
+    </associate_details>
+  </transaction>
 </root>
 
 ```
@@ -493,169 +478,157 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 ```json
 {
-    "response": {
-        "status": {
-            "success": "true",
-            "code": 200,
-            "message": "Success"
-        },
-        "transactions": {
-            "transaction": [
+  "response": {
+    "status": {
+      "success": "true",
+      "code": 200,
+      "message": "Success"
+    },
+    "transactions": {
+      "transaction": [
+        {
+          "id": 37813251,
+          "shipping_source_till_code": "",
+          "number": "BILL99",
+          "bill_client_id": "",
+          "type": "REGULAR",
+          "delivery_status": "DELIVERED",
+          "parent_bill_number": "",
+          "outlier_status": "NORMAL",
+          "customer": {
+            "user_id": "342963216",
+            "mobile": "919999000001",
+            "firstname": "Tom",
+            "lastname": "Sawyer",
+            "email": "",
+            "external_id": "",
+            "lifetime_points": "106",
+            "loyalty_points": "106",
+            "current_slab": "bronze",
+            "tier_expiry_date": "2119-09-20 23:59:59",
+            "points_summaries": {
+              "points_summary": [
                 {
-                    "id": 37708927,
-                    "shipping_source_till_code": "",
-                    "number": "Tran324",
-                    "bill_client_id": "",
-                    "type": "REGULAR",
-                    "delivery_status": "DELIVERED",
-                    "parent_bill_number": "",
-                    "outlier_status": "NORMAL",
-                    "customer": {
-                        "user_id": "29372667",
-                        "mobile": "919999000000",
-                        "firstname": "Tom",
-                        "lastname": "Sawyer",
-                        "email": "tom.sawyer@example.com",
-                        "external_id": "XYPZ001",
-                        "lifetime_points": "200",
-                        "loyalty_points": "160",
-                        "current_slab": "bronze",
-                        "tier_expiry_date": "2117-08-08 23:59:59",
-                        "points_summaries": {
-                            "points_summary": [
-                                {
-                                    "programId": "1016",
-                                    "redeemed": "0",
-                                    "expired": "40",
-                                    "returned": "0",
-                                    "adjusted": "0",
-                                    "lifetimePoints": "200",
-                                    "loyaltyPoints": "160",
-                                    "cumulativePurchases": "48000",
-                                    "currentSlab": "bronze",
-                                    "nextSlab": "silver",
-                                    "nextSlabSerialNumber": "2",
-                                    "nextSlabDescription": "silver",
-                                    "slabSNo": "1",
-                                    "slabExpiryDate": "2117-08-08 23:59:59",
-                                    "totalPoints": ""
-                                }
-                            ]
-                        },
-                        "lifetime_purchases": "48000",
-                        "type": "LOYALTY",
-                        "source": "instore"
-                    },
-                    "side_effects": {
-                        "effect": [
-                            {
-                                "id": 33272081,
-                                "coupon_type": "PE",
-                                "coupon_code": "Z3AHIFML",
-                                "valid_till": "2020-05-29 23:59:59",
-                                "description": "Mobile Push offer 1",
-                                "discount_code": "MobilePush",
-                                "type": "coupon"
-                            }
-                        ]
-                    },
-                    "source": "instore",
-                    "item_status": {
-                        "success": "true",
-                        "code": 600,
-                        "message": "Transaction added successfully."
-                    }
+                  "programId": "1016",
+                  "redeemed": "0",
+                  "expired": "0",
+                  "returned": "0",
+                  "adjusted": "0",
+                  "lifetimePoints": "106",
+                  "loyaltyPoints": "106",
+                  "cumulativePurchases": "18000",
+                  "currentSlab": "bronze",
+                  "nextSlab": "silver",
+                  "nextSlabSerialNumber": "2",
+                  "nextSlabDescription": "silver",
+                  "slabSNo": "1",
+                  "slabExpiryDate": "2119-09-20 23:59:59",
+                  "totalPoints": ""
                 }
+              ]
+            },
+            "lifetime_purchases": "18000",
+            "type": "LOYALTY",
+            "source": "instore"
+          },
+          "side_effects": {
+            "effect": [
+              {
+                "id": 33291227,
+                "coupon_type": "PE",
+                "coupon_code": "IYVS2E6V",
+                "valid_till": "2020-06-27 23:59:59",
+                "description": "Mobile Push offer 1",
+                "discount_code": "MobilePush",
+                "type": "coupon"
+              }
             ]
+          },
+          "source": "ECOMM",
+          "item_status": {
+            "success": "true",
+            "code": 600,
+            "message": "Transaction added successfully"
+          }
         }
+      ]
     }
+  }
 }
 ```
 
 ```xml
-
-
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-   <response>
-      <status>
-         <code>200</code>
-         <message>Success</message>
-         <success>true</success>
-      </status>
-      <transactions>
-         <transaction>
-            <element>
-               <bill_client_id />
-               <customer>
-                  <current_slab>bronze</current_slab>
-                  <email>tom.sawyer@example.com</email>
-                  <external_id>XYPZ001</external_id>
-                  <firstname>Tom</firstname>
-                  <lastname>Sawyer</lastname>
-                  <lifetime_points>200</lifetime_points>
-                  <lifetime_purchases>48000</lifetime_purchases>
-                  <loyalty_points>160</loyalty_points>
-                  <mobile>919999000000</mobile>
-                  <points_summaries>
-                     <points_summary>
-                        <element>
-                           <adjusted>0</adjusted>
-                           <cumulativePurchases>48000</cumulativePurchases>
-                           <currentSlab>bronze</currentSlab>
-                           <expired>40</expired>
-                           <lifetimePoints>200</lifetimePoints>
-                           <loyaltyPoints>160</loyaltyPoints>
-                           <nextSlab>silver</nextSlab>
-                           <nextSlabDescription>silver</nextSlabDescription>
-                           <nextSlabSerialNumber>2</nextSlabSerialNumber>
-                           <programId>1016</programId>
-                           <redeemed>0</redeemed>
-                           <returned>0</returned>
-                           <slabExpiryDate>2117-08-08 23:59:59</slabExpiryDate>
-                           <slabSNo>1</slabSNo>
-                           <totalPoints />
-                        </element>
-                     </points_summary>
-                  </points_summaries>
-                  <source>instore</source>
-                  <tier_expiry_date>2117-08-08 23:59:59</tier_expiry_date>
-                  <type>LOYALTY</type>
-                  <user_id>29372667</user_id>
-               </customer>
-               <delivery_status>DELIVERED</delivery_status>
-               <id>37708927</id>
-               <item_status>
-                  <code>600</code>
-                  <message>Transaction added successfully.</message>
-                  <success>true</success>
-               </item_status>
-               <number>Tran324</number>
-               <outlier_status>NORMAL</outlier_status>
-               <parent_bill_number />
-               <shipping_source_till_code />
-               <side_effects>
-                  <effect>
-                     <element>
-                        <coupon_code>Z3AHIFML</coupon_code>
-                        <coupon_type>PE</coupon_type>
-                        <description>Mobile Push offer 1</description>
-                        <discount_code>MobilePush</discount_code>
-                        <id>33272081</id>
-                        <type>coupon</type>
-                        <valid_till>2020-05-29 23:59:59</valid_till>
-                     </element>
-                  </effect>
-               </side_effects>
-               <source>instore</source>
-               <type>REGULAR</type>
-            </element>
-         </transaction>
-      </transactions>
-   </response>
-</root>
-
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<response>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>Success</message>
+  </status>
+  <transactions>
+    <transaction>
+      <id>37813251</id>
+      <shipping_source_till_code></shipping_source_till_code>
+      <number>BILL99</number>
+      <bill_client_id></bill_client_id>
+      <type>REGULAR</type>
+      <delivery_status>DELIVERED</delivery_status>
+      <parent_bill_number></parent_bill_number>
+      <outlier_status>NORMAL</outlier_status>
+      <customer>
+        <user_id>342963216</user_id>
+        <mobile>919999000001</mobile>
+        <firstname>Tom</firstname>
+        <lastname>Sawyer</lastname>
+        <email></email>
+        <external_id></external_id>
+        <lifetime_points>106</lifetime_points>
+        <loyalty_points>106</loyalty_points>
+        <current_slab>bronze</current_slab>
+        <tier_expiry_date>2119-09-20 23:59:59</tier_expiry_date>
+        <points_summaries>
+          <points_summary>
+            <programId>1016</programId>
+            <redeemed>0</redeemed>
+            <expired>0</expired>
+            <returned>0</returned>
+            <adjusted>0</adjusted>
+            <lifetimePoints>106</lifetimePoints>
+            <loyaltyPoints>106</loyaltyPoints>
+            <cumulativePurchases>18000</cumulativePurchases>
+            <currentSlab>bronze</currentSlab>
+            <nextSlab>silver</nextSlab>
+            <nextSlabSerialNumber>2</nextSlabSerialNumber>
+            <nextSlabDescription>silver</nextSlabDescription>
+            <slabSNo>1</slabSNo>
+            <slabExpiryDate>2119-09-20 23:59:59</slabExpiryDate>
+            <totalPoints></totalPoints>
+          </points_summary>
+        </points_summaries>
+        <lifetime_purchases>18000</lifetime_purchases>
+        <type>LOYALTY</type>
+        <source>instore</source>
+      </customer>
+      <side_effects>
+        <effect>
+          <id>33291227</id>
+          <coupon_type>PE</coupon_type>
+          <coupon_code>IYVS2E6V</coupon_code>
+          <valid_till>2020-06-27 23:59:59</valid_till>
+          <description>Mobile Push offer 1</description>
+          <discount_code>MobilePush</discount_code>
+          <type>coupon</type>
+        </effect>
+      </side_effects>
+      <source>ECOMM</source>
+      <item_status>
+        <success>true</success>
+        <code>600</code>
+        <message>Transaction added successfully</message>
+      </item_status>
+    </transaction>
+  </transactions>
+</response>
 ```
 
 Lets you add transactions of loyalty, non-loyalty, or not-interested customers. You can add batch transactions by passing each transaction details in a separate `transaction` attribute.
@@ -709,20 +682,24 @@ Batch Support | Yes
 Parameter | Datatype | Description
 --------- | -------- | -----------
 bill_client_id | string | 
-type | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
-number | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
-amount | float | Net transaction amount.
+type* | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
+amount* | double | Net transaction amount.
 currency_code | string | ISO currency code of the transaction. For example, `INR` for Indian Rupee, SGD for Singapore Dollar, `EUR` for Euro, `IQD` for Iraqi Dinar.
 notes | string | Additional information about the transaction.
-qty | int | Quantity of the current line-item.
+qty* | int | Quantity of the current line-item.
 rate | float | Price of each line-item.
 value | float | Gross transaction amount (transaction amount excluding discount).
-amount | float | Net transaction amount - the actual transaction amount after discount.
-billing_time | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
-gross_amount | float | Transaction amount excluding discount.
-discount | float | Discount availed for the transaction (discount amouunt).
+amount* | double | Net transaction amount - the actual transaction amount after discount.
+billing_time* | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
+gross_amount | double | Transaction amount excluding discount.
+discount | double | Discount availed for the transaction (discount amount).
+outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: `INTERNAL`, `NORMAL`, `INVALID`, `OUTLIER`, `FAILED`, `DELETED`, `RETRO`, `FRAUD`, `TEST`, `OTHER`. 
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
+referral_code | string | Referral code for a new customer (if applicable) to register in the org's loyalty program.
 customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
-mobile/email/external_id | string | Pass any of the registered identifiers of the customer.
+mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
 firstname | string | First name of the customer.
 lastname | string | Last name of the customer.
 extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
@@ -733,7 +710,7 @@ value | float | Amount paid through the current mode.
 attributes | obj | Payment mode attributes in name and value pairs.
 custom_fields | obj | Transaction level custom field details. Pass line-item level custom field details in `line_item` object.
 line_items | obj | Details of transaction line-items.
-serial | int | Serial number of the current line-item.
+serial | long | Serial number of the current line-item.
 description | string | Description of the line-item.
 item_code | string | Unique line-item code.
 variant | string | Variant code of the item. Applicable for variant product.
@@ -741,17 +718,14 @@ addon_items | obj | Details of add-on items. For example, pizza with extra chees
 combo_items | obj | Details of combo or bundle items. For example, buy 1 shirt get one free, shirt+pant, pack of 5 soaps. 
 split_items | obj | Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.
 item_code | string | Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.
-quantity | int | Quantity of the current add-on, split, or combo item.
+quantity | double | Quantity of the current add-on, split, or combo item.
 associate_details | obj | Details of store associate or cashier who did the transaction.
 code | string | Unique code of the store associate.
 name | string | Name of the store associate.
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 
-
-
-
- 
 
 
 ## Add Transaction with Local Currency 
@@ -928,30 +902,59 @@ Batch Support | Yes
 
 ### Request Body Parameters
 
+type* | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
+amount* | double | Net transaction amount.
+notes | string | Additional information about the transaction.
+qty | double | Quantity of the current line-item.
+rate | float | Price of each line-item.
+value | float | Gross transaction amount (transaction amount excluding discount).
+amount | double | Net transaction amount - the actual transaction amount after discount.
+billing_time* | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
+gross_amount | double | Transaction amount excluding discount.
+discount | double | Discount availed for the transaction (discount amount).
+outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: `INTERNAL`, `NORMAL`, `INVALID`, `OUTLIER`, `FAILED`, `DELETED`, `RETRO`, `FRAUD`, `TEST`, `OTHER`. 
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
+customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
+mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
+firstname | string | First name of the customer.
+lastname | string | Last name of the customer.
+extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
 
-
-
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
 ## Return Transaction
+
+> Sample Request
+
 ```html
-# Sample Request
 https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
+
 > Sample POST Request
 
 ```json
 {
   "root": {
     "transaction": {
-      "type": "not_interested_return",
+      "type": "return",
       "country": "true",
-      "number": "may30001",
+      "number": "BILL98",
       "not_interested_reason": "Example reason",
       "return_type": "AMOUNT",
-      "purchase_time": "2017-05-31",
+      "parent_bill_number": "RE123",
+      "purchase_time": "2018-04-01",
       "amount": "500",
-      "billing_time": "2017-05-31",
+      "billing_time": "2018-05-31",
+      "customer": {
+        "mobile": "919999000000",
+        "email": "",
+        "external_id": "",
+        "firstname": "Tom",
+        "lastname": "Sawyer"
+      },
       "line_items": {
         "line_item": {
           "serial": "1",
@@ -975,52 +978,57 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
           "field_value": "CASH"
         }
       },
-      "associate_details": {
-        
-      }
+      "associate_details": {}
     }
   }
 }
-
 ```
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-	<transaction>
-		<type>not_interested_return</type>
-		<country>true</country>
-		<number>may30001</number>
-		<not_interested_reason>Example reason</not_interested_reason>
-		<return_type>AMOUNT</return_type>
-		<purchase_time>2017-05-31</purchase_time>
-		<amount>500</amount>
-		<billing_time>2017-05-31</billing_time>
-		<line_items>
-			<line_item>
-				<serial>1</serial>
-				<amount>500</amount>
-				<description>soap</description>
-				<item_code>item-001</item_code>
-				<qty>50</qty>
-				<rate>10</rate>
-				<value>500</value>
-				<attributes>
-					<attribute>
-						<name>brand</name>
-						<value>Levis</value>
-					</attribute>
-				</attributes>
-			</line_item>
-		</line_items>
-		<custom_fields_data>
-			<custom_data_item>
-				<field_name>paymentmode</field_name>
-				<field_value>CASH</field_value>
-			</custom_data_item>
-		</custom_fields_data>
-		<associate_details />
-	</transaction>
+  <transaction>
+    <type>return</type>
+    <country>true</country>
+    <number>BILL98</number>
+    <not_interested_reason>Example reason</not_interested_reason>
+    <return_type>AMOUNT</return_type>
+    <parent_bill_number>RE123</parent_bill_number>
+    <purchase_time>2018-04-01</purchase_time>
+    <amount>500</amount>
+    <billing_time>2018-05-31</billing_time>
+    <customer>
+      <mobile>919999000000</mobile>
+      <email></email>
+      <external_id></external_id>
+      <firstname>Tom</firstname>
+      <lastname>Sawyer</lastname>
+    </customer>
+    <line_items>
+      <line_item>
+        <serial>1</serial>
+        <amount>500</amount>
+        <description>soap</description>
+        <item_code>item-001</item_code>
+        <qty>50</qty>
+        <rate>10</rate>
+        <value>500</value>
+        <attributes>
+          <attribute>
+            <name>brand</name>
+            <value>Levis</value>
+          </attribute>
+        </attributes>
+      </line_item>
+    </line_items>
+    <custom_fields_data>
+      <custom_data_item>
+        <field_name>paymentmode</field_name>
+        <field_value>CASH</field_value>
+      </custom_data_item>
+    </custom_fields_data>
+    <associate_details/>
+  </transaction>
 </root>
 ```
 
@@ -1029,50 +1037,136 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <response>
-	<status>
-		<success>true</success>
-		<code>200</code>
-		<message>Success</message>
-	</status>
-	<transactions>
-		<transaction>
-			<id>3425</id>
-			<number>may30001</number>
-			<bill_client_id></bill_client_id>
-			<type>NOT_INTERESTED_RETURN</type>
-			<delivery_status>DELIVERED</delivery_status>
-			<source>instore</source>
-			<item_status>
-				<success>true</success>
-				<code>600</code>
-				<message>Transaction added successfully</message>
-			</item_status>
-		</transaction>
-	</transactions>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>Success</message>
+  </status>
+  <transactions>
+    <transaction>
+      <id>191565</id>
+      <shipping_source_till_code></shipping_source_till_code>
+      <number>BILL99</number>
+      <bill_client_id></bill_client_id>
+      <type>RETURN</type>
+      <delivery_status>DELIVERED</delivery_status>
+      <parent_bill_number>BILL99</parent_bill_number>
+      <outlier_status>NORMAL</outlier_status>
+      <customer>
+        <user_id>342963216</user_id>
+        <mobile>919999000001</mobile>
+        <firstname>Tom</firstname>
+        <lastname>Sawyer</lastname>
+        <email></email>
+        <external_id></external_id>
+        <lifetime_points>106</lifetime_points>
+        <loyalty_points>106</loyalty_points>
+        <current_slab>bronze</current_slab>
+        <tier_expiry_date>2119-09-20 23:59:59</tier_expiry_date>
+        <points_summaries>
+          <points_summary>
+            <programId>1016</programId>
+            <redeemed>0</redeemed>
+            <expired>0</expired>
+            <returned>0</returned>
+            <adjusted>0</adjusted>
+            <lifetimePoints>106</lifetimePoints>
+            <loyaltyPoints>106</loyaltyPoints>
+            <cumulativePurchases>17500</cumulativePurchases>
+            <currentSlab>bronze</currentSlab>
+            <nextSlab>silver</nextSlab>
+            <nextSlabSerialNumber>2</nextSlabSerialNumber>
+            <nextSlabDescription>silver</nextSlabDescription>
+            <slabSNo>1</slabSNo>
+            <slabExpiryDate>2119-09-20 23:59:59</slabExpiryDate>
+            <totalPoints></totalPoints>
+          </points_summary>
+        </points_summaries>
+        <lifetime_purchases>17500</lifetime_purchases>
+        <type>LOYALTY</type>
+        <source>instore</source>
+      </customer>
+      <side_effects>
+        <effect/>
+      </side_effects>
+      <points_deducted>0</points_deducted>
+      <points_balance>106</points_balance>
+      <source></source>
+      <item_status>
+        <success>true</success>
+        <code>600</code>
+        <message>Transaction added successfully,Mobile update is not allowed</message>
+      </item_status>
+    </transaction>
+  </transactions>
 </response>
 ```
 
 ```json
 {
-  "response":{
-    "status":{
-      "success":"true",
-      "code":200,
-      "message":"Success"
+  "response": {
+    "status": {
+      "success": "true",
+      "code": 200,
+      "message": "Success"
     },
-    "transactions":{
-      "transaction":[
+    "transactions": {
+      "transaction": [
         {
-          "id":3425,
-          "number":"may30001",
-          "bill_client_id":"",
-          "type":"NOT_INTERESTED_RETURN",
-          "delivery_status":"DELIVERED",
-          "source":"instore",
-          "item_status":{
-            "success":"true",
-            "code":600,
-            "message":"Transaction added successfully"
+          "id": 191565,
+          "shipping_source_till_code": "",
+          "number": "BILL99",
+          "bill_client_id": "",
+          "type": "RETURN",
+          "delivery_status": "DELIVERED",
+          "parent_bill_number": "BILL99",
+          "outlier_status": "NORMAL",
+          "customer": {
+            "user_id": "342963216",
+            "mobile": "919999000001",
+            "firstname": "Tom",
+            "lastname": "Sawyer",
+            "email": "",
+            "external_id": "",
+            "lifetime_points": "106",
+            "loyalty_points": "106",
+            "current_slab": "bronze",
+            "tier_expiry_date": "2119-09-20 23:59:59",
+            "points_summaries": {
+              "points_summary": [
+                {
+                  "programId": "1016",
+                  "redeemed": "0",
+                  "expired": "0",
+                  "returned": "0",
+                  "adjusted": "0",
+                  "lifetimePoints": "106",
+                  "loyaltyPoints": "106",
+                  "cumulativePurchases": "17500",
+                  "currentSlab": "bronze",
+                  "nextSlab": "silver",
+                  "nextSlabSerialNumber": "2",
+                  "nextSlabDescription": "silver",
+                  "slabSNo": "1",
+                  "slabExpiryDate": "2119-09-20 23:59:59",
+                  "totalPoints": ""
+                }
+              ]
+            },
+            "lifetime_purchases": "17500",
+            "type": "LOYALTY",
+            "source": "instore"
+          },
+          "side_effects": {
+            "effect": []
+          },
+          "points_deducted": 0,
+          "points_balance": 106,
+          "source": "",
+          "item_status": {
+            "success": "true",
+            "code": 600,
+            "message": "Transaction added successfully"
           }
         }
       ]
@@ -1103,12 +1197,48 @@ Before using this API, you need to know the configurations set of the Return Tra
 
 
 
-
-
-
 ### Request URL
 `https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}`
 
+
+### Request Body Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+type* | enum | Type of transaction. `RETURN` for loyalty transaction return, `NOT_INTERESTED_RETURN` for not-interested return, `MIXED` for exchange (involves both return and purchase).
+return_type | enum | Type of return. Value: `AMOUNT` to return transaction or line-items for money, `LINE_ITEM` to return one or more line-items of the transaction, `FULL` to return complete transaction.
+number* | string | Actual transaction number of the return bill.
+parent_bill_number | string | Return transaction number. 
+billing_time* | date-time | Date and time of the return transaction in `YYYY-MM-DD HH:MM:SS` format.
+purchase_time* | date | Actual transaction date of the returning bill in`YYYY-MM-DD` format.
+notes | string | Additional information about the transaction.
+amount* | double | Net transaction amount.
+qty* | int | Quantity of the current line-item.
+rate | float | Price of each line-item.
+value | float | Gross transaction amount (transaction amount excluding discount).
+amount* | double | Net return transaction amount.
+source | enum | Source from which the return transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+customer | obj | Customer details associated to the transaction. Not applicable for not-interested transactions.
+mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for regular transaction returns.
+firstname | string | First name of the customer.
+lastname | string | Last name of the customer.
+extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
+custom_fields | obj | Transaction level custom field details. Pass line-item level custom field details in `line_item` object.
+line_items | obj | Details of transaction line-items.
+serial | long | Serial number of the line-item.
+description | string | Description of the line-item.
+item_code | string | Unique line-item code.
+variant | string | Variant code of the item. Applicable for variant product.
+addon_items | obj | Details of add-on items. For example, pizza with extra cheese, and personalized toppings.
+combo_items | obj | Details of combo or bundle items. For example, buy 1 shirt get one free, shirt+pant, pack of 5 soaps. 
+split_items | obj | Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.
+item_code | string | Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.
+quantity | double | Quantity of the current add-on, split, or combo item.
+associate_details | obj | Details of store associate or cashier who did the transaction.
+code | string | Unique code of the store associate.
+name | string | Name of the store associate.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
 ## Cancel a Transaction Line-Item
@@ -1341,11 +1471,13 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
         "id": "123234",
         "number": "BILL-001",
         "type": "REGULAR",
+		"notes": "",
         "customer": {
           "id": "34897",
           "mobile": "44700900999",
           "email": "earnshaw.catherine@example.com",
           "external_id": "ec1234"
+		  "test_control_status": "CONTROL",
         },
 		"extended_fields": {
 				"field": [{
@@ -1411,6 +1543,7 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
             <mobile>44700900999</mobile>
             <email>earnshaw.catherine@example.com</email>
             <external_id>ec1234</external_id>
+			<test_control_status>control</test_control_status>
         </customer>
 		<extended_fields>
                <field>
@@ -1457,7 +1590,7 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
 
 ```
 
-This API allows you to convert a not_interested transaction to a regular transaction and update custom field details of a transaction.
+Lets you to convert a not_interested transaction to a regular transaction. You can also update both transaction and line-item level custom field and extended field details of a transaction.
 
 ### Resource Information
 | | |
@@ -1473,6 +1606,12 @@ Parameter | Datatype | Description
 --------- | -------- | -----------
 id** | int | Unique id of the transaction that you want to update.
 number** | string | Transaction number that you need to update.
+mobile/external_id/email/id* | string | Pass any one of the identifiers of the customer associated to the transaction. 
+update_till | string | Till code associated to the transaction update.
+notes | string | Reason for the transaction update for reference.
+test_control_status | enum | Update test-control status of the customer.
+extended_fields | obj | Update extended field details of the transaction.
+custom_fields | obj | Update custom field details of the transaction.
 
 <aside class="notice">Any one among the parameters marked with ** is mandatory. </aside>
 
@@ -1661,7 +1800,7 @@ notes | string | Provide any additional information about the conversion for ref
 id* | int | Unique ID of the transaction that you want to convert.
 old_type* | enum | Earlier type of transaction. Usually, it will be `NOT_INTERESTED`.
 
-<aside class="notice">Parameters marked with * are mandatory. </aside>
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
 ## Fetch Transaction Details
@@ -1670,7 +1809,7 @@ old_type* | enum | Earlier type of transaction. Usually, it will be `NOT_INTERES
 
 
 ```html
-https://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
+https://us.api.capillarytech.com/v1.1/transaction/get?id=5477576&format=json
 ```
 > Sample Response
 
@@ -1729,8 +1868,6 @@ https://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
 ```
 
 ```xml
-											
-<?xml version="1.0" encoding="UTF-8"?>
 <response>
     <transactions>
         <transaction>
@@ -1739,9 +1876,7 @@ https://us.api.capillarytech.com/v1.1/transaction/get?format=xml&id=5477576
             <type>REGULAR</type>
             <customer>
                 <user_id>43445</user_id>
-                <!--
-returned only when query param user_id is true
--->
+                <!-- returned only when query param user_id is true -->
                 <mobile>44700900999</mobile>
                 <email />
                 <external_id />
@@ -1813,25 +1948,15 @@ language | Specify the ISO language code to get transaction level extended field
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifier_type* | enum | Pass any of the identifier types you want to use to identify customer. Value: `mobile`, `email`, `external_id`, `id` (customer id or user id).
-value | string | Pass the respective identifier value.
-store_code | string | Fetch the transactions of a specific store. Pass the store code.
-till_code | string | Fetch the transactions made at a specific TILL. Pass the respective TILL code.
-credit_notes | string | 
-tenders | - | 
-amount | float | Fetch the transactions of a specific amount.
-min_amount | float | Fetch transactions of a specific amount range in `min_amount` and `max_amount`.
-max_amount | float | Fetch the transactions of a specific amount range, i.e., min_amount - max_amount.
-start_date | date | Fetch transactions of a specific duration., between start_date and end_date.
-end_date | date | Fetch transactions of a specific duration., between start_date and end_date.
-start_id | int | Fetch transactions of a specific transaction id range., between start_id and end_id. For example, transaction ids between 1000 - 4999.
-end_id | int | Fetch transactions of a specific transaction id range., between start_id and end_id. For examples, transaction ids between 1000 - 4999.
-number | string | Fetch the details of a specific transaction based on the transaction number passed.
-date | date | Fetch transactions of a specific date.
-limit | int | Limit the number of transactions to be fetched. DefaultValue is 20 and max limit is 100.
-type | enum | Fetch a specific type of transaction. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`. By default it shows the details of regular transaction.
+id** | long | Unique ID of the transaction to fetch.
+number** | string | Unique transaction number that you want to fetch.
+store_code** | string | Fetch the transactions of a specific store. Pass the store code.
+till_code** | string | Fetch the transactions of a specific TILL. Pass the respective TILL code.
+amount | double | Filter transactions of a specific amount. 
+date | date | Filter transactions of a specific date. Pass the date in `YYYY-MM-DD` format.
+type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`. By default it shows the details of regular transaction.
 
-<aside class="notice">Parameters marked with * is mandatory.</aside>
+<aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
 
 
 ## Response Codes
@@ -1846,87 +1971,87 @@ type | enum | Fetch a specific type of transaction. Values: `REGULAR`, `NOT_INTE
 Code | Description
 ---- | -----------
 601 | Transaction failed. Transaction amount/quantity/ rate/discount is invalid.
-602 | Transaction number is invalid
-603 | Points are already used (Deprecated)
-604 | Transaction number already exists
-605 | Invalid transaction type. Only regular, return and not-interested transaction types are supported
+602 | Transaction number is invalid.
+603 | Points are already used (Deprecated).
+604 | Transaction number already exists.
+605 | Invalid transaction type. Only regular, return and not-interested transaction types are supported.
 606 | Customer identifier is not passed. Please enter customer's mobile or email or external id to process.
 607 | Transaction id is not passed. Please pass the transaction id to process.
 608 | Unable to process the transaction
 609 | Update failed. Please verify all the fields.
 610 | Unable to register. Please verify all the fields.
-611 | Customer not found
-614 | Transaction is already cancelled
-615 | Transaction details are not passed
-616 | Item code already exists
-617 | Invalid attribute for the item
+611 | Customer not found.
+614 | Transaction is already cancelled.
+615 | Transaction details are not passed.
+616 | Item code already exists.
+617 | Invalid attribute for the item.
 618 | Customer is marked as fraud.
-619 | Transaction id is not provided
+619 | Transaction id is not provided.
 620 | Transaction id is invalid.
-621 | Transaction date is invalid. Transaction date should be within the accepted past or future date range limit
-622 | Unable to add line-item
-623 | Unable to trigger other related events for the transaction
+621 | Transaction date is invalid. Transaction date should be within the accepted past or future date range limit.
+622 | Unable to add line-item.
+623 | Unable to trigger other related events for the transaction.
 624 | Unable to process return-transaction. You can make a return only after adding a transaction.
-625 | Transaction number does not exist
-626 | Unable to return transaction. The quantity of returned items are more than purchased items
-627 | Quantity cannot be negative
-628 | The entire transaction is already returned 
-629 | The return quantity of the item is more than available quantity
-630 | The return amount is more than the transaction/line-item amount
-631 | Transaction amount cannot be negative
-632 | Cannot return the transaction with return type LINE_ITEM because the type AMOUNT has already been used for returning the same transaction
-633 | The entire transaction is already returned
-634 | This transaction is already returned
-635 | Cannot return the transaction with the return type AMOUNT because the type LINE_ITEM has been used for returning the same transaction
-636 | The transaction is already returned with the return type as LINE_ITEM. You can process return for other items only with return type LINE_ITEM
-637 | Unable to revert points issued to the customer (for return transaction). Please try again later
-638 | Unable to return transaction. The transaction is already returned with type LINE_ITEM. Hence, you cannot use the type AMOUNT for the same transaction
-639 | Unable to return full transaction. A part of the transaction or complete transaction is already returned
-640 | Points or coupons are not redeemed for this transaction
-641 | No customer found
-642 | Redemption failed. An error occurred in points/coupon redemption 
-643 | Transaction is invalid. The transaction date exceeds the accepted future date limit
+625 | Transaction number does not exist.
+626 | Unable to return transaction. The quantity of returned items are more than purchased items.
+627 | Quantity cannot be negative.
+628 | The entire transaction is already returned.
+629 | The return quantity of the item is more than available quantity.
+630 | The return amount is more than the transaction/line-item amount.
+631 | Transaction amount cannot be negative.
+632 | Cannot return the transaction with return type LINE_ITEM because the type AMOUNT has already been used for returning the same transaction.
+633 | The entire transaction is already returned.
+634 | This transaction is already returned.
+635 | Cannot return the transaction with the return type AMOUNT because the type LINE_ITEM has been used for returning the same transaction.
+636 | The transaction is already returned with the return type as LINE_ITEM. You can process return for other items only with return type LINE_ITEM.
+637 | Unable to revert points issued to the customer (for return transaction). Please try again later.
+638 | Unable to return transaction. The transaction is already returned with type LINE_ITEM. Hence, you cannot use the type AMOUNT for the same transaction.
+639 | Unable to return full transaction. A part of the transaction or complete transaction is already returned.
+640 | Points or coupons are not redeemed for this transaction.
+641 | No customer found.
+642 | Redemption failed. An error occurred in points/coupon redemption.
+643 | Transaction is invalid. The transaction date exceeds the accepted future date limit.
 644 | Transaction is invalid. The transaction date should not be less than the accepted past date limit.
-645 | Transaction addition failed for not interested
-646 | Customer registration failed. The email id is invalid
-647 | Customer registration failed. Email id is already assigned to another customer
-648 | Customer registration failed. Mobile number is already assigned to another customer
+645 | Transaction addition failed for not interested.
+646 | Customer registration failed. The email id is invalid.
+647 | Customer registration failed. Email id is already assigned to another customer.
+648 | Customer registration failed. Mobile number is already assigned to another customer.
 649 | Customer registration failed. Mobile number is invalid.
-650 | Customer registration failed. Mobile number is not accepted as a unique identifier
+650 | Customer registration failed. Mobile number is not accepted as a unique identifier.
 651 | Customer registration failed. Mobile number is required for registration.
 652 | Customer registration failed. Mobile number/email id/external id is invalid.
-653 | Customer registration failed. External id is already assigned to another customer
-654 | Customer registration failed. External id is not accepted as a unique identifier
-655 | Customer registration failed. Customer is not registered in loyalty program
+653 | Customer registration failed. External id is already assigned to another customer.
+654 | Customer registration failed. External id is not accepted as a unique identifier.
+655 | Customer registration failed. Customer is not registered in loyalty program.
 656 | No customer found.
 657 | Customer registration failed. Registration in EUP failed.
-658 | Customer registration failed. Only email id is not sufficient for registration
-659 | Customer registration failed. Please enter email id to register
+658 | Customer registration failed. Only email id is not sufficient for registration.
+659 | Customer registration failed. Please enter email id to register.
 660 | Customer registration failed. Registration date exceeds the accepted past or future date limit.
-661 | Amount of the line-item amount cannot be negative
-662 | Value of a line cannot be negative
+661 | Amount of the line-item amount cannot be negative.
+662 | Value of a line cannot be negative.
 663 | Rate of a line-item cannot be negative
-664 | Discount of a line-item cannot be negative
-665 | Gross amount of the transaction cannot be negative
-666 | Discount of the transaction cannot be negative
-667 | Unable to find the transaction id for this customer
-668 | Unable to find the transaction number for this customer
-669 | Unable to update custom field
-670 | Transaction id/number is not provided
-671 | Invalid Store TILL code
+664 | Discount of a line-item cannot be negative.
+665 | Gross amount of the transaction cannot be negative.
+666 | Discount of the transaction cannot be negative.
+667 | Unable to find the transaction id for this customer.
+668 | Unable to find the transaction number for this customer.
+669 | Unable to update custom field.
+670 | Transaction id/number is not provided.
+671 | Invalid Store TILL code.
 672 | Batch limit exceeded.
-673 | Returning of transactions is not allowed
-674 | Returning of line item is not allowed
-675 | Returning of transaction amount is not allowed
-676 | Returning of a complete transaction amount is not allowed
-677 | Unable to process. Please enter a transaction number for returning a transaction
-678 | Amount of returned item is more than purchased item
-679 | Line-item(s) to be returned is not specified
-680 | No transactions of the specific customer were found
-681 | Transactions are blocked for this customer
-686 | Points processing failed
-687 | Points processing failed
-688 | The configuration is invalid. Please report to the Capillary Support
+673 | Returning of transactions is not allowed.
+674 | Returning of line item is not allowed.
+675 | Returning of transaction amount is not allowed.
+676 | Returning of a complete transaction amount is not allowed.
+677 | Unable to process. Please enter a transaction number for returning a transaction.
+678 | Amount of returned item is more than purchased item.
+679 | Line-item(s) to be returned is not specified.
+680 | No transactions of the specific customer were found.
+681 | Transactions are blocked for this customer.
+686 | Unable to add transaction.
+687 | Points activities are queued and will be updated later.
+688 | No matching line-item found for return.
 689 | Points processing failed
 690 | Points processing failed
 691 | Points processing failed
@@ -1937,7 +2062,10 @@ Code | Description
 696 | Points processing failed
 697 | Points processing failed
 698 | Points processing failed
-699 | Invalid configuration. Please report to the Capillary Support
+699 | Invalid configuration. Please report to the Capillary Support.
+1101 | Invalid loyalty program ID passed.
+1102 | Invalid currency conversion ratio passed.
+1103 | Invalid shipping store code passed.
 1623 | Transaction type is invalid
 1624 | Provided parameters are not sufficient to fetch transaction
 1625 | Target type is not specified 
@@ -1951,3 +2079,19 @@ Code | Description
 1634 | Return type is invalid
 1635 | Please pass line-items that need to be returned
 1636 | Transaction status is invalid
+9601 | Failed to add line-item.
+9602 | Failed to add credit notes.
+9603 | Failed to add payment more details (tender).
+9604 | Failed to add custom fields
+9605 | Base currency is not set for the org.
+9606 | Currency not passed for the transaction.
+9607 | Payment mode (tender) not found.
+9608 | Line-item with the item code {x} passed is marked as outlier.
+9609 | Invalid payment attribute passed.
+9610 | New bill event failed. Points are not awarded.
+9611 | Transaction is marked as outlier.
+9612 | Unable to save credit notes.
+9613 | Invalid payment attribute.
+9614 | Multiple loyalty bills found to be returned.
+9615 | Validity (in days) for return policy is not defined.
+9616 | Single loyalty bill found. Allowing regular return.
