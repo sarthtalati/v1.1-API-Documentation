@@ -2402,9 +2402,9 @@ Operator | enum | Predefined conditions based on which you want to fetch results
 </tr>
 </thead><tbody>
 <tr>
-<td>Identifier*</td>
+<td>mobile/email/external_id/id*</td>
 <td>string</td>
-<td>Pass any identifier (mobile/email/external_id/id) of the customer whose details needs to be retrieved. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code>.</td>
+<td>Pass any one of the identifiers of the customer along with the identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code>.</td>
 </tr>
 <tr>
 <td>coupon_limit</td>
@@ -2442,13 +2442,13 @@ Operator | enum | Predefined conditions based on which you want to fetch results
 <td>Returns the details of loyalty tier changes of the customer.</td>
 </tr>
 <tr>
-<td>registered_store</td>
-<td>string</td>
+<td>registered_store=true</td>
+<td>-</td>
 <td>Returns the store at which the customer is registered. This is returned by default.</td>
 </tr>
 <tr>
-<td>registered_till</td>
-<td>string</td>
+<td>registered_till=true</td>
+<td>-</td>
 <td>Returns the store-TILL at which the customer is registered. This is returned by default.</td>
 </tr>
 <tr>
