@@ -4,14 +4,16 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 * **Change Identifier**: Requests corresponding to identifier change, accounts merge, and mobile reallocation
 * **Goodwill**: Requests corresponding to goodwill points and coupons
 
-## Submit Requests
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/request/add
 ```
 
-> Sample ID Change Request
+> Sample POST Request
 
 ```xml
+## For ID Change
 <root>
 <request>
     <reference_id>1234</reference_id>
@@ -32,6 +34,7 @@ http://us.api.capillarytech.com/v1.1/request/add
 ```
 
 ```json
+# For ID change
 {
   "root": {
     "request": [{
@@ -52,9 +55,10 @@ http://us.api.capillarytech.com/v1.1/request/add
 }
 ```
 
-> Sample Goodwill Request
 
 ```xml
+## For Goodwill
+
 <root>
    <request>
       <customer>
@@ -73,6 +77,8 @@ http://us.api.capillarytech.com/v1.1/request/add
 ```
 
 ```json
+## For Goodwill
+
 {
   "root":{
     "request":[
@@ -193,45 +199,45 @@ CI_MOBILEREALLOC_AUTO_APPROVE | Approves mobile number reallocation requests aut
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
 </aside>
 
-### Request Parameters
-
-Parameter | Description
---------- | -----------
-program_id | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true
-client_auto_approve=true | Allows processing a request directly
 
 
 ### Resource Information
-Entry | Value
------ | -----
-URI | request/add
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `request/add`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-Response Object | Submits customer requests
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/request/add&format=<xml/json>`
+`http://{host}/v1.1/request/add&format={xml/json}`
 
-### Request Attributes
-Attribute | Description
---------- | -----
-Customer Identifier* | Unique identifier of the customer for whom the request is created. This can be mobile no/email id/external id/user id
-reference_id* | Unique reference id for the request
-type |Type of request. Value: CHANGE_IDENTIFIER, GOODWILL
-base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
-old_value | The current value of the customer identifier. Applicable only for identifier change requests
-new_value | The new value of the customer identifier. Applicable only for identifier change requests
-requested_on | Date on which the request is created in YYYY-MM-DD format
-reason | Reason for issuing goodwill points/coupons. Applicable only for goodwill response
-comments | Small description on why goodwill points/coupons issued
-client_auto_approve | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
+reference_id* | long | Unique reference id for the request
+type | enum | Type of request. Value: CHANGE_IDENTIFIER, GOODWILL, TRANSACTION_UPDATE.
+base_type | enum | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
+old_value | string | The current value of the customer identifier. Applicable only for identifier change requests
+new_value | string | The new value of the customer identifier. Applicable only for identifier change requests
+requested_on | date | Date on which the request is created in YYYY-MM-DD format
+reason | string | Reason for issuing goodwill points/coupons. Applicable only for goodwill response
+comments | string | Small description on why goodwill points/coupons issued
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+transaction_id | string | Transaction ID that you want to update. Applicable for `type`, `TRANSACTION_UPDATE`.
+requested_on | date | Date of request in `YYYY-MM-DD` format
+series_id | - | 
+tier_name | string | 
+program_id | long | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true.
+client_auto_approve | boolean | Pass `true` to process the request directly.
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 
 ## Approve Requests
+> 
 ```html
 http://us.api.capillarytech.com/v1.1/request/approve
 ```
@@ -319,29 +325,30 @@ http://us.api.capillarytech.com/v1.1/request/approve
 Allows approving requests that are in pending status. You can use this API only when the auto-approval configurations are not enabled for your organization. Also, you cannot approve force approval requests made using `client_auto_approve=true`.
 
 ### Resource Information
-Entry | Value
------ | -----
-URI | request/approve
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/approve`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-Response Object | Approves customer requests
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/request/approve&format=<xml/json>`
+`http://{host}/v1.1/request/approve&format={xml/json}`
 
-### Request Attributes
-Attribute | Description
---------- | -----
-id | Reference id of the request that you want to approve
-type |Type of request. Value: CHANGE_IDENTIFIER, GOODWILL
-base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id* | long | Reference id of the request that you want to approve
+type* | enum | Type of request. Value: `CHANGE_IDENTIFIER`, `GOODWILL`, `TRANSACTION_UPDATE`.
+base_type* | enum | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 
 ## Reject Request
+
+> Sample Request URL
+
 ```html
 http://us.api.capillarytech.com/v1.1/request/reject
 ```
@@ -428,31 +435,33 @@ http://us.api.capillarytech.com/v1.1/request/reject
 Allows rejecting requests that are in pending status. You can use this API only when the auto-approval configurations are not enabled for your organization. Also, you cannot reject force approval requests made using `client_auto_approve=true`.
 
 ### Resource Information
-Entry | Value
------ | -----
-URI | request/reject
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `request/reject`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-Response Object | Rejects pending requests
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/request/reject&format=<xml/json>`
+`http://{host}/v1.1/request/reject&format={xml/json}`
 
-### Request Attributes
-Attribute | Description
---------- | -----
-id | Reference id of the request that you want to approve
-type |Type of request. Value: CHANGE_IDENTIFIER, GOODWILL
-base_type | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id* | long | Reference id of the request that you want to approve
+type* |enum | Type of request. Value: `CHANGE_IDENTIFIER`, `GOODWILL`, `TRANSACTION_UPDATE`.
+base_type* | enum | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS.
+
 
 ## Retrieve Request Details
+
+> Sample Request URL
+
 ```html
 https://us.api.capillarytech.com/v1.1/request/get?format=json
 ```
+
+> Sample Response
 
 ```xml
 <response>
@@ -658,39 +667,42 @@ https://us.api.capillarytech.com/v1.1/request/get?format=json
 The `request/get` API allows you to retrieve up to 50 records containing goodwill and change identifier requests. a sub-set of request/logs API. You can retrieve requests by customer and request type such as change identifier, customer merge, mobile reallocation and good will requests. This API supports various filters to fetch requests.
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `/request/get`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns the list of service requests and the current status of each request
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`https://<cluster url>/v1.1/request/get&format=<xml/json>`
+`https://{host}/v1.1/request/get&{params}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-start_date | Duration for which you want to retrieve the request details - between start_date and end_date
-end_date | Duration for which you want to retrieve the request details - between start_date and end_date
-customer identifiers | Identifier (user_id, email, mobile, external_id supported) of the customer whose details you want to retrieve
-status | Returns the requests by request status. **Value**: APPROVED, PENDING, REJECTED
-type | Returns a specific type of requests. **Value**: CHANGE_IDENTIFIER, GOODWILL
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+start_date | date | Get requests added on or after a specific date (`YYYY-MM-DD`). To get requests for a specific duration, pass the date-range in `start_date` and `end_date`.
+end_date | date | Get requests added before a specific date (`YYYY-MM-DD`). To get requests for a specific duration, pass the date-range in `start_date` and `end_date`.
+identifierName | enum | Get requests of a specific customer. Pass any of the identifier names with the identifier value. Values: `user_id`, `email`, 	`mobile`, `external_id`. For example, `email=tom.sawyer@example.com`.
+status | enum | Returns the requests by request status. Values: `APPROVED`, `PENDING`, `REJECTED`.
+type | enum | Returns a specific type of requests. Value: `CHANGE_IDENTIFIER`, `GOODWILL`, `TRANSACTION_UPDATE`.
 base_type | (MOBILE, EXTERNAL_ID, EMAIL, MERGE, ADDRESS, COUPONS, POINTS)
-start_id & end_id | pagination support - request id
-start_limit | UI support for data table; ex: get next 20 batch; formula: (page_no-1)*limit
-limit (no of entries to list)
+start_id | long | Get requests starting from a specific request ID.
+end_id | long | Get requests until a specific request ID.
+start_limit | int | UI support for data table. Example: get next 20 batch; formula: (page_no-1)*limit.
+limit | int | Limit number of entries to retrieve.
 
-
+<aside class"notice">Any one among the preceding parameters is mandatory.</aside>
 
 ## Retrieve Request Logs
+
+> Sample Request URL
+
 ```html
 https://us.api.capillarytech.com/v1.1/request/logs?format=json&type=CHANGE_IDENTIFIER&start_date=2016-01-15&end_date=2017-05-08&base_type=EMAIL
 
 ```
+
+> Sample Response
 
 ```xml
 <response>
@@ -892,39 +904,36 @@ https://us.api.capillarytech.com/v1.1/request/logs?format=json&type=CHANGE_IDENT
   }
 }
 ```
-Retrieves the requests logs of a specific duration. You can retrieve the either the logs of `CHANGE_IDENTIFIER`or `GOODWILL`. 
+Retrieves the request logs of a specific duration. You can retrieve the either the logs of `CHANGE_IDENTIFIER`or `GOODWILL`. 
 
 ### Resource Information
-Parameter | Description
---------- | -----------
-URI | request/logs
-Rate Limited? | Yes
+| | |
+--------- | ----------- |
+URI | `request/logs`
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns the log of service requests
-API Version | v1.1
 Batch Support | Yes
 
 ### Request URL
-`https://<cluster url>/v1.1/request/logs&format=<xml/json>`
+`https://{host}/v1.1/request/logs?{query_params}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-type* | CHANGE_IDENTIFIER, GOODWILL
-start_date* | Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)
-end_date* | Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)
-base_type* | MOBILE, EXTERNAL_ID, EMAIL, MERGE, COUPONS, POINTS
-status | Filters the logs by request status. Values: PENDING, APPROVED, REJECTED
-updated_by | Returns the requests that were updated by a specific associate 
-added_by | Returns the requests created by a specific associate
-request_id | Returns the details of a specific request id
-is_one_step_change | Returns the requests that were updated directly in a single call. Value: true, false
-approval_type | Returns the logs of a specific approval type. Value: CLIENT, CONFIG, CONFIG_DISABLED, CLIENT_DISABLED
-customer identifiers | Returns the requests of a specific customer. Params: email, mobile, external_id, customer_id
-user_id | Returns the user ids of customers if `user_id=true`
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+type* | enum | Get logs of a specific request type. Values: `CHANGE_IDENTIFIER`, `GOODWILL`, `TRANSACTION_UPDATE`.
+start_date* | date | Get the logs of a specific duration. Set duration in start_date and end_date (YYYY-MM-DD).
+end_date* | date | Get the logs of a specific duration set in start_date and end_date (YYYY-MM-DD).
+base_type* | enum | Sub-type of the request. Value: `MOBILE`, `EXTERNAL_ID`, `EMAIL`, `MERGE`, `COUPONS`, `POINTS`.
+status | enum | Filter the log by request status. Values: `PENDING`, `APPROVED`, `REJECTED`.
+updated_by | string | Gets the requests updated by a specific associate. Provide associate code. 
+added_by | string | Gets the requests created by a specific associate.Pass associate code.
+request_id | long | Returns the details of a specific request id.
+is_one_step_change | boolean | Pass `true` to get requests that were updated directly (in a single call).
+approval_type | enum | Returns the logs of a specific approval type. Value: `CLIENT`, `CONFIG`, `CONFIG_DISABLED`, `CLIENT_DISABLED`.
+identifierName | enum | Returns the requests of a customer based on the identifierName and value passed. Values: `email`, `mobile`, `external_id`, `customer_id`. For example, `mobile=9199998790`.
+user_id | boolean | Pass `user_id=true` to gets user ids of retrieved customers.
 start_id & end_id | Returns the logs of a specific range of request ids. For example, logs 
 limit | Limits the number of results per page. For example, `limit=10` shows 10 results per page on UI
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 

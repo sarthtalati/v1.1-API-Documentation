@@ -681,7 +681,7 @@ Batch Support | Yes
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
-bill_client_id | string | 
+bill_client_id | string | Unique id of the bill as per the client (org) end.
 type* | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
 number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
 amount* | double | Net transaction amount.
@@ -711,6 +711,7 @@ attributes | obj | Payment mode attributes in name and value pairs.
 custom_fields | obj | Transaction level custom field details. Pass line-item level custom field details in `line_item` object.
 line_items | obj | Details of transaction line-items.
 serial | long | Serial number of the current line-item.
+transaction_number | string | Transaction line-item number.
 description | string | Description of the line-item.
 item_code | string | Unique line-item code.
 variant | string | Variant code of the item. Applicable for variant product.

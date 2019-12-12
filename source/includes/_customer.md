@@ -1339,6 +1339,8 @@ identifier* | enum | Pass the identifier name that you want to update. **Value**
 old_value* | string | Provide the existing value the identifier that you want to update.
 new_value* | string | Provide the new value of the identifier.
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 
 
 ## Search Customers (Advanced Search)

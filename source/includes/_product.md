@@ -173,27 +173,24 @@ http://us.api.capillarytech.com/v1.1/product/add.json
 Allows you to add product to the inventory.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/add
+| | |
+--------- | ----------- |
+URI | `product/add`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | POST
-Response Object | Adds product to the inventory
-API Version | v1.1 
 Batch Support | Yes
 
 
 ### Request URL
-`http://<cluster url>/v1.1/product/add.<xml/json>`
+`http://{host}/v1.1/product/add?format={xml/json}`
 
 
-## Retrieve Products
+## Search Products
+
+> Sample Request
 
 ```html
-# Sample Request
-http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=xml
+http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=json
 ```
 > Sample Response
 
@@ -319,34 +316,21 @@ http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue
 Retrieve products available at the current org based on the query params such as SKU, quantity, price, item status, images, attributes and so on.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/searchs
+| | |
+--------- | ----------- |
+URI | `/product/search`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns details of a specific inventory
-API Version | v1.1 
 Batch Support | Yes
 
-
-### Request Parameters
-Attributes like price, item_sku, description, img_url are common for all the orgs.
-
-Parameter | Description
---------- | -----------
-org_id | Returns all products of the organization
-sku | Returns products having the specified SKUs
-item_ean | Returns product(s)  with the specified European Article Number
-price | Returns products with the specified price
-added_on | Returns products added on a specific date
-User Defined Attributes | Apart from the predefined attributes mentioned above, you can also use custom attributes configured for your organization
-
 ### Request URL
-`http://<cluster url>/v1.1/product/search?q=(<searchquerystring>)&format=<xml/json>`
+`http://{host}/v1.1/product/search?q={searchquerystring}&format={xml/json}`
+
+
 
 ### Search Query String
+Attributes like price, item_sku, description, img_url are common for all the orgs.
+
 Standard Query: `attribute:OPERATOR:value`
 
 Search Query String is the URL encoded string containing the parameters used for searching. You can pass multiple params in the query with fixed operators separating each query string with `|`
@@ -461,26 +445,28 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345&format=json
 Returns the details of a specific product. You can retrieve details of multiple products at a time.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/get
+| | |
+--------- | ----------- |
+URI | `/product/get`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns product details
-API Version | v1.1 
 Batch Support | Yes
+
+
+### Request URL
+`http://{host}/v1.1/product/get?{requestParams}&format={xml/json}`
+
 
 ### Request Parameters
 
-Parameter | Description
---------- | -----------
-sku	 | Returns products based on the SKU passed
-id | Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server
+Parameter | Datatype | Description
+--------- | -------- | -----------
+sku** | string | Returns products based on the SKU passed
+id** | long | Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server
+include_hierarchy | boolean | Pass `true` to retrieve product hierarchy.
 
-### Request URL
-`http://<cluster url>/v1.1/product/get?format=xml&<query_parameters>`
+<aside class="notice">Any one among the parameters marked with * is mandatory. </aside>
+
 
 
 
@@ -675,30 +661,31 @@ Retrieves the details of all product categories.
 
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/categories
+| | |
+--------- | ----------- |
+URI | `/product/categories`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/categories?<Request Params>&format=<xml/json>`
+`http://{host}/v1.1/product/categories?{requestParams>&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-include_id | Retrieves category ids of each category fetched. Value: true/false
-values | Retrieves all child categories if values=true
-name | Retrieves the details of a specific product category based on the category name passed (not case sensitive)
-parent_name | Retrieves the details of a specific product category and its child categories  based on the parent category name passed
-id | Retrieves the details of a specific product category based on the product id
-parent_id | Retrieves the details of a specific product category and its child categories based on the parent product id passed
-limit | Limits the number of product categories to be retrieved
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+include_id |boolean | Retrieves category ids of each category fetched. Value: true/false
+values | boolean  | Retrieves all child categories if values=true.
+value_limit | int | Limits number of child categories to be retrieved. Default value 20.
+name | string | Retrieves the details of a specific product category based on the category name passed (not case sensitive)
+parent_name | string | Retrieves the details of a specific product category and its child categories  based on the parent category name passed
+id | long | Retrieves the details of a specific product category based on the product id
+parent_id | long | Retrieves the details of a specific product category and its child categories based on the parent product id passed
+parent_name | string | Fetch categories by name of the parent product.
+limit | int | Limits the number of product categories to be retrieved
+offset | int | Entries to be ignored from the top.
+
 
 
 ## Retrieve Product Brands
@@ -722,7 +709,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
          <brand>
             <name>AA</name>
             <label>a1</label>
-            <description>aaaa</description>
+            <description>Sample description</description>
             <parent_name />
             <parent_label />
             <item_status>
@@ -734,7 +721,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
          <brand>
             <name>BB</name>
             <label>b1</label>
-            <description>bbbb</description>
+            <description>Sample description</description>
             <parent_name>AA</parent_name>
             <parent_label>a1</parent_label>
             <item_status>
@@ -746,7 +733,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
          <brand>
             <name>CC</name>
             <label>c1</label>
-            <description>cccc</description>
+            <description>Sample description</description>
             <parent_name>BB</parent_name>
             <parent_label>b1</parent_label>
             <item_status>
@@ -758,7 +745,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
          <brand>
             <name>DD</name>
             <label>d1</label>
-            <description>dddd</description>
+            <description>Sample description</description>
             <parent_name>BB</parent_name>
             <parent_label>b1</parent_label>
             <item_status>
@@ -789,7 +776,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
           {
             "name":"AA",
             "label":"a1",
-            "description":"aaaa",
+            "description":"Sample description",
             "parent_name":"",
             "parent_label":"",
             "item_status":{
@@ -801,7 +788,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
           {
             "name":"BB",
             "label":"b1",
-            "description":"bbbb",
+            "description":"Sample description",
             "parent_name":"AA",
             "parent_label":"a1",
             "item_status":{
@@ -813,7 +800,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
           {
             "name":"CC",
             "label":"c1",
-            "description":"cccc",
+            "description":"Sample description",
             "parent_name":"BB",
             "parent_label":"b1",
             "item_status":{
@@ -825,7 +812,7 @@ http://us.api.capillarytech.com/v1.1/product/brands?format=json
           {
             "name":"DD",
             "label":"d1",
-            "description":"dddd",
+            "description":"Sample description",
             "parent_name":"BB",
             "parent_label":"b1",
             "item_status":{
@@ -845,34 +832,33 @@ Retrieves the details of all product brands created for the org.
 
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/brands
+| | |
+--------- | ----------- |
+URI | `/product/brands`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | Yes
 
 ### Request URL
 
-`http://<cluster url>/v1.1/product/brands?<request params>&format=<xml/json>`
+`http://{host}/v1.1/product/brands?{params}&format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-include_id | Retrieves the brand id if include_id is passed as true. Value: true/false 
+Parameter | Datatype | Description
+--------- | -------- | -----------
+include_id | boolean | Retrieves the brand id if include_id is passed as true. Value: true/false.
+id | long | Retrieves the details of a specific brand based on the brand id passed
 name | Retrieves the details of the specific brand based on the name passed(name is not case sensitive)
-parent_name | Retrieves the details of a specific parent brand and its child brands based on the brand name passed
-id | Retrieves the details of a specific brand based on the brand id passed
-parent_id | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed
-limit | Limits the number of brands to be retrieved per request
-
-
+parent_name | string | Retrieves the details of a specific parent brand and its child brands based on the brand name passed
+parent_id | long | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed
+limit | int | Limits the number of brands to be retrieved per request
+offset | int | Number of rows or results that you want omit from showing (from the top)
 
 
 ## Retrieve Product Colors
+
+> Sample Request
+
 ```html
 http://us/api.capillarytech.com/v1.1/product/colors?format=json
 ```
@@ -925,8 +911,6 @@ http://us/api.capillarytech.com/v1.1/product/colors?format=json
 ```
 
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
@@ -972,28 +956,28 @@ http://us/api.capillarytech.com/v1.1/product/colors?format=json
 Retrieves the details of all product colors configured for the org.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/colors
+| | |
+--------- | ----------- |
+URI | `/product/colors`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | Yes
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/colors?<Request Params>&format=<xml/json>`
+`http://{host}/v1.1/product/colors?{requestParams}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-pallette | Retrieves the details of a specific color. Pass the hexa code of the color that you want to fetch.
-limit | Limits the number of entries to be retrieved
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | ------------
+pallette | string | Retrieves the details of a specific color. Pass the hexa code of the color that you want to fetch.
+limit | int | Limit the number of entries retrieve.
 
 
 
 ## Retrieve Product Sizes
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/product/sizes?format=json
 ```
@@ -1001,8 +985,6 @@ http://us.api.capillarytech.com/v1.1/product/sizes?format=json
 > Sample Response
 
 ```xml
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
    <status>
@@ -1126,34 +1108,34 @@ http://us.api.capillarytech.com/v1.1/product/sizes?format=json
 Retrieves the list of all configured product sizes.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/sizes
+| | |
+--------- | ----------- |
+URI | `/product/sizes`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-API Version | v1.1 
+HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/product/sizes?<Request Params>&format=<xml/json>`
+`http://{host}/v1.1/product/sizes?{requestParams}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-include_id | Retrieves ids of each size if include_id is passed as true. Value: true/false
-name | Retrieves details of specific size details based on the size name passed
-canonical_name | Retrieves the details of a specific size based on the cname. Cannonical names are reference names provided to a specific size
-type | Retrieves sizes of a specific type
-size_family | Retrieves all the sizes of the specified size family
-id | Retrieves the details of a specific size based on the size id passed
-limit | Limits the number of entries to be retrieved
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+include_id | boolean | Pass `true` to retrieve ids of each size.
+name | string | Retrieves details of specific size details based on the size name passed.
+canonical_name | string | Retrieves the details of a specific size based on the CName. Canonical names are reference names provided to a specific size.
+type | string | Retrieve sizes of a specific type.
+size_family | string | Retrieve sizes of a specified size family. Supports only predefined values. 
+id | long | Retrieve the details of a specific size based on the size id passed
+limit | int | Limit the number of entries to retrieve.
 
 
 
 
 ## Retrieve Product Meta-Sizes
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
 ```
@@ -1173,7 +1155,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
          <meta_size>
             <name>37</name>
             <label />
-            <decription />
+            <description />
             <size_family>CentiMeter</size_family>
             <type>Mens Shirt</type>
             <parent_meta_size />
@@ -1186,7 +1168,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
          <meta_size>
             <name>38</name>
             <label />
-            <decription />
+            <description />
             <size_family>CentiMeter</size_family>
             <type>Mens Shirt</type>
             <parent_meta_size />
@@ -1199,7 +1181,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
          <meta_size>
             <name>39</name>
             <label />
-            <decription />
+            <description />
             <size_family>CentiMeter</size_family>
             <type>Mens Shirt</type>
             <parent_meta_size />
@@ -1212,7 +1194,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
          <meta_size>
             <name>40</name>
             <label />
-            <decription />
+            <description />
             <size_family>CentiMeter</size_family>
             <type>Mens Shirt</type>
             <parent_meta_size />
@@ -1225,7 +1207,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
          <meta_size>
             <name>41</name>
             <label />
-            <decription />
+            <description />
             <size_family>CentiMeter</size_family>
             <type>Mens Shirt</type>
             <parent_meta_size />
@@ -1256,7 +1238,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
           {
             "name":"37",
             "label":"",
-            "decription":"",
+            "description":"",
             "size_family":"CentiMeter",
             "type":"Mens Shirt",
             "parent_meta_size":null,
@@ -1269,7 +1251,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
           {
             "name":"38",
             "label":"",
-            "decription":"",
+            "description":"",
             "size_family":"CentiMeter",
             "type":"Mens Shirt",
             "parent_meta_size":null,
@@ -1282,7 +1264,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
           {
             "name":"39",
             "label":"",
-            "decription":"",
+            "description":"",
             "size_family":"CentiMeter",
             "type":"Mens Shirt",
             "parent_meta_size":null,
@@ -1295,7 +1277,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
           {
             "name":"40",
             "label":"",
-            "decription":"",
+            "description":"",
             "size_family":"CentiMeter",
             "type":"Mens Shirt",
             "parent_meta_size":null,
@@ -1308,7 +1290,7 @@ http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
           {
             "name":"41",
             "label":"",
-            "decription":"",
+            "description":"",
             "size_family":"CentiMeter",
             "type":"Mens Shirt",
             "parent_meta_size":null,
@@ -1330,32 +1312,32 @@ Retrieves details of all product meta-sizes.
 
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/meta_sizes
+| | |
+--------- | ----------- |
+URI | `/product/meta_sizes`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-API Version | v1.1 
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/product/meta_sizes?<Request Params>&format=<xml/json>`
+`http://{host}/v1.1/product/meta_sizes?{requestParams}&format={xml/json}`
 
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-include_id | Retrieves ids of each meta size if include_id=true. Value: true/false 
-name | Retrieves the details of a specific meta-size based on the name passed
-type | retrieves the meta-sizes of a specific type
-size_family | Retrieves all the meta-sizes of the specified size family
-id | Retrieves the details of a specific meta-size id 
-limit | Limits the number of meta-sizes to be retrieved
+Parameter | Datatype | Description
+--------- | -------- | -----------
+include_id | boolean | Pass `true` to retrieve IDs of each meta size. 
+name | string | Retrieves the details of a specific meta-size based on the name passed.
+type | string | Retrieves the meta-sizes of a specific type.
+size_family | string | Retrieves all the meta-sizes of the specified size family.
+id | long | Retrieves the details of a specific meta-size based on the meta-size ID passed.
+limit | int | Limits the number of meta-sizes retrieve.
 
 
 ## Retrieve Product Attributes
+
+> Sample Request
+
 ```html
 http://api.us.capillarytech.com/v1.1/product/attributes?format=json
 ```
@@ -1501,30 +1483,27 @@ http://api.us.capillarytech.com/v1.1/product/attributes?format=json
 Retrieves the list of all product attributes.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | product/attributes
-Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
-HTTP Methods | GET
-API Version | v1.1 
+| | |
+--------- | ----------- |
+URI | `product/attributes`
 Batch Support | Yes
+HTTP Methods | GET
+Rate Limited? | Yes
 
 
 ### Request URL
-`http://<Cluster URL>/v1.1/product/attributes?<request params>&format=<xml/json>`
+`http://{host}/v1.1/product/attributes?{requestParams}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-include_id | Retrieves ids of each product attribute fetched. Value: true/false
-values | Retrieves all child attributes if values=true
-value_limit | limit number of attribute values to be retrieved per attribute
-name | Specify an attribute name to retrieve the details of that specific attribute (non-case sensitive)
-id | Pass an attribute id to fetch the details of that specific attribute
-limit | Limit the number of attributes that you want to retrieve
-
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+include_id | boolean | Pass `true` to retrieve IDs of each product attribute.
+values | boolean | Pass `true` to retrieve all child attributes.
+value_limit | int | Limits number of child attributes to be retrieved per attribute.
+name | string | Retrieves details of an an attribute based on the attribute name (name is not case sensitive).
+id | long | Pass an attribute id to fetch the details of that specific attribute.
+limit | int | Limit the number of attributes to retrieve.
+offset | int | Omits the specified number of entries from the top.
 
 
 
