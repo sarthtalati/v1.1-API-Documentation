@@ -1863,6 +1863,8 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 </tr>
 </tbody></table>
 
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 <h2 id="search-customers-advanced-search">Search Customers (Advanced Search)</h2>
 
 <blockquote>
@@ -7212,7 +7214,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <tr>
 <td>bill_client_id</td>
 <td>string</td>
-<td></td>
+<td>Unique id of the bill as per the client (org) end.</td>
 </tr>
 <tr>
 <td>type*</td>
@@ -7358,6 +7360,11 @@ Extended fields and custom fields in transactions are used to capture additional
 <td>serial</td>
 <td>long</td>
 <td>Serial number of the current line-item.</td>
+</tr>
+<tr>
+<td>transaction_number</td>
+<td>string</td>
+<td>Transaction line-item number.</td>
 </tr>
 <tr>
 <td>description</td>
@@ -11923,13 +11930,16 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <li><strong>Goodwill</strong>: Requests corresponding to goodwill points and coupons</li>
 </ul>
 
-<h2 id="submit-requests">Submit Requests</h2>
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
 </code></pre>
 <blockquote>
-<p>Sample ID Change Request</p>
+<p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+<pre class="highlight xml"><code>## For ID Change
+<span class="nt">&lt;root&gt;</span>
 <span class="nt">&lt;request&gt;</span>
     <span class="nt">&lt;reference_id&gt;</span>1234<span class="nt">&lt;/reference_id&gt;</span>
     <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
@@ -11946,7 +11956,8 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <span class="nt">&lt;/request&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">change</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
@@ -11964,11 +11975,9 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Sample Goodwill Request</p>
-</blockquote>
-<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
+</span></code></pre><pre class="highlight xml"><code>## For Goodwill
+
+<span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;request&gt;</span>
       <span class="nt">&lt;customer&gt;</span>
          <span class="nt">&lt;id&gt;</span>2345<span class="nt">&lt;/id&gt;</span>
@@ -11983,7 +11992,9 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
       <span class="nt">&lt;points&gt;</span>200<span class="nt">&lt;/points&gt;</span>
    <span class="nt">&lt;/request&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="err">##</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">Goodwill</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
     </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -12115,59 +12126,25 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
 </aside>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>program_id</td>
-<td>Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true</td>
-</tr>
-<tr>
-<td>client_auto_approve=true</td>
-<td>Allows processing a request directly</td>
-</tr>
-</tbody></table>
-
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>request/add</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">request/add</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>POST</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Submits customer requests</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -12177,62 +12154,111 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/add&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Customer Identifier*</td>
-<td>Unique identifier of the customer for whom the request is created. This can be mobile no/email id/external id/user id</td>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer with the identifier value.</td>
 </tr>
 <tr>
 <td>reference_id*</td>
+<td>long</td>
 <td>Unique reference id for the request</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+<td>enum</td>
+<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL, TRANSACTION_UPDATE.</td>
 </tr>
 <tr>
 <td>base_type</td>
+<td>enum</td>
 <td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
 </tr>
 <tr>
 <td>old_value</td>
+<td>string</td>
 <td>The current value of the customer identifier. Applicable only for identifier change requests</td>
 </tr>
 <tr>
 <td>new_value</td>
+<td>string</td>
 <td>The new value of the customer identifier. Applicable only for identifier change requests</td>
 </tr>
 <tr>
 <td>requested_on</td>
+<td>date</td>
 <td>Date on which the request is created in YYYY-MM-DD format</td>
 </tr>
 <tr>
 <td>reason</td>
+<td>string</td>
 <td>Reason for issuing goodwill points/coupons. Applicable only for goodwill response</td>
 </tr>
 <tr>
 <td>comments</td>
+<td>string</td>
 <td>Small description on why goodwill points/coupons issued</td>
 </tr>
 <tr>
 <td>client_auto_approve</td>
+<td>boolean</td>
 <td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td>string</td>
+<td>Transaction ID that you want to update. Applicable for <code class="prettyprint">type</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
+</tr>
+<tr>
+<td>requested_on</td>
+<td>date</td>
+<td>Date of request in <code class="prettyprint">YYYY-MM-DD</code> format</td>
+</tr>
+<tr>
+<td>series_id</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>tier_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>long</td>
+<td>Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true.</td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to process the request directly.</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
 <h2 id="approve-requests">Approve Requests</h2>
+
+<blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/approve
 </code></pre>
-<blockquote>
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
@@ -12311,37 +12337,21 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>request/approve</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">/approve</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>POST</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Approves customer requests</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -12351,31 +12361,41 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/approve&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/request/approve&amp;format={xml/json}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id*</td>
+<td>long</td>
 <td>Reference id of the request that you want to approve</td>
 </tr>
 <tr>
-<td>type</td>
-<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+<td>type*</td>
+<td>enum</td>
+<td>Type of request. Value: <code class="prettyprint">CHANGE_IDENTIFIER</code>, <code class="prettyprint">GOODWILL</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
 </tr>
 <tr>
-<td>base_type</td>
+<td>base_type*</td>
+<td>enum</td>
 <td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
 </tr>
 </tbody></table>
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
 <h2 id="reject-request">Reject Request</h2>
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/reject
 </code></pre>
 <blockquote>
@@ -12457,37 +12477,21 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <table><thead>
 <tr>
-<th>Entry</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>request/reject</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">request/reject</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>POST</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Rejects pending requests</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -12497,33 +12501,45 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/request/reject&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/request/reject&amp;format={xml/json}</code></p>
 
-<h3 id="request-attributes">Request Attributes</h3>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id*</td>
+<td>long</td>
 <td>Reference id of the request that you want to approve</td>
 </tr>
 <tr>
-<td>type</td>
-<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL</td>
+<td>type*</td>
+<td>enum</td>
+<td>Type of request. Value: <code class="prettyprint">CHANGE_IDENTIFIER</code>, <code class="prettyprint">GOODWILL</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
 </tr>
 <tr>
-<td>base_type</td>
-<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
+<td>base_type*</td>
+<td>enum</td>
+<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-request-details">Retrieve Request Details</h2>
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
 <pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/request/get?format=json
-</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
 <span class="nt">&lt;status&gt;</span>
 <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
 <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
@@ -12724,33 +12740,21 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td>URI</td>
+<td><code class="prettyprint">/request/get</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns the list of service requests and the current status of each request</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -12760,56 +12764,83 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/get&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/request/get&amp;{params}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>start_date</td>
-<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
+<td>date</td>
+<td>Get requests added on or after a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get requests for a specific duration, pass the date-range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Duration for which you want to retrieve the request details - between start_date and end_date</td>
+<td>date</td>
+<td>Get requests added before a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get requests for a specific duration, pass the date-range in <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
 </tr>
 <tr>
-<td>customer identifiers</td>
-<td>Identifier (user_id, email, mobile, external_id supported) of the customer whose details you want to retrieve</td>
+<td>identifierName</td>
+<td>enum</td>
+<td>Get requests of a specific customer. Pass any of the identifier names with the identifier value. Values: <code class="prettyprint">user_id</code>, <code class="prettyprint">email</code>,    <code class="prettyprint">mobile</code>, <code class="prettyprint">external_id</code>. For example, <code class="prettyprint">email=tom.sawyer@example.com</code>.</td>
 </tr>
 <tr>
 <td>status</td>
-<td>Returns the requests by request status. <strong>Value</strong>: APPROVED, PENDING, REJECTED</td>
+<td>enum</td>
+<td>Returns the requests by request status. Values: <code class="prettyprint">APPROVED</code>, <code class="prettyprint">PENDING</code>, <code class="prettyprint">REJECTED</code>.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Returns a specific type of requests. <strong>Value</strong>: CHANGE_IDENTIFIER, GOODWILL</td>
+<td>enum</td>
+<td>Returns a specific type of requests. Value: <code class="prettyprint">CHANGE_IDENTIFIER</code>, <code class="prettyprint">GOODWILL</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
 </tr>
 <tr>
 <td>base_type</td>
 <td>(MOBILE, EXTERNAL_ID, EMAIL, MERGE, ADDRESS, COUPONS, POINTS)</td>
+<td></td>
 </tr>
 <tr>
-<td>start_id &amp; end_id</td>
-<td>pagination support - request id</td>
+<td>start_id</td>
+<td>long</td>
+<td>Get requests starting from a specific request ID.</td>
+</tr>
+<tr>
+<td>end_id</td>
+<td>long</td>
+<td>Get requests until a specific request ID.</td>
 </tr>
 <tr>
 <td>start_limit</td>
-<td>UI support for data table; ex: get next 20 batch; formula: (page_no-1)*limit</td>
+<td>int</td>
+<td>UI support for data table. Example: get next 20 batch; formula: (page_no-1)*limit.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>Limit number of entries to retrieve.</td>
 </tr>
 </tbody></table>
 
-<p>limit (no of entries to list)</p>
+<aside class"notice">Any one among the preceding parameters is mandatory.</aside>
 
 <h2 id="retrieve-request-logs">Retrieve Request Logs</h2>
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
 <pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/request/logs?format=json<span class="err">&amp;</span>type=CHANGE_IDENTIFIER<span class="err">&amp;</span>start_date=2016-01-15<span class="err">&amp;</span>end_date=2017-05-08<span class="err">&amp;</span>base_type=EMAIL
 
-</code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;status&gt;</span>
         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
@@ -13005,43 +13036,27 @@ The param `client_auto_approve` overrides all the server side configurations men
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the requests logs of a specific duration. You can retrieve the either the logs of <code class="prettyprint">CHANGE_IDENTIFIER</code>or <code class="prettyprint">GOODWILL</code>. </p>
+<p>Retrieves the request logs of a specific duration. You can retrieve the either the logs of <code class="prettyprint">CHANGE_IDENTIFIER</code>or <code class="prettyprint">GOODWILL</code>. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>request/logs</td>
-</tr>
-<tr>
-<td>Rate Limited?</td>
-<td>Yes</td>
+<td><code class="prettyprint">request/logs</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns the log of service requests</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -13051,73 +13066,90 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://&lt;cluster url&gt;/v1.1/request/logs&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/request/logs?{query_params}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>type*</td>
-<td>CHANGE_IDENTIFIER, GOODWILL</td>
+<td>enum</td>
+<td>Get logs of a specific request type. Values: <code class="prettyprint">CHANGE_IDENTIFIER</code>, <code class="prettyprint">GOODWILL</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
 </tr>
 <tr>
 <td>start_date*</td>
-<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+<td>date</td>
+<td>Get the logs of a specific duration. Set duration in start_date and end_date (YYYY-MM-DD).</td>
 </tr>
 <tr>
 <td>end_date*</td>
-<td>Returns the logs of a specific duration set in start_date and end_date (YYYY-MM-DD)</td>
+<td>date</td>
+<td>Get the logs of a specific duration set in start_date and end_date (YYYY-MM-DD).</td>
 </tr>
 <tr>
 <td>base_type*</td>
-<td>MOBILE, EXTERNAL_ID, EMAIL, MERGE, COUPONS, POINTS</td>
+<td>enum</td>
+<td>Sub-type of the request. Value: <code class="prettyprint">MOBILE</code>, <code class="prettyprint">EXTERNAL_ID</code>, <code class="prettyprint">EMAIL</code>, <code class="prettyprint">MERGE</code>, <code class="prettyprint">COUPONS</code>, <code class="prettyprint">POINTS</code>.</td>
 </tr>
 <tr>
 <td>status</td>
-<td>Filters the logs by request status. Values: PENDING, APPROVED, REJECTED</td>
+<td>enum</td>
+<td>Filter the log by request status. Values: <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">REJECTED</code>.</td>
 </tr>
 <tr>
 <td>updated_by</td>
-<td>Returns the requests that were updated by a specific associate</td>
+<td>string</td>
+<td>Gets the requests updated by a specific associate. Provide associate code.</td>
 </tr>
 <tr>
 <td>added_by</td>
-<td>Returns the requests created by a specific associate</td>
+<td>string</td>
+<td>Gets the requests created by a specific associate.Pass associate code.</td>
 </tr>
 <tr>
 <td>request_id</td>
-<td>Returns the details of a specific request id</td>
+<td>long</td>
+<td>Returns the details of a specific request id.</td>
 </tr>
 <tr>
 <td>is_one_step_change</td>
-<td>Returns the requests that were updated directly in a single call. Value: true, false</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to get requests that were updated directly (in a single call).</td>
 </tr>
 <tr>
 <td>approval_type</td>
-<td>Returns the logs of a specific approval type. Value: CLIENT, CONFIG, CONFIG_DISABLED, CLIENT_DISABLED</td>
+<td>enum</td>
+<td>Returns the logs of a specific approval type. Value: <code class="prettyprint">CLIENT</code>, <code class="prettyprint">CONFIG</code>, <code class="prettyprint">CONFIG_DISABLED</code>, <code class="prettyprint">CLIENT_DISABLED</code>.</td>
 </tr>
 <tr>
-<td>customer identifiers</td>
-<td>Returns the requests of a specific customer. Params: email, mobile, external_id, customer_id</td>
+<td>identifierName</td>
+<td>enum</td>
+<td>Returns the requests of a customer based on the identifierName and value passed. Values: <code class="prettyprint">email</code>, <code class="prettyprint">mobile</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">customer_id</code>. For example, <code class="prettyprint">mobile=9199998790</code>.</td>
 </tr>
 <tr>
 <td>user_id</td>
-<td>Returns the user ids of customers if <code class="prettyprint">user_id=true</code></td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">user_id=true</code> to gets user ids of retrieved customers.</td>
 </tr>
 <tr>
 <td>start_id &amp; end_id</td>
 <td>Returns the logs of a specific range of request ids. For example, logs</td>
+<td></td>
 </tr>
 <tr>
 <td>limit</td>
 <td>Limits the number of results per page. For example, <code class="prettyprint">limit=10</code> shows 10 results per page on UI</td>
+<td></td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
           <h1 id="task">Task</h1>
 
@@ -18261,37 +18293,21 @@ false
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/add</td>
+<td><code class="prettyprint">product/add</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>POST</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Adds product to the inventory</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18301,11 +18317,14 @@ false
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/add.&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/add?format={xml/json}</code></p>
 
-<h2 id="retrieve-products">Retrieve Products</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=xml
+<h2 id="search-products">Search Products</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)<span class="err">&amp;</span>format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -18430,37 +18449,21 @@ http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/searchs</td>
+<td><code class="prettyprint">/product/search</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns details of a specific inventory</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18468,47 +18471,13 @@ http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue
 </tr>
 </tbody></table>
 
-<h3 id="request-parameters">Request Parameters</h3>
-
-<p>Attributes like price, item_sku, description, img_url are common for all the orgs.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>org_id</td>
-<td>Returns all products of the organization</td>
-</tr>
-<tr>
-<td>sku</td>
-<td>Returns products having the specified SKUs</td>
-</tr>
-<tr>
-<td>item_ean</td>
-<td>Returns product(s)  with the specified European Article Number</td>
-</tr>
-<tr>
-<td>price</td>
-<td>Returns products with the specified price</td>
-</tr>
-<tr>
-<td>added_on</td>
-<td>Returns products added on a specific date</td>
-</tr>
-<tr>
-<td>User Defined Attributes</td>
-<td>Apart from the predefined attributes mentioned above, you can also use custom attributes configured for your organization</td>
-</tr>
-</tbody></table>
-
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/search?q=(&lt;searchquerystring&gt;)&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/search?q={searchquerystring}&amp;format={xml/json}</code></p>
 
 <h3 id="search-query-string">Search Query String</h3>
+
+<p>Attributes like price, item_sku, description, img_url are common for all the orgs.</p>
 
 <p>Standard Query: <code class="prettyprint">attribute:OPERATOR:value</code></p>
 
@@ -18618,37 +18587,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/get</td>
+<td><code class="prettyprint">/product/get</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns product details</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18656,27 +18609,37 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 </tr>
 </tbody></table>
 
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/v1.1/product/get?{requestParams}&amp;format={xml/json}</code></p>
+
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>sku</td>
+<td>sku**</td>
+<td>string</td>
 <td>Returns products based on the SKU passed</td>
 </tr>
 <tr>
-<td>id</td>
+<td>id**</td>
+<td>long</td>
 <td>Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server</td>
+</tr>
+<tr>
+<td>include_hierarchy</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve product hierarchy.</td>
 </tr>
 </tbody></table>
 
-<h3 id="request-url">Request URL</h3>
-
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/get?format=xml&amp;&lt;query_parameters&gt;</code></p>
+<aside class="notice">Any one among the parameters marked with * is mandatory. </aside>
 
 <h2 id="retrieve-product-categories">Retrieve Product Categories</h2>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/categories?format=json
@@ -18865,33 +18828,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/categories</td>
+<td><code class="prettyprint">/product/categories</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18901,43 +18852,66 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/categories?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/categories?{requestParams&gt;&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_id</td>
+<td>boolean</td>
 <td>Retrieves category ids of each category fetched. Value: true/false</td>
 </tr>
 <tr>
 <td>values</td>
-<td>Retrieves all child categories if values=true</td>
+<td>boolean</td>
+<td>Retrieves all child categories if values=true.</td>
+</tr>
+<tr>
+<td>value_limit</td>
+<td>int</td>
+<td>Limits number of child categories to be retrieved. Default value 20.</td>
 </tr>
 <tr>
 <td>name</td>
+<td>string</td>
 <td>Retrieves the details of a specific product category based on the category name passed (not case sensitive)</td>
 </tr>
 <tr>
 <td>parent_name</td>
+<td>string</td>
 <td>Retrieves the details of a specific product category and its child categories  based on the parent category name passed</td>
 </tr>
 <tr>
 <td>id</td>
+<td>long</td>
 <td>Retrieves the details of a specific product category based on the product id</td>
 </tr>
 <tr>
 <td>parent_id</td>
+<td>long</td>
 <td>Retrieves the details of a specific product category and its child categories based on the parent product id passed</td>
 </tr>
 <tr>
+<td>parent_name</td>
+<td>string</td>
+<td>Fetch categories by name of the parent product.</td>
+</tr>
+<tr>
 <td>limit</td>
+<td>int</td>
 <td>Limits the number of product categories to be retrieved</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>int</td>
+<td>Entries to be ignored from the top.</td>
 </tr>
 </tbody></table>
 
@@ -18960,7 +18934,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;brand&gt;</span>
             <span class="nt">&lt;name&gt;</span>AA<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label&gt;</span>a1<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;description&gt;</span>aaaa<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
             <span class="nt">&lt;parent_name</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;parent_label</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
@@ -18972,7 +18946,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;brand&gt;</span>
             <span class="nt">&lt;name&gt;</span>BB<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label&gt;</span>b1<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;description&gt;</span>bbbb<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
             <span class="nt">&lt;parent_name&gt;</span>AA<span class="nt">&lt;/parent_name&gt;</span>
             <span class="nt">&lt;parent_label&gt;</span>a1<span class="nt">&lt;/parent_label&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
@@ -18984,7 +18958,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;brand&gt;</span>
             <span class="nt">&lt;name&gt;</span>CC<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label&gt;</span>c1<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;description&gt;</span>cccc<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
             <span class="nt">&lt;parent_name&gt;</span>BB<span class="nt">&lt;/parent_name&gt;</span>
             <span class="nt">&lt;parent_label&gt;</span>b1<span class="nt">&lt;/parent_label&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
@@ -18996,7 +18970,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;brand&gt;</span>
             <span class="nt">&lt;name&gt;</span>DD<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label&gt;</span>d1<span class="nt">&lt;/label&gt;</span>
-            <span class="nt">&lt;description&gt;</span>dddd<span class="nt">&lt;/description&gt;</span>
+            <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
             <span class="nt">&lt;parent_name&gt;</span>BB<span class="nt">&lt;/parent_name&gt;</span>
             <span class="nt">&lt;parent_label&gt;</span>b1<span class="nt">&lt;/parent_label&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
@@ -19024,7 +18998,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"aaaa"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
@@ -19036,7 +19010,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"bbbb"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"AA"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"a1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
@@ -19048,7 +19022,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"CC"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"c1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"cccc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
@@ -19060,7 +19034,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"DD"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">"d1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"dddd"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_name"</span><span class="p">:</span><span class="s2">"BB"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_label"</span><span class="p">:</span><span class="s2">"b1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
@@ -19081,33 +19055,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/brands</td>
+<td><code class="prettyprint">/product/brands</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19117,43 +19079,59 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/brands?&lt;request params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/brands?{params}&amp;format={xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves the brand id if include_id is passed as true. Value: true/false</td>
+<td>boolean</td>
+<td>Retrieves the brand id if include_id is passed as true. Value: true/false.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Retrieves the details of a specific brand based on the brand id passed</td>
 </tr>
 <tr>
 <td>name</td>
 <td>Retrieves the details of the specific brand based on the name passed(name is not case sensitive)</td>
+<td></td>
 </tr>
 <tr>
 <td>parent_name</td>
+<td>string</td>
 <td>Retrieves the details of a specific parent brand and its child brands based on the brand name passed</td>
 </tr>
 <tr>
-<td>id</td>
-<td>Retrieves the details of a specific brand based on the brand id passed</td>
-</tr>
-<tr>
 <td>parent_id</td>
+<td>long</td>
 <td>Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed</td>
 </tr>
 <tr>
 <td>limit</td>
+<td>int</td>
 <td>Limits the number of brands to be retrieved per request</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>int</td>
+<td>Number of rows or results that you want omit from showing (from the top)</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-product-colors">Retrieve Product Colors</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us/api.capillarytech.com/v1.1/product/colors?format=json
 </code></pre>
 <blockquote>
@@ -19202,9 +19180,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -19252,33 +19228,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/colors</td>
+<td><code class="prettyprint">/product/colors</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19288,35 +19252,40 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/colors?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/colors?{requestParams}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>pallette</td>
+<td>string</td>
 <td>Retrieves the details of a specific color. Pass the hexa code of the color that you want to fetch.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limits the number of entries to be retrieved</td>
+<td>int</td>
+<td>Limit the number of entries retrieve.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-product-sizes">Retrieve Product Sizes</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/sizes?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
       <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
@@ -19439,33 +19408,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/sizes</td>
+<td><code class="prettyprint">/product/sizes</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
-<td>HTTP Methods</td>
+<td>HTTP Method</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19475,47 +19432,59 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/sizes?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/sizes?{requestParams}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves ids of each size if include_id is passed as true. Value: true/false</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve ids of each size.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Retrieves details of specific size details based on the size name passed</td>
+<td>string</td>
+<td>Retrieves details of specific size details based on the size name passed.</td>
 </tr>
 <tr>
 <td>canonical_name</td>
-<td>Retrieves the details of a specific size based on the cname. Cannonical names are reference names provided to a specific size</td>
+<td>string</td>
+<td>Retrieves the details of a specific size based on the CName. Canonical names are reference names provided to a specific size.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Retrieves sizes of a specific type</td>
+<td>string</td>
+<td>Retrieve sizes of a specific type.</td>
 </tr>
 <tr>
 <td>size_family</td>
-<td>Retrieves all the sizes of the specified size family</td>
+<td>string</td>
+<td>Retrieve sizes of a specified size family. Supports only predefined values.</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves the details of a specific size based on the size id passed</td>
+<td>long</td>
+<td>Retrieve the details of a specific size based on the size id passed</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limits the number of entries to be retrieved</td>
+<td>int</td>
+<td>Limit the number of entries to retrieve.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-product-meta-sizes">Retrieve Product Meta-Sizes</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
 </code></pre>
 <blockquote>
@@ -19533,7 +19502,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;meta_size&gt;</span>
             <span class="nt">&lt;name&gt;</span>37<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
             <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
@@ -19546,7 +19515,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;meta_size&gt;</span>
             <span class="nt">&lt;name&gt;</span>38<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
             <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
@@ -19559,7 +19528,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;meta_size&gt;</span>
             <span class="nt">&lt;name&gt;</span>39<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
             <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
@@ -19572,7 +19541,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;meta_size&gt;</span>
             <span class="nt">&lt;name&gt;</span>40<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
             <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
@@ -19585,7 +19554,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
          <span class="nt">&lt;meta_size&gt;</span>
             <span class="nt">&lt;name&gt;</span>41<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;decription</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;size_family&gt;</span>CentiMeter<span class="nt">&lt;/size_family&gt;</span>
             <span class="nt">&lt;type&gt;</span>Mens Shirt<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;parent_meta_size</span> <span class="nt">/&gt;</span>
@@ -19613,7 +19582,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"37"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19626,7 +19595,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"38"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19639,7 +19608,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19652,7 +19621,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"40"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19665,7 +19634,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
           </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"41"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"decription"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"size_family"</span><span class="p">:</span><span class="s2">"CentiMeter"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"Mens Shirt"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"parent_meta_size"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -19687,33 +19656,21 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/meta_sizes</td>
+<td><code class="prettyprint">/product/meta_sizes</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19723,43 +19680,54 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/product/meta_sizes?&lt;Request Params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/meta_sizes?{requestParams}&amp;format={xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves ids of each meta size if include_id=true. Value: true/false</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve IDs of each meta size.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Retrieves the details of a specific meta-size based on the name passed</td>
+<td>string</td>
+<td>Retrieves the details of a specific meta-size based on the name passed.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>retrieves the meta-sizes of a specific type</td>
+<td>string</td>
+<td>Retrieves the meta-sizes of a specific type.</td>
 </tr>
 <tr>
 <td>size_family</td>
-<td>Retrieves all the meta-sizes of the specified size family</td>
+<td>string</td>
+<td>Retrieves all the meta-sizes of the specified size family.</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Retrieves the details of a specific meta-size id</td>
+<td>long</td>
+<td>Retrieves the details of a specific meta-size based on the meta-size ID passed.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limits the number of meta-sizes to be retrieved</td>
+<td>int</td>
+<td>Limits the number of meta-sizes retrieve.</td>
 </tr>
 </tbody></table>
 
 <h2 id="retrieve-product-attributes">Retrieve Product Attributes</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
 <pre class="highlight html"><code>http://api.us.capillarytech.com/v1.1/product/attributes?format=json
 </code></pre>
 <blockquote>
@@ -19902,75 +19870,75 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>product/attributes</td>
+<td><code class="prettyprint">product/attributes</code></td>
 </tr>
 <tr>
-<td>Rate Limited?</td>
+<td>Batch Support</td>
 <td>Yes</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
 <td>GET</td>
 </tr>
 <tr>
-<td>API Version</td>
-<td>v1.1</td>
-</tr>
-<tr>
-<td>Batch Support</td>
+<td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 </tbody></table>
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;Cluster URL&gt;/v1.1/product/attributes?&lt;request params&gt;&amp;format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/product/attributes?{requestParams}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>include_id</td>
-<td>Retrieves ids of each product attribute fetched. Value: true/false</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve IDs of each product attribute.</td>
 </tr>
 <tr>
 <td>values</td>
-<td>Retrieves all child attributes if values=true</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve all child attributes.</td>
 </tr>
 <tr>
 <td>value_limit</td>
-<td>limit number of attribute values to be retrieved per attribute</td>
+<td>int</td>
+<td>Limits number of child attributes to be retrieved per attribute.</td>
 </tr>
 <tr>
 <td>name</td>
-<td>Specify an attribute name to retrieve the details of that specific attribute (non-case sensitive)</td>
+<td>string</td>
+<td>Retrieves details of an an attribute based on the attribute name (name is not case sensitive).</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Pass an attribute id to fetch the details of that specific attribute</td>
+<td>long</td>
+<td>Pass an attribute id to fetch the details of that specific attribute.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Limit the number of attributes that you want to retrieve</td>
+<td>int</td>
+<td>Limit the number of attributes to retrieve.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>int</td>
+<td>Omits the specified number of entries from the top.</td>
 </tr>
 </tbody></table>
 
