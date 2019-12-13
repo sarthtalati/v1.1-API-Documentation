@@ -1845,144 +1845,78 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=slab:EQUALS:CLASSIC
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w"> 
-    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-
-        </span><span class="p">},</span><span class="w">
-
-        </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-            </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-
-            </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-
-            </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-
-            </span><span class="nt">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-                </span><span class="nt">"item"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-                    </span><span class="p">{</span><span class="w">
-
-                        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"355"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5400"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10800"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLASSIC"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-12-25 11:25:32"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pe.london.bondstreet"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"last_trans_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-                            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-                                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_age"</span><span class="p">,</span><span class="w">
-
-                                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26-35"</span><span class="w">
-
-                            </span><span class="p">}</span><span class="w">
-
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"count"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"start"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"rows"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"results"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"item"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"org_id"</span><span class="p">:</span><span class="s2">"29"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="s2">"355"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="s2">"5400"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="s2">"10800"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="s2">"CLASSIC"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="s2">"2012-12-25 11:25:32"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="s2">"pe.london.bondstreet"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"last_trans_value"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                     </span><span class="nt">"attribute"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"customer_age"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"26-35"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"user_id"</span><span class="p">:</span><span class="s2">"122"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"org_id"</span><span class="p">:</span><span class="s2">"29"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900888"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="s2">"355"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="s2">"355"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="s2">"4598"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="s2">"CLASSIC"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="s2">"2012-12-25 11:25:32"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="s2">"px.london.bondstreet"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"last_trans_value"</span><span class="p">:</span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                     </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"occupation"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Student"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"customer_age"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"19-25"</span><span class="w">
                         </span><span class="p">}</span><span class="w">
-
-                    </span><span class="p">},</span><span class="w">
-
-                    </span><span class="p">{</span><span class="w">
-
-                        </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"122"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"29"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900888"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.smith@example.com"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"355"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"355"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4598"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLASSIC"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-12-25 11:25:32"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"registered_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"px.london.bondstreet"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"last_trans_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-
-                        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-
-                            </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-
-                                </span><span class="p">{</span><span class="w">
-
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"occupation"</span><span class="p">,</span><span class="w">
-
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student"</span><span class="w">
-
-                                </span><span class="p">},</span><span class="w">
-
-                                </span><span class="p">{</span><span class="w">
-
-                                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_age"</span><span class="p">,</span><span class="w">
-
-                                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19-25"</span><span class="w">
-
-                                </span><span class="p">}</span><span class="w">
-
-                            </span><span class="p">]</span><span class="w">
-
-                        </span><span class="p">}</span><span class="w">
-
-                    </span><span class="p">}</span><span class="w">
-
-                </span><span class="p">]</span><span class="w">
-
-            </span><span class="p">}</span><span class="w">
-
-        </span><span class="p">}</span><span class="w">
-
-    </span><span class="p">}</span><span class="w">
-
+                     </span><span class="p">]</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
@@ -7429,7 +7363,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <tr>
 <td>source</td>
 <td>enum</td>
-<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).</td>
+<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE (ECOMMERCE), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), <code class="prettyprint">OTHERS</code> (any other source).</td>
 </tr>
 <tr>
 <td>not_interested_reason</td>
@@ -7825,7 +7759,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <tr>
 <td>source</td>
 <td>enum</td>
-<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).</td>
+<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), <code class="prettyprint">OTHERS</code> (any other source).</td>
 </tr>
 <tr>
 <td>not_interested_reason</td>
@@ -8198,7 +8132,7 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 <tr>
 <td>source</td>
 <td>enum</td>
-<td>Source from which the return transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).</td>
+<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), <code class="prettyprint">OTHERS</code> (any other source).</td>
 </tr>
 <tr>
 <td>customer</td>
@@ -18571,19 +18505,19 @@ false
 </tr>
 </thead><tbody>
 <tr>
-<td>sku</td>
+<td>sku*</td>
 <td>string</td>
 <td>SKU of the product to add.</td>
 </tr>
 <tr>
 <td>ean</td>
 <td>string</td>
-<td></td>
+<td>European article number of the product.</td>
 </tr>
 <tr>
-<td>price</td>
-<td></td>
-<td></td>
+<td>price*</td>
+<td>double</td>
+<td>Price of the product.</td>
 </tr>
 <tr>
 <td>description</td>
@@ -18631,6 +18565,8 @@ false
 <td>Other product attributes in name-value pairs.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
 
 <h2 id="search-products">Search Products</h2>
 
