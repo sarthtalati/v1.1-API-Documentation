@@ -695,7 +695,7 @@ billing_time* | date-time | Date and time of the transaction. By default, the  c
 gross_amount | double | Transaction amount excluding discount.
 discount | double | Discount availed for the transaction (discount amount).
 outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: `INTERNAL`, `NORMAL`, `INVALID`, `OUTLIER`, `FAILED`, `DELETED`, `RETRO`, `FRAUD`, `TEST`, `OTHER`. 
-source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source).
 not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
 referral_code | string | Referral code for a new customer (if applicable) to register in the org's loyalty program.
 customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
@@ -903,6 +903,8 @@ Batch Support | Yes
 
 ### Request Body Parameters
 
+Parameter | Datatype | Description
+--------- | -------- | -----------
 type* | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
 number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
 amount* | double | Net transaction amount.
@@ -915,7 +917,7 @@ billing_time* | date-time | Date and time of the transaction. By default, the  c
 gross_amount | double | Transaction amount excluding discount.
 discount | double | Discount availed for the transaction (discount amount).
 outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: `INTERNAL`, `NORMAL`, `INVALID`, `OUTLIER`, `FAILED`, `DELETED`, `RETRO`, `FRAUD`, `TEST`, `OTHER`. 
-source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source).
 not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
 customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
 mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
@@ -1218,7 +1220,7 @@ qty* | int | Quantity of the current line-item.
 rate | float | Price of each line-item.
 value | float | Gross transaction amount (transaction amount excluding discount).
 amount* | double | Net return transaction amount.
-source | enum | Source from which the return transaction is made. Values: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source).
 customer | obj | Customer details associated to the transaction. Not applicable for not-interested transactions.
 mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for regular transaction returns.
 firstname | string | First name of the customer.
@@ -1478,7 +1480,6 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
           "mobile": "44700900999",
           "email": "earnshaw.catherine@example.com",
           "external_id": "ec1234"
-		  "test_control_status": "CONTROL",
         },
 		"extended_fields": {
 				"field": [{
@@ -1544,7 +1545,6 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
             <mobile>44700900999</mobile>
             <email>earnshaw.catherine@example.com</email>
             <external_id>ec1234</external_id>
-			<test_control_status>control</test_control_status>
         </customer>
 		<extended_fields>
                <field>
@@ -1601,8 +1601,8 @@ HTTP Methods | POST
 API Version | v1.1 
 Batch Support | Yes 
 
-### Request Body Parameters 
 
+### Request Body Parameters 
 Parameter | Datatype | Description
 --------- | -------- | -----------
 id** | int | Unique id of the transaction that you want to update.
@@ -1610,7 +1610,6 @@ number** | string | Transaction number that you need to update.
 mobile/external_id/email/id* | string | Pass any one of the identifiers of the customer associated to the transaction. 
 update_till | string | Till code associated to the transaction update.
 notes | string | Reason for the transaction update for reference.
-test_control_status | enum | Update test-control status of the customer.
 extended_fields | obj | Update extended field details of the transaction.
 custom_fields | obj | Update custom field details of the transaction.
 
@@ -1962,23 +1961,26 @@ type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_IN
 
 ## Response Codes
 ### Success Codes
-| Code  | Description                        | 
-|-------|------------------------------------| 
-| 600   | Transaction added successfully     | 
-|       | Transaction retrieved successfully | 
-|       | Transaction updated successfully   | 
+Code  | Description                         
+------|------------------------------------ 
+600   | Transaction added successfully.
+      | Transaction retrieved successfully.
+      | Transaction updated successfully.    
+1630 | Transaction marked as regular through Retro conversion. Transaction added successfully.
+
 
 ### Error Codes
 Code | Description
 ---- | -----------
-601 | Transaction failed. Transaction amount/quantity/ rate/discount is invalid.
+500 | Unable to retrieve transaction.
+601 | Transaction failed. Transaction amount, quantity, rate, or discount is invalid.
 602 | Transaction number is invalid.
 603 | Points are already used (Deprecated).
 604 | Transaction number already exists.
 605 | Invalid transaction type. Only regular, return and not-interested transaction types are supported.
 606 | Customer identifier is not passed. Please enter customer's mobile or email or external id to process.
-607 | Transaction id is not passed. Please pass the transaction id to process.
-608 | Unable to process the transaction
+607 | No transaction id passed. Please pass the transaction id to process.
+608 | Unable to add transaction.
 609 | Update failed. Please verify all the fields.
 610 | Unable to register. Please verify all the fields.
 611 | Customer not found.
@@ -1996,7 +1998,7 @@ Code | Description
 625 | Transaction number does not exist.
 626 | Unable to return transaction. The quantity of returned items are more than purchased items.
 627 | Quantity cannot be negative.
-628 | The entire transaction is already returned.
+628 | Invalid return transaction type.
 629 | The return quantity of the item is more than available quantity.
 630 | The return amount is more than the transaction/line-item amount.
 631 | Transaction amount cannot be negative.
@@ -2011,8 +2013,8 @@ Code | Description
 640 | Points or coupons are not redeemed for this transaction.
 641 | No customer found.
 642 | Redemption failed. An error occurred in points/coupon redemption.
-643 | Transaction is invalid. The transaction date exceeds the accepted future date limit.
-644 | Transaction is invalid. The transaction date should not be less than the accepted past date limit.
+643 | Invalid transaction. The transaction date exceeds the accepted future date limit.
+644 | Invalid transaction. The transaction date cannot be less than the accepted past date limit.
 645 | Transaction addition failed for not interested.
 646 | Customer registration failed. The email id is invalid.
 647 | Customer registration failed. Email id is already assigned to another customer.
@@ -2034,12 +2036,12 @@ Code | Description
 663 | Rate of a line-item cannot be negative
 664 | Discount of a line-item cannot be negative.
 665 | Gross amount of the transaction cannot be negative.
-666 | Discount of the transaction cannot be negative.
+666 | Discount cannot be negative.
 667 | Unable to find the transaction id for this customer.
 668 | Unable to find the transaction number for this customer.
 669 | Unable to update custom field.
 670 | Transaction id/number is not provided.
-671 | Invalid Store TILL code.
+671 | Invalid Store or TILL code.
 672 | Batch limit exceeded.
 673 | Returning of transactions is not allowed.
 674 | Returning of line item is not allowed.
@@ -2052,7 +2054,9 @@ Code | Description
 681 | Transactions are blocked for this customer.
 686 | Unable to add transaction.
 687 | Points activities are queued and will be updated later.
+    | Item code {x} merge is not supported.
 688 | No matching line-item found for return.
+    | Transaction number not found.
 689 | Points processing failed
 690 | Points processing failed
 691 | Points processing failed
@@ -2062,16 +2066,17 @@ Code | Description
 695 | Invalid configuration. Please report to the Capillary Support.
 696 | Points processing failed
 697 | Points processing failed
-698 | Points processing failed
+698 | Points processing failed.
+710 | Return bill event failed from EMF.
 699 | Invalid configuration. Please report to the Capillary Support.
 1101 | Invalid loyalty program ID passed.
 1102 | Invalid currency conversion ratio passed.
 1103 | Invalid shipping store code passed.
-1623 | Transaction type is invalid
-1624 | Provided parameters are not sufficient to fetch transaction
-1625 | Target type is not specified 
-1626 | The requested transaction type cannot be changed
-1627 | The transaction is already marked as retro
+1623 | Transaction type is invalid.
+1624 | Insufficient parameters passed to fetch transaction.
+1625 | Target type is not specified.
+1626 | The requested transaction type cannot be changed.
+1627 | The transaction is already marked as retro.
 1628 | Transaction id is invalid
 1629 | Client signature is required to perform this action
 1631 | Retro transaction is not enabled for your organization

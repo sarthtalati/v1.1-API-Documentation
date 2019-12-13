@@ -185,6 +185,24 @@ Batch Support | Yes
 `http://{host}/v1.1/product/add?format={xml/json}`
 
 
+### Request Query Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+sku | string | SKU of the product to add.
+ean | string | 
+price | 
+description | string | Brief description of the product.
+long_description | string | Detailed description of the product.
+img_url | string | URL of the product image.
+size | obj | Size of the product in name:value pairs.
+style | obj | Product style in name:value pairs.
+brand | obj | Product size in name-value pairs.
+color | obj | Product color in name-value pairs.
+category | obj | Product category in name-value pairs.
+attributes | obj | Other product attributes in name-value pairs.
+
+
 ## Search Products
 
 > Sample Request
@@ -325,6 +343,9 @@ Batch Support | Yes
 
 ### Request URL
 `http://{host}/v1.1/product/search?q={searchquerystring}&format={xml/json}`
+
+
+
 
 
 
@@ -675,15 +696,14 @@ Batch Support | Yes
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-include_id |boolean | Retrieves category ids of each category fetched. Value: true/false
+include_id |boolean | Retrieves category ids of each category fetched.
 values | boolean  | Retrieves all child categories if values=true.
 value_limit | int | Limits number of child categories to be retrieved. Default value 20.
-name | string | Retrieves the details of a specific product category based on the category name passed (not case sensitive)
-parent_name | string | Retrieves the details of a specific product category and its child categories  based on the parent category name passed
-id | long | Retrieves the details of a specific product category based on the product id
-parent_id | long | Retrieves the details of a specific product category and its child categories based on the parent product id passed
+name | string | Retrieves the details of a specific product category based on the category name passed (not case sensitive).
+id | long | Retrieves the details of a specific product category based on the product id.
+parent_id | long | Retrieves the details of a specific product category and its child categories based on the parent product id passed.
 parent_name | string | Fetch categories by name of the parent product.
-limit | int | Limits the number of product categories to be retrieved
+limit | int | Limits the number of product categories to be retrieved.
 offset | int | Entries to be ignored from the top.
 
 

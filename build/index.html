@@ -400,8 +400,6 @@ When an API call is made with 4 batch transactions, A response header is generat
             </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="s2">"SDX123"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"INSTORE"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"test_control_status"</span><span class="p">:</span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">"INVALID"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"subscriptions"</span><span class="p">:{</span><span class="w"> 
                </span><span class="nt">"subscription"</span><span class="p">:[</span><span class="w"> 
                   </span><span class="p">{</span><span class="w"> 
@@ -469,9 +467,6 @@ When an API call is made with 4 batch transactions, A response header is generat
             </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="s2">"BGH123"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"WECHAT"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"NON_LOYALTY"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"test_control_status"</span><span class="p">:</span><span class="s2">"CONTROL"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">"NDNC"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w"> 
                </span><span class="nt">"field"</span><span class="p">:[</span><span class="w"> 
                   </span><span class="p">{</span><span class="w"> 
@@ -604,7 +599,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                   <span class="nt">&lt;/element&gt;</span>
                <span class="nt">&lt;/subscription&gt;</span>
             <span class="nt">&lt;/subscriptions&gt;</span>
-            <span class="nt">&lt;test_control_status&gt;</span>TEST<span class="nt">&lt;/test_control_status&gt;</span>
             <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;updated_on</span> <span class="nt">/&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
@@ -677,7 +671,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                   <span class="nt">&lt;/element&gt;</span>
                <span class="nt">&lt;/subscription&gt;</span>
             <span class="nt">&lt;/subscriptions&gt;</span>
-            <span class="nt">&lt;test_control_status&gt;</span>CONTROL<span class="nt">&lt;/test_control_status&gt;</span>
             <span class="nt">&lt;type&gt;</span>NON_LOYALTY<span class="nt">&lt;/type&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
       <span class="nt">&lt;/customer&gt;</span>
@@ -734,8 +727,6 @@ When an API call is made with 4 batch transactions, A response header is generat
           </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-11 11:11:11"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09 11:19:23"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"test_control_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
           </span><span class="p">},</span><span class="w">
@@ -948,7 +939,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                <span class="nt">&lt;subscriptions&gt;</span>
                   <span class="nt">&lt;subscription</span> <span class="nt">/&gt;</span>
                <span class="nt">&lt;/subscriptions&gt;</span>
-               <span class="nt">&lt;test_control_status&gt;</span>TEST<span class="nt">&lt;/test_control_status&gt;</span>
                <span class="nt">&lt;tier_expiry_date&gt;</span>2112-09-11 23:59:59<span class="nt">&lt;/tier_expiry_date&gt;</span>
                <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
                <span class="nt">&lt;updated_on&gt;</span>2019-12-09 11:19:23<span class="nt">&lt;/updated_on&gt;</span>
@@ -1089,7 +1079,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/add</code></td>
+<td><code class="prettyprint">customer/add</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1161,9 +1151,9 @@ When an API call is made with 4 batch transactions, A response header is generat
 <td>The TILL at which customer is registered.</td>
 </tr>
 <tr>
-<td>source</td>
-<td>enum</td>
-<td>Source from which the customer is  registered. Value: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).</td>
+<td>associated_with</td>
+<td>string</td>
+<td>Till code that you want to associate with the customer.</td>
 </tr>
 <tr>
 <td>custom_fields</td>
@@ -1221,9 +1211,7 @@ When an API call is made with 4 batch transactions, A response header is generat
             </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="s2">"2019-09-11 10:12:00"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"registered_till"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"associated_with"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ndnc_status"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"test_control_status"</span><span class="p">:</span><span class="s2">"CONTROL"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"fraud_status"</span><span class="p">:{</span><span class="w"> 
                </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
@@ -1343,7 +1331,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                   <span class="nt">&lt;/element&gt;</span>
                <span class="nt">&lt;/subscription&gt;</span>
             <span class="nt">&lt;/subscriptions&gt;</span>
-            <span class="nt">&lt;test_control_status&gt;</span>CONTROL<span class="nt">&lt;/test_control_status&gt;</span>
             <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
             <span class="nt">&lt;updated_on&gt;</span>2019-09-11 10:12:00<span class="nt">&lt;/updated_on&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
@@ -1403,7 +1390,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"test_control_status"</span><span class="p">:</span><span class="s2">"CONTROL"</span><span class="p">,</span><span class="w">
                </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w"> 
                   </span><span class="nt">"field"</span><span class="p">:[</span><span class="w"> 
 
@@ -1574,7 +1560,6 @@ When an API call is made with 4 batch transactions, A response header is generat
                      <span class="nt">&lt;/element&gt;</span>
                   <span class="nt">&lt;/subscription&gt;</span>
                <span class="nt">&lt;/subscriptions&gt;</span>
-               <span class="nt">&lt;test_control_status&gt;</span>CONTROL<span class="nt">&lt;/test_control_status&gt;</span>
                <span class="nt">&lt;tier_expiry_date&gt;</span>2112-09-11 23:59:59<span class="nt">&lt;/tier_expiry_date&gt;</span>
                <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
                <span class="nt">&lt;updated_on&gt;</span>2019-12-09 14:59:49<span class="nt">&lt;/updated_on&gt;</span>
@@ -1620,7 +1605,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/update</code></td>
+<td><code class="prettyprint">customer/update</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -1680,19 +1665,9 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <td>Till code that you want to associate with the customer.</td>
 </tr>
 <tr>
-<td>ndnc_status</td>
-<td>enum</td>
-<td>National Do not call or disturb status of the customer. Value: <code class="prettyprint">NDNC</code>,<code class="prettyprint">INVALID</code>,<code class="prettyprint">DND</code> (Do not disturb), <code class="prettyprint">UNKNOWN</code>.</td>
-</tr>
-<tr>
 <td>type</td>
 <td>enum</td>
 <td>Pass <code class="prettyprint">LOYALTY</code> to convert a non_loyalty customer to loyalty. You cannot change a loyalty customer non-loyalty (NON_LOYALTY).</td>
-</tr>
-<tr>
-<td>test_control_status</td>
-<td>enum</td>
-<td>Pass <code class="prettyprint">TEST</code> to put the customer in Test group, <code class="prettyprint">CONTROL</code> for control group, <code class="prettyprint">INVALID</code> if not applicable.</td>
 </tr>
 <tr>
 <td>custom_fields</td>
@@ -2101,7 +2076,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/search?q={param}:{Query}:{value}&amp;format={xml/json}</code></td>
+<td><code class="prettyprint">customer/search?q={param}:{Query}:{value}&amp;format={xml/json}</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2128,33 +2103,86 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>firstname*</td>
-<td>Retrieves the list of customers whose first name matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">firstname:EXACT:&lt;first name&gt;</code></td>
+<td>firstname</td>
+<td>string</td>
+<td>Retrieves the list of customers whose first name matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">firstname:EXACT:{first name}</code></td>
 </tr>
 <tr>
-<td>lastname*</td>
-<td>Retrieves the list of customers whose last name matches with the string passed.<br></td>
+<td>lastname</td>
+<td>string</td>
+<td>Retrieves the list of customers whose last name matches with the string passed.<br><strong>Query</strong>: <code class="prettyprint">lastname:EXACT:{last Name}</code></td>
+</tr>
+<tr>
+<td>org_id</td>
+<td>long</td>
+<td>Retrieves the list of entire customers of the respective organization. <br><strong>Query</strong>: <code class="prettyprint">org_id:EQUALS:{org_id}</code></td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>string</td>
+<td>Retrieves customers whose registered mobile numbers matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">mobile:EQUALS:{mobile_number}</code></td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Retrieves the list of registered customers whose email id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">email:EQUALS:{email_id}</code></td>
+</tr>
+<tr>
+<td>external_id</td>
+<td>string</td>
+<td>Retrieves customers whose external id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">external_id:EQUALS:{external_id}</code></td>
+</tr>
+<tr>
+<td>registered_date</td>
+<td>date</td>
+<td>Retrieves customers by registered date (<code class="prettyprint">YYYY-MM-DD</code>).</td>
+</tr>
+<tr>
+<td>loyalty_points</td>
+<td>int</td>
+<td>Retrieves the list of customers whose active loyalty points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">loyalty_points:GREATER:{loyalty_points}</code></td>
+</tr>
+<tr>
+<td>lifetime_points</td>
+<td>int</td>
+<td>Retrieves the list of customers whose lifetime points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">lifetime_points:GREATER:{lifetime_points}</code></td>
+</tr>
+<tr>
+<td>lifetime_purchases</td>
+<td>int</td>
+<td>Retrieves the list of customers whose lifetime purchases amount matches the specified query. <strong>Query</strong>: <code class="prettyprint">lifetime_purchases:GREATER:{lifetime_purchases}</code></td>
+</tr>
+<tr>
+<td>slab</td>
+<td>string</td>
+<td>Retrieves the list of customers whose current loyalty tier matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">slab:EQUALS:{tier_name}</code></td>
+</tr>
+<tr>
+<td>registered_store</td>
+<td>string</td>
+<td>Retrieves customers by registered store. <br><strong>Query</strong>: <code class="prettyprint">registered_store:EQUALS:{store_id}</code></td>
+</tr>
+<tr>
+<td>last_trans_value</td>
+<td>double</td>
+<td>Retrieves the list of customers whose transaction amount matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">transaction_value:GREATER:{transaction_amount}</code></td>
+</tr>
+<tr>
+<td>Custom fields</td>
+<td>string</td>
+<td>Retrieves the list of customers whose custom field values matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">{field_name}:{field_value}</code></td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>enum</td>
+<td>Predefined conditions based on which you want to fetch results. Values: <code class="prettyprint">STARTS</code>, <code class="prettyprint">ENDS</code>, <code class="prettyprint">EXACT</code>, <code class="prettyprint">RANGE</code>, <code class="prettyprint">LESS</code>, <code class="prettyprint">GREATER</code>, <code class="prettyprint">EQUALS</code>, <code class="prettyprint">IN</code>. For more details, see the following section, Search Query Grammar.</td>
 </tr>
 </tbody></table>
-
-<p><br><strong>Query</strong>: <code class="prettyprint">lastname:EXACT:&lt;last Name&gt;</code>
-org_id* | Retrieves the list of entire customers of the respective organization. <br><strong>Query</strong>: <code class="prettyprint">org_id:EQUALS:&lt;org id&gt;</code>
-mobile* | Retrieves customers whose registered mobile numbers matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">mobile:EQUALS:&lt;mobile number&gt;</code>
-email* | Retrieves the list of registered customers whose email id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">email:EQUALS:&lt;email id&gt;</code>
-external_id | Retrieves customers whose external id matches with the string passed. <br><strong>Query</strong>: <code class="prettyprint">external_id:EQUALS:&lt;external id&gt;</code>
-registered_date | Retrieves customers whose registered date matches the specified date.
-loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">loyalty_points:GREATER:&lt;loyalty points&gt;</code>
-lifetime_points | Retrieves the list of customers whose lifetime points matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">lifetime_points:GREATER:&lt;lifetime points&gt;</code>
-lifetime_purchases | Retrieves the list of customers whose lifetime purchases amount matches the specified query. <strong>Query</strong>: <code class="prettyprint">lifetime_purchases:GREATER:&lt;lifetime purchases&gt;</code>
-slab | Retrieves the list of customers whose current loyalty tier matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">slab:EQUALS:&lt;Slab name&gt;</code>
-registered_store | Retrieves the list of customers who are registered at a specific store. <br><strong>Query</strong>: <code class="prettyprint">registered_store:EQUALS:&lt;Store id&gt;</code>
-last_trans_value | Retrieves the list of customers whose transaction amount matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">transaction_value:GREATER:&lt;transaction amount&gt;</code>
-Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">&lt;Field Name&gt;:&lt;Field Value&gt;</code>
-Operator | enum | Predefined conditions based on which you want to fetch results. Values: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN. For more details, see the following section, Search Query Grammar.</p>
 
 <h3 id="search-query-grammar">Search Query Grammar</h3>
 
@@ -2378,7 +2406,7 @@ Operator | enum | Predefined conditions based on which you want to fetch results
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/get?{identifier_type}={identifier_value}&amp;mlp=true&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/get?{identifierName}={identifierValue}&amp;mlp=true&amp;format={xml/json}</code></p>
 
 <h3 id="additional-header">Additional Header</h3>
 
@@ -2404,9 +2432,14 @@ Operator | enum | Predefined conditions based on which you want to fetch results
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile/email/external_id/id*</td>
+<td>identifierName</td>
+<td>enum</td>
+<td>Pass any one of the registered identifier names of the customer.</td>
+</tr>
+<tr>
+<td>identifierValue</td>
 <td>string</td>
-<td>Pass any one of the identifiers of the customer along with the identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code>.</td>
+<td>Pass the respective identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  <code class="prettyprint">mobile=44700900000,44700900999,4470090345</code>.</td>
 </tr>
 <tr>
 <td>coupon_limit</td>
@@ -6150,8 +6183,12 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 <td>Customer id change request has submitted successfully</td>
 </tr>
 <tr>
-<td>1050</td>
+<td>1061</td>
 <td>Customer recommendations fetched successfully</td>
+</tr>
+<tr>
+<td>1052</td>
+<td>Transactions fetched successfully</td>
 </tr>
 <tr>
 <td>1300</td>
@@ -6172,6 +6209,22 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 </thead><tbody>
 <tr>
+<td>500</td>
+<td>All requests failed due to errors.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Input is invalid. Please check request parameters or input xml/json; No identifier provided to get loyalty users.</td>
+</tr>
+<tr>
+<td>618</td>
+<td>Not allowed - customer is marked as fraud.</td>
+</tr>
+<tr>
+<td>816</td>
+<td>Customer not found for organization.</td>
+</tr>
+<tr>
 <td>1001</td>
 <td>Unable to register. Invalid mobile number</td>
 </tr>
@@ -6188,16 +6241,12 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 <td>Failed to populate store</td>
 </tr>
 <tr>
-<td>1005</td>
-<td>Unable to register with mobile number</td>
-</tr>
-<tr>
 <td>1006</td>
-<td>Mobile number is required</td>
+<td>Unable to register. Mobile number is required</td>
 </tr>
 <tr>
 <td>1007</td>
-<td>Invalid Mobile Number/ External ID/ Email ID</td>
+<td>Unable to register customer. No valid primary identifier mobile number, email ID, or external ID passed.</td>
 </tr>
 <tr>
 <td>1008/ 1038</td>
@@ -6217,11 +6266,11 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1012</td>
-<td>Cannot find customer for provided mobile/external-id/e-mail</td>
+<td>Cannot find customer with the provided mobile number/external ID/e-mail ID.</td>
 </tr>
 <tr>
 <td>1013</td>
-<td>Customer not registered for Loyalty Program.</td>
+<td>Customer is not registered for the loyalty Program.</td>
 </tr>
 <tr>
 <td>1014</td>
@@ -6233,7 +6282,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1016</td>
-<td>Email provided already exists for some other user</td>
+<td>Unable to register. Email provided already exists for some other user</td>
 </tr>
 <tr>
 <td>1017</td>
@@ -6301,15 +6350,15 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1034</td>
-<td>Registration date is not within the accepted past or future date limit.</td>
+<td>Unable to register. Registration date is not within the allowed past or future date limit.</td>
 </tr>
 <tr>
 <td>1035</td>
-<td>Some customer preferences could not be updated</td>
+<td>Unable to update few customer preferences</td>
 </tr>
 <tr>
 <td>1036</td>
-<td>Unable to add/update one or more customer notes</td>
+<td>One or more notes could not be added/updated for customer.</td>
 </tr>
 <tr>
 <td>1037</td>
@@ -6317,7 +6366,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1039</td>
-<td>Email id is required</td>
+<td>Unable to register. Email ID is required.</td>
 </tr>
 <tr>
 <td>1041</td>
@@ -6329,7 +6378,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1043</td>
-<td>Customer’s external id is required</td>
+<td>Unable to register. Customer’s external id is required.</td>
 </tr>
 <tr>
 <td>1044</td>
@@ -6337,15 +6386,15 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1045</td>
-<td>Either mobile number or email id is required</td>
+<td>No valid identifier (mobile/email) passed for non-loyalty customer.</td>
 </tr>
 <tr>
 <td>1046</td>
-<td>Loyalty customer cannot be converted to a to a non-loyalty customer is not allowed</td>
+<td>Conversion of loyalty customer to non-loyalty is not allowed</td>
 </tr>
 <tr>
 <td>1047</td>
-<td>Customer’s mobile number is required to convert to loyalty customer</td>
+<td>Customer&rsquo;s primary identifier not matching with other identifiers</td>
 </tr>
 <tr>
 <td>1048</td>
@@ -6357,15 +6406,15 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1051</td>
-<td>Unable to fetch customer recommendations</td>
+<td>No transactions or recommendations found for the customer</td>
+</tr>
+<tr>
+<td>1053</td>
+<td>Preferred store specified is not found.</td>
 </tr>
 <tr>
 <td>1060</td>
 <td>Batch limit exceeded</td>
-</tr>
-<tr>
-<td>1061</td>
-<td>Invalid fraud status</td>
 </tr>
 <tr>
 <td>1062</td>
@@ -6461,7 +6510,11 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1109</td>
-<td>Unable to fetch subscription details</td>
+<td>Unable to add, update or fetch subscription details.</td>
+</tr>
+<tr>
+<td>1150</td>
+<td>Invalid store ID passed.</td>
 </tr>
 <tr>
 <td>1110</td>
@@ -6489,7 +6542,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </tr>
 <tr>
 <td>1206</td>
-<td>Referral type is not supported</td>
+<td>Failed to add referral. Referral type is not supported.</td>
 </tr>
 <tr>
 <td>1222</td>
@@ -6506,6 +6559,98 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 <tr>
 <td>1303</td>
 <td>Ticket subject should not be empty</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>Failed to add customer.</td>
+</tr>
+<tr>
+<td>10002</td>
+<td>Failed to update customer details.</td>
+</tr>
+<tr>
+<td>91001</td>
+<td>Failed to get point details.</td>
+</tr>
+<tr>
+<td>91002</td>
+<td>Failed to get subscription details.</td>
+</tr>
+<tr>
+<td>91003</td>
+<td>Validation failed.</td>
+</tr>
+<tr>
+<td>91004</td>
+<td>Failed to get segmentation details.</td>
+</tr>
+<tr>
+<td>91005</td>
+<td>{x} is Primary Key, {y} cannot be updated.</td>
+</tr>
+<tr>
+<td>91006</td>
+<td>{x} update is not allowed.</td>
+</tr>
+<tr>
+<td>91007</td>
+<td>{x} is already occupied by some other user, ignoring it.</td>
+</tr>
+<tr>
+<td>91009</td>
+<td>Retrieved survivor account for the requested merge victim.</td>
+</tr>
+<tr>
+<td>91010</td>
+<td>Downgrade strategy is not configured.</td>
+</tr>
+<tr>
+<td>91011</td>
+<td>Customer is already in the lowest slab.</td>
+</tr>
+<tr>
+<td>91012</td>
+<td>Customer is already in the highest slab.</td>
+</tr>
+<tr>
+<td>91013</td>
+<td>Call to Points Engine for tier upgrade criteria has failed {x}.</td>
+</tr>
+<tr>
+<td>91014</td>
+<td>Call to Points Engine for tier renewal criteria has failed {x}.</td>
+</tr>
+<tr>
+<td>91015</td>
+<td>Failed to update extended fields; or field length too long -{x}.</td>
+</tr>
+<tr>
+<td>91016</td>
+<td>WECHAT profile is not available for the customer.</td>
+</tr>
+<tr>
+<td>91017</td>
+<td>WEB_ENGAGE profile is not available for the customer.</td>
+</tr>
+<tr>
+<td>91018</td>
+<td>Unable to load WeChat notifications.</td>
+</tr>
+<tr>
+<td>91019</td>
+<td>Unable to load Web Engage notifications.</td>
+</tr>
+<tr>
+<td>91020</td>
+<td>Invalid TILL passed for registration.</td>
+</tr>
+<tr>
+<td>91021</td>
+<td>Invalid attribution TILL passed.</td>
+</tr>
+<tr>
+<td>91022</td>
+<td>Failed to update subscription for {x} channel and priority {y}</td>
 </tr>
 </tbody></table>
 
@@ -7610,25 +7755,109 @@ Extended fields and custom fields in transactions are used to capture additional
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
-<p>type* | enum | Type of transaction. <code class="prettyprint">regular</code> for loyalty transaction, <code class="prettyprint">not_interested</code> for non-loyalty or not-interested transactions.
-number* | string | Unique transaction number. The uniqueness depends on the configuration <code class="prettyprint">CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS</code> set on InTouch <strong>Settings</strong> &gt; <strong>System &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong> &gt; <strong>Billing</strong>. 
-amount* | double | Net transaction amount.
-notes | string | Additional information about the transaction.
-qty | double | Quantity of the current line-item.
-rate | float | Price of each line-item.
-value | float | Gross transaction amount (transaction amount excluding discount).
-amount | double | Net transaction amount - the actual transaction amount after discount.
-billing_time* | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
-gross_amount | double | Transaction amount excluding discount.
-discount | double | Discount availed for the transaction (discount amount).
-outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: <code class="prettyprint">INTERNAL</code>, <code class="prettyprint">NORMAL</code>, <code class="prettyprint">INVALID</code>, <code class="prettyprint">OUTLIER</code>, <code class="prettyprint">FAILED</code>, <code class="prettyprint">DELETED</code>, <code class="prettyprint">RETRO</code>, <code class="prettyprint">FRAUD</code>, <code class="prettyprint">TEST</code>, <code class="prettyprint">OTHER</code>. 
-source | enum | Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).
-not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
-customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
-mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
-firstname | string | First name of the customer.
-lastname | string | Last name of the customer.
-extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in <code class="prettyprint">line_item</code> object.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type*</td>
+<td>enum</td>
+<td>Type of transaction. <code class="prettyprint">regular</code> for loyalty transaction, <code class="prettyprint">not_interested</code> for non-loyalty or not-interested transactions.</td>
+</tr>
+<tr>
+<td>number*</td>
+<td>string</td>
+<td>Unique transaction number. The uniqueness depends on the configuration <code class="prettyprint">CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS</code> set on InTouch <strong>Settings</strong> &gt; <strong>System &amp; Deployment</strong> &gt; <strong>InTouch POS Configuration</strong> &gt; <strong>Billing</strong>.</td>
+</tr>
+<tr>
+<td>amount*</td>
+<td>double</td>
+<td>Net transaction amount.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>string</td>
+<td>Additional information about the transaction.</td>
+</tr>
+<tr>
+<td>qty</td>
+<td>double</td>
+<td>Quantity of the current line-item.</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>float</td>
+<td>Price of each line-item.</td>
+</tr>
+<tr>
+<td>value</td>
+<td>float</td>
+<td>Gross transaction amount (transaction amount excluding discount).</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>Net transaction amount - the actual transaction amount after discount.</td>
+</tr>
+<tr>
+<td>billing_time*</td>
+<td>date-time</td>
+<td>Date and time of the transaction. By default, the  current system date and time will be considered.</td>
+</tr>
+<tr>
+<td>gross_amount</td>
+<td>double</td>
+<td>Transaction amount excluding discount.</td>
+</tr>
+<tr>
+<td>discount</td>
+<td>double</td>
+<td>Discount availed for the transaction (discount amount).</td>
+</tr>
+<tr>
+<td>outlier_status</td>
+<td>enum</td>
+<td>Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: <code class="prettyprint">INTERNAL</code>, <code class="prettyprint">NORMAL</code>, <code class="prettyprint">INVALID</code>, <code class="prettyprint">OUTLIER</code>, <code class="prettyprint">FAILED</code>, <code class="prettyprint">DELETED</code>, <code class="prettyprint">RETRO</code>, <code class="prettyprint">FRAUD</code>, <code class="prettyprint">TEST</code>, <code class="prettyprint">OTHER</code>.</td>
+</tr>
+<tr>
+<td>source</td>
+<td>enum</td>
+<td>Source from which the transaction is made. Values: <code class="prettyprint">INSTORE</code>( for InStore), <code class="prettyprint">ECOMM</code>(for AnywhereCommerce), <code class="prettyprint">NEWSLETTER</code>(for store product newsletter), <code class="prettyprint">CAMPAIGNS</code> (for campaigns), <code class="prettyprint">NCA</code> (NCA), <code class="prettyprint">WECHAT</code> (WeChat), <code class="prettyprint">MARTJACK</code>(AnywhereCommerce), <code class="prettyprint">WEB_ENGAGE</code> (Web-engage integration), ECOMMERCE(&ldquo;ECOMMERCE&rdquo;), <code class="prettyprint">JD</code> (JD), <code class="prettyprint">TAOBAO</code> (Taobao), <code class="prettyprint">TMALL</code> (TMall), <code class="prettyprint">FACEBOOK</code> (Facebook), <code class="prettyprint">WEBSITE</code> (other website), KAOLA(KAOLA), <code class="prettyprint">PINDUODUO</code> (PINDUODUO&quot;), SUNING(SUNING), <code class="prettyprint">GLOBAL_SCANNER</code> (GLOBAL_SCANNER), <code class="prettyprint">XIAOHONGSHU</code>(XIAOHONGSHU), <code class="prettyprint">OTHERS</code> (any other source).</td>
+</tr>
+<tr>
+<td>not_interested_reason</td>
+<td>string</td>
+<td>Reason why the customer is not interested to register. Applicable only for not-interested transactions.</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Pass customer information. Applicable for non-loyalty and not-interested transactions.</td>
+</tr>
+<tr>
+<td>mobile/email/external_id</td>
+<td>string</td>
+<td>Pass any of the registered identifiers of the customer. Required for  regular transactions.</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>string</td>
+<td>First name of the customer.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>string</td>
+<td>Last name of the customer.</td>
+</tr>
+<tr>
+<td>extended_fields</td>
+<td>obj</td>
+<td>Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in <code class="prettyprint">line_item</code> object.</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
@@ -8337,8 +8566,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
           </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"earnshaw.catherine@example.com"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ec1234"</span><span class="w">
-          </span><span class="s2">"test_control_status"</span><span class="err">:</span><span class="w"> </span><span class="s2">"CONTROL"</span><span class="p">,</span><span class="w">
-        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
                         </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CentralGST"</span><span class="p">,</span><span class="w">
@@ -8400,7 +8628,6 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
             <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
             <span class="nt">&lt;email&gt;</span>earnshaw.catherine@example.com<span class="nt">&lt;/email&gt;</span>
             <span class="nt">&lt;external_id&gt;</span>ec1234<span class="nt">&lt;/external_id&gt;</span>
-            <span class="nt">&lt;test_control_status&gt;</span>control<span class="nt">&lt;/test_control_status&gt;</span>
         <span class="nt">&lt;/customer&gt;</span>
         <span class="nt">&lt;extended_fields&gt;</span>
                <span class="nt">&lt;field&gt;</span>
@@ -8507,11 +8734,6 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <td>notes</td>
 <td>string</td>
 <td>Reason for the transaction update for reference.</td>
-</tr>
-<tr>
-<td>test_control_status</td>
-<td>enum</td>
-<td>Update test-control status of the customer.</td>
 </tr>
 <tr>
 <td>extended_fields</td>
@@ -8970,15 +9192,19 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </thead><tbody>
 <tr>
 <td>600</td>
-<td>Transaction added successfully</td>
+<td>Transaction added successfully.</td>
 </tr>
 <tr>
 <td></td>
-<td>Transaction retrieved successfully</td>
+<td>Transaction retrieved successfully.</td>
 </tr>
 <tr>
 <td></td>
-<td>Transaction updated successfully</td>
+<td>Transaction updated successfully.</td>
+</tr>
+<tr>
+<td>1630</td>
+<td>Transaction marked as regular through Retro conversion. Transaction added successfully.</td>
 </tr>
 </tbody></table>
 
@@ -8991,8 +9217,12 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 </thead><tbody>
 <tr>
+<td>500</td>
+<td>Unable to retrieve transaction.</td>
+</tr>
+<tr>
 <td>601</td>
-<td>Transaction failed. Transaction amount/quantity/ rate/discount is invalid.</td>
+<td>Transaction failed. Transaction amount, quantity, rate, or discount is invalid.</td>
 </tr>
 <tr>
 <td>602</td>
@@ -9016,11 +9246,11 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>607</td>
-<td>Transaction id is not passed. Please pass the transaction id to process.</td>
+<td>No transaction id passed. Please pass the transaction id to process.</td>
 </tr>
 <tr>
 <td>608</td>
-<td>Unable to process the transaction</td>
+<td>Unable to add transaction.</td>
 </tr>
 <tr>
 <td>609</td>
@@ -9092,7 +9322,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>628</td>
-<td>The entire transaction is already returned.</td>
+<td>Invalid return transaction type.</td>
 </tr>
 <tr>
 <td>629</td>
@@ -9152,11 +9382,11 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>643</td>
-<td>Transaction is invalid. The transaction date exceeds the accepted future date limit.</td>
+<td>Invalid transaction. The transaction date exceeds the accepted future date limit.</td>
 </tr>
 <tr>
 <td>644</td>
-<td>Transaction is invalid. The transaction date should not be less than the accepted past date limit.</td>
+<td>Invalid transaction. The transaction date cannot be less than the accepted past date limit.</td>
 </tr>
 <tr>
 <td>645</td>
@@ -9244,7 +9474,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>666</td>
-<td>Discount of the transaction cannot be negative.</td>
+<td>Discount cannot be negative.</td>
 </tr>
 <tr>
 <td>667</td>
@@ -9264,7 +9494,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>671</td>
-<td>Invalid Store TILL code.</td>
+<td>Invalid Store or TILL code.</td>
 </tr>
 <tr>
 <td>672</td>
@@ -9315,8 +9545,16 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <td>Points activities are queued and will be updated later.</td>
 </tr>
 <tr>
+<td></td>
+<td>Item code {x} merge is not supported.</td>
+</tr>
+<tr>
 <td>688</td>
 <td>No matching line-item found for return.</td>
+</tr>
+<tr>
+<td></td>
+<td>Transaction number not found.</td>
 </tr>
 <tr>
 <td>689</td>
@@ -9356,7 +9594,11 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>698</td>
-<td>Points processing failed</td>
+<td>Points processing failed.</td>
+</tr>
+<tr>
+<td>710</td>
+<td>Return bill event failed from EMF.</td>
 </tr>
 <tr>
 <td>699</td>
@@ -9376,23 +9618,23 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>1623</td>
-<td>Transaction type is invalid</td>
+<td>Transaction type is invalid.</td>
 </tr>
 <tr>
 <td>1624</td>
-<td>Provided parameters are not sufficient to fetch transaction</td>
+<td>Insufficient parameters passed to fetch transaction.</td>
 </tr>
 <tr>
 <td>1625</td>
-<td>Target type is not specified</td>
+<td>Target type is not specified.</td>
 </tr>
 <tr>
 <td>1626</td>
-<td>The requested transaction type cannot be changed</td>
+<td>The requested transaction type cannot be changed.</td>
 </tr>
 <tr>
 <td>1627</td>
-<td>The transaction is already marked as retro</td>
+<td>The transaction is already marked as retro.</td>
 </tr>
 <tr>
 <td>1628</td>
@@ -18319,6 +18561,77 @@ false
 
 <p><code class="prettyprint">http://{host}/v1.1/product/add?format={xml/json}</code></p>
 
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td>SKU of the product to add.</td>
+</tr>
+<tr>
+<td>ean</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>price</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Brief description of the product.</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>string</td>
+<td>Detailed description of the product.</td>
+</tr>
+<tr>
+<td>img_url</td>
+<td>string</td>
+<td>URL of the product image.</td>
+</tr>
+<tr>
+<td>size</td>
+<td>obj</td>
+<td>Size of the product in name:value pairs.</td>
+</tr>
+<tr>
+<td>style</td>
+<td>obj</td>
+<td>Product style in name:value pairs.</td>
+</tr>
+<tr>
+<td>brand</td>
+<td>obj</td>
+<td>Product size in name-value pairs.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>obj</td>
+<td>Product color in name-value pairs.</td>
+</tr>
+<tr>
+<td>category</td>
+<td>obj</td>
+<td>Product category in name-value pairs.</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>obj</td>
+<td>Other product attributes in name-value pairs.</td>
+</tr>
+</tbody></table>
+
 <h2 id="search-products">Search Products</h2>
 
 <blockquote>
@@ -18866,7 +19179,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <tr>
 <td>include_id</td>
 <td>boolean</td>
-<td>Retrieves category ids of each category fetched. Value: true/false</td>
+<td>Retrieves category ids of each category fetched.</td>
 </tr>
 <tr>
 <td>values</td>
@@ -18881,22 +19194,17 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <tr>
 <td>name</td>
 <td>string</td>
-<td>Retrieves the details of a specific product category based on the category name passed (not case sensitive)</td>
-</tr>
-<tr>
-<td>parent_name</td>
-<td>string</td>
-<td>Retrieves the details of a specific product category and its child categories  based on the parent category name passed</td>
+<td>Retrieves the details of a specific product category based on the category name passed (not case sensitive).</td>
 </tr>
 <tr>
 <td>id</td>
 <td>long</td>
-<td>Retrieves the details of a specific product category based on the product id</td>
+<td>Retrieves the details of a specific product category based on the product id.</td>
 </tr>
 <tr>
 <td>parent_id</td>
 <td>long</td>
-<td>Retrieves the details of a specific product category and its child categories based on the parent product id passed</td>
+<td>Retrieves the details of a specific product category and its child categories based on the parent product id passed.</td>
 </tr>
 <tr>
 <td>parent_name</td>
@@ -18906,7 +19214,7 @@ http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345<span class="err">
 <tr>
 <td>limit</td>
 <td>int</td>
-<td>Limits the number of product categories to be retrieved</td>
+<td>Limits the number of product categories to be retrieved.</td>
 </tr>
 <tr>
 <td>offset</td>

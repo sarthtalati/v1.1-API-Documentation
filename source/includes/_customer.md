@@ -48,8 +48,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
             "referral_code":"SDX123",
             "source":"INSTORE",
             "type":"LOYALTY",
-            "test_control_status":"TEST",
-            "ndnc_status":"INVALID",
 			"subscriptions":{ 
                "subscription":[ 
                   { 
@@ -117,9 +115,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
 			"referral_code":"BGH123",
             "source":"WECHAT",
             "type":"NON_LOYALTY",
-            "test_control_status":"CONTROL",
-            "ndnc_status":"NDNC",
-            "ndnc_status":"",
             "extended_fields":{ 
                "field":[ 
                   { 
@@ -256,7 +251,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
                   </element>
                </subscription>
             </subscriptions>
-            <test_control_status>TEST</test_control_status>
             <type>LOYALTY</type>
             <updated_on />
          </element>
@@ -329,7 +323,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
                   </element>
                </subscription>
             </subscriptions>
-            <test_control_status>CONTROL</test_control_status>
             <type>NON_LOYALTY</type>
          </element>
       </customer>
@@ -387,8 +380,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
           "registered_on": "2012-09-11 11:11:11",
           "updated_on": "2019-12-09 11:19:23",
           "type": "LOYALTY",
-          "source": "instore",
-          "test_control_status": "TEST",
           "custom_fields": {
             "field": []
           },
@@ -604,7 +595,6 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
                <subscriptions>
                   <subscription />
                </subscriptions>
-               <test_control_status>TEST</test_control_status>
                <tier_expiry_date>2112-09-11 23:59:59</tier_expiry_date>
                <type>LOYALTY</type>
                <updated_on>2019-12-09 11:19:23</updated_on>
@@ -741,7 +731,7 @@ Behavior of the API when an existing identifier is passed.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| `/add`
+URI	| `customer/add`
 Authentication | Yes
 HTTP Method | POST
 Batch Support | Yes
@@ -765,7 +755,7 @@ lastname | string | Last name of the customer.
 type | enum | Type of registration. Values: LOYALTY (for loyalty customer), NON_LOYALTY (registered one or more identifiers but not enrolled in the loyalty program), NOT_INTERESTED (not interested to register identifiers or enrol in the loyalty program).
 registered_on | date-time | Date on which the customer is registered. Format: YYYY-MM-DD HH:MM:SS, <br>Example: 2016-09-11 11:11:11 
 registered_till | string | The TILL at which customer is registered.
-source | enum | Source from which the customer is  registered. Value: `INSTORE`( for InStore), `ECOMM`(for AnywhereCommerce), `NEWSLETTER`(for store product newsletter), `CAMPAIGNS` (for campaigns), `NCA` (NCA), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE("ECOMMERCE"), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), KAOLA(KAOLA), `PINDUODUO` (PINDUODUO"), SUNING(SUNING), `GLOBAL_SCANNER` (GLOBAL_SCANNER), `XIAOHONGSHU`(XIAOHONGSHU), `OTHERS` (any other source).
+associated_with | string | Till code that you want to associate with the customer.
 custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
 extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
 subscriptions | obj | Provide the subscription details of the customer.
@@ -801,9 +791,7 @@ https://api.capillary.co.in/v1.1/customer/update?format=json
             "updated_on":"2019-09-11 10:12:00",
             "registered_till":"",
             "associated_with":"",
-            "ndnc_status":"",
             "type":"LOYALTY",
-            "test_control_status":"CONTROL",
             "fraud_status":{ 
                "status":""
             },
@@ -926,7 +914,6 @@ https://api.capillary.co.in/v1.1/customer/update?format=json
                   </element>
                </subscription>
             </subscriptions>
-            <test_control_status>CONTROL</test_control_status>
             <type>LOYALTY</type>
             <updated_on>2019-09-11 10:12:00</updated_on>
          </element>
@@ -987,7 +974,6 @@ https://api.capillary.co.in/v1.1/customer/update?format=json
                "type":"LOYALTY",
                "source":"instore",
                "fraud_status":"NONE",
-               "test_control_status":"CONTROL",
                "custom_fields":{ 
                   "field":[ 
 
@@ -1161,7 +1147,6 @@ https://api.capillary.co.in/v1.1/customer/update?format=json
                      </element>
                   </subscription>
                </subscriptions>
-               <test_control_status>CONTROL</test_control_status>
                <tier_expiry_date>2112-09-11 23:59:59</tier_expiry_date>
                <type>LOYALTY</type>
                <updated_on>2019-12-09 14:59:49</updated_on>
@@ -1200,7 +1185,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| `/update`
+URI	| `customer/update`
 Authentication | Yes
 HTTP Method | POST
 Batch Support | No
@@ -1217,9 +1202,7 @@ lastname | string | Last name of the customer.
 registered_on | date-time | Date on which the customer is registered. Format: `YYYY-MM-DD HH:MM:SS`, <br>Example: 2016-09-11 11:11:11 
 registered_till | string | The TILL at which customer is registered.
 associated_with | string | Till code that you want to associate with the customer.
-ndnc_status | enum | National Do not call or disturb status of the customer. Value: `NDNC`,`INVALID`,`DND` (Do not disturb), `UNKNOWN`.
 type | enum | Pass `LOYALTY` to convert a non_loyalty customer to loyalty. You cannot change a loyalty customer non-loyalty (NON_LOYALTY).
-test_control_status | enum | Pass `TEST` to put the customer in Test group, `CONTROL` for control group, `INVALID` if not applicable.
 custom_fields | obj | Provide the custom field values of the customer in name and value pairs. You can only pass custom fields that are configured for the org.
 extended_fields | obj | Provide the extended field details of the customer in name and value pairs. You can only pass extended fields that are configured for the org.
 subscriptions | obj | Provide the subscription details of the customer.
@@ -1348,146 +1331,80 @@ new_value* | string | Provide the new value of the identifier.
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/customer/search?q=mobile:EQUALS:44700900000
+https://api.capillary.co.in/v1.1/customer/search?q=slab:EQUALS:CLASSIC
 ```
 
 
 > Sample Response
 
 ```json
-{ 
-    "response": {
-
-        "status": {
-
-            "success": "true",
-
-            "code": "200",
-
-            "message": "SUCCESS"
-
-        },
-
-        "customer": {
-
-            "count": "2",
-
-            "start": "0",
-
-            "rows": "10",
-
-            "results": {
-
-                "item": [
-
-                    {
-
-                        "user_id": "102",
-
-                        "org_id": "29",
-
-                        "firstname": "Tom",
-
-                        "lastname": "Sawyer",
-
-                        "mobile": "44700900000",
-
-                        "email": "tom.sawyer@example.com",
-
-                        "external_id": "None",
-
-                        "loyalty_points": "355",
-
-                        "lifetime_points": "5400",
-
-                        "lifetime_purchases": "10800",
-
-                        "current_slab": "CLASSIC",
-
-                        "registered_on": "2012-12-25 11:25:32",
-
-                        "registered_by": "pe.london.bondstreet",
-
-                        "last_trans_value": "1000",
-
-                        "attributes": {
-
-                            "attribute": {
-
-                                "name": "customer_age",
-
-                                "value": "26-35"
-
-                            }
-
+{
+   "response":{
+      "status":{
+         "success":"true",
+         "code":"200",
+         "message":"SUCCESS"
+      },
+      "customer":{
+         "count":"2",
+         "start":"0",
+         "rows":"10",
+         "results":{
+            "item":[
+               {
+                  "user_id":"102",
+                  "org_id":"29",
+                  "firstname":"Tom",
+                  "lastname":"Sawyer",
+                  "mobile":"44700900000",
+                  "email":"tom.sawyer@example.com",
+                  "external_id":"None",
+                  "loyalty_points":"355",
+                  "lifetime_points":"5400",
+                  "lifetime_purchases":"10800",
+                  "current_slab":"CLASSIC",
+                  "registered_on":"2012-12-25 11:25:32",
+                  "registered_by":"pe.london.bondstreet",
+                  "last_trans_value":"1000",
+                  "attributes":{
+                     "attribute":{
+                        "name":"customer_age",
+                        "value":"26-35"
+                     }
+                  }
+               },
+               {
+                  "user_id":"122",
+                  "org_id":"29",
+                  "firstname":"John",
+                  "lastname":"Smith",
+                  "mobile":"44700900888",
+                  "email":"john.smith@example.com",
+                  "external_id":"None",
+                  "loyalty_points":"355",
+                  "lifetime_points":"355",
+                  "lifetime_purchases":"4598",
+                  "current_slab":"CLASSIC",
+                  "registered_on":"2012-12-25 11:25:32",
+                  "registered_by":"px.london.bondstreet",
+                  "last_trans_value":"1000",
+                  "attributes":{
+                     "attribute":[
+                        {
+                           "name":"occupation",
+                           "value":"Student"
+                        },
+                        {
+                           "name":"customer_age",
+                           "value":"19-25"
                         }
-
-                    },
-
-                    {
-
-                        "user_id": "122",
-
-                        "org_id": "29",
-
-                        "firstname": "John",
-
-                        "lastname": "Smith",
-
-                        "mobile": "44700900888",
-
-                        "email": "john.smith@example.com",
-
-                        "external_id": "None",
-
-                        "loyalty_points": "355",
-
-                        "lifetime_points": "355",
-
-                        "lifetime_purchases": "4598",
-
-                        "current_slab": "CLASSIC",
-
-                        "registered_on": "2012-12-25 11:25:32",
-
-                        "registered_by": "px.london.bondstreet",
-
-                        "last_trans_value": "1000",
-
-                        "attributes": {
-
-                            "attribute": [
-
-                                {
-
-                                    "name": "occupation",
-
-                                    "value": "Student"
-
-                                },
-
-                                {
-
-                                    "name": "customer_age",
-
-                                    "value": "19-25"
-
-                                }
-
-                            ]
-
-                        }
-
-                    }
-
-                ]
-
-            }
-
-        }
-
-    }
-
+                     ]
+                  }
+               }
+            ]
+         }
+      }
+   }
 }
 ```
 
@@ -1581,35 +1498,37 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| `/search?q={param}:{Query}:{value}&format={xml/json}`
+URI	| `customer/search?q={param}:{Query}:{value}&format={xml/json}`
 Authentication | Yes
 HTTP Method | GET
 Batch Support | Yes
 
+
+
 ### Request URL
 `https://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&format={xml/json}`
+
 
 ### Request Query Parameters
 You need to understand Query Grammar to learn how to use input parameters for customer/search API. For more details, see the Query Grammar section.
 
-Parameter | Description
---------- | -----------
-firstname* | Retrieves the list of customers whose first name matches with the string passed. <br>**Query**: `firstname:EXACT:<first name>`
-lastname* | Retrieves the list of customers whose last name matches with the string passed.<br>
-																				<br>**Query**: `lastname:EXACT:<last Name>`
-org_id* | Retrieves the list of entire customers of the respective organization. <br>**Query**: `org_id:EQUALS:<org id>`
-mobile* | Retrieves customers whose registered mobile numbers matches with the string passed. <br>**Query**: `mobile:EQUALS:<mobile number>`
-email* | Retrieves the list of registered customers whose email id matches with the string passed. <br>**Query**: `email:EQUALS:<email id>`
-external_id | Retrieves customers whose external id matches with the string passed. <br>**Query**: `external_id:EQUALS:<external id>`
-registered_date | Retrieves customers whose registered date matches the specified date.
-loyalty_points | Retrieves the list of customers whose active loyalty points matches the specified query. <br>**Query**: `loyalty_points:GREATER:<loyalty points>`
-lifetime_points | Retrieves the list of customers whose lifetime points matches the specified query. <br>**Query**: `lifetime_points:GREATER:<lifetime points>`
-lifetime_purchases | Retrieves the list of customers whose lifetime purchases amount matches the specified query. **Query**: `lifetime_purchases:GREATER:<lifetime purchases>`
-slab | Retrieves the list of customers whose current loyalty tier matches the specified value. <br>**Query**: `slab:EQUALS:<Slab name>`
-registered_store | Retrieves the list of customers who are registered at a specific store. <br>**Query**: `registered_store:EQUALS:<Store id>`
-last_trans_value | Retrieves the list of customers whose transaction amount matches the specified query. <br>**Query**: `transaction_value:GREATER:<transaction amount>`
-Custom fields | Retrieves the list of customers whose custom field values matches the specified value. <br>**Query**: `<Field Name>:<Field Value>`
-Operator | enum | Predefined conditions based on which you want to fetch results. Values: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN. For more details, see the following section, Search Query Grammar.
+Parameter | Datatype | Description
+--------- | -------- | -----------
+firstname | string | Retrieves the list of customers whose first name matches with the string passed. <br>**Query**: `firstname:EXACT:{first name}`
+lastname | string | Retrieves the list of customers whose last name matches with the string passed.<br>**Query**: `lastname:EXACT:{last Name}`
+org_id | long | Retrieves the list of entire customers of the respective organization. <br>**Query**: `org_id:EQUALS:{org_id}`
+mobile | string | Retrieves customers whose registered mobile numbers matches with the string passed. <br>**Query**: `mobile:EQUALS:{mobile_number}`
+email | string | Retrieves the list of registered customers whose email id matches with the string passed. <br>**Query**: `email:EQUALS:{email_id}`
+external_id | string | Retrieves customers whose external id matches with the string passed. <br>**Query**: `external_id:EQUALS:{external_id}`
+registered_date | date | Retrieves customers by registered date (`YYYY-MM-DD`).
+loyalty_points | int | Retrieves the list of customers whose active loyalty points matches the specified query. <br>**Query**: `loyalty_points:GREATER:{loyalty_points}`
+lifetime_points | int | Retrieves the list of customers whose lifetime points matches the specified query. <br>**Query**: `lifetime_points:GREATER:{lifetime_points}`
+lifetime_purchases | int | Retrieves the list of customers whose lifetime purchases amount matches the specified query. **Query**: `lifetime_purchases:GREATER:{lifetime_purchases}`
+slab | string | Retrieves the list of customers whose current loyalty tier matches the specified value. <br>**Query**: `slab:EQUALS:{tier_name}`
+registered_store | string | Retrieves customers by registered store. <br>**Query**: `registered_store:EQUALS:{store_id}`
+last_trans_value | double | Retrieves the list of customers whose transaction amount matches the specified query. <br>**Query**: `transaction_value:GREATER:{transaction_amount}`
+Custom fields | string | Retrieves the list of customers whose custom field values matches the specified value. <br>**Query**: `{field_name}:{field_value}`
+Operator | enum | Predefined conditions based on which you want to fetch results. Values: `STARTS`, `ENDS`, `EXACT`, `RANGE`, `LESS`, `GREATER`, `EQUALS`, `IN`. For more details, see the following section, Search Query Grammar.
 
 ### Search Query Grammar
 The following is a formal definition of the Query Grammar
@@ -1826,7 +1745,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`https://{host}/v1.1/customer/get?{identifier_type}={identifier_value}&mlp=true&format={xml/json}`
+`https://{host}/v1.1/customer/get?{identifierName}={identifierValue}&mlp=true&format={xml/json}`
 
 
 ### Additional Header 
@@ -1841,7 +1760,8 @@ language | Specify the ISO language code to get customer level extended field de
 
 Parameter | Datatype | Description
 --------- | -------- | ----------- 
-mobile/email/external_id/id* | string | Pass any one of the identifiers of the customer along with the identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
+identifierName | enum  | Pass any one of the registered identifier names of the customer.
+identifierValue | string | Pass the respective identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
 coupon_limit | int | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves five recent coupon interactions.
 coupon_offset | int | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons).
 coupon_order_by | date-time | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.
@@ -4752,29 +4672,33 @@ scope | enum | Pass `scope=ALL`. It retrieves the details of all subscription mo
 | 1000 | Referral statistics retrieved successfully            | 
 |      | Referrals are invited successfully                    | 
 | 1040 | Customer id change request has submitted successfully | 
-| 1050 | Customer recommendations fetched successfully         | 
+| 1061 | Customer recommendations fetched successfully         | 
+| 1052 | Transactions fetched successfully         | 
 | 1300 | Ticket retrieved successfully                         | 
 |      | Ticket added successfully                             | 
 
 ### Error Codes
 | Code       | Description                                                                        | 
 |------------|------------------------------------------------------------------------------------| 
+| 500 | All requests failed due to errors.
+| 400 | Input is invalid. Please check request parameters or input xml/json; No identifier provided to get loyalty users. | 
+| 618 | Not allowed - customer is marked as fraud. | 
+| 816 | Customer not found for organization. |
 | 1001       | Unable to register. Invalid mobile number                                       | 
 | 1002       | Unable to register. Invalid email id                                            | 
 | 1003       | Unable to register. Invalid external id                                          | 
 | 1004       | Failed to populate store                                                           | 
-| 1005       | Unable to register with mobile number                                            | 
-| 1006       | Mobile number is required                                                         | 
-| 1007       | Invalid Mobile Number/ External ID/ Email ID                                       | 
+| 1006       | Unable to register. Mobile number is required                                                         | 
+| 1007       | Unable to register customer. No valid primary identifier mobile number, email ID, or external ID passed. | 
 | 1008/ 1038 | Unable to register with external id                                                | 
 | 1009       | Unable to add registered customer to MLM                                           | 
 | 1010       | Unable to update loyalty points of the customer                                    | 
 | 1011       | Cannot find customer for provided identifier                                       | 
-| 1012       | Cannot find customer for provided mobile/external-id/e-mail                        | 
-| 1013       | Customer not registered for Loyalty Program.                                       | 
+| 1012       | Cannot find customer with the provided mobile number/external ID/e-mail ID.                        | 
+| 1013       | Customer is not registered for the loyalty Program.                                       | 
 | 1014       | Customer is registered already                                                     | 
 | 1015       | No identifier provided to get loyalty users                                        | 
-| 1016       | Email provided already exists for some other user                                  | 
+| 1016       | Unable to register. Email provided already exists for some other user                                  | 
 | 1017       | Provided Custom Field is invalid                                                   | 
 | 1018       | Unable to update custom field                                                      | 
 | 1019       | Mobile number or external id is required along with the email Id to register       | 
@@ -4791,23 +4715,23 @@ scope | enum | Pass `scope=ALL`. It retrieves the details of all subscription mo
 | 1031       | No preferences set for this customer                                               | 
 | 1032       | A customer already exists with the same mobile number                              | 
 | 1033       | A customer already exists with the same external id                                | 
-| 1034       | Registration date is not within the accepted past or future date limit.            | 
-| 1035       | Some customer preferences could not be updated                                     | 
-| 1036       | Unable to add/update one or more customer notes                                    | 
+| 1034       | Unable to register. Registration date is not within the allowed past or future date limit.            | 
+| 1035       | Unable to update few customer preferences                                     | 
+| 1036       | One or more notes could not be added/updated for customer.                                  | 
 | 1037       | Unable to add/update customer notes                                                | 
-| 1039       | Email id is required                                                              | 
+| 1039       | Unable to register. Email ID is required.                                                              | 
 | 1041       | Customer id change request failed                                                 | 
 | 1042       | Invalid mobile no/email id/external id                                             | 
-| 1043       | Customer’s external id is required                                                 | 
+| 1043       | Unable to register. Customer’s external id is required.                                                 | 
 | 1044       | You do not have sufficient permission to view the customer details                 | 
-| 1045       | Either mobile number or email id is required                                       | 
-| 1046       | Loyalty customer cannot be converted to a to a non-loyalty customer is not allowed | 
-| 1047       | Customer’s mobile number is required to convert to loyalty customer                | 
+| 1045       | No valid identifier (mobile/email) passed for non-loyalty customer.			     | 
+| 1046       | Conversion of loyalty customer to non-loyalty is not allowed                      | 
+| 1047       | Customer's primary identifier not matching with other identifiers                | 
 | 1048       | Customer’s email id is required to convert to loyalty customer                     | 
 | 1049       | Customer’s external id is required to convert to loyalty customer                  | 
-| 1051       | Unable to fetch customer recommendations                                           | 
+| 1051       | No transactions or recommendations found for the customer                                           | 
+| 1053       | Preferred store specified is not found.
 | 1060       | Batch limit exceeded                                                               | 
-| 1061       | Invalid fraud status                                                               | 
 | 1062       | Invalid Test & Control Status                                                      | 
 | 1086       | Points processing failed                                                           | 
 | 1087       | Points processing failed                                                           | 
@@ -4831,18 +4755,41 @@ scope | enum | Pass `scope=ALL`. It retrieves the details of all subscription mo
 | 1106       | Invalid subscription status passed                                                 | 
 | 1107       | Invalid campaign id passed                                                         | 
 | 1108       | Invalid outbox id passed                                                           | 
-| 1109       | Unable to fetch subscription details                                               | 
+| 1109       | Unable to add, update or fetch subscription details.                                               | 
+| 1150		 | Invalid store ID passed.
 | 1110       | Unable  to update subscription details                                             | 
 | 1222       | Internal error occurred with the referral system                                  | 
 | 1202       | Invalid campaign token                                                             | 
 | 1203       | Invalid campaign configured                                                        | 
 | 1204       | The customer may not be eligible for the referral program.                         | 
 | 1205       | Unable to find the referrer in the specific campaign                               | 
-| 1206       | Referral type is not supported                                                     | 
+| 1206       | Failed to add referral. Referral type is not supported.                                                    | 
 | 1222       | Internal error occurred with the referral system                                   | 
 | 1301       | A ticket already exists with the same subject                                     | 
 | 1302       | Ticket registration failed                                                         | 
 | 1303       | Ticket subject should not be empty                                              | 
-
+| 10001      | Failed to add customer. |
+| 10002 | Failed to update customer details. |
+| 91001 | Failed to get point details.| 
+| 91002 | Failed to get subscription details.| 
+| 91003 | Validation failed.| 
+| 91004 | Failed to get segmentation details.| 
+| 91005 | {x} is Primary Key, {y} cannot be updated.| 
+| 91006 | {x} update is not allowed.| 
+| 91007 | {x} is already occupied by some other user, ignoring it.| 
+| 91009 | Retrieved survivor account for the requested merge victim.| 
+| 91010 | Downgrade strategy is not configured. | 
+| 91011 | Customer is already in the lowest slab. | 
+| 91012 | Customer is already in the highest slab. | 
+| 91013 | Call to Points Engine for tier upgrade criteria has failed {x}. | 
+| 91014 | Call to Points Engine for tier renewal criteria has failed {x}. | 
+| 91015 | Failed to update extended fields; or field length too long -{x}. | 
+| 91016 | WECHAT profile is not available for the customer. | 
+| 91017 | WEB_ENGAGE profile is not available for the customer. | 
+| 91018 | Unable to load WeChat notifications. | 
+| 91019 | Unable to load Web Engage notifications. | 
+| 91020 | Invalid TILL passed for registration. | 
+| 91021 | Invalid attribution TILL passed. | 
+| 91022 | Failed to update subscription for {x} channel and priority {y} | 
 
 																																																																																																									
