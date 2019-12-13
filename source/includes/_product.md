@@ -189,9 +189,9 @@ Batch Support | Yes
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
-sku | string | SKU of the product to add.
-ean | string | 
-price | 
+sku* | string | SKU of the product to add.
+ean | string | European article number of the product.
+price* | double | Price of the product.
 description | string | Brief description of the product.
 long_description | string | Detailed description of the product.
 img_url | string | URL of the product image.
@@ -201,6 +201,9 @@ brand | obj | Product size in name-value pairs.
 color | obj | Product color in name-value pairs.
 category | obj | Product category in name-value pairs.
 attributes | obj | Other product attributes in name-value pairs.
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 
 
 ## Search Products
