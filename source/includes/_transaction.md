@@ -727,6 +727,43 @@ name | string | Name of the store associate.
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 
 
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique transaction ID generated internally.
+customer | obj | Details of the customer associated to the transaction. Not applicable for `NOT_INTERESTED` transactions.
+lifetime_points | int | Total loyalty points earned by the customer to date.
+lifetime_purchases | int | Total purchases amount (loyalty or non-loyalty transactions) of the customer across all stores of the org.  
+loyalty_points | int | Current active loyalty points (neither redeemed nor expired) of the customer.
+type | enum | Type of transaction. Value: `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source). 
+current_slab | string | Current loyalty tier of the customer.
+tier_expiry_date | date-time | Expiry date of the current tier in `YYYY-MM-DD HH:MM:SS` format.
+points_summaries | obj | Shows the details of the loyalty points.
+programId | long | Unique ID of the loyalty program associated to the points summary.
+redeemed | int | In total points earned from the program, the total number of points that are redeemed.
+expired | int | In total points earned from the program, the total number of points that are expired.
+returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
+cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
+currentSlab | string | Current tier of the customer in the loyalty program.
+nextSlab | string | Next loyalty tier of the customer.
+nextSlabSerialNumber | int | Serial number of the next tier. Lowest tier will have 1, succeeding tier will have 2 and so on.
+nextSlabDescription | string | Description of the next tier as saved in the loyalty program.
+slabSNo | int | Serial number of the current tier of the customer. Lowest tier will have 1, succeeding tier will have 2 and so on.
+slabExpiryDate | date-time | Expiry date of the current loyalty tier of the customer in `YYYY-MM-DD HH:MM:SS`.
+registered_on | date-time | Date on which the customer is enrolled in the org's loyalty.
+updated_on | date-time | Recent date on which the customer details are updated.
+type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
+custom_fields | obj |Transaction or line-item level custom field details - field name (`name`) and field value (`value`).
+extended_fields | obj | Transaction or line-item level extended field details - extended field name (`name`) and extended field value (`value`).
+
+
+
+
+
+
 
 
 ## Add Transaction with Local Currency 
@@ -926,6 +963,43 @@ lastname | string | Last name of the customer.
 extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique transaction ID generated internally.
+customer | obj | Details of the customer associated to the transaction. Not applicable for `NOT_INTERESTED` transactions.
+lifetime_points | int | Total loyalty points earned by the customer to date.
+lifetime_purchases | int | Total purchases amount (loyalty or non-loyalty transactions) of the customer across all stores of the org.  
+loyalty_points | int | Current active loyalty points (neither redeemed nor expired) of the customer.
+type | enum | Type of transaction. Value: `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source). 
+current_slab | string | Current loyalty tier of the customer.
+tier_expiry_date | date-time | Expiry date of the current tier in `YYYY-MM-DD HH:MM:SS` format.
+points_summaries | obj | Shows the details of the loyalty points.
+programId | long | Unique ID of the loyalty program associated to the points summary.
+redeemed | int | In total points earned from the program, the total number of points that are redeemed.
+expired | int | In total points earned from the program, the total number of points that are expired.
+returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
+cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
+currentSlab | string | Current tier of the customer in the loyalty program.
+nextSlab | string | Next loyalty tier of the customer.
+nextSlabSerialNumber | int | Serial number of the next tier. Lowest tier will have 1, succeeding tier will have 2 and so on.
+nextSlabDescription | string | Description of the next tier as saved in the loyalty program.
+slabSNo | int | Serial number of the current tier of the customer. Lowest tier will have 1, succeeding tier will have 2 and so on.
+slabExpiryDate | date-time | Expiry date of the current loyalty tier of the customer in `YYYY-MM-DD HH:MM:SS`.
+registered_on | date-time | Date on which the customer is enrolled in the org's loyalty.
+updated_on | date-time | Recent date on which the customer details are updated.
+type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
+custom_fields | obj |Transaction or line-item level custom field details - field name (`name`) and field value (`value`).
+extended_fields | obj | Transaction or line-item level extended field details - extended field name (`name`) and extended field value (`value`).
+
+
+
+
+
 
 
 ## Return Transaction
@@ -1243,6 +1317,44 @@ name | string | Name of the store associate.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique transaction ID generated internally for return.
+customer | obj | Details of the customer associated to the transaction. Not applicable for `NOT_INTERESTED` transactions.
+lifetime_points | int | Total loyalty points earned by the customer to date.
+lifetime_purchases | int | Total purchases amount (loyalty or non-loyalty transactions) of the customer across all stores of the org.  
+loyalty_points | int | Current active loyalty points (neither redeemed nor expired) of the customer.
+type | enum | Type of transaction. Value: `return` for loyalty transaction, `not_interested_return` for non-loyalty or not-interested transactions.
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source). 
+current_slab | string | Current loyalty tier of the customer.
+tier_expiry_date | date-time | Expiry date of the current tier in `YYYY-MM-DD HH:MM:SS` format.
+points_summaries | obj | Shows the details of the loyalty points.
+programId | long | Unique ID of the loyalty program associated to the points summary.
+redeemed | int | In total points earned from the program, the total number of points that are redeemed.
+expired | int | In total points earned from the program, the total number of points that are expired.
+returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
+cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
+currentSlab | string | Current tier of the customer in the loyalty program.
+nextSlab | string | Next loyalty tier of the customer.
+nextSlabSerialNumber | int | Serial number of the next tier. Lowest tier will have 1, succeeding tier will have 2 and so on.
+nextSlabDescription | string | Description of the next tier as saved in the loyalty program.
+slabSNo | int | Serial number of the current tier of the customer. Lowest tier will have 1, succeeding tier will have 2 and so on.
+slabExpiryDate | date-time | Expiry date of the current loyalty tier of the customer in `YYYY-MM-DD HH:MM:SS`.
+registered_on | date-time | Date on which the customer is enrolled in the org's loyalty.
+updated_on | date-time | Recent date on which the customer details are updated.
+type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
+custom_fields | obj |Transaction or line-item level custom field details - field name (`name`) and field value (`value`).
+extended_fields | obj | Transaction or line-item level extended field details - extended field name (`name`) and extended field value (`value`).
+
+
+
+
+
+
+
 
 ## Cancel a Transaction Line-Item
 
@@ -1457,6 +1569,7 @@ return_type* | enum | Specify `FULL` to return the entire transaction, `LINE_ITE
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
+
 ## Update Transaction Details
 
 > Sample Request
@@ -1591,7 +1704,7 @@ https://api.capillary.co.in/v1.1/transaction/update?format=xml
 
 ```
 
-Lets you to convert a not_interested transaction to a regular transaction. You can also update both transaction and line-item level custom field and extended field details of a transaction.
+Lets you convert a not_interested transaction to a regular transaction ((Retro Transaction). You can also update both transaction and line-item level custom field and extended field details of a transaction.
 
 ### Resource Information
 | | |
@@ -1601,6 +1714,9 @@ HTTP Methods | POST
 API Version | v1.1 
 Batch Support | Yes 
 
+
+### Request URL
+`https://{host}/v1.1/transaction/update?format={xml/json}`
 
 ### Request Body Parameters 
 Parameter | Datatype | Description
@@ -1615,9 +1731,18 @@ custom_fields | obj | Update custom field details of the transaction.
 
 <aside class="notice">Any one among the parameters marked with ** is mandatory. </aside>
 
+## Response Parameters
 
-### Request URL
-`https://{host}/v1.1/transaction/update?format={xml/json}`
+Parameter | Datatype | Description
+--------- | -------- | -----------
+extended_fields | obj | Extended field details  of the transaction that are updated.
+custom_fields | obj | Custom field details of the transaction that are updated.
+id | long | Unique ID of the transaction generated by the system.
+number | string | Bill or transaction number.
+type | enum | Current transaction type.
+customer | obj | Customer details associated to the transaction.
+
+
 
 
 ## Retro Transaction
@@ -1691,6 +1816,7 @@ https://api.capillary.co.in/v1.1/transaction/update?format=json
           "tier_expiry_date": "2117-01-03 23:59:59",
           "type": "loyalty"
         },
+        "billing_time": "2018-04-01 00:00:00",
         "delivery_status": "DELIVERED",
         "source": "instore",
         "item_status": {
@@ -1762,7 +1888,7 @@ https://api.capillary.co.in/v1.1/transaction/update?format=json
 
 Retro transaction means you can convert a not-interested transaction to a loyalty transaction (by tagging a not-interested transaction to the respective customer once registered). 
 
-To avail Retro Transaction, you need to enable **CONF_RETRO_TRANSACTION_ENABLE** on InTouch> **Settings** > **Systems & Deployment** > **InTouch PoS Configuration** > **Billing** page. 
+To avail Retro Transaction, you need to enable **CONF_RETRO_TRANSACTION_ENABLE** on InTouch > **Settings** > **Systems & Deployment** > **InTouch PoS Configuration** > **Billing** page. 
 
 On the Billing page, you will also see a configuration to set the maximum duration allowed convert a not-interested transaction regular.
 
@@ -1803,124 +1929,317 @@ old_type* | enum | Earlier type of transaction. Usually, it will be `NOT_INTERES
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique transaction ID generated internally for return.
+customer | obj | Details of the customer associated to the transaction. Not applicable for `NOT_INTERESTED` transactions.
+lifetime_points | int | Total loyalty points earned by the customer to date.
+lifetime_purchases | int | Total purchases amount (loyalty or non-loyalty transactions) of the customer across all stores of the org.  
+loyalty_points | int | Current active loyalty points (neither redeemed nor expired) of the customer.
+type | enum | Type of transaction. Value: `return` for loyalty transaction, `not_interested_return` for non-loyalty or not-interested transactions.
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source). 
+current_slab | string | Current loyalty tier of the customer.
+tier_expiry_date | date-time | Expiry date of the current tier in `YYYY-MM-DD HH:MM:SS` format.
+points_summaries | obj | Shows the details of the loyalty points.
+programId | long | Unique ID of the loyalty program associated to the points summary.
+redeemed | int | In total points earned from the program, the total number of points that are redeemed.
+expired | int | In total points earned from the program, the total number of points that are expired.
+returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
+cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
+currentSlab | string | Current tier of the customer in the loyalty program.
+nextSlab | string | Next loyalty tier of the customer.
+nextSlabSerialNumber | int | Serial number of the next tier. Lowest tier will have 1, succeeding tier will have 2 and so on.
+nextSlabDescription | string | Description of the next tier as saved in the loyalty program.
+slabSNo | int | Serial number of the current tier of the customer. Lowest tier will have 1, succeeding tier will have 2 and so on.
+slabExpiryDate | date-time | Expiry date of the current loyalty tier of the customer in `YYYY-MM-DD HH:MM:SS`.
+billing_time | date-time | Actual date and time of the transaction.
+type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
+old_id | long | Previous ID of the transaction. 
+old_type | enum | Previous transaction type - usually `NOT_INTERESTED` for retro transaction.
+
+
+
+
+
 ## Fetch Transaction Details
 
 > Sample Request
 
 
 ```html
-https://us.api.capillarytech.com/v1.1/transaction/get?id=5477576&format=json
+https://us.api.capillarytech.com/v1.1/transaction/get?number=BILL7&format=json
 ```
 > Sample Response
 
 ```json
 {
-  "response": {
-    "transactions": {
-      "transaction": {
-        "id": "5477576",
-        "number": "MyBill-076",
-        "type": "REGULAR",
-        "customer": {
-          "user_id": "43445",
-          "mobile": "44700900999",
-          "firstname": "Catherine",
-          "lastname": "Earnshaw"
-        },
-        "item_status": {
-          "success": "true",
-          "code": "600",
-          "message": "Transaction retrieved successfully"
-        },
-        "amount": "1000",
-        "notes": "2 line items",
-        "billing_time": "2012-04-01 00:00:00",
-        "gross_amount": "1000",
-        "discount": "0",
-        "custom_fields": {
-          "field": {
-            "name": "field name",
-            "value": "[“value”]"
-          }
-        },
-        "line_items": {
-          "line_item": {
-            "serial": "1",
-            "item_code": "item-001",
-            "description": "soap",
-            "qty": "50",
-            "rate": "10",
-            "value": "500",
-            "discount": "0",
-            "amount": "500",
-            "attributes": {
-              "attribute": {
-                "name": "color",
-                "value": "red"
-              }
+   "response":{
+      "status":{
+         "success":"true",
+         "code":200,
+         "message":"Success"
+      },
+      "transactions":{
+         "count":1,
+         "transaction":[
+            {
+               "customer":{
+                  "mobile":"918036151289",
+                  "first_name":"Tom",
+                  "last_name":"Sawyer",
+                  "email":"tom.sawyer@example.com",
+                  "external_id":"XYPZ001",
+                  "source":"instore"
+               },
+               "billing_till":{
+                  "code":"mobilepush.1",
+                  "name":"mobilepush.1"
+               },
+               "billing_store":{
+                  "code":"storecode",
+                  "name":"webstore1"
+               },
+               "id":"37812256",
+               "number":"BILL7",
+               "type":"REGULAR",
+               "outlier_status":"NORMAL",
+               "store":"mobilepush.1",
+               "delivery_status":"DELIVERED",
+               "source":"instore",
+               "custom_fields":{
+                  "field":[
+
+                  ]
+               },
+               "extended_fields":{
+                  "field":[
+
+                  ]
+               },
+               "amount":"5000",
+               "billing_time":"2018-04-01 00:00:00",
+               "auto_update_time":"2019-12-16 12:10:59",
+               "gross_amount":"0",
+               "discount":"0",
+               "notes":"Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction",
+               "line_items":{
+                  "line_item":[
+                     {
+                        "type":"REGULAR",
+                        "outlier_status":"NORMAL",
+                        "serial":"1",
+                        "item_code":"skuattr9",
+                        "description":"soap",
+                        "qty":"50",
+                        "rate":"10",
+                        "value":"500",
+                        "discount":"234",
+                        "img_url":"",
+                        "amount":"500",
+                        "extended_fields":{
+                           "field":[
+
+                           ]
+                        },
+                        "combo_items":{
+                           "combo_item":[
+
+                           ]
+                        },
+                        "addon_items":{
+                           "addon_item":[
+
+                           ]
+                        },
+                        "split_items":{
+                           "split_item":[
+
+                           ]
+                        },
+                        "attributes":{
+                           "attribute":[
+
+                           ]
+                        }
+                     },
+                     {
+                        "type":"REGULAR",
+                        "outlier_status":"NORMAL",
+                        "serial":"1",
+                        "item_code":"skuattr9variant-33",
+                        "description":"soap",
+                        "qty":"50",
+                        "rate":"10",
+                        "value":"500",
+                        "discount":"0",
+                        "img_url":"",
+                        "amount":"500",
+                        "extended_fields":{
+                           "field":[
+
+                           ]
+                        },
+                        "combo_items":{
+                           "combo_item":[
+
+                           ]
+                        },
+                        "addon_items":{
+                           "addon_item":[
+
+                           ]
+                        },
+                        "split_items":{
+                           "split_item":[
+
+                           ]
+                        },
+                        "attributes":{
+                           "attribute":[
+
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "item_status":{
+                  "success":"true",
+                  "code":600,
+                  "message":"Transaction retrieved successfully"
+               }
             }
-          }
-        }
+         ]
       }
-    }
-  }
+   }
 }
 ```
 
 ```xml
-<response>
-    <transactions>
-        <transaction>
-            <id>5477576</id>
-            <number>MyBill-076</number>
-            <type>REGULAR</type>
-            <customer>
-                <user_id>43445</user_id>
-                <!-- returned only when query param user_id is true -->
-                <mobile>44700900999</mobile>
-                <email />
-                <external_id />
-                <firstname>Catherine</firstname>
-                <lastname>Earnshaw</lastname>
-            </customer>
-            <item_status>
-                <success>true</success>
-                <code>600</code>
-                <message>Transaction retrieved successfully</message>
-            </item_status>
-            <amount>1000</amount>
-            <notes>2 line items</notes>
-            <billing_time>2012-04-01 00:00:00</billing_time>
-            <gross_amount>1000</gross_amount>
-            <discount>0</discount>
-            <store />
-            <custom_fields>
-                <field>
-                    <name>field name</name>
-                    <value>[“value”]</value>
-                </field>
-            </custom_fields>
-            <line_items>
-                <line_item>
-                    <serial>1</serial>
-                    <item_code>item-001</item_code>
-                    <description>soap</description>
-                    <qty>50</qty>
-                    <rate>10</rate>
-                    <value>500</value>
-                    <discount>0</discount>
-                    <amount>500</amount>
-                    <attributes>
-                        <attribute>
-                            <name>color</name>
-                            <value>red</value>
-                        </attribute>
-                    </attributes>
-                </line_item>
-            </line_items>
-        </transaction>
-    </transactions>
-</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+      <transactions>
+         <count>1</count>
+         <transaction>
+            <element>
+               <amount>5000</amount>
+               <auto_update_time>2019-12-16 12:10:59</auto_update_time>
+               <billing_store>
+                  <code>storecode</code>
+                  <name>webstore1</name>
+               </billing_store>
+               <billing_till>
+                  <code>mobilepush.1</code>
+                  <name>mobilepush.1</name>
+               </billing_till>
+               <billing_time>2018-04-01 00:00:00</billing_time>
+               <custom_fields>
+                  <field />
+               </custom_fields>
+               <customer>
+                  <email>tom.sawyer@example.com</email>
+                  <external_id>XYPZ001</external_id>
+                  <first_name>Tom</first_name>
+                  <last_name>Sawyer</last_name>
+                  <mobile>918036151289</mobile>
+                  <source>instore</source>
+               </customer>
+               <delivery_status>DELIVERED</delivery_status>
+               <discount>0</discount>
+               <extended_fields>
+                  <field />
+               </extended_fields>
+               <gross_amount>0</gross_amount>
+               <id>37812256</id>
+               <item_status>
+                  <code>600</code>
+                  <message>Transaction retrieved successfully</message>
+                  <success>true</success>
+               </item_status>
+               <line_items>
+                  <line_item>
+                     <element>
+                        <addon_items>
+                           <addon_item />
+                        </addon_items>
+                        <amount>500</amount>
+                        <attributes>
+                           <attribute />
+                        </attributes>
+                        <combo_items>
+                           <combo_item />
+                        </combo_items>
+                        <description>soap</description>
+                        <discount>234</discount>
+                        <extended_fields>
+                           <field />
+                        </extended_fields>
+                        <img_url />
+                        <item_code>skuattr9</item_code>
+                        <outlier_status>NORMAL</outlier_status>
+                        <qty>50</qty>
+                        <rate>10</rate>
+                        <serial>1</serial>
+                        <split_items>
+                           <split_item />
+                        </split_items>
+                        <type>REGULAR</type>
+                        <value>500</value>
+                     </element>
+                     <element>
+                        <addon_items>
+                           <addon_item />
+                        </addon_items>
+                        <amount>500</amount>
+                        <attributes>
+                           <attribute />
+                        </attributes>
+                        <combo_items>
+                           <combo_item />
+                        </combo_items>
+                        <description>soap</description>
+                        <discount>0</discount>
+                        <extended_fields>
+                           <field />
+                        </extended_fields>
+                        <img_url />
+                        <item_code>skuattr9variant-33</item_code>
+                        <outlier_status>NORMAL</outlier_status>
+                        <qty>50</qty>
+                        <rate>10</rate>
+                        <serial>1</serial>
+                        <split_items>
+                           <split_item />
+                        </split_items>
+                        <type>REGULAR</type>
+                        <value>500</value>
+                     </element>
+                  </line_item>
+               </line_items>
+               <notes>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction</notes>
+               <number>BILL7</number>
+               <outlier_status>NORMAL</outlier_status>
+               <source>instore</source>
+               <store>mobilepush.1</store>
+               <type>REGULAR</type>
+            </element>
+         </transaction>
+      </transactions>
+   </response>
+</root>
+
+
 ```
 
 
@@ -1934,8 +2253,7 @@ HTTP Methods | GET
 Authentication | Yes
 Batch Support | Yes
 
-### Request URL
-`https://{host}/v1.1/transaction/get?{identifier_type}={value}&format={xml/json}`
+
 
 ### Additional Header
 
@@ -1943,6 +2261,8 @@ Header | Description
 ------ | -----------
 language | Specify the ISO language code to get transaction level extended field details in your preferred language (other than English). For example, `zh` for Chinese, `id` for Indonesian, `ar` for Arabic.
 
+### Request URL
+`https://{host}/v1.1/transaction/get?{requestParams}&format={xml/json}`
 
 
 ### Request Query Parameters
@@ -1957,6 +2277,59 @@ date | date | Filter transactions of a specific date. Pass the date in `YYYY-MM-
 type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`. By default it shows the details of regular transaction.
 
 <aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
+
+
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique transaction ID generated internally.
+customer | obj | Details of the customer associated to the transaction. Not applicable for `NOT_INTERESTED` transactions.
+lifetime_points | int | Total loyalty points earned by the customer to date.
+lifetime_purchases | int | Total purchases amount (loyalty or non-loyalty transactions) of the customer across all stores of the org.  
+loyalty_points | int | Current active loyalty points (neither redeemed nor expired) of the customer.
+type | enum | Type of transaction. Value: `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
+source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source). 
+current_slab | string | Current loyalty tier of the customer.
+tier_expiry_date | date-time | Expiry date of the current tier in `YYYY-MM-DD HH:MM:SS` format.
+points_summaries | obj | Shows the details of the loyalty points.
+programId | long | Unique ID of the loyalty program associated to the points summary.
+redeemed | int | In total points earned from the program, the total number of points that are redeemed.
+expired | int | In total points earned from the program, the total number of points that are expired.
+returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
+cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
+currentSlab | string | Current tier of the customer in the loyalty program.
+nextSlab | string | Next loyalty tier of the customer.
+nextSlabSerialNumber | int | Serial number of the next tier. Lowest tier will have 1, succeeding tier will have 2 and so on.
+nextSlabDescription | string | Description of the next tier as saved in the loyalty program.
+slabSNo | int | Serial number of the current tier of the customer. Lowest tier will have 1, succeeding tier will have 2 and so on.
+slabExpiryDate | date-time | Expiry date of the current loyalty tier of the customer in `YYYY-MM-DD HH:MM:SS`.
+registered_on | date-time | Date on which the customer is enrolled in the org's loyalty.
+updated_on | date-time | Recent date on which the customer details are updated.
+type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
+custom_fields | obj |Transaction or line-item level custom field details - field name (`name`) and field value (`value`).
+extended_fields | obj | Transaction or line-item level extended field details - extended field name (`name`) and extended field value (`value`).
+billing_till | obj | TILL associated to the transaction - TILL`name` and TILL `code`.
+billing_store | obj | Store associated to the transaction - store`name` and store `code`.
+extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
+payment_details | obj | Payment details for the transaction.
+attributes | obj | Attributes  of the current line-item in name and value pairs.
+mode | string | Mode of payment. This has to be the mode configured for your org.
+value | float | Amount paid through the current mode.
+attributes | obj | Payment mode attributes in name and value pairs.
+custom_fields | obj | Transaction level custom field details. Pass line-item level custom field details in `line_item` object.
+line_items | obj | Details of transaction line-items.
+serial | long | Serial number of the current line-item.
+description | string | Description of the line-item.
+item_code | string | Unique line-item code.
+variant | string | Variant code of the item. Applicable for variant product.
+addon_items | obj | Details of add-on items. For example, pizza with extra cheese, and personalized toppings.
+combo_items | obj | Details of combo or bundle items. For example, buy 1 shirt get one free, shirt+pant, pack of 5 soaps. 
+split_items | obj | Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.
+item_code | string | Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.
+quantity | double | Quantity of the current add-on, split, or combo item.
 
 
 ## Response Codes
