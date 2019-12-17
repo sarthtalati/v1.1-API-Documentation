@@ -1185,11 +1185,16 @@ When an API call is made with 4 batch transactions, A response header is generat
 <td>enum</td>
 <td>Current communication channel. Value: <code class="prettyprint">sms</code>, <code class="prettyprint">email</code>.</td>
 </tr>
+<tr>
+<td>side_effects</td>
+<td>obj</td>
+<td>Effect of customer registration on other things.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
-<h2 id="response-parameters">Response Parameters</h2>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <table><thead>
 <tr>
@@ -1266,7 +1271,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <tr>
 <td>adjusted</td>
 <td>int</td>
-<td></td>
+<td>Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.</td>
 </tr>
 <tr>
 <td>cumulativePurchases</td>
@@ -1869,7 +1874,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 
 <aside class="notice">Parameter marked with * is mandatory.</aside>
 
-<h2 id="response-parameters">Response Parameters</h2>
+<h3 id="response-parameters">Response Parameters</h3>
 
 <table><thead>
 <tr>
@@ -1946,7 +1951,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <tr>
 <td>adjusted</td>
 <td>int</td>
-<td></td>
+<td>Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.</td>
 </tr>
 <tr>
 <td>cumulativePurchases</td>
@@ -11029,7 +11034,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 <tr>
 <td>667</td>
-<td>Unable to find the transaction id for this customer.</td>
+<td>Unable to find the transaction ID for this customer.</td>
 </tr>
 <tr>
 <td>668</td>
@@ -11046,6 +11051,10 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <tr>
 <td>671</td>
 <td>Invalid Store or TILL code.</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid category code.</td>
 </tr>
 <tr>
 <td>672</td>
@@ -11086,6 +11095,22 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <tr>
 <td>681</td>
 <td>Transactions are blocked for this customer.</td>
+</tr>
+<tr>
+<td>682</td>
+<td>Currency conversion is disabled for the org.</td>
+</tr>
+<tr>
+<td>683</td>
+<td>Failed to call new bill event EMF.</td>
+</tr>
+<tr>
+<td>684</td>
+<td>Failed EMF new bill DVS event.</td>
+</tr>
+<tr>
+<td>685</td>
+<td>Field length too long.</td>
 </tr>
 <tr>
 <td>686</td>
@@ -11148,12 +11173,16 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <td>Points processing failed.</td>
 </tr>
 <tr>
+<td>699</td>
+<td>Invalid configuration. Please report to the Capillary Support.</td>
+</tr>
+<tr>
 <td>710</td>
 <td>Return bill event failed from EMF.</td>
 </tr>
 <tr>
-<td>699</td>
-<td>Invalid configuration. Please report to the Capillary Support.</td>
+<td>820</td>
+<td>Current operation is not allowed. The customer is marked as fraud.</td>
 </tr>
 <tr>
 <td>1101</td>
@@ -11747,14 +11776,44 @@ You need to use the validation code within the validity period. You can check th
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<p>Parameter | Datatype | Description
-&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-mobile* | string | Provide the registered mobile number of the customer to redeem points.
-points_redeemed* | int | Provide the number of points to be redeemed.
-transaction_number | string | Provide the transaction number for which the points has to be redeemed.
-validation_code* | string | Provide the validation code received by the customer through <code class="prettyprint">points/validationcode</code>.
-redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.
-program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mobile*</td>
+<td>string</td>
+<td>Provide the registered mobile number of the customer to redeem points.</td>
+</tr>
+<tr>
+<td>points_redeemed*</td>
+<td>int</td>
+<td>Provide the number of points to be redeemed.</td>
+</tr>
+<tr>
+<td>transaction_number</td>
+<td>string</td>
+<td>Provide the transaction number for which the points has to be redeemed.</td>
+</tr>
+<tr>
+<td>validation_code*</td>
+<td>string</td>
+<td>Provide the validation code received by the customer through <code class="prettyprint">points/validationcode</code>.</td>
+</tr>
+<tr>
+<td>redemption_time</td>
+<td>date-time</td>
+<td>Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>long</td>
+<td>Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.</td>
+</tr>
+</tbody></table>
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
