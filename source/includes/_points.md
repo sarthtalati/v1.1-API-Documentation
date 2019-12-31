@@ -5,7 +5,7 @@ Points represent loyalty points of an organization that are issued to the loyalt
 Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
 </aside>
 
-The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (isreedemable), validate customer's registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.
+The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (`isreedemable`), validate customer's registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.
 
 The points entity allows you to perform the following tasks:
 
@@ -14,8 +14,10 @@ The points entity allows you to perform the following tasks:
 * Redeem points using the validation code received by the customer
 
 ## Check If Points are Redeemable
+
+> Sample Request
+
 ```html
-# Sample Request
 http://us.intouch.capillarytech.com/v1.1/points/isredeemable?points=100&issue_otp=true&mobile=44700900999&format=json
 ```
 > Sample Response
@@ -123,7 +125,7 @@ This API lets you verify whether a specific number of points can be redeemed by 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/isredeemable`
+URI | `points/isredeemable/{request_params}`
 Rate Limited? | Yes
 Authentication | Yes
 HTTP Method | GET
@@ -134,9 +136,9 @@ To validate points and issue code if the validation is successful
 `https://{host}/v1.1/points/isredeemable?points={points to redeem}&issue_otp=true&{mobile/email}={mobile no./email id}&format={xml/json}`
 
 To just validate points
-`https://{host}/v1.1/points/isredeemable?points={points to redeem}&validation_code={OTP}&{mobile/email}={mobile no./email id}&format={xml/json}`
+`https://{host}/v1.1/points/isredeemable?points={points to redeem}&validation_code={OTP}&{mobile/email}={value}&format={xml/json}`
 
-### Request Parameters
+### Request Path Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Pass any of the identifier type of the customer.
@@ -150,7 +152,18 @@ validation_type | enum | Preferred mode of validation. Value: `MISSED_CALL`, `SM
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
-## Issue Validation Code for Redeeming Points
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+points_redeemed | int | Number of points to redeem.
+redeemed_value | double | Value of the points to redeem.
+balance | int | Remaining points in the customer's account after redemption.
+points | int | Number of points to redeem.
+is_redeemable | boolean | Whether the points can be redeemed. 
+
+
+## Issue Validation Code (to Redeeming Points)
 
 > Sample Request
 
@@ -224,7 +237,7 @@ The validation code is issued either to mobile number, or email id or both, base
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/validationcode`
+URI | `points/validationcode/{request_params}`
 Rate Limited? | Yes
 Authentication | Yes
 HTTP Method | GET
@@ -234,6 +247,7 @@ Batch Support | No
 `https://{host}/v1.1/points/validationcode?{identifier}={value}&points={points_to_be_redeemed}&format={xml/json}`
 
 ### Request Parameters
+
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Pass any of the identifier types of the customer to issue validation code. Value: `mobile`, `email`, `external_id`, `user_id`.
@@ -241,6 +255,15 @@ value* | string | Pass the respective identifier value. For example, `email=tom.
 points* | int | Number of points to redeem.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+user_id | long | Unique ID of the customer.
+mobile | string | Mobile number of the customer.
+points | int | Number of points to redeem.
+
 
 
 ## Redeem Points
@@ -346,7 +369,7 @@ You need to use the validation code within the validity period. You can check th
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/redeem`
+URI | `points/redeem`
 Rate Limited? | Yes
 Authentication | Yes
 HTTP Method | POST
@@ -357,7 +380,7 @@ Batch Support | No
 
 ### Request Parameters
 Parameter | Datatype | Description
---------- | -----------
+--------- | -------- | -----------
 mobile* | string | Provide the registered mobile number of the customer to redeem points.
 points_redeemed* | int | Provide the number of points to be redeemed.
 transaction_number | string | Provide the transaction number for which the points has to be redeemed.
@@ -366,6 +389,17 @@ redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD
 program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
+
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+points_redeemed | int | Number of points redeemed.
+redeemed_value | double | Value of the points redeemed.
+balance | int | Remaining points in the customer's account after redemption.
+
+
+
 
 ## Response Codes
 ### Success Codes

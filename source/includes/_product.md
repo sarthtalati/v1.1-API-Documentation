@@ -4,71 +4,82 @@ The product entity holds all products of an org and product related information 
 
 ## Add Product
 ```html
-http://us.api.capillarytech.com/v1.1/product/add.json
+https://us.api.capillarytech.com/v1.1/product/add.json
 ```
 > Sample POST Request
 
 ```xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<product>
-        	<sku>31sa84</sku>
-        <ean>12ss21</ean>
-        <price>22</price>
-        <description>adding sample product</description>
-        <long_description>Sample description</long_description>
-        <img_url>https://nightly.capillary.in/productManagement/Colors</img_url>
-        	<size>
-            <name>Jeans Shirt</name>
-        </size>
-        <style>
-            <name>test001</name>
-        </style>
-        <brand>
-            <name>BRANDS23</name>
-        </brand>
-        <color>
-            <name>DarkBlue</name>
-        </color>
-        <category>
-            <name>My test21</name>
-        </category>
-        <attributes>
-            <attribute>
-                <name>大伟大12121212</name>
-                <value>123</value>
-            </attribute>
-            <attribute>
-                <name>大伟大1212</name>
-                <value>12hjha</value>
-            </attribute>
-        </attributes>
-       	</product>
+   <root>
+      <product>
+         <element>
+            <attributes>
+               <attribute>
+                  <element>
+                     <name>style</name>
+                     <value>M</value>
+                  </element>
+                  <element>
+                     <name>sampleName</name>
+                     <value>samplevalue</value>
+                  </element>
+               </attribute>
+            </attributes>
+            <brand>
+               <name>Lee</name>
+            </brand>
+            <category>
+               <name>HANDBAG(S)</name>
+            </category>
+            <color>
+               <name />
+            </color>
+            <description>adding sample product</description>
+            <ean />
+            <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+            <long_description>Sample description</long_description>
+            <price>7000</price>
+            <size>
+               <name>Jeans Shirt</name>
+            </size>
+            <sku>SKU80</sku>
+            <style>
+               <name />
+            </style>
+         </element>
+      </product>
+   </root>
 </root>
+
 ```
+
 ```json
 {
   "root": {
     "product": [{
-      "sku": "31sa84",
-      "ean": "12ss21",
-      "price": "22",
+      "sku": "SKU80",
+      "ean": "",
+      "price": "7000",
       "description": "adding sample product",
       "long_description": "Sample description",
-      "img_url": "https://nightly.capillary.in/productManagement/Colors",
+      "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
       "size": { "name": "Jeans Shirt" },
-      "style": { "name": "test001" },
-      "brand": { "name": "BRANDS23" },
-      "color": { "name": "DarkBlue" },
-      "category": { "name": "My test21" },
+      "style": { "name": "" },
+      "brand": { "name": "Lee" },
+      "color": { "name": "" },
+      "category": { "name": "HANDBAG(S)" },
       "attributes": {
         "attribute": [
           {
-            "name": "大伟大12121212",
-            "value": "123"
+            "name": "style",
+            "value": "M"
           },
           {
-            "name": "大伟大1212",
-            "value": "12hjha"
+            "name": "sampleName",
+            "value": "samplevalue"
           }
         ]
       }
@@ -80,93 +91,115 @@ http://us.api.capillarytech.com/v1.1/product/add.json
 > Sample Response
 
 ```xml
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>SUCCESS</message>
-    </status>
-    <product>
-        <sku>31sa84</sku>
-        <ean>12ss21</ean>
-        <price>22</price>
-        <description>adding sample product</description>
-        <long_description>Sample description</long_description>
-        <img_url>https://nightly.capillary.in/productManagement/Colors</img_url>
-        <size>
-            <name>Jeans Shirt</name>
-        </size>
-        <style>
-            <name>test001</name>
-        </style>
-        <brand>
-            <name>BRANDS23</name>
-        </brand>
-        <color>
-            <name>DarkBlue</name>
-        </color>
-        <category>
-            <name>My test21</name>
-        </category>
-        <attributes>
-            <attribute>
-                <name>大伟大12121212</name>
-                <value>123</value>
-            </attribute>
-            <attribute>
-                <name>大伟大1212</name>
-                <value>12hjha</value>
-            </attribute>
-        </attributes>
-        <item_status>
-            <success>true</success>
-            <code>9100</code>
-            <message>Product added successfully</message>
-        </item_status>
-    </product>
-</response>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <product>
+         <element>
+            <added_on>2019-12-18 15:48:48</added_on>
+            <attributes null="true" />
+            <brand>
+               <description>Lee brand</description>
+               <label>Lee</label>
+               <name>Lee</name>
+            </brand>
+            <category>
+               <description />
+               <label>HANDBAG(S)</label>
+               <name>HANDBAG(S)</name>
+            </category>
+            <color>
+               <name />
+               <pallette />
+            </color>
+            <description>adding sample product</description>
+            <ean>SKU80</ean>
+            <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+            <in_stock>false</in_stock>
+            <item_id>27364313</item_id>
+            <item_status>
+               <code>9100</code>
+               <message>Product added successfully</message>
+               <success>true</success>
+            </item_status>
+            <long_description>Sample description</long_description>
+            <price>7000</price>
+            <size>
+               <label />
+               <name />
+               <type />
+            </size>
+            <sku>SKU80</sku>
+            <style>
+               <label>ATTIRE Y G</label>
+               <name>ATTIRE Y G</name>
+            </style>
+         </element>
+      </product>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+
 
 ```
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "product": {
-      "sku": "31sa84",
-      "ean": "12ss21",
-      "price": "22",
-      "description": "adding sample product",
-      "long_description": "Sample description",
-      "img_url": "https://nightly.capillary.in/productManagement/Colors",
-      "size": { "name": "Jeans Shirt" },
-      "style": { "name": "test001" },
-      "brand": { "name": "BRANDS23" },
-      "color": { "name": "DarkBlue" },
-      "category": { "name": "My test21" },
-      "attributes": {
-        "attribute": [
-          {
-            "name": "大伟大12121212",
-            "value": "123"
-          },
-          {
-            "name": "大伟大1212",
-            "value": "12hjha"
-          }
+    "response": {
+        "status": {
+            "success": true,
+            "code": 200,
+            "message": "Success"
+        },
+        "product": [
+            {
+                "item_id": "27364313",
+                "sku": "SKU80",
+                "ean": "SKU80",
+                "price": "7000",
+                "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
+                "in_stock": "false",
+                "description": "adding sample product",
+                "long_description": "Sample description",
+                "size": {
+                    "label": "",
+                    "name": "",
+                    "type": ""
+                },
+                "style": {
+                    "name": "ATTIRE Y G",
+                    "label": "ATTIRE Y G"
+                },
+                "brand": {
+                    "label": "Lee",
+                    "name": "Lee",
+                    "description": "Lee brand"
+                },
+                "color": {
+                    "pallette": "",
+                    "name": ""
+                },
+                "category": {
+                    "label": "HANDBAG(S)",
+                    "name": "HANDBAG(S)",
+                    "description": ""
+                },
+                "attributes": null,
+                "added_on": "2019-12-18 15:48:48",
+                "item_status": {
+                    "success": true,
+                    "code": 9100,
+                    "message": "Product added successfully"
+                }
+            }
         ]
-      },
-      "item_status": {
-        "success": "true",
-        "code": "9100",
-        "message": "Product added successfully"
-      }
     }
-  }
 }
 ```
 
@@ -182,7 +215,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://{host}/v1.1/product/add?format={xml/json}`
+`https://{host}/v1.1/product/add?format={xml/json}`
 
 
 ### Request Query Parameters
@@ -197,140 +230,161 @@ long_description | string | Detailed description of the product.
 img_url | string | URL of the product image.
 size | obj | Size of the product in name:value pairs.
 style | obj | Product style in name:value pairs.
-brand | obj | Product size in name-value pairs.
-color | obj | Product color in name-value pairs.
-category | obj | Product category in name-value pairs.
+type | string | Size type.
+brand | obj | Pass a valid brand name (as per the database) of the product.
+color | obj | Pass a valid product color (as per the database) .
+category | obj | Pass a valid product category name ((as per the database).
 attributes | obj | Other product attributes in name-value pairs.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
+### Response Parameters
 
+Parameter | Datatype | Description
+--------- | -------- | -----------
+item_id | long | Unique ID of the product generated by the system.
+name | string | Name of the entry.
+label | string | UI name of the specific entry (style, color, category, brand)
+added_on | date-time | Date and time of the product addition.
+description | string | Description of the specific entry as in the database.
 
 ## Search Products
 
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=json
+https://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen)&format=json
 ```
 > Sample Response
 
 ```xml
+
+
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Some requests have failed due to errors</message>
-    </status>
-    <product>
-        <count>454</count>
-        <start />
-        <rows>2</rows>
-        <results>
+<root>
+   <response>
+      <product>
+         <count>21</count>
+         <results>
             <item>
-                <id>16391993</id>
-                <org_id>146</org_id>
-                <sku>3008810301</sku>
-                <in_stock>true</in_stock>
-                <price>455</price>
-                <description>PE SHIRT</description>
-                <img_url>http://testing.capillary.in/images/trouser.jpg</img_url>
-                <attributes>
-                    <attribute>
-                        <name>Group</name>
-                        <value>Peter England</value>
-                    </attribute>
-                    <attribute>
-                        <name>Size</name>
-                        <value>XXL</value>
-                    </attribute>
-                </attributes>
+               <element>
+                  <added_on>2017-06-20T00:00:00Z</added_on>
+                  <attributes>
+                     <attribute />
+                  </attributes>
+                  <description>soap</description>
+                  <ean>401234567892</ean>
+                  <id>26666454</id>
+                  <img_url>https://nightly.capillary.in/productManagement/Colors/img3.jpg</img_url>
+                  <org_id>50074</org_id>
+                  <price>1000</price>
+                  <sku>item-001</sku>
+               </element>
+               <element>
+                  <added_on>2017-08-18T00:00:00Z</added_on>
+                  <attributes>
+                     <attribute />
+                  </attributes>
+                  <description>Van Heusen Black Dress - Color : Black, Size :L</description>
+                  <ean>401234567891</ean>
+                  <id>26694137</id>
+                  <img_url>https://nightly.capillary.in/productManagement/Colors/img2.jpg</img_url>
+                  <org_id>50074</org_id>
+                  <price>200</price>
+                  <sku>8907670343739</sku>
+               </element>
+               <element>
+                  <added_on>2019-07-08T00:00:00Z</added_on>
+                  <attributes>
+                     <attribute />
+                  </attributes>
+                  <description>long</description>
+                  <ean>401234567890</ean>
+                  <id>27211795</id>
+                  <img_url>https://nightly.capillary.in/productManagement/Colors/img1.jpg</img_url>
+                  <org_id>50074</org_id>
+                  <price>100</price>
+                  <sku>sl1</sku>
+               </element>
             </item>
-            <item>
-                <id>16391999</id>
-                <org_id>146</org_id>
-                <sku>3008811101</sku>
-                <in_stock>true</in_stock>
-                <price>455</price>
-                <description>PE SHIRT</description>
-                <img_url>http://testing.capillary.in/images/trouser.jpg</img_url>
-                <attributes>
-                    <attribute>
-                        <name>Group</name>
-                        <value>Peter England</value>
-                    </attribute>
-                    <attribute>
-                        <name>Department</name>
-                        <value>Peter England Main Line</value>
-                    </attribute>
-                </attributes>
-            </item>
-        </results>
-    </product>
-</response>
+         </results>
+         <rows>10</rows>
+         <start>0</start>
+      </product>
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+
+
 ```
 
 ```json
 {
-    "response": {
-        "status": {
-            "success": "true", 
-            "code": "200", 
-            "message": "Some requests have failed due to errors"
-        }, 
-        "product": {
-            "count": "454", 
-            "start": "", 
-            "rows": "2", 
-            "results": {
-                "item": [
-                    {
-                        "id": "16391993", 
-                        "org_id": "146", 
-                        "sku": "3008810301", 
-                        "in_stock": "true", 
-                        "price": "455", 
-                        "description": "PE SHIRT", 
-                        "img_url": "http://testing.capillary.in/images/trouser.jpg", 
-                        "attributes": {
-                            "attribute": [
-                                {
-                                    "name": "Group", 
-                                    "value": "Peter England"
-                                }, 
-                                {
-                                    "name": "Size", 
-                                    "value": "XXL"
-                                }
-                            ]
-                        }
-                    }, 
-                    {
-                        "id": "16391999", 
-                        "org_id": "146", 
-                        "sku": "3008811101", 
-                        "in_stock": "true", 
-                        "price": "455", 
-                        "description": "PE SHIRT", 
-                        "img_url": "http://testing.capillary.in/images/trouser.jpg", 
-                        "attributes": {
-                            "attribute": [
-                                {
-                                    "name": "Group", 
-                                    "value": "Peter England"
-                                }, 
-                                {
-                                    "name": "Department", 
-                                    "value": "Peter England Main Line"
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-        }
-    }
+   "response":{
+      "status":{
+         "success":"true",
+         "code":200,
+         "message":"SUCCESS"
+      },
+      "product":{
+         "count":21,
+         "start":0,
+         "rows":10,
+         "results":{
+            "item":[
+               {
+                  "id":"26666454",
+                  "price":1000,
+                  "org_id":50074,
+                  "description":"soap",
+                  "sku":"item-001",
+                  "added_on":"2017-06-20T00:00:00Z",
+                  "attributes":{
+                     "attribute":[
+
+                     ]
+                  },
+                  "img_url":"https://nightly.capillary.in/productManagement/Colors/img3.jpg",
+                  "ean":"401234567892"
+               },
+               {
+                  "id":"26694137",
+                  "price":200,
+                  "org_id":50074,
+                  "description":"Van Heusen Black Dress - Color : Black, Size :L",
+                  "sku":"8907670343739",
+                  "added_on":"2017-08-18T00:00:00Z",
+                  "attributes":{
+                     "attribute":[
+
+                     ]
+                  },
+                  "img_url":"https://nightly.capillary.in/productManagement/Colors/img2.jpg",
+                  "ean":"401234567891"
+               },
+               {
+                  "id":"27211795",
+                  "price":100,
+                  "org_id":50074,
+                  "description":"long",
+                  "sku":"sl1",
+                  "added_on":"2019-07-08T00:00:00Z",
+                  "attributes":{
+                     "attribute":[
+
+                     ]
+                  },
+                  "img_url":"https://nightly.capillary.in/productManagement/Colors/img1.jpg",
+                  "ean":"401234567890"
+               }
+            ]
+         }
+      }
+   }
 }
 ```
 
@@ -345,8 +399,7 @@ HTTP Methods | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/product/search?q={searchquerystring}&format={xml/json}`
-
+`https://{host}/v1.1/product/search?q={searchquerystring}&format={xml/json}`
 
 
 
@@ -375,7 +428,7 @@ Then the query string would be as shown below:
 `color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen`
 
 
-**Request URL**: http://<cluster url>/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&format=<xml/json>
+**Request URL**: https://{host}/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&format={xml/json}
 
 
 <aside class="warning">The following characters are not supported in search queries as they have a special meaning in search grammar. <br>
@@ -384,85 +437,173 @@ Then the query string would be as shown below:
 
 
 
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique ID of the product generated by the system.
+sku | string | SKU of the product.
+ean | string | European article number of the product.
+price | double | Price of the product.
+org_id | long | Unique ID of the current org.
+description | string | Brief description of the product.
+img_url | string | URL of the product image.
+attributes | obj | Attributes of the product in name-value pairs.
+added_on | date-time | Date and time of the product addition.
+
+
+
 
 ## Retrieve Products Details
 ```html
 # Sample Request
-http://api.capillary.co.in/v1.1/product/get?sku=13213131,22345&format=json
+https://api.capillary.co.in/v1.1/product/get?sku=item-001,Pearls&format=json
 ```
 
 > Sample Response
 
 ```xml
+
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>Some requests have failed due to errors</message>
-    </status>
-    <product>
-        <item>
-            <sku>1331212</sku>
-            <price>3000</price>
-            <img_url>http://cdn.capillary.co.in/232424234.jpg</img_url>
-            <in_stock>true</in_stock>
-            <description>Trousers</description>
-            <attributes>
-                <attribute>
-                    <name>Color</name>
-                    <value>Black</value>
-                </attribute>
-                <attribute>
-                    <name>Size</name>
-                    <value>XXL</value>
-                </attribute>
-            </attributes>
-            <item_status>
-                <status>true</status>
-                <code>200</code>
-                <message>Operation Successful</message>
-            </item_status>
-        </item>
-    </product>
-</response>
+<root>
+   <response>
+      <product>
+         <item>
+            <element>
+               <added_on>2019-09-18 12:40:36</added_on>
+               <attributes null="true" />
+               <brand null="true" />
+               <category null="true" />
+               <color null="true" />
+               <description>White</description>
+               <img_url />
+               <in_stock>true</in_stock>
+               <item_ean>Pearls</item_ean>
+               <item_id>27286097</item_id>
+               <item_status>
+                  <code>2100</code>
+                  <message>Product retrieval successful</message>
+                  <status>true</status>
+               </item_status>
+               <long_description null="true" />
+               <price>200</price>
+               <size null="true" />
+               <sku>Pearls</sku>
+               <style null="true" />
+            </element>
+            <element>
+               <added_on>2017-06-20 22:05:35</added_on>
+               <attributes>
+                  <attribute>
+                     <element>
+                        <name>Color</name>
+                        <value>Black</value>
+                     </element>
+                     <element>
+                        <name>Size</name>
+                        <value>XXL</value>
+                     </element>
+                  </attribute>
+               </attributes>
+               <brand null="true" />
+               <category null="true" />
+               <color null="true" />
+               <description>soap</description>
+               <img_url />
+               <in_stock>true</in_stock>
+               <item_ean>item-001</item_ean>
+               <item_id>26666454</item_id>
+               <item_status>
+                  <code>2100</code>
+                  <message>Product retrieval successful</message>
+                  <status>true</status>
+               </item_status>
+               <long_description null="true" />
+               <price>1000</price>
+               <size null="true" />
+               <sku>item-001</sku>
+               <style null="true" />
+            </element>
+         </item>
+      </product>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+
 ```
 
 ```json
 {
-    "response": {
-        "status": {
-            "success": "true", 
-            "code": "200", 
-            "message": "Some requests have failed due to errors"
-        }, 
-        "product": {
-            "item": {
-                "sku": "1331212", 
-                "price": "3000", 
-                "img_url": "http://cdn.capillary.co.in/232424234.jpg", 
-                "in_stock": "true", 
-                "description": "Trousers", 
-                "attributes": {
-                    "attribute": [
-                        {
-                            "name": "Color", 
-                            "value": "Black"
-                        }, 
-                        {
-                            "name": "Size", 
-                            "value": "XXL"
-                        }
-                    ]
-                }, 
-                "item_status": {
-                    "status": "true", 
-                    "code": "200", 
-                    "message": "Operation Successful"
-                }
+   "response":{
+      "status":{
+         "success":true,
+         "code":200,
+         "message":"Success"
+      },
+      "product":{
+         "item":[
+            {
+               "item_id":"27286097",
+               "sku":"Pearls",
+               "item_ean":"Pearls",
+               "price":"200",
+               "img_url":"",
+               "in_stock":"true",
+               "description":"White",
+               "long_description":null,
+               "size":null,
+               "style":null,
+               "brand":null,
+               "color":null,
+               "category":null,
+               "attributes":null,
+               "added_on":"2019-09-18 12:40:36",
+               "item_status":{
+                  "status":true,
+                  "code":2100,
+                  "message":"Product retrieval successful"
+               }
+            },
+            {
+               "item_id":"26666454",
+               "sku":"item-001",
+               "item_ean":"item-001",
+               "price":"1000",
+               "img_url":"",
+               "in_stock":"true",
+               "description":"soap",
+               "long_description":null,
+               "size":null,
+               "style":null,
+               "brand":null,
+               "color":null,
+               "category":null,
+               "attributes":{
+                  "attribute":[
+                     {
+                        "name":"Color",
+                        "value":"Black"
+                     },
+                     {
+                        "name":"Size",
+                        "value":"XXL"
+                     }
+                  ]
+               },
+               "added_on":"2017-06-20 22:05:35",
+               "item_status":{
+                  "status":true,
+                  "code":2100,
+                  "message":"Product retrieval successful"
+               }
             }
-        }
-    }
+         ]
+      }
+   }
 }
 ```
 
@@ -478,7 +619,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://{host}/v1.1/product/get?{requestParams}&format={xml/json}`
+`https://{host}/v1.1/product/get?{requestParams}&format={xml/json}`
 
 
 ### Request Parameters
@@ -492,11 +633,35 @@ include_hierarchy | boolean | Pass `true` to retrieve product hierarchy.
 <aside class="notice">Any one among the parameters marked with * is mandatory. </aside>
 
 
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+item_id | long | Unique ID of the product generated by the system.
+sku | string | SKU of the product.
+item_ean | string | European article number of the product.
+price | double | Price of the product.
+in_stock | boolean | Shows `true` if the item product is available, else shows `false`.
+description | string | Brief description of the product.
+long_description | string | Detailed description of the product as in the database.
+img_url | string | URL of the product image.
+attributes | obj | Attributes of the product in name-value pairs.
+added_on | date-time | Date and time of the product addition.
+size | obj | Size of the product in name:value pairs.
+style | string | Product style in name:value pairs.
+brand | string | Brand name (as per the database) of the product.
+color | obj | Color of the product (as per the database) .
+category | obj | Parent category name of the product (as per the database).
+
+
 
 
 ## Retrieve Product Categories
+
+> Sample Request
+
 ```html
-http://us.api.capillarytech.com/v1.1/product/categories?format=json
+https://us.api.capillarytech.com/v1.1/product/categories?format=json
 ```
 
 > Sample Response
@@ -694,7 +859,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`http://{host}/v1.1/product/categories?{requestParams>&format={xml/json}`
+`https://{host}/v1.1/product/categories?{requestParams>&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -710,10 +875,23 @@ limit | int | Limits the number of product categories to be retrieved.
 offset | int | Entries to be ignored from the top.
 
 
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the category
+label | string | Label name of the category that appears on the user interface.
+description | string | Description of the category.
+parent_name | string | Name of the parent category. Applicable for child categories.
+parent_label | string | Label name of the parent category.
+
+
+
+
+
 
 ## Retrieve Product Brands
 ```html
-http://us.api.capillarytech.com/v1.1/product/brands?format=json
+https://us.api.capillarytech.com/v1.1/product/brands?format=json
 ```
 
 > Sample Response
@@ -864,18 +1042,31 @@ Batch Support | Yes
 
 ### Request URL
 
-`http://{host}/v1.1/product/brands?{params}&format={xml/json}`
+`https://{host}/v1.1/product/brands?{params}&format={xml/json}`
 
 ### Request Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 include_id | boolean | Retrieves the brand id if include_id is passed as true. Value: true/false.
-id | long | Retrieves the details of a specific brand based on the brand id passed
-name | Retrieves the details of the specific brand based on the name passed(name is not case sensitive)
-parent_name | string | Retrieves the details of a specific parent brand and its child brands based on the brand name passed
-parent_id | long | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed
-limit | int | Limits the number of brands to be retrieved per request
-offset | int | Number of rows or results that you want omit from showing (from the top)
+id | long | Retrieves the details of a specific brand based on the brand id passed.
+name | Retrieves the details of the specific brand based on the name passed(name is not case sensitive).
+parent_name | string | Retrieves the details of a specific parent brand and its child brands based on the brand name passed.
+parent_id | long | Retrieves the details of a specific parent brand and its child brands based on the parent brand id passed.
+limit | int | Limits the number of brands to be retrieved per request.
+offset | int | Number of rows or results that you want omit from showing (from the top).
+
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the brand.
+label | string | Label name of the brand that appears on the user interface.
+description | string | Description of the brand.
+parent_name | string | Name of the parent brand. Applicable for child categories.
+parent_label | string | Label name of the parent brand.
+
+
 
 
 ## Retrieve Product Colors
@@ -883,7 +1074,7 @@ offset | int | Number of rows or results that you want omit from showing (from t
 > Sample Request
 
 ```html
-http://us/api.capillarytech.com/v1.1/product/colors?format=json
+https://us/api.capillarytech.com/v1.1/product/colors?format=json
 ```
 > Sample Response
 
@@ -987,7 +1178,7 @@ HTTP Methods | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/product/colors?{requestParams}&format={xml/json}`
+`https://{host}/v1.1/product/colors?{requestParams}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -996,13 +1187,24 @@ pallette | string | Retrieves the details of a specific color. Pass the hexa cod
 limit | int | Limit the number of entries retrieve.
 
 
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the color.
+pallette | string | Hex code of the color.
+
+
+
+
+
 
 ## Retrieve Product Sizes
 
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/product/sizes?format=json
+https://us.api.capillarytech.com/v1.1/product/sizes?format=json
 ```
 
 > Sample Response
@@ -1139,18 +1341,30 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/product/sizes?{requestParams}&format={xml/json}`
+`https://{host}/v1.1/product/sizes?{requestParams}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 include_id | boolean | Pass `true` to retrieve ids of each size.
 name | string | Retrieves details of specific size details based on the size name passed.
-canonical_name | string | Retrieves the details of a specific size based on the CName. Canonical names are reference names provided to a specific size.
+canonical_name | string | Retrieves the details of a specific size based on the CName. Canonical names are reference name provided to a specific size.
 type | string | Retrieve sizes of a specific type.
 size_family | string | Retrieve sizes of a specified size family. Supports only predefined values. 
 id | long | Retrieve the details of a specific size based on the size id passed
 limit | int | Limit the number of entries to retrieve.
+
+### Response Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the size
+label | string | Label name of the size.
+canonical_name" | : "M",
+description | string | Description of the size as in the database.
+size_family | string| Family size to which the size belongs to. 
+type | string | Type associated to the size.
+parent_canonical_name | string | CNAME or reference name provided to a specific size.
 
 
 
@@ -1160,7 +1374,7 @@ limit | int | Limit the number of entries to retrieve.
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
+https://us.api.capillarytech.com/v1.1/product/meta_sizes?format=json
 ```
 
 > Sample Response
@@ -1343,7 +1557,7 @@ HTTP Methods | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/product/meta_sizes?{requestParams}&format={xml/json}`
+`https://{host}/v1.1/product/meta_sizes?{requestParams}&format={xml/json}`
 
 
 ### Request Parameters
@@ -1357,12 +1571,25 @@ id | long | Retrieves the details of a specific meta-size based on the meta-size
 limit | int | Limits the number of meta-sizes retrieve.
 
 
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the meta-size.
+label | string | Label of the meta-size.
+description | string | Description of the meta-size as in the database.
+size_family | string | Size family to which the meta-size belongs.
+type | string | Type of the meta-size.
+parent_meta_size | string | Parent of the meta-size. Applicable for child meta-sizes.
+
+
+
+
 ## Retrieve Product Attributes
 
 > Sample Request
 
 ```html
-http://api.us.capillarytech.com/v1.1/product/attributes?format=json
+https://api.us.capillarytech.com/v1.1/product/attributes?format=json
 ```
 
 > Sample Response
@@ -1515,7 +1742,7 @@ Rate Limited? | Yes
 
 
 ### Request URL
-`http://{host}/v1.1/product/attributes?{requestParams}&format={xml/json}`
+`https://{host}/v1.1/product/attributes?{requestParams}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -1528,7 +1755,15 @@ id | long | Pass an attribute id to fetch the details of that specific attribute
 limit | int | Limit the number of attributes to retrieve.
 offset | int | Omits the specified number of entries from the top.
 
-
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+name | string | Name of the attribute.
+label | string | Label name of the attribute
+is_enum | enum | Whether the attribute values are predefined values. `1` if enum type, `0` if not enum.
+type | string | Datatype of the attribute value.
+default_attribute_value_name | string | Default value of the attribute if any.
+inventory_item_attributes | string | Name of the table (in the database) from which the attributes are retrieved.
 
 ## Response Codes
 ### Success Code

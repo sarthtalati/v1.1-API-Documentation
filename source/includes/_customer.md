@@ -762,11 +762,13 @@ subscriptions | obj | Provide the subscription details of the customer.
 priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
 is_subscribed | enum | Specify `1` for subscribed, `0` for unsubscribed.
 channel | enum | Current communication channel. Value: `sms`, `email`.
+side_effects | obj | Effect of customer registration on other things. 
+
 
 
 <aside class="notice">At least one among the parameters marked with ** is mandatory.</aside>
 
-## Response Parameters
+### Response Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -783,7 +785,7 @@ programId | long | Unique ID of the loyalty program associated to the points sum
 redeemed | int | In total points earned from the program, the total number of points that are redeemed.
 expired | int | In total points earned from the program, the total number of points that are expired.
 returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
-adjusted | int | 
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
 cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
 currentSlab | string | Current tier of the customer in the loyalty program.
 nextSlab | string | Next loyalty tier of the customer.
@@ -1251,7 +1253,7 @@ fraud_status | obj | Update the fraud status of the customer in `status`. Values
 
 
 
-## Response Parameters
+### Response Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -1268,7 +1270,7 @@ programId | long | Unique ID of the loyalty program associated to the points sum
 redeemed | int | In total points earned from the program, the total number of points that are redeemed.
 expired | int | In total points earned from the program, the total number of points that are expired.
 returned | int | In total points earned from the program, the total number of points that are returned. Usually, for transaction returns.
-adjusted | int | 
+adjusted | int | Points that are either credited to or debited from the customer account in adjustments. The value will be negative if  debited points are more than credited, and positive if credited points are more than debited.
 cumulativePurchases | double | Total purchases amount of the customer in the stores associated to the current loyalty program.
 currentSlab | string | Current tier of the customer in the loyalty program.
 nextSlab | string | Next loyalty tier of the customer.
@@ -1397,7 +1399,7 @@ Batch Support | No
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifier* | enum | Pass the identifier name that you want to update. **Value**: mobile, email, external_id.
+identifier* | enum | Pass the identifier name that you want to update. Value: `mobile`, `email`, `external_id`.
 old_value* | string | Provide the existing value the identifier that you want to update.
 new_value* | string | Provide the new value of the identifier.
 
@@ -2040,16 +2042,17 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/customer/transactions?format={xml/json}&{input_params}`
+`https://{host}/v1.1/customer/transactions?{input_params}&format={xml/json}`
 
 For MLP
 
-`https://{host}/v1.1/customer/transactions?{customer identifier}={value}&mlp=true`
+`https://{host}/v1.1/customer/transactions?{identifierName}={identifierValue}&mlp=true`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-Customer Identifier* | string | Provide the primary identifier of the customer to fetch the transaction details - mobile/email/external_id/id <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
+identifierName* | enum | Pass any of the customer identifier with the identifier value. Value: `mobile`, `email`, `external_id` `id`. <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`.
+identifierValue* | string | Provide the respective identifier value. For example, `?email=tom.sawyer@example.com` 
 start_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date).
 end_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
 transaction_date | date | Filter transactions by transaction date. Pass the date in `YYYY-MM-DD` format.

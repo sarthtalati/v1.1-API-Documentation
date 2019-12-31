@@ -4,6 +4,8 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 * **Change Identifier**: Requests corresponding to identifier change, accounts merge, and mobile reallocation
 * **Goodwill**: Requests corresponding to goodwill points and coupons
 
+## Add Request
+
 > Sample Request
 
 ```html
@@ -237,10 +239,13 @@ client_auto_approve | boolean | Pass `true` to process the request directly.
 
 
 ## Approve Requests
-> 
+
+> Sample Request
+
 ```html
 http://us.api.capillarytech.com/v1.1/request/approve
 ```
+
 > Sample POST Request
 
 ```xml

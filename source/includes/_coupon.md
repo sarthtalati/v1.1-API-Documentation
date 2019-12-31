@@ -125,16 +125,14 @@ This API allows you to issue a specific coupon series to a customer.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | coupon/issue
+URI | `coupon/issue`
 Rate Limited? | Yes
 Authentication  | Yes
-Response Formats  | XML, JSON
 HTTP Method  | POST
-API Version  | v1.1
 Batch Support  | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/coupon/issue?format=<xml/json>`
+`http://{host}/v1.1/coupon/issue?format={xml/json}`
 
 ### Request Parameters
 Code | Description
@@ -204,16 +202,14 @@ This API allows you to reissue active coupons of a loyalty customer. You can rei
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | coupon/resend
+URI | `coupon/resend`
 Rate Limited? | Yes
 Authentication  | Yes
-Response Formats  | XML, JSON
 HTTP Method  | GET
-API Version  | v1.1
 Batch Support  | No
 
 ### Request URL
-`http://<cluster url>/value>&format=v1.1/coupon/resend?<identifier>=<xml/json>&<input_params>`
+`http://{host}/v1.1/coupon/resend?{identifier}&{input_params}&format={xml/json}`
 
 ### Request Parameters
 Any one among the following parameters is mandatory.
@@ -357,30 +353,32 @@ This API allows you to redeem coupons issued to the loyalty customer.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | coupon/resend
+URI | `coupon/resend`
 Rate Limited? | Yes
 Authentication  | Yes
-Response Formats  | XML, JSON
 HTTP Method  | POST
-API Version  | v1.1
 Batch Support  | No
 
 ### Request URL
-`http://api.capillary.co.in/v1.1/coupon/redeem?format=xml`
+`http://{host}/v1.1/coupon/redeem?{identifierName}={identifierValue}&format={xml/json}`
 
 ### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Unique identifier of the customer whose coupon needs to be redeemed
-id | Coupon id that needs to be redeemed
-code | Coupon code that need to be redeemed
-validation_code | Validation code is required for the orgs that use validation based redemption
-number | Transaction number against which the coupon needs to be redeemed
-amount | Transaction amount against which the coupon is redeemed
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifierName* | enum | Unique identifier of the customer whose coupon needs to be redeemed.
+id | long | Coupon id that needs to be redeemed.
+code | string | Coupon code that need to be redeemed.
+validation_code | string | Validation code is required for the orgs that use validation based redemption.
+number | string | Transaction number against which the coupon needs to be redeemed.
+amount | double | Transaction amount against which the coupon is redeemed.
 
-<aside class="warning"> You need to pass either code or id as applicable </aside>
+<aside class="warning"> You need to pass either `code` or `id` as applicable </aside>
+
 
 ## Get Coupon Details
+
+> Sample Request
+
 ```html
 http://api.capillary.co.in/v1.1/coupon/get?code=06000041&format=xml
 ```
@@ -505,26 +503,28 @@ This API allows you to retrieve the details of a specific coupon. You can get in
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | coupon/get
+URI | `coupon/get`
 Rate Limited? | Yes
 Authentication  | Yes
-Response Formats  | XML, JSON
 HTTP Method  | GET
-API Version  | v1.1
 Batch Support  | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/coupon/get?<id/code>=<value>&format=<xml/json>`
+`http://{host}/v1.1/coupon/get?{query_params}={paramValue}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-id | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each id separating with , (comma)
-code | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each code separating with , (comma)
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id** | long | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each id separating with `,` (comma)
+code** | string | Pass the coupon id that you want to retrieve. To retrieve details of multiple coupons, pass each code separating with `,` (comma).
+
+<aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
 
 ## Check if Coupon is Redeemable
+
+> Sample Request
+
 ```html
-# Sample Request
 http://us.intouch.capillarytech.com/v1.1/coupon/isredeemable?format=xml&details=true&code=06000041&mobile=447700900000
 ```
 > Sample Response
@@ -545,9 +545,7 @@ http://us.intouch.capillarytech.com/v1.1/coupon/isredeemable?format=xml&details=
         "item_status": {
           "status": "true",
           "code": "706",
-          "message": "
-Cannot redeem same voucher multiple times
-"
+          "message": "Cannot redeem same voucher multiple times"
         },
         "series_info": {
           "description": "Sample description",
@@ -601,28 +599,32 @@ This API allows you to verify whether a coupon is redeemable by a specific custo
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/isredeemable`
+URI | `coupon/isredeemable`
 Rate Limited? | Yes
 Authentication  | Yes
 HTTP Method  | GET
 Batch Support  | No
 
 ### Request URL
-`http://<cluster url>/v1.1/coupon/isredeemable?format=<xml/json>&mobile=<value>&code=<coupon_code>&details=true`
+`http://{host}/v1.1/coupon/isredeemable?{identifierName}={identifierValue}&code={coupon_code}&{details=true}&format={xml/json}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-Customer identifier* | Pass the identifier of the customer for whom you want to check whether the coupon is redeemable
-code | Pass the coupon code that you want to check
-details=true | Retrieves the details of the coupon series
-details=extended | Retrieves the details of coupon configurations (set on campaign) of that specific coupon series
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+identifierName* | enum | Pass any of the registered identifier names of the customer. Values: `mobile`, `email`, `external_id`, `id`.
+value* | string | Pass the respective identifier value of the customer whose coupon has to be verified for redemption. 
+code* | string | Pass the coupon code that you want to check
+details=true | - | Retrieves the details of the coupon series.
+details=extended | - | Retrieves the details of coupon configurations (set on campaign) of that specific coupon series.
 
 <aside class="warning"> You can pass either coupon id or code. Any one parameter is required</aside>
 
 
 
 ## Retrieve Coupon Series Details
+
+> Sample Request
+
 ```html
 http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 ```
@@ -700,12 +702,9 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
             "code": "700",
             "message": "Coupon series fetched successfully"
           },
-          "products": "
-",
-          "brands": "
-",
-          "categories": "
-                "
+          "products": "",
+          "brands": "",
+          "categories": ""
         }
       }
     }
@@ -798,9 +797,6 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
       </items>
    </series>
 </response>
-
-
-
 ```
 
 This API retrieves the details of a specific series of a campaign based on the series id passed. If no series id is passed, all coupon series details are retrieved.
@@ -808,20 +804,22 @@ This API retrieves the details of a specific series of a campaign based on the s
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `/series`
+URI | `coupon/series`
 Rate Limited? | Yes
+HTTP Method | GET
 Authentication | Yes
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/coupon/series?format=<xml/json>&id=<series id>&expired=<true/false/extended>`
+`http://{host}/v1.1/coupon/series?format={xml/json}&id={series_id}&expired={true/false/extended}`
 
-### Request Parameters
-Parameter | Description
---------- | -----------
-id | Id of the specific coupon series that you want to retrieve
-expired | Value: `true`, `false`, `extended`. Retrieves the details of the expired coupon series if `expired=true` and active coupon series details if `expired=false`. If `expired=extended` then the coupon configuration details are also shown. 
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id* | long | Unique ID of the specific coupon series that you want to retrieve.
+expired | enum | Retrieves the details of the expired coupon series if `expired=true` and active coupon series details if `expired=false`. To also include coupon configuration details, pass `expired=extended`. 
 
+<aside class="notice">Parameter marked with * is mandatory.</aside>
 
 
 ## Response Codes
@@ -879,7 +877,7 @@ Code | Description
 792  | Unable to process coupon. Please try again later                                                
 793  | Unable to process coupon. Please try again later                                                
 794  | Unable to process coupon. Please try again later                                                
-795  | Configuration is invalid. Please report to Capillary Support                                  
+795  | Configuration is invalid. Please report to Capillary Support                           
 796  | Unable to process coupon. Please try again later                                                
 797  | Unable to process coupon. Please try again later                                                
 798  | Unable to process coupon. Please try again later                                                

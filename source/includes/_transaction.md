@@ -2410,11 +2410,12 @@ Code | Description
 664 | Discount of a line-item cannot be negative.
 665 | Gross amount of the transaction cannot be negative.
 666 | Discount cannot be negative.
-667 | Unable to find the transaction id for this customer.
+667 | Unable to find the transaction ID for this customer.
 668 | Unable to find the transaction number for this customer.
 669 | Unable to update custom field.
 670 | Transaction id/number is not provided.
 671 | Invalid Store or TILL code.
+    | Invalid category code.
 672 | Batch limit exceeded.
 673 | Returning of transactions is not allowed.
 674 | Returning of line item is not allowed.
@@ -2425,6 +2426,10 @@ Code | Description
 679 | Line-item(s) to be returned is not specified.
 680 | No transactions of the specific customer were found.
 681 | Transactions are blocked for this customer.
+682 | Currency conversion is disabled for the org.
+683 | Failed to call new bill event EMF.
+684 | Failed EMF new bill DVS event.
+685 | Field length too long.
 686 | Unable to add transaction.
 687 | Points activities are queued and will be updated later.
     | Item code {x} merge is not supported.
@@ -2440,8 +2445,9 @@ Code | Description
 696 | Points processing failed
 697 | Points processing failed
 698 | Points processing failed.
-710 | Return bill event failed from EMF.
 699 | Invalid configuration. Please report to the Capillary Support.
+710 | Return bill event failed from EMF.
+820 | Current operation is not allowed. The customer is marked as fraud.
 1101 | Invalid loyalty program ID passed.
 1102 | Invalid currency conversion ratio passed.
 1103 | Invalid shipping store code passed.
