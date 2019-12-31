@@ -90,9 +90,20 @@
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
+	
+	<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
+<style type="text/css" media="screen, projection">
+	@import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css); 
+</style> 
+
   </head>
 
   <body class="index" data-languages="[&quot;json&quot;,&quot;xml&quot;]">
+  
+  <div class="fab--container">
+       <button class="fab--button fab--button__feedback" data-toggle="modal" data-target="#exampleModal">✍️ Give feedback</button>
+		</div>
+  
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -11327,7 +11338,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
 </aside>
 
-<p>The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (isreedemable), validate customer&rsquo;s registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.</p>
+<p>The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (<code class="prettyprint">isreedemable</code>), validate customer&rsquo;s registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.</p>
 
 <p>The points entity allows you to perform the following tasks:</p>
 
@@ -11451,7 +11462,7 @@ Points cannot be issued through APIs. It can be issued only through modules such
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/isredeemable</code></td>
+<td><code class="prettyprint">points/isredeemable/{request_params}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -11477,9 +11488,9 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <code class="prettyprint">https://{host}/v1.1/points/isredeemable?points={points to redeem}&amp;issue_otp=true&amp;{mobile/email}={mobile no./email id}&amp;format={xml/json}</code></p>
 
 <p>To just validate points
-<code class="prettyprint">https://{host}/v1.1/points/isredeemable?points={points to redeem}&amp;validation_code={OTP}&amp;{mobile/email}={mobile no./email id}&amp;format={xml/json}</code></p>
+<code class="prettyprint">https://{host}/v1.1/points/isredeemable?points={points to redeem}&amp;validation_code={OTP}&amp;{mobile/email}={value}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-path-parameters">Request Path Parameters</h3>
 
 <table><thead>
 <tr>
@@ -11527,7 +11538,43 @@ Points cannot be issued through APIs. It can be issued only through modules such
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
-<h2 id="issue-validation-code-for-redeeming-points">Issue Validation Code for Redeeming Points</h2>
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>points_redeemed</td>
+<td>int</td>
+<td>Number of points to redeem.</td>
+</tr>
+<tr>
+<td>redeemed_value</td>
+<td>double</td>
+<td>Value of the points to redeem.</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>int</td>
+<td>Remaining points in the customer&rsquo;s account after redemption.</td>
+</tr>
+<tr>
+<td>points</td>
+<td>int</td>
+<td>Number of points to redeem.</td>
+</tr>
+<tr>
+<td>is_redeemable</td>
+<td>boolean</td>
+<td>Whether the points can be redeemed.</td>
+</tr>
+</tbody></table>
+
+<h2 id="issue-validation-code-to-redeeming-points">Issue Validation Code (to Redeeming Points)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -11605,7 +11652,7 @@ The validation code is issued either to mobile number, or email id or both, base
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/validationcode</code></td>
+<td><code class="prettyprint">points/validationcode/{request_params}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -11656,6 +11703,32 @@ The validation code is issued either to mobile number, or email id or both, base
 </tbody></table>
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>long</td>
+<td>Unique ID of the customer.</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>string</td>
+<td>Mobile number of the customer.</td>
+</tr>
+<tr>
+<td>points</td>
+<td>int</td>
+<td>Number of points to redeem.</td>
+</tr>
+</tbody></table>
 
 <h2 id="redeem-points">Redeem Points</h2>
 
@@ -11758,7 +11831,7 @@ You need to use the validation code within the validity period. You can check th
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">/redeem</code></td>
+<td><code class="prettyprint">points/redeem</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -11824,6 +11897,32 @@ You need to use the validation code within the validity period. You can check th
 </tbody></table>
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>points_redeemed</td>
+<td>int</td>
+<td>Number of points redeemed.</td>
+</tr>
+<tr>
+<td>redeemed_value</td>
+<td>double</td>
+<td>Value of the points redeemed.</td>
+</tr>
+<tr>
+<td>balance</td>
+<td>int</td>
+<td>Remaining points in the customer&rsquo;s account after redemption.</td>
+</tr>
+</tbody></table>
 
 <h2 id="response-codes">Response Codes</h2>
 
@@ -13031,7 +13130,7 @@ Cannot redeem same voucher multiple times
 </tr>
 <tr>
 <td>HTTP Method</td>
-<td></td>
+<td>GET</td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -13057,7 +13156,7 @@ Cannot redeem same voucher multiple times
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td>id*</td>
 <td>long</td>
 <td>Unique ID of the specific coupon series that you want to retrieve.</td>
 </tr>
@@ -13067,6 +13166,8 @@ Cannot redeem same voucher multiple times
 <td>Retrieves the details of the expired coupon series if <code class="prettyprint">expired=true</code> and active coupon series details if <code class="prettyprint">expired=false</code>. To also include coupon configuration details, pass <code class="prettyprint">expired=extended</code>.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameter marked with * is mandatory.</aside>
 
 <h2 id="response-codes">Response Codes</h2>
 
@@ -13789,6 +13890,8 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <li><strong>Change Identifier</strong>: Requests corresponding to identifier change, accounts merge, and mobile reallocation</li>
 <li><strong>Goodwill</strong>: Requests corresponding to goodwill points and coupons</li>
 </ul>
+
+<h2 id="add-request">Add Request</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -24947,10 +25050,7 @@ https://sg.storecare.capillarytech.com/v2/add/ffcDetails?eventType=0
 
 <!-- Feedback widget -->
 
-<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
-<style type="text/css" media="screen, projection">
-	@import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css); 
-</style> 
+ 
 <iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.capillarytech.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Provide+Feedback&submitTitle=Send+Feedback&submitThanks=Thank+you+for+your+feedback&screenshot=No&searchArea=no&captcha=yes" scrolling="no" height="500px" width="100%" frameborder="0" >
 </iframe>
 
