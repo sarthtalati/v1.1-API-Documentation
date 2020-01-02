@@ -15021,14 +15021,138 @@ The param `client_auto_approve` overrides all the server side configurations men
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code>
-</code></pre><pre class="highlight json"><code><span class="w">
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;request&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>RETRO<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;misc_info</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;new_type&gt;</span>REGULAR<span class="nt">&lt;/new_type&gt;</span>
+            <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
+            <span class="nt">&lt;reference_id&gt;</span>ref345<span class="nt">&lt;/reference_id&gt;</span>
+            <span class="nt">&lt;transaction_id&gt;</span>7099259<span class="nt">&lt;/transaction_id&gt;</span>
+            <span class="nt">&lt;type&gt;</span>TRANSACTION_UPDATE<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/request&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"old_type"</span><span class="p">:</span><span class="s2">"NOT_INTERESTED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="s2">"7099259"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"new_type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"RETRO"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="s2">"ref345"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"TRANSACTION_UPDATE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"misc_info"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>
-</code></pre><pre class="highlight json"><code><span class="w">
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;requests&gt;</span>
+         <span class="nt">&lt;request&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;base_type&gt;</span>RETRO<span class="nt">&lt;/base_type&gt;</span>
+               <span class="nt">&lt;comments</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer&gt;</span>
+                  <span class="nt">&lt;email&gt;</span>shigan@example.com<span class="nt">&lt;/email&gt;</span>
+                  <span class="nt">&lt;external_id&gt;</span>SG006<span class="nt">&lt;/external_id&gt;</span>
+                  <span class="nt">&lt;firstname&gt;</span>Shi<span class="nt">&lt;/firstname&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>343490735<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;lastname&gt;</span>Gan<span class="nt">&lt;/lastname&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;/customer&gt;</span>
+               <span class="nt">&lt;id&gt;</span>789861<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Retro request added successfully<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;misc_info</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;new_type&gt;</span>REGULAR<span class="nt">&lt;/new_type&gt;</span>
+               <span class="nt">&lt;new_value</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;old_type&gt;</span>NOT_INTERESTED<span class="nt">&lt;/old_type&gt;</span>
+               <span class="nt">&lt;old_value</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;reason</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;reference_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;requested_on&gt;</span>2020-01-02 16:21:54<span class="nt">&lt;/requested_on&gt;</span>
+               <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+               <span class="nt">&lt;transaction_id&gt;</span>7099259<span class="nt">&lt;/transaction_id&gt;</span>
+               <span class="nt">&lt;type&gt;</span>TRANSACTION_UPDATE<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/request&gt;</span>
+      <span class="nt">&lt;/requests&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"requests"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"789861"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="s2">"2020-01-02 16:21:54"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"TRANSACTION_UPDATE"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"RETRO"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Shi"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Gan"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"shigan@example.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"SG006"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">343490735</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"old_value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"new_value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"old_type"</span><span class="p">:</span><span class="s2">"NOT_INTERESTED"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"new_type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"misc_info"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="s2">"7099259"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Retro request added successfully"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Lets you tag a not-interested transaction to a loyalty customer. For example, if a customer has made a transaction before registering and then registers in the org&rsquo;s loyalty program, you can tag such transactions to the respective customer (if the duration between the transaction and conversion is within defined period).</p>
 
@@ -15080,39 +15204,34 @@ The param `client_auto_approve` overrides all the server side configurations men
 </tr>
 </thead><tbody>
 <tr>
+<td>customer*</td>
+<td>obj</td>
+<td>Details of the customer to whom you want to tag transaction.</td>
+</tr>
+<tr>
 <td>mobile/email/external_id/id*</td>
 <td>string</td>
 <td>Pass any of the identifiers of the customer with the identifier value.</td>
 </tr>
 <tr>
-<td>reference_id*</td>
-<td>long</td>
-<td>Unique reference id for the request</td>
-</tr>
-<tr>
 <td>type</td>
 <td>enum</td>
-<td>Type of request. Value: CHANGE_IDENTIFIER, GOODWILL, TRANSACTION_UPDATE.</td>
+<td>Type of request. Value: <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
 </tr>
 <tr>
 <td>base_type</td>
 <td>enum</td>
-<td>Sub-type of the request. Value: If <code class="prettyprint">type=CHANGE_IDENTIFIER</code>, <code class="prettyprint">base_type</code> will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If <code class="prettyprint">type=GOODWILL</code>, <code class="prettyprint">base_type</code> will be POINTS, or COUPONS</td>
+<td>Base transaction type. Value: <code class="prettyprint">RETRO</code>.</td>
 </tr>
 <tr>
-<td>old_value</td>
-<td>string</td>
-<td>The current value of the customer identifier. Applicable only for identifier change requests</td>
+<td>old_type</td>
+<td>enum</td>
+<td>Current transaction type. Value: <code class="prettyprint">NOT_INTERESTED</code>.</td>
 </tr>
 <tr>
-<td>new_value</td>
-<td>string</td>
-<td>The new value of the customer identifier. Applicable only for identifier change requests</td>
-</tr>
-<tr>
-<td>requested_on</td>
-<td>date</td>
-<td>Date on which the request is created in YYYY-MM-DD format</td>
+<td>new_type</td>
+<td>enum</td>
+<td>New transaction type. Value: <code class="prettyprint">REGULAR</code>.</td>
 </tr>
 <tr>
 <td>reason</td>
@@ -15137,36 +15256,42 @@ The param `client_auto_approve` overrides all the server side configurations men
 <tr>
 <td>transaction_id</td>
 <td>string</td>
-<td>Transaction ID that you want to update. Applicable for <code class="prettyprint">type</code>, <code class="prettyprint">TRANSACTION_UPDATE</code>.</td>
+<td>Transaction ID of the not-interested transaction that you want to update.</td>
 </tr>
 <tr>
-<td>requested_on</td>
-<td>date</td>
-<td>Date of request in <code class="prettyprint">YYYY-MM-DD</code> format</td>
-</tr>
-<tr>
-<td>series_id</td>
-<td>-</td>
-<td></td>
-</tr>
-<tr>
-<td>tier_name</td>
+<td>misc_info</td>
 <td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>program_id</td>
-<td>long</td>
-<td>Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true.</td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> to process the request directly.</td>
+<td>Additional information regarding the current retro conversion.</td>
 </tr>
 </tbody></table>
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID generated for the request.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Current status of the request. Value: <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">REJECTED</code>.</td>
+</tr>
+<tr>
+<td>requested_on</td>
+<td>date-time</td>
+<td>Date and time when the request is submitted.</td>
+</tr>
+</tbody></table>
 
 <h2 id="approve-requests">Approve Requests</h2>
 
