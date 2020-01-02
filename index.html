@@ -13891,7 +13891,7 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <li><strong>Goodwill</strong>: Requests corresponding to goodwill points and coupons</li>
 </ul>
 
-<h2 id="add-request">Add Request</h2>
+<h2 id="add-request-identifier-change">Add Request (Identifier Change)</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -13901,8 +13901,7 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code>## For ID Change
-<span class="nt">&lt;root&gt;</span>
+<pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
 <span class="nt">&lt;request&gt;</span>
     <span class="nt">&lt;reference_id&gt;</span>1234<span class="nt">&lt;/reference_id&gt;</span>
     <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
@@ -13919,8 +13918,7 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <span class="nt">&lt;/request&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
-</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">change</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
@@ -13936,44 +13934,6 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
       </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"time in 8601"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>## For Goodwill
-
-<span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;request&gt;</span>
-      <span class="nt">&lt;customer&gt;</span>
-         <span class="nt">&lt;id&gt;</span>2345<span class="nt">&lt;/id&gt;</span>
-         <span class="nt">&lt;mobile&gt;&lt;/mobile&gt;</span>
-         <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-         <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-      <span class="nt">&lt;/customer&gt;</span>
-      <span class="nt">&lt;comments&gt;</span>API Service request - Awarding him 200 points.<span class="nt">&lt;/comments&gt;</span>
-      <span class="nt">&lt;reason&gt;</span>POINTS_ISSUE<span class="nt">&lt;/reason&gt;</span>
-      <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
-      <span class="nt">&lt;base_type&gt;</span>POINTS<span class="nt">&lt;/base_type&gt;</span>
-      <span class="nt">&lt;points&gt;</span>200<span class="nt">&lt;/points&gt;</span>
-   <span class="nt">&lt;/request&gt;</span>
-<span class="nt">&lt;/root&gt;</span>
-</code></pre><pre class="highlight json"><code><span class="err">##</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">Goodwill</span><span class="w">
-
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
-    </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">"API Service request - Awarding him 200 points."</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">"Issue Goodwill points"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"points"</span><span class="p">:</span><span class="s2">"200"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -14045,9 +14005,9 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This API allows you to submit requests for changing customer identifier, merging customers, reallocating mobile number and issuing goodwill points/coupons to the loyalty customers.</p>
+<p>Lets you submit requests for customer identifier changes. It could be either mobile number, email ID, or external ID.</p>
 
-<p>Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+<p>Requests, when submitted, will be in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
 
 <p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default and then processed automatically.</p>
 
@@ -14075,15 +14035,1006 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=xml<span class="e
 <td>CI_ADDRESS_AUTO_APPROVE</td>
 <td>Approves registered address change requests automatically</td>
 </tr>
+</tbody></table>
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
 <tr>
-<td>CI_MERGE_AUTO_APPROVE</td>
-<td>Approves customer accounts merge requests automatically</td>
+<th></th>
+<th></th>
 </tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">request/add</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer with the identifier value.</td>
+</tr>
+<tr>
+<td>reference_id*</td>
+<td>long</td>
+<td>Unique reference id for the request</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Type of request. Value:<code class="prettyprint">CHANGE_IDENTIFIER</code>.</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>enum</td>
+<td>Identifier that you want to update. Value: <code class="prettyprint">MOBILE</code>, <code class="prettyprint">EMAIL</code>, <code class="prettyprint">EXTERNAL_ID</code>.</td>
+</tr>
+<tr>
+<td>old_value</td>
+<td>string</td>
+<td>The current value of the customer identifier.</td>
+</tr>
+<tr>
+<td>new_value</td>
+<td>string</td>
+<td>The new value of the customer identifier.</td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reference_id</td>
+<td>string</td>
+<td>Unique reference ID of the request.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID generated for the request.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Current status of the request. Values: <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">REJECTED</code>.</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Details of the customer details associated to the request.</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-request-mobile-number-reallocation">Add Request (Mobile Number Reallocation)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;request&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>MOBILE_REALLOC<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;misc_info&gt;</span>
+               <span class="nt">&lt;target_customer&gt;</span>
+                  <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;id</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>9818012000<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;/target_customer&gt;</span>
+            <span class="nt">&lt;/misc_info&gt;</span>
+            <span class="nt">&lt;new_value</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;old_value&gt;</span>919011111111<span class="nt">&lt;/old_value&gt;</span>
+            <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/request&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w"> 
+   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w"> 
+      </span><span class="nt">"request"</span><span class="p">:[</span><span class="w"> 
+         </span><span class="p">{</span><span class="w"> 
+            </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w"> 
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"old_value"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"MOBILE_REALLOC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"new_value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"misc_info"</span><span class="p">:{</span><span class="w"> 
+               </span><span class="nt">"target_customer"</span><span class="p">:{</span><span class="w"> 
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"9818012000"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">" "</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;requests&gt;</span>
+         <span class="nt">&lt;request&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;base_type&gt;</span>MOBILE_REALLOC<span class="nt">&lt;/base_type&gt;</span>
+               <span class="nt">&lt;comments</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer&gt;</span>
+                  <span class="nt">&lt;email&gt;</span>rita.john@example.com<span class="nt">&lt;/email&gt;</span>
+                  <span class="nt">&lt;external_id&gt;</span>XYPZ006<span class="nt">&lt;/external_id&gt;</span>
+                  <span class="nt">&lt;firstname&gt;</span>Rita<span class="nt">&lt;/firstname&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>343439221<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;lastname&gt;</span>John<span class="nt">&lt;/lastname&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;/customer&gt;</span>
+               <span class="nt">&lt;id&gt;</span>789849<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Change Identifier request added successfully<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;misc_info</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;new_type</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;new_value&gt;</span>343490735<span class="nt">&lt;/new_value&gt;</span>
+               <span class="nt">&lt;old_type</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;old_value&gt;</span>343439221<span class="nt">&lt;/old_value&gt;</span>
+               <span class="nt">&lt;reason</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;reference_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;requested_on&gt;</span>2020-01-02 12:02:29<span class="nt">&lt;/requested_on&gt;</span>
+               <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+               <span class="nt">&lt;transaction_id&gt;</span>0<span class="nt">&lt;/transaction_id&gt;</span>
+               <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/request&gt;</span>
+      <span class="nt">&lt;/requests&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"requests"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"789849"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="s2">"2020-01-02 12:02:29"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"MOBILE_REALLOC"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Rita"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"rita.john@example.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"XYPZ006"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">343439221</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"old_value"</span><span class="p">:</span><span class="s2">"343439221"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"new_value"</span><span class="p">:</span><span class="s2">"343490735"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"old_type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"new_type"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"misc_info"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Change Identifier request added successfully"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lets you submit mobile number reallocation requests. You can reallocate only registered mobile numbers.</p>
+
+<p>Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default and then processed automatically.</p>
+
+<p>However, requests can be approved automatically based on the following configs set on Member Care.</p>
+
+<table><thead>
+<tr>
+<th>Config</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>CI_MOBILEREALLOC_AUTO_APPROVE</td>
 <td>Approves mobile number reallocation requests automatically</td>
 </tr>
 </tbody></table>
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">request/add</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Details of source account.</td>
+</tr>
+<tr>
+<td>target_customer</td>
+<td>obj</td>
+<td>Details of target account.</td>
+</tr>
+<tr>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer with the identifier value.</td>
+</tr>
+<tr>
+<td>old_value</td>
+<td>string</td>
+<td>The mobile number of the source customer that has to reassign to the target customer.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Type of request. Value: <code class="prettyprint">CHANGE_IDENTIFIER</code>.</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>enum</td>
+<td>Sub-type of the request. Value: <code class="prettyprint">MOBILE_REALLOC</code>.</td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requested_on</td>
+<td>date-time</td>
+<td>Date and time when the request is created.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID generated for the request.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Current status of the request. Value: <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">REJECTED</code>. The status will be <code class="prettyprint">APPROVED</code> if mobile number reallocation (CI_MOBILEREALLOC_AUTO_APPROVE) is auto approved either on the UI or through API (<code class="prettyprint">client_auto_approve</code>).</td>
+</tr>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Updated details of the target customer.</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-request-merge-accounts">Add Request (Merge Accounts)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+  <span class="nt">&lt;request&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+      <span class="nt">&lt;mobile&gt;&lt;/mobile&gt;</span>
+      <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
+      <span class="nt">&lt;email&gt;</span>tom739@capillarytech.com<span class="nt">&lt;/email&gt;</span>
+      <span class="nt">&lt;id&gt;&lt;/id&gt;</span>
+    <span class="nt">&lt;/customer&gt;</span>
+    <span class="nt">&lt;old_value&gt;&lt;/old_value&gt;</span>
+    <span class="nt">&lt;base_type&gt;</span>MERGE<span class="nt">&lt;/base_type&gt;</span>
+    <span class="nt">&lt;new_value&gt;&lt;/new_value&gt;</span>
+    <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;misc_info&gt;</span>
+      <span class="nt">&lt;target_customer&gt;</span>
+        <span class="nt">&lt;mobile&gt;&lt;/mobile&gt;</span>
+        <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
+        <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
+        <span class="nt">&lt;id&gt;</span>342979941<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;/target_customer&gt;</span>
+    <span class="nt">&lt;/misc_info&gt;</span>
+  <span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom739@capillarytech.com"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"old_value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"MERGE"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"new_value"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"misc_info"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"target_customer"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"342979941"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+  <span class="nt">&lt;status&gt;</span>
+    <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+    <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+  <span class="nt">&lt;/status&gt;</span>
+  <span class="nt">&lt;requests&gt;</span>
+    <span class="nt">&lt;request&gt;</span>
+      <span class="nt">&lt;reference_id/&gt;</span>
+      <span class="nt">&lt;id&gt;</span>789186<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+      <span class="nt">&lt;requested_on&gt;</span>2019-12-31 16:58:02<span class="nt">&lt;/requested_on&gt;</span>
+      <span class="nt">&lt;type&gt;</span>CHANGE_IDENTIFIER<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;base_type&gt;</span>MERGE<span class="nt">&lt;/base_type&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;firstname&gt;</span>unknown739<span class="nt">&lt;/firstname&gt;</span>
+        <span class="nt">&lt;lastname/&gt;</span>
+        <span class="nt">&lt;email&gt;</span>unknown739@capillarytech.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>919901032739<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;external_id/&gt;</span>
+        <span class="nt">&lt;id&gt;</span>322393226<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;old_value&gt;</span>322393226<span class="nt">&lt;/old_value&gt;</span>
+      <span class="nt">&lt;new_value&gt;</span>342979941<span class="nt">&lt;/new_value&gt;</span>
+      <span class="nt">&lt;old_type&gt;&lt;/old_type&gt;</span>
+      <span class="nt">&lt;new_type&gt;&lt;/new_type&gt;</span>
+      <span class="nt">&lt;misc_info/&gt;</span>
+      <span class="nt">&lt;transaction_id&gt;</span>0<span class="nt">&lt;/transaction_id&gt;</span>
+      <span class="nt">&lt;reason&gt;&lt;/reason&gt;</span>
+      <span class="nt">&lt;comments&gt;&lt;/comments&gt;</span>
+      <span class="nt">&lt;item_status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>9000<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Change Identifier request added successfully<span class="nt">&lt;/message&gt;</span>
+      <span class="nt">&lt;/item_status&gt;</span>
+    <span class="nt">&lt;/request&gt;</span>
+  <span class="nt">&lt;/requests&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789186"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-31 16:58:02"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHANGE_IDENTIFIER"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERGE"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown739"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown739@capillarytech.com"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919901032739"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">322393226</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"322393226"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"342979941"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"old_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"new_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"misc_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change Identifier request added successfully"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lets you submit requests of merge accounts.</p>
+
+<p>Requests, when submitted, will be in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default and then processed automatically.</p>
+
+<p>However, requests can be approved automatically based on the following configs set on Member Care.</p>
+
+<table><thead>
+<tr>
+<th>Config</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>CI_MERGE_AUTO_APPROVE</td>
+<td>Approves customer accounts merge requests automatically</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+The param `client_auto_approve` overrides the server side configuration, mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">request/add</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Details of the victim account - the account that you want to merge into another account.</td>
+</tr>
+<tr>
+<td>target_customer</td>
+<td>obj</td>
+<td>Details of the survivor account - the account that will continue to remain after merging.</td>
+</tr>
+<tr>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer with the identifier value.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Pass <code class="prettyprint">CHANGE_IDENTIFIER</code> for merge requests.</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>enum</td>
+<td>Sub-type of the request. Value: <code class="prettyprint">MERGE</code></td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requested_on</td>
+<td>date-time</td>
+<td>Date and time when the request is created in YYYY-MM-DD format</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-request-goodwill-points-coupons">Add Request (Goodwill Points/Coupons)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code># For points
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;request&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;id&gt;</span>2345<span class="nt">&lt;/id&gt;</span>
+         <span class="nt">&lt;mobile&gt;&lt;/mobile&gt;</span>
+         <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
+         <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;comments&gt;</span>API Service request - Awarding him 200 points.<span class="nt">&lt;/comments&gt;</span>
+      <span class="nt">&lt;reason&gt;</span>POINTS_ISSUE<span class="nt">&lt;/reason&gt;</span>
+      <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;base_type&gt;</span>POINTS<span class="nt">&lt;/base_type&gt;</span>
+      <span class="nt">&lt;points&gt;</span>200<span class="nt">&lt;/points&gt;</span>
+   <span class="nt">&lt;/request&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">points</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"2345"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">"API Service request - Awarding 200 points."</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">"Issue Goodwill points"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"points"</span><span class="p">:</span><span class="s2">"200"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight json"><code><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">Goodwill</span><span class="w"> </span><span class="err">Coupon</span><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"request"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"reason"</span><span class="p">:</span><span class="s2">"Sample reason"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"comments"</span><span class="p">:</span><span class="s2">"Additional comment if required"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"base_type"</span><span class="p">:</span><span class="s2">"COUPON"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"series_id"</span><span class="p">:</span><span class="s2">"80197"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code># For Goodwill Coupon
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;request&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;base_type&gt;</span>COUPON<span class="nt">&lt;/base_type&gt;</span>
+            <span class="nt">&lt;comments&gt;</span>Additional comment if required<span class="nt">&lt;/comments&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;reason&gt;</span>Sample reason<span class="nt">&lt;/reason&gt;</span>
+            <span class="nt">&lt;series_id&gt;</span>80197<span class="nt">&lt;/series_id&gt;</span>
+            <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/request&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;requests&gt;</span>
+         <span class="nt">&lt;request&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;base_type&gt;</span>POINTS<span class="nt">&lt;/base_type&gt;</span>
+               <span class="nt">&lt;comments</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;customer&gt;</span>
+                  <span class="nt">&lt;email&gt;</span>shigan@example.com<span class="nt">&lt;/email&gt;</span>
+                  <span class="nt">&lt;external_id&gt;</span>SG006<span class="nt">&lt;/external_id&gt;</span>
+                  <span class="nt">&lt;firstname&gt;</span>Shi<span class="nt">&lt;/firstname&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>343490735<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;lastname&gt;</span>Gan<span class="nt">&lt;/lastname&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>919011111111<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;/customer&gt;</span>
+               <span class="nt">&lt;id&gt;</span>789850<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>9100<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Goodwill request added successfully<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;misc_info</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;new_type</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;new_value</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;old_type</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;old_value&gt;</span>919011111111<span class="nt">&lt;/old_value&gt;</span>
+               <span class="nt">&lt;reason</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;reference_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;requested_on&gt;</span>2020-01-02 13:13:38<span class="nt">&lt;/requested_on&gt;</span>
+               <span class="nt">&lt;status&gt;</span>PENDING<span class="nt">&lt;/status&gt;</span>
+               <span class="nt">&lt;transaction_id&gt;</span>0<span class="nt">&lt;/transaction_id&gt;</span>
+               <span class="nt">&lt;type&gt;</span>GOODWILL<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/request&gt;</span>
+      <span class="nt">&lt;/requests&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"requests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"reference_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"789850"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"requested_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-02 13:13:38"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOODWILL"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"base_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shi"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gan"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shigan@example.com"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SG006"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343490735</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nt">"old_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919011111111"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"new_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"old_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"new_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"misc_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9100</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Goodwill request added successfully"</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Lets you submit goodwill points or coupon allocation requests for loyalty customers.</p>
+
+<p>Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default and then processed automatically.</p>
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">request/add</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer</td>
+<td>obj</td>
+<td>Details of the customer to whom you want to issue goodwill points or coupons.</td>
+</tr>
+<tr>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer with the identifier value.</td>
+</tr>
+<tr>
+<td>reference_id*</td>
+<td>string</td>
+<td>Unique reference ID for the request.</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>string</td>
+<td>Reason for issuing goodwill points or coupons.</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>string</td>
+<td>Any other notes that you want to add for the request.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td>Type of request. Value: <code class="prettyprint">GOODWILL</code>.</td>
+</tr>
+<tr>
+<td>base_type</td>
+<td>enum</td>
+<td>Sub-type of the request. Value: <code class="prettyprint">POINTS</code> for goodwill points issual, <code class="prettyprint">COUPONS</code> for goodwill coupon issual.</td>
+</tr>
+<tr>
+<td>series_id</td>
+<td>long</td>
+<td>Offer ID from which coupon has to be issued. Ensure that the offer is consumed by Member Care module (Goodwill Adjustment Settings &gt; Coupon). Applicable only for <code class="prettyprint">base_type</code> as <code class="prettyprint">COUPONS</code>.</td>
+</tr>
+<tr>
+<td>points</td>
+<td>int</td>
+<td>Number of points to issue. Applicable only for <code class="prettyprint">base_type</code> as <code class="prettyprint">POINTS</code>.</td>
+</tr>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+<h3 id="response-parameters">Response Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID generated for the request.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td>Current status of the status. Value: <code class="prettyprint">PENDING</code>, <code class="prettyprint">APPROVED</code>, <code class="prettyprint">REJECTED</code></td>
+</tr>
+<tr>
+<td>requested_on</td>
+<td>date-time</td>
+<td>Date and time when the request is created.</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-request-retro-transaction">Add Request (Retro Transaction)</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight xml"><code>
+</code></pre><pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code>
+</code></pre><pre class="highlight json"><code><span class="w">
+</span></code></pre>
+<p>Lets you tag a not-interested transaction to a loyalty customer. For example, if a customer has made a transaction before registering and then registers in the org&rsquo;s loyalty program, you can tag such transactions to the respective customer (if the duration between the transaction and conversion is within defined period).</p>
+
+<p>Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The <code class="prettyprint">request/add</code> API allows you to directly process a request by passing a query param <code class="prettyprint">client_auto_approve=true</code>.</p>
+
+<p>If <code class="prettyprint">client_auto_approve=true</code>, the request will be created in pending status by default and then processed automatically.</p>
 
 <aside class="warning">
 The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
