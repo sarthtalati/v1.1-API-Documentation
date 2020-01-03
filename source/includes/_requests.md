@@ -4,7 +4,8 @@ Request entity contains APIs corresponding to submitting and retrieving requests
 * **Change Identifier**: Requests corresponding to identifier change, accounts merge, and mobile reallocation
 * **Goodwill**: Requests corresponding to goodwill points and coupons
 
-## Add Request
+
+## Add Request (Identifier Change)
 
 > Sample Request
 
@@ -15,7 +16,6 @@ http://us.api.capillarytech.com/v1.1/request/add
 > Sample POST Request
 
 ```xml
-## For ID Change
 <root>
 <request>
     <reference_id>1234</reference_id>
@@ -36,7 +36,6 @@ http://us.api.capillarytech.com/v1.1/request/add
 ```
 
 ```json
-# For ID change
 {
   "root": {
     "request": [{
@@ -56,53 +55,6 @@ http://us.api.capillarytech.com/v1.1/request/add
   }
 }
 ```
-
-
-```xml
-## For Goodwill
-
-<root>
-   <request>
-      <customer>
-         <id>2345</id>
-		 <mobile></mobile>
-		 <email></email>
-		 <external_id></external_id>
-      </customer>
-      <comments>API Service request - Awarding him 200 points.</comments>
-      <reason>POINTS_ISSUE</reason>
-      <type>GOODWILL</type>
-      <base_type>POINTS</base_type>
-      <points>200</points>
-   </request>
-</root>
-```
-
-```json
-## For Goodwill
-
-{
-  "root":{
-    "request":[
-      {
-        "customer":{
-          "id":"2345",
-		  "mobile":"",
-		  "email":"",
-		  "external_id":""
-        },
-        "comments":"API Service request - Awarding him 200 points.",
-        "reason":"Issue Goodwill points",
-        "type":"GOODWILL",
-        "base_type":"POINTS",
-        "points":"200"
-      }
-    ]
-  }
-}
-```
-
-
 
 
 
@@ -179,9 +131,9 @@ http://us.api.capillarytech.com/v1.1/request/add
 ```
 
 
-This API allows you to submit requests for changing customer identifier, merging customers, reallocating mobile number and issuing goodwill points/coupons to the loyalty customers.
+Lets you submit requests for customer identifier changes. It could be either mobile number, email ID, or external ID.
 
-Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
+Requests, when submitted, will be in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
 
 If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
 
@@ -193,8 +145,6 @@ CI_EMAIL_AUTO_APPROVE | Approves email id change requests automatically
 CI_MOBILE_AUTO_APPROVE | Approves mobile number change requests automatically
 CI_EXTID_AUTO_APPROVE | Approves external id change requests automatically
 CI_ADDRESS_AUTO_APPROVE | Approves registered address change requests automatically
-CI_MERGE_AUTO_APPROVE | Approves customer accounts merge requests automatically
-CI_MOBILEREALLOC_AUTO_APPROVE | Approves mobile number reallocation requests automatically
 
 
 <aside class="warning">
@@ -219,23 +169,912 @@ Parameter | Datatype | Description
 --------- | -------- | -----------
 mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
 reference_id* | long | Unique reference id for the request
-type | enum | Type of request. Value: CHANGE_IDENTIFIER, GOODWILL, TRANSACTION_UPDATE.
-base_type | enum | Sub-type of the request. Value: If `type=CHANGE_IDENTIFIER`, `base_type` will be MOBILE, EMAIL, EXTERNAL_ID, MERGE, or REALLOCATION. <br> If `type=GOODWILL`, `base_type` will be POINTS, or COUPONS
-old_value | string | The current value of the customer identifier. Applicable only for identifier change requests
-new_value | string | The new value of the customer identifier. Applicable only for identifier change requests
-requested_on | date | Date on which the request is created in YYYY-MM-DD format
+type | enum | Type of request. Value:`CHANGE_IDENTIFIER`.
+base_type | enum | Identifier that you want to update. Value: `MOBILE`, `EMAIL`, `EXTERNAL_ID`.
+old_value | string | The current value of the customer identifier.
+new_value | string | The new value of the customer identifier.
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+reference_id | string | Unique reference ID of the request.
+id | long | Unique ID generated for the request.
+status | enum | Current status of the request. Values: `PENDING`, `APPROVED`, `REJECTED`.
+customer | obj | Details of the customer details associated to the request.
+
+
+
+
+
+
+## Add Request (Mobile Number Reallocation)
+
+> Sample Request
+
+```html
+http://us.api.capillarytech.com/v1.1/request/add
+```
+
+> Sample POST Request
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <root>
+      <request>
+         <element>
+            <base_type>MOBILE_REALLOC</base_type>
+            <customer>
+               <email />
+               <external_id />
+               <mobile>919011111111</mobile>
+            </customer>
+            <misc_info>
+               <target_customer>
+                  <email />
+                  <external_id />
+                  <id />
+                  <mobile>9818012000</mobile>
+               </target_customer>
+            </misc_info>
+            <new_value />
+            <old_value>919011111111</old_value>
+            <type>CHANGE_IDENTIFIER</type>
+         </element>
+      </request>
+   </root>
+</root>
+```
+
+```json
+{ 
+   "root":{ 
+      "request":[ 
+         { 
+            "customer":{ 
+               "mobile":"919011111111",
+               "external_id":"",
+               "email":""
+            },
+            "old_value":"919011111111",
+            "base_type":"MOBILE_REALLOC",
+            "new_value":"",
+            "type":"CHANGE_IDENTIFIER",
+            "misc_info":{ 
+               "target_customer":{ 
+                  "mobile":"9818012000",
+                  "external_id":"",
+                  "email":" ",
+                  "id":""
+               }
+            }
+         }
+      ]
+   }
+}
+```
+
+
+
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <requests>
+         <request>
+            <element>
+               <base_type>MOBILE_REALLOC</base_type>
+               <comments />
+               <customer>
+                  <email>rita.john@example.com</email>
+                  <external_id>XYPZ006</external_id>
+                  <firstname>Rita</firstname>
+                  <id>343439221</id>
+                  <lastname>John</lastname>
+                  <mobile>919011111111</mobile>
+               </customer>
+               <id>789849</id>
+               <item_status>
+                  <code>9000</code>
+                  <message>Change Identifier request added successfully</message>
+                  <success>true</success>
+               </item_status>
+               <misc_info null="true" />
+               <new_type />
+               <new_value>343490735</new_value>
+               <old_type />
+               <old_value>343439221</old_value>
+               <reason />
+               <reference_id null="true" />
+               <requested_on>2020-01-02 12:02:29</requested_on>
+               <status>PENDING</status>
+               <transaction_id>0</transaction_id>
+               <type>CHANGE_IDENTIFIER</type>
+            </element>
+         </request>
+      </requests>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+```
+
+```json
+{
+   "response":{
+      "status":{
+         "success":true,
+         "code":200,
+         "message":"Success"
+      },
+      "requests":{
+         "request":[
+            {
+               "reference_id":null,
+               "id":"789849",
+               "status":"PENDING",
+               "requested_on":"2020-01-02 12:02:29",
+               "type":"CHANGE_IDENTIFIER",
+               "base_type":"MOBILE_REALLOC",
+               "customer":{
+                  "firstname":"Rita",
+                  "lastname":"John",
+                  "email":"rita.john@example.com",
+                  "mobile":"919011111111",
+                  "external_id":"XYPZ006",
+                  "id":343439221
+               },
+               "old_value":"343439221",
+               "new_value":"343490735",
+               "old_type":"",
+               "new_type":"",
+               "misc_info":null,
+               "transaction_id":"0",
+               "reason":"",
+               "comments":"",
+               "item_status":{
+                  "success":true,
+                  "code":9000,
+                  "message":"Change Identifier request added successfully"
+               }
+            }
+         ]
+      }
+   }
+}
+```
+
+
+Lets you submit mobile number reallocation requests. You can reallocate only registered mobile numbers.
+
+Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
+
+If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
+
+However, requests can be approved automatically based on the following configs set on Member Care.
+
+Config | Description
+------ | -----------
+CI_MOBILEREALLOC_AUTO_APPROVE | Approves mobile number reallocation requests automatically
+
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `request/add`
+Authentication | Yes
+HTTP Methods | POST
+Batch Support | Yes
+
+### Request URL
+`http://{host}/v1.1/request/add&format={xml/json}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+customer | obj | Details of source account.
+target_customer | obj | Details of target account.
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
+old_value | string | The mobile number of the source customer that has to reassign to the target customer.
+type | enum | Type of request. Value: `CHANGE_IDENTIFIER`.
+base_type | enum | Sub-type of the request. Value: `MOBILE_REALLOC`.
+client_auto_approve | boolean | If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+requested_on | date-time | Date and time when the request is created.
+id | long | Unique ID generated for the request.
+status | enum | Current status of the request. Value: `PENDING`, `APPROVED`, `REJECTED`. The status will be `APPROVED` if mobile number reallocation (CI_MOBILEREALLOC_AUTO_APPROVE) is auto approved either on the UI or through API (`client_auto_approve`).
+customer | obj | Updated details of the target customer.
+
+
+
+
+
+## Add Request (Merge Accounts)
+
+> Sample Request
+
+```html
+http://us.api.capillarytech.com/v1.1/request/add
+```
+
+> Sample POST Request
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <request>
+    <customer>
+      <mobile></mobile>
+      <external_id></external_id>
+      <email>tom739@capillarytech.com</email>
+      <id></id>
+    </customer>
+    <old_value></old_value>
+    <base_type>MERGE</base_type>
+    <new_value></new_value>
+    <type>CHANGE_IDENTIFIER</type>
+    <misc_info>
+      <target_customer>
+        <mobile></mobile>
+        <external_id></external_id>
+        <email></email>
+        <id>342979941</id>
+      </target_customer>
+    </misc_info>
+  </request>
+</root>
+```
+
+```json
+{
+   "root":{
+      "request":[
+         {
+            "customer":{
+               "mobile":"",
+               "external_id":"",
+               "email":"tom739@capillarytech.com",
+               "id":""
+            },
+            "old_value":"",
+            "base_type":"MERGE",
+            "new_value":"",
+            "type":"CHANGE_IDENTIFIER",
+            "misc_info":{
+               "target_customer":{
+                  "mobile":"",
+                  "external_id":"",
+                  "email":"",
+                  "id":"342979941"
+               }
+            }
+         }
+      ]
+   }
+}
+```
+
+
+
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<response>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>Success</message>
+  </status>
+  <requests>
+    <request>
+      <reference_id/>
+      <id>789186</id>
+      <status>PENDING</status>
+      <requested_on>2019-12-31 16:58:02</requested_on>
+      <type>CHANGE_IDENTIFIER</type>
+      <base_type>MERGE</base_type>
+      <customer>
+        <firstname>unknown739</firstname>
+        <lastname/>
+        <email>unknown739@capillarytech.com</email>
+        <mobile>919901032739</mobile>
+        <external_id/>
+        <id>322393226</id>
+      </customer>
+      <old_value>322393226</old_value>
+      <new_value>342979941</new_value>
+      <old_type></old_type>
+      <new_type></new_type>
+      <misc_info/>
+      <transaction_id>0</transaction_id>
+      <reason></reason>
+      <comments></comments>
+      <item_status>
+        <success>true</success>
+        <code>9000</code>
+        <message>Change Identifier request added successfully</message>
+      </item_status>
+    </request>
+  </requests>
+</response>
+```
+
+```json
+{
+    "response": {
+        "status": {
+            "success": true,
+            "code": 200,
+            "message": "Success"
+        },
+        "requests": {
+            "request": [
+                {
+                    "reference_id": null,
+                    "id": "789186",
+                    "status": "PENDING",
+                    "requested_on": "2019-12-31 16:58:02",
+                    "type": "CHANGE_IDENTIFIER",
+                    "base_type": "MERGE",
+                    "customer": {
+                        "firstname": "unknown739",
+                        "lastname": null,
+                        "email": "unknown739@capillarytech.com",
+                        "mobile": "919901032739",
+                        "external_id": null,
+                        "id": 322393226
+                    },
+                    "old_value": "322393226",
+                    "new_value": "342979941",
+                    "old_type": "",
+                    "new_type": "",
+                    "misc_info": null,
+                    "transaction_id": "0",
+                    "reason": "",
+                    "comments": "",
+                    "item_status": {
+                        "success": true,
+                        "code": 9000,
+                        "message": "Change Identifier request added successfully"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+
+Lets you submit requests of merge accounts.
+
+Requests, when submitted, will be in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
+
+If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
+
+However, requests can be approved automatically based on the following configs set on Member Care.
+
+Config | Description
+------ | -----------
+CI_MERGE_AUTO_APPROVE | Approves customer accounts merge requests automatically
+
+
+<aside class="warning">
+The param `client_auto_approve` overrides the server side configuration, mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `request/add`
+Authentication | Yes
+HTTP Methods | POST
+Batch Support | Yes
+
+### Request URL
+`http://{host}/v1.1/request/add&format={xml/json}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+customer | obj | Details of the victim account - the account that you want to merge into another account.
+target_customer | obj | Details of the survivor account - the account that will continue to remain after merging.
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
+type | enum | Pass `CHANGE_IDENTIFIER` for merge requests.
+base_type | enum | Sub-type of the request. Value: `MERGE`
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+requested_on | date-time | Date and time when the request is created in YYYY-MM-DD format
+
+
+
+
+
+
+## Add Request (Goodwill Points/Coupons)
+
+> Sample Request
+
+```html
+http://us.api.capillarytech.com/v1.1/request/add
+```
+
+> Sample POST Request
+
+
+```xml
+# For goodwill points
+<root>
+   <request>
+      <customer>
+         <id>2345</id>
+		 <mobile></mobile>
+		 <email></email>
+		 <external_id></external_id>
+      </customer>
+      <comments>API Service request - Awarding him 200 points.</comments>
+      <reason>POINTS_ISSUE</reason>
+      <type>GOODWILL</type>
+      <base_type>POINTS</base_type>
+      <points>200</points>
+   </request>
+</root>
+```
+
+```json
+# For points
+{
+  "root":{
+    "request":[
+      {
+        "customer":{
+          "id":"2345",
+		  "mobile":"",
+		  "email":"",
+		  "external_id":""
+        },
+        "comments":"API Service request - Awarding 200 points.",
+        "reason":"Issue Goodwill points",
+        "type":"GOODWILL",
+        "base_type":"POINTS",
+        "points":"200"
+      }
+    ]
+  }
+}
+```
+
+```json
+# For Goodwill Coupon
+{
+   "root":{
+      "request":[
+         {
+            "customer":{
+               "mobile":"919011111111",
+               "external_id":"",
+               "email":""
+            },
+            "reason":"Sample reason",
+            "comments":"Additional comment if required",
+            "type":"GOODWILL",
+            "base_type":"COUPON",
+			"series_id":"80197"
+         }
+      ]
+   }
+}
+```
+
+```xml
+# For Goodwill Coupon
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <root>
+      <request>
+         <element>
+            <base_type>COUPON</base_type>
+            <comments>Additional comment if required</comments>
+            <customer>
+               <email />
+               <external_id />
+               <mobile>919011111111</mobile>
+            </customer>
+            <reason>Sample reason</reason>
+            <series_id>80197</series_id>
+            <type>GOODWILL</type>
+         </element>
+      </request>
+   </root>
+</root>
+```
+
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <requests>
+         <request>
+            <element>
+               <base_type>POINTS</base_type>
+               <comments />
+               <customer>
+                  <email>shigan@example.com</email>
+                  <external_id>SG006</external_id>
+                  <firstname>Shi</firstname>
+                  <id>343490735</id>
+                  <lastname>Gan</lastname>
+                  <mobile>919011111111</mobile>
+               </customer>
+               <id>789850</id>
+               <item_status>
+                  <code>9100</code>
+                  <message>Goodwill request added successfully</message>
+                  <success>true</success>
+               </item_status>
+               <misc_info null="true" />
+               <new_type />
+               <new_value />
+               <old_type />
+               <old_value>919011111111</old_value>
+               <reason />
+               <reference_id null="true" />
+               <requested_on>2020-01-02 13:13:38</requested_on>
+               <status>PENDING</status>
+               <transaction_id>0</transaction_id>
+               <type>GOODWILL</type>
+            </element>
+         </request>
+      </requests>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+```
+
+```json
+{
+    "response": {
+        "status": {
+            "success": true,
+            "code": 200,
+            "message": "Success"
+        },
+        "requests": {
+            "request": [
+                {
+                    "reference_id": null,
+                    "id": "789850",
+                    "status": "PENDING",
+                    "requested_on": "2020-01-02 13:13:38",
+                    "type": "GOODWILL",
+                    "base_type": "POINTS",
+                    "customer": {
+                        "firstname": "Shi",
+                        "lastname": "Gan",
+                        "email": "shigan@example.com",
+                        "mobile": "919011111111",
+                        "external_id": "SG006",
+                        "id": 343490735
+                    },
+                    "old_value": "919011111111",
+                    "new_value": "",
+                    "old_type": "",
+                    "new_type": "",
+                    "misc_info": null,
+                    "transaction_id": "0",
+                    "reason": "",
+                    "comments": "",
+                    "item_status": {
+                        "success": true,
+                        "code": 9100,
+                        "message": "Goodwill request added successfully"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+
+Lets you submit goodwill points or coupon allocation requests for loyalty customers.
+
+Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
+
+If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
+
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `request/add`
+Authentication | Yes
+HTTP Methods | POST
+Batch Support | Yes
+
+### Request URL
+`http://{host}/v1.1/request/add&format={xml/json}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+customer | obj | Details of the customer to whom you want to issue goodwill points or coupons.
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
+reference_id* | string | Unique reference ID for the request.
+reason | string | Reason for issuing goodwill points or coupons.
+comments | string | Any other notes that you want to add for the request.
+type | enum | Type of request. Value: `GOODWILL`.
+base_type | enum | Sub-type of the request. Value: `POINTS` for goodwill points issual, `COUPONS` for goodwill coupon issual.
+series_id | long | Offer ID from which coupon has to be issued. Ensure that the offer is consumed by Member Care module (Goodwill Adjustment Settings > Coupon). Applicable only for `base_type` as `COUPONS`.
+points | int | Number of points to issue. Applicable only for `base_type` as `POINTS`.
+client_auto_approve | boolean | If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long | Unique ID generated for the request.
+status | enum | Current status of the status. Value: `PENDING`, `APPROVED`, `REJECTED`
+requested_on | date-time | Date and time when the request is created.
+
+
+## Add Request (Retro Transaction)
+
+> Sample Request
+
+```html
+http://us.api.capillarytech.com/v1.1/request/add
+```
+
+> Sample POST Request
+
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <root>
+      <request>
+         <element>
+            <base_type>RETRO</base_type>
+            <customer>
+               <email />
+               <external_id />
+               <id />
+               <mobile>919011111111</mobile>
+            </customer>
+            <misc_info />
+            <new_type>REGULAR</new_type>
+            <old_type>NOT_INTERESTED</old_type>
+            <reference_id>ref345</reference_id>
+            <transaction_id>7099259</transaction_id>
+            <type>TRANSACTION_UPDATE</type>
+         </element>
+      </request>
+   </root>
+</root>
+```
+
+```json
+{
+   "root":{
+      "request":[
+         {
+            "customer":{
+               "mobile":"919011111111",
+               "external_id":"",
+               "id":"",
+               "email":""
+            },
+            "old_type":"NOT_INTERESTED",
+            "transaction_id":"7099259",
+            "new_type":"REGULAR",
+            "base_type":"RETRO",
+            "reference_id":"ref345",
+            "type":"TRANSACTION_UPDATE",
+            "misc_info":""
+         }
+      ]
+   }
+}
+```
+
+
+> Sample Response
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <requests>
+         <request>
+            <element>
+               <base_type>RETRO</base_type>
+               <comments />
+               <customer>
+                  <email>shigan@example.com</email>
+                  <external_id>SG006</external_id>
+                  <firstname>Shi</firstname>
+                  <id>343490735</id>
+                  <lastname>Gan</lastname>
+                  <mobile>919011111111</mobile>
+               </customer>
+               <id>789861</id>
+               <item_status>
+                  <code>9000</code>
+                  <message>Retro request added successfully</message>
+                  <success>true</success>
+               </item_status>
+               <misc_info null="true" />
+               <new_type>REGULAR</new_type>
+               <new_value />
+               <old_type>NOT_INTERESTED</old_type>
+               <old_value />
+               <reason />
+               <reference_id null="true" />
+               <requested_on>2020-01-02 16:21:54</requested_on>
+               <status>PENDING</status>
+               <transaction_id>7099259</transaction_id>
+               <type>TRANSACTION_UPDATE</type>
+            </element>
+         </request>
+      </requests>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+```
+
+```json
+{
+   "response":{
+      "status":{
+         "success":true,
+         "code":200,
+         "message":"Success"
+      },
+      "requests":{
+         "request":[
+            {
+               "reference_id":null,
+               "id":"789861",
+               "status":"PENDING",
+               "requested_on":"2020-01-02 16:21:54",
+               "type":"TRANSACTION_UPDATE",
+               "base_type":"RETRO",
+               "customer":{
+                  "firstname":"Shi",
+                  "lastname":"Gan",
+                  "email":"shigan@example.com",
+                  "mobile":"919011111111",
+                  "external_id":"SG006",
+                  "id":343490735
+               },
+               "old_value":"",
+               "new_value":"",
+               "old_type":"NOT_INTERESTED",
+               "new_type":"REGULAR",
+               "misc_info":null,
+               "transaction_id":"7099259",
+               "reason":"",
+               "comments":"",
+               "item_status":{
+                  "success":true,
+                  "code":9000,
+                  "message":"Retro request added successfully"
+               }
+            }
+         ]
+      }
+   }
+}
+```
+
+
+Lets you tag a not-interested transaction to a loyalty customer. For example, if a customer has made a transaction before registering and then registers in the org's loyalty program, you can tag such transactions to the respective customer (if the duration between the transaction and conversion is within defined period).
+
+Requests, when submitted, will go in pending status by default. Capillary back-end team verifies the request and could either approves or rejects it. The `request/add` API allows you to directly process a request by passing a query param `client_auto_approve=true`.
+
+If `client_auto_approve=true`, the request will be created in pending status by default and then processed automatically.
+
+
+<aside class="warning">
+The param `client_auto_approve` overrides all the server side configurations mentioned in the table above. However, it is recommended not to use the param unless it is highly necessary.
+</aside>
+
+
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `request/add`
+Authentication | Yes
+HTTP Methods | POST
+Batch Support | Yes
+
+### Request URL
+`http://{host}/v1.1/request/add&format={xml/json}`
+
+### Request Body Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+customer* | obj | Details of the customer to whom you want to tag transaction.
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
+type | enum | Type of request. Value: `TRANSACTION_UPDATE`.
+base_type | enum | Base transaction type. Value: `RETRO`.
+old_type | enum | Current transaction type. Value: `NOT_INTERESTED`.
+new_type | enum | New transaction type. Value: `REGULAR`.
 reason | string | Reason for issuing goodwill points/coupons. Applicable only for goodwill response
 comments | string | Small description on why goodwill points/coupons issued
 client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
 is_one_step_change | boolean | Pass `true` for one step identifier change.
-transaction_id | string | Transaction ID that you want to update. Applicable for `type`, `TRANSACTION_UPDATE`.
-requested_on | date | Date of request in `YYYY-MM-DD` format
-series_id | - | 
-tier_name | string | 
-program_id | long | Applicable for Goodwill points to issue points from a specific loyalty program based on the program id passed. For this you also need to pass client_auto_approve=true.
-client_auto_approve | boolean | Pass `true` to process the request directly.
+transaction_id | string | Transaction ID of the not-interested transaction that you want to update.
+misc_info | string | Additional information regarding the current retro conversion.
+
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
+
+
+### Response Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+id | long |  Unique ID generated for the request.
+status | enum | Current status of the request. Value: `PENDING`, `APPROVED`, `REJECTED`.
+requested_on | date-time | Date and time when the request is submitted.
+
+
+
+
+
 
 
 ## Approve Requests
