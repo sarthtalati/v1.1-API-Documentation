@@ -33,9 +33,18 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
+	
+	
+	<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
+<style type="text/css" media="screen, projection">
+	@import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css); 
+</style> 
+
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+  
+  
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -106,13 +115,16 @@ under the License.
 
 <!-- Feedback widget -->
 
-<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
-<style type="text/css" media="screen, projection">
-	@import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css); 
-</style> 
-<iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.capillarytech.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Provide+Feedback&submitTitle=Send+Feedback&submitThanks=Thank+you+for+your+feedback&screenshot=No&searchArea=no&captcha=yes" scrolling="no" height="500px" width="100%" frameborder="0" >
+ 
+<div class="feedback--modal">
+<a class="feedback--modal-close">&times;</a>
+<iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.capillarytech.com/widgets/feedback_widget/new?&widgetType=embedded&submitTitle=Submit+Feedback&submitThanks=Thank+you+for+the+feedback.&screenshot=No&attachFile=no&searchArea=no" scrolling="no" height="500px" width="100%" frameborder="0">
 </iframe>
-
+</div>
+</div>
+<div class="fab--container">
+       <button class="fab--button fab--button__feedback" data-toggle="modal" data-target="#exampleModal">✍️ Give feedback</button>
+</div>
 
   </body>
 </html>

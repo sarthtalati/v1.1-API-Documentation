@@ -1071,3 +1071,80 @@ pre ::selection {
 .content blockquote {
     border-radius: 8px 8px 0 0;
 }
+
+
+
+
+
+.fab--container {
+    position: fixed;
+    z-index: 1000;
+    bottom: 24px;
+    right: 34px;
+}
+
+.fab--button {
+    background: rgba(255, 255, 255, .9);
+    border: 0;
+    border-radius: 10000px;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08), 0 4px 8px rgba(0, 0, 0, .07), 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+
+.feedback--container {
+    display: -ms-flexbox;
+display: flex;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+z-index: 100000;
+position: fixed;
+left: 0;
+top: 0;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: center;
+justify-content: center;
+}
+
+.feedback--modal {
+    background: #FFF;
+    width: 35%;
+    border-radius: 6px;
+    padding: 24px;
+}
+
+
+.feedback--title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    width: 230px;
+    margin: 4px auto 8px;
+    color: #2e334e;
+}
+
+
+.feedback--modal input,
+.feedback--modal textarea,
+.feedback--modal select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 1px solid #DDD;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06) inset;
+    box-sizing: inherit;
+    padding: 10px;
+    width: 90%;
+    font-family: inherit;
+    font-size: 14px;
+    color: #000;
+    text-overflow: ellipsis;
+    transition: all 65ms ease-in-out;
+    margin-bottom: 12px;
+}
