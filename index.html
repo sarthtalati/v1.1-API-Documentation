@@ -91,6 +91,7 @@
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
 	
+	
 	<script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
 <style type="text/css" media="screen, projection">
 	@import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css); 
@@ -100,9 +101,6 @@
 
   <body class="index" data-languages="[&quot;json&quot;,&quot;xml&quot;]">
   
-  <div class="fab--container">
-       <button class="fab--button fab--button__feedback" data-toggle="modal" data-target="#exampleModal">✍️ Give feedback</button>
-		</div>
   
     <a href="#" id="nav-button">
       <span>
@@ -14712,7 +14710,7 @@ The param `client_auto_approve` overrides the server side configuration, mention
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code># For points
+<pre class="highlight xml"><code># For goodwill points
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;request&gt;</span>
       <span class="nt">&lt;customer&gt;</span>
@@ -26130,9 +26128,15 @@ https://sg.storecare.capillarytech.com/v2/add/ffcDetails?eventType=0
 <!-- Feedback widget -->
 
  
-<iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.capillarytech.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Provide+Feedback&submitTitle=Send+Feedback&submitThanks=Thank+you+for+your+feedback&screenshot=No&searchArea=no&captcha=yes" scrolling="no" height="500px" width="100%" frameborder="0" >
+<div class="feedback--modal">
+<a class="feedback--modal-close">&times;</a>
+<iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://support.capillarytech.com/widgets/feedback_widget/new?&widgetType=embedded&submitTitle=Submit+Feedback&submitThanks=Thank+you+for+the+feedback.&screenshot=No&attachFile=no&searchArea=no" scrolling="no" height="500px" width="100%" frameborder="0">
 </iframe>
-
+</div>
+</div>
+<div class="fab--container">
+       <button class="fab--button fab--button__feedback" data-toggle="modal" data-target="#exampleModal">✍️ Give feedback</button>
+</div>
 
   </body>
 </html>
