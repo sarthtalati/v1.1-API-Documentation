@@ -821,6 +821,7 @@ body {
     color: #cd3d64;
     padding: 3px;
     border-radius: 3px;
+	word-break: break-word;
 }
 
 .highlight .kc {
@@ -1106,18 +1107,18 @@ pre ::selection {
 
 .feedback--container {
     display: -ms-flexbox;
-display: flex;
-width: 100%;
-height: 100%;
-background: rgba(0, 0, 0, 0.5);
-z-index: 100000;
-position: fixed;
-left: 0;
-top: 0;
--ms-flex-align: center;
-align-items: center;
--ms-flex-pack: center;
-justify-content: center;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 100000;
+	position: fixed;
+	left: 0;
+	top: 0;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center;
 }
 
 .feedback--modal {
