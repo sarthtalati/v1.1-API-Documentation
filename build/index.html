@@ -195,7 +195,7 @@ It is recommended to note the <code class="prettyprint">X-Cap-Requestid</code> o
 When an API call is made with 4 batch transactions, A response header is generated with the `X-Cap-Requestid` as shown above. This id can be used to track the details of the entire API call (both request and response).
 </aside>
 
-<h2 id="required-headers">Required Headers</h2>
+<h2 id="headers-required">Headers Required</h2>
 
 <p>Capillary CRM V1.1 APIs support both XML and JSON formats for requests and responses. You can set header as per your required format. </p>
 
@@ -1364,7 +1364,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <tr>
 <td>side_effects</td>
 <td>obj</td>
-<td></td>
+<td>Effect of customer registration in other details. For example, loyalty program.</td>
 </tr>
 </tbody></table>
 
@@ -3178,7 +3178,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>identifierValue*</td>
 <td>string</td>
-<td>Provide the respective identifier value. For example, <code class="prettyprint">?email=tom.sawyer@example.com</code></td>
+<td>Provide the respective identifier value. For example, <code class="prettyprint">?email=tom.sawyer@example.com</code>.</td>
 </tr>
 <tr>
 <td>start_date</td>
@@ -26123,8 +26123,17 @@ https://sg.storecare.capillarytech.com/v2/add/ffcDetails?eventType=0
   gtag('config', 'UA-136354191-1');
 </script>
 
-
 <!-- Feedback widget -->
+
+<script>
+	window.fwSettings={
+	'widget_id':4000000058
+	};
+	!function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+</script>
+<script type='text/javascript' src='https://widget.freshworks.com/widgets/4000000058.js' async defer></script>
+
+<!-- 
 
 <div class="feedback--container" style="display: none;">
 <div class="feedback--modal">
@@ -26137,7 +26146,7 @@ https://sg.storecare.capillarytech.com/v2/add/ffcDetails?eventType=0
 <div class="fab--container">
        <button class="fab--button fab--button__feedback">✍️ Give feedback</button>
 </div>
-
+ -->
 
   </body>
 </html>

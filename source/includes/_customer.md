@@ -802,7 +802,7 @@ subscriptions | obj | Mobile number and email ID subscription details of the cus
 channel | enum | Subscription channel. Value: `SMS`, `EMAIL`.
 priority | enum | Type of subscription. Value: `TRANS` for transaction or personalized messages, `BULK` for campaign or promotion messages.
 status | enum | `0` for unsubscribed, `1` for subscribed.
-side_effects | obj | 
+side_effects | obj | Effect of customer registration in other details. For example, loyalty program.
 
 
 
@@ -2052,7 +2052,7 @@ For MLP
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifierName* | enum | Pass any of the customer identifier with the identifier value. Value: `mobile`, `email`, `external_id` `id`. <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`.
-identifierValue* | string | Provide the respective identifier value. For example, `?email=tom.sawyer@example.com` 
+identifierValue* | string | Provide the respective identifier value. For example, `?email=tom.sawyer@example.com`. 
 start_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date).
 end_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
 transaction_date | date | Filter transactions by transaction date. Pass the date in `YYYY-MM-DD` format.

@@ -103,7 +103,7 @@ It is recommended to note the `X-Cap-Requestid` of a request for future requirem
 When an API call is made with 4 batch transactions, A response header is generated with the `X-Cap-Requestid` as shown above. This id can be used to track the details of the entire API call (both request and response).
 </aside>
 
-## Required Headers
+## Headers Required
 Capillary CRM V1.1 APIs support both XML and JSON formats for requests and responses. You can set header as per your required format. 
 
 Header | Description | Value
