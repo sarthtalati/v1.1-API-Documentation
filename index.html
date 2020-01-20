@@ -2875,31 +2875,84 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>fraud_details=true</td>
 <td>-</td>
-<td>Returns the fraud details of a customer. This field is returned by default.<br><code>&quot;fraud_details&quot;: {</td>
+<td>Returns the fraud details of a customer. This field is returned by default.</td>
+</tr>
+<tr>
+<td>ndsc_status=true</td>
+<td>-</td>
+<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND.</td>
+</tr>
+<tr>
+<td>optin_status=true</td>
+<td>-</td>
+<td>Returns the services (SMS/email) to which the customer has opted in and opted out.</td>
+</tr>
+<tr>
+<td>expiry_schedule=true</td>
+<td>-</td>
+<td>Returns the details of points expiry summary with number of points to expire, program ID, and date and time of expiry.</td>
+</tr>
+<tr>
+<td>expired_points=true</td>
+<td>-</td>
+<td>Returns the details of expired points of the customer.</td>
+</tr>
+<tr>
+<td>points_summary=true</td>
+<td>-</td>
+<td>Returns the history of points issued and redeemed.</td>
+</tr>
+<tr>
+<td>promotion_points=true</td>
+<td>-</td>
+<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.</td>
+</tr>
+<tr>
+<td>membership_retention_criteria=true</td>
+<td>-</td>
+<td>Returns the criteria set for membership or tier retention (usually for membership based loyalty program).</td>
+</tr>
+<tr>
+<td>tier_upgrade_criteria=true</td>
+<td>-</td>
+<td>Returns the tier upgrade criteria configured in <code class="prettyprint">tier_update_criteria</code> object of response payload.</td>
+</tr>
+<tr>
+<td>mlp=true</td>
+<td>-</td>
+<td>Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).</td>
+</tr>
+<tr>
+<td>user_group=true</td>
+<td>-</td>
+<td>Retrieves the details of user group associated to the user (if available).</td>
+</tr>
+<tr>
+<td>customer_image=true</td>
+<td>-</td>
+<td>Retrieves the customer&rsquo;s profile image.</td>
+</tr>
+<tr>
+<td>transactions=true</td>
+<td>-</td>
+<td>Retrieves transaction details of the customer.</td>
+</tr>
+<tr>
+<td>subscriptions=true</td>
+<td>-</td>
+<td>Retrieves subscription details of the customer.</td>
+</tr>
+<tr>
+<td>segments=true</td>
+<td>-</td>
+<td>Retrieves segment details of the customer if applicable. Segments are logical grouping of customers based on one or more parameters.</td>
+</tr>
+<tr>
+<td>member_care_access=true</td>
+<td>-</td>
+<td>For admin users, it will show  customers that are active within the vicinity of that user.</td>
 </tr>
 </tbody></table>
-
-<p>&quot;status&quot;: &quot;NONE&quot;,
-                        &quot;marked_by&quot;: &quot;&quot;,
-                        &quot;modified_on&quot;: &quot;&quot;
-                    },</code>
-ndsc_status=true | - | Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND.
-optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
-expiry_schedule=true | - | Returns the details of points expiry summary with number of points to expire, program ID, and date and time of expiry. <br><code>{&quot;points&quot;: ,
-                                &quot;expiry_date&quot;: &quot;&quot;,
-                                &quot;program_id&quot;: &quot;&quot;}</code>
-expired_points=true | - | Returns the details of expired points of the customer.
-points_summary=true | - | Returns the history of points issued and redeemed.
-promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
-membership_retention_criteria=true | - | Returns the criteria set for membership or tier retention (usually for membership based loyalty program).
-tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in <code class="prettyprint">tier_update_criteria</code> object of response payload.
-mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
-user_group=true | - | Retrieves the details of user group associated to the user (if available).
-customer_image=true | - | Retrieves the customer&rsquo;s profile image.
-transactions=true | - | Retrieves transaction details of the customer.
-subscriptions=true | - | Retrieves subscription details of the customer.
-segments=true | - | Retrieves segment details of the customer if applicable. Segments are logical grouping of customers based on one or more parameters.
-member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user </p>
 
 <aside class="notice">Parameter marked with * is mandatory. </aside>
 
