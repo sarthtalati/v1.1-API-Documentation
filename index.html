@@ -10142,7 +10142,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 </tbody></table>
 
-<h2 id="fetch-transaction-details">Fetch Transaction Details</h2>
+<h2 id="get-transaction-details">Get Transaction Details</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -10153,263 +10153,282 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"transactions"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"transaction"</span><span class="p">:[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-               </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"918036151289"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"instore"</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"billing_till"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"mobilepush.1"</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"billing_store"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"webstore1"</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"37812256"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"BILL7"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"store"</span><span class="p">:</span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
-
-                  </span><span class="p">]</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
-
-                  </span><span class="p">]</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"5000"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="s2">"2018-04-01 00:00:00"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="s2">"2019-12-16 12:10:59"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"line_items"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"line_item"</span><span class="p">:[</span><span class="w">
-                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"img_url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                     </span><span class="p">},</span><span class="w">
-                     </span><span class="p">{</span><span class="w">
-                        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"skuattr9variant-33"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"img_url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">},</span><span class="w">
-                        </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
-                           </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
-
-                           </span><span class="p">]</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                     </span><span class="p">}</span><span class="w">
-                  </span><span class="p">]</span><span class="w">
-               </span><span class="p">},</span><span class="w">
-               </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Transaction retrieved successfully"</span><span class="w">
-               </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-         </span><span class="p">]</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918036151289"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"billing_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"billing_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webstore1"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37812256"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL7"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"local_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25981"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"base_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indian Rupee"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"₹"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"220"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Euro"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"€"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01 00:00:00"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-16 12:10:59"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9variant-33"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction retrieved successfully"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code>
 
+
 <span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;response&gt;</span>
-      <span class="nt">&lt;status&gt;</span>
-         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;/status&gt;</span>
-      <span class="nt">&lt;transactions&gt;</span>
-         <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
-         <span class="nt">&lt;transaction&gt;</span>
-            <span class="nt">&lt;element&gt;</span>
-               <span class="nt">&lt;amount&gt;</span>5000<span class="nt">&lt;/amount&gt;</span>
-               <span class="nt">&lt;auto_update_time&gt;</span>2019-12-16 12:10:59<span class="nt">&lt;/auto_update_time&gt;</span>
-               <span class="nt">&lt;billing_store&gt;</span>
-                  <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>webstore1<span class="nt">&lt;/name&gt;</span>
-               <span class="nt">&lt;/billing_store&gt;</span>
-               <span class="nt">&lt;billing_till&gt;</span>
-                  <span class="nt">&lt;code&gt;</span>mobilepush.1<span class="nt">&lt;/code&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>mobilepush.1<span class="nt">&lt;/name&gt;</span>
-               <span class="nt">&lt;/billing_till&gt;</span>
-               <span class="nt">&lt;billing_time&gt;</span>2018-04-01 00:00:00<span class="nt">&lt;/billing_time&gt;</span>
-               <span class="nt">&lt;custom_fields&gt;</span>
-                  <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;/custom_fields&gt;</span>
-               <span class="nt">&lt;customer&gt;</span>
-                  <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
-                  <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
-                  <span class="nt">&lt;first_name&gt;</span>Tom<span class="nt">&lt;/first_name&gt;</span>
-                  <span class="nt">&lt;last_name&gt;</span>Sawyer<span class="nt">&lt;/last_name&gt;</span>
-                  <span class="nt">&lt;mobile&gt;</span>918036151289<span class="nt">&lt;/mobile&gt;</span>
-                  <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-               <span class="nt">&lt;/customer&gt;</span>
-               <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-               <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-               <span class="nt">&lt;extended_fields&gt;</span>
-                  <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;/extended_fields&gt;</span>
-               <span class="nt">&lt;gross_amount&gt;</span>0<span class="nt">&lt;/gross_amount&gt;</span>
-               <span class="nt">&lt;id&gt;</span>37812256<span class="nt">&lt;/id&gt;</span>
-               <span class="nt">&lt;item_status&gt;</span>
-                  <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-                  <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-               <span class="nt">&lt;/item_status&gt;</span>
-               <span class="nt">&lt;line_items&gt;</span>
-                  <span class="nt">&lt;line_item&gt;</span>
-                     <span class="nt">&lt;element&gt;</span>
-                        <span class="nt">&lt;addon_items&gt;</span>
-                           <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/addon_items&gt;</span>
-                        <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-                        <span class="nt">&lt;attributes&gt;</span>
-                           <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/attributes&gt;</span>
-                        <span class="nt">&lt;combo_items&gt;</span>
-                           <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/combo_items&gt;</span>
-                        <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                        <span class="nt">&lt;discount&gt;</span>234<span class="nt">&lt;/discount&gt;</span>
-                        <span class="nt">&lt;extended_fields&gt;</span>
-                           <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/extended_fields&gt;</span>
-                        <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
-                        <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-                        <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-                        <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-                        <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-                        <span class="nt">&lt;split_items&gt;</span>
-                           <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/split_items&gt;</span>
-                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                        <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-                     <span class="nt">&lt;/element&gt;</span>
-                     <span class="nt">&lt;element&gt;</span>
-                        <span class="nt">&lt;addon_items&gt;</span>
-                           <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/addon_items&gt;</span>
-                        <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-                        <span class="nt">&lt;attributes&gt;</span>
-                           <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/attributes&gt;</span>
-                        <span class="nt">&lt;combo_items&gt;</span>
-                           <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/combo_items&gt;</span>
-                        <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                        <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                        <span class="nt">&lt;extended_fields&gt;</span>
-                           <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/extended_fields&gt;</span>
-                        <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;item_code&gt;</span>skuattr9variant-33<span class="nt">&lt;/item_code&gt;</span>
-                        <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-                        <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-                        <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-                        <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-                        <span class="nt">&lt;split_items&gt;</span>
-                           <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
-                        <span class="nt">&lt;/split_items&gt;</span>
-                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                        <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-                     <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;/line_item&gt;</span>
-               <span class="nt">&lt;/line_items&gt;</span>
-               <span class="nt">&lt;notes&gt;</span>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction<span class="nt">&lt;/notes&gt;</span>
-               <span class="nt">&lt;number&gt;</span>BILL7<span class="nt">&lt;/number&gt;</span>
-               <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-               <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-               <span class="nt">&lt;store&gt;</span>mobilepush.1<span class="nt">&lt;/store&gt;</span>
-               <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-            <span class="nt">&lt;/element&gt;</span>
-         <span class="nt">&lt;/transaction&gt;</span>
-      <span class="nt">&lt;/transactions&gt;</span>
-   <span class="nt">&lt;/response&gt;</span>
+    <span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;transactions&gt;</span>
+            <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
+            <span class="nt">&lt;transaction&gt;</span>
+                <span class="nt">&lt;element&gt;</span>
+                    <span class="nt">&lt;amount&gt;</span>5000<span class="nt">&lt;/amount&gt;</span>
+                    <span class="nt">&lt;auto_update_time&gt;</span>2019-12-16 12:10:59<span class="nt">&lt;/auto_update_time&gt;</span>
+                    <span class="nt">&lt;billing_store&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>webstore1<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/billing_store&gt;</span>
+                    <span class="nt">&lt;billing_till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>mobilepush.1<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>mobilepush.1<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;/billing_till&gt;</span>
+                    <span class="nt">&lt;billing_time&gt;</span>2018-04-01 00:00:00<span class="nt">&lt;/billing_time&gt;</span>
+                    <span class="nt">&lt;custom_fields&gt;</span>
+                        <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/custom_fields&gt;</span>
+                    <span class="nt">&lt;customer&gt;</span>
+                        <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                        <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+                        <span class="nt">&lt;first_name&gt;</span>Tom<span class="nt">&lt;/first_name&gt;</span>
+                        <span class="nt">&lt;last_name&gt;</span>Sawyer<span class="nt">&lt;/last_name&gt;</span>
+                        <span class="nt">&lt;mobile&gt;</span>918036151289<span class="nt">&lt;/mobile&gt;</span>
+                        <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;/customer&gt;</span>
+                    <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+                    <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                    <span class="nt">&lt;extended_fields&gt;</span>
+                        <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;/extended_fields&gt;</span>
+                    <span class="nt">&lt;local_currency&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>25981<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;ratio&gt;</span>70.0<span class="nt">&lt;/ratio&gt;</span>
+                        <span class="nt">&lt;base_currency&gt;</span>
+                            <span class="nt">&lt;id&gt;</span>23<span class="nt">&lt;/id&gt;</span>
+                            <span class="nt">&lt;name&gt;</span>Indian Rupee <span class="nt">&lt;/name&gt;</span>
+                            <span class="nt">&lt;symbol&gt;</span>₹<span class="nt">&lt;/symbol&gt;</span>
+                        <span class="nt">&lt;/base_currency&gt;</span>
+                        <span class="nt">&lt;transaction_currency&gt;</span>
+                            <span class="nt">&lt;id&gt;</span>220<span class="nt">&lt;/id&gt;</span>
+                            <span class="nt">&lt;name&gt;</span>Euro<span class="nt">&lt;/name&gt;</span>
+                            <span class="nt">&lt;symbol&gt;</span>€<span class="nt">&lt;/symbol&gt;</span>
+                        <span class="nt">&lt;/transaction_currency&gt;</span>
+                        <span class="nt">&lt;amount&gt;</span>100.0<span class="nt">&lt;/amount&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>7000.0<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
+                        <span class="nt">&lt;gross_amount&gt;</span>100.0<span class="nt">&lt;/gross_amount&gt;</span>
+                    <span class="nt">&lt;/local_currency&gt;</span>
+                    <span class="nt">&lt;currency&gt;</span>
+                        <span class="nt">&lt;ratio&gt;</span>70<span class="nt">&lt;/ratio&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>220<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Euro<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;symbol&gt;</span>€<span class="nt">&lt;/symbol&gt;</span>
+                    <span class="nt">&lt;/currency&gt;</span>
+                    <span class="nt">&lt;gross_amount&gt;</span>0<span class="nt">&lt;/gross_amount&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>37812256<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;item_status&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
+                        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                    <span class="nt">&lt;/item_status&gt;</span>
+                    <span class="nt">&lt;line_items&gt;</span>
+                        <span class="nt">&lt;line_item&gt;</span>
+                            <span class="nt">&lt;element&gt;</span>
+                                <span class="nt">&lt;addon_items&gt;</span>
+                                    <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/addon_items&gt;</span>
+                                <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+                                <span class="nt">&lt;attributes&gt;</span>
+                                    <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/attributes&gt;</span>
+                                <span class="nt">&lt;combo_items&gt;</span>
+                                    <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/combo_items&gt;</span>
+                                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                                <span class="nt">&lt;discount&gt;</span>234<span class="nt">&lt;/discount&gt;</span>
+                                <span class="nt">&lt;extended_fields&gt;</span>
+                                    <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/extended_fields&gt;</span>
+                                <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
+                                <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                                <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
+                                <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                                <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                                <span class="nt">&lt;split_items&gt;</span>
+                                    <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/split_items&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                            <span class="nt">&lt;/element&gt;</span>
+                            <span class="nt">&lt;element&gt;</span>
+                                <span class="nt">&lt;addon_items&gt;</span>
+                                    <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/addon_items&gt;</span>
+                                <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+                                <span class="nt">&lt;attributes&gt;</span>
+                                    <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/attributes&gt;</span>
+                                <span class="nt">&lt;combo_items&gt;</span>
+                                    <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/combo_items&gt;</span>
+                                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                                <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                                <span class="nt">&lt;extended_fields&gt;</span>
+                                    <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/extended_fields&gt;</span>
+                                <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;item_code&gt;</span>skuattr9variant-33<span class="nt">&lt;/item_code&gt;</span>
+                                <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                                <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
+                                <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                                <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                                <span class="nt">&lt;split_items&gt;</span>
+                                    <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
+                                <span class="nt">&lt;/split_items&gt;</span>
+                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                                <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                            <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/line_item&gt;</span>
+                    <span class="nt">&lt;/line_items&gt;</span>
+                    <span class="nt">&lt;notes&gt;</span>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction<span class="nt">&lt;/notes&gt;</span>
+                    <span class="nt">&lt;number&gt;</span>BILL7<span class="nt">&lt;/number&gt;</span>
+                    <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                    <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;store&gt;</span>mobilepush.1<span class="nt">&lt;/store&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;/transaction&gt;</span>
+        <span class="nt">&lt;/transactions&gt;</span>
+    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
 
@@ -10746,6 +10765,61 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <td>quantity</td>
 <td>double</td>
 <td>Quantity of the current add-on, split, or combo item.</td>
+</tr>
+<tr>
+<td>local_currency</td>
+<td>obj</td>
+<td>Currency of the store associated to the transaction.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID of the currency converter.</td>
+</tr>
+<tr>
+<td>ratio</td>
+<td>double</td>
+<td>Currency conversion ratio (local currency/base currency)</td>
+</tr>
+<tr>
+<td>base_currency</td>
+<td>obj</td>
+<td>Details of the org&rsquo;s base currency.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID of the base currency.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the base currency.</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>Symbol of the base currency.</td>
+</tr>
+<tr>
+<td>transaction_currency</td>
+<td>obj</td>
+<td>Details of transacted currency. This is usually local currency.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>long</td>
+<td>Unique ID of the transacted currency.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the transacted currency.</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>Symbol of the transacted currency.</td>
 </tr>
 </tbody></table>
 
@@ -11384,7 +11458,9 @@ Points cannot be issued through APIs. It can be issued only through modules such
               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"is_redeemable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"points_currency_ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeem_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">536</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeem_local_value"</span><span class="p">:</span><span class="w"> </span><span class="mf">5239.79</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_currency_ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"800"</span><span class="p">,</span><span class="w">
@@ -11487,7 +11563,7 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <p>To just validate points
 <code class="prettyprint">https://{host}/v1.1/points/isredeemable?points={points to redeem}&amp;validation_code={OTP}&amp;{mobile/email}={value}&amp;format={xml/json}</code></p>
 
-<h3 id="request-path-parameters">Request Path Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -11568,6 +11644,11 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>is_redeemable</td>
 <td>boolean</td>
 <td>Whether the points can be redeemed.</td>
+</tr>
+<tr>
+<td>points_redeem_value</td>
+<td>int</td>
+<td>Value of points in base currency.</td>
 </tr>
 </tbody></table>
 
