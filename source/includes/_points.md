@@ -52,7 +52,9 @@ http://us.intouch.capillarytech.com/v1.1/points/isredeemable?points=100&issue_ot
               "mobile": "44700900999",
               "points": "100",
               "is_redeemable": "true",
-              "points_currency_ratio": "0",
+			  "points_redeem_value": 536,
+			  "points_redeem_local_value": 5239.79,
+              "points_currency_ratio": "1",
               "item_status": {
                 "success": "true",
                 "code": "800",
@@ -138,7 +140,7 @@ To validate points and issue code if the validation is successful
 To just validate points
 `https://{host}/v1.1/points/isredeemable?points={points to redeem}&validation_code={OTP}&{mobile/email}={value}&format={xml/json}`
 
-### Request Path Parameters
+### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Pass any of the identifier type of the customer.
@@ -161,6 +163,7 @@ redeemed_value | double | Value of the points to redeem.
 balance | int | Remaining points in the customer's account after redemption.
 points | int | Number of points to redeem.
 is_redeemable | boolean | Whether the points can be redeemed. 
+points_redeem_value | int | Value of points in base currency.
 
 
 ## Issue Validation Code (to Redeeming Points)

@@ -1873,14 +1873,14 @@ coupon_offset | int | Retrieves next set of coupons according to issual sequence
 coupon_order_by | date-time | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.
 coupon_sort_order | enum | asc, desc. Orders coupons in ascending or descending order of `coupon_order_by` parameter
 user_id=true | - | Returns the unique id of the customer (generated at our end when the customer is registered).
-next_slab=true | - | Returns the details of next tier of the  loyalty customer.
+next_slab=true | - | Returns the details of the next loyalty tier of the customer such as <br> next_slab, next_slab_serial_number,               next_slab_description, trackers value (for tracker based strategy), and current_nps_status.
 slab_history=true | - | Returns the details of loyalty tier changes of the customer.
 registered_store=true | - | Returns the store at which the customer is registered. This is returned by default.
 registered_till=true | - | Returns the store-TILL at which the customer is registered. This is returned by default. 
 fraud_details=true | - | Returns the fraud details of a customer. This field is returned by default.
 ndsc_status=true | - | Returns the status of the customer's registered mobile number on NDSC/DND.
 optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
-expiry_schedule=true | - | Returns the details of points expiry summary.
+expiry_schedule=true | - | Returns the details of points expiry summary with number of points to expire, program ID, and date and time of expiry.
 expired_points=true | - | Returns the details of expired points of the customer.
 points_summary=true | - | Returns the history of points issued and redeemed.
 promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
@@ -1892,7 +1892,7 @@ customer_image=true | - | Retrieves the customer's profile image.
 transactions=true | - | Retrieves transaction details of the customer.
 subscriptions=true | - | Retrieves subscription details of the customer.
 segments=true | - | Retrieves segment details of the customer if applicable. Segments are logical grouping of customers based on one or more parameters.
-member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user 
+member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user.
 
 <aside class="notice">Parameter marked with * is mandatory. </aside>
 

@@ -1965,7 +1965,7 @@ old_type | enum | Previous transaction type - usually `NOT_INTERESTED` for retro
 
 
 
-## Fetch Transaction Details
+## Get Transaction Details
 
 > Sample Request
 
@@ -1977,266 +1977,285 @@ https://us.api.capillarytech.com/v1.1/transaction/get?number=BILL7&format=json
 
 ```json
 {
-   "response":{
-      "status":{
-         "success":"true",
-         "code":200,
-         "message":"Success"
-      },
-      "transactions":{
-         "count":1,
-         "transaction":[
-            {
-               "customer":{
-                  "mobile":"918036151289",
-                  "first_name":"Tom",
-                  "last_name":"Sawyer",
-                  "email":"tom.sawyer@example.com",
-                  "external_id":"XYPZ001",
-                  "source":"instore"
-               },
-               "billing_till":{
-                  "code":"mobilepush.1",
-                  "name":"mobilepush.1"
-               },
-               "billing_store":{
-                  "code":"storecode",
-                  "name":"webstore1"
-               },
-               "id":"37812256",
-               "number":"BILL7",
-               "type":"REGULAR",
-               "outlier_status":"NORMAL",
-               "store":"mobilepush.1",
-               "delivery_status":"DELIVERED",
-               "source":"instore",
-               "custom_fields":{
-                  "field":[
-
-                  ]
-               },
-               "extended_fields":{
-                  "field":[
-
-                  ]
-               },
-               "amount":"5000",
-               "billing_time":"2018-04-01 00:00:00",
-               "auto_update_time":"2019-12-16 12:10:59",
-               "gross_amount":"0",
-               "discount":"0",
-               "notes":"Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction",
-               "line_items":{
-                  "line_item":[
-                     {
-                        "type":"REGULAR",
-                        "outlier_status":"NORMAL",
-                        "serial":"1",
-                        "item_code":"skuattr9",
-                        "description":"soap",
-                        "qty":"50",
-                        "rate":"10",
-                        "value":"500",
-                        "discount":"234",
-                        "img_url":"",
-                        "amount":"500",
-                        "extended_fields":{
-                           "field":[
-
-                           ]
-                        },
-                        "combo_items":{
-                           "combo_item":[
-
-                           ]
-                        },
-                        "addon_items":{
-                           "addon_item":[
-
-                           ]
-                        },
-                        "split_items":{
-                           "split_item":[
-
-                           ]
-                        },
-                        "attributes":{
-                           "attribute":[
-
-                           ]
-                        }
-                     },
-                     {
-                        "type":"REGULAR",
-                        "outlier_status":"NORMAL",
-                        "serial":"1",
-                        "item_code":"skuattr9variant-33",
-                        "description":"soap",
-                        "qty":"50",
-                        "rate":"10",
-                        "value":"500",
-                        "discount":"0",
-                        "img_url":"",
-                        "amount":"500",
-                        "extended_fields":{
-                           "field":[
-
-                           ]
-                        },
-                        "combo_items":{
-                           "combo_item":[
-
-                           ]
-                        },
-                        "addon_items":{
-                           "addon_item":[
-
-                           ]
-                        },
-                        "split_items":{
-                           "split_item":[
-
-                           ]
-                        },
-                        "attributes":{
-                           "attribute":[
-
-                           ]
-                        }
-                     }
-                  ]
-               },
-               "item_status":{
-                  "success":"true",
-                  "code":600,
-                  "message":"Transaction retrieved successfully"
-               }
-            }
-         ]
-      }
-   }
+  "response": {
+    "status": {
+      "success": "true",
+      "code": 200,
+      "message": "Success"
+    },
+    "transactions": {
+      "count": 1,
+      "transaction": [
+        {
+          "customer": {
+            "mobile": "918036151289",
+            "first_name": "Tom",
+            "last_name": "Sawyer",
+            "email": "tom.sawyer@example.com",
+            "external_id": "XYPZ001",
+            "source": "instore"
+          },
+          "billing_till": {
+            "code": "mobilepush.1",
+            "name": "mobilepush.1"
+          },
+          "billing_store": {
+            "code": "storecode",
+            "name": "webstore1"
+          },
+          "id": "37812256",
+          "number": "BILL7",
+          "type": "REGULAR",
+          "outlier_status": "NORMAL",
+          "store": "mobilepush.1",
+          "delivery_status": "DELIVERED",
+          "source": "instore",
+          "custom_fields": {
+            "field": []
+          },
+          "extended_fields": {
+            "field": []
+          },
+          "local_currency": {
+            "id": "25981",
+            "ratio": "70.0",
+            "base_currency": {
+              "id": "23",
+              "name": "Indian Rupee",
+              "symbol": "₹"
+            },
+            "transaction_currency": {
+              "id": "220",
+              "name": "Euro",
+              "symbol": "€"
+            },
+            "amount": "100.0",
+            "value": "7000.0",
+            "discount": "0.0",
+            "gross_amount": "100.0"
+          },
+          "amount": "5000",
+          "billing_time": "2018-04-01 00:00:00",
+          "auto_update_time": "2019-12-16 12:10:59",
+          "gross_amount": "0",
+          "discount": "0",
+          "notes": "Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction",
+          "line_items": {
+            "line_item": [
+              {
+                "type": "REGULAR",
+                "outlier_status": "NORMAL",
+                "serial": "1",
+                "item_code": "skuattr9",
+                "description": "soap",
+                "qty": "50",
+                "rate": "10",
+                "value": "500",
+                "discount": "234",
+                "img_url": "",
+                "amount": "500",
+                "extended_fields": {
+                  "field": []
+                },
+                "combo_items": {
+                  "combo_item": []
+                },
+                "addon_items": {
+                  "addon_item": []
+                },
+                "split_items": {
+                  "split_item": []
+                },
+                "attributes": {
+                  "attribute": []
+                }
+              },
+              {
+                "type": "REGULAR",
+                "outlier_status": "NORMAL",
+                "serial": "1",
+                "item_code": "skuattr9variant-33",
+                "description": "soap",
+                "qty": "50",
+                "rate": "10",
+                "value": "500",
+                "discount": "0",
+                "img_url": "",
+                "amount": "500",
+                "extended_fields": {
+                  "field": []
+                },
+                "combo_items": {
+                  "combo_item": []
+                },
+                "addon_items": {
+                  "addon_item": []
+                },
+                "split_items": {
+                  "split_item": []
+                },
+                "attributes": {
+                  "attribute": []
+                }
+              }
+            ]
+          },
+          "item_status": {
+            "success": "true",
+            "code": 600,
+            "message": "Transaction retrieved successfully"
+          }
+        }
+      ]
+    }
+  }
 }
 ```
 
 ```xml
 
 
+
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-   <response>
-      <status>
-         <code>200</code>
-         <message>Success</message>
-         <success>true</success>
-      </status>
-      <transactions>
-         <count>1</count>
-         <transaction>
-            <element>
-               <amount>5000</amount>
-               <auto_update_time>2019-12-16 12:10:59</auto_update_time>
-               <billing_store>
-                  <code>storecode</code>
-                  <name>webstore1</name>
-               </billing_store>
-               <billing_till>
-                  <code>mobilepush.1</code>
-                  <name>mobilepush.1</name>
-               </billing_till>
-               <billing_time>2018-04-01 00:00:00</billing_time>
-               <custom_fields>
-                  <field />
-               </custom_fields>
-               <customer>
-                  <email>tom.sawyer@example.com</email>
-                  <external_id>XYPZ001</external_id>
-                  <first_name>Tom</first_name>
-                  <last_name>Sawyer</last_name>
-                  <mobile>918036151289</mobile>
-                  <source>instore</source>
-               </customer>
-               <delivery_status>DELIVERED</delivery_status>
-               <discount>0</discount>
-               <extended_fields>
-                  <field />
-               </extended_fields>
-               <gross_amount>0</gross_amount>
-               <id>37812256</id>
-               <item_status>
-                  <code>600</code>
-                  <message>Transaction retrieved successfully</message>
-                  <success>true</success>
-               </item_status>
-               <line_items>
-                  <line_item>
-                     <element>
-                        <addon_items>
-                           <addon_item />
-                        </addon_items>
-                        <amount>500</amount>
-                        <attributes>
-                           <attribute />
-                        </attributes>
-                        <combo_items>
-                           <combo_item />
-                        </combo_items>
-                        <description>soap</description>
-                        <discount>234</discount>
-                        <extended_fields>
-                           <field />
-                        </extended_fields>
-                        <img_url />
-                        <item_code>skuattr9</item_code>
-                        <outlier_status>NORMAL</outlier_status>
-                        <qty>50</qty>
-                        <rate>10</rate>
-                        <serial>1</serial>
-                        <split_items>
-                           <split_item />
-                        </split_items>
-                        <type>REGULAR</type>
-                        <value>500</value>
-                     </element>
-                     <element>
-                        <addon_items>
-                           <addon_item />
-                        </addon_items>
-                        <amount>500</amount>
-                        <attributes>
-                           <attribute />
-                        </attributes>
-                        <combo_items>
-                           <combo_item />
-                        </combo_items>
-                        <description>soap</description>
-                        <discount>0</discount>
-                        <extended_fields>
-                           <field />
-                        </extended_fields>
-                        <img_url />
-                        <item_code>skuattr9variant-33</item_code>
-                        <outlier_status>NORMAL</outlier_status>
-                        <qty>50</qty>
-                        <rate>10</rate>
-                        <serial>1</serial>
-                        <split_items>
-                           <split_item />
-                        </split_items>
-                        <type>REGULAR</type>
-                        <value>500</value>
-                     </element>
-                  </line_item>
-               </line_items>
-               <notes>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction</notes>
-               <number>BILL7</number>
-               <outlier_status>NORMAL</outlier_status>
-               <source>instore</source>
-               <store>mobilepush.1</store>
-               <type>REGULAR</type>
-            </element>
-         </transaction>
-      </transactions>
-   </response>
+	<response>
+		<status>
+			<code>200</code>
+			<message>Success</message>
+			<success>true</success>
+		</status>
+		<transactions>
+			<count>1</count>
+			<transaction>
+				<element>
+					<amount>5000</amount>
+					<auto_update_time>2019-12-16 12:10:59</auto_update_time>
+					<billing_store>
+						<code>storecode</code>
+						<name>webstore1</name>
+					</billing_store>
+					<billing_till>
+						<code>mobilepush.1</code>
+						<name>mobilepush.1</name>
+					</billing_till>
+					<billing_time>2018-04-01 00:00:00</billing_time>
+					<custom_fields>
+						<field />
+					</custom_fields>
+					<customer>
+						<email>tom.sawyer@example.com</email>
+						<external_id>XYPZ001</external_id>
+						<first_name>Tom</first_name>
+						<last_name>Sawyer</last_name>
+						<mobile>918036151289</mobile>
+						<source>instore</source>
+					</customer>
+					<delivery_status>DELIVERED</delivery_status>
+					<discount>0</discount>
+					<extended_fields>
+						<field />
+					</extended_fields>
+					<local_currency>
+						<id>25981</id>
+						<ratio>70.0</ratio>
+						<base_currency>
+							<id>23</id>
+							<name>Indian Rupee </name>
+							<symbol>₹</symbol>
+						</base_currency>
+						<transaction_currency>
+							<id>220</id>
+							<name>Euro</name>
+							<symbol>€</symbol>
+						</transaction_currency>
+						<amount>100.0</amount>
+						<value>7000.0</value>
+						<discount>0.0</discount>
+						<gross_amount>100.0</gross_amount>
+					</local_currency>
+					<currency>
+						<ratio>70</ratio>
+						<id>220</id>
+						<name>Euro</name>
+						<symbol>€</symbol>
+					</currency>
+					<gross_amount>0</gross_amount>
+					<id>37812256</id>
+					<item_status>
+						<code>600</code>
+						<message>Transaction retrieved successfully</message>
+						<success>true</success>
+					</item_status>
+					<line_items>
+						<line_item>
+							<element>
+								<addon_items>
+									<addon_item />
+								</addon_items>
+								<amount>500</amount>
+								<attributes>
+									<attribute />
+								</attributes>
+								<combo_items>
+									<combo_item />
+								</combo_items>
+								<description>soap</description>
+								<discount>234</discount>
+								<extended_fields>
+									<field />
+								</extended_fields>
+								<img_url />
+								<item_code>skuattr9</item_code>
+								<outlier_status>NORMAL</outlier_status>
+								<qty>50</qty>
+								<rate>10</rate>
+								<serial>1</serial>
+								<split_items>
+									<split_item />
+								</split_items>
+								<type>REGULAR</type>
+								<value>500</value>
+							</element>
+							<element>
+								<addon_items>
+									<addon_item />
+								</addon_items>
+								<amount>500</amount>
+								<attributes>
+									<attribute />
+								</attributes>
+								<combo_items>
+									<combo_item />
+								</combo_items>
+								<description>soap</description>
+								<discount>0</discount>
+								<extended_fields>
+									<field />
+								</extended_fields>
+								<img_url />
+								<item_code>skuattr9variant-33</item_code>
+								<outlier_status>NORMAL</outlier_status>
+								<qty>50</qty>
+								<rate>10</rate>
+								<serial>1</serial>
+								<split_items>
+									<split_item />
+								</split_items>
+								<type>REGULAR</type>
+								<value>500</value>
+							</element>
+						</line_item>
+					</line_items>
+					<notes>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction</notes>
+					<number>BILL7</number>
+					<outlier_status>NORMAL</outlier_status>
+					<source>instore</source>
+					<store>mobilepush.1</store>
+					<type>REGULAR</type>
+				</element>
+			</transaction>
+		</transactions>
+	</response>
 </root>
 
 
@@ -2330,6 +2349,17 @@ combo_items | obj | Details of combo or bundle items. For example, buy 1 shirt g
 split_items | obj | Details of split items. For example, a necklace having gold rate, store rate, making charge, and wastage charges.
 item_code | string | Unique code of the add-on, split, or combo item. For example, combo-22, pizza01_addon.
 quantity | double | Quantity of the current add-on, split, or combo item.
+local_currency | obj | Currency of the store associated to the transaction.
+id | long | Unique ID of the currency converter.
+ratio | double | Currency conversion ratio (local currency/base currency)
+base_currency | obj | Details of the org's base currency.
+id | long | Unique ID of the base currency.
+name | string | Name of the base currency.
+symbol | string | Symbol of the base currency.
+transaction_currency | obj | Details of transacted currency. This is usually local currency.
+id | long | Unique ID of the transacted currency.
+name | string | Name of the transacted currency.
+symbol | string | Symbol of the transacted currency.
 
 
 ## Response Codes
