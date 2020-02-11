@@ -2074,7 +2074,7 @@ sort | enum | Arranges the transactions by transaction date or transaction id ba
 order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id.
 
 
-## Retrieve Customer Redemptions
+## Get Customer Redemptions
 
 > Sample Request
 
@@ -2562,7 +2562,7 @@ id* | int | Unique id of the customer note that you want to update.
 <aside class="notice">Parameters marked with *, and any one among the parameters marked with * are mandatory. </aside> 
 
 
-## Retrieve Customer Notes 
+## Get Customer Notes 
 
 > Sample Request
 
@@ -2682,7 +2682,7 @@ value* | string | Value of the specified identifier. For example, if `identifier
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
-## Retrieve Customer Coupons
+## Get Customer Coupons
 
 > Sample Request
 
@@ -3010,7 +3010,7 @@ reported_from | enum | Source from which the ticket is created. Values: `EMAIL`,
 type | enum | Type of the ticket. Value: `STORE`, `Customer`.
 
 
-## Retrieve Ticket Details
+## Get Ticket Details
 ```html
 # Sample Request
 https://us.api.capillarytech.com/v1.1/customer/tickets
@@ -3432,7 +3432,7 @@ invited_on | date-time | Date and time of the invite.
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
 
-## Retrieve Customer Referral Details
+## Get Customer Referral Details
 
 > Sample Request
 
@@ -4011,7 +4011,7 @@ Customer Identifier* | enum | Pass any of the customer identifiers to get prefer
 value* | string | Pass the respective identifier values.
 
 
-## Retrieve Customer Interactions
+## Get Customer Interactions
 
 > Sample Request
 
@@ -4466,7 +4466,7 @@ Batch Support | Yes
 `https://{host}/v1.1/customer/subscriptions?format={xml/json}`
 
 ### Request Body Parameters
-Attribute | Datatype | Description
+Parameter | Datatype | Description
 --------- | -------- | -----------
 mobile/email/external_id/id* | Provide any of the customer identifiers to update subscription details.
 priority* | enum | Specify the service that you want to update. Value: `TRANS` for personalized messages, and `BULK` for campaign or promotional messages.
@@ -4477,7 +4477,60 @@ is_subscribed* | enum | Specify `0` to unsubscribe, `1` to subscribe.
 <aside class="notice"> Parameters marked with * are mandatory. </aside>
 
 
-## Retrieve Subscription Details
+
+## Get Product Recommendations
+Retrieves product recommendations for a specific customer.
+
+
+> Sample Request
+
+```html
+https://eu.api.capillarytech.com/v1.1/customer/recommendations?mobile=447700900000
+
+```
+
+> Sample Response
+
+```xml
+
+```
+
+```json
+
+
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/recommendations?{query_params}`
+Authentication | Yes
+HTTP Method | Get
+Batch Support | Yes
+
+### Request URL
+`https://{host}/v1.1/customer/recommendations?identifier={identifierValue}&user_id={true}&limit={value}&product_limit={value}&format={xml/json}`
+
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+mobile/email/external_id/id* | string | Pass any of the identifiers of the customer to fetch recommendations.
+user_id | boolean | Pass `true` to retrieve unique customer ID in response. Default value is `false`.
+limit | int | Limit the number of results to retrieve. For example, `limit=4` fetches only four recommendations. Default value is `10`.
+product_limit | int | 
+
+
+
+
+
+
+
+
+
+
+
+
+## Get Subscription Details
 
 > Sample Request
 

@@ -1731,7 +1731,7 @@ custom_fields | obj | Update custom field details of the transaction.
 
 <aside class="notice">Any one among the parameters marked with ** is mandatory. </aside>
 
-## Response Parameters
+### Response Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------

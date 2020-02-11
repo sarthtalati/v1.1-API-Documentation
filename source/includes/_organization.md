@@ -75,24 +75,21 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 Retrieves the details of the organization provided during the org setup on InTouch. Details such as org id, name, address, base language, base currency, time zone, website address and so on will be returned through this  API.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | organization/get
+| | |
+--------- | ----------- |
+URI | `organization/get`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns entire details of the organization
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/get.<xml/json>`
+`http://{host}/v1.1/organization/get.{xml/json}`
 
 
 
 
-## Retrieve Org Entities
+## Get Org Entities
 ```html
 http://apac.api.capillarytech.com/v1.1/organization/entities?format=json&type=till
 ```
@@ -447,29 +444,35 @@ http://apac.api.capillarytech.com/v1.1/organization/entities?format=json&type=ti
 Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | organization/entities
+| | |
+--------- | ----------- |
+URI | `organization/entities`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns the 
-API Version | v1.1 
 Batch Support | Yes
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/entities?format=<xml/json>&type=<type>&id=<id>` 
+`http://{host}/v1.1/organization/entities?type={type}&id={id}` 
 
-`http://<cluster url>/v1.1/organization/entities?format=<xml/json>&type=<store/zone/till>`
+`http://{host}/v1.1/organization/entities?type={store/zone/till}&format={xml/json}
  
 ### Request Parameters
 
-Parameter | Description
---------- | -----------
-id | Returns the details of a particular organization. id is the organization id
-type* | Value: STORE, STR_SERVER, TILL, ZONE, CONCEPTSTORE. Returns details of a specific zone, concept, store, store server, or TILL based on the param passed
+Parameter | Datatype | Description
+--------- | -------- | -----------
+type* | enum | Pass the entity details to retrieve. Value: `STORE`, `STR_SERVER` (store server), TILL, ZONE, CONCEPTSTORE (concept).
+id | string | Pass an entity id as in the `org_entities` table (in database) to get the details of that particular entity. To get the details of multiple entries, pass each ID separating with `,` . For example, "12859252,12859253". 
+include_parent | boolean | Pass `true` to retrieve the details of parent zone or concept. This is applicable only for `type` zone or concept.
+sub_entities_count | int | Limit the number of sub-entities to retrieve for each entity.
+details | enum | Pass `basic` to see only basic information excluding currency, time-zone, and language information.
+exclude_locale | int | 1 (true),0 (false)
+start_id | long | Fetches entities that are above the offset number you pass. Offset is the position of the entity  in the db record. The value is assigned based on the sequence of creation. For example, start_id=10 retrieves all the entities from record number 11.
+limit | int | Limit the number of entities to retrieve.
+modified_since | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
+active_only | boolean | Pass `true` to retrieve the list of only active stores.
+scope | string | Default value: `STORE_CUSTOM_FIELDS`.
 
+<aside class="notice">Parameter marked with * is mandatory.</aside>
 
 
 ## Retrieve Org Configurations
@@ -581,19 +584,15 @@ http://api.capillary.co.in/v1.1/organization/configs?format=json
 Returns the organization configuration details in key and value pairs.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | organization/configs
+| | |
+--------- | ----------- |
+URI | `organization/configs`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns configuration details of the current organization
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/configs?format=<xml/json>`
+`http://{host}/v1.1/organization/configs?format={xml/json}`
 
 
 ## Retrieve Org Statistics
@@ -648,24 +647,22 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 Returns the statistical information of the org which contains count of stores, zones, tills, loyalty customers, and products sold; average transaction amount, basket size and so on.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | organization/statistics
+| | |
+--------- | ----------- |
+URI | `organization/statistics`
 Rate Limited? | Yes
-Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns configuration statistics
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/statistics?format=<xml/json>`
+`http://{host}/v1.1/organization/statistics?format={xml/json}`
 
 
 ## Retrieve Top Selling Items
+
+> Sample Request
+
 ```html
-# Sample Request
 http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 ```
 
@@ -777,24 +774,23 @@ Returns top selling items of the current organization.
 ### Resource Information
 Attribute | Value
 --------- | -----
-URI | organization/topitems
+URI | `organization/topitems`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns top selling items of the organization
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/topitems?format=<xml/json>`
+`http://{host}/v1.1/organization/topitems?format={xml/json}`
 
 
 
 
 ## Retrieve Configured Custom Fields 
+
+> Sample Request
+
 ```html
-# Sample Request
 http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 ```
 
@@ -866,19 +862,16 @@ http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 Returns the details of custom fields configured for the current organization.
 
 ### Resource Information
-Attribute | Value
---------- | -----
-URI | organization/customfields
+| | |
+--------- | ----------- |
+URI | `organization/customfields`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns custom fields of the org
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/customfields?format=<xml/json>&scope=<scope>`
+`http://{host}/v1.1/organization/customfields?format={xml/json}&scope={scope}`
 
 ### Request Parameter
 Parameter | Description
@@ -887,8 +880,10 @@ Scope | Value: customer_feedback, loyalty_transaction, loyalty_registration, cus
 
 
 ## Retrieve Configured Payment Modes
+
+> Sample Request
+
 ```html
-# Sample Request
 http://us.api.capillarytech.com/v1.1/organization/tenders
 ```
 
@@ -996,23 +991,20 @@ Returns the details of payment modes configured for your organization.
 ### Resource Information
 Attribute | Value
 --------- | -----
-URI | organization/tenders
+URI | `organization/tenders`
 Rate Limited? | Yes
 Authentication | Yes
-Response Formats | XML, JSON
 HTTP Methods | GET
-Response Object | Returns configured payment modes
-API Version | v1.1 
 Batch Support | No
 
 ### Request URL
-`http://<cluster url>/v1.1/organization/tenders.<xml/json>`
+`http://{host}/v1.1/organization/tenders.{xml/json}`
 
 ### Request Parameters
-Parameter | Description
+Parameter | Datatype | Description
 --------- | -----------
-attribute_name | Retrieves the details of all tenders which contains the specific attribute name 
-attribute | Value: true, false. Retrieves attributes of the payment modes if `attribute=true` is passed
+attribute_name | string | Retrieves the details of all tenders which contains the specific attribute name 
+attribute | boolean | Retrieves attributes of the payment modes if `attribute=true` is passed
 
 
 
