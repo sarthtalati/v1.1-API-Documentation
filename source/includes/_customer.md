@@ -4479,7 +4479,7 @@ is_subscribed* | enum | Specify `0` to unsubscribe, `1` to subscribe.
 
 
 ## Get Product Recommendations
-Retrieves product recommendations for a specific customer.
+Retrieves product recommendations of a specific customer.
 
 
 > Sample Request

@@ -164,7 +164,8 @@ balance | int | Remaining points in the customer's account after redemption.
 points | int | Number of points to redeem.
 is_redeemable | boolean | Whether the points can be redeemed. 
 points_redeem_value | int | Value of points in base currency.
-
+points_redeem_local_value | double | Value of points in local currency.
+points_currency_ratio | double | 
 
 ## Issue Validation Code (to Redeeming Points)
 
