@@ -3277,7 +3277,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-customer-redemptions">Retrieve Customer Redemptions</h2>
+<h2 id="get-customer-redemptions">Get Customer Redemptions</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -3971,7 +3971,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <aside class="notice">Parameters marked with *, and any one among the parameters marked with * are mandatory. </aside> 
 
-<h2 id="retrieve-customer-notes">Retrieve Customer Notes</h2>
+<h2 id="get-customer-notes">Get Customer Notes</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -4118,7 +4118,7 @@ user_id tag will be returned only if query param user_id = true
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
-<h2 id="retrieve-customer-coupons">Retrieve Customer Coupons</h2>
+<h2 id="get-customer-coupons">Get Customer Coupons</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -4545,7 +4545,7 @@ user_id tag will be returned only if query param user_id = true
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-ticket-details">Retrieve Ticket Details</h2>
+<h2 id="get-ticket-details">Get Ticket Details</h2>
 <pre class="highlight html"><code># Sample Request
 https://us.api.capillarytech.com/v1.1/customer/tickets
 </code></pre>
@@ -5072,7 +5072,7 @@ https://us.api.capillarytech.com/v1.1/customer/tickets
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
-<h2 id="retrieve-customer-referral-details">Retrieve Customer Referral Details</h2>
+<h2 id="get-customer-referral-details">Get Customer Referral Details</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -5755,7 +5755,7 @@ Preferences retrieved successfully
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-customer-interactions">Retrieve Customer Interactions</h2>
+<h2 id="get-customer-interactions">Get Customer Interactions</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -6265,7 +6265,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
 <th>Datatype</th>
 <th>Description</th>
 </tr>
@@ -6299,7 +6299,85 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <aside class="notice"> Parameters marked with * are mandatory. </aside>
 
-<h2 id="retrieve-subscription-details">Retrieve Subscription Details</h2>
+<h2 id="get-product-recommendations">Get Product Recommendations</h2>
+
+<p>Retrieves product recommendations of a specific customer.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://eu.api.capillarytech.com/v1.1/customer/recommendations?mobile=447700900000
+
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight xml"><code>
+</code></pre><pre class="highlight json"><code><span class="w">
+
+</span></code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/recommendations?{query_params}</code></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>Get</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/v1.1/customer/recommendations?identifier={identifierValue}&amp;user_id={true}&amp;limit={value}&amp;product_limit={value}&amp;format={xml/json}</code></p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mobile/email/external_id/id*</td>
+<td>string</td>
+<td>Pass any of the identifiers of the customer to fetch recommendations.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve unique customer ID in response. Default value is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>Limit the number of results to retrieve. For example, <code class="prettyprint">limit=4</code> fetches only four recommendations. Default value is <code class="prettyprint">10</code>.</td>
+</tr>
+<tr>
+<td>product_limit</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-subscription-details">Get Subscription Details</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -11649,6 +11727,16 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>points_redeem_value</td>
 <td>int</td>
 <td>Value of points in base currency.</td>
+</tr>
+<tr>
+<td>points_redeem_local_value</td>
+<td>double</td>
+<td>Value of points in local currency.</td>
+</tr>
+<tr>
+<td>points_currency_ratio</td>
+<td>double</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -18279,13 +18367,13 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/get</td>
+<td><code class="prettyprint">organization/get</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -18296,20 +18384,8 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns entire details of the organization</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18319,9 +18395,9 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/get.&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/get.{xml/json}</code></p>
 
-<h2 id="retrieve-org-entities">Retrieve Org Entities</h2>
+<h2 id="get-org-entities">Get Org Entities</h2>
 <pre class="highlight html"><code>http://apac.api.capillarytech.com/v1.1/organization/entities?format=json<span class="err">&amp;</span>type=till
 </code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>
     <span class="nt">&lt;pagination&gt;</span>
@@ -18672,37 +18748,21 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/entities</td>
+<td><code class="prettyprint">organization/entities</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns the</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18712,27 +18772,77 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/entities?format=&lt;xml/json&gt;&amp;type=&lt;type&gt;&amp;id=&lt;id&gt;</code> </p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/entities?type={type}&amp;id={id}</code> </p>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/entities?format=&lt;xml/json&gt;&amp;type=&lt;store/zone/till&gt;</code></p>
+<p>`http://{host}/v1.1/organization/entities?type={store/zone/till}&amp;format={xml/json}</p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Datatype</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
-<td>Returns the details of a particular organization. id is the organization id</td>
+<td>type*</td>
+<td>enum</td>
+<td>Pass the entity details to retrieve. Value: <code class="prettyprint">STORE</code>, <code class="prettyprint">STR_SERVER</code> (store server), TILL, ZONE, CONCEPTSTORE (concept).</td>
 </tr>
 <tr>
-<td>type*</td>
-<td>Value: STORE, STR_SERVER, TILL, ZONE, CONCEPTSTORE. Returns details of a specific zone, concept, store, store server, or TILL based on the param passed</td>
+<td>id</td>
+<td>string</td>
+<td>Pass an entity id as in the <code class="prettyprint">org_entities</code> table (in database) to get the details of that particular entity. To get the details of multiple entries, pass each ID separating with <code class="prettyprint">,</code> . For example, &ldquo;12859252,12859253&rdquo;.</td>
+</tr>
+<tr>
+<td>include_parent</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve the details of parent zone or concept. This is applicable only for <code class="prettyprint">type</code> zone or concept.</td>
+</tr>
+<tr>
+<td>sub_entities_count</td>
+<td>int</td>
+<td>Limit the number of sub-entities to retrieve for each entity.</td>
+</tr>
+<tr>
+<td>details</td>
+<td>enum</td>
+<td>Pass <code class="prettyprint">basic</code> to see only basic information excluding currency, time-zone, and language information.</td>
+</tr>
+<tr>
+<td>exclude_locale</td>
+<td>int</td>
+<td>1 (true),0 (false)</td>
+</tr>
+<tr>
+<td>start_id</td>
+<td>long</td>
+<td>Fetches entities that are above the offset number you pass. Offset is the position of the entity  in the db record. The value is assigned based on the sequence of creation. For example, start_id=10 retrieves all the entities from record number 11.</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>Limit the number of entities to retrieve.</td>
+</tr>
+<tr>
+<td>modified_since</td>
+<td>Retrieves the entities that are modified on or after a specific date. Pass the date in <code class="prettyprint">YYYY-MM-DD</code> format.</td>
+<td></td>
+</tr>
+<tr>
+<td>active_only</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve the list of only active stores.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>Default value: <code class="prettyprint">STORE_CUSTOM_FIELDS</code>.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameter marked with * is mandatory.</aside>
 
 <h2 id="retrieve-org-configurations">Retrieve Org Configurations</h2>
 <pre class="highlight html"><code># Sample Request
@@ -18839,37 +18949,21 @@ http://api.capillary.co.in/v1.1/organization/configs?format=json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/configs</td>
+<td><code class="prettyprint">organization/configs</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns configuration details of the current organization</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18879,7 +18973,7 @@ http://api.capillary.co.in/v1.1/organization/configs?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/configs?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/configs?format={xml/json}</code></p>
 
 <h2 id="retrieve-org-statistics">Retrieve Org Statistics</h2>
 <pre class="highlight html"><code># Sample Request
@@ -18931,37 +19025,21 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/statistics</td>
+<td><code class="prettyprint">organization/statistics</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>Authentication</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns configuration statistics</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -18971,11 +19049,14 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/statistics?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/statistics?format={xml/json}</code></p>
 
 <h2 id="retrieve-top-selling-items">Retrieve Top Selling Items</h2>
-<pre class="highlight html"><code># Sample Request
-http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -19088,7 +19169,7 @@ http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/topitems</td>
+<td><code class="prettyprint">organization/topitems</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -19099,20 +19180,8 @@ http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns top selling items of the organization</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19122,11 +19191,14 @@ http://apac.api.capillarytech.com/v1.1/organization/topitems?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/topitems?format=&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/topitems?format={xml/json}</code></p>
 
 <h2 id="retrieve-configured-custom-fields">Retrieve Configured Custom Fields</h2>
-<pre class="highlight html"><code># Sample Request
-http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -19195,13 +19267,13 @@ http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 
 <table><thead>
 <tr>
-<th>Attribute</th>
-<th>Value</th>
+<th></th>
+<th></th>
 </tr>
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/customfields</td>
+<td><code class="prettyprint">organization/customfields</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -19212,20 +19284,8 @@ http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns custom fields of the org</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19235,7 +19295,7 @@ http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/customfields?format=&lt;xml/json&gt;&amp;scope=&lt;scope&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/customfields?format={xml/json}&amp;scope={scope}</code></p>
 
 <h3 id="request-parameter">Request Parameter</h3>
 
@@ -19252,8 +19312,11 @@ http://apac.api.capillarytech.com/v1.1/organization/customfields?format=json
 </tbody></table>
 
 <h2 id="retrieve-configured-payment-modes">Retrieve Configured Payment Modes</h2>
-<pre class="highlight html"><code># Sample Request
-http://us.api.capillarytech.com/v1.1/organization/tenders
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/organization/tenders
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -19360,7 +19423,7 @@ http://us.api.capillarytech.com/v1.1/organization/tenders
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td>organization/tenders</td>
+<td><code class="prettyprint">organization/tenders</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -19371,20 +19434,8 @@ http://us.api.capillarytech.com/v1.1/organization/tenders
 <td>Yes</td>
 </tr>
 <tr>
-<td>Response Formats</td>
-<td>XML, JSON</td>
-</tr>
-<tr>
 <td>HTTP Methods</td>
 <td>GET</td>
-</tr>
-<tr>
-<td>Response Object</td>
-<td>Returns configured payment modes</td>
-</tr>
-<tr>
-<td>API Version</td>
-<td>v1.1</td>
 </tr>
 <tr>
 <td>Batch Support</td>
@@ -19394,25 +19445,14 @@ http://us.api.capillarytech.com/v1.1/organization/tenders
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://&lt;cluster url&gt;/v1.1/organization/tenders.&lt;xml/json&gt;</code></p>
+<p><code class="prettyprint">http://{host}/v1.1/organization/tenders.{xml/json}</code></p>
 
 <h3 id="request-parameters">Request Parameters</h3>
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>attribute_name</td>
-<td>Retrieves the details of all tenders which contains the specific attribute name</td>
-</tr>
-<tr>
-<td>attribute</td>
-<td>Value: true, false. Retrieves attributes of the payment modes if <code class="prettyprint">attribute=true</code> is passed</td>
-</tr>
-</tbody></table>
+<p>Parameter | Datatype | Description
+&mdash;&mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
+attribute_name | string | Retrieves the details of all tenders which contains the specific attribute name 
+attribute | boolean | Retrieves attributes of the payment modes if <code class="prettyprint">attribute=true</code> is passed</p>
 
 <h2 id="response-codes">Response Codes</h2>
 
