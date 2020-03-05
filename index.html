@@ -1070,10 +1070,12 @@ When an API call is made with 4 batch transactions, A response header is generat
 <p>Behavior of the API when an existing identifier is passed.
 * Updates existing customer details other than existing identifier(s) such as mobile number, email id, or external id.
 * Updates null identifiers from null to a value, but not value to value. <i>Existing identifiers cannot be updated</i>.
-* Updates secondary identifiers if the respective configuration is enabled on InTouch <strong>Settings</strong> &gt; <strong>Miscellaneous</strong> &gt; <strong>Registration Configuration</strong> page.
+* Updates secondary identifiers if the respective configuration is enabled on InTouch Profile &gt; <strong>Organization Settings</strong> &gt; <strong>Miscellaneous</strong> &gt; <strong>Registration Configuration</strong> page.
     * CONF_ALLOW_MOBILE_UPDATE (for mobile number).
     * CONF_ALLOW_EMAIL_UPDATE (for email id).
     * CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
+* If <code class="prettyprint">CONFIG_SKIP_SECONDARY_ID_ON_PRIMARY_MISMATCH</code> is enabled, if the primary identifier is different but any of the secondary identifiers exist, a new customer is registered with the primary identifier ignoring the secondary identifier. The config is available on the Registration Page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Miscellaneous</strong>.
+    * Also, this config overrides <code class="prettyprint">CONF_PRIMARY_IDENTIFIER_STRICT_CHECK</code>.
 * Adds/updates <strong>custom field</strong> details.
 * Adds/updates <strong>extended field</strong> values.</p>
 
@@ -7907,7 +7909,13 @@ Extended fields and custom fields in transactions are used to capture additional
 
 <ul>
 <li>Registers customers automatically when a new identifier is passed with the transaction details.</li>
-<li>Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers).</li>
+<li>If any identifier matches with another accounts, customer accounts will be merged if the config mentioned below is not enabled.</li>
+<li>If <code class="prettyprint">CONFIG_SKIP_SECONDARY_ID_ON_PRIMARY_MISMATCH</code> is enabled, if the primary identifier is different but any of the secondary identifiers exist, a new customer is registered with the primary identifier ignoring the secondary identifier. The config is available on the Registration Page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Miscellaneous</strong>.
+
+<ul>
+<li>Also, this config overrides <code class="prettyprint">CONF_PRIMARY_IDENTIFIER_STRICT_CHECK</code>.</li>
+</ul></li>
+<li>Updates customer details if a registered identifier is passed with different customer details (other than customer identifiers).</li>
 <li>Supports transactions with Product Variant and Product Bundle details.</li>
 <li>Adds product variant to the database when a new variant product is passed with an existing base product.</li>
 <li>Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant .</li>
