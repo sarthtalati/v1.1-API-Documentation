@@ -2915,7 +2915,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>tier_upgrade_criteria=true</td>
 <td>-</td>
-<td>Returns the tier upgrade criteria configured in <code class="prettyprint">tier_update_criteria</code> object of response payload.</td>
+<td>Returns the tier upgrade criteria configured in <code class="prettyprint">tier_update_criteria</code> object of response payload.<br>This is supported only if the tier upgrade strategy is based on Lifetime Points, Lifetime Purchases, or Current Points,  but not on tracker based strategy. Also, you will not see upgrade criteria if the customer is in the highest tier.</td>
 </tr>
 <tr>
 <td>mlp=true</td>
@@ -5083,232 +5083,223 @@ https://us.api.capillarytech.com/v1.1/customer/tickets
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;response&gt;</span>
-   <span class="nt">&lt;status&gt;</span>
-      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-      <span class="nt">&lt;message&gt;</span>success<span class="nt">&lt;/message&gt;</span>
-   <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;customers&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
       <span class="nt">&lt;customer&gt;</span>
-         <span class="nt">&lt;email&gt;</span>vimalsudhan@gmail.com<span class="nt">&lt;/email&gt;</span>
-         <span class="nt">&lt;mobile&gt;</span>9197407983xx<span class="nt">&lt;/mobile&gt;</span>
-         <span class="nt">&lt;external_id&gt;</span>VIMAL004<span class="nt">&lt;/external_id&gt;</span>
-         <span class="nt">&lt;id&gt;</span>4596849<span class="nt">&lt;/id&gt;</span>
-         <span class="nt">&lt;firstname&gt;</span>Vimal<span class="nt">&lt;/firstname&gt;</span>
-         <span class="nt">&lt;lastname&gt;</span>Sudhan<span class="nt">&lt;/lastname&gt;</span>
-         <span class="nt">&lt;referrals&gt;</span>
+         <span class="nt">&lt;email</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;external_id&gt;</span>971544979350<span class="nt">&lt;/external_id&gt;</span>
+         <span class="nt">&lt;firstname&gt;</span>Ishant<span class="nt">&lt;/firstname&gt;</span>
+         <span class="nt">&lt;incentives</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;invitees&gt;</span>
             <span class="nt">&lt;referral_type&gt;</span>
-               <span class="nt">&lt;type&gt;</span>EMAIL<span class="nt">&lt;/type&gt;</span>
-               <span class="nt">&lt;referral&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>Dexter Morgan<span class="nt">&lt;/name&gt;</span>
-                  <span class="nt">&lt;identifier&gt;</span>dexter.morgan@mpd.com<span class="nt">&lt;/identifier&gt;</span>
-                  <span class="nt">&lt;invited_on&gt;</span>2016-09-12T15:19:21+05:30<span class="nt">&lt;/invited_on&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>
-                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                     <span class="nt">&lt;code&gt;</span>100<span class="nt">&lt;/code&gt;</span>
-                     <span class="nt">&lt;message&gt;</span>Invitee added
- successfully<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/referral&gt;</span>
-               <span class="nt">&lt;referral&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>2<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>Debra Morgan<span class="nt">&lt;/name&gt;</span>
-                  <span class="nt">&lt;identifier&gt;</span>debra.morgan@elwaydetectives.com<span class="nt">&lt;/identifier&gt;</span>
-                  <span class="nt">&lt;invited_on&gt;</span>2013-09-12T15:19:21+05:30<span class="nt">&lt;/invited_on&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>
-                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                     <span class="nt">&lt;code&gt;</span>100<span class="nt">&lt;/code&gt;</span>
-                     <span class="nt">&lt;message&gt;</span>Invitee added
- successfully<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/referral&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;invitee&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;identifier&gt;</span>971564265901<span class="nt">&lt;/identifier&gt;</span>
+                        <span class="nt">&lt;invited_on&gt;</span>2020-01-29 12:25:46.0<span class="nt">&lt;/invited_on&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Siddhant<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;till&gt;</span>
+                           <span class="nt">&lt;code&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/code&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/till&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;identifier&gt;</span>971564265901<span class="nt">&lt;/identifier&gt;</span>
+                        <span class="nt">&lt;invited_on&gt;</span>2020-01-29 13:37:36.0<span class="nt">&lt;/invited_on&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Siddhant<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;till&gt;</span>
+                           <span class="nt">&lt;code&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/code&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/till&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;identifier&gt;</span>97150000099<span class="nt">&lt;/identifier&gt;</span>
+                        <span class="nt">&lt;invited_on&gt;</span>2020-01-29 13:55:32.0<span class="nt">&lt;/invited_on&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Harry Test<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;till&gt;</span>
+                           <span class="nt">&lt;code&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/code&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/till&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;identifier&gt;</span>97150000099<span class="nt">&lt;/identifier&gt;</span>
+                        <span class="nt">&lt;invited_on&gt;</span>2020-01-30 14:56:12.0<span class="nt">&lt;/invited_on&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>Test<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;till&gt;</span>
+                           <span class="nt">&lt;code&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/code&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>jotun.uae.admin.2<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/till&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;/invitee&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>MOBILE<span class="nt">&lt;/type&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
             <span class="nt">&lt;/referral_type&gt;</span>
-            <span class="nt">&lt;referral_type&gt;</span>
-               <span class="nt">&lt;type&gt;</span>MOBILE<span class="nt">&lt;/type&gt;</span>
-               <span class="nt">&lt;referral&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>5<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>Heisenberg<span class="nt">&lt;/name&gt;</span>
-                  <span class="nt">&lt;identifier&gt;</span>919123456789<span class="nt">&lt;/identifier&gt;</span>
-                  <span class="nt">&lt;invited_on&gt;</span>2016-09-12T15:19:21+05:30<span class="nt">&lt;/invited_on&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>
-                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                     <span class="nt">&lt;code&gt;</span>100<span class="nt">&lt;/code&gt;</span>
-                     <span class="nt">&lt;message&gt;</span>Invitee added
- successfully<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/referral&gt;</span>
-               <span class="nt">&lt;referral&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>10<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>Walt Jr<span class="nt">&lt;/name&gt;</span>
-                  <span class="nt">&lt;identifier&gt;</span>919876543211<span class="nt">&lt;/identifier&gt;</span>
-                  <span class="nt">&lt;invited_on&gt;</span>2016-09-12T15:19:21+05:30<span class="nt">&lt;/invited_on&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>
-                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                     <span class="nt">&lt;code&gt;</span>100<span class="nt">&lt;/code&gt;</span>
-                     <span class="nt">&lt;message&gt;</span>Invitee added
- successfully<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/referral&gt;</span>
-            <span class="nt">&lt;/referral_type&gt;</span>
-         <span class="nt">&lt;/referrals&gt;</span>
+         <span class="nt">&lt;/invitees&gt;</span>
          <span class="nt">&lt;item_status&gt;</span>
-            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
             <span class="nt">&lt;code&gt;</span>1000<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Referrals are invited Successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Referral statistics retrieved successfully<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
          <span class="nt">&lt;/item_status&gt;</span>
+         <span class="nt">&lt;lastname&gt;</span>Jindal<span class="nt">&lt;/lastname&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>971544979350<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;referees&gt;</span>
+            <span class="nt">&lt;referee&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;added_on&gt;</span>2020-01-29 13:24:15<span class="nt">&lt;/added_on&gt;</span>
+                  <span class="nt">&lt;email</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;event_type&gt;</span>REGISTRATION<span class="nt">&lt;/event_type&gt;</span>
+                  <span class="nt">&lt;external_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;firstname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;lastname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;mobile</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;added_on&gt;</span>2020-01-29 13:31:53<span class="nt">&lt;/added_on&gt;</span>
+                  <span class="nt">&lt;email</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;event_type&gt;</span>REGISTRATION<span class="nt">&lt;/event_type&gt;</span>
+                  <span class="nt">&lt;external_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;firstname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;lastname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;mobile</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;added_on&gt;</span>2020-01-29 14:33:05<span class="nt">&lt;/added_on&gt;</span>
+                  <span class="nt">&lt;email</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;event_type&gt;</span>REGISTRATION<span class="nt">&lt;/event_type&gt;</span>
+                  <span class="nt">&lt;external_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;firstname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;lastname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;mobile</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;added_on&gt;</span>2020-01-29 15:32:37<span class="nt">&lt;/added_on&gt;</span>
+                  <span class="nt">&lt;email</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;event_type&gt;</span>REGISTRATION<span class="nt">&lt;/event_type&gt;</span>
+                  <span class="nt">&lt;external_id</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;firstname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;lastname</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;mobile</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;/referee&gt;</span>
+         <span class="nt">&lt;/referees&gt;</span>
+         <span class="nt">&lt;referral_code&gt;</span>1mba0dlo5<span class="nt">&lt;/referral_code&gt;</span>
       <span class="nt">&lt;/customer&gt;</span>
-   <span class="nt">&lt;/customers&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
-
-
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vimalsudhan@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9197407983xx"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIMAL004"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4596849"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vimal"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sudhan"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DJK39"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"invitees"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"referral_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"invitee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dexter.morgan@mpd.com"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-02 12:49:12"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.till"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store till"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-debra.morgan@elwaydetectives.com"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01 13:04:10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"till.cap.123"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap till"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-eddard.stark@winterfell.com"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-21 10:04:10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"till.cap.123"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap till"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"971544979350"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"971544979350"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Ishant"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Jindal"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="s2">"1mba0dlo5"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"invitees"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"referral_type"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"invitee"</span><span class="p">:[</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"971564265901"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Siddhant"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="s2">"2020-01-29 12:25:46.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"till"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"971564265901"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Siddhant"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="s2">"2020-01-29 13:37:36.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"till"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"97150000099"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Harry Test"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="s2">"2020-01-29 13:55:32.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"till"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"97150000099"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="s2">"2020-01-30 14:56:12.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"till"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"jotun.uae.admin.2"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+               </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOBILE"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"invitee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919123456789"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-02 12:49:12"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store.till"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store till"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-919876543210"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01 13:04:10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"till.cap.123"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap till"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"
-919112233445"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"invited_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-08-21 10:04:10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"till.cap.123"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cap till"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"referees"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"referee"</span><span class="p">:[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"added_on"</span><span class="p">:</span><span class="s2">"2020-01-29 13:24:15"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"added_on"</span><span class="p">:</span><span class="s2">"2020-01-29 13:31:53"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"added_on"</span><span class="p">:</span><span class="s2">"2020-01-29 14:33:05"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"added_on"</span><span class="p">:</span><span class="s2">"2020-01-29 15:32:37"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"referees"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"referee"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1494955"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dexter"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morgan"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dexter.morgan@mpd.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919988776655"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MPD345"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-02 11:29:10"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1494915"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debra"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morgan"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debra.morgan@elwaydetectives.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919988976655"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ELW345"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-09-01 10:29:10"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"incentives"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"934KD944K"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-12 12:10:40"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"redemption_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"redeemed_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-12 14:29:41"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGISTRATION"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DFI3KDL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"valid_till"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-01-12 19:10:40"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"redemption_info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"redeemed_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-02-12 14:29:41"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Referral Statistics retrieved successfully"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"incentives"</span><span class="p">:[</span><span class="w">
+
+         </span><span class="p">],</span><span class="w">
+         </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Referral statistics retrieved successfully"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Retrieves the stats of the referrals along with the unique referral code of a specific  customer.</p>
@@ -18298,7 +18289,7 @@ represents corresponding value --&gt;</span>
 
 <p>You cannot modify the existing information using the organization entity.</p>
 
-<h2 id="retrieve-org-details">Retrieve Org Details</h2>
+<h2 id="get-org-details">Get Org Details</h2>
 <pre class="highlight html"><code># Sample Request
 http://apac.api.capillarytech.com/v1.1/organization/get.json
 </code></pre>
@@ -18812,8 +18803,8 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 </tr>
 <tr>
 <td>exclude_locale</td>
-<td>int</td>
-<td>1 (true),0 (false)</td>
+<td>enum</td>
+<td>Pass <code class="prettyprint">1</code> to exclude time zone details, <code class="prettyprint">0</code> to retrieve base_timezone details of an entity. Default value is <code class="prettyprint">0</code>.</td>
 </tr>
 <tr>
 <td>start_id</td>
@@ -18827,8 +18818,8 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 </tr>
 <tr>
 <td>modified_since</td>
+<td>date</td>
 <td>Retrieves the entities that are modified on or after a specific date. Pass the date in <code class="prettyprint">YYYY-MM-DD</code> format.</td>
-<td></td>
 </tr>
 <tr>
 <td>active_only</td>
@@ -18844,9 +18835,12 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 
 <aside class="notice">Parameter marked with * is mandatory.</aside>
 
-<h2 id="retrieve-org-configurations">Retrieve Org Configurations</h2>
-<pre class="highlight html"><code># Sample Request
-http://api.capillary.co.in/v1.1/organization/configs?format=json
+<h2 id="get-org-configurations">Get Org Configurations</h2>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>http://api.capillary.co.in/v1.1/organization/configs?format=json
 </code></pre>
 <blockquote>
 <p>Sample Request</p>
@@ -18975,7 +18969,7 @@ http://api.capillary.co.in/v1.1/organization/configs?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/organization/configs?format={xml/json}</code></p>
 
-<h2 id="retrieve-org-statistics">Retrieve Org Statistics</h2>
+<h2 id="get-org-statistics">Get Org Statistics</h2>
 <pre class="highlight html"><code># Sample Request
 http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 </code></pre>
@@ -19051,7 +19045,7 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/organization/statistics?format={xml/json}</code></p>
 
-<h2 id="retrieve-top-selling-items">Retrieve Top Selling Items</h2>
+<h2 id="get-top-selling-items">Get Top Selling Items</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -19193,7 +19187,7 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/organization/topitems?format={xml/json}</code></p>
 
-<h2 id="retrieve-configured-custom-fields">Retrieve Configured Custom Fields</h2>
+<h2 id="get-configured-custom-fields">Get Configured Custom Fields</h2>
 
 <blockquote>
 <p>Sample Request</p>
@@ -19311,7 +19305,7 @@ http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
 </tr>
 </tbody></table>
 
-<h2 id="retrieve-configured-payment-modes">Retrieve Configured Payment Modes</h2>
+<h2 id="get-configured-payment-modes">Get Configured Payment Modes</h2>
 
 <blockquote>
 <p>Sample Request</p>
