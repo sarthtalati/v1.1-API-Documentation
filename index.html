@@ -9239,7 +9239,7 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 <tr>
 <td>type*</td>
 <td>enum</td>
-<td>Type of transaction. <code class="prettyprint">RETURN</code> for loyalty transaction return, <code class="prettyprint">NOT_INTERESTED_RETURN</code> for not-interested return, <code class="prettyprint">MIXED</code> for exchange (involves both return and purchase).</td>
+<td>Type of transaction. <code class="prettyprint">RETURN</code> for loyalty transaction return, <code class="prettyprint">NOT_INTERESTED_RETURN</code> for not-interested return, <code class="prettyprint">MIXED</code> for exchange (involves both return and purchase).<br>You will also need to pass <code class="prettyprint">type</code> for <code class="prettyprint">MIXED</code> transaction both at bill level (MIXED) and line-item level (<code class="prettyprint">regular</code> for new transaction item and <code class="prettyprint">return</code> for return item).</td>
 </tr>
 <tr>
 <td>return_type</td>
@@ -9274,7 +9274,7 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 <tr>
 <td>amount*</td>
 <td>double</td>
-<td>Sum of regular line items of the current transaction.</td>
+<td>Sum of regular line items of the current transaction after discount.</td>
 </tr>
 <tr>
 <td>qty*</td>
