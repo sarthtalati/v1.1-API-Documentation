@@ -8795,7 +8795,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 </code></pre>
 <blockquote>
-<p>Sample POST Request</p>
+<p>Sample POST Request (Return)</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8887,6 +8887,181 @@ Extended fields and custom fields in transactions are used to capture additional
     <span class="nt">&lt;/custom_fields_data&gt;</span>
     <span class="nt">&lt;associate_details/&gt;</span>
   <span class="nt">&lt;/transaction&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample POST Request (Mixed Transaction)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+ </span><span class="nt">"root"</span><span class="p">:{</span><span class="w">
+   </span><span class="nt">"transaction"</span><span class="p">:[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"mixed"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"Exch-1112"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"1 line items"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="s2">"2018-09-26 20:10:00"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">"500"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"9540000000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nt">"payment_details"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                       </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CASH"</span><span class="p">,</span><span class="w">
+                       </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="w">
+                   </span><span class="p">},</span><span class="w">
+                   </span><span class="p">{</span><span class="w">
+                       </span><span class="nt">"mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card"</span><span class="p">,</span><span class="w">
+                       </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                           </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                                   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_type"</span><span class="p">,</span><span class="w">
+                                   </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit Card"</span><span class="w">
+                               </span><span class="p">},</span><span class="w">
+                               </span><span class="p">{</span><span class="w">
+                                   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bankName"</span><span class="p">,</span><span class="w">
+                                   </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BCA"</span><span class="w">
+                               </span><span class="p">},</span><span class="w">
+                               </span><span class="p">{</span><span class="w">
+                                   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CardIssuerCode"</span><span class="p">,</span><span class="w">
+                                   </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value345"</span><span class="w">
+                               </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                       </span><span class="p">},</span><span class="w">
+                       </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notes_602656"</span><span class="w">
+                   </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
+
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+
+         </span><span class="p">]</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="nt">"line_items"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"line_item"</span><span class="p">:[</span><span class="w">
+
+       </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"regular"</span><span class="p">,</span><span class="w">                            
+             </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Testdesc04"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"code04"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"variant"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"300"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"return"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"return_type"</span><span class="p">:</span><span class="s2">"LINE_ITEM"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"RC-15"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_date"</span><span class="p">:</span><span class="s2">"2018-09-25 10:10:10"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Testdesc02"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"code02"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"variant"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"50"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"50"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+
+         </span><span class="p">]</span><span class="w">
+
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;transaction&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;billing_time&gt;</span>2018-09-26 20:10:00<span class="nt">&lt;/billing_time&gt;</span>
+            <span class="nt">&lt;custom_fields&gt;</span>
+               <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/custom_fields&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;firstname</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;lastname</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>9540000000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+            <span class="nt">&lt;gross_amount&gt;</span>500<span class="nt">&lt;/gross_amount&gt;</span>
+            <span class="nt">&lt;line_items&gt;</span>
+               <span class="nt">&lt;line_item&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;amount&gt;</span>300<span class="nt">&lt;/amount&gt;</span>
+                     <span class="nt">&lt;description&gt;</span>Testdesc04<span class="nt">&lt;/description&gt;</span>
+                     <span class="nt">&lt;item_code&gt;</span>code04<span class="nt">&lt;/item_code&gt;</span>
+                     <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+                     <span class="nt">&lt;rate&gt;</span>300<span class="nt">&lt;/rate&gt;</span>
+                     <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                     <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>300<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;variant</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;amount&gt;</span>50<span class="nt">&lt;/amount&gt;</span>
+                     <span class="nt">&lt;description&gt;</span>Testdesc02<span class="nt">&lt;/description&gt;</span>
+                     <span class="nt">&lt;item_code&gt;</span>code02<span class="nt">&lt;/item_code&gt;</span>
+                     <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+                     <span class="nt">&lt;rate&gt;</span>50<span class="nt">&lt;/rate&gt;</span>
+                     <span class="nt">&lt;return_type&gt;</span>LINE_ITEM<span class="nt">&lt;/return_type&gt;</span>
+                     <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                     <span class="nt">&lt;transaction_date&gt;</span>2018-09-25 10:10:10<span class="nt">&lt;/transaction_date&gt;</span>
+                     <span class="nt">&lt;transaction_number&gt;</span>RC-15<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;type&gt;</span>return<span class="nt">&lt;/type&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>50<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;variant</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/line_item&gt;</span>
+            <span class="nt">&lt;/line_items&gt;</span>
+            <span class="nt">&lt;notes&gt;</span>1 line items<span class="nt">&lt;/notes&gt;</span>
+            <span class="nt">&lt;number&gt;</span>Exch-1112<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;payment_details&gt;</span>
+               <span class="nt">&lt;payment&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;mode&gt;</span>CASH<span class="nt">&lt;/mode&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>200<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;attributes&gt;</span>
+                        <span class="nt">&lt;attribute&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>card_type<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>Debit Card<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>bankName<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>BCA<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>CardIssuerCode<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>value345<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/attribute&gt;</span>
+                     <span class="nt">&lt;/attributes&gt;</span>
+                     <span class="nt">&lt;mode&gt;</span>Card<span class="nt">&lt;/mode&gt;</span>
+                     <span class="nt">&lt;notes&gt;</span>notes_602656<span class="nt">&lt;/notes&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>200<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/payment&gt;</span>
+            <span class="nt">&lt;/payment_details&gt;</span>
+            <span class="nt">&lt;type&gt;</span>mixed<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/transaction&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
@@ -9050,7 +9225,7 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/transaction/add?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -9099,7 +9274,7 @@ For return transactions, it is required to pass return item&rsquo;s purchased tr
 <tr>
 <td>amount*</td>
 <td>double</td>
-<td>Net transaction amount of the return bill.</td>
+<td>Sum of regular line items of the current transaction.</td>
 </tr>
 <tr>
 <td>qty*</td>
