@@ -3119,11 +3119,14 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
     <span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>Retrieves transaction history of a customer which includes the following information.</p>
+<p>Retrieves transaction history of a customer which includes the following information. Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. </p>
 
-<p>Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. </p>
+<p>By default, it shows up to 10 results and shows results based on the <code class="prettyprint">limit</code> passed. </p>
 
-<p>You can filter the results for better understanding and sort the information in ascending or descending order.</p>
+<ul>
+<li>There is no upper limit for number of transactions.</li>
+<li>There is no duration based limit.</li>
+</ul>
 
 <aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
@@ -3265,7 +3268,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>limit</td>
 <td>int</td>
-<td>Limit the number of results to be displayed. For example, if <code class="prettyprint">limit=10</code> a maximum of 10 transactions will be displayed.</td>
+<td>Limit the number of results to be displayed (default value is 10). For example, <code class="prettyprint">limit=20</code> shows up to 20 transactions of the customer.</td>
 </tr>
 <tr>
 <td>sort</td>
@@ -3278,6 +3281,8 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id.</td>
 </tr>
 </tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 <h2 id="get-customer-redemptions">Get Customer Redemptions</h2>
 
@@ -4232,7 +4237,7 @@ user_id tag will be returned only if query param user_id = true
 
 
 </code></pre>
-<p>Retrieves the details of coupons of a specific customer - both issued and redeemed.</p>
+<p>Retrieves the details of coupons (issued, redeemed, expired) of a specific customer.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -4296,7 +4301,7 @@ user_id tag will be returned only if query param user_id = true
 <tr>
 <td>status</td>
 <td>enum</td>
-<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code>. <br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
+<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code> (based on coupon validity). <code class="prettyprint">active</code> is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (<code class="prettyprint">valid_till</code>) is a future date.<br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
 </tr>
 <tr>
 <td>series_id</td>
@@ -7904,6 +7909,8 @@ Extended fields and custom fields in transactions are used to capture additional
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>Lets you add transactions of loyalty, non-loyalty, or not-interested customers. You can add batch transactions by passing each transaction details in a separate <code class="prettyprint">transaction</code> attribute.</p>
+
+<p>Currently, there is no validation that bill amount should match with sum of line items as the data is accepted as it is from POS or integration</p>
 
 <p>Following are the key functionalities of the <code class="prettyprint">transaction/add</code> API.</p>
 
