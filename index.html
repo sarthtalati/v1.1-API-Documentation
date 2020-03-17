@@ -3295,113 +3295,158 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"coupons_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"points_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"coupons_start_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"points_start_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121613"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"redemptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832-pghhi6u1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestBill-1234"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-18 14:00:27"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121614</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-83"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17 16:03:31"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"rows"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"coupons_count"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"points_count"</span><span class="p">:</span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"coupons_start_id"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"points_start_id"</span><span class="p">:</span><span class="s2">"121613"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"redemptions"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"coupons"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"coupon"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"832-pghhi6u1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"series_id"</span><span class="p">:</span><span class="s2">"832"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"TestBill-1234"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2013-04-18 14:00:27"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121656</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-121"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17 16:05:22"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
+            </span><span class="nt">"points"</span><span class="p">:{</span><span class="w">
+               </span><span class="nt">"point"</span><span class="p">:[</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">121614</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"program_id"</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"bill-83"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="s2">"LZJ2OV"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2011-03-17 16:03:31"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"200 points against bill-83"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_store"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"International Business Park"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"redeemed_till"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">121656</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"program_id"</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"bill-121"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="s2">"JZJ29D"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2011-03-17 16:05:22"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"200 points against bill-83"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"redeemed_store"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"International Business Park"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="nt">"redeemed_till"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+               </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
-          </span><span class="p">]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;response&gt;</span>
-   <span class="nt">&lt;status&gt;</span>
-      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-      <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-   <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;customer&gt;</span>
-      <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
-      <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
-      <span class="nt">&lt;external_id&gt;</span>1234<span class="nt">&lt;/external_id&gt;</span>
-      <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
-      <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
-      <span class="nt">&lt;rows&gt;</span>3<span class="nt">&lt;/rows&gt;</span>
-      <span class="nt">&lt;coupons_count&gt;</span>3<span class="nt">&lt;/coupons_count&gt;</span>
-      <span class="nt">&lt;points_count&gt;</span>15<span class="nt">&lt;/points_count&gt;</span>
-      <span class="nt">&lt;coupons_start_id&gt;</span>2<span class="nt">&lt;/coupons_start_id&gt;</span>
-      <span class="nt">&lt;points_start_id&gt;</span>121613<span class="nt">&lt;/points_start_id&gt;</span>
-      <span class="nt">&lt;redemptions&gt;</span>
-         <span class="nt">&lt;coupons&gt;</span>
-            <span class="nt">&lt;coupon&gt;</span>
-               <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
-               <span class="nt">&lt;code&gt;</span>832-pghhi6u1<span class="nt">&lt;/code&gt;</span>
-               <span class="nt">&lt;series_id&gt;</span>832<span class="nt">&lt;/series_id&gt;</span>
-               <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
-               <span class="nt">&lt;discount_code&gt;</span>abc<span class="nt">&lt;/discount_code&gt;</span>
-               <span class="nt">&lt;discount_type&gt;</span>PERC<span class="nt">&lt;/discount_type&gt;</span>
-               <span class="nt">&lt;transaction_number&gt;</span>TestBill-1234<span class="nt">&lt;/transaction_number&gt;</span>
-               <span class="nt">&lt;redeemed_time&gt;</span>2013-04-18 14:00:27<span class="nt">&lt;/redeemed_time&gt;</span>
-               <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
-            <span class="nt">&lt;/coupon&gt;</span>
-         <span class="nt">&lt;/coupons&gt;</span>
-         <span class="nt">&lt;points&gt;</span>
-            <span class="nt">&lt;point&gt;</span>
-               <span class="nt">&lt;id&gt;</span>121614<span class="nt">&lt;/id&gt;</span>
-               <span class="nt">&lt;points_redeemed&gt;</span>200<span class="nt">&lt;/points_redeemed&gt;</span>
-               <span class="nt">&lt;transaction_number&gt;</span>bill-83<span class="nt">&lt;/transaction_number&gt;</span>
-               <span class="nt">&lt;redeemed_time&gt;</span>2011-03-17 16:03:31<span class="nt">&lt;/redeemed_time&gt;</span>
-               <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
-            <span class="nt">&lt;/point&gt;</span>
-            <span class="nt">&lt;point&gt;</span>
-               <span class="nt">&lt;id&gt;</span>121615<span class="nt">&lt;/id&gt;</span>
-               <span class="nt">&lt;points_redeemed&gt;</span>200<span class="nt">&lt;/points_redeemed&gt;</span>
-               <span class="nt">&lt;transaction_number&gt;</span>bill-121<span class="nt">&lt;/transaction_number&gt;</span>
-               <span class="nt">&lt;redeemed_time&gt;</span>2011-03-17 16:05:22<span class="nt">&lt;/redeemed_time&gt;</span>
-               <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
-            <span class="nt">&lt;/point&gt;</span>
-         <span class="nt">&lt;/points&gt;</span>
-      <span class="nt">&lt;/redemptions&gt;</span>
-   <span class="nt">&lt;/customer&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;customer&gt;</span>
+         <span class="nt">&lt;coupons_count&gt;</span>3<span class="nt">&lt;/coupons_count&gt;</span>
+         <span class="nt">&lt;coupons_start_id&gt;</span>2<span class="nt">&lt;/coupons_start_id&gt;</span>
+         <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+         <span class="nt">&lt;external_id&gt;</span>1234<span class="nt">&lt;/external_id&gt;</span>
+         <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+         <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+         <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+         <span class="nt">&lt;points_count&gt;</span>15<span class="nt">&lt;/points_count&gt;</span>
+         <span class="nt">&lt;points_start_id&gt;</span>121613<span class="nt">&lt;/points_start_id&gt;</span>
+         <span class="nt">&lt;redemptions&gt;</span>
+            <span class="nt">&lt;coupons&gt;</span>
+               <span class="nt">&lt;coupon&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>832-pghhi6u1<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;description&gt;</span>Sample description<span class="nt">&lt;/description&gt;</span>
+                  <span class="nt">&lt;discount_code&gt;</span>abc<span class="nt">&lt;/discount_code&gt;</span>
+                  <span class="nt">&lt;discount_type&gt;</span>PERC<span class="nt">&lt;/discount_type&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>3<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
+                  <span class="nt">&lt;redeemed_time&gt;</span>2013-04-18 14:00:27<span class="nt">&lt;/redeemed_time&gt;</span>
+                  <span class="nt">&lt;series_id&gt;</span>832<span class="nt">&lt;/series_id&gt;</span>
+                  <span class="nt">&lt;transaction_number&gt;</span>TestBill-1234<span class="nt">&lt;/transaction_number&gt;</span>
+               <span class="nt">&lt;/coupon&gt;</span>
+            <span class="nt">&lt;/coupons&gt;</span>
+            <span class="nt">&lt;points&gt;</span>
+               <span class="nt">&lt;point&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>121614<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;notes&gt;</span>200 points against bill-83<span class="nt">&lt;/notes&gt;</span>
+                     <span class="nt">&lt;points_redeemed&gt;</span>200<span class="nt">&lt;/points_redeemed&gt;</span>
+                     <span class="nt">&lt;program_id&gt;</span>1234<span class="nt">&lt;/program_id&gt;</span>
+                     <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
+                     <span class="nt">&lt;redeemed_store&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>international_business_park<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>International Business Park<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;/redeemed_store&gt;</span>
+                     <span class="nt">&lt;redeemed_till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>bukl.till<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>bukl.till<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;/redeemed_till&gt;</span>
+                     <span class="nt">&lt;redeemed_time&gt;</span>2011-03-17 16:03:31<span class="nt">&lt;/redeemed_time&gt;</span>
+                     <span class="nt">&lt;transaction_number&gt;</span>bill-83<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;validation_code&gt;</span>LZJ2OV<span class="nt">&lt;/validation_code&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>121656<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;notes&gt;</span>200 points against bill-83<span class="nt">&lt;/notes&gt;</span>
+                     <span class="nt">&lt;points_redeemed&gt;</span>30<span class="nt">&lt;/points_redeemed&gt;</span>
+                     <span class="nt">&lt;program_id&gt;</span>1234<span class="nt">&lt;/program_id&gt;</span>
+                     <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
+                     <span class="nt">&lt;redeemed_store&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>international_business_park<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>International Business Park<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;/redeemed_store&gt;</span>
+                     <span class="nt">&lt;redeemed_till&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>bukl.till<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>bukl.till<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;/redeemed_till&gt;</span>
+                     <span class="nt">&lt;redeemed_time&gt;</span>2011-03-17 16:05:22<span class="nt">&lt;/redeemed_time&gt;</span>
+                     <span class="nt">&lt;transaction_number&gt;</span>bill-121<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;validation_code&gt;</span>JZJ29D<span class="nt">&lt;/validation_code&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/point&gt;</span>
+            <span class="nt">&lt;/points&gt;</span>
+         <span class="nt">&lt;/redemptions&gt;</span>
+         <span class="nt">&lt;rows&gt;</span>3<span class="nt">&lt;/rows&gt;</span>
+      <span class="nt">&lt;/customer&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <p>This API allows you to retrieve points and coupons redemption history of a customer. You can filter the results by type, duration, coupon ids start with, and coupon ids end with. Besides filters you can also sort the results by ascending or descending order by redemption id/time and limit number of results to retrieve.</p>
 
@@ -4301,7 +4346,7 @@ user_id tag will be returned only if query param user_id = true
 <tr>
 <td>status</td>
 <td>enum</td>
-<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code> (based on coupon validity). <code class="prettyprint">active</code> is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (<code class="prettyprint">valid_till</code>) is a future date.<br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
+<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">unredeemed</code>, <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code> (based on coupon validity). <code class="prettyprint">active</code> is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (<code class="prettyprint">valid_till</code>) is a future date.<br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
 </tr>
 <tr>
 <td>series_id</td>
@@ -7353,6 +7398,10 @@ Extended fields and custom fields in transactions are used to capture additional
           </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"redemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"pointsRedemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1427813</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"   couponRedemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
         </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -7556,202 +7605,240 @@ Extended fields and custom fields in transactions are used to capture additional
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-  <span class="nt">&lt;transaction&gt;</span>
-    <span class="nt">&lt;bill_client_id&gt;&lt;/bill_client_id&gt;</span>
-    <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
-    <span class="nt">&lt;number&gt;</span>BILL99<span class="nt">&lt;/number&gt;</span>
-    <span class="nt">&lt;amount&gt;</span>5000<span class="nt">&lt;/amount&gt;</span>
-    <span class="nt">&lt;currency_code&gt;</span>INR<span class="nt">&lt;/currency_code&gt;</span>
-    <span class="nt">&lt;notes&gt;</span>2 line items<span class="nt">&lt;/notes&gt;</span>
-    <span class="nt">&lt;billing_time&gt;</span>2018-04-01<span class="nt">&lt;/billing_time&gt;</span>
-    <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
-    <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-    <span class="nt">&lt;shipping_source_till_code&gt;&lt;/shipping_source_till_code&gt;</span>
-    <span class="nt">&lt;source&gt;</span>ECOMM<span class="nt">&lt;/source&gt;</span>
-    <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-    <span class="nt">&lt;credit_notes&gt;&lt;/credit_notes&gt;</span>
-    <span class="nt">&lt;discount&gt;</span>10<span class="nt">&lt;/discount&gt;</span>
-    <span class="nt">&lt;customer&gt;</span>
-      <span class="nt">&lt;mobile&gt;</span>919999000000<span class="nt">&lt;/mobile&gt;</span>
-      <span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-      <span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-      <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
-      <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
-    <span class="nt">&lt;/customer&gt;</span>
-    <span class="nt">&lt;extended_fields&gt;</span>
-      <span class="nt">&lt;field&gt;</span>
-        <span class="nt">&lt;name&gt;</span>CentralGST<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;value&gt;</span>8.5<span class="nt">&lt;/value&gt;</span>
-      <span class="nt">&lt;/field&gt;</span>
-      <span class="nt">&lt;field&gt;</span>
-        <span class="nt">&lt;name&gt;</span>cashier_id<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;value&gt;</span>12345678<span class="nt">&lt;/value&gt;</span>
-      <span class="nt">&lt;/field&gt;</span>
-    <span class="nt">&lt;/extended_fields&gt;</span>
-    <span class="nt">&lt;payment_details&gt;</span>
-      <span class="nt">&lt;payment&gt;</span>
-        <span class="nt">&lt;mode&gt;</span>CASH<span class="nt">&lt;/mode&gt;</span>
-        <span class="nt">&lt;value&gt;</span>100<span class="nt">&lt;/value&gt;</span>
-      <span class="nt">&lt;/payment&gt;</span>
-      <span class="nt">&lt;payment&gt;</span>
-        <span class="nt">&lt;mode&gt;</span>CREDIT<span class="nt">&lt;/mode&gt;</span>
-        <span class="nt">&lt;mode&gt;</span>CHECKAPI<span class="nt">&lt;/mode&gt;</span>
-        <span class="nt">&lt;value&gt;</span>4000<span class="nt">&lt;/value&gt;</span>
-        <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-        <span class="nt">&lt;attributes&gt;</span>
-          <span class="nt">&lt;attribute&gt;</span>
-            <span class="nt">&lt;name&gt;</span>BankNameAPI<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/attribute&gt;</span>
-          <span class="nt">&lt;attribute&gt;</span>
-            <span class="nt">&lt;name&gt;</span>branch_nameAPI<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/attribute&gt;</span>
-        <span class="nt">&lt;/attributes&gt;</span>
-        <span class="nt">&lt;notes&gt;</span>notes_602656<span class="nt">&lt;/notes&gt;</span>
-      <span class="nt">&lt;/payment&gt;</span>
-    <span class="nt">&lt;/payment_details&gt;</span>
-    <span class="nt">&lt;custom_fields&gt;</span>
-      <span class="nt">&lt;field&gt;</span>
-        <span class="nt">&lt;name&gt;</span>Bank<span class="nt">&lt;/name&gt;</span>
-        <span class="nt">&lt;value&gt;</span>SBI<span class="nt">&lt;/value&gt;</span>
-      <span class="nt">&lt;/field&gt;</span>
-    <span class="nt">&lt;/custom_fields&gt;</span>
-    <span class="nt">&lt;line_items&gt;</span>
-      <span class="nt">&lt;line_item&gt;</span>
-        <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-        <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-        <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
-        <span class="nt">&lt;base_item_code&gt;&lt;/base_item_code&gt;</span>
-        <span class="nt">&lt;discount_value&gt;</span>234<span class="nt">&lt;/discount_value&gt;</span>
-        <span class="nt">&lt;extended_fields&gt;</span>
-          <span class="nt">&lt;field&gt;</span>
-            <span class="nt">&lt;name&gt;</span>booking_type<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>Online<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/field&gt;</span>
-          <span class="nt">&lt;field&gt;</span>
-            <span class="nt">&lt;name&gt;</span>MetalRate<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>120.55<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/field&gt;</span>
-        <span class="nt">&lt;/extended_fields&gt;</span>
-        <span class="nt">&lt;variant&gt;&lt;/variant&gt;</span>
-        <span class="nt">&lt;addon_items&gt;</span>
-          <span class="nt">&lt;addon_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Addon-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/addon_item&gt;</span>
-          <span class="nt">&lt;addon_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Addon-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/addon_item&gt;</span>
-        <span class="nt">&lt;/addon_items&gt;</span>
-        <span class="nt">&lt;combo_items&gt;</span>
-          <span class="nt">&lt;combo_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/combo_item&gt;</span>
-          <span class="nt">&lt;combo_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/combo_item&gt;</span>
-        <span class="nt">&lt;/combo_items&gt;</span>
-        <span class="nt">&lt;split_items&gt;</span>
-          <span class="nt">&lt;split_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
-          <span class="nt">&lt;/split_item&gt;</span>
-          <span class="nt">&lt;split_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
-          <span class="nt">&lt;/split_item&gt;</span>
-        <span class="nt">&lt;/split_items&gt;</span>
-        <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-        <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-        <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-        <span class="nt">&lt;attributes&gt;</span>
-          <span class="nt">&lt;attribute&gt;</span>
-            <span class="nt">&lt;name&gt;</span>brand<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>Levis<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/attribute&gt;</span>
-        <span class="nt">&lt;/attributes&gt;</span>
-      <span class="nt">&lt;/line_item&gt;</span>
-      <span class="nt">&lt;line_item&gt;</span>
-        <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-        <span class="nt">&lt;transaction_number&gt;</span>Trans99<span class="nt">&lt;/transaction_number&gt;</span>
-        <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-        <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-        <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
-        <span class="nt">&lt;variant&gt;</span>variant-33<span class="nt">&lt;/variant&gt;</span>
-        <span class="nt">&lt;notes&gt;&lt;/notes&gt;</span>
-        <span class="nt">&lt;addon_items&gt;</span>
-          <span class="nt">&lt;addon_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Addon-043<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-            <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/addon_item&gt;</span>
-          <span class="nt">&lt;addon_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Addon-043<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-            <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/addon_item&gt;</span>
-        <span class="nt">&lt;/addon_items&gt;</span>
-        <span class="nt">&lt;combo_items&gt;</span>
-          <span class="nt">&lt;combo_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/combo_item&gt;</span>
-          <span class="nt">&lt;combo_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;description&gt;&lt;/description&gt;</span>
-          <span class="nt">&lt;/combo_item&gt;</span>
-        <span class="nt">&lt;/combo_items&gt;</span>
-        <span class="nt">&lt;split_items&gt;</span>
-          <span class="nt">&lt;split_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-            <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
-          <span class="nt">&lt;/split_item&gt;</span>
-          <span class="nt">&lt;split_item&gt;</span>
-            <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
-            <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
-            <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-            <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-            <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
-          <span class="nt">&lt;/split_item&gt;</span>
-        <span class="nt">&lt;/split_items&gt;</span>
-        <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-        <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-        <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-        <span class="nt">&lt;attributes&gt;</span>
-          <span class="nt">&lt;attribute&gt;</span>
-            <span class="nt">&lt;name&gt;</span>brand<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;value&gt;</span>Levis<span class="nt">&lt;/value&gt;</span>
-          <span class="nt">&lt;/attribute&gt;</span>
-        <span class="nt">&lt;/attributes&gt;</span>
-      <span class="nt">&lt;/line_item&gt;</span>
-    <span class="nt">&lt;/line_items&gt;</span>
-    <span class="nt">&lt;associate_details&gt;</span>
-      <span class="nt">&lt;code&gt;</span>hiraxdhara<span class="nt">&lt;/code&gt;</span>
-      <span class="nt">&lt;name&gt;</span>Chin<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;/associate_details&gt;</span>
-  <span class="nt">&lt;/transaction&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;transaction&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>5000<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;associate_details&gt;</span>
+               <span class="nt">&lt;code&gt;</span>hiraxdhara<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;name&gt;</span>Chin<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;/associate_details&gt;</span>
+            <span class="nt">&lt;bill_client_id</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;billing_time&gt;</span>2018-04-01<span class="nt">&lt;/billing_time&gt;</span>
+            <span class="nt">&lt;credit_notes</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;currency_code&gt;</span>INR<span class="nt">&lt;/currency_code&gt;</span>
+            <span class="nt">&lt;custom_fields&gt;</span>
+               <span class="nt">&lt;field&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>Bank<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>SBI<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;/custom_fields&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+               <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>919999000000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+            <span class="nt">&lt;discount&gt;</span>10<span class="nt">&lt;/discount&gt;</span>
+            <span class="nt">&lt;extended_fields&gt;</span>
+               <span class="nt">&lt;field&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>CentralGST<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>8.5<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>cashier_id<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>12345678<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;/extended_fields&gt;</span>
+            <span class="nt">&lt;gross_amount&gt;</span>1000<span class="nt">&lt;/gross_amount&gt;</span>
+            <span class="nt">&lt;line_items&gt;</span>
+               <span class="nt">&lt;line_item&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;addon_items&gt;</span>
+                        <span class="nt">&lt;addon_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Addon-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Addon-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/addon_item&gt;</span>
+                     <span class="nt">&lt;/addon_items&gt;</span>
+                     <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+                     <span class="nt">&lt;attributes&gt;</span>
+                        <span class="nt">&lt;attribute&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>brand<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;value&gt;</span>Levis<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/attribute&gt;</span>
+                     <span class="nt">&lt;/attributes&gt;</span>
+                     <span class="nt">&lt;base_item_code</span> <span class="nt">/&gt;</span>
+                     <span class="nt">&lt;combo_items&gt;</span>
+                        <span class="nt">&lt;combo_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/combo_item&gt;</span>
+                     <span class="nt">&lt;/combo_items&gt;</span>
+                     <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                     <span class="nt">&lt;discount_value&gt;</span>234<span class="nt">&lt;/discount_value&gt;</span>
+                     <span class="nt">&lt;extended_fields&gt;</span>
+                        <span class="nt">&lt;field&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>booking_type<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>Online<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>MetalRate<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>120.55<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/field&gt;</span>
+                     <span class="nt">&lt;/extended_fields&gt;</span>
+                     <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
+                     <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
+                     <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                     <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                     <span class="nt">&lt;split_items&gt;</span>
+                        <span class="nt">&lt;split_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/split_item&gt;</span>
+                     <span class="nt">&lt;/split_items&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;variant</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;addon_items&gt;</span>
+                        <span class="nt">&lt;addon_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Addon-043<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                              <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Addon-043<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                              <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/addon_item&gt;</span>
+                     <span class="nt">&lt;/addon_items&gt;</span>
+                     <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
+                     <span class="nt">&lt;attributes&gt;</span>
+                        <span class="nt">&lt;attribute&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>brand<span class="nt">&lt;/name&gt;</span>
+                           <span class="nt">&lt;value&gt;</span>Levis<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/attribute&gt;</span>
+                     <span class="nt">&lt;/attributes&gt;</span>
+                     <span class="nt">&lt;combo_items&gt;</span>
+                        <span class="nt">&lt;combo_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>combo-033<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/combo_item&gt;</span>
+                     <span class="nt">&lt;/combo_items&gt;</span>
+                     <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                     <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
+                     <span class="nt">&lt;notes</span> <span class="nt">/&gt;</span>
+                     <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
+                     <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                     <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                     <span class="nt">&lt;split_items&gt;</span>
+                        <span class="nt">&lt;split_item&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                              <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;description&gt;</span>Cheese dip<span class="nt">&lt;/description&gt;</span>
+                              <span class="nt">&lt;item_code&gt;</span>Cheese dip<span class="nt">&lt;/item_code&gt;</span>
+                              <span class="nt">&lt;quantity&gt;</span>1<span class="nt">&lt;/quantity&gt;</span>
+                              <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/split_item&gt;</span>
+                     <span class="nt">&lt;/split_items&gt;</span>
+                     <span class="nt">&lt;transaction_number&gt;</span>Trans99<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;variant&gt;</span>variant-33<span class="nt">&lt;/variant&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/line_item&gt;</span>
+            <span class="nt">&lt;/line_items&gt;</span>
+            <span class="nt">&lt;notes&gt;</span>2 line items<span class="nt">&lt;/notes&gt;</span>
+            <span class="nt">&lt;number&gt;</span>BILL99<span class="nt">&lt;/number&gt;</span>
+            <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+            <span class="nt">&lt;payment_details&gt;</span>
+               <span class="nt">&lt;payment&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;mode&gt;</span>CASH<span class="nt">&lt;/mode&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>100<span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;attributes&gt;</span>
+                        <span class="nt">&lt;attribute&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>BankNameAPI<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;element&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>branch_nameAPI<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;value&gt;</span>value_602656<span class="nt">&lt;/value&gt;</span>
+                           <span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;/attribute&gt;</span>
+                     <span class="nt">&lt;/attributes&gt;</span>
+                     <span class="nt">&lt;mode&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>CREDIT<span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>CHECKAPI<span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/mode&gt;</span>
+                     <span class="nt">&lt;notes&gt;</span>notes_602656<span class="nt">&lt;/notes&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>4000<span class="nt">&lt;/element&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>500<span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/payment&gt;</span>
+            <span class="nt">&lt;/payment_details&gt;</span>
+            <span class="nt">&lt;redemptions&gt;</span>
+               <span class="nt">&lt;couponRedemptions</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;pointsRedemptions&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>1427813<span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/pointsRedemptions&gt;</span>
+            <span class="nt">&lt;/redemptions&gt;</span>
+            <span class="nt">&lt;shipping_source_till_code</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;source&gt;</span>ECOMM<span class="nt">&lt;/source&gt;</span>
+            <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/transaction&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 
 </code></pre>
@@ -8069,6 +8156,16 @@ Extended fields and custom fields in transactions are used to capture additional
 <td>not_interested_reason</td>
 <td>string</td>
 <td>Reason why the customer is not interested to register. Applicable only for not-interested transactions.</td>
+</tr>
+<tr>
+<td>pointsRedemptions</td>
+<td>array</td>
+<td>Unique points redemption id(s) that you want to apply for the transaction. For example, [727272, 237878]. `</td>
+</tr>
+<tr>
+<td>couponRedemptions</td>
+<td>array</td>
+<td>Unique coupon redemption id(s) that you want to apply for the transaction. For example, [727298, 237856].</td>
 </tr>
 <tr>
 <td>referral_code</td>
@@ -12088,79 +12185,133 @@ The validation code is issued either to mobile number, or email id or both, base
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-      </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234r743"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample notes"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6D18DU"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-21 11:30:11"</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"till_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 points redemption by SMS."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
-<span class="nt">&lt;redeem&gt;</span>
-<span class="nt">&lt;points_redeemed&gt;</span>100<span class="nt">&lt;/points_redeemed&gt;</span>
-<span class="nt">&lt;transaction_number&gt;</span>1234r743<span class="nt">&lt;/transaction_number&gt;</span>
-<span class="nt">&lt;customer&gt;</span>
-<span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-<span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-<span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-<span class="nt">&lt;/customer&gt;</span>
-<span class="nt">&lt;notes&gt;</span>Sample notes<span class="nt">&lt;/notes&gt;</span>
-<span class="nt">&lt;validation_code&gt;</span>6D18DU<span class="nt">&lt;/validation_code&gt;</span>
-<span class="nt">&lt;redemption_time&gt;</span>2016-11-21 11:30:11<span class="nt">&lt;/redemption_time&gt;</span>
-<span class="nt">&lt;/redeem&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;redeem&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;customer&gt;</span>
+               <span class="nt">&lt;email</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;/customer&gt;</span>
+            <span class="nt">&lt;notes&gt;</span>10 points redemption by SMS.<span class="nt">&lt;/notes&gt;</span>
+            <span class="nt">&lt;points_redeemed&gt;</span>10<span class="nt">&lt;/points_redeemed&gt;</span>
+            <span class="nt">&lt;redemption_time&gt;</span>2020-03-13 18:02:34<span class="nt">&lt;/redemption_time&gt;</span>
+            <span class="nt">&lt;till_id</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;transaction_number&gt;</span>red123<span class="nt">&lt;/transaction_number&gt;</span>
+            <span class="nt">&lt;validation_code&gt;</span>4PZGXC<span class="nt">&lt;/validation_code&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/redeem&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"responses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"redeemed_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"257"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"800"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Points Redeemed"</span><span class="w">
+    </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"responses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919700000000"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98662653"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"redemption_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r0njPT"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"redeemed_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"redeemed_local_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2906</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1425658</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"case_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"num_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"currency_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"points_redemption_summary_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1425658"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"redeemed_on_bill_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"redeemed_on_bill_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"points"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Points Redeemed"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>  
-<span class="nt">&lt;status&gt;</span>    
-<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>    
-<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>    
-<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>  
-<span class="nt">&lt;/status&gt;</span>  
-<span class="nt">&lt;responses&gt;</span>    
-<span class="nt">&lt;points&gt;</span>      
-<span class="nt">&lt;mobile&gt;</span>44700900999<span class="nt">&lt;/mobile&gt;</span>
-<span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-<span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-<span class="nt">&lt;points_redeemed&gt;</span>100<span class="nt">&lt;/points_redeemed&gt;</span>      
-<span class="nt">&lt;redeemed_value&gt;</span>100<span class="nt">&lt;/redeemed_value&gt;</span>
-<span class="nt">&lt;balance&gt;</span>257<span class="nt">&lt;/balance&gt;</span>
-<span class="nt">&lt;item_status&gt;</span>        
-<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>        
-<span class="nt">&lt;code&gt;</span>800<span class="nt">&lt;/code&gt;</span>        
-<span class="nt">&lt;message&gt;</span>Points Redeemed<span class="nt">&lt;/message&gt;</span>      
-<span class="nt">&lt;/item_status&gt;</span>    
-<span class="nt">&lt;/points&gt;</span>  
-<span class="nt">&lt;/responses&gt;</span>
-<span class="nt">&lt;/response&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;responses&gt;</span>
+         <span class="nt">&lt;points&gt;</span>
+            <span class="nt">&lt;balance&gt;</span>2906<span class="nt">&lt;/balance&gt;</span>
+            <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;external_id</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;item_status&gt;</span>
+               <span class="nt">&lt;code&gt;</span>800<span class="nt">&lt;/code&gt;</span>
+               <span class="nt">&lt;message&gt;</span>Points Redeemed<span class="nt">&lt;/message&gt;</span>
+               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>919700000000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;points_redeemed&gt;</span>10<span class="nt">&lt;/points_redeemed&gt;</span>
+            <span class="nt">&lt;redeemed_local_value&gt;</span>10<span class="nt">&lt;/redeemed_local_value&gt;</span>
+            <span class="nt">&lt;redeemed_value&gt;</span>10<span class="nt">&lt;/redeemed_value&gt;</span>
+            <span class="nt">&lt;redemption_id&gt;</span>r0njPT<span class="nt">&lt;/redemption_id&gt;</span>
+            <span class="nt">&lt;side_effects&gt;</span>
+               <span class="nt">&lt;effect&gt;</span>
+                  <span class="nt">&lt;element&gt;</span>
+                     <span class="nt">&lt;case_value&gt;</span>true<span class="nt">&lt;/case_value&gt;</span>
+                     <span class="nt">&lt;currency_value&gt;</span>10<span class="nt">&lt;/currency_value&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>1425658<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;num_points&gt;</span>10<span class="nt">&lt;/num_points&gt;</span>
+                     <span class="nt">&lt;points_redemption_summary_id&gt;</span>1425658<span class="nt">&lt;/points_redemption_summary_id&gt;</span>
+                     <span class="nt">&lt;redeemed_on_bill_id&gt;</span>-1<span class="nt">&lt;/redeemed_on_bill_id&gt;</span>
+                     <span class="nt">&lt;redeemed_on_bill_number&gt;</span>red123<span class="nt">&lt;/redeemed_on_bill_number&gt;</span>
+                     <span class="nt">&lt;type&gt;</span>points<span class="nt">&lt;/type&gt;</span>
+                     <span class="nt">&lt;validation_code&gt;</span>4PZGXC<span class="nt">&lt;/validation_code&gt;</span>
+                  <span class="nt">&lt;/element&gt;</span>
+               <span class="nt">&lt;/effect&gt;</span>
+            <span class="nt">&lt;/side_effects&gt;</span>
+            <span class="nt">&lt;user_id&gt;</span>98662653<span class="nt">&lt;/user_id&gt;</span>
+         <span class="nt">&lt;/points&gt;</span>
+      <span class="nt">&lt;/responses&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <p>You can redeem points of a customer using the issued validation code. Ensure that you have validated the points to be redeemed and issued validation code to the customer&rsquo;s mobile number before redeeming. You need to have the validation code to process points redemption.</p>
 
@@ -12255,6 +12406,11 @@ You need to use the validation code within the validity period. You can check th
 </tr>
 </thead><tbody>
 <tr>
+<td>redemption_id</td>
+<td>long</td>
+<td>Unique reference ID generated for the redemption. This is also required to reverse redeemed points in case of transaction return.</td>
+</tr>
+<tr>
 <td>points_redeemed</td>
 <td>int</td>
 <td>Number of points redeemed.</td>
@@ -12268,6 +12424,11 @@ You need to use the validation code within the validity period. You can check th
 <td>balance</td>
 <td>int</td>
 <td>Remaining points in the customer&rsquo;s account after redemption.</td>
+</tr>
+<tr>
+<td>side_effects</td>
+<td>obj</td>
+<td>Other effects due to points redemption. You will see details such bill number/ID on which points are redeemed.</td>
 </tr>
 </tbody></table>
 
