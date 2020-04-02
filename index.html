@@ -8590,11 +8590,12 @@ Extended fields and custom fields in transactions are used to capture additional
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have</p>
+<p>Lets you add transactions with a different currency using the currency conversion ratio. The following are the prerequisites or checklists for the API.</p>
 
 <ul>
-<li>disabled <code class="prettyprint">ERR_CURRENCY_CONVERSION_DISABLED</code> on the Billing Configuration page of InTouch Settings</li>
-<li>added relevant currency conversion ratios in the back-end</li>
+<li>Enable <code class="prettyprint">CONF_CURRENCY_CONVERSION_ENABLE</code> on the Billing Configuration page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch POS Configurations</strong>.</li>
+<li>Configure org&rsquo;s base currency and supported currencies on the Organization Setup page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Organization Setup</strong> &gt; <strong>Organization Profile</strong>.</li>
+<li>Add relevant currency conversion ratios in the back-end or <code class="prettyprint">/v2/currencyratio</code> API.</li>
 <li>the destination currency id. If no currency id is passed, the transaction gets converted to the org&rsquo;s base currency</li>
 </ul>
 
@@ -10509,285 +10510,590 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918036151289"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"billing_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"billing_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webstore1"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37812256"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL7"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"local_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25981"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"70.0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"base_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indian Rupee"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"₹"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"220"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Euro"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"€"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000.0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.0"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01 00:00:00"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-16 12:10:59"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"serial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"item_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"skuattr9variant-33"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"soap"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"combo_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"combo_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"addon_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"addon_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"split_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"split_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction retrieved successfully"</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"transactions"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"count"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"transaction"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+               </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"918036151289"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"XYPZ001"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"instore"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"billing_till"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"mobilepush.1"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"mobilepush.1"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"billing_store"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"storecode"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"webstore1"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"293790472"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"number"</span><span class="p">:</span><span class="s2">"004_QAT4967003427638098544"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"store"</span><span class="p">:</span><span class="s2">"qat_dohafestivalcityqatar.1"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"source"</span><span class="p">:</span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"tax_amount"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"discount_transaction"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"sales_localcurrency"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"171"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"tax_amount"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"cashier_id"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"Leah"</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"local_currency"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"69433407"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"ratio"</span><span class="p">:</span><span class="s2">"1.009"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"base_currency"</span><span class="p">:{</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"227"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"United Arab Emirates Dirham"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"د.إ"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nt">"transaction_currency"</span><span class="p">:{</span><span class="w">
+                     </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Qatari riyal"</span><span class="p">,</span><span class="w">
+                     </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"﷼"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"171.0"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"172.47"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">"171.0"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"172.47"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="s2">"2020-03-27 13:30:58"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="s2">"2020-03-28 07:01:59"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"POS, Leah, 14, MNS, 4.1.0.0,687849,QATAR"</span><span class="p">,</span><span class="w">
+               </span><span class="nt">"line_items"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"line_item"</span><span class="p">:[</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"20119183"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"MOZZARELLA GIRASOLI"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"31.27"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"31.27"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"img_url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"31.27"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"returnable_days"</span><span class="p">:</span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"tax_code"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"TAXABLE"</span><span class="w">
+                              </span><span class="p">},</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"vat_amount"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"local_currency"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"228779692"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"ratio"</span><span class="p">:</span><span class="s2">"1.009"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"base_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"227"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"United Arab Emirates Dirham"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"د.إ"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"transaction_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Qatari riyal"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"﷼"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"31.267"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"31.267"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"31.267"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"item_group"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"A12010101"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"60272845"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"8 CHOC HAZLE CHUNK COOKIE"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"20.17"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"20.17"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"img_url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"20.17"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"returnable_days"</span><span class="p">:</span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"tax_code"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"TAXABLE"</span><span class="w">
+                              </span><span class="p">},</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"vat_amount"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"local_currency"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"228779693"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"ratio"</span><span class="p">:</span><span class="s2">"1.009"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"base_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"227"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"United Arab Emirates Dirham"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"د.إ"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"transaction_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Qatari riyal"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"﷼"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"20.172"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"20.172"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"20.172"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"item_group"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"A11020301"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">},</span><span class="w">
+                     </span><span class="p">{</span><span class="w">
+                        </span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"serial"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"item_code"</span><span class="p">:</span><span class="s2">"21033569"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"SUPERSOFT THICK"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"qty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"15.13"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"15.13"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"img_url"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"15.13"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"returnable_days"</span><span class="p">:</span><span class="s2">"-1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nt">"extended_fields"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"field"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"tax_code"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"TAXABLE"</span><span class="w">
+                              </span><span class="p">},</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"vat_amount"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"local_currency"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"228779702"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"ratio"</span><span class="p">:</span><span class="s2">"1.009"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"base_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"227"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"United Arab Emirates Dirham"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"د.إ"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"transaction_currency"</span><span class="p">:{</span><span class="w">
+                              </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"164"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"Qatari riyal"</span><span class="p">,</span><span class="w">
+                              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="s2">"﷼"</span><span class="w">
+                           </span><span class="p">},</span><span class="w">
+                           </span><span class="nt">"amount"</span><span class="p">:</span><span class="s2">"15.129"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"15.129"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"rate"</span><span class="p">:</span><span class="s2">"15.129"</span><span class="p">,</span><span class="w">
+                           </span><span class="nt">"discount"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"combo_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"combo_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"addon_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"addon_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"split_items"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"split_item"</span><span class="p">:[</span><span class="w">
+
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="nt">"attributes"</span><span class="p">:{</span><span class="w">
+                           </span><span class="nt">"attribute"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">{</span><span class="w">
+                                 </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"item_group"</span><span class="p">,</span><span class="w">
+                                 </span><span class="nt">"value"</span><span class="p">:</span><span class="s2">"A11020201"</span><span class="w">
+                              </span><span class="p">}</span><span class="w">
+                           </span><span class="p">]</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                     </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="nt">"item_status"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"code"</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"Transaction retrieved successfully"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code>
-
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-    <span class="nt">&lt;response&gt;</span>
-        <span class="nt">&lt;status&gt;</span>
-            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-            <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-        <span class="nt">&lt;/status&gt;</span>
-        <span class="nt">&lt;transactions&gt;</span>
-            <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
-            <span class="nt">&lt;transaction&gt;</span>
-                <span class="nt">&lt;element&gt;</span>
-                    <span class="nt">&lt;amount&gt;</span>5000<span class="nt">&lt;/amount&gt;</span>
-                    <span class="nt">&lt;auto_update_time&gt;</span>2019-12-16 12:10:59<span class="nt">&lt;/auto_update_time&gt;</span>
-                    <span class="nt">&lt;billing_store&gt;</span>
-                        <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
-                        <span class="nt">&lt;name&gt;</span>webstore1<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;/billing_store&gt;</span>
-                    <span class="nt">&lt;billing_till&gt;</span>
-                        <span class="nt">&lt;code&gt;</span>mobilepush.1<span class="nt">&lt;/code&gt;</span>
-                        <span class="nt">&lt;name&gt;</span>mobilepush.1<span class="nt">&lt;/name&gt;</span>
-                    <span class="nt">&lt;/billing_till&gt;</span>
-                    <span class="nt">&lt;billing_time&gt;</span>2018-04-01 00:00:00<span class="nt">&lt;/billing_time&gt;</span>
-                    <span class="nt">&lt;custom_fields&gt;</span>
-                        <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/custom_fields&gt;</span>
-                    <span class="nt">&lt;customer&gt;</span>
-                        <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
-                        <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
-                        <span class="nt">&lt;first_name&gt;</span>Tom<span class="nt">&lt;/first_name&gt;</span>
-                        <span class="nt">&lt;last_name&gt;</span>Sawyer<span class="nt">&lt;/last_name&gt;</span>
-                        <span class="nt">&lt;mobile&gt;</span>918036151289<span class="nt">&lt;/mobile&gt;</span>
-                        <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-                    <span class="nt">&lt;/customer&gt;</span>
-                    <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
-                    <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                    <span class="nt">&lt;extended_fields&gt;</span>
-                        <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                    <span class="nt">&lt;/extended_fields&gt;</span>
-                    <span class="nt">&lt;local_currency&gt;</span>
-                        <span class="nt">&lt;id&gt;</span>25981<span class="nt">&lt;/id&gt;</span>
-                        <span class="nt">&lt;ratio&gt;</span>70.0<span class="nt">&lt;/ratio&gt;</span>
-                        <span class="nt">&lt;base_currency&gt;</span>
-                            <span class="nt">&lt;id&gt;</span>23<span class="nt">&lt;/id&gt;</span>
-                            <span class="nt">&lt;name&gt;</span>Indian Rupee <span class="nt">&lt;/name&gt;</span>
-                            <span class="nt">&lt;symbol&gt;</span>₹<span class="nt">&lt;/symbol&gt;</span>
-                        <span class="nt">&lt;/base_currency&gt;</span>
-                        <span class="nt">&lt;transaction_currency&gt;</span>
-                            <span class="nt">&lt;id&gt;</span>220<span class="nt">&lt;/id&gt;</span>
-                            <span class="nt">&lt;name&gt;</span>Euro<span class="nt">&lt;/name&gt;</span>
-                            <span class="nt">&lt;symbol&gt;</span>€<span class="nt">&lt;/symbol&gt;</span>
-                        <span class="nt">&lt;/transaction_currency&gt;</span>
-                        <span class="nt">&lt;amount&gt;</span>100.0<span class="nt">&lt;/amount&gt;</span>
-                        <span class="nt">&lt;value&gt;</span>7000.0<span class="nt">&lt;/value&gt;</span>
-                        <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
-                        <span class="nt">&lt;gross_amount&gt;</span>100.0<span class="nt">&lt;/gross_amount&gt;</span>
-                    <span class="nt">&lt;/local_currency&gt;</span>
-                    <span class="nt">&lt;currency&gt;</span>
-                        <span class="nt">&lt;ratio&gt;</span>70<span class="nt">&lt;/ratio&gt;</span>
-                        <span class="nt">&lt;id&gt;</span>220<span class="nt">&lt;/id&gt;</span>
-                        <span class="nt">&lt;name&gt;</span>Euro<span class="nt">&lt;/name&gt;</span>
-                        <span class="nt">&lt;symbol&gt;</span>€<span class="nt">&lt;/symbol&gt;</span>
-                    <span class="nt">&lt;/currency&gt;</span>
-                    <span class="nt">&lt;gross_amount&gt;</span>0<span class="nt">&lt;/gross_amount&gt;</span>
-                    <span class="nt">&lt;id&gt;</span>37812256<span class="nt">&lt;/id&gt;</span>
-                    <span class="nt">&lt;item_status&gt;</span>
-                        <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
-                        <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
-                        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                    <span class="nt">&lt;/item_status&gt;</span>
-                    <span class="nt">&lt;line_items&gt;</span>
-                        <span class="nt">&lt;line_item&gt;</span>
-                            <span class="nt">&lt;element&gt;</span>
-                                <span class="nt">&lt;addon_items&gt;</span>
-                                    <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/addon_items&gt;</span>
-                                <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-                                <span class="nt">&lt;attributes&gt;</span>
-                                    <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/attributes&gt;</span>
-                                <span class="nt">&lt;combo_items&gt;</span>
-                                    <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/combo_items&gt;</span>
-                                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                                <span class="nt">&lt;discount&gt;</span>234<span class="nt">&lt;/discount&gt;</span>
-                                <span class="nt">&lt;extended_fields&gt;</span>
-                                    <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/extended_fields&gt;</span>
-                                <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;item_code&gt;</span>skuattr9<span class="nt">&lt;/item_code&gt;</span>
-                                <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-                                <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-                                <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-                                <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-                                <span class="nt">&lt;split_items&gt;</span>
-                                    <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/split_items&gt;</span>
-                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-                            <span class="nt">&lt;/element&gt;</span>
-                            <span class="nt">&lt;element&gt;</span>
-                                <span class="nt">&lt;addon_items&gt;</span>
-                                    <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/addon_items&gt;</span>
-                                <span class="nt">&lt;amount&gt;</span>500<span class="nt">&lt;/amount&gt;</span>
-                                <span class="nt">&lt;attributes&gt;</span>
-                                    <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/attributes&gt;</span>
-                                <span class="nt">&lt;combo_items&gt;</span>
-                                    <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/combo_items&gt;</span>
-                                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                                <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
-                                <span class="nt">&lt;extended_fields&gt;</span>
-                                    <span class="nt">&lt;field</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/extended_fields&gt;</span>
-                                <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;item_code&gt;</span>skuattr9variant-33<span class="nt">&lt;/item_code&gt;</span>
-                                <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-                                <span class="nt">&lt;qty&gt;</span>50<span class="nt">&lt;/qty&gt;</span>
-                                <span class="nt">&lt;rate&gt;</span>10<span class="nt">&lt;/rate&gt;</span>
-                                <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
-                                <span class="nt">&lt;split_items&gt;</span>
-                                    <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
-                                <span class="nt">&lt;/split_items&gt;</span>
-                                <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                                <span class="nt">&lt;value&gt;</span>500<span class="nt">&lt;/value&gt;</span>
-                            <span class="nt">&lt;/element&gt;</span>
-                        <span class="nt">&lt;/line_item&gt;</span>
-                    <span class="nt">&lt;/line_items&gt;</span>
-                    <span class="nt">&lt;notes&gt;</span>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction<span class="nt">&lt;/notes&gt;</span>
-                    <span class="nt">&lt;number&gt;</span>BILL7<span class="nt">&lt;/number&gt;</span>
-                    <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
-                    <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
-                    <span class="nt">&lt;store&gt;</span>mobilepush.1<span class="nt">&lt;/store&gt;</span>
-                    <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
-                <span class="nt">&lt;/element&gt;</span>
-            <span class="nt">&lt;/transaction&gt;</span>
-        <span class="nt">&lt;/transactions&gt;</span>
-    <span class="nt">&lt;/response&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+      <span class="nt">&lt;transactions&gt;</span>
+         <span class="nt">&lt;count&gt;</span>1<span class="nt">&lt;/count&gt;</span>
+         <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;element&gt;</span>
+               <span class="nt">&lt;amount&gt;</span>172.47<span class="nt">&lt;/amount&gt;</span>
+               <span class="nt">&lt;auto_update_time&gt;</span>2020-03-28 07:01:59<span class="nt">&lt;/auto_update_time&gt;</span>
+               <span class="nt">&lt;billing_store&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>storecode<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>webstore1<span class="nt">&lt;/name&gt;</span>
+               <span class="nt">&lt;/billing_store&gt;</span>
+               <span class="nt">&lt;billing_till&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>mobilepush.1<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>mobilepush.1<span class="nt">&lt;/name&gt;</span>
+               <span class="nt">&lt;/billing_till&gt;</span>
+               <span class="nt">&lt;billing_time&gt;</span>2020-03-27 13:30:58<span class="nt">&lt;/billing_time&gt;</span>
+               <span class="nt">&lt;custom_fields&gt;</span>
+                  <span class="nt">&lt;field&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>tax_amount<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>discount_transaction<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>sales_localcurrency<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>171<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;/field&gt;</span>
+               <span class="nt">&lt;/custom_fields&gt;</span>
+               <span class="nt">&lt;customer&gt;</span>
+                  <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+                  <span class="nt">&lt;external_id&gt;</span>XYPZ001<span class="nt">&lt;/external_id&gt;</span>
+                  <span class="nt">&lt;first_name&gt;</span>Tom<span class="nt">&lt;/first_name&gt;</span>
+                  <span class="nt">&lt;last_name&gt;</span>Sawyer<span class="nt">&lt;/last_name&gt;</span>
+                  <span class="nt">&lt;mobile&gt;</span>918036151289<span class="nt">&lt;/mobile&gt;</span>
+                  <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+               <span class="nt">&lt;/customer&gt;</span>
+               <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
+               <span class="nt">&lt;discount</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;extended_fields&gt;</span>
+                  <span class="nt">&lt;field&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>tax_amount<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;name&gt;</span>cashier_id<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>Leah<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;/field&gt;</span>
+               <span class="nt">&lt;/extended_fields&gt;</span>
+               <span class="nt">&lt;gross_amount</span> <span class="nt">/&gt;</span>
+               <span class="nt">&lt;id&gt;</span>293790472<span class="nt">&lt;/id&gt;</span>
+               <span class="nt">&lt;item_status&gt;</span>
+                  <span class="nt">&lt;code&gt;</span>600<span class="nt">&lt;/code&gt;</span>
+                  <span class="nt">&lt;message&gt;</span>Transaction retrieved successfully<span class="nt">&lt;/message&gt;</span>
+                  <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+               <span class="nt">&lt;/item_status&gt;</span>
+               <span class="nt">&lt;line_items&gt;</span>
+                  <span class="nt">&lt;line_item&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;addon_items&gt;</span>
+                           <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/addon_items&gt;</span>
+                        <span class="nt">&lt;amount&gt;</span>31.27<span class="nt">&lt;/amount&gt;</span>
+                        <span class="nt">&lt;attributes&gt;</span>
+                           <span class="nt">&lt;attribute&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>item_group<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>A12010101<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/attribute&gt;</span>
+                        <span class="nt">&lt;/attributes&gt;</span>
+                        <span class="nt">&lt;combo_items&gt;</span>
+                           <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/combo_items&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>MOZZARELLA GIRASOLI<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                        <span class="nt">&lt;extended_fields&gt;</span>
+                           <span class="nt">&lt;field&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>tax_code<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>TAXABLE<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>vat_amount<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/field&gt;</span>
+                        <span class="nt">&lt;/extended_fields&gt;</span>
+                        <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;item_code&gt;</span>20119183<span class="nt">&lt;/item_code&gt;</span>
+                        <span class="nt">&lt;local_currency&gt;</span>
+                           <span class="nt">&lt;amount&gt;</span>31.267<span class="nt">&lt;/amount&gt;</span>
+                           <span class="nt">&lt;base_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>227<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>United Arab Emirates Dirham<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>د.إ<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/base_currency&gt;</span>
+                           <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
+                           <span class="nt">&lt;id&gt;</span>228779692<span class="nt">&lt;/id&gt;</span>
+                           <span class="nt">&lt;rate&gt;</span>31.267<span class="nt">&lt;/rate&gt;</span>
+                           <span class="nt">&lt;ratio&gt;</span>1.009<span class="nt">&lt;/ratio&gt;</span>
+                           <span class="nt">&lt;transaction_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>164<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>Qatari riyal<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>﷼<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/transaction_currency&gt;</span>
+                           <span class="nt">&lt;value&gt;</span>31.267<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/local_currency&gt;</span>
+                        <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                        <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+                        <span class="nt">&lt;rate&gt;</span>31.27<span class="nt">&lt;/rate&gt;</span>
+                        <span class="nt">&lt;returnable_days&gt;</span>-1<span class="nt">&lt;/returnable_days&gt;</span>
+                        <span class="nt">&lt;serial&gt;</span>11<span class="nt">&lt;/serial&gt;</span>
+                        <span class="nt">&lt;split_items&gt;</span>
+                           <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/split_items&gt;</span>
+                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>31.27<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;addon_items&gt;</span>
+                           <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/addon_items&gt;</span>
+                        <span class="nt">&lt;amount&gt;</span>20.17<span class="nt">&lt;/amount&gt;</span>
+                        <span class="nt">&lt;attributes&gt;</span>
+                           <span class="nt">&lt;attribute&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>item_group<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>A11020301<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/attribute&gt;</span>
+                        <span class="nt">&lt;/attributes&gt;</span>
+                        <span class="nt">&lt;combo_items&gt;</span>
+                           <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/combo_items&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>8 CHOC HAZLE CHUNK COOKIE<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                        <span class="nt">&lt;extended_fields&gt;</span>
+                           <span class="nt">&lt;field&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>tax_code<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>TAXABLE<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>vat_amount<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/field&gt;</span>
+                        <span class="nt">&lt;/extended_fields&gt;</span>
+                        <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;item_code&gt;</span>60272845<span class="nt">&lt;/item_code&gt;</span>
+                        <span class="nt">&lt;local_currency&gt;</span>
+                           <span class="nt">&lt;amount&gt;</span>20.172<span class="nt">&lt;/amount&gt;</span>
+                           <span class="nt">&lt;base_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>227<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>United Arab Emirates Dirham<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>د.إ<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/base_currency&gt;</span>
+                           <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
+                           <span class="nt">&lt;id&gt;</span>228779693<span class="nt">&lt;/id&gt;</span>
+                           <span class="nt">&lt;rate&gt;</span>20.172<span class="nt">&lt;/rate&gt;</span>
+                           <span class="nt">&lt;ratio&gt;</span>1.009<span class="nt">&lt;/ratio&gt;</span>
+                           <span class="nt">&lt;transaction_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>164<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>Qatari riyal<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>﷼<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/transaction_currency&gt;</span>
+                           <span class="nt">&lt;value&gt;</span>20.172<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/local_currency&gt;</span>
+                        <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                        <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+                        <span class="nt">&lt;rate&gt;</span>20.17<span class="nt">&lt;/rate&gt;</span>
+                        <span class="nt">&lt;returnable_days&gt;</span>-1<span class="nt">&lt;/returnable_days&gt;</span>
+                        <span class="nt">&lt;serial&gt;</span>10<span class="nt">&lt;/serial&gt;</span>
+                        <span class="nt">&lt;split_items&gt;</span>
+                           <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/split_items&gt;</span>
+                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>20.17<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;element&gt;</span>
+                        <span class="nt">&lt;addon_items&gt;</span>
+                           <span class="nt">&lt;addon_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/addon_items&gt;</span>
+                        <span class="nt">&lt;amount&gt;</span>15.13<span class="nt">&lt;/amount&gt;</span>
+                        <span class="nt">&lt;attributes&gt;</span>
+                           <span class="nt">&lt;attribute&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>item_group<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>A11020201<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/attribute&gt;</span>
+                        <span class="nt">&lt;/attributes&gt;</span>
+                        <span class="nt">&lt;combo_items&gt;</span>
+                           <span class="nt">&lt;combo_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/combo_items&gt;</span>
+                        <span class="nt">&lt;description&gt;</span>SUPERSOFT THICK<span class="nt">&lt;/description&gt;</span>
+                        <span class="nt">&lt;discount&gt;</span>0<span class="nt">&lt;/discount&gt;</span>
+                        <span class="nt">&lt;extended_fields&gt;</span>
+                           <span class="nt">&lt;field&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>tax_code<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>TAXABLE<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;name&gt;</span>vat_amount<span class="nt">&lt;/name&gt;</span>
+                                 <span class="nt">&lt;value&gt;</span>0<span class="nt">&lt;/value&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/field&gt;</span>
+                        <span class="nt">&lt;/extended_fields&gt;</span>
+                        <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;item_code&gt;</span>21033569<span class="nt">&lt;/item_code&gt;</span>
+                        <span class="nt">&lt;local_currency&gt;</span>
+                           <span class="nt">&lt;amount&gt;</span>15.129<span class="nt">&lt;/amount&gt;</span>
+                           <span class="nt">&lt;base_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>227<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>United Arab Emirates Dirham<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>د.إ<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/base_currency&gt;</span>
+                           <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
+                           <span class="nt">&lt;id&gt;</span>228779702<span class="nt">&lt;/id&gt;</span>
+                           <span class="nt">&lt;rate&gt;</span>15.129<span class="nt">&lt;/rate&gt;</span>
+                           <span class="nt">&lt;ratio&gt;</span>1.009<span class="nt">&lt;/ratio&gt;</span>
+                           <span class="nt">&lt;transaction_currency&gt;</span>
+                              <span class="nt">&lt;id&gt;</span>164<span class="nt">&lt;/id&gt;</span>
+                              <span class="nt">&lt;name&gt;</span>Qatari riyal<span class="nt">&lt;/name&gt;</span>
+                              <span class="nt">&lt;symbol&gt;</span>﷼<span class="nt">&lt;/symbol&gt;</span>
+                           <span class="nt">&lt;/transaction_currency&gt;</span>
+                           <span class="nt">&lt;value&gt;</span>15.129<span class="nt">&lt;/value&gt;</span>
+                        <span class="nt">&lt;/local_currency&gt;</span>
+                        <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+                        <span class="nt">&lt;qty&gt;</span>1<span class="nt">&lt;/qty&gt;</span>
+                        <span class="nt">&lt;rate&gt;</span>15.13<span class="nt">&lt;/rate&gt;</span>
+                        <span class="nt">&lt;returnable_days&gt;</span>-1<span class="nt">&lt;/returnable_days&gt;</span>
+                        <span class="nt">&lt;serial&gt;</span>1<span class="nt">&lt;/serial&gt;</span>
+                        <span class="nt">&lt;split_items&gt;</span>
+                           <span class="nt">&lt;split_item</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/split_items&gt;</span>
+                        <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>15.13<span class="nt">&lt;/value&gt;</span>
+                     <span class="nt">&lt;/element&gt;</span>
+                  <span class="nt">&lt;/line_item&gt;</span>
+               <span class="nt">&lt;/line_items&gt;</span>
+               <span class="nt">&lt;local_currency&gt;</span>
+                  <span class="nt">&lt;amount&gt;</span>171.0<span class="nt">&lt;/amount&gt;</span>
+                  <span class="nt">&lt;base_currency&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>227<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>United Arab Emirates Dirham<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;symbol&gt;</span>د.إ<span class="nt">&lt;/symbol&gt;</span>
+                  <span class="nt">&lt;/base_currency&gt;</span>
+                  <span class="nt">&lt;discount&gt;</span>0.0<span class="nt">&lt;/discount&gt;</span>
+                  <span class="nt">&lt;gross_amount&gt;</span>171.0<span class="nt">&lt;/gross_amount&gt;</span>
+                  <span class="nt">&lt;id&gt;</span>69433407<span class="nt">&lt;/id&gt;</span>
+                  <span class="nt">&lt;ratio&gt;</span>1.009<span class="nt">&lt;/ratio&gt;</span>
+                  <span class="nt">&lt;transaction_currency&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>164<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;name&gt;</span>Qatari riyal<span class="nt">&lt;/name&gt;</span>
+                     <span class="nt">&lt;symbol&gt;</span>﷼<span class="nt">&lt;/symbol&gt;</span>
+                  <span class="nt">&lt;/transaction_currency&gt;</span>
+                  <span class="nt">&lt;value&gt;</span>172.47<span class="nt">&lt;/value&gt;</span>
+               <span class="nt">&lt;/local_currency&gt;</span>
+               <span class="nt">&lt;notes&gt;</span>POS, Leah, 14, MNS, 4.1.0.0,687849,QATAR<span class="nt">&lt;/notes&gt;</span>
+               <span class="nt">&lt;number&gt;</span>004_QAT4967003427638098544<span class="nt">&lt;/number&gt;</span>
+               <span class="nt">&lt;outlier_status&gt;</span>NORMAL<span class="nt">&lt;/outlier_status&gt;</span>
+               <span class="nt">&lt;source&gt;</span>instore<span class="nt">&lt;/source&gt;</span>
+               <span class="nt">&lt;store&gt;</span>qat_dohafestivalcityqatar.1<span class="nt">&lt;/store&gt;</span>
+               <span class="nt">&lt;type&gt;</span>REGULAR<span class="nt">&lt;/type&gt;</span>
+            <span class="nt">&lt;/element&gt;</span>
+         <span class="nt">&lt;/transaction&gt;</span>
+      <span class="nt">&lt;/transactions&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-
-
 </code></pre>
 <p>This API allows you to fetch the details of a specific transaction based on the transaction id.</p>
 
@@ -12457,6 +12763,54 @@ You need to use the validation code within the validity period. You can check th
 </tr>
 </thead><tbody>
 <tr>
+<td>686</td>
+<td>User is from campaign and has not enrolled in the loyalty program. Points redemption is not applicable for the user.</td>
+</tr>
+<tr>
+<td>804</td>
+<td>Insufficient current points.</td>
+</tr>
+<tr>
+<td>805</td>
+<td>Insufficient lifetime points.</td>
+</tr>
+<tr>
+<td>806</td>
+<td>Insufficient lifetime purchases amount.</td>
+</tr>
+<tr>
+<td>807</td>
+<td>Redemptions points not divisible.</td>
+</tr>
+<tr>
+<td>809</td>
+<td>Customer is marked as fraud.</td>
+</tr>
+<tr>
+<td>818</td>
+<td>Current points are less than points requested for redemption.</td>
+</tr>
+<tr>
+<td>819</td>
+<td>Points to redeem exceeds the threshold limit (maximum points that can be redeemed in a transaction).</td>
+</tr>
+<tr>
+<td>821</td>
+<td>Points you are trying to redeem are less than the minimum points allowed.</td>
+</tr>
+<tr>
+<td>886</td>
+<td>Unable to process points. Please try again later.</td>
+</tr>
+<tr>
+<td>887</td>
+<td>Unable to process points. Please try again later.</td>
+</tr>
+<tr>
+<td>888</td>
+<td>Invalid configuration. Please report to capillary support.</td>
+</tr>
+<tr>
 <td>801</td>
 <td>Points you are trying to redeem are invalid</td>
 </tr>
@@ -12565,18 +12919,6 @@ You need to use the validation code within the validity period. You can check th
 <td>Unable to redeem points. Points redemption is enabled for your organization</td>
 </tr>
 <tr>
-<td>828</td>
-<td>Unable to redeem points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>829</td>
-<td>Unable to redeem points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>850</td>
-<td>Unable to redeem points at this moment. Please try again later</td>
-</tr>
-<tr>
 <td>859</td>
 <td>The redemption time you have passed is invalid</td>
 </tr>
@@ -12589,36 +12931,8 @@ You need to use the validation code within the validity period. You can check th
 <td>Customer is not registered into the loyalty program</td>
 </tr>
 <tr>
-<td>886</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>887</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
 <td>888</td>
 <td>Configuration is invalid. Please report to Capillary Support</td>
-</tr>
-<tr>
-<td>889</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>890</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>891</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>892</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>893</td>
-<td>Unable to process points at this moment. Please try again later</td>
 </tr>
 <tr>
 <td>894</td>
@@ -12629,20 +12943,28 @@ You need to use the validation code within the validity period. You can check th
 <td>Loyalty program is not configured for your organization</td>
 </tr>
 <tr>
-<td>896</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
-<td>897</td>
-<td>Unable to process points at this moment. Please try again later</td>
-</tr>
-<tr>
 <td>898</td>
 <td>Unable to process points at this moment. Please try again later</td>
 </tr>
 <tr>
 <td>899</td>
 <td>Configuration is invalid. Please report to Capillary Support</td>
+</tr>
+<tr>
+<td>901</td>
+<td>Invalid points or points redemption Id passed.</td>
+</tr>
+<tr>
+<td>902</td>
+<td>Redemption ID does not exist.</td>
+</tr>
+<tr>
+<td>903</td>
+<td>Unable to redeem points.</td>
+</tr>
+<tr>
+<td>904</td>
+<td>Invalid customer details passed.</td>
 </tr>
 </tbody></table>
 
@@ -15215,7 +15537,7 @@ The param `client_auto_approve` overrides the server side configuration, mention
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/request/add?program_id=687
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -15405,7 +15727,7 @@ The param `client_auto_approve` overrides all the server side configurations men
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">request/add</code></td>
+<td><code class="prettyprint">request/add?{params}</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -15423,7 +15745,28 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
+<p>`http://{host}/v1.1/request/add?{params}&amp;format={xml/json</p>
+
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to auto-approve requests.</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>long</td>
+<td>The loyalty program ID from which you want to issue points. This is applicable if the org has multiple loyalty programs configured.</td>
+</tr>
+</tbody></table>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
