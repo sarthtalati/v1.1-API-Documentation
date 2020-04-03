@@ -3019,57 +3019,149 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2016-12-21+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
+<pre class="highlight html"><code>https://eu.api.capillarytech.com/v1.1/customer/transactions?format=json<span class="err">&amp;</span>mobile=44700900000<span class="err">&amp;</span>start_date=2020-04-03+23:45:45<span class="err">&amp;</span>end_date=2016-12-29+12:11:45
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
-</span><span class="p">},</span><span class="w"> 
-</span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts1234"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13700"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"138000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-07-10 11:11:15"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-25 11:19:11"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gold"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23622808"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23622808"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANBDCGD"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bill added by mobile"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-16 17:02:22"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="w">
-</span><span class="p">},</span><span class="w"> 
-</span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"basket_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w"> 
-</span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98662653"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"919740000000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anjvat123"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">5730</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">53609</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">4776</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albatross Elite"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-14 11:32:30"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-03 06:58:32"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321260040"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"delayed_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"delayed_returned_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_available_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_returned_points"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321260040"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localcurrency0235"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"return_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular Bill with Payment Details"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-01 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-03 06:58:31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Business Park"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"store_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"returned_points_on_bill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"transaction_currency"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"supported_currency_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70275062</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indian Rupee "</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"₹"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70275062</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indian Rupee "</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"₹"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"returnedPointsOnBill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-31 23:59:59"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"469"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"basket_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321156323"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"localcurrency020"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REGULAR"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"return_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular Bill with Payment Details"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-01 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"auto_update_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-02 08:37:02"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Business Park"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"store_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"returned_points_on_bill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"returnedPointsOnBill"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-31 23:59:59"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"469"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"basket_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"line_items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"line_item"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1052"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transactions fetched successfully"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
@@ -3295,83 +3387,104 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"lastname"</span><span class="p">:</span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"rows"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"coupons_count"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"points_count"</span><span class="p">:</span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"coupons_start_id"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"points_start_id"</span><span class="p">:</span><span class="s2">"121613"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"redemptions"</span><span class="p">:{</span><span class="w">
-            </span><span class="nt">"coupons"</span><span class="p">:{</span><span class="w">
-               </span><span class="nt">"coupon"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nt">"id"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"832-pghhi6u1"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"series_id"</span><span class="p">:</span><span class="s2">"832"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"TestBill-1234"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2013-04-18 14:00:27"</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="w">
-               </span><span class="p">}</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"rows"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coupons_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"points_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"coupons_start_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"points_start_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"121613"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"redemptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832-pghhi6u1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"series_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"832"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"discount_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PERC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestBill-1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-04-18 14:00:27"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"points"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"point"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">469</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"txnre6"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SI8380"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-31 00:00:00"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redeemed 20 points"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Business Park"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"redeemed_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bukl.till"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"reversals"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"reversal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1434301</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"points_reversed"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"reversal_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585674112000</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"reversed_on_till_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">75040399</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"reversal_breakup_by_program"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                      </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">469</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"points_reversed"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                      </span><span class="nt">"program_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                  </span><span class="p">]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">],</span><span class="w">
+              </span><span class="nt">"redemption_breakup_by_program"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">469</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"program_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"points"</span><span class="p">:{</span><span class="w">
-               </span><span class="nt">"point"</span><span class="p">:[</span><span class="w">
-                  </span><span class="p">{</span><span class="w">
-                     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">121614</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"program_id"</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"bill-83"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="s2">"LZJ2OV"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2011-03-17 16:03:31"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"200 points against bill-83"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_store"</span><span class="p">:{</span><span class="w">
-                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"International Business Park"</span><span class="w">
-                     </span><span class="p">},</span><span class="w">
-                     </span><span class="nt">"redeemed_till"</span><span class="p">:{</span><span class="w">
-                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="w">
-                     </span><span class="p">}</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="p">{</span><span class="w">
-                     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">121656</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"program_id"</span><span class="p">:</span><span class="mi">1234</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="s2">"bill-121"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="s2">"JZJ29D"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="s2">"2011-03-17 16:05:22"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="s2">"Test store  store.server"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"notes"</span><span class="p">:</span><span class="s2">"200 points against bill-83"</span><span class="p">,</span><span class="w">
-                     </span><span class="nt">"redeemed_store"</span><span class="p">:{</span><span class="w">
-                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"International Business Park"</span><span class="w">
-                     </span><span class="p">},</span><span class="w">
-                     </span><span class="nt">"redeemed_till"</span><span class="p">:{</span><span class="w">
-                        </span><span class="nt">"code"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
-                        </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"bukl.till"</span><span class="w">
-                     </span><span class="p">}</span><span class="w">
-                  </span><span class="p">}</span><span class="w">
-               </span><span class="p">]</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121656</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-121"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JZJ29D"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-03-17 16:05:22"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test store  store.server"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200 points against bill-83"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"redeemed_store"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"international_business_park"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"International Business Park"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"redeemed_till"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bukl.till"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bukl.till"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
             </span><span class="p">}</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;root&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;response&gt;</span>
       <span class="nt">&lt;customer&gt;</span>
          <span class="nt">&lt;coupons_count&gt;</span>3<span class="nt">&lt;/coupons_count&gt;</span>
@@ -3400,11 +3513,11 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
             <span class="nt">&lt;points&gt;</span>
                <span class="nt">&lt;point&gt;</span>
                   <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;id&gt;</span>121614<span class="nt">&lt;/id&gt;</span>
-                     <span class="nt">&lt;notes&gt;</span>200 points against bill-83<span class="nt">&lt;/notes&gt;</span>
-                     <span class="nt">&lt;points_redeemed&gt;</span>200<span class="nt">&lt;/points_redeemed&gt;</span>
-                     <span class="nt">&lt;program_id&gt;</span>1234<span class="nt">&lt;/program_id&gt;</span>
-                     <span class="nt">&lt;redeemed_at&gt;</span>Test store  store.server<span class="nt">&lt;/redeemed_at&gt;</span>
+                     <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+                     <span class="nt">&lt;notes&gt;</span>redeemed 20 points<span class="nt">&lt;/notes&gt;</span>
+                     <span class="nt">&lt;points_redeemed&gt;</span>20<span class="nt">&lt;/points_redeemed&gt;</span>
+                     <span class="nt">&lt;program_id&gt;</span>469<span class="nt">&lt;/program_id&gt;</span>
+                     <span class="nt">&lt;redeemed_at&gt;</span>bukl.till<span class="nt">&lt;/redeemed_at&gt;</span>
                      <span class="nt">&lt;redeemed_store&gt;</span>
                         <span class="nt">&lt;code&gt;</span>international_business_park<span class="nt">&lt;/code&gt;</span>
                         <span class="nt">&lt;name&gt;</span>International Business Park<span class="nt">&lt;/name&gt;</span>
@@ -3413,9 +3526,31 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
                         <span class="nt">&lt;code&gt;</span>bukl.till<span class="nt">&lt;/code&gt;</span>
                         <span class="nt">&lt;name&gt;</span>bukl.till<span class="nt">&lt;/name&gt;</span>
                      <span class="nt">&lt;/redeemed_till&gt;</span>
-                     <span class="nt">&lt;redeemed_time&gt;</span>2011-03-17 16:03:31<span class="nt">&lt;/redeemed_time&gt;</span>
-                     <span class="nt">&lt;transaction_number&gt;</span>bill-83<span class="nt">&lt;/transaction_number&gt;</span>
-                     <span class="nt">&lt;validation_code&gt;</span>LZJ2OV<span class="nt">&lt;/validation_code&gt;</span>
+                     <span class="nt">&lt;redeemed_time&gt;</span>2020-03-31 00:00:00<span class="nt">&lt;/redeemed_time&gt;</span>
+                     <span class="nt">&lt;redemption_breakup_by_program&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;points_redeemed&gt;</span>20<span class="nt">&lt;/points_redeemed&gt;</span>
+                           <span class="nt">&lt;program_id&gt;</span>469<span class="nt">&lt;/program_id&gt;</span>
+                           <span class="nt">&lt;program_name</span> <span class="nt">/&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/redemption_breakup_by_program&gt;</span>
+                     <span class="nt">&lt;reversals&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;points_reversed&gt;</span>20<span class="nt">&lt;/points_reversed&gt;</span>
+                           <span class="nt">&lt;reversal_breakup_by_program&gt;</span>
+                              <span class="nt">&lt;element&gt;</span>
+                                 <span class="nt">&lt;points_reversed&gt;</span>20<span class="nt">&lt;/points_reversed&gt;</span>
+                                 <span class="nt">&lt;program_id&gt;</span>469<span class="nt">&lt;/program_id&gt;</span>
+                                 <span class="nt">&lt;program_name</span> <span class="nt">/&gt;</span>
+                              <span class="nt">&lt;/element&gt;</span>
+                           <span class="nt">&lt;/reversal_breakup_by_program&gt;</span>
+                           <span class="nt">&lt;reversal_id&gt;</span>1434301<span class="nt">&lt;/reversal_id&gt;</span>
+                           <span class="nt">&lt;reversal_time&gt;</span>1585674112000<span class="nt">&lt;/reversal_time&gt;</span>
+                           <span class="nt">&lt;reversed_on_till_id&gt;</span>75040399<span class="nt">&lt;/reversed_on_till_id&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/reversals&gt;</span>
+                     <span class="nt">&lt;transaction_number&gt;</span>txnre6<span class="nt">&lt;/transaction_number&gt;</span>
+                     <span class="nt">&lt;validation_code&gt;</span>SI8380<span class="nt">&lt;/validation_code&gt;</span>
                   <span class="nt">&lt;/element&gt;</span>
                   <span class="nt">&lt;element&gt;</span>
                      <span class="nt">&lt;id&gt;</span>121656<span class="nt">&lt;/id&gt;</span>
@@ -3447,6 +3582,8 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
       <span class="nt">&lt;/status&gt;</span>
    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
+
+
 </code></pre>
 <p>This API allows you to retrieve points and coupons redemption history of a customer. You can filter the results by type, duration, coupon ids start with, and coupon ids end with. Besides filters you can also sort the results by ascending or descending order by redemption id/time and limit number of results to retrieve.</p>
 
@@ -8595,7 +8732,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <ul>
 <li>Enable <code class="prettyprint">CONF_CURRENCY_CONVERSION_ENABLE</code> on the Billing Configuration page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Systems &amp; Deployment</strong> &gt; <strong>InTouch POS Configurations</strong>.</li>
 <li>Configure org&rsquo;s base currency and supported currencies on the Organization Setup page of InTouch <strong>Profile</strong> &gt; <strong>Organization Settings</strong> &gt; <strong>Organization Setup</strong> &gt; <strong>Organization Profile</strong>.</li>
-<li>Add relevant currency conversion ratios in the back-end or <code class="prettyprint">/v2/currencyratio</code> API.</li>
+<li>Add relevant currency conversion ratios in the back-end either through <code class="prettyprint">/v2/currencyratio</code> API or through Data Import.</li>
 <li>the destination currency id. If no currency id is passed, the transaction gets converted to the org&rsquo;s base currency</li>
 </ul>
 
