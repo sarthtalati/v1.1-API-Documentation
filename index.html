@@ -3441,7 +3441,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
                 </span><span class="p">{</span><span class="w">
                   </span><span class="nt">"reversal_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1434301</span><span class="p">,</span><span class="w">
                   </span><span class="nt">"points_reversed"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-                  </span><span class="nt">"reversal_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1585674112000</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"reversal_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-03-13</span><span class="w"> </span><span class="mi">18</span><span class="err">:</span><span class="mi">02</span><span class="err">:</span><span class="mi">34</span><span class="p">,</span><span class="w">
                   </span><span class="nt">"reversed_on_till_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">75040399</span><span class="p">,</span><span class="w">
                   </span><span class="nt">"reversal_breakup_by_program"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
@@ -3545,7 +3545,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
                               <span class="nt">&lt;/element&gt;</span>
                            <span class="nt">&lt;/reversal_breakup_by_program&gt;</span>
                            <span class="nt">&lt;reversal_id&gt;</span>1434301<span class="nt">&lt;/reversal_id&gt;</span>
-                           <span class="nt">&lt;reversal_time&gt;</span>1585674112000<span class="nt">&lt;/reversal_time&gt;</span>
+                           <span class="nt">&lt;reversal_time&gt;</span>2020-03-13 18:02:34<span class="nt">&lt;/reversal_time&gt;</span>
                            <span class="nt">&lt;reversed_on_till_id&gt;</span>75040399<span class="nt">&lt;/reversed_on_till_id&gt;</span>
                         <span class="nt">&lt;/element&gt;</span>
                      <span class="nt">&lt;/reversals&gt;</span>
@@ -3803,6 +3803,41 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>redeemed_at</td>
 <td>string</td>
 <td>Store or TILL code associated to points or coupon redemption.</td>
+</tr>
+<tr>
+<td>redemption_breakup_by_program</td>
+<td>obj</td>
+<td>Breakup of points redeemed with respect to the program.</td>
+</tr>
+<tr>
+<td>reversals</td>
+<td>obj</td>
+<td>Details of points reversed if the transaction for which points are redeemed is returned.</td>
+</tr>
+<tr>
+<td>reversal_id</td>
+<td>long</td>
+<td>Unique ID generated for the reversal of a specific set of redeemed points.</td>
+</tr>
+<tr>
+<td>points_reversed</td>
+<td>int</td>
+<td>number of points reversed.</td>
+</tr>
+<tr>
+<td>reversal_time</td>
+<td>date-time</td>
+<td>Date and time of points reversal in <code class="prettyprint">YYYY-MM-DD HH:MM:SS</code> format.</td>
+</tr>
+<tr>
+<td>reversed_on_till_id</td>
+<td>long</td>
+<td>Till ID associated to the points reversal.</td>
+</tr>
+<tr>
+<td>reversal_breakup_by_program</td>
+<td>obj</td>
+<td>Breakup of points reversed and associated loyalty program.</td>
 </tr>
 </tbody></table>
 
