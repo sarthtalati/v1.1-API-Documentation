@@ -719,10 +719,12 @@ Updates existing customer details (other than identifiers such as mobile number,
 Behavior of the API when an existing identifier is passed.
 * Updates existing customer details other than existing identifier(s) such as mobile number, email id, or external id.
 * Updates null identifiers from null to a value, but not value to value. <i>Existing identifiers cannot be updated</i>.
-* Updates secondary identifiers if the respective configuration is enabled on InTouch **Settings** > **Miscellaneous** > **Registration Configuration** page.
+* Updates secondary identifiers if the respective configuration is enabled on InTouch Profile > **Organization Settings** > **Miscellaneous** > **Registration Configuration** page.
 	* CONF_ALLOW_MOBILE_UPDATE (for mobile number).
 	* CONF_ALLOW_EMAIL_UPDATE (for email id).
 	* CONF_LOYALTY_ALLOW_EXTERNAL_ID_UPDATE (for external id).
+* If `CONFIG_SKIP_SECONDARY_ID_ON_PRIMARY_MISMATCH` is enabled, if the primary identifier is different but any of the secondary identifiers exist, a new customer is registered with the primary identifier ignoring the secondary identifier. The config is available on the Registration Page of InTouch **Profile** > **Organization Settings** > **Miscellaneous**.
+	* Also, this config overrides `CONF_PRIMARY_IDENTIFIER_STRICT_CHECK`.
 * Adds/updates **custom field** details.
 * Adds/updates **extended field** values.
 
@@ -1885,7 +1887,7 @@ expired_points=true | - | Returns the details of expired points of the customer.
 points_summary=true | - | Returns the history of points issued and redeemed.
 promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
 membership_retention_criteria=true | - | Returns the criteria set for membership or tier retention (usually for membership based loyalty program).
-tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.
+tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.<br>This is supported only if the tier upgrade strategy is based on Lifetime Points, Lifetime Purchases, or Current Points,  but not on tracker based strategy. Also, you will not see upgrade criteria if the customer is in the highest tier.
 mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
 user_group=true | - | Retrieves the details of user group associated to the user (if available).
 customer_image=true | - | Retrieves the customer's profile image.
@@ -1918,58 +1920,150 @@ attributes | obj | Customer attribute details in `name` and `value`
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=44700900000&start_date=2016-12-21+23:45:45&end_date=2016-12-29+12:11:45
+https://eu.api.capillarytech.com/v1.1/customer/transactions?format=json&mobile=44700900000&start_date=2020-04-03+23:45:45&end_date=2016-12-29+12:11:45
 ```
 
 > Sample Response
 
 ```json
 {
-"response": {
-"status": {
-"success": "true", 
-"code": "200", 
-"message": "SUCCESS"
-}, 
-"customer": {
-"mobile": "44700900000", 
-"email": "tom.sawyer@example.com", 
-"external_id": "ts1234", 
-"firstname": "Tom", 
-"lastname": "Sawyer", 
-"lifetime_points": "13700", 
-"lifetime_purchases": "138000", 
-"loyalty_points": "12000", 
-"registered_on": "2016-07-10 11:11:15", 
-"updated_on": "2016-12-25 11:19:11", 
-"current_slab": "gold", 
-"count": "26", 
-"start": "23622808", 
-"rows": "10", 
-"transactions": {
-"transaction": {
-"id": "23622808", 
-"number": "ANBDCGD", 
-"type": "REGULAR", 
-"amount": "3000", 
-"notes": "Bill added by mobile", 
-"billing_time": "2016-12-16 17:02:22", 
-"gross_amount": "3000", 
-"discount": "10", 
-"store": "", 
-"points": {
-"issued": "30", 
-"redeemed": "20"
-}, 
-"coupons": "", 
-"basket_size": "10", 
-"line_items": {
-"line_item": ""
-}
-}
-}
-}
-}
+  "response": {
+    "status": {
+      "success": "true",
+      "code": 200,
+      "message": "Success"
+    },
+    "customer": {
+      "firstname": "Tom",
+      "lastname": "Sawyer",
+      "user_id": "98662653",
+      "mobile": "919740000000",
+      "email": "tom.sawyer@example.com",
+      "external_id": "anjvat123",
+      "lifetime_points": 5730,
+      "lifetime_purchases": 53609,
+      "loyalty_points": 4776,
+      "current_slab": "Albatross Elite",
+      "registered_on": "2019-04-14 11:32:30",
+      "updated_on": "2020-04-03 06:58:32",
+      "type": "LOYALTY",
+      "source": "instore",
+      "count": 51,
+      "start": "321260040",
+      "delayed_points": "0",
+      "delayed_returned_points": "0",
+      "total_available_points": "0",
+      "total_returned_points": "0",
+      "rows": "10",
+      "transactions": {
+        "transaction": [
+          {
+            "id": "321260040",
+            "number": "localcurrency0235",
+            "type": "REGULAR",
+            "return_type": "",
+            "amount": "2000",
+            "outlier_status": "NORMAL",
+            "delivery_status": "DELIVERED",
+            "notes": "Regular Bill with Payment Details",
+            "billing_time": "2020-04-01 00:00:00",
+            "auto_update_time": "2020-04-03 06:58:31",
+            "gross_amount": "2000",
+            "discount": "0",
+            "store": "International Business Park",
+            "store_code": "international_business_park",
+            "returned_points_on_bill": "0.0",
+            "currency": {
+              "ratio": 1,
+              "transaction_currency": {
+                "supported_currency_id": 70275062,
+                "name": "Indian Rupee ",
+                "symbol": "₹"
+              },
+              "id": 70275062,
+              "name": "Indian Rupee ",
+              "symbol": "₹"
+            },
+            "points": {
+              "issued": "200",
+              "redeemed": "0",
+              "returned": "0",
+              "expired": "0",
+              "returnedPointsOnBill": "0.0",
+              "expiry_date": "2020-05-31 23:59:59",
+              "program_id": "469"
+            },
+            "custom_fields": {
+              "field": [
+                {
+                  "name": "",
+                  "value": ""
+                }
+              ]
+            },
+            "extended_fields": {
+              "field": []
+            },
+            "coupons": [],
+            "basket_size": 0,
+            "line_items": {
+              "line_item": []
+            }
+          },
+          {
+            "id": "321156323",
+            "number": "localcurrency020",
+            "type": "REGULAR",
+            "return_type": "",
+            "amount": "2000",
+            "outlier_status": "NORMAL",
+            "delivery_status": "DELIVERED",
+            "notes": "Regular Bill with Payment Details",
+            "billing_time": "2020-04-01 00:00:00",
+            "auto_update_time": "2020-04-02 08:37:02",
+            "gross_amount": "2000",
+            "discount": "0",
+            "store": "International Business Park",
+            "store_code": "international_business_park",
+            "returned_points_on_bill": "0.0",
+            "points": {
+              "issued": "200",
+              "redeemed": "0",
+              "returned": "0",
+              "expired": "0",
+              "returnedPointsOnBill": "0.0",
+              "expiry_date": "2020-05-31 23:59:59",
+              "program_id": "469"
+            },
+            "custom_fields": {
+              "field": [
+                {
+                  "name": "",
+                  "value": ""
+                }
+              ]
+            },
+            "extended_fields": {
+              "field": []
+            },
+            "coupons": [],
+            "basket_size": 0,
+            "line_items": {
+              "line_item": []
+            }
+          }
+        ]
+      },
+      "item_status": {
+        "success": "true",
+        "code": "1052",
+        "message": "Transactions fetched successfully",
+        "warnings": {
+          "warning": []
+        }
+      }
+    }
+  }
 }
 
 ```
@@ -2023,11 +2117,13 @@ https://api.capillary.co.in/v1.1/customer/transactions?format=json&mobile=447009
 </response>
 ```
 
-Retrieves transaction history of a customer which includes the following information.
+Retrieves transaction history of a customer which includes the following information. Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. 
 
-Transaction type, gross transaction amount, transaction date, points issued, points redeemed, coupons redeemed and so on. 
+By default, it shows up to 10 results and shows results based on the `limit` passed. 
 
-You can filter the results for better understanding and sort the information in ascending or descending order.
+* There is no upper limit for number of transactions.
+* There is no duration based limit.
+
 
 <aside class="notice">You cannot retrieve individual line-item level details of a transaction.</aside>
 
@@ -2069,10 +2165,11 @@ start_id | int | Filter transactions by transaction ids starting with a specific
 end_id | int | Filter transactions by transaction ids ending with a specific value.
 credit_notes | boolean | Retrieves the credit notes of the transactions. **Value**: true,false. Pass the parameter to retrieve credit notes along with the transaction details.<br> Credit Notes is a receipt given by a cashier to a customer for returned goods which can be used for future purchases.
 custom_fields | boolean | Pass `true` to retrieve transaction level custom field details.
-limit | int | Limit the number of results to be displayed. For example, if `limit=10` a maximum of 10 transactions will be displayed.
+limit | int | Limit the number of results to be displayed (default value is 10). For example, `limit=20` shows up to 20 transactions of the customer.
 sort | enum | Arranges the transactions by transaction date or transaction id based on the `order` value passed. Supported value: `trans_id`, `trans_date`. By default, results are shown in descending order.
 order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id.
 
+<aside class="notice">Parameters marked with * are mandatory. </aside>
 
 ## Get Customer Redemptions
 
@@ -2120,20 +2217,62 @@ https://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
         "points": {
           "point": [
             {
-              "id": 121614,
-			  "program_id": 1234,
-              "points_redeemed": 200,
-              "transaction_number": "bill-83",
-              "redeemed_time": "2011-03-17 16:03:31",
-              "redeemed_at": "Test store  store.server"
+              "id": 1,
+              "program_id": 469,
+              "points_redeemed": 20,
+              "transaction_number": "txnre6",
+              "validation_code": "SI8380",
+              "redeemed_time": "2020-03-31 00:00:00",
+              "redeemed_at": "bukl.till",
+              "notes": "redeemed 20 points",
+              "redeemed_store": {
+                "code": "international_business_park",
+                "name": "International Business Park"
+              },
+              "redeemed_till": {
+                "code": "bukl.till",
+                "name": "bukl.till"
+              },
+              "reversals": [
+                {
+                  "reversal_id": 1434301,
+                  "points_reversed": 20,
+                  "reversal_time": 2020-03-13 18:02:34,
+                  "reversed_on_till_id": 75040399,
+                  "reversal_breakup_by_program": [
+                    {
+                      "program_id": 469,
+                      "points_reversed": 20,
+                      "program_name": ""
+                    }
+                  ]
+                }
+              ],
+              "redemption_breakup_by_program": [
+                {
+                  "program_id": 469,
+                  "points_redeemed": 20,
+                  "program_name": ""
+                }
+              ]
             },
             {
               "id": 121656,
-			  "program_id": 1234,
+              "program_id": 1234,
               "points_redeemed": 30,
               "transaction_number": "bill-121",
+              "validation_code": "JZJ29D",
               "redeemed_time": "2011-03-17 16:05:22",
-              "redeemed_at": "Test store  store.server"
+              "redeemed_at": "Test store  store.server",
+              "notes": "200 points against bill-83",
+              "redeemed_store": {
+                "code": "international_business_park",
+                "name": "International Business Park"
+              },
+              "redeemed_till": {
+                "code": "bukl.till",
+                "name": "bukl.till"
+              }
             }
           ]
         }
@@ -2144,58 +2283,106 @@ https://us.api.capillarytech.com/v1.1/customer/redemptions?mobile=44700900000
 ```
 
 ```xml
+<root>
+   <response>
+      <customer>
+         <coupons_count>3</coupons_count>
+         <coupons_start_id>2</coupons_start_id>
+         <email>tom.sawyer@example.com</email>
+         <external_id>1234</external_id>
+         <firstname>Tom</firstname>
+         <lastname>Sawyer</lastname>
+         <mobile>44700900000</mobile>
+         <points_count>15</points_count>
+         <points_start_id>121613</points_start_id>
+         <redemptions>
+            <coupons>
+               <coupon>
+                  <code>832-pghhi6u1</code>
+                  <description>Sample description</description>
+                  <discount_code>abc</discount_code>
+                  <discount_type>PERC</discount_type>
+                  <id>3</id>
+                  <redeemed_at>Test store  store.server</redeemed_at>
+                  <redeemed_time>2013-04-18 14:00:27</redeemed_time>
+                  <series_id>832</series_id>
+                  <transaction_number>TestBill-1234</transaction_number>
+               </coupon>
+            </coupons>
+            <points>
+               <point>
+                  <element>
+                     <id>1</id>
+                     <notes>redeemed 20 points</notes>
+                     <points_redeemed>20</points_redeemed>
+                     <program_id>469</program_id>
+                     <redeemed_at>bukl.till</redeemed_at>
+                     <redeemed_store>
+                        <code>international_business_park</code>
+                        <name>International Business Park</name>
+                     </redeemed_store>
+                     <redeemed_till>
+                        <code>bukl.till</code>
+                        <name>bukl.till</name>
+                     </redeemed_till>
+                     <redeemed_time>2020-03-31 00:00:00</redeemed_time>
+                     <redemption_breakup_by_program>
+                        <element>
+                           <points_redeemed>20</points_redeemed>
+                           <program_id>469</program_id>
+                           <program_name />
+                        </element>
+                     </redemption_breakup_by_program>
+                     <reversals>
+                        <element>
+                           <points_reversed>20</points_reversed>
+                           <reversal_breakup_by_program>
+                              <element>
+                                 <points_reversed>20</points_reversed>
+                                 <program_id>469</program_id>
+                                 <program_name />
+                              </element>
+                           </reversal_breakup_by_program>
+                           <reversal_id>1434301</reversal_id>
+                           <reversal_time>2020-03-13 18:02:34</reversal_time>
+                           <reversed_on_till_id>75040399</reversed_on_till_id>
+                        </element>
+                     </reversals>
+                     <transaction_number>txnre6</transaction_number>
+                     <validation_code>SI8380</validation_code>
+                  </element>
+                  <element>
+                     <id>121656</id>
+                     <notes>200 points against bill-83</notes>
+                     <points_redeemed>30</points_redeemed>
+                     <program_id>1234</program_id>
+                     <redeemed_at>Test store  store.server</redeemed_at>
+                     <redeemed_store>
+                        <code>international_business_park</code>
+                        <name>International Business Park</name>
+                     </redeemed_store>
+                     <redeemed_till>
+                        <code>bukl.till</code>
+                        <name>bukl.till</name>
+                     </redeemed_till>
+                     <redeemed_time>2011-03-17 16:05:22</redeemed_time>
+                     <transaction_number>bill-121</transaction_number>
+                     <validation_code>JZJ29D</validation_code>
+                  </element>
+               </point>
+            </points>
+         </redemptions>
+         <rows>3</rows>
+      </customer>
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
 
-<?xml version="1.0" encoding="UTF-8"?>
-<response>
-   <status>
-      <success>true</success>
-      <code>200</code>
-      <message>SUCCESS</message>
-   </status>
-   <customer>
-      <mobile>44700900000</mobile>
-      <email>tom.sawyer@example.com</email>
-      <external_id>1234</external_id>
-      <firstname>Tom</firstname>
-      <lastname>Sawyer</lastname>
-      <rows>3</rows>
-      <coupons_count>3</coupons_count>
-      <points_count>15</points_count>
-      <coupons_start_id>2</coupons_start_id>
-      <points_start_id>121613</points_start_id>
-      <redemptions>
-         <coupons>
-            <coupon>
-               <id>3</id>
-               <code>832-pghhi6u1</code>
-               <series_id>832</series_id>
-               <description>Sample description</description>
-               <discount_code>abc</discount_code>
-               <discount_type>PERC</discount_type>
-               <transaction_number>TestBill-1234</transaction_number>
-               <redeemed_time>2013-04-18 14:00:27</redeemed_time>
-               <redeemed_at>Test store  store.server</redeemed_at>
-            </coupon>
-         </coupons>
-         <points>
-            <point>
-               <id>121614</id>
-               <points_redeemed>200</points_redeemed>
-               <transaction_number>bill-83</transaction_number>
-               <redeemed_time>2011-03-17 16:03:31</redeemed_time>
-               <redeemed_at>Test store  store.server</redeemed_at>
-            </point>
-            <point>
-               <id>121615</id>
-               <points_redeemed>200</points_redeemed>
-               <transaction_number>bill-121</transaction_number>
-               <redeemed_time>2011-03-17 16:05:22</redeemed_time>
-               <redeemed_at>Test store  store.server</redeemed_at>
-            </point>
-         </points>
-      </redemptions>
-   </customer>
-</response>
+
 ```
 
 
@@ -2254,7 +2441,13 @@ points_redeemed | int | Number of points redeemed.
 transaction_number | string | Transaction number associated to the points or coupon redemption.
 redeemed_time | date-time | Date and time of points or coupon redemption.
 redeemed_at | string | Store or TILL code associated to points or coupon redemption.
-
+redemption_breakup_by_program | obj | Breakup of points redeemed with respect to the program.
+reversals | obj | Details of points reversed if the transaction for which points are redeemed is returned.
+reversal_id | long | Unique ID generated for the reversal of a specific set of redeemed points.
+points_reversed | int | number of points reversed.
+reversal_time | date-time |Date and time of points reversal in `YYYY-MM-DD HH:MM:SS` format.
+reversed_on_till_id | long | Till ID associated to the points reversal.
+reversal_breakup_by_program | obj | Breakup of points reversed and associated loyalty program.
 
 
 
@@ -2802,7 +2995,7 @@ https://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
 	
 ```
 
-Retrieves the details of coupons of a specific customer - both issued and redeemed.
+Retrieves the details of coupons (issued, redeemed, expired) of a specific customer.
 
 ### Resource Information
 | | |
@@ -2823,7 +3016,7 @@ identifier* | enum | Identifier you want to use to identify the customer. Value:
 value* | string | Value of the specified identifier. For example, if `identifier` is `mobile`, value should be the customer's mobile number.
 start_date | date | Get coupons issued or redeemed on or after a specific date (`YYYY-MM-DD`). To get coupon history of a specific duration, pass the date range in `start_date` and `end_date`.
 end_date | date | Get coupons issued or redeemed before a specific date (`YYYY-MM-DD`). To get coupon history of a specific duration, pass the date range in `start_date` and `end_date`.
-status | enum | Retrieve coupons by coupon status. <br>**Values**: `redeemed`, `expired`, `active`. <br>You can also pass more than one status separating each with ; (semi-colon). for example, `status=redeemed;expired`.
+status | enum | Retrieve coupons by coupon status. <br>**Values**: `unredeemed`, `redeemed`, `expired`, `active` (based on coupon validity). `active` is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (`valid_till`) is a future date.<br>You can also pass more than one status separating each with ; (semi-colon). for example, `status=redeemed;expired`.
 series_id | int | Retrieve details of a specific coupon series by series id.
 store_id | int | Retrieves the details of active coupons of the customer that can be redeemed at a specific store
 order_by | enum | Order the results by a specific entry. Value: `created_date, `amount`, `valid_till` (issued till).
@@ -3445,235 +3638,226 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<response>
-   <status>
-      <success>true</success>
-      <code>200</code>
-      <message>success</message>
-   </status>
-   <customers>
+<root>
+   <response>
       <customer>
-         <email>vimalsudhan@gmail.com</email>
-         <mobile>9197407983xx</mobile>
-         <external_id>VIMAL004</external_id>
-         <id>4596849</id>
-         <firstname>Vimal</firstname>
-         <lastname>Sudhan</lastname>
-         <referrals>
+         <email null="true" />
+         <external_id>971544979350</external_id>
+         <firstname>Ishant</firstname>
+         <incentives />
+         <invitees>
             <referral_type>
-               <type>EMAIL</type>
-               <referral>
-                  <id>1</id>
-                  <name>Dexter Morgan</name>
-                  <identifier>dexter.morgan@mpd.com</identifier>
-                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
-                  <status>
-                     <success>true</success>
-                     <code>100</code>
-                     <message>Invitee added
- successfully</message>
-                  </status>
-               </referral>
-               <referral>
-                  <id>2</id>
-                  <name>Debra Morgan</name>
-                  <identifier>debra.morgan@elwaydetectives.com</identifier>
-                  <invited_on>2013-09-12T15:19:21+05:30</invited_on>
-                  <status>
-                     <success>true</success>
-                     <code>100</code>
-                     <message>Invitee added
- successfully</message>
-                  </status>
-               </referral>
+               <element>
+                  <invitee>
+                     <element>
+                        <identifier>971564265901</identifier>
+                        <invited_on>2020-01-29 12:25:46.0</invited_on>
+                        <name>Siddhant</name>
+                        <till>
+                           <code>jotun.uae.admin.2</code>
+                           <name>jotun.uae.admin.2</name>
+                        </till>
+                     </element>
+                     <element>
+                        <identifier>971564265901</identifier>
+                        <invited_on>2020-01-29 13:37:36.0</invited_on>
+                        <name>Siddhant</name>
+                        <till>
+                           <code>jotun.uae.admin.2</code>
+                           <name>jotun.uae.admin.2</name>
+                        </till>
+                     </element>
+                     <element>
+                        <identifier>97150000099</identifier>
+                        <invited_on>2020-01-29 13:55:32.0</invited_on>
+                        <name>Harry Test</name>
+                        <till>
+                           <code>jotun.uae.admin.2</code>
+                           <name>jotun.uae.admin.2</name>
+                        </till>
+                     </element>
+                     <element>
+                        <identifier>97150000099</identifier>
+                        <invited_on>2020-01-30 14:56:12.0</invited_on>
+                        <name>Test</name>
+                        <till>
+                           <code>jotun.uae.admin.2</code>
+                           <name>jotun.uae.admin.2</name>
+                        </till>
+                     </element>
+                  </invitee>
+                  <type>MOBILE</type>
+               </element>
             </referral_type>
-            <referral_type>
-               <type>MOBILE</type>
-               <referral>
-                  <id>5</id>
-                  <name>Heisenberg</name>
-                  <identifier>919123456789</identifier>
-                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
-                  <status>
-                     <success>true</success>
-                     <code>100</code>
-                     <message>Invitee added
- successfully</message>
-                  </status>
-               </referral>
-               <referral>
-                  <id>10</id>
-                  <name>Walt Jr</name>
-                  <identifier>919876543211</identifier>
-                  <invited_on>2016-09-12T15:19:21+05:30</invited_on>
-                  <status>
-                     <success>true</success>
-                     <code>100</code>
-                     <message>Invitee added
- successfully</message>
-                  </status>
-               </referral>
-            </referral_type>
-         </referrals>
+         </invitees>
          <item_status>
-            <success>true</success>
             <code>1000</code>
-            <message>Referrals are invited Successfully</message>
+            <message>Referral statistics retrieved successfully</message>
+            <success>true</success>
          </item_status>
+         <lastname>Jindal</lastname>
+         <mobile>971544979350</mobile>
+         <referees>
+            <referee>
+               <element>
+                  <added_on>2020-01-29 13:24:15</added_on>
+                  <email null="true" />
+                  <event_type>REGISTRATION</event_type>
+                  <external_id null="true" />
+                  <firstname null="true" />
+                  <lastname null="true" />
+                  <mobile null="true" />
+               </element>
+               <element>
+                  <added_on>2020-01-29 13:31:53</added_on>
+                  <email null="true" />
+                  <event_type>REGISTRATION</event_type>
+                  <external_id null="true" />
+                  <firstname null="true" />
+                  <lastname null="true" />
+                  <mobile null="true" />
+               </element>
+               <element>
+                  <added_on>2020-01-29 14:33:05</added_on>
+                  <email null="true" />
+                  <event_type>REGISTRATION</event_type>
+                  <external_id null="true" />
+                  <firstname null="true" />
+                  <lastname null="true" />
+                  <mobile null="true" />
+               </element>
+               <element>
+                  <added_on>2020-01-29 15:32:37</added_on>
+                  <email null="true" />
+                  <event_type>REGISTRATION</event_type>
+                  <external_id null="true" />
+                  <firstname null="true" />
+                  <lastname null="true" />
+                  <mobile null="true" />
+               </element>
+            </referee>
+         </referees>
+         <referral_code>1mba0dlo5</referral_code>
       </customer>
-   </customers>
-</response>
-
-
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
 ```
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "success"
-    },
-    "customer": {
-      "email": "vimalsudhan@gmail.com",
-      "mobile": "9197407983xx",
-      "external_id": "VIMAL004",
-      "id": "4596849",
-      "firstname": "Vimal",
-      "lastname": "Sudhan",
-      "referral_code": "DJK39",
-      "invitees": {
-        "referral_type": [
-          {
-            "type": "EMAIL",
-            "invitee": [
-              {
-                "identifier": "dexter.morgan@mpd.com",
-                "invited_on": "2013-09-02 12:49:12",
-                "till": {
-                  "code": "store.till",
-                  "name": "store till"
-                }
-              },
-              {
-                "identifier": "
-debra.morgan@elwaydetectives.com",
-                "invited_on": "2013-09-01 13:04:10",
-                "till": {
-                  "code": "till.cap.123",
-                  "name": "cap till"
-                }
-              },
-              {
-                "identifier": "
-eddard.stark@winterfell.com",
-                "invited_on": "2013-08-21 10:04:10",
-                "till": {
-                  "code": "till.cap.123",
-                  "name": "cap till"
-                }
-              }
+   "response":{
+      "status":{
+         "success":"true",
+         "code":200,
+         "message":"SUCCESS"
+      },
+      "customer":{
+         "email":null,
+         "mobile":"971544979350",
+         "external_id":"971544979350",
+         "firstname":"Ishant",
+         "lastname":"Jindal",
+         "referral_code":"1mba0dlo5",
+         "invitees":{
+            "referral_type":[
+               {
+                  "type":"MOBILE",
+                  "invitee":[
+                     {
+                        "identifier":"971564265901",
+                        "name":"Siddhant",
+                        "invited_on":"2020-01-29 12:25:46.0",
+                        "till":{
+                           "code":"jotun.uae.admin.2",
+                           "name":"jotun.uae.admin.2"
+                        }
+                     },
+                     {
+                        "identifier":"971564265901",
+                        "name":"Siddhant",
+                        "invited_on":"2020-01-29 13:37:36.0",
+                        "till":{
+                           "code":"jotun.uae.admin.2",
+                           "name":"jotun.uae.admin.2"
+                        }
+                     },
+                     {
+                        "identifier":"97150000099",
+                        "name":"Harry Test",
+                        "invited_on":"2020-01-29 13:55:32.0",
+                        "till":{
+                           "code":"jotun.uae.admin.2",
+                           "name":"jotun.uae.admin.2"
+                        }
+                     },
+                     {
+                        "identifier":"97150000099",
+                        "name":"Test",
+                        "invited_on":"2020-01-30 14:56:12.0",
+                        "till":{
+                           "code":"jotun.uae.admin.2",
+                           "name":"jotun.uae.admin.2"
+                        }
+                     }
+                  ]
+               }
             ]
-          },
-          {
-            "type": "MOBILE",
-            "invitee": [
-              {
-                "identifier": "919123456789",
-                "invited_on": "2013-09-02 12:49:12",
-                "till": {
-                  "code": "store.till",
-                  "name": "store till"
-                },
-                "success": "true"
-              },
-              {
-                "identifier": "
-919876543210",
-                "invited_on": "2013-09-01 13:04:10",
-                "till": {
-                  "code": "till.cap.123",
-                  "name": "cap till"
-                },
-                "success": "false"
-              },
-              {
-                "identifier": "
-919112233445",
-                "invited_on": "2013-08-21 10:04:10",
-                "till": {
-                  "code": "till.cap.123",
-                  "name": "cap till"
-                },
-                "success": "true"
-              }
+         },
+         "referees":{
+            "referee":[
+               {
+                  "event_type":"REGISTRATION",
+                  "firstname":null,
+                  "lastname":null,
+                  "mobile":null,
+                  "email":null,
+                  "external_id":null,
+                  "added_on":"2020-01-29 13:24:15"
+               },
+               {
+                  "event_type":"REGISTRATION",
+                  "firstname":null,
+                  "lastname":null,
+                  "mobile":null,
+                  "email":null,
+                  "external_id":null,
+                  "added_on":"2020-01-29 13:31:53"
+               },
+               {
+                  "event_type":"REGISTRATION",
+                  "firstname":null,
+                  "lastname":null,
+                  "mobile":null,
+                  "email":null,
+                  "external_id":null,
+                  "added_on":"2020-01-29 14:33:05"
+               },
+               {
+                  "event_type":"REGISTRATION",
+                  "firstname":null,
+                  "lastname":null,
+                  "mobile":null,
+                  "email":null,
+                  "external_id":null,
+                  "added_on":"2020-01-29 15:32:37"
+               }
             ]
-          }
-        ]
-      },
-      "referees": {
-        "referee": [
-          {
-            "event_type": "TRANSACTION",
-            "user_id": "1494955",
-            "firstname": "Dexter",
-            "lastname": "Morgan",
-            "email": "dexter.morgan@mpd.com",
-            "mobile": "919988776655",
-            "external_id": "MPD345",
-            "added_on": "2013-09-02 11:29:10"
-          },
-          {
-            "event_type": "REGISTRATION",
-            "user_id": "1494915",
-            "firstname": "Debra",
-            "lastname": "Morgan",
-            "email": "debra.morgan@elwaydetectives.com",
-            "mobile": "919988976655",
-            "external_id": "ELW345",
-            "added_on": "2013-09-01 10:29:10"
-          }
-        ]
-      },
-      "incentives": {
-        "event_type": [
-          {
-            "name": "TRANSACTION",
-            "coupons": {
-              "coupon": {
-                "code": "934KD944K",
-                "valid_till": "2014-02-12 12:10:40",
-                "redemption_info": {
-                  "redeemed": "true",
-                  "redeemed_on": "2013-12-12 14:29:41"
-                }
-              }
-            }
-          },
-          {
-            "name": "REGISTRATION",
-            "coupons": {
-              "coupon": {
-                "code": "DFI3KDL",
-                "valid_till": "2014-01-12 19:10:40",
-                "value": "50",
-                "redemption_info": {
-                  "redeemed": "true",
-                  "redeemed_on": "2013-02-12 14:29:41"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "item_status": {
-        "success": "true",
-        "code": "1000",
-        "message": "Referral Statistics retrieved successfully"
+         },
+         "incentives":[
+
+         ],
+         "item_status":{
+            "success":"true",
+            "code":1000,
+            "message":"Referral statistics retrieved successfully"
+         }
       }
-    }
-  }
+   }
 }
 ```
 

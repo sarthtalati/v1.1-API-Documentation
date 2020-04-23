@@ -282,33 +282,46 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
 
 ```json
 {
-  "root": {
-    "redeem": [{
-      "points_redeemed": "100",
-      "transaction_number": "1234r743",
-      "customer": { "mobile": "44700900999" },
-      "notes": "Sample notes",
-      "validation_code": "6D18DU",
-      "redemption_time": "2016-11-21 11:30:11"
-    }]
-  }
+   "root": {
+       "redeem": [
+           {
+            "points_redeemed": 10,
+            "customer": {
+               "mobile": "44700900999",
+               "external_id": "",
+                "email": ""
+            },
+            "redemption_time": "2020-03-13 18:02:34",
+            "transaction_number": "red123",
+            "till_id": "",
+            "notes": "10 points redemption by SMS.",
+            "validation_code": "4PZGXC"
+           }
+       ]
+   }
 }
 ```
 
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-<redeem>
-<points_redeemed>100</points_redeemed>
-<transaction_number>1234r743</transaction_number>
-<customer>
-<mobile>44700900999</mobile>
-<email></email>
-<external_id></external_id>
-</customer>
-<notes>Sample notes</notes>
-<validation_code>6D18DU</validation_code>
-<redemption_time>2016-11-21 11:30:11</redemption_time>
-</redeem>
+   <root>
+      <redeem>
+         <element>
+            <customer>
+               <email />
+               <external_id />
+               <mobile>44700900999</mobile>
+            </customer>
+            <notes>10 points redemption by SMS.</notes>
+            <points_redeemed>10</points_redeemed>
+            <redemption_time>2020-03-13 18:02:34</redemption_time>
+            <till_id />
+            <transaction_number>red123</transaction_number>
+            <validation_code>4PZGXC</validation_code>
+         </element>
+      </redeem>
+   </root>
 </root>
 ```
 
@@ -316,52 +329,93 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "responses": {
-      "points": {
-        "mobile": "44700900999",
-        "points_redeemed": "100",
-        "redeemed_value": "100",
-        "balance": "257",
-        "item_status": {
-          "success": "true",
-          "code": "800",
-          "message": "Points Redeemed"
-        }
-      }
-    }
-  }
+	"response": {
+		"status": {
+			"success": "true",
+			"code": 200,
+			"message": "Success"
+		},
+		"responses": {
+			"points": {
+				"mobile": "919700000000",
+				"email": "tom.sawyer@example.com",
+				"external_id": "",
+				"user_id": "98662653",
+				"redemption_id": "r0njPT",
+				"points_redeemed": "10",
+				"redeemed_value": 10,
+				"redeemed_local_value": 10,
+				"balance": 2906,
+				"side_effects": {
+					"effect": [
+						{
+							"id": 1425658,
+							"case_value": "true",
+							"num_points": 10,
+							"currency_value": 10,
+							"validation_code": "4PZGXC",
+							"points_redemption_summary_id": "1425658",
+							"redeemed_on_bill_number": "red123",
+							"redeemed_on_bill_id": -1,
+							"type": "points"
+						}
+					]
+				},
+				"item_status": {
+					"success": "true",
+					"code": 800,
+					"message": "Points Redeemed"
+				}
+			}
+		}
+	}
 }
 ```
 
 ```xml
-<response>  
-<status>    
-<success>true</success>    
-<code>200</code>    
-<message>SUCCESS</message>  
-</status>  
-<responses>    
-<points>      
-<mobile>44700900999</mobile>
-<email></email>
-<external_id></external_id>
-<points_redeemed>100</points_redeemed>      
-<redeemed_value>100</redeemed_value>
-<balance>257</balance>
-<item_status>        
-<success>true</success>        
-<code>800</code>        
-<message>Points Redeemed</message>      
-</item_status>    
-</points>  
-</responses>
-</response>
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <responses>
+         <points>
+            <balance>2906</balance>
+            <email>tom.sawyer@example.com</email>
+            <external_id />
+            <item_status>
+               <code>800</code>
+               <message>Points Redeemed</message>
+               <success>true</success>
+            </item_status>
+            <mobile>919700000000</mobile>
+            <points_redeemed>10</points_redeemed>
+            <redeemed_local_value>10</redeemed_local_value>
+            <redeemed_value>10</redeemed_value>
+            <redemption_id>r0njPT</redemption_id>
+            <side_effects>
+               <effect>
+                  <element>
+                     <case_value>true</case_value>
+                     <currency_value>10</currency_value>
+                     <id>1425658</id>
+                     <num_points>10</num_points>
+                     <points_redemption_summary_id>1425658</points_redemption_summary_id>
+                     <redeemed_on_bill_id>-1</redeemed_on_bill_id>
+                     <redeemed_on_bill_number>red123</redeemed_on_bill_number>
+                     <type>points</type>
+                     <validation_code>4PZGXC</validation_code>
+                  </element>
+               </effect>
+            </side_effects>
+            <user_id>98662653</user_id>
+         </points>
+      </responses>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
 ```
 
 You can redeem points of a customer using the issued validation code. Ensure that you have validated the points to be redeemed and issued validation code to the customer's mobile number before redeeming. You need to have the validation code to process points redemption.
@@ -398,9 +452,11 @@ program_id | long | Program id associated to the points that you want to redeem.
 ### Response Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
+redemption_id | long | Unique reference ID generated for the redemption. This is also required to reverse redeemed points in case of transaction return.
 points_redeemed | int | Number of points redeemed.
 redeemed_value | double | Value of the points redeemed.
 balance | int | Remaining points in the customer's account after redemption.
+side_effects | obj | Other effects due to points redemption. You will see details such bill number/ID on which points are redeemed. 
 
 
 
@@ -415,6 +471,18 @@ balance | int | Remaining points in the customer's account after redemption.
 ### Error Codes
 Code | Description
 ---- | -----------
+686 | User is from campaign and has not enrolled in the loyalty program. Points redemption is not applicable for the user.
+804 | Insufficient current points.
+805 | Insufficient lifetime points.
+806 | Insufficient lifetime purchases amount.
+807 | Redemptions points not divisible.
+809 | Customer is marked as fraud.
+818 | Current points are less than points requested for redemption.
+819 | Points to redeem exceeds the threshold limit (maximum points that can be redeemed in a transaction).
+821 | Points you are trying to redeem are less than the minimum points allowed.
+886 | Unable to process points. Please try again later.
+887 | Unable to process points. Please try again later.
+888 | Invalid configuration. Please report to capillary support.
 801 | Points you are trying to redeem are invalid
 802 | Mobile number/email id/external id you have entered is invalid
 803 | Unable to redeem. The points you are trying to redeem is more than the available points
@@ -442,23 +510,15 @@ Code | Description
 825 | Client signature is required
 826 | Invalid points category or invalid configuration
 827 | Unable to redeem points. Points redemption is enabled for your organization
-828 | Unable to redeem points at this moment. Please try again later
-829 | Unable to redeem points at this moment. Please try again later
-850 | Unable to redeem points at this moment. Please try again later
 859 | The redemption time you have passed is invalid
 860 | Unable to issue OTP
 881 | Customer is not registered into the loyalty program
-886 | Unable to process points at this moment. Please try again later
-887 | Unable to process points at this moment. Please try again later
 888 | Configuration is invalid. Please report to Capillary Support
-889 | Unable to process points at this moment. Please try again later
-890 | Unable to process points at this moment. Please try again later
-891 | Unable to process points at this moment. Please try again later  
-892 | Unable to process points at this moment. Please try again later
-893 | Unable to process points at this moment. Please try again later
 894 | Unable to process points at this moment. Please try again later
 895 | Loyalty program is not configured for your organization
-896 | Unable to process points at this moment. Please try again later
-897 | Unable to process points at this moment. Please try again later
 898 | Unable to process points at this moment. Please try again later
 899 | Configuration is invalid. Please report to Capillary Support
+901 | Invalid points or points redemption Id passed.
+902	| Redemption ID does not exist.
+903 | Unable to redeem points.
+904 | Invalid customer details passed.

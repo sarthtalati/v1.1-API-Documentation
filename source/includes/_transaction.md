@@ -68,6 +68,10 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
           "firstname": "Tom",
           "lastname": "Sawyer"
         },
+		"redemptions" : {
+			"pointsRedemptions" : [1427813],
+		"	couponRedemptions" : [ ]
+	},
         "extended_fields": {
           "field": [
             {
@@ -274,202 +278,240 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <root>
-  <transaction>
-    <bill_client_id></bill_client_id>
-    <type>regular</type>
-    <number>BILL99</number>
-    <amount>5000</amount>
-    <currency_code>INR</currency_code>
-    <notes>2 line items</notes>
-    <billing_time>2018-04-01</billing_time>
-    <gross_amount>1000</gross_amount>
-    <delivery_status>DELIVERED</delivery_status>
-    <shipping_source_till_code></shipping_source_till_code>
-    <source>ECOMM</source>
-    <outlier_status>NORMAL</outlier_status>
-    <credit_notes></credit_notes>
-    <discount>10</discount>
-    <customer>
-      <mobile>919999000000</mobile>
-      <email></email>
-      <external_id></external_id>
-      <firstname>Tom</firstname>
-      <lastname>Sawyer</lastname>
-    </customer>
-    <extended_fields>
-      <field>
-        <name>CentralGST</name>
-        <value>8.5</value>
-      </field>
-      <field>
-        <name>cashier_id</name>
-        <value>12345678</value>
-      </field>
-    </extended_fields>
-    <payment_details>
-      <payment>
-        <mode>CASH</mode>
-        <value>100</value>
-      </payment>
-      <payment>
-        <mode>CREDIT</mode>
-        <mode>CHECKAPI</mode>
-        <value>4000</value>
-        <value>500</value>
-        <attributes>
-          <attribute>
-            <name>BankNameAPI</name>
-            <value>value_602656</value>
-          </attribute>
-          <attribute>
-            <name>branch_nameAPI</name>
-            <value>value_602656</value>
-          </attribute>
-        </attributes>
-        <notes>notes_602656</notes>
-      </payment>
-    </payment_details>
-    <custom_fields>
-      <field>
-        <name>Bank</name>
-        <value>SBI</value>
-      </field>
-    </custom_fields>
-    <line_items>
-      <line_item>
-        <serial>1</serial>
-        <amount>500</amount>
-        <description>soap</description>
-        <item_code>skuattr9</item_code>
-        <base_item_code></base_item_code>
-        <discount_value>234</discount_value>
-        <extended_fields>
-          <field>
-            <name>booking_type</name>
-            <value>Online</value>
-          </field>
-          <field>
-            <name>MetalRate</name>
-            <value>120.55</value>
-          </field>
-        </extended_fields>
-        <variant></variant>
-        <addon_items>
-          <addon_item>
-            <item_code>Addon-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </addon_item>
-          <addon_item>
-            <item_code>Addon-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </addon_item>
-        </addon_items>
-        <combo_items>
-          <combo_item>
-            <item_code>combo-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </combo_item>
-          <combo_item>
-            <item_code>combo-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </combo_item>
-        </combo_items>
-        <split_items>
-          <split_item>
-            <item_code>Cheese dip</item_code>
-            <quantity>1</quantity>
-            <description>Cheese dip</description>
-          </split_item>
-          <split_item>
-            <item_code>Cheese dip</item_code>
-            <quantity>1</quantity>
-            <description>Cheese dip</description>
-          </split_item>
-        </split_items>
-        <qty>50</qty>
-        <rate>10</rate>
-        <value>500</value>
-        <attributes>
-          <attribute>
-            <name>brand</name>
-            <value>Levis</value>
-          </attribute>
-        </attributes>
-      </line_item>
-      <line_item>
-        <serial>1</serial>
-        <transaction_number>Trans99</transaction_number>
-        <amount>500</amount>
-        <description>soap</description>
-        <item_code>skuattr9</item_code>
-        <variant>variant-33</variant>
-        <notes></notes>
-        <addon_items>
-          <addon_item>
-            <item_code>Addon-043</item_code>
-            <quantity>1</quantity>
-            <rate>10</rate>
-            <value>500</value>
-            <description></description>
-          </addon_item>
-          <addon_item>
-            <item_code>Addon-043</item_code>
-            <quantity>1</quantity>
-            <rate>10</rate>
-            <value>500</value>
-            <description></description>
-          </addon_item>
-        </addon_items>
-        <combo_items>
-          <combo_item>
-            <item_code>combo-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </combo_item>
-          <combo_item>
-            <item_code>combo-033</item_code>
-            <quantity>1</quantity>
-            <description></description>
-          </combo_item>
-        </combo_items>
-        <split_items>
-          <split_item>
-            <item_code>Cheese dip</item_code>
-            <quantity>1</quantity>
-            <rate>10</rate>
-            <value>500</value>
-            <description>Cheese dip</description>
-          </split_item>
-          <split_item>
-            <item_code>Cheese dip</item_code>
-            <quantity>1</quantity>
-            <rate>10</rate>
-            <value>500</value>
-            <description>Cheese dip</description>
-          </split_item>
-        </split_items>
-        <qty>50</qty>
-        <rate>10</rate>
-        <value>500</value>
-        <attributes>
-          <attribute>
-            <name>brand</name>
-            <value>Levis</value>
-          </attribute>
-        </attributes>
-      </line_item>
-    </line_items>
-    <associate_details>
-      <code>hiraxdhara</code>
-      <name>Chin</name>
-    </associate_details>
-  </transaction>
+   <root>
+      <transaction>
+         <element>
+            <amount>5000</amount>
+            <associate_details>
+               <code>hiraxdhara</code>
+               <name>Chin</name>
+            </associate_details>
+            <bill_client_id />
+            <billing_time>2018-04-01</billing_time>
+            <credit_notes />
+            <currency_code>INR</currency_code>
+            <custom_fields>
+               <field>
+                  <element>
+                     <name>Bank</name>
+                     <value>SBI</value>
+                  </element>
+               </field>
+            </custom_fields>
+            <customer>
+               <email />
+               <external_id />
+               <firstname>Tom</firstname>
+               <lastname>Sawyer</lastname>
+               <mobile>919999000000</mobile>
+            </customer>
+            <delivery_status>DELIVERED</delivery_status>
+            <discount>10</discount>
+            <extended_fields>
+               <field>
+                  <element>
+                     <name>CentralGST</name>
+                     <value>8.5</value>
+                  </element>
+                  <element>
+                     <name>cashier_id</name>
+                     <value>12345678</value>
+                  </element>
+               </field>
+            </extended_fields>
+            <gross_amount>1000</gross_amount>
+            <line_items>
+               <line_item>
+                  <element>
+                     <addon_items>
+                        <addon_item>
+                           <element>
+                              <description />
+                              <item_code>Addon-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>Addon-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </addon_item>
+                     </addon_items>
+                     <amount>500</amount>
+                     <attributes>
+                        <attribute>
+                           <name>brand</name>
+                           <value>Levis</value>
+                        </attribute>
+                     </attributes>
+                     <base_item_code />
+                     <combo_items>
+                        <combo_item>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </combo_item>
+                     </combo_items>
+                     <description>soap</description>
+                     <discount_value>234</discount_value>
+                     <extended_fields>
+                        <field>
+                           <element>
+                              <name>booking_type</name>
+                              <value>Online</value>
+                           </element>
+                           <element>
+                              <name>MetalRate</name>
+                              <value>120.55</value>
+                           </element>
+                        </field>
+                     </extended_fields>
+                     <item_code>skuattr9</item_code>
+                     <qty>50</qty>
+                     <rate>10</rate>
+                     <serial>1</serial>
+                     <split_items>
+                        <split_item>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </split_item>
+                     </split_items>
+                     <value>500</value>
+                     <variant />
+                  </element>
+                  <element>
+                     <addon_items>
+                        <addon_item>
+                           <element>
+                              <description />
+                              <item_code>Addon-043</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>Addon-043</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                        </addon_item>
+                     </addon_items>
+                     <amount>500</amount>
+                     <attributes>
+                        <attribute>
+                           <name>brand</name>
+                           <value>Levis</value>
+                        </attribute>
+                     </attributes>
+                     <combo_items>
+                        <combo_item>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                           <element>
+                              <description />
+                              <item_code>combo-033</item_code>
+                              <quantity>1</quantity>
+                           </element>
+                        </combo_item>
+                     </combo_items>
+                     <description>soap</description>
+                     <item_code>skuattr9</item_code>
+                     <notes />
+                     <qty>50</qty>
+                     <rate>10</rate>
+                     <serial>1</serial>
+                     <split_items>
+                        <split_item>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                           <element>
+                              <description>Cheese dip</description>
+                              <item_code>Cheese dip</item_code>
+                              <quantity>1</quantity>
+                              <rate>10</rate>
+                              <value>500</value>
+                           </element>
+                        </split_item>
+                     </split_items>
+                     <transaction_number>Trans99</transaction_number>
+                     <value>500</value>
+                     <variant>variant-33</variant>
+                  </element>
+               </line_item>
+            </line_items>
+            <notes>2 line items</notes>
+            <number>BILL99</number>
+            <outlier_status>NORMAL</outlier_status>
+            <payment_details>
+               <payment>
+                  <element>
+                     <mode>CASH</mode>
+                     <value>100</value>
+                  </element>
+                  <element>
+                     <attributes>
+                        <attribute>
+                           <element>
+                              <name>BankNameAPI</name>
+                              <value>value_602656</value>
+                           </element>
+                           <element>
+                              <name>branch_nameAPI</name>
+                              <value>value_602656</value>
+                           </element>
+                        </attribute>
+                     </attributes>
+                     <mode>
+                        <element>CREDIT</element>
+                        <element>CHECKAPI</element>
+                     </mode>
+                     <notes>notes_602656</notes>
+                     <value>
+                        <element>4000</element>
+                        <element>500</element>
+                     </value>
+                  </element>
+               </payment>
+            </payment_details>
+            <redemptions>
+               <couponRedemptions />
+               <pointsRedemptions>
+                  <element>1427813</element>
+               </pointsRedemptions>
+            </redemptions>
+            <shipping_source_till_code />
+            <source>ECOMM</source>
+            <type>regular</type>
+         </element>
+      </transaction>
+   </root>
 </root>
 
 ```
@@ -633,10 +675,15 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 Lets you add transactions of loyalty, non-loyalty, or not-interested customers. You can add batch transactions by passing each transaction details in a separate `transaction` attribute.
 
+Currently, there is no validation that bill amount should match with sum of line items as the data is accepted as it is from POS or integration
+
 Following are the key functionalities of the `transaction/add` API.
 
 * Registers customers automatically when a new identifier is passed with the transaction details.
-* Updates customer details if an existing identifier is passed with different customer details (other than customer identifiers).
+* If any identifier matches with another accounts, customer accounts will be merged if the config mentioned below is not enabled.
+* If `CONFIG_SKIP_SECONDARY_ID_ON_PRIMARY_MISMATCH` is enabled, if the primary identifier is different but any of the secondary identifiers exist, a new customer is registered with the primary identifier ignoring the secondary identifier. The config is available on the Registration Page of InTouch **Profile** > **Organization Settings** > **Miscellaneous**.
+	* Also, this config overrides `CONF_PRIMARY_IDENTIFIER_STRICT_CHECK`.
+* Updates customer details if a registered identifier is passed with different customer details (other than customer identifiers).
 * Supports transactions with Product Variant and Product Bundle details.
 * Adds product variant to the database when a new variant product is passed with an existing base product.
 * Adds  base product to the database when a new base product/variant product is passed. However, if a new base product is passed with variant details, it adds only base product and ignores variant .
@@ -683,20 +730,22 @@ Parameter | Datatype | Description
 --------- | -------- | -----------
 bill_client_id | string | Unique id of the bill as per the client (org) end.
 type* | enum | Type of transaction. `regular` for loyalty transaction, `not_interested` for non-loyalty or not-interested transactions.
-number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**. 
-amount* | double | Net transaction amount.
+number* | string | Unique transaction number. The uniqueness depends on the configuration `CONF_LOYALTY_BILL_NUMBER_UNIQUE_IN_DAYS` set on InTouch **Settings** > **System & Deployment** > **InTouch POS Configuration** > **Billing**.  
+amount* | double | Net transaction amount of the original bill.
 currency_code | string | ISO currency code of the transaction. For example, `INR` for Indian Rupee, SGD for Singapore Dollar, `EUR` for Euro, `IQD` for Iraqi Dinar.
 notes | string | Additional information about the transaction.
 qty* | int | Quantity of the current line-item.
 rate | float | Price of each line-item.
 value | float | Gross transaction amount (transaction amount excluding discount).
-amount* | double | Net transaction amount - the actual transaction amount after discount.
+amount* | double | Net transaction amount of the bill after discount.
 billing_time* | date-time | Date and time of the transaction. By default, the  current system date and time will be considered.
 gross_amount | double | Transaction amount excluding discount.
 discount | double | Discount availed for the transaction (discount amount).
 outlier_status | enum | Pass the outlier status of the transaction at transaction level, and outlier status of the line-item at line-item level. Values: `INTERNAL`, `NORMAL`, `INVALID`, `OUTLIER`, `FAILED`, `DELETED`, `RETRO`, `FRAUD`, `TEST`, `OTHER`. 
 source | enum | Source from which the transaction is made. Values: `INSTORE`( for InStore), `WECHAT` (WeChat), `MARTJACK`(AnywhereCommerce), `WEB_ENGAGE` (Web-engage integration), ECOMMERCE (ECOMMERCE), `JD` (JD), `TAOBAO` (Taobao), `TMALL` (TMall), `FACEBOOK` (Facebook), `WEBSITE` (other website), `OTHERS` (any other source).
 not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
+pointsRedemptions | array | Unique points redemption id(s) that you want to apply for the transaction. For example, [727272, 237878]. `
+couponRedemptions | array | Unique coupon redemption id(s) that you want to apply for the transaction. For example, [727298, 237856].
 referral_code | string | Referral code for a new customer (if applicable) to register in the org's loyalty program.
 customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
 mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
@@ -918,10 +967,11 @@ https://us.api.capillarytech.com/v1.1/transaction/add_with_local_currency
 }
 ```
 
-Lets you add transactions with a different currency using the currency conversion ratio. To support this feature, you need to have
+Lets you add transactions with a different currency using the currency conversion ratio. The following are the prerequisites or checklists for the API.
   
-* disabled `ERR_CURRENCY_CONVERSION_DISABLED` on the Billing Configuration page of InTouch Settings
-* added relevant currency conversion ratios in the back-end
+* Enable `CONF_CURRENCY_CONVERSION_ENABLE` on the Billing Configuration page of InTouch **Profile** > **Organization Settings** > **Systems & Deployment** > **InTouch POS Configurations**.
+* Configure org's base currency and supported currencies on the Organization Setup page of InTouch **Profile** > **Organization Settings** > **Organization Setup** > **Organization Profile**.
+* Add relevant currency conversion ratios in the back-end either through `/v2/currencyratio` API or through Data Import.
 * the destination currency id. If no currency id is passed, the transaction gets converted to the org's base currency
 
 The issual of points/coupon or redemption is calculated automatically as per the destination currency. 
@@ -1010,7 +1060,7 @@ extended_fields | obj | Transaction or line-item level extended field details - 
 https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 ```
 
-> Sample POST Request
+> Sample POST Request (Return)
 
 ```json
 {
@@ -1108,6 +1158,186 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
   </transaction>
 </root>
 ```
+
+> Sample POST Request (Mixed Transaction)
+
+```json
+{
+ "root":{
+   "transaction":[
+     {
+       "type":"mixed",
+       "number":"Exch-1112",
+       "amount":"500",
+       "notes":"1 line items",
+       "billing_time":"2018-09-26 20:10:00",
+       "gross_amount":"500",
+       "discount":"0",
+       "customer":{
+         "mobile":"9540000000",
+         "email":"",
+         "external_id":"",
+         "firstname":"",
+         "lastname":""
+       },
+       "payment_details":{
+         "payment": [{
+                       "mode": "CASH",
+                       "value": "200"
+                   },
+                   {
+                       "mode": "Card",
+                       "value": "200",
+                       "attributes": {
+                           "attribute": [{
+                                   "name": "card_type",
+                                   "value": "Debit Card"
+                               },
+                               {
+                                   "name": "bankName",
+                                   "value": "BCA"
+                               },
+                               {
+                                   "name": "CardIssuerCode",
+                                   "value": "value345"
+                               }
+                           ]
+                       },
+                       "notes": "notes_602656"
+                   }
+               ]
+           
+       },
+       "custom_fields":{
+         "field":[
+          
+         ]
+       },
+       "line_items":{
+         "line_item":[
+           
+       {
+       	"type":"regular",							 
+             "serial":"1",
+             "amount":"300",
+             "description":"Testdesc04",
+             "item_code":"code04",
+             "variant":"",
+            "qty":"1",
+             "rate":"300",
+             "value":"300"
+       },
+       {
+       	"type":"return",
+            "return_type":"LINE_ITEM",
+		    "transaction_number":"RC-15",
+		    "transaction_date":"2018-09-25 10:10:10",
+             "serial":"1",
+             "amount":"50",
+             "description":"Testdesc02",
+             "item_code":"code02",
+             "variant":"",
+            "qty":"1",
+             "rate":"50",
+             "value":"50"
+       }
+       
+         ]
+         
+       }
+     }
+   ]
+ }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <root>
+      <transaction>
+         <element>
+            <amount>500</amount>
+            <billing_time>2018-09-26 20:10:00</billing_time>
+            <custom_fields>
+               <field />
+            </custom_fields>
+            <customer>
+               <email />
+               <external_id />
+               <firstname />
+               <lastname />
+               <mobile>9540000000</mobile>
+            </customer>
+            <discount>0</discount>
+            <gross_amount>500</gross_amount>
+            <line_items>
+               <line_item>
+                  <element>
+                     <amount>300</amount>
+                     <description>Testdesc04</description>
+                     <item_code>code04</item_code>
+                     <qty>1</qty>
+                     <rate>300</rate>
+                     <serial>1</serial>
+                     <type>regular</type>
+                     <value>300</value>
+                     <variant />
+                  </element>
+                  <element>
+                     <amount>50</amount>
+                     <description>Testdesc02</description>
+                     <item_code>code02</item_code>
+                     <qty>1</qty>
+                     <rate>50</rate>
+                     <return_type>LINE_ITEM</return_type>
+                     <serial>1</serial>
+                     <transaction_date>2018-09-25 10:10:10</transaction_date>
+                     <transaction_number>RC-15</transaction_number>
+                     <type>return</type>
+                     <value>50</value>
+                     <variant />
+                  </element>
+               </line_item>
+            </line_items>
+            <notes>1 line items</notes>
+            <number>Exch-1112</number>
+            <payment_details>
+               <payment>
+                  <element>
+                     <mode>CASH</mode>
+                     <value>200</value>
+                  </element>
+                  <element>
+                     <attributes>
+                        <attribute>
+                           <element>
+                              <name>card_type</name>
+                              <value>Debit Card</value>
+                           </element>
+                           <element>
+                              <name>bankName</name>
+                              <value>BCA</value>
+                           </element>
+                           <element>
+                              <name>CardIssuerCode</name>
+                              <value>value345</value>
+                           </element>
+                        </attribute>
+                     </attributes>
+                     <mode>Card</mode>
+                     <notes>notes_602656</notes>
+                     <value>200</value>
+                  </element>
+               </payment>
+            </payment_details>
+            <type>mixed</type>
+         </element>
+      </transaction>
+   </root>
+</root>
+```
+
 
 > Sample Response
 
@@ -1275,21 +1505,21 @@ Before using this API, you need to know the configurations set of the Return Tra
 
 
 ### Request URL
-`https://{host}/v1.1/transaction/add_with_local_currency?format={xml/json}`
+`https://{host}/v1.1/transaction/add?format={xml/json}`
 
 
 ### Request Body Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
-type* | enum | Type of transaction. `RETURN` for loyalty transaction return, `NOT_INTERESTED_RETURN` for not-interested return, `MIXED` for exchange (involves both return and purchase).
+type* | enum | Type of transaction. `RETURN` for loyalty transaction return, `NOT_INTERESTED_RETURN` for not-interested return, `MIXED` for exchange (involves both return and purchase).<br>You will also need to pass `type` for `MIXED` transaction both at bill level (MIXED) and line-item level (`regular` for new transaction item and `return` for return item).
 return_type | enum | Type of return. Value: `AMOUNT` to return transaction or line-items for money, `LINE_ITEM` to return one or more line-items of the transaction, `FULL` to return complete transaction.
 number* | string | Actual transaction number of the return bill.
 parent_bill_number | string | Return transaction number. 
 billing_time* | date-time | Date and time of the return transaction in `YYYY-MM-DD HH:MM:SS` format.
 purchase_time* | date | Actual transaction date of the returning bill in`YYYY-MM-DD` format.
 notes | string | Additional information about the transaction.
-amount* | double | Net transaction amount.
+amount* | double | Sum of regular line items of the current transaction after discount.
 qty* | int | Quantity of the current line-item.
 rate | float | Price of each line-item.
 value | float | Gross transaction amount (transaction amount excluding discount).
@@ -1348,7 +1578,6 @@ updated_on | date-time | Recent date on which the customer details are updated.
 type | enum | Loyalty type of the customer. `LOYALTY` if the customer is enrolled in the org's loyalty program, `NON_LOYALTY` if customer has not enrolled in the loyalty program but registered mobile number or email id with the org.
 custom_fields | obj |Transaction or line-item level custom field details - field name (`name`) and field value (`value`).
 extended_fields | obj | Transaction or line-item level extended field details - extended field name (`name`) and extended field value (`value`).
-
 
 
 
@@ -1977,288 +2206,593 @@ https://us.api.capillarytech.com/v1.1/transaction/get?number=BILL7&format=json
 
 ```json
 {
-  "response": {
-    "status": {
-      "success": "true",
-      "code": 200,
-      "message": "Success"
-    },
-    "transactions": {
-      "count": 1,
-      "transaction": [
-        {
-          "customer": {
-            "mobile": "918036151289",
-            "first_name": "Tom",
-            "last_name": "Sawyer",
-            "email": "tom.sawyer@example.com",
-            "external_id": "XYPZ001",
-            "source": "instore"
-          },
-          "billing_till": {
-            "code": "mobilepush.1",
-            "name": "mobilepush.1"
-          },
-          "billing_store": {
-            "code": "storecode",
-            "name": "webstore1"
-          },
-          "id": "37812256",
-          "number": "BILL7",
-          "type": "REGULAR",
-          "outlier_status": "NORMAL",
-          "store": "mobilepush.1",
-          "delivery_status": "DELIVERED",
-          "source": "instore",
-          "custom_fields": {
-            "field": []
-          },
-          "extended_fields": {
-            "field": []
-          },
-          "local_currency": {
-            "id": "25981",
-            "ratio": "70.0",
-            "base_currency": {
-              "id": "23",
-              "name": "Indian Rupee",
-              "symbol": "₹"
-            },
-            "transaction_currency": {
-              "id": "220",
-              "name": "Euro",
-              "symbol": "€"
-            },
-            "amount": "100.0",
-            "value": "7000.0",
-            "discount": "0.0",
-            "gross_amount": "100.0"
-          },
-          "amount": "5000",
-          "billing_time": "2018-04-01 00:00:00",
-          "auto_update_time": "2019-12-16 12:10:59",
-          "gross_amount": "0",
-          "discount": "0",
-          "notes": "Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction",
-          "line_items": {
-            "line_item": [
-              {
-                "type": "REGULAR",
-                "outlier_status": "NORMAL",
-                "serial": "1",
-                "item_code": "skuattr9",
-                "description": "soap",
-                "qty": "50",
-                "rate": "10",
-                "value": "500",
-                "discount": "234",
-                "img_url": "",
-                "amount": "500",
-                "extended_fields": {
-                  "field": []
-                },
-                "combo_items": {
-                  "combo_item": []
-                },
-                "addon_items": {
-                  "addon_item": []
-                },
-                "split_items": {
-                  "split_item": []
-                },
-                "attributes": {
-                  "attribute": []
-                }
-              },
-              {
-                "type": "REGULAR",
-                "outlier_status": "NORMAL",
-                "serial": "1",
-                "item_code": "skuattr9variant-33",
-                "description": "soap",
-                "qty": "50",
-                "rate": "10",
-                "value": "500",
-                "discount": "0",
-                "img_url": "",
-                "amount": "500",
-                "extended_fields": {
-                  "field": []
-                },
-                "combo_items": {
-                  "combo_item": []
-                },
-                "addon_items": {
-                  "addon_item": []
-                },
-                "split_items": {
-                  "split_item": []
-                },
-                "attributes": {
-                  "attribute": []
-                }
-              }
-            ]
-          },
-          "item_status": {
-            "success": "true",
-            "code": 600,
-            "message": "Transaction retrieved successfully"
-          }
-        }
-      ]
-    }
-  }
+   "response":{
+      "status":{
+         "success":"true",
+         "code":200,
+         "message":"Success"
+      },
+      "transactions":{
+         "count":1,
+         "transaction":[
+            {
+               "customer":{
+                  "mobile":"918036151289",
+                  "first_name":"Tom",
+                  "last_name":"Sawyer",
+                  "email":"tom.sawyer@example.com",
+                  "external_id":"XYPZ001",
+                  "source":"instore"
+               },
+               "billing_till":{
+                  "code":"mobilepush.1",
+                  "name":"mobilepush.1"
+               },
+               "billing_store":{
+                  "code":"storecode",
+                  "name":"webstore1"
+               },
+               "id":"293790472",
+               "number":"004_QAT4967003427638098544",
+               "type":"REGULAR",
+               "outlier_status":"NORMAL",
+               "store":"qat_dohafestivalcityqatar.1",
+               "delivery_status":"DELIVERED",
+               "source":"instore",
+               "custom_fields":{
+                  "field":[
+                     {
+                        "name":"tax_amount",
+                        "value":"0"
+                     },
+                     {
+                        "name":"discount_transaction",
+                        "value":"0"
+                     },
+                     {
+                        "name":"sales_localcurrency",
+                        "value":"171"
+                     }
+                  ]
+               },
+               "extended_fields":{
+                  "field":[
+                     {
+                        "name":"tax_amount",
+                        "value":"0"
+                     },
+                     {
+                        "name":"cashier_id",
+                        "value":"Leah"
+                     }
+                  ]
+               },
+               "local_currency":{
+                  "id":"69433407",
+                  "ratio":"1.009",
+                  "base_currency":{
+                     "id":"227",
+                     "name":"United Arab Emirates Dirham",
+                     "symbol":"د.إ"
+                  },
+                  "transaction_currency":{
+                     "id":"164",
+                     "name":"Qatari riyal",
+                     "symbol":"﷼"
+                  },
+                  "amount":"171.0",
+                  "value":"172.47",
+                  "discount":"0.0",
+                  "gross_amount":"171.0"
+               },
+               "amount":"172.47",
+               "billing_time":"2020-03-27 13:30:58",
+               "auto_update_time":"2020-03-28 07:01:59",
+               "gross_amount":"",
+               "discount":"",
+               "notes":"POS, Leah, 14, MNS, 4.1.0.0,687849,QATAR",
+               "line_items":{
+                  "line_item":[
+                     {
+                        "type":"REGULAR",
+                        "outlier_status":"NORMAL",
+                        "serial":"11",
+                        "item_code":"20119183",
+                        "description":"MOZZARELLA GIRASOLI",
+                        "qty":"1",
+                        "rate":"31.27",
+                        "value":"31.27",
+                        "discount":"0",
+                        "img_url":"",
+                        "amount":"31.27",
+                        "returnable_days":"-1",
+                        "extended_fields":{
+                           "field":[
+                              {
+                                 "name":"tax_code",
+                                 "value":"TAXABLE"
+                              },
+                              {
+                                 "name":"vat_amount",
+                                 "value":"0"
+                              }
+                           ]
+                        },
+                        "local_currency":{
+                           "id":"228779692",
+                           "ratio":"1.009",
+                           "base_currency":{
+                              "id":"227",
+                              "name":"United Arab Emirates Dirham",
+                              "symbol":"د.إ"
+                           },
+                           "transaction_currency":{
+                              "id":"164",
+                              "name":"Qatari riyal",
+                              "symbol":"﷼"
+                           },
+                           "amount":"31.267",
+                           "value":"31.267",
+                           "rate":"31.267",
+                           "discount":"0.0"
+                        },
+                        "combo_items":{
+                           "combo_item":[
+
+                           ]
+                        },
+                        "addon_items":{
+                           "addon_item":[
+
+                           ]
+                        },
+                        "split_items":{
+                           "split_item":[
+
+                           ]
+                        },
+                        "attributes":{
+                           "attribute":[
+                              {
+                                 "name":"item_group",
+                                 "value":"A12010101"
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "type":"REGULAR",
+                        "outlier_status":"NORMAL",
+                        "serial":"10",
+                        "item_code":"60272845",
+                        "description":"8 CHOC HAZLE CHUNK COOKIE",
+                        "qty":"1",
+                        "rate":"20.17",
+                        "value":"20.17",
+                        "discount":"0",
+                        "img_url":"",
+                        "amount":"20.17",
+                        "returnable_days":"-1",
+                        "extended_fields":{
+                           "field":[
+                              {
+                                 "name":"tax_code",
+                                 "value":"TAXABLE"
+                              },
+                              {
+                                 "name":"vat_amount",
+                                 "value":"0"
+                              }
+                           ]
+                        },
+                        "local_currency":{
+                           "id":"228779693",
+                           "ratio":"1.009",
+                           "base_currency":{
+                              "id":"227",
+                              "name":"United Arab Emirates Dirham",
+                              "symbol":"د.إ"
+                           },
+                           "transaction_currency":{
+                              "id":"164",
+                              "name":"Qatari riyal",
+                              "symbol":"﷼"
+                           },
+                           "amount":"20.172",
+                           "value":"20.172",
+                           "rate":"20.172",
+                           "discount":"0.0"
+                        },
+                        "combo_items":{
+                           "combo_item":[
+
+                           ]
+                        },
+                        "addon_items":{
+                           "addon_item":[
+
+                           ]
+                        },
+                        "split_items":{
+                           "split_item":[
+
+                           ]
+                        },
+                        "attributes":{
+                           "attribute":[
+                              {
+                                 "name":"item_group",
+                                 "value":"A11020301"
+                              }
+                           ]
+                        }
+                     },
+                     {
+                        "type":"REGULAR",
+                        "outlier_status":"NORMAL",
+                        "serial":"1",
+                        "item_code":"21033569",
+                        "description":"SUPERSOFT THICK",
+                        "qty":"1",
+                        "rate":"15.13",
+                        "value":"15.13",
+                        "discount":"0",
+                        "img_url":"",
+                        "amount":"15.13",
+                        "returnable_days":"-1",
+                        "extended_fields":{
+                           "field":[
+                              {
+                                 "name":"tax_code",
+                                 "value":"TAXABLE"
+                              },
+                              {
+                                 "name":"vat_amount",
+                                 "value":"0"
+                              }
+                           ]
+                        },
+                        "local_currency":{
+                           "id":"228779702",
+                           "ratio":"1.009",
+                           "base_currency":{
+                              "id":"227",
+                              "name":"United Arab Emirates Dirham",
+                              "symbol":"د.إ"
+                           },
+                           "transaction_currency":{
+                              "id":"164",
+                              "name":"Qatari riyal",
+                              "symbol":"﷼"
+                           },
+                           "amount":"15.129",
+                           "value":"15.129",
+                           "rate":"15.129",
+                           "discount":"0.0"
+                        },
+                        "combo_items":{
+                           "combo_item":[
+
+                           ]
+                        },
+                        "addon_items":{
+                           "addon_item":[
+
+                           ]
+                        },
+                        "split_items":{
+                           "split_item":[
+
+                           ]
+                        },
+                        "attributes":{
+                           "attribute":[
+                              {
+                                 "name":"item_group",
+                                 "value":"A11020201"
+                              }
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "item_status":{
+                  "success":"true",
+                  "code":600,
+                  "message":"Transaction retrieved successfully"
+               }
+            }
+         ]
+      }
+   }
 }
 ```
 
 ```xml
-
-
-
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-	<response>
-		<status>
-			<code>200</code>
-			<message>Success</message>
-			<success>true</success>
-		</status>
-		<transactions>
-			<count>1</count>
-			<transaction>
-				<element>
-					<amount>5000</amount>
-					<auto_update_time>2019-12-16 12:10:59</auto_update_time>
-					<billing_store>
-						<code>storecode</code>
-						<name>webstore1</name>
-					</billing_store>
-					<billing_till>
-						<code>mobilepush.1</code>
-						<name>mobilepush.1</name>
-					</billing_till>
-					<billing_time>2018-04-01 00:00:00</billing_time>
-					<custom_fields>
-						<field />
-					</custom_fields>
-					<customer>
-						<email>tom.sawyer@example.com</email>
-						<external_id>XYPZ001</external_id>
-						<first_name>Tom</first_name>
-						<last_name>Sawyer</last_name>
-						<mobile>918036151289</mobile>
-						<source>instore</source>
-					</customer>
-					<delivery_status>DELIVERED</delivery_status>
-					<discount>0</discount>
-					<extended_fields>
-						<field />
-					</extended_fields>
-					<local_currency>
-						<id>25981</id>
-						<ratio>70.0</ratio>
-						<base_currency>
-							<id>23</id>
-							<name>Indian Rupee </name>
-							<symbol>₹</symbol>
-						</base_currency>
-						<transaction_currency>
-							<id>220</id>
-							<name>Euro</name>
-							<symbol>€</symbol>
-						</transaction_currency>
-						<amount>100.0</amount>
-						<value>7000.0</value>
-						<discount>0.0</discount>
-						<gross_amount>100.0</gross_amount>
-					</local_currency>
-					<currency>
-						<ratio>70</ratio>
-						<id>220</id>
-						<name>Euro</name>
-						<symbol>€</symbol>
-					</currency>
-					<gross_amount>0</gross_amount>
-					<id>37812256</id>
-					<item_status>
-						<code>600</code>
-						<message>Transaction retrieved successfully</message>
-						<success>true</success>
-					</item_status>
-					<line_items>
-						<line_item>
-							<element>
-								<addon_items>
-									<addon_item />
-								</addon_items>
-								<amount>500</amount>
-								<attributes>
-									<attribute />
-								</attributes>
-								<combo_items>
-									<combo_item />
-								</combo_items>
-								<description>soap</description>
-								<discount>234</discount>
-								<extended_fields>
-									<field />
-								</extended_fields>
-								<img_url />
-								<item_code>skuattr9</item_code>
-								<outlier_status>NORMAL</outlier_status>
-								<qty>50</qty>
-								<rate>10</rate>
-								<serial>1</serial>
-								<split_items>
-									<split_item />
-								</split_items>
-								<type>REGULAR</type>
-								<value>500</value>
-							</element>
-							<element>
-								<addon_items>
-									<addon_item />
-								</addon_items>
-								<amount>500</amount>
-								<attributes>
-									<attribute />
-								</attributes>
-								<combo_items>
-									<combo_item />
-								</combo_items>
-								<description>soap</description>
-								<discount>0</discount>
-								<extended_fields>
-									<field />
-								</extended_fields>
-								<img_url />
-								<item_code>skuattr9variant-33</item_code>
-								<outlier_status>NORMAL</outlier_status>
-								<qty>50</qty>
-								<rate>10</rate>
-								<serial>1</serial>
-								<split_items>
-									<split_item />
-								</split_items>
-								<type>REGULAR</type>
-								<value>500</value>
-							</element>
-						</line_item>
-					</line_items>
-					<notes>Retrospectively marked REGULAR from not interested transaction id 7057131. Retro Transaction</notes>
-					<number>BILL7</number>
-					<outlier_status>NORMAL</outlier_status>
-					<source>instore</source>
-					<store>mobilepush.1</store>
-					<type>REGULAR</type>
-				</element>
-			</transaction>
-		</transactions>
-	</response>
+   <response>
+      <status>
+         <code>200</code>
+         <message>Success</message>
+         <success>true</success>
+      </status>
+      <transactions>
+         <count>1</count>
+         <transaction>
+            <element>
+               <amount>172.47</amount>
+               <auto_update_time>2020-03-28 07:01:59</auto_update_time>
+               <billing_store>
+                  <code>storecode</code>
+                  <name>webstore1</name>
+               </billing_store>
+               <billing_till>
+                  <code>mobilepush.1</code>
+                  <name>mobilepush.1</name>
+               </billing_till>
+               <billing_time>2020-03-27 13:30:58</billing_time>
+               <custom_fields>
+                  <field>
+                     <element>
+                        <name>tax_amount</name>
+                        <value>0</value>
+                     </element>
+                     <element>
+                        <name>discount_transaction</name>
+                        <value>0</value>
+                     </element>
+                     <element>
+                        <name>sales_localcurrency</name>
+                        <value>171</value>
+                     </element>
+                  </field>
+               </custom_fields>
+               <customer>
+                  <email>tom.sawyer@example.com</email>
+                  <external_id>XYPZ001</external_id>
+                  <first_name>Tom</first_name>
+                  <last_name>Sawyer</last_name>
+                  <mobile>918036151289</mobile>
+                  <source>instore</source>
+               </customer>
+               <delivery_status>DELIVERED</delivery_status>
+               <discount />
+               <extended_fields>
+                  <field>
+                     <element>
+                        <name>tax_amount</name>
+                        <value>0</value>
+                     </element>
+                     <element>
+                        <name>cashier_id</name>
+                        <value>Leah</value>
+                     </element>
+                  </field>
+               </extended_fields>
+               <gross_amount />
+               <id>293790472</id>
+               <item_status>
+                  <code>600</code>
+                  <message>Transaction retrieved successfully</message>
+                  <success>true</success>
+               </item_status>
+               <line_items>
+                  <line_item>
+                     <element>
+                        <addon_items>
+                           <addon_item />
+                        </addon_items>
+                        <amount>31.27</amount>
+                        <attributes>
+                           <attribute>
+                              <element>
+                                 <name>item_group</name>
+                                 <value>A12010101</value>
+                              </element>
+                           </attribute>
+                        </attributes>
+                        <combo_items>
+                           <combo_item />
+                        </combo_items>
+                        <description>MOZZARELLA GIRASOLI</description>
+                        <discount>0</discount>
+                        <extended_fields>
+                           <field>
+                              <element>
+                                 <name>tax_code</name>
+                                 <value>TAXABLE</value>
+                              </element>
+                              <element>
+                                 <name>vat_amount</name>
+                                 <value>0</value>
+                              </element>
+                           </field>
+                        </extended_fields>
+                        <img_url />
+                        <item_code>20119183</item_code>
+                        <local_currency>
+                           <amount>31.267</amount>
+                           <base_currency>
+                              <id>227</id>
+                              <name>United Arab Emirates Dirham</name>
+                              <symbol>د.إ</symbol>
+                           </base_currency>
+                           <discount>0.0</discount>
+                           <id>228779692</id>
+                           <rate>31.267</rate>
+                           <ratio>1.009</ratio>
+                           <transaction_currency>
+                              <id>164</id>
+                              <name>Qatari riyal</name>
+                              <symbol>﷼</symbol>
+                           </transaction_currency>
+                           <value>31.267</value>
+                        </local_currency>
+                        <outlier_status>NORMAL</outlier_status>
+                        <qty>1</qty>
+                        <rate>31.27</rate>
+                        <returnable_days>-1</returnable_days>
+                        <serial>11</serial>
+                        <split_items>
+                           <split_item />
+                        </split_items>
+                        <type>REGULAR</type>
+                        <value>31.27</value>
+                     </element>
+                     <element>
+                        <addon_items>
+                           <addon_item />
+                        </addon_items>
+                        <amount>20.17</amount>
+                        <attributes>
+                           <attribute>
+                              <element>
+                                 <name>item_group</name>
+                                 <value>A11020301</value>
+                              </element>
+                           </attribute>
+                        </attributes>
+                        <combo_items>
+                           <combo_item />
+                        </combo_items>
+                        <description>8 CHOC HAZLE CHUNK COOKIE</description>
+                        <discount>0</discount>
+                        <extended_fields>
+                           <field>
+                              <element>
+                                 <name>tax_code</name>
+                                 <value>TAXABLE</value>
+                              </element>
+                              <element>
+                                 <name>vat_amount</name>
+                                 <value>0</value>
+                              </element>
+                           </field>
+                        </extended_fields>
+                        <img_url />
+                        <item_code>60272845</item_code>
+                        <local_currency>
+                           <amount>20.172</amount>
+                           <base_currency>
+                              <id>227</id>
+                              <name>United Arab Emirates Dirham</name>
+                              <symbol>د.إ</symbol>
+                           </base_currency>
+                           <discount>0.0</discount>
+                           <id>228779693</id>
+                           <rate>20.172</rate>
+                           <ratio>1.009</ratio>
+                           <transaction_currency>
+                              <id>164</id>
+                              <name>Qatari riyal</name>
+                              <symbol>﷼</symbol>
+                           </transaction_currency>
+                           <value>20.172</value>
+                        </local_currency>
+                        <outlier_status>NORMAL</outlier_status>
+                        <qty>1</qty>
+                        <rate>20.17</rate>
+                        <returnable_days>-1</returnable_days>
+                        <serial>10</serial>
+                        <split_items>
+                           <split_item />
+                        </split_items>
+                        <type>REGULAR</type>
+                        <value>20.17</value>
+                     </element>
+                     <element>
+                        <addon_items>
+                           <addon_item />
+                        </addon_items>
+                        <amount>15.13</amount>
+                        <attributes>
+                           <attribute>
+                              <element>
+                                 <name>item_group</name>
+                                 <value>A11020201</value>
+                              </element>
+                           </attribute>
+                        </attributes>
+                        <combo_items>
+                           <combo_item />
+                        </combo_items>
+                        <description>SUPERSOFT THICK</description>
+                        <discount>0</discount>
+                        <extended_fields>
+                           <field>
+                              <element>
+                                 <name>tax_code</name>
+                                 <value>TAXABLE</value>
+                              </element>
+                              <element>
+                                 <name>vat_amount</name>
+                                 <value>0</value>
+                              </element>
+                           </field>
+                        </extended_fields>
+                        <img_url />
+                        <item_code>21033569</item_code>
+                        <local_currency>
+                           <amount>15.129</amount>
+                           <base_currency>
+                              <id>227</id>
+                              <name>United Arab Emirates Dirham</name>
+                              <symbol>د.إ</symbol>
+                           </base_currency>
+                           <discount>0.0</discount>
+                           <id>228779702</id>
+                           <rate>15.129</rate>
+                           <ratio>1.009</ratio>
+                           <transaction_currency>
+                              <id>164</id>
+                              <name>Qatari riyal</name>
+                              <symbol>﷼</symbol>
+                           </transaction_currency>
+                           <value>15.129</value>
+                        </local_currency>
+                        <outlier_status>NORMAL</outlier_status>
+                        <qty>1</qty>
+                        <rate>15.13</rate>
+                        <returnable_days>-1</returnable_days>
+                        <serial>1</serial>
+                        <split_items>
+                           <split_item />
+                        </split_items>
+                        <type>REGULAR</type>
+                        <value>15.13</value>
+                     </element>
+                  </line_item>
+               </line_items>
+               <local_currency>
+                  <amount>171.0</amount>
+                  <base_currency>
+                     <id>227</id>
+                     <name>United Arab Emirates Dirham</name>
+                     <symbol>د.إ</symbol>
+                  </base_currency>
+                  <discount>0.0</discount>
+                  <gross_amount>171.0</gross_amount>
+                  <id>69433407</id>
+                  <ratio>1.009</ratio>
+                  <transaction_currency>
+                     <id>164</id>
+                     <name>Qatari riyal</name>
+                     <symbol>﷼</symbol>
+                  </transaction_currency>
+                  <value>172.47</value>
+               </local_currency>
+               <notes>POS, Leah, 14, MNS, 4.1.0.0,687849,QATAR</notes>
+               <number>004_QAT4967003427638098544</number>
+               <outlier_status>NORMAL</outlier_status>
+               <source>instore</source>
+               <store>qat_dohafestivalcityqatar.1</store>
+               <type>REGULAR</type>
+            </element>
+         </transaction>
+      </transactions>
+   </response>
 </root>
-
-
 ```
 
 

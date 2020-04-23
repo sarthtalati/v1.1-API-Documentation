@@ -627,7 +627,7 @@ requested_on | date-time | Date and time when the request is created in YYYY-MM-
 > Sample Request
 
 ```html
-http://us.api.capillarytech.com/v1.1/request/add
+http://us.api.capillarytech.com/v1.1/request/add?program_id=687
 ```
 
 > Sample POST Request
@@ -831,13 +831,22 @@ The param `client_auto_approve` overrides all the server side configurations men
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `request/add`
+URI | `request/add?{params}`
 Authentication | Yes
 HTTP Methods | POST
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/request/add&format={xml/json}`
+`http://{host}/v1.1/request/add?{params}&format={xml/json
+
+
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+client_auto_approve | boolean | Pass `true` to auto-approve requests.
+program_id | long | The loyalty program ID from which you want to issue points. This is applicable if the org has multiple loyalty programs configured.
+
+ 
 
 ### Request Body Parameters
 Parameter | Datatype | Description

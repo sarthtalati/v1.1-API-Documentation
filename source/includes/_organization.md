@@ -4,7 +4,7 @@ The organization entity holds configuration details and transaction details of a
 You cannot modify the existing information using the organization entity.
 
 
-## Retrieve Org Details
+## Get Org Details
 
 ```html
 # Sample Request
@@ -465,19 +465,20 @@ id | string | Pass an entity id as in the `org_entities` table (in database) to 
 include_parent | boolean | Pass `true` to retrieve the details of parent zone or concept. This is applicable only for `type` zone or concept.
 sub_entities_count | int | Limit the number of sub-entities to retrieve for each entity.
 details | enum | Pass `basic` to see only basic information excluding currency, time-zone, and language information.
-exclude_locale | int | 1 (true),0 (false)
+exclude_locale | enum | Pass `1` to exclude time zone details, `0` to retrieve base_timezone details of an entity. Default value is `0`.
 start_id | long | Fetches entities that are above the offset number you pass. Offset is the position of the entity  in the db record. The value is assigned based on the sequence of creation. For example, start_id=10 retrieves all the entities from record number 11.
 limit | int | Limit the number of entities to retrieve.
-modified_since | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
+modified_since | date | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
 active_only | boolean | Pass `true` to retrieve the list of only active stores.
 scope | string | Default value: `STORE_CUSTOM_FIELDS`.
 
 <aside class="notice">Parameter marked with * is mandatory.</aside>
 
 
-## Retrieve Org Configurations
+## Get Org Configurations
+> Sample Request
+
 ```html
-# Sample Request
 http://api.capillary.co.in/v1.1/organization/configs?format=json
 ```
 
@@ -595,7 +596,7 @@ Batch Support | No
 `http://{host}/v1.1/organization/configs?format={xml/json}`
 
 
-## Retrieve Org Statistics
+## Get Org Statistics
 ```html
 # Sample Request
 http://apac.api.capillarytech.com/v1.1/organization/statistics?format=json
@@ -658,7 +659,7 @@ Batch Support | No
 `http://{host}/v1.1/organization/statistics?format={xml/json}`
 
 
-## Retrieve Top Selling Items
+## Get Top Selling Items
 
 > Sample Request
 
@@ -786,7 +787,7 @@ Batch Support | No
 
 
 
-## Retrieve Configured Custom Fields 
+## Get Configured Custom Fields 
 
 > Sample Request
 
@@ -879,7 +880,7 @@ Parameter | Description
 Scope | Value: customer_feedback, loyalty_transaction, loyalty_registration, customer_preferences <br> Returns custom field details configured for InStore for that specific module. For example, `scope=customer_feedback` retrieves the custom fields of Customer Feedback window of InStore. <br> If no parameter is passed, custom fields of all modules will be returned.
 
 
-## Retrieve Configured Payment Modes
+## Get Configured Payment Modes
 
 > Sample Request
 
