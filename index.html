@@ -12243,7 +12243,7 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
 </aside>
 
-<p>The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (<code class="prettyprint">isreedemable</code>), validate customer&rsquo;s registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.</p>
+<p>The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (<code class="prettyprint">isredeemable</code>), validate customer&rsquo;s registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.</p>
 
 <p>The points entity allows you to perform the following tasks:</p>
 
@@ -12258,7 +12258,7 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/points/isredeemable?points=100<span class="err">&amp;</span>issue_otp=true<span class="err">&amp;</span>mobile=44700900999<span class="err">&amp;</span>format=json
+<pre class="highlight html"><code>http://us.intouch.capillarytech.com/v1.1/points/isredeemable?program_id=504<span class="err">&amp;</span>points=100<span class="err">&amp;</span>issue_otp=true<span class="err">&amp;</span>mobile=44700900999<span class="err">&amp;</span>format=json
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -12415,6 +12415,16 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>value</td>
 <td>string</td>
 <td>Pass the respective identifier value of the customer to issue validation code.</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>long</td>
+<td>Unique ID of the loyalty program from which points need to redeem.</td>
+</tr>
+<tr>
+<td>group_redemption</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for group redemption - points earned in one program need to redeem in a different program of the org.</td>
 </tr>
 <tr>
 <td>points*</td>
@@ -12676,7 +12686,8 @@ The validation code is issued either to mobile number, or email id or both, base
             </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"till_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 points redemption by SMS."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="w">
+            </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"group_redemption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
            </span><span class="p">}</span><span class="w">
        </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -12697,6 +12708,7 @@ The validation code is issued either to mobile number, or email id or both, base
             <span class="nt">&lt;till_id</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;transaction_number&gt;</span>red123<span class="nt">&lt;/transaction_number&gt;</span>
             <span class="nt">&lt;validation_code&gt;</span>4PZGXC<span class="nt">&lt;/validation_code&gt;</span>
+            <span class="nt">&lt;group_redemption&gt;</span>false<span class="nt">&lt;/group_redemption&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
       <span class="nt">&lt;/redeem&gt;</span>
    <span class="nt">&lt;/root&gt;</span>
@@ -12869,6 +12881,11 @@ You need to use the validation code within the validity period. You can check th
 <td>program_id</td>
 <td>long</td>
 <td>Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.</td>
+</tr>
+<tr>
+<td>group_redemption</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for cross program redemption, that is, redeem loyalty points earned in a loyalty program in a different loyalty program of the org. Default value is <code class="prettyprint">false</code>.</td>
 </tr>
 </tbody></table>
 
