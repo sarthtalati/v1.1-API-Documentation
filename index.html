@@ -140,17 +140,17 @@
 
 <ul>
 <li>POST <a href="https://capillary.github.io/v1.1-API-Documentation/#redeem-points">v1.1/points/redeem</a>: Introduced a new parameter <code class="prettyprint">redemption_id</code> which can be used to reverse points if the transaction is returned.</li>
-<li>POST <a href="https://capillary.github.io/api-documentation/#reverse-redeemed-points">v2/points/reverse</a>: Uses <code class="prettyprint">redemptionId</code> to reverse points of a specific transaction.</li>
+<li>POST <a href="https://capillary.github.io/api-documentation/#reverse-redeemed-points" target="_blank">v2/points/reverse</a>: Uses <code class="prettyprint">redemptionId</code> to reverse points of a specific transaction.</li>
 <li>GET <a href="https://capillary.github.io/v1.1-API-Documentation/#get-customer-redemptions">v1.1/customer/redemptions</a>: Shows <code class="prettyprint">total_points_reversed</code> and points reversal history.</li>
 </ul></li>
-<li><strong>Event Notification</strong>: Allows building integrations with Capillary events that originate either through Capillary products or APIs. For more details, see  <a href="https://capillary.github.io/api-documentation/#event-notifications">Event Notification APIs</a>.</li>
+<li><strong>Event Notification</strong>: Allows building integrations with Capillary events that originate either through Capillary products or APIs. For more details, see  <a href="https://capillary.github.io/api-documentation/#event-notifications" target="_blank">Event Notification APIs</a>.</li>
 <li><strong>Redemption across loyalty programs</strong>: With this release, you can redeem points earned in one program in another loyalty program of the org. 
 
 <ul>
 <li>POST <a href="https://capillary.github.io/v1.1-API-Documentation/#redeem-points">v1.1/points/redeem</a>: A new parameter <code class="prettyprint">group_redemption</code> if set <code class="prettyprint">true</code> enables cross loyalty program redemption.<br></li>
 </ul></li>
 <li><strong>OTP Support without PII information</strong>: Allows non-PII clients (clients which would not send PII information such as mobile number, email ID, etc to Capillary) to send OTP via Capillary communication gateway.</li>
-<li><strong>Transaction V2 APIs</strong>: Support to <a href="https://capillary.github.io/api-documentation/#add-transaction">Add transactions</a> and <a href="https://capillary.github.io/api-documentation/#get-transaction-details">Retrieve transaction details</a>. </li>
+<li><strong>Transaction V2 APIs</strong>: Support to <a href="https://capillary.github.io/api-documentation/#add-transaction" target="_blank">Add transactions</a> and <a href="https://capillary.github.io/api-documentation/#get-transaction-details" target="_blank">Retrieve transaction details</a>. </li>
 <li>Option to disable OTP validation for points transfer.</li>
 <li>Customer enrollment with one-time points and tier upgrade</li>
 <li>External loyalty program linking</li>
@@ -167,7 +167,7 @@
 
 <p>To set up an organization as a Capillary admin, see Setting up Organization. </p>
 
-<h2 id="authentication">Authentication</h2>
+<h1 id="authentication">Authentication</h1>
 
 <p>Capillary APIs can be accessed either using Basic auth (TILL/Store Center credentials), or OAuth (Client key and secret associated to a Till/Store Center) . Please note that it is mandatory to use only the store specific Till/Store Center credentials as the data in the API response depends on this identification.</p>
 
@@ -199,7 +199,7 @@ For any assistance on Organization setup, please contact your Account Manager of
 </tr>
 </tbody></table>
 
-<h3 id="process-1-basic-authentication">Process 1: Basic Authentication</h3>
+<h2 id="process-1-basic-authentication">Process 1: Basic Authentication</h2>
 
 <p>To obtain access to the entities of the Capillary Rest APIs, you need to authenticate the TILL/store center account that you are referring to for using the HTTP Basic Authentication.</p>
 
@@ -219,20 +219,22 @@ Then encode the username and md5 password to Base64. i.e. <br>
 `Base64(till1:202cb962ac59075b964b07152d234b70)` which is `Authorization: Basic dGlsbDE6IDIwMmNiOTYyYWM1OTA3NWI5NjRiMDcxNTJkMjM0Yjcw`
 </aside>
 
-<h4 id="headers-required-for-basic-auth">Headers Required for Basic Auth</h4>
+<h3 id="headers-required-for-basic-auth">Headers Required for Basic Auth</h3>
 
 <ul>
 <li><p><strong>Content-Type</strong> - This should be set as application/json</p></li>
 <li><p><strong>Accept</strong> - This should also be set as application/json</p></li>
 </ul>
 
-<h3 id="process-2-oauth">Process 2: OAuth</h3>
+<h2 id="process-2-oauth">Process 2: OAuth</h2>
 
-<p>OAuth provides better security and helps you create secure passages to access your org&rsquo;s data through Capillary APIs. To generate oAuth client key and secret see <a href="https://support.capillarytech.com/en/support/solutions/articles/4000157087-api-authentication-configuration">API Authentication Configuration</a>.</p>
+<p>OAuth provides better security and helps you create secure passages to access your org&rsquo;s data through Capillary APIs. To generate oAuth client key and secret see <a href="http://developer.capillarytech.com/en/support/solutions/articles/4000154305-oauth" target="_blank">API Authentication Configuration</a>.</p>
+
+<h3 id="generate-access-token">Generate Access Token</h3>
 
 <p>Once you get key and secret, you can generate access token or JWT (JSON Web Token) using the token/generate API. JWT is a compact URL and JSON-based used to transfer data securely between two parties.</p>
 
-<h4 id="resource-information">Resource Information</h4>
+<h3 id="resource-information">Resource Information</h3>
 
 <table><thead>
 <tr>
@@ -262,11 +264,18 @@ Then encode the username and md5 password to Base64. i.e. <br>
 </tr>
 </tbody></table>
 
-<h4 id="endpoint">Endpoint</h4>
+<h3 id="other-headers-required">Other Headers Required</h3>
+
+<ul>
+<li><p><strong>Content type</strong> - This should be set as application/json</p></li>
+<li><p><strong>Accept</strong> - This should also be set as application/json</p></li>
+</ul>
+
+<h3 id="endpoint">Endpoint</h3>
 
 <p><code class="prettyprint">https://{host}/v3/oauth/token/generate</code></p>
 
-<h4 id="post-request-schema">POST Request Schema</h4>
+<h3 id="post-request-schema">POST Request Schema</h3>
 
 <p><code class="prettyprint">
 {
@@ -300,13 +309,6 @@ Then encode the username and md5 password to Base64. i.e. <br>
     </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<h3 id="other-headers-required">Other Headers Required</h3>
-
-<ul>
-<li><p><strong>Content type</strong> - This should be set as application/json</p></li>
-<li><p><strong>Accept</strong> - This should also be set as application/json</p></li>
-</ul>
-
 <h3 id="using-access-token">Using Access Token</h3>
 
 <p>Once you generate the access token, you can use it to authenticate API calls as shown below.</p>
@@ -19054,7 +19056,7 @@ represents corresponding value --&gt;</span>
         <span class="nt">&lt;local_id&gt;&lt;/local_id&gt;</span>
         <span class="nt">&lt;time&gt;</span>2016-05-30 12:12:12<span class="nt">&lt;/time&gt;</span>
         <span class="nt">&lt;created_by&gt;</span>453345<span class="nt">&lt;/created_by&gt;</span>
-        <span class="c">&lt;!-- created_by needs to be assoc_id --&gt;</span>
+        <span class="c">&lt;!-- created_by needs to be associate_id of the admin user --&gt;</span>
         <span class="nt">&lt;template&gt;</span>Please note this<span class="nt">&lt;/template&gt;</span>
     <span class="nt">&lt;remindee_id&gt;</span>1245332<span class="nt">&lt;/remindee_id&gt;</span>
     <span class="nt">&lt;/reminder&gt;</span>
