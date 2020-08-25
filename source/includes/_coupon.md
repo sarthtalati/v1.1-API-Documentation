@@ -1,4 +1,4 @@
-# Coupon
+﻿# Coupon
 Coupon represents store promotions or discounts created through Capillary Campaign Manager. A single campaign could contain one or more coupons or coupon series. Coupons are issued to loyalty or non-loyalty customers through SMS or email.
 
 You cannot create new coupons using coupon APIs. You can just send or retrieve coupons that are already created in your campaigns. Hence, it is important to note the coupon code, coupon id or coupon series id for making API calls.
@@ -221,7 +221,7 @@ code | Coupon code that you want to issue to the customer
 
 <aside class="warning"> You can pass either coupon id or code. Any one parameter is required</aside>
 
-## Redeem Coupons
+## Redeem Coupon
 
 ```html
 # Sample Request
@@ -362,7 +362,7 @@ Batch Support  | No
 ### Request URL
 `http://{host}/v1.1/coupon/redeem?{identifierName}={identifierValue}&format={xml/json}`
 
-### Request Parameters
+### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 identifierName* | enum | Unique identifier of the customer whose coupon needs to be redeemed.
@@ -371,6 +371,9 @@ code | string | Coupon code that need to be redeemed.
 validation_code | string | Validation code is required for the orgs that use validation based redemption.
 number | string | Transaction number against which the coupon needs to be redeemed.
 amount | double | Transaction amount against which the coupon is redeemed.
+custom_fields | obj | Coupon redemption level custom fields.
+name | string | Name of the custom field.
+value | string | Custom field value.
 
 <aside class="warning"> You need to pass either `code` or `id` as applicable </aside>
 

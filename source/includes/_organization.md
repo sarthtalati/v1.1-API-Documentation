@@ -441,7 +441,7 @@ http://apac.api.capillarytech.com/v1.1/organization/entities?format=json&type=ti
   }
 }
 ```
-Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization.
+Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization. By default, it fetches up to 200 entities.
 
 ### Resource Information
 | | |
@@ -467,7 +467,7 @@ sub_entities_count | int | Limit the number of sub-entities to retrieve for each
 details | enum | Pass `basic` to see only basic information excluding currency, time-zone, and language information.
 exclude_locale | enum | Pass `1` to exclude time zone details, `0` to retrieve base_timezone details of an entity. Default value is `0`.
 start_id | long | Fetches entities that are above the offset number you pass. Offset is the position of the entity  in the db record. The value is assigned based on the sequence of creation. For example, start_id=10 retrieves all the entities from record number 11.
-limit | int | Limit the number of entities to retrieve.
+limit | int | Limit the number of entities to retrieve. Default value is 200.
 modified_since | date | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
 active_only | boolean | Pass `true` to retrieve the list of only active stores.
 scope | string | Default value: `STORE_CUSTOM_FIELDS`.

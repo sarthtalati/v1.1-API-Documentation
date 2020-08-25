@@ -1885,7 +1885,7 @@ optin_status=true | - | Returns the services (SMS/email) to which the customer h
 expiry_schedule=true | - | Returns the details of points expiry summary with number of points to expire, program ID, and date and time of expiry.
 expired_points=true | - | Returns the details of expired points of the customer.
 points_summary=true | - | Returns the history of points issued and redeemed.
-promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.
+promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued. You can get up to 1000 results (maximum limit).
 membership_retention_criteria=true | - | Returns the criteria set for membership or tier retention (usually for membership based loyalty program).
 tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.<br>This is supported only if the tier upgrade strategy is based on Lifetime Points, Lifetime Purchases, or Current Points,  but not on tracker based strategy. Also, you will not see upgrade criteria if the customer is in the highest tier.
 mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
@@ -3661,7 +3661,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      <element>
                         <identifier>971564265901</identifier>
                         <invited_on>2020-01-29 13:37:36.0</invited_on>
-                        <name>Siddhant</name>
+                        <name>Siva</name>
                         <till>
                            <code>jotun.uae.admin.2</code>
                            <name>jotun.uae.admin.2</name>
@@ -3670,7 +3670,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      <element>
                         <identifier>97150000099</identifier>
                         <invited_on>2020-01-29 13:55:32.0</invited_on>
-                        <name>Harry Test</name>
+                        <name>Harry</name>
                         <till>
                            <code>jotun.uae.admin.2</code>
                            <name>jotun.uae.admin.2</name>
@@ -3679,7 +3679,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      <element>
                         <identifier>97150000099</identifier>
                         <invited_on>2020-01-30 14:56:12.0</invited_on>
-                        <name>Test</name>
+                        <name>Jim</name>
                         <till>
                            <code>jotun.uae.admin.2</code>
                            <name>jotun.uae.admin.2</name>
@@ -3779,7 +3779,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      },
                      {
                         "identifier":"971564265901",
-                        "name":"Siddhant",
+                        "name":"Siva",
                         "invited_on":"2020-01-29 13:37:36.0",
                         "till":{
                            "code":"jotun.uae.admin.2",
@@ -3788,7 +3788,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      },
                      {
                         "identifier":"97150000099",
-                        "name":"Harry Test",
+                        "name":"Harry",
                         "invited_on":"2020-01-29 13:55:32.0",
                         "till":{
                            "code":"jotun.uae.admin.2",
@@ -3797,7 +3797,7 @@ https://us.api.capillarytech.com/v1.1/customer/referrals&mobile=9197407983xx
                      },
                      {
                         "identifier":"97150000099",
-                        "name":"Test",
+                        "name":"Jim",
                         "invited_on":"2020-01-30 14:56:12.0",
                         "till":{
                            "code":"jotun.uae.admin.2",
@@ -4647,12 +4647,12 @@ HTTP Method | POST
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/customer/subscriptions?format={xml/json}`
+`https://{host}/1.1/customer/subscriptions?format={xml/json}`
 
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-mobile/email/external_id/id* | Provide any of the customer identifiers to update subscription details.
+mobile/email/external_id/id* | string | Provide any of the customer identifiers to update subscription details.
 priority* | enum | Specify the service that you want to update. Value: `TRANS` for personalized messages, and `BULK` for campaign or promotional messages.
 scope | enum | Set scope to 'all' always.
 channel* | enum | Pass the communication channel that you want to update. Value: `sms`, `email`.

@@ -2202,6 +2202,8 @@ old_type | enum | Previous transaction type - usually `NOT_INTERESTED` for retro
 ```html
 https://us.api.capillarytech.com/v1.1/transaction/get?number=BILL7&format=json
 ```
+
+
 > Sample Response
 
 ```json

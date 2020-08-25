@@ -1393,7 +1393,7 @@ http://us.api.capillarytech.com/v1.1/task/reminder?format=xml&only_for_stores=tr
         <local_id></local_id>
         <time>2016-05-30 12:12:12</time>
         <created_by>453345</created_by>
-        <!-- created_by needs to be assoc_id -->
+        <!-- created_by needs to be associate_id of the admin user -->
         <template>Please note this</template>
     <remindee_id>1245332</remindee_id>
     </reminder>

@@ -5,7 +5,7 @@ Points represent loyalty points of an organization that are issued to the loyalt
 Points cannot be issued through APIs. It can be issued only through modules such as Loyalty Manager, Data Import and Member Care. 
 </aside>
 
-The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (`isreedemable`), validate customer's registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.
+The APIs of points entity are interdependent. For example, to redeem points, first you need to check whether a customer can redeem those points (`isredeemable`), validate customer's registered mobile number by issuing validation code, and then redeem points using the validation code received by the customer.
 
 The points entity allows you to perform the following tasks:
 
@@ -18,7 +18,7 @@ The points entity allows you to perform the following tasks:
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?points=100&issue_otp=true&mobile=44700900999&format=json
+http://us.intouch.capillarytech.com/v1.1/points/isredeemable?program_id=504&points=100&issue_otp=true&mobile=44700900999&format=json
 ```
 > Sample Response
 
@@ -145,6 +145,8 @@ Parameter | Datatype | Description
 --------- | -------- | -----------
 identifier* | enum | Pass any of the identifier type of the customer.
 value | string | Pass the respective identifier value of the customer to issue validation code.
+program_id | long | Unique ID of the loyalty program from which points need to redeem.
+group_redemption  | boolean | Pass `true` for group redemption - points earned in one program need to redeem in a different program of the org.
 points* | int | Number of points to redeem.
 issue_otp | boolean | Pass `true` to issue OTP if the validation is successful.
 validation_code | string | OTP issued to the customer's mobile number.
@@ -295,7 +297,8 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
             "transaction_number": "red123",
             "till_id": "",
             "notes": "10 points redemption by SMS.",
-            "validation_code": "4PZGXC"
+            "validation_code": "4PZGXC",
+			"group_redemption": "false"
            }
        ]
    }
@@ -319,6 +322,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
             <till_id />
             <transaction_number>red123</transaction_number>
             <validation_code>4PZGXC</validation_code>
+			<group_redemption>false</group_redemption>
          </element>
       </redeem>
    </root>
@@ -445,6 +449,8 @@ transaction_number | string | Provide the transaction number for which the point
 validation_code* | string | Provide the validation code received by the customer through `points/validationcode`.
 redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.
 program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.
+till_id | string | Till ID from which points are redeemed.
+group_redemption | boolean | Pass `true` for cross program redemption, that is, redeem loyalty points earned in a loyalty program in a different loyalty program of the org. Default value is `false`. 
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
@@ -499,7 +505,7 @@ Code | Description
 814 | No points were redeemed on this transaction number
 815 | Unable to process points at this moment. Please try again later
 816 | Unable to find customer in this organization
-817 | Points redemption failed
+817 | Points redemption failed. 
 818 | Points you are trying to redeem are more than the available points
 819 | Points you are trying to redeem are more than the maximum allowed redemption limit.<br> Unable to send message to customer
 820 | Unable to process. Customer is marked as fraud
@@ -514,6 +520,7 @@ Code | Description
 860 | Unable to issue OTP
 881 | Customer is not registered into the loyalty program
 888 | Configuration is invalid. Please report to Capillary Support
+889 | Points processing failed. Please try again later. 
 894 | Unable to process points at this moment. Please try again later
 895 | Loyalty program is not configured for your organization
 898 | Unable to process points at this moment. Please try again later
