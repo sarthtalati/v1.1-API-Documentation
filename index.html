@@ -3090,7 +3090,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>promotion_points=true</td>
 <td>-</td>
-<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued.</td>
+<td>Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued. You can get up to 1000 results (maximum limit).</td>
 </tr>
 <tr>
 <td>membership_retention_criteria=true</td>
@@ -6657,7 +6657,7 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/subscriptions?format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/1.1/customer/subscriptions?format={xml/json}</code></p>
 
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
@@ -6670,8 +6670,8 @@ https://us.api.capillarytech.com/v1.1/customer/subscriptions?format=json
 </thead><tbody>
 <tr>
 <td>mobile/email/external_id/id*</td>
+<td>string</td>
 <td>Provide any of the customer identifiers to update subscription details.</td>
-<td></td>
 </tr>
 <tr>
 <td>priority*</td>
@@ -13253,7 +13253,7 @@ You need to use the validation code within the validity period. You can check th
 </tr>
 <tr>
 <td>817</td>
-<td>Points redemption failed</td>
+<td>Points redemption failed.</td>
 </tr>
 <tr>
 <td>818</td>
@@ -13310,6 +13310,10 @@ You need to use the validation code within the validity period. You can check th
 <tr>
 <td>888</td>
 <td>Configuration is invalid. Please report to Capillary Support</td>
+</tr>
+<tr>
+<td>889</td>
+<td>Points processing failed. Please try again later.</td>
 </tr>
 <tr>
 <td>894</td>
@@ -19819,7 +19823,7 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization.</p>
+<p>Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization. By default, it fetches up to 200 entities.</p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -19900,7 +19904,7 @@ http://apac.api.capillarytech.com/v1.1/organization/get.json
 <tr>
 <td>limit</td>
 <td>int</td>
-<td>Limit the number of entities to retrieve.</td>
+<td>Limit the number of entities to retrieve. Default value is 200.</td>
 </tr>
 <tr>
 <td>modified_since</td>
