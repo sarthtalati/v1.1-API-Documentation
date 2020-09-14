@@ -343,7 +343,7 @@ Then encode the username and md5 password to Base64. i.e. <br>
 </tr>
 <tr>
 <td>X-CAP-API-ATTRIBUTION-ENTITY-TYPE</td>
-<td>Till or store from which you want to post the data. Supported Values: <code class="prettyprint">TILL</code>, <code class="prettyprint">STORE_CODE</code>, <code class="prettyprint">STORE_NAME</code>, <code class="prettyprint">STORE_EXTERNAL_ ID</code>, <code class="prettyprint">STORE_EXTERNAL_ID_1</code>, <code class="prettyprint">STORE_EXTERNAL_ID_2</code>. The default value is <code class="prettyprint">TILL</code>.</td>
+<td>Till or store from which you want to post the data. Supported Values: <code class="prettyprint">TILL</code>, <code class="prettyprint">STORE_CODE</code>, <code class="prettyprint">STORE_NAME</code>, <code class="prettyprint">STORE_EXTERNAL_ID</code>, <code class="prettyprint">STORE_EXTERNAL_ID_1</code>, <code class="prettyprint">STORE_EXTERNAL_ID_2</code>. The default value is <code class="prettyprint">TILL</code>.</td>
 </tr>
 <tr>
 <td>X-CAP-API-ATTRIBUTION-ENTITY-CODE</td>
@@ -3115,7 +3115,12 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>mlp=true</td>
 <td>-</td>
-<td>Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).</td>
+<td>Retrieves the loyalty information of the customer for each loyalty program including the gap to upgrade and gap to renew details. Different program details are applicable only for brands with multiple loyalty programs (MLP).</td>
+</tr>
+<tr>
+<td>gap_to_upgrade_for</td>
+<td>int</td>
+<td>See the gap after a specific number of days from the current day. Gap is the value of the tier upgrade parameter (purchases/points/tracker) yet to allocate to upgrade the customer&rsquo;s current tier. Pass <code class="prettyprint">0</code> to get the gap as of the current day, <code class="prettyprint">1</code> to get the gap as of the next day, <code class="prettyprint">30</code> to get the gap as of the 30th day from the current day. The gap might change with days for tracker value based tier upgrade strategy. No negative values are supported.</td>
 </tr>
 <tr>
 <td>user_group=true</td>
