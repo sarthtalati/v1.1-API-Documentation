@@ -3486,16 +3486,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: <code class="prettyprint">start_date=2013-12-21+23:45:45&amp;end_date=2013-12-29+12:11:45</code></td>
 </tr>
 <tr>
-<td>transaction_date</td>
-<td>date</td>
-<td>Filter transactions by transaction date. Pass the date in <code class="prettyprint">YYYY-MM-DD</code> format.</td>
-</tr>
-<tr>
-<td>amount</td>
-<td>int</td>
-<td>Fetch transaction details by transaction amount.</td>
-</tr>
-<tr>
 <td>number</td>
 <td>string</td>
 <td>Fetch transaction details by transaction number.</td>
@@ -3504,21 +3494,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>transaction_id</td>
 <td>int</td>
 <td>Fetch details of a transaction by transaction ID (internally generated unique ID for a transaction).</td>
-</tr>
-<tr>
-<td>till_id</td>
-<td>string</td>
-<td>Filter transactions by associated TILL ID.</td>
-</tr>
-<tr>
-<td>till_name</td>
-<td>string</td>
-<td>Filter transactions associated to a specific TILL name.</td>
-</tr>
-<tr>
-<td>till_code</td>
-<td>string</td>
-<td>Filter transactions associated to a TILL code.</td>
 </tr>
 <tr>
 <td>store_id</td>
@@ -3568,7 +3543,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>order</td>
 <td>enum</td>
-<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: asc, desc. By default, transactions are displayed in descending order of transaction date/id.</td>
+<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: <code class="prettyprint">asc</code>, <code class="prettyprint">desc</code>. By default, transactions are displayed in descending order of transaction date/id.</td>
 </tr>
 </tbody></table>
 
