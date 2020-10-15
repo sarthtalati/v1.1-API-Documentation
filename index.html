@@ -2645,7 +2645,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>registered_date</td>
 <td>date</td>
-<td>Retrieves customers by registered date (<code class="prettyprint">YYYY-MM-DD</code>).</td>
+<td>Retrieves customers by registered date (<code class="prettyprint">YYYY-MM-DD</code>). For example, <code class="prettyprint">registered_date:ON:2020-10-13</code>.</td>
 </tr>
 <tr>
 <td>loyalty_points</td>
@@ -2700,7 +2700,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <p><strong>ATTRIBUTE</strong>: Set of inventory/customer attributes that are searchable.</p>
 
 <p><strong>Dynamic List</strong>
-* <strong>OPERATOR</strong>: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN
+* <strong>OPERATOR</strong>: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN, ON
 * <strong>VALUES</strong>: ALPHANUMERIC | ALPHANUMERIC;ALPHANUMERIC(for RANGE, IN OPERATOR, separator is &rsquo;;&rsquo; )</p>
 
 <h3 id="response-parameters">Response Parameters</h3>
