@@ -11,7 +11,7 @@ Based on the source of issual, rewards are of the following types:
 * **Vendor only rewards**: These are either points or coupons created at the vendor end. Capillary uses vendor specific APIs directly to identify and issue rewards.
 * **InTouch + Vendor rewards**: These are vendor rewards Vendor rewards with reference created at the Capillary end.
 
-<aside class="notice">Marvel Rewards APIs are internal APIs. The API details mentioned herein are only for your reference. These APIs are exposed by creating Wrapper APIs using our API gateway for an organization on need basis. Postman collection for the APIs can be requested through Capillary Support during or after onboarding the org. </aside>
+<aside class="notice">Marvel Rewards APIs are internal APIs. The API details mentioned herein are only for your reference. These APIs are exposed by creating Wrapper APIs using our API gateway for an organization on need basis. Postman Collection for the APIs can be requested through Capillary Support during or after onboarding the org. </aside>
 
 
 ### Resource Information
@@ -19,7 +19,7 @@ Based on the source of issual, rewards are of the following types:
 |     |     |
 | --- | --- |
 host1 | **APAC**: https://apac-s3wrapper.capillarytech.com <br> **APAC2**: https://apac2-s3wrapper.capillarytech.com |
-Authentication | [Customer Authentication](https://capillary.github.io/api-documentation/#customer-authentication)(:target="_blank"). |
+Authentication | [Customer Authentication](https://capillary.github.io/v1.1-API-Documentation/#customer-authentication)(:target="_blank"). |
 
  
 Reward APIs help you issue rewards and get details of rewards.
@@ -149,125 +149,6 @@ type | enum | Type of reward. Value: `POINTS`, `VOUCHER`, `PHYSICAL_VOUCHER`, `F
 
 
 
-## Get Rewards of a Brand
-
-Retrieves rewards of a specific brand.
-
-> Sample Request
-
-```html
-https://apac2-s3wrapper.capillarytech.com/core/v1/user/reward/brand/STANDARDAPP?page=0&size=1000&city=Bangalore
-```
-
-> Sample Response
-
-```json
-{
-   "status":{
-      "success":true,
-      "code":200,
-      "message":"User Reward fetched successfully"
-   },
-   "rewardList":[
-      {
-         "id":489,
-         "name":"50 NFR Discount Voucher",
-         "description":"50 NFR Discount Voucher",
-         "imageId":"49J2711828.image/jpeg",
-         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2711828.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=21d7bc16a4af1d99894a235bb53e4e08f79d81e524572f75ec475799e983c425",
-         "thumbnailId":"49J2719V29.image/jpeg",
-         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2719V29.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e3ce9dcae77d8dd0680ac28ba6745fcbcfcf795ee6922eabeced5234f8bd8657",
-         "termAndConditionsId":"49J271AC30.html",
-         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J271AC30.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1c71e0cfb2573537747f8fa01771fbe95756ecabe57cdcc404a8b724393fb0fd",
-         "tier":"",
-         "label":"",
-         "priority":3,
-         "intouchPoints":100,
-         "group":"",
-         "startTime":"2020-10-17 14:00:36",
-         "endTime":"2026-12-31 03:00:36",
-         "expired":false,
-         "started":true
-      },
-      {
-         "id":488,
-         "name":"Ferrari Merchandise",
-         "description":"Ferrari Merchandise",
-         "imageId":"49J2H0VB31.image/jpeg",
-         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=3e04f3284253d58ffef1a44ce704c57846f1a401f16451cc4caf923314b36616",
-         "thumbnailId":"49J2H12D32.image/jpeg",
-         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=6e3a36312b7f1bf1de3ec578f91a8f50e761e9c85332592507f1a2d9dc3f0f90",
-         "termAndConditionsId":"49J3M0Y134.html",
-         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e7fabaa9221d48ccef0172bee64554a5e98566d2ebd5b2a0af6c71e018dab5be",
-         "tier":"GIFT",
-         "label":"",
-         "priority":1,
-         "intouchPoints":300,
-         "group":"",
-         "startTime":"2020-10-16 09:34:39",
-         "endTime":"2021-01-27 00:34:39",
-         "expired":false,
-         "started":true
-      },
-      {
-         "id":380,
-         "name":"200 Fuel Discount Voucher",
-         "description":"200 Fuel Discount Voucher",
-         "imageId":"49H500SIB1.image/png",
-         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500SIB1.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e8935ddf0b679032b963212f3f8bfcb6b1ef7adbac6c1dd6baf6b3b795291e44",
-         "thumbnailId":"49H500Z2B2.image/png",
-         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500Z2B2.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4cf5a4ab4c03c04344914d6431f31b5887fd8899ae93252d0cacca97a590c67e",
-         "termAndConditionsId":"49H5010FB3.html",
-         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H5010FB3.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=d20daa142088a398d2ec73fe747fbafc98a62b3a526e4008eec129f48255ffdd",
-         "tier":"",
-         "label":"",
-         "priority":1,
-         "intouchPoints":250,
-         "group":"",
-         "startTime":"2020-09-02 12:50:53",
-         "endTime":"2026-12-29 05:50:53",
-         "expired":false,
-         "started":true
-      }
-   ],
-   "pagingDto":{
-      "last":true,
-      "totalElements":3,
-      "totalPages":1,
-      "numberOfElements":3,
-      "first":true,
-      "size":1000,
-      "number":0
-   }
-}
-```
-
-
-### Resource Information
-
-| | |
---------- | ----------- |
-URI | `/core/v1/user/reward/brand/{brandName}`
-HTTP Method | GET
-Authentication | Customer Auth
-API Version | v1
-Batch Support | No
-Rate Limited | No
-
-### Request URL
-`https://{host1}/core/v1/user/reward/brand/{brandName}?(ParamName)=ParamValue}`
-
-### Request Query Parameters
-
-Parameter | Datatype | Description
---------- | -------- | -----------
-brandName* | string | Name of the brand by which you want to fetch rewards.
-city | string | Filter rewards by city. Pass the city name.
-size | long | Results to show per page.
-page | int | To retrieve details of a specific page. Pass `0` to not apply pagination. For example, `page=2&size=10` shows 10 results on page 2.
-
-
-<aside class="notice">The parameter marked with * is mandatory. </aside>
 
 
 
