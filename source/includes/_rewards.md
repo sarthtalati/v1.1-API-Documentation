@@ -1,4 +1,4 @@
-# Rewards
+# Marvel Rewards
 
 Rewards are incentives issued customers from a specific org. Rewards could be in the form of either points and coupons. Again, coupons are categorized into the following types.
 * **Vouchers**: Digital coupons generated against redeeming customer points. For example, redeem 50 points for 10% off coupon. 
@@ -11,13 +11,15 @@ Based on the source of issual, rewards are of the following types:
 * **Vendor only rewards**: These are either points or coupons created at the vendor end. Capillary uses vendor specific APIs directly to identify and issue rewards.
 * **InTouch + Vendor rewards**: These are vendor rewards Vendor rewards with reference created at the Capillary end.
 
+<aside class="notice">Marvel Rewards APIs are internal APIs. The API details mentioned herein are only for your reference. These APIs are exposed by creating Wrapper APIs using our API gateway for an organization on need basis. Postman collection for the APIs can be requested through Capillary Support during or after onboarding the org. </aside>
 
-## Resource Information
+
+### Resource Information
 
 |     |     |
 | --- | --- |
 host1 | **APAC**: https://apac-s3wrapper.capillarytech.com <br> **APAC2**: https://apac2-s3wrapper.capillarytech.com |
-Authentication | OAuth |
+Authentication | [Customer Authentication](https://capillary.github.io/api-documentation/#customer-authentication)(:target="_blank"). |
 
  
 Reward APIs help you issue rewards and get details of rewards.
@@ -47,11 +49,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v2/user/8848240000/reward/488/vou
       "name":"Ferrari Merchandise",
       "description":"Ferrari Merchandise",
       "imageId":"49J2H0VB31.image/jpeg",
-      "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=13b78f12a879725aa3618a1a6c0c51311075af06f074d513f62d7aee4196f9ee",
+      "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=13b78f12a879725aa3618a1a6c0c51311075af06f074d513f62d7aee4196f9ee",
       "thumbnailId":"49J2H12D32.image/jpeg",
-      "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=8eb3575cacada197ff46c8a63b19543f7a4a4ebe6b4d589c3442cd40da8d3070",
+      "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=8eb3575cacada197ff46c8a63b19543f7a4a4ebe6b4d589c3442cd40da8d3070",
       "termAndConditionsId":"49J3M0Y134.html",
-      "termAndConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fcdf0c6522a9c001e8b800a47d982f9b37beaf888d0ec86fc50fc8bc51410025",
+      "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fcdf0c6522a9c001e8b800a47d982f9b37beaf888d0ec86fc50fc8bc51410025",
       "tier":"GIFT",
       "label":"",
       "priority":1,
@@ -99,94 +101,6 @@ https://apac2-s3wrapper.capillarytech.com/core/v2/user/8848240000/reward/488/vou
       {
          "code":null,
          "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"NEKBFVTT\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"ETWPVNDP\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"1RB2CVGR\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919841023456\",\"email\":\"anurag.b@yahoo.com\",\"external_id\":\"90000000000761700\"},\"code\":\"QIZM4VEA\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"D3WZYAM8\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"5TCJTG1F\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"F0J8Z9AA\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"CITHYUGK\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
          "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"VAFCQDCS\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
          "rewardId":488,
          "issued":null,
@@ -206,7 +120,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v2/user/8848240000/reward/488/vou
 --------- | ----------- |
 URI | `core/v1/user/reward/{rewardId}/brand/{brandName}`
 HTTP Method | GET
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | No
 Rate Limited | No
@@ -260,11 +174,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/reward/brand/STANDARDAPP?
          "name":"50 NFR Discount Voucher",
          "description":"50 NFR Discount Voucher",
          "imageId":"49J2711828.image/jpeg",
-         "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2711828.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=21d7bc16a4af1d99894a235bb53e4e08f79d81e524572f75ec475799e983c425",
+         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2711828.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=21d7bc16a4af1d99894a235bb53e4e08f79d81e524572f75ec475799e983c425",
          "thumbnailId":"49J2719V29.image/jpeg",
-         "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2719V29.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e3ce9dcae77d8dd0680ac28ba6745fcbcfcf795ee6922eabeced5234f8bd8657",
+         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2719V29.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e3ce9dcae77d8dd0680ac28ba6745fcbcfcf795ee6922eabeced5234f8bd8657",
          "termAndConditionsId":"49J271AC30.html",
-         "termAndConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J271AC30.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1c71e0cfb2573537747f8fa01771fbe95756ecabe57cdcc404a8b724393fb0fd",
+         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J271AC30.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=1c71e0cfb2573537747f8fa01771fbe95756ecabe57cdcc404a8b724393fb0fd",
          "tier":"",
          "label":"",
          "priority":3,
@@ -280,11 +194,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/reward/brand/STANDARDAPP?
          "name":"Ferrari Merchandise",
          "description":"Ferrari Merchandise",
          "imageId":"49J2H0VB31.image/jpeg",
-         "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=3e04f3284253d58ffef1a44ce704c57846f1a401f16451cc4caf923314b36616",
+         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=3e04f3284253d58ffef1a44ce704c57846f1a401f16451cc4caf923314b36616",
          "thumbnailId":"49J2H12D32.image/jpeg",
-         "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=6e3a36312b7f1bf1de3ec578f91a8f50e761e9c85332592507f1a2d9dc3f0f90",
+         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=6e3a36312b7f1bf1de3ec578f91a8f50e761e9c85332592507f1a2d9dc3f0f90",
          "termAndConditionsId":"49J3M0Y134.html",
-         "termAndConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e7fabaa9221d48ccef0172bee64554a5e98566d2ebd5b2a0af6c71e018dab5be",
+         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e7fabaa9221d48ccef0172bee64554a5e98566d2ebd5b2a0af6c71e018dab5be",
          "tier":"GIFT",
          "label":"",
          "priority":1,
@@ -300,11 +214,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/reward/brand/STANDARDAPP?
          "name":"200 Fuel Discount Voucher",
          "description":"200 Fuel Discount Voucher",
          "imageId":"49H500SIB1.image/png",
-         "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500SIB1.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e8935ddf0b679032b963212f3f8bfcb6b1ef7adbac6c1dd6baf6b3b795291e44",
+         "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500SIB1.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=e8935ddf0b679032b963212f3f8bfcb6b1ef7adbac6c1dd6baf6b3b795291e44",
          "thumbnailId":"49H500Z2B2.image/png",
-         "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500Z2B2.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4cf5a4ab4c03c04344914d6431f31b5887fd8899ae93252d0cacca97a590c67e",
+         "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H500Z2B2.image/png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4cf5a4ab4c03c04344914d6431f31b5887fd8899ae93252d0cacca97a590c67e",
          "termAndConditionsId":"49H5010FB3.html",
-         "termAndConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H5010FB3.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=d20daa142088a398d2ec73fe747fbafc98a62b3a526e4008eec129f48255ffdd",
+         "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49H5010FB3.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T143336Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=d20daa142088a398d2ec73fe747fbafc98a62b3a526e4008eec129f48255ffdd",
          "tier":"",
          "label":"",
          "priority":1,
@@ -335,7 +249,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/reward/brand/STANDARDAPP?
 --------- | ----------- |
 URI | `/core/v1/user/reward/brand/{brandName}`
 HTTP Method | GET
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | No
 Rate Limited | No
@@ -343,7 +257,7 @@ Rate Limited | No
 ### Request URL
 `https://{host1}/core/v1/user/reward/brand/{brandName}?(ParamName)=ParamValue}`
 
-### Request Parameters
+### Request Query Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -365,7 +279,7 @@ Retrieves rewards of a specific customer.
 > Sample Request
 
 ```html
-https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/vouchers/brand/STANDARDAPP?page=0&size=1000
+https://apac2-s3wrapper.capillarytech.com/core/v1/user/...
 ```
 
 > Sample Response
@@ -384,11 +298,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/vouchers/brand
             "name":"Ferrari Merchandise",
             "description":"Ferrari Merchandise",
             "thumbnailId":"49J2H12D32.image/jpeg",
-            "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=d57fc7aae76c9632946f88f54cab83ff4c168642084774c0326a86c98f929a34",
+            "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=d57fc7aae76c9632946f88f54cab83ff4c168642084774c0326a86c98f929a34",
             "imageId":"49J2H0VB31.image/jpeg",
             "termNConditionsId":"49J3M0Y134.html",
-            "termNConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=cbaf68a15587a4b7f07ba46f51bbd7688baf27c6d9312e2b2f0ec9ba43d211b4",
-            "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=61bfabff1582fdd948ebbba6fbbd1e13eda386a6c382755fba93d78be7b0d3ce",
+            "termNConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=cbaf68a15587a4b7f07ba46f51bbd7688baf27c6d9312e2b2f0ec9ba43d211b4",
+            "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=61bfabff1582fdd948ebbba6fbbd1e13eda386a6c382755fba93d78be7b0d3ce",
             "tier":"GIFT",
             "label":"",
             "group":"",
@@ -458,11 +372,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/vouchers/brand
             "name":"50 NFR Discount Voucher",
             "description":"50 NFR Discount Voucher",
             "thumbnailId":"49J2719V29.image/jpeg",
-            "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2719V29.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=dce8783763093a0b6d166c4facb42a9e9bb3db51b8a33366acdebc1831031a7f",
+            "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2719V29.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=dce8783763093a0b6d166c4facb42a9e9bb3db51b8a33366acdebc1831031a7f",
             "imageId":"49J2711828.image/jpeg",
             "termNConditionsId":"49J271AC30.html",
-            "termNConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J271AC30.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=7d6f6ebc06627fc7e7de12489ec3f11148616ea2ee25308d43c011546f00ccac",
-            "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2711828.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4c66b3075db316c3fac99d053ed2c84dbbe9440cf098e12d620986cd6f41f9b8",
+            "termNConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J271AC30.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=7d6f6ebc06627fc7e7de12489ec3f11148616ea2ee25308d43c011546f00ccac",
+            "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2711828.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T142928Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=4c66b3075db316c3fac99d053ed2c84dbbe9440cf098e12d620986cd6f41f9b8",
             "tier":"",
             "label":"",
             "group":"",
@@ -546,15 +460,15 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/vouchers/brand
 
 | | |
 --------- | ----------- |
-URI | `/core/v1/user/{mobile}/vouchers/brand/{brandName}`
+URI | `/core/v1/user/...`
 HTTP Method | GET
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | No
 Rate Limited | No
 
 ### Request URL
-`https://{host1}/core/v1/user/{mobile}/vouchers/brand/{brandName}?(paramName)={paramValue}`
+`https://{host1}/core/v1/user/...`
 
 
 ### Request Query Parameters
@@ -569,14 +483,14 @@ page | int | To retrieve details of a specific page. Pass `0` to not apply pagin
 
 
 
-## Get User Reward Details (by Reward ID)
+## Get User Rewards (by Reward ID)
 
 Retrieves details of a specific reward of a customer.
 
 > Sample Request
 
 ```html
-https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/reward/488/vouchers/brand/STANDARDAPP?username=sa.demo.solution
+https://apac2-s3wrapper.capillarytech.com/core/v1/user/...
 ```
 
 > Sample Response
@@ -593,11 +507,11 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/reward/488/vou
       "name":"Ferrari Merchandise",
       "description":"Ferrari Merchandise",
       "imageId":"49J2H0VB31.image/jpeg",
-      "imageUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=13b78f12a879725aa3618a1a6c0c51311075af06f074d513f62d7aee4196f9ee",
+      "imageUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H0VB31.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=13b78f12a879725aa3618a1a6c0c51311075af06f074d513f62d7aee4196f9ee",
       "thumbnailId":"49J2H12D32.image/jpeg",
-      "thumbnailUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=8eb3575cacada197ff46c8a63b19543f7a4a4ebe6b4d589c3442cd40da8d3070",
+      "thumbnailUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J2H12D32.image/jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=8eb3575cacada197ff46c8a63b19543f7a4a4ebe6b4d589c3442cd40da8d3070",
       "termAndConditionsId":"49J3M0Y134.html",
-      "termAndConditionsUrl":"https://s3.ap-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fcdf0c6522a9c001e8b800a47d982f9b37beaf888d0ec86fc50fc8bc51410025",
+      "termAndConditionsUrl":"https://demo.aip-southeast-1.amazonaws.com/solutions-rewards/STANDARDAPP/49J3M0Y134.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20201028T141852Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAIU4E4JJZBOKPYUAA%2F20201028%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Signature=fcdf0c6522a9c001e8b800a47d982f9b37beaf888d0ec86fc50fc8bc51410025",
       "tier":"GIFT",
       "label":"",
       "priority":1,
@@ -624,72 +538,6 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/reward/488/vou
          "code":null,
          "expiry":null,
          "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"9ACNFU3H\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"CRV7B2LJ\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"LP419PF7\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"NEKBFVTT\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"YEU4YRJ8\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"ETWPVNDP\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"919840000000\",\"email\":\"rahul.ram@example.com\",\"external_id\":\"9000000000000003700\"},\"code\":\"1RB2CVGR\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
          "rewardId":488,
          "issued":null,
          "seriesId":null,
@@ -734,28 +582,6 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/reward/488/vou
          "code":null,
          "expiry":null,
          "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"Q5KJ2VOD\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"5TCJTG1F\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
-         "rewardId":488,
-         "issued":null,
-         "seriesId":null,
-         "seriesName":null,
-         "redemptionCount":0,
-         "redemptions":null
-      },
-      {
-         "code":null,
-         "expiry":null,
-         "vendor":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"TL150O7R\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
          "rewardId":488,
          "issued":null,
          "seriesId":null,
@@ -816,15 +642,15 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/8848240000/reward/488/vou
 
 | | |
 --------- | ----------- |
-URI | `/core/v1/user/{mobile}/reward/{rewardId}/vouchers/brand/{brandName}`
+URI | `/core/v1/user/...`
 HTTP Method | GET
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | No
 Rate Limited | No
 
 ### Request URL
-`https://{host1}/core/v1/user/{mobile}/reward/{rewardId}/vouchers/brand/{brandName}?(paramName)={paramValue}`
+`https://{host1}/core/v1/user/...`
 
 ### Request Parameters
 
@@ -850,7 +676,7 @@ Lets you issue rewards to a specific customer. Customer points are deducted acco
 > Sample Request
 
 ```html
-https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa.demo.solution&skipValidation=true
+https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue...
 ```
 
 > Sample Post Request
@@ -859,7 +685,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
 {
 "mobile": "8848240000",
 "brand": "STANDARDAPP",
-"transactionNumber":"Cap11223344",
+"transactionNumber":"Cap11223344"
 }
 ```
 
@@ -883,6 +709,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
    }
 }
 ```
+
 > Sample Response (for InTouch only Rewards)
 
 ```json
@@ -895,7 +722,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
    "intouch":{
       "pointsRedeemed":"10",
       "couponCode":"ASDFGHJKL",
-      "codeExpiry":“2020-10-22 17:00:00”
+      "codeExpiry":"2020-10-22 17:00:00"
    },
    "vendor":{
       
@@ -915,7 +742,7 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
    "intouch":{
       "pointsRedeemed":"10",
       "couponCode":"ASDFGHJKL",
-      "codeExpiry":“2020-10-22 17:00:00”
+      "codeExpiry":"2020-10-22 17:00:00"
    },
    "vendor":{
       "voucher":"{\"status\":{\"success\":\"true\",\"code\":200,\"message\":\"Success\"},\"coupons\":{\"coupon\":{\"customer\":{\"mobile\":\"918848000000\",\"email\":null,\"external_id\":\"90000000000018700\"},\"code\":\"S4WUGJMT\",\"discount_code\":\"NO_VALUE\",\"series_code\":\"2483\",\"series_info\":[],\"is_absolute\":\"true\",\"coupon_value\":\"0\",\"transaction\":{\"amount\":\"\",\"number\":\"\"},\"side_effects\":[],\"item_status\":{\"success\":\"true\",\"code\":700,\"message\":\"Coupon processing successful\"}}}}",
@@ -931,14 +758,22 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
 --------- | ----------- |
 URI | `/core/v1/user/rewards/issue`
 HTTP Method | POST
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | No
 Rate Limited | No
 
 ### Request URL
 
-`https://{host1}/core/v1/user/rewards/issue?username={username}&skipValidation={true/false}` 
+`https://{host1}/core/v1/user/rewards/issue?...` 
+
+
+### Request Query Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+username* | string | Till code that you want to associate to issue rewards.
+skipValidation | boolean | Pass `true` to skip validating the source (`username`) from which rewards are issued, else pass `false`.
 
 
 ### Request Body Parameters
@@ -948,9 +783,7 @@ Parameter | Datatype | Description
 mobile* | string | Registered mobile number of the customer to issue rewards.
 brand* | string | Name of the brand associated with the reward.
 transactionNumber* | string | Unique transaction number of the issual.
-username | string | Till code that you want to associate to make Capillary API calls. 
 tillID | long | This identifier is for reporting purpose. If there are any sub-brand, then the redemption is issued to the sub-brands.
-skipValidation | boolean | The value is `true` to skip the validation and `false` retain the validation.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
@@ -960,10 +793,14 @@ skipValidation | boolean | The value is `true` to skip the validation and `false
 
 ## Issue Bulk Rewards
 
+Lets you issue multiple rewards to a customer. Customer points are deducted according to the voucher issued.
+
+<aside class="notice">Points are not deducted for free vouchers. </aside>
+
 > Sample Request
 
 ```html
-https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa.demo.solution&skipValidation=true
+https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?...
 ```
 
 > Sample Post Request
@@ -1052,14 +889,14 @@ https://apac2-s3wrapper.capillarytech.com/core/v1/user/rewards/issue?username=sa
 --------- | ----------- |
 URI | `/core/v1/user/rewards/issue`
 HTTP Method | POST
-Authentication | OAuth
+Authentication | Customer Auth
 API Version | v1
 Batch Support | Yes
 Rate Limited | No
 
 ### Request URL
 
-`https://{host1}/core/v1/user/rewards/issue?username={username}&skipValidation={true/false}` 
+`https://{host1}/core/v1/user/rewards/issue?...` 
 
 
 ### Request Query Parameters
@@ -1102,4 +939,3 @@ Code | Description
 8005 | User reward is disabled for the brand.
 8009 | Invalid page or size passed. Page or size should not be zero.
 8010 | User reward is partially successful (in case of batch issual).
-
