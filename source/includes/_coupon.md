@@ -353,7 +353,7 @@ This API allows you to redeem coupons issued to the loyalty customer.
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `coupon/resend`
+URI | `coupon/redeem`
 Rate Limited? | Yes
 Authentication  | Yes
 HTTP Method  | POST

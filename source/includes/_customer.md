@@ -1611,7 +1611,7 @@ org_id | long | Retrieves the list of entire customers of the respective organiz
 mobile | string | Retrieves customers whose registered mobile numbers matches with the string passed. <br>**Query**: `mobile:EQUALS:{mobile_number}`
 email | string | Retrieves the list of registered customers whose email id matches with the string passed. <br>**Query**: `email:EQUALS:{email_id}`
 external_id | string | Retrieves customers whose external id matches with the string passed. <br>**Query**: `external_id:EQUALS:{external_id}`
-registered_date | date | Retrieves customers by registered date (`YYYY-MM-DD`).
+registered_date | date | Retrieves customers by registered date. <br>**Query**: `registered_date:ON:{date in YYYY-MM-DD}`.
 loyalty_points | int | Retrieves the list of customers whose active loyalty points matches the specified query. <br>**Query**: `loyalty_points:GREATER:{loyalty_points}`
 lifetime_points | int | Retrieves the list of customers whose lifetime points matches the specified query. <br>**Query**: `lifetime_points:GREATER:{lifetime_points}`
 lifetime_purchases | int | Retrieves the list of customers whose lifetime purchases amount matches the specified query. **Query**: `lifetime_purchases:GREATER:{lifetime_purchases}`
@@ -1631,7 +1631,7 @@ The following is a formal definition of the Query Grammar
 **ATTRIBUTE**: Set of inventory/customer attributes that are searchable.
 
 **Dynamic List**
-* **OPERATOR**: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN
+* **OPERATOR**: STARTS, ENDS, EXACT, RANGE, LESS, GREATER, EQUALS, IN, ON
 * **VALUES**: ALPHANUMERIC | ALPHANUMERIC;ALPHANUMERIC(for RANGE, IN OPERATOR, separator is ';' )
 
 
@@ -1888,13 +1888,15 @@ points_summary=true | - | Returns the history of points issued and redeemed.
 promotion_points=true | - | Returns the history of promotional points issued and redeemed. It also shows the store that issued the points and expiry date for each set of points issued. You can get up to 1000 results (maximum limit).
 membership_retention_criteria=true | - | Returns the criteria set for membership or tier retention (usually for membership based loyalty program).
 tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.<br>This is supported only if the tier upgrade strategy is based on Lifetime Points, Lifetime Purchases, or Current Points,  but not on tracker based strategy. Also, you will not see upgrade criteria if the customer is in the highest tier.
-mlp=true | - | Retrieves the details of each loyalty program of the customer if the org has multiple loyalty programs (multi-brand loyalty).
+mlp=true | - | Retrieves the loyalty information of the customer for each loyalty program including the gap to upgrade and gap to renew details. Different program details are applicable only for brands with multiple loyalty programs (MLP).
+gap_to_upgrade_for | int | See the gap after a specific number of days from the current day. Gap is the value of the tier upgrade parameter (purchases/points/tracker) yet to allocate to upgrade the customer's current tier. Pass `0` to get the gap as of the current day, `1` to get the gap as of the next day, `30` to get the gap as of the 30th day from the current day. The gap might change with days for tracker value based tier upgrade strategy. No negative values are supported.
 user_group=true | - | Retrieves the details of user group associated to the user (if available).
 customer_image=true | - | Retrieves the customer's profile image.
 transactions=true | - | Retrieves transaction details of the customer.
 subscriptions=true | - | Retrieves subscription details of the customer.
 segments=true | - | Retrieves segment details of the customer if applicable. Segments are logical grouping of customers based on one or more parameters.
 member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user.
+
 
 <aside class="notice">Parameter marked with * is mandatory. </aside>
 
@@ -2138,11 +2140,11 @@ HTTP Method | GET
 Batch Support | Yes
 
 ### Request URL
-`https://{host}/v1.1/customer/transactions?{input_params}&format={xml/json}`
+`https://{host}/v1.1/customer/transactions?{identifier_name}={identifier_value}&{input_params}&format={xml/json}`
 
 For MLP
 
-`https://{host}/v1.1/customer/transactions?{identifierName}={identifierValue}&mlp=true`
+`https://{host}/v1.1/customer/transactions?{identifierName}={identifierValue}&mlp=true&{input_params}&format={xml/json}`
 
 ### Request Query Parameters
 Parameter | Datatype | Description
@@ -2151,13 +2153,10 @@ identifierName* | enum | Pass any of the customer identifier with the identifier
 identifierValue* | string | Provide the respective identifier value. For example, `?email=tom.sawyer@example.com`. 
 start_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date).
 end_date | date-time | Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: `start_date=2013-12-21+23:45:45&end_date=2013-12-29+12:11:45`
-transaction_date | date | Filter transactions by transaction date. Pass the date in `YYYY-MM-DD` format.
-amount | int | Fetch transaction details by transaction amount.
+entity_type | enum | Attribute by which you want to filter the transactions. Value: `ZONE`, `CONCEPT`, `STORE`, `TILL`, `STR_SERVER` (store server). For oAuth2, you need to pass this in headers. See the Introduction > Authentication section for more details.
+entity_value | string | Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass `entity_type=zone&entity_value=zone01`.
 number | string | Fetch transaction details by transaction number.
 transaction_id | int | Fetch details of a transaction by transaction ID (internally generated unique ID for a transaction).
-till_id | string | Filter transactions by associated TILL ID.
-till_name | string | Filter transactions associated to a specific TILL name.
-till_code | string | Filter transactions associated to a TILL code.
 store_id | string | Filter transactions associated to a specific store id.
 store_name | string | Filter transactions associated to a specific store name.
 store_code | string | Filter transactions associated to a specific store code.
@@ -2167,7 +2166,7 @@ credit_notes | boolean | Retrieves the credit notes of the transactions. **Value
 custom_fields | boolean | Pass `true` to retrieve transaction level custom field details.
 limit | int | Limit the number of results to be displayed (default value is 10). For example, `limit=20` shows up to 20 transactions of the customer.
 sort | enum | Arranges the transactions by transaction date or transaction id based on the `order` value passed. Supported value: `trans_id`, `trans_date`. By default, results are shown in descending order.
-order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: asc, desc. By default, transactions are displayed in descending order of transaction date/id.
+order | enum | Arranges the transactions based on the value set in `sort` in ascending or descending order. **Value**: `asc`, `desc`. By default, transactions are displayed in descending order of transaction date/id.
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 
