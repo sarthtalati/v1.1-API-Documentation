@@ -3450,11 +3450,11 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?{input_params}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?{identifier_name}={identifier_value}&amp;{input_params}&amp;format={xml/json}</code></p>
 
 <p>For MLP</p>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?{identifierName}={identifierValue}&amp;mlp=true</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/transactions?{identifierName}={identifierValue}&amp;mlp=true&amp;{input_params}&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -3484,6 +3484,16 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>end_date</td>
 <td>date-time</td>
 <td>Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: <code class="prettyprint">start_date=2013-12-21+23:45:45&amp;end_date=2013-12-29+12:11:45</code></td>
+</tr>
+<tr>
+<td>entity_type</td>
+<td>enum</td>
+<td>Attribute by which you want to filter the transactions. Value: <code class="prettyprint">ZONE</code>, <code class="prettyprint">CONCEPT</code>, <code class="prettyprint">STORE</code>, <code class="prettyprint">TILL</code>, <code class="prettyprint">STR_SERVER</code> (store server). For oAuth2, you need to pass this in headers. See the Introduction &gt; Authentication section for more details.</td>
+</tr>
+<tr>
+<td>entity_value</td>
+<td>string</td>
+<td>Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass <code class="prettyprint">entity_type=zone&amp;entity_value=zone01</code>.</td>
 </tr>
 <tr>
 <td>number</td>
