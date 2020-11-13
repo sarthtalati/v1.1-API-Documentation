@@ -132,6 +132,12 @@
 
 <p>This section provides the quarterly breakup of existing API updates and new API releases.</p>
 
+<h2 id="q3-releases-2020">Q3 Releases (2020)</h2>
+
+<ul>
+<li><strong>Get brand wise customer transactions</strong> : Fetch customer transactions by store, zone, concept, TILL, and store server using new query params ‘entity_type’ and ‘entity_code’ in <a href="https://capillary.github.io/v1.1-API-Documentation/#get-customer-transactions">v1.1/customer/transactions</a> API. </li>
+</ul>
+
 <h2 id="q2-releases-2020">Q2 Releases (2020)</h2>
 
 <ul>
@@ -11506,22 +11512,22 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 </thead><tbody>
 <tr>
-<td>id**</td>
+<td>id*</td>
 <td>long</td>
 <td>Unique ID of the transaction to fetch.</td>
 </tr>
 <tr>
-<td>number**</td>
+<td>number*</td>
 <td>string</td>
 <td>Unique transaction number that you want to fetch.</td>
 </tr>
 <tr>
-<td>store_code**</td>
+<td>store_code*</td>
 <td>string</td>
 <td>Fetch the transactions of a specific store. Pass the store code.</td>
 </tr>
 <tr>
-<td>till_code**</td>
+<td>till_code*</td>
 <td>string</td>
 <td>Fetch the transactions of a specific TILL. Pass the respective TILL code.</td>
 </tr>
@@ -11538,11 +11544,11 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <tr>
 <td>type</td>
 <td>enum</td>
-<td>Filter transactions of a specific type. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>. By default it shows the details of regular transaction.</td>
+<td>Filter transactions of a specific type. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>, <code class="prettyprint">NI_MIXED</code>, <code class="prettyprint">ALL</code> (to retrieve any transaction type, for mixed or NI mixed, it retrieves both transaction and return details). By default it shows the details of regular transaction.</td>
 </tr>
 </tbody></table>
 
-<aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
+<aside class="notice">Any one among the parameters marked with * is mandatory.</aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -14243,7 +14249,16 @@ Cannot redeem same voucher multiple times
             </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon series fetched successfully"</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"valid_redemption_org_entities"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"concepts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"zones"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"stores"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"tills"</span><span class="p">:</span><span class="s2">"[12808452]"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span><span class="s2">"products"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"brands"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -14323,6 +14338,14 @@ Cannot redeem same voucher multiple times
             <span class="nt">&lt;/coupons&gt;</span>
             <span class="nt">&lt;offline_redemption_enabled&gt;</span>true<span class="nt">&lt;/offline_redemption_enabled&gt;</span>
             <span class="nt">&lt;campaign_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;valid_redemption_org_entities&gt;</span>
+                <span class="nt">&lt;concepts</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;stores</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;tills&gt;</span>
+                <span class="nt">&lt;element&gt;</span>12808452<span class="nt">&lt;/element&gt;</span>
+                <span class="nt">&lt;/tills&gt;</span>
+                <span class="nt">&lt;zones</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/valid_redemption_org_entities&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
                <span class="nt">&lt;code&gt;</span>700<span class="nt">&lt;/code&gt;</span>
@@ -22708,6 +22731,238 @@ false
 <td>Description of the specific entry as in the database.</td>
 </tr>
 </tbody></table>
+
+<h2 id="add-product-attributes">Add Product Attributes</h2>
+
+<p>Lets you add product attributes.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/product/attributes?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;product&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;attributes&gt;</span>
+               <span class="nt">&lt;attribute&gt;</span>
+                  <span class="nt">&lt;default_attribute_value_name&gt;</span>firstName_7248723<span class="nt">&lt;/default_attribute_value_name&gt;</span>
+                  <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_7248723<span class="nt">&lt;/extraction_rule_data&gt;</span>
+                  <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+                  <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
+                  <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>firstName_7248723<span class="nt">&lt;/name&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+                  <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+                  <span class="nt">&lt;values&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>
+                        <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
+                     <span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/values&gt;</span>
+               <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;/attributes&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/product&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_1218117"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9180</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute addition successfull"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_1218117"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastName_1218117"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastName_1218117"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;product&gt;</span>
+         <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;default_attribute_value_name</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_1218117<span class="nt">&lt;/extraction_rule_data&gt;</span>
+                  <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+                  <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
+                  <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+                  <span class="nt">&lt;item_status&gt;</span>
+                     <span class="nt">&lt;code&gt;</span>9180<span class="nt">&lt;/code&gt;</span>
+                     <span class="nt">&lt;message&gt;</span>Attribute addition successfull<span class="nt">&lt;/message&gt;</span>
+                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                  <span class="nt">&lt;/item_status&gt;</span>
+                  <span class="nt">&lt;label</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>firstName_1218117<span class="nt">&lt;/name&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+                  <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+                  <span class="nt">&lt;values&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;label&gt;</span>lastName_1218117<span class="nt">&lt;/label&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>lastName_1218117<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/values&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+         <span class="nt">&lt;/attributes&gt;</span>
+      <span class="nt">&lt;/product&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/product/attributes</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/v1.1/product/attributes?format={xml/json}</code></p>
+
+<h2 id="request-body-parameters">Request Body Parameters</h2>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>default_attribute_value_name</td>
+<td>string</td>
+<td>Default value for the attribute (when no value  is provided).</td>
+</tr>
+<tr>
+<td>extraction_rule_data</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>extraction_rule_type</td>
+<td>enum</td>
+<td>POS,</td>
+</tr>
+<tr>
+<td>is_enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>is_soft_enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>success&quot;: true
+label | string | Label name for the attribute.
+name | string | Name of the attribute.
+type | enum | 
+use_in_dump | enum | &ldquo;: &quot;1&rdquo;,
+values | obj | Values of the attribute.
+label | string | Label name for the attribute value.
+name | string | Name of the attribute value.</p>
 
 <h2 id="search-products">Search Products</h2>
 
