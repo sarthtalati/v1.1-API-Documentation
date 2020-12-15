@@ -13873,7 +13873,12 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <tr>
 <td>identifierName*</td>
 <td>enum</td>
-<td>Unique identifier of the customer whose coupon needs to be redeemed.</td>
+<td>Any registered identifier type. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>identifierValue*</td>
+<td>string</td>
+<td>Registered identifier value of the customer. For example, id={customerId}</td>
 </tr>
 <tr>
 <td>id</td>
@@ -14218,6 +14223,11 @@ Cannot redeem same voucher multiple times
 <td>identifierName*</td>
 <td>enum</td>
 <td>Pass any of the registered identifier names of the customer. Values: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>value*</td>
+<td>string</td>
+<td>Pass the respective identifier value of the customer whose coupon has to be verified for redemption.</td>
 </tr>
 <tr>
 <td>value*</td>
