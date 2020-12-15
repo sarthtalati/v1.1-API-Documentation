@@ -2416,7 +2416,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=slab:EQUALS:CLASSIC
+<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2581,7 +2581,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">customer/search?q={param}:{Query}:{value}&amp;format={xml/json}</code></td>
+<td><code class="prettyprint">customer/search?q=({param}:{Query}:{value})&amp;format={xml/json}</code></td>
 </tr>
 <tr>
 <td>Authentication</td>
@@ -2599,7 +2599,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 
 <h3 id="request-url">Request URL</h3>
 
-<p><code class="prettyprint">https://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&amp;format={xml/json}</code></p>
+<p><code class="prettyprint">https://{host}/v1.1/customer/search?q=({param}:{Operator}:{value})&amp;format={xml/json}</code></p>
 
 <h3 id="request-query-parameters">Request Query Parameters</h3>
 
@@ -2872,6 +2872,73 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Sample Response snippet of <code class="prettyprint">gap_to_upgrade_for</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">upgrade</span><span class="w"> </span><span class="err">based</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">tracker</span><span class="w"> </span><span class="err">strategy</span><span class="w">
+
+</span><span class="s2">"gap_to_upgrade"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"upgrade_strategy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"upgrade_based_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRACKER_VALUE_BASED"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"upgrade_entity_identifers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"tracker_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 Years Upgrade Tracker"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracker_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BILL_AMOUNT"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracker_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MOVING_WINDOW"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracker_case_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"730Days_Case"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracker_case_period_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DAYS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"tracker_case_period_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"730"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"upgrade_threshold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_upgrade_entity_values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"current_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9786"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"gap_to_upgrade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15214"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value_valid_upto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-06"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre>
+<blockquote>
+<p>Sample Response snippet of <code class="prettyprint">gap_to_renew_for</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+</span><span class="err">#</span><span class="w"> </span><span class="err">For</span><span class="w"> </span><span class="err">upgrade</span><span class="w"> </span><span class="err">based</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">lifetime</span><span class="w"> </span><span class="err">points</span><span class="w">
+
+</span><span class="err">...</span><span class="w">
+</span><span class="s2">"gap_to_renew"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-09-03"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"renew_confirmed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"renew_strategy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"renew_based_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISITS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"renew_entity_identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"renew_threshold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_renew_entity_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_gap_to_renew_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"renew_based_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PURCHASE"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"renew_entity_identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"renew_threshold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_renew_entity_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_gap_to_renew_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28800"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"renew_based_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINTS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"renew_entity_identifiers"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nt">"renew_threshold"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_renew_entity_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"460"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customer_gap_to_renew_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49540"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;response&gt;</span>
    <span class="nt">&lt;status&gt;</span>
@@ -3121,6 +3188,11 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>gap_to_upgrade_for</td>
 <td>int</td>
 <td>See the gap after a specific number of days from the current day. Gap is the value of the tier upgrade parameter (purchases/points/tracker) yet to allocate to upgrade the customer&rsquo;s current tier. Pass <code class="prettyprint">0</code> to get the gap as of the current day, <code class="prettyprint">1</code> to get the gap as of the next day, <code class="prettyprint">30</code> to get the gap as of the 30th day from the current day. The gap might change with days for tracker value based tier upgrade strategy. No negative values are supported.</td>
+</tr>
+<tr>
+<td>gap_to_renew_for</td>
+<td>int</td>
+<td>See the gap after a specific number of days from the current day. The required value of purchases/visits/points/tracker to renew the tier (as per the configuration in tier downgrade strategy). Pass <code class="prettyprint">0</code> to get the renewal value as of the current day, <code class="prettyprint">1</code> to get renewal value as of the next day, <code class="prettyprint">30</code> to get the renewal value as of the 30th day from the current day. No negative value is supported.</td>
 </tr>
 <tr>
 <td>user_group=true</td>
@@ -7754,8 +7826,12 @@ Extended fields and custom fields in transactions are used to capture additional
           </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"redemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"pointsRedemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1427813</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"   couponRedemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
+        </span><span class="nt">"points_redemptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"987654"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"coupon_redemptions"</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
         </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -11506,22 +11582,22 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 </tr>
 </thead><tbody>
 <tr>
-<td>id**</td>
+<td>id*</td>
 <td>long</td>
 <td>Unique ID of the transaction to fetch.</td>
 </tr>
 <tr>
-<td>number**</td>
+<td>number*</td>
 <td>string</td>
 <td>Unique transaction number that you want to fetch.</td>
 </tr>
 <tr>
-<td>store_code**</td>
+<td>store_code*</td>
 <td>string</td>
 <td>Fetch the transactions of a specific store. Pass the store code.</td>
 </tr>
 <tr>
-<td>till_code**</td>
+<td>till_code*</td>
 <td>string</td>
 <td>Fetch the transactions of a specific TILL. Pass the respective TILL code.</td>
 </tr>
@@ -11538,11 +11614,11 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <tr>
 <td>type</td>
 <td>enum</td>
-<td>Filter transactions of a specific type. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>. By default it shows the details of regular transaction.</td>
+<td>Filter transactions of a specific type. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>, <code class="prettyprint">NI_MIXED</code>, <code class="prettyprint">ALL</code> (to retrieve any transaction type, for mixed or NI mixed, it retrieves both transaction and return details). By default it shows the details of regular transaction.</td>
 </tr>
 </tbody></table>
 
-<aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
+<aside class="notice">Any one among the parameters marked with * is mandatory.</aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -13675,73 +13751,78 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <span class="nt">&lt;/transaction&gt;</span>
 <span class="nt">&lt;/coupon&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
+
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nt">"coupons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06000041"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55434"</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom.sawyer@example.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ext_id7342762947"</span><span class="w">
          </span><span class="p">},</span><span class="w">
+         </span><span class="nt">"redemptionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4577842"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P7WNQWF4"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYZ123"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9076"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"series_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+         </span><span class="nt">"is_absolute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"coupon_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000.00"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"numbr7342762947"</span><span class="w">
          </span><span class="p">},</span><span class="w">
-         </span><span class="nt">"discount_code"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-         </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"227f0"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"is_absolute"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"coupon_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"#text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon processing successful"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;response&gt;</span>  
-<span class="nt">&lt;status&gt;</span>    
-<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>    
-<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>    
-<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>  
-<span class="nt">&lt;/status&gt;</span>  
-<span class="nt">&lt;coupons&gt;</span>    
-<span class="nt">&lt;coupon&gt;</span>      
-<span class="nt">&lt;code&gt;</span>06000041<span class="nt">&lt;/code&gt;</span>      
-<span class="nt">&lt;customer&gt;</span>        
-<span class="nt">&lt;mobile&gt;</span>447700900000<span class="nt">&lt;/mobile&gt;</span>      
-<span class="nt">&lt;email&gt;&lt;/email&gt;</span>
-<span class="nt">&lt;external_id&gt;&lt;/external_id&gt;</span>
-<span class="nt">&lt;user_id&gt;</span>55434<span class="nt">&lt;/user_id&gt;</span> 
-<span class="c">&lt;!-- Will be returned only if user_id is true --&gt;</span>
-<span class="nt">&lt;/customer&gt;</span>      
-<span class="nt">&lt;transaction&gt;</span>        
-<span class="nt">&lt;number&gt;</span>bill-110<span class="nt">&lt;/number&gt;</span>
-<span class="nt">&lt;amount&gt;</span>1000<span class="nt">&lt;/amount&gt;</span>        
-<span class="nt">&lt;/transaction&gt;</span>      
-<span class="nt">&lt;discount_code&gt;&lt;/discount_code&gt;</span>      
-<span class="nt">&lt;series_code&gt;</span>227f0<span class="nt">&lt;/series_code&gt;</span>      
-<span class="nt">&lt;is_absolute&gt;</span>true<span class="nt">&lt;/is_absolute&gt;</span>      
-<span class="nt">&lt;coupon_value&gt;</span>0<span class="nt">&lt;/coupon_value&gt;</span>      
-<span class="nt">&lt;item_status&gt;</span>        
-<span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>        
-t<span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>        
-<span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>      
-<span class="nt">&lt;/item_status&gt;</span>    
-<span class="nt">&lt;/coupon&gt;</span>  
-<span class="nt">&lt;/coupons&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+   <span class="nt">&lt;status&gt;</span>
+      <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+      <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+   <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;coupons&gt;</span>
+      <span class="nt">&lt;coupon&gt;</span>
+         <span class="nt">&lt;customer&gt;</span>
+            <span class="nt">&lt;mobile&gt;</span>447700900000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;email&gt;</span>tom.sawyer@example.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;external_id&gt;</span>ext_id7342762947<span class="nt">&lt;/external_id&gt;</span>
+         <span class="nt">&lt;/customer&gt;</span>
+         <span class="nt">&lt;redemptionId&gt;</span>4577842<span class="nt">&lt;/redemptionId&gt;</span>
+         <span class="nt">&lt;code&gt;</span>P7WNQWF4<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;discount_code&gt;</span>XYZ123<span class="nt">&lt;/discount_code&gt;</span>
+         <span class="nt">&lt;series_code&gt;</span>9076<span class="nt">&lt;/series_code&gt;</span>
+         <span class="nt">&lt;series_info</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;is_absolute&gt;</span>false<span class="nt">&lt;/is_absolute&gt;</span>
+         <span class="nt">&lt;coupon_value&gt;</span>10<span class="nt">&lt;/coupon_value&gt;</span>
+         <span class="nt">&lt;transaction&gt;</span>
+            <span class="nt">&lt;amount&gt;</span>1000.00<span class="nt">&lt;/amount&gt;</span>
+            <span class="nt">&lt;number&gt;</span>numbr7342762947<span class="nt">&lt;/number&gt;</span>
+         <span class="nt">&lt;/transaction&gt;</span>
+         <span class="nt">&lt;side_effects</span> <span class="nt">/&gt;</span>
+         <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>700<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Coupon processing successful<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;/item_status&gt;</span>
+      <span class="nt">&lt;/coupon&gt;</span>
+   <span class="nt">&lt;/coupons&gt;</span>
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
 <p>This API allows you to redeem coupons issued to the loyalty customer.</p>
@@ -14243,6 +14324,15 @@ Cannot redeem same voucher multiple times
             </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"700"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon series fetched successfully"</span><span class="w">
           </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"valid_redemption_org_entities"</span><span class="p">:{</span><span class="w">
+              </span><span class="nt">"concepts"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"zones"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"stores"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+
+              </span><span class="nt">"tills"</span><span class="p">:</span><span class="s2">"[12808452]"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
           </span><span class="nt">"products"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"brands"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
@@ -14323,6 +14413,16 @@ Cannot redeem same voucher multiple times
             <span class="nt">&lt;/coupons&gt;</span>
             <span class="nt">&lt;offline_redemption_enabled&gt;</span>true<span class="nt">&lt;/offline_redemption_enabled&gt;</span>
             <span class="nt">&lt;campaign_name</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;purpose/&gt;</span>
+            <span class="nt">&lt;metadata/&gt;</span>
+            <span class="nt">&lt;valid_redemption_org_entities&gt;</span>
+                <span class="nt">&lt;concepts&gt;</span>[12808430,12808431]<span class="nt">&lt;/concepts&gt;</span>
+                <span class="nt">&lt;stores</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;tills&gt;</span>
+                <span class="nt">&lt;element&gt;</span>12808452<span class="nt">&lt;/element&gt;</span>
+                <span class="nt">&lt;/tills&gt;</span>
+                <span class="nt">&lt;zones</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/valid_redemption_org_entities&gt;</span>
             <span class="nt">&lt;item_status&gt;</span>
                <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
                <span class="nt">&lt;code&gt;</span>700<span class="nt">&lt;/code&gt;</span>
@@ -22706,6 +22806,269 @@ false
 <td>description</td>
 <td>string</td>
 <td>Description of the specific entry as in the database.</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-product-attributes">Add Product Attributes</h2>
+
+<p>Lets you add product attributes.</p>
+
+<blockquote>
+<p>Sample Request</p>
+</blockquote>
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/product/attributes?format=json
+</code></pre>
+<blockquote>
+<p>Sample POST Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_7248723"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;root&gt;</span>
+      <span class="nt">&lt;product&gt;</span>
+         <span class="nt">&lt;element&gt;</span>
+            <span class="nt">&lt;attributes&gt;</span>
+               <span class="nt">&lt;attribute&gt;</span>
+                  <span class="nt">&lt;default_attribute_value_name&gt;</span>firstName_7248723<span class="nt">&lt;/default_attribute_value_name&gt;</span>
+                  <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_7248723<span class="nt">&lt;/extraction_rule_data&gt;</span>
+                  <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+                  <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
+                  <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>firstName_7248723<span class="nt">&lt;/name&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+                  <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+                  <span class="nt">&lt;values&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>
+                        <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
+                     <span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/values&gt;</span>
+               <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;/attributes&gt;</span>
+         <span class="nt">&lt;/element&gt;</span>
+      <span class="nt">&lt;/product&gt;</span>
+   <span class="nt">&lt;/root&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<blockquote>
+<p>Sample Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"default_attribute_value_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_1218117"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"extraction_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9180</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute addition successfull"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstName_1218117"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Int"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"use_in_dump"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastName_1218117"</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lastName_1218117"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;root&gt;</span>
+   <span class="nt">&lt;response&gt;</span>
+      <span class="nt">&lt;product&gt;</span>
+         <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+               <span class="nt">&lt;element&gt;</span>
+                  <span class="nt">&lt;default_attribute_value_name</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_1218117<span class="nt">&lt;/extraction_rule_data&gt;</span>
+                  <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+                  <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
+                  <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+                  <span class="nt">&lt;item_status&gt;</span>
+                     <span class="nt">&lt;code&gt;</span>9180<span class="nt">&lt;/code&gt;</span>
+                     <span class="nt">&lt;message&gt;</span>Attribute addition successfull<span class="nt">&lt;/message&gt;</span>
+                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                  <span class="nt">&lt;/item_status&gt;</span>
+                  <span class="nt">&lt;label</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
+                  <span class="nt">&lt;name&gt;</span>firstName_1218117<span class="nt">&lt;/name&gt;</span>
+                  <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+                  <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+                  <span class="nt">&lt;values&gt;</span>
+                     <span class="nt">&lt;value&gt;</span>
+                        <span class="nt">&lt;element&gt;</span>
+                           <span class="nt">&lt;label&gt;</span>lastName_1218117<span class="nt">&lt;/label&gt;</span>
+                           <span class="nt">&lt;name&gt;</span>lastName_1218117<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/element&gt;</span>
+                     <span class="nt">&lt;/value&gt;</span>
+                  <span class="nt">&lt;/values&gt;</span>
+               <span class="nt">&lt;/element&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+         <span class="nt">&lt;/attributes&gt;</span>
+      <span class="nt">&lt;/product&gt;</span>
+      <span class="nt">&lt;status&gt;</span>
+         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+      <span class="nt">&lt;/status&gt;</span>
+   <span class="nt">&lt;/response&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</code></pre>
+<h3 id="resource-information">Resource Information</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URI</td>
+<td><code class="prettyprint">/product/attributes</code></td>
+</tr>
+<tr>
+<td>Rate Limited?</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>HTTP Methods</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Batch Support</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+
+<h3 id="request-url">Request URL</h3>
+
+<p><code class="prettyprint">https://{host}/v1.1/product/attributes?format={xml/json}</code></p>
+
+<h2 id="request-body-parameters">Request Body Parameters</h2>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>default_attribute_value_name</td>
+<td>string</td>
+<td>Default value for the attribute (when no value  is provided).</td>
+</tr>
+<tr>
+<td>extraction_rule_data</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>extraction_rule_type</td>
+<td>enum</td>
+<td>POS,</td>
+</tr>
+<tr>
+<td>is_enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>is_soft_enum</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>long</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>success</td>
+<td>boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>Label name for the attribute.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the attribute.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>use_in_dump</td>
+<td>enum</td>
+<td>Value: <code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td>values</td>
+<td>obj</td>
+<td>Values of the attribute.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>Label name for the attribute value.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the attribute value.</td>
 </tr>
 </tbody></table>
 
