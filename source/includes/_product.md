@@ -248,6 +248,200 @@ label | string | UI name of the specific entry (style, color, category, brand)
 added_on | date-time | Date and time of the product addition.
 description | string | Description of the specific entry as in the database.
 
+
+
+## Add Product Attributes
+
+Lets you add product attributes.
+
+> Sample Request
+
+```html
+https://us.api.capillarytech.com/v1.1/product/attributes?format=json
+```
+
+> Sample POST Request
+
+```json
+{
+  "root": {
+    "product": [
+      {
+        "attributes": {
+          "attribute": {
+            "is_enum": "1",
+            "type": "Int",
+            "default_attribute_value_name": "firstName_7248723",
+            "extraction_rule_data": "firstName_7248723",
+            "extraction_rule_type": "POS",
+            "is_soft_enum": "1",
+            "values": {
+              "value": {
+                "name": ""
+              }
+            },
+            "use_in_dump": "1",
+            "name": "firstName_7248723"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <root>
+      <product>
+         <element>
+            <attributes>
+               <attribute>
+                  <default_attribute_value_name>firstName_7248723</default_attribute_value_name>
+                  <extraction_rule_data>firstName_7248723</extraction_rule_data>
+                  <extraction_rule_type>POS</extraction_rule_type>
+                  <is_enum>1</is_enum>
+                  <is_soft_enum>1</is_soft_enum>
+                  <name>firstName_7248723</name>
+                  <type>Int</type>
+                  <use_in_dump>1</use_in_dump>
+                  <values>
+                     <value>
+                        <name />
+                     </value>
+                  </values>
+               </attribute>
+            </attributes>
+         </element>
+      </product>
+   </root>
+</root>
+```
+
+
+> Sample Response
+
+```json
+{
+  "response": {
+    "product": {
+      "attributes": {
+        "attribute": [
+          {
+            "default_attribute_value_name": null,
+            "extraction_rule_data": "firstName_1218117",
+            "extraction_rule_type": "POS",
+            "is_enum": "1",
+            "is_soft_enum": "1",
+            "item_status": {
+              "code": 9180,
+              "message": "Attribute addition successfull",
+              "success": true
+            },
+            "label": null,
+            "name": "firstName_1218117",
+            "type": "Int",
+            "use_in_dump": "1",
+            "values": {
+              "value": [
+                {
+                  "label": "lastName_1218117",
+                  "name": "lastName_1218117"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "status": {
+      "code": 200,
+      "message": "SUCCESS",
+      "success": true
+    }
+  }
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <response>
+      <product>
+         <attributes>
+            <attribute>
+               <element>
+                  <default_attribute_value_name null="true" />
+                  <extraction_rule_data>firstName_1218117</extraction_rule_data>
+                  <extraction_rule_type>POS</extraction_rule_type>
+                  <is_enum>1</is_enum>
+                  <is_soft_enum>1</is_soft_enum>
+                  <item_status>
+                     <code>9180</code>
+                     <message>Attribute addition successfull</message>
+                     <success>true</success>
+                  </item_status>
+                  <label null="true" />
+                  <name>firstName_1218117</name>
+                  <type>Int</type>
+                  <use_in_dump>1</use_in_dump>
+                  <values>
+                     <value>
+                        <element>
+                           <label>lastName_1218117</label>
+                           <name>lastName_1218117</name>
+                        </element>
+                     </value>
+                  </values>
+               </element>
+            </attribute>
+         </attributes>
+      </product>
+      <status>
+         <code>200</code>
+         <message>SUCCESS</message>
+         <success>true</success>
+      </status>
+   </response>
+</root>
+```
+
+### Resource Information
+| | |
+--------- | ----------- |
+URI | `/product/attributes`
+Rate Limited? | Yes
+HTTP Methods | POST
+Batch Support | Yes
+
+### Request URL
+`https://{host}/v1.1/product/attributes?format={xml/json}`
+
+
+##  Request Body Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+default_attribute_value_name | string | Default value for the attribute (when no value  is provided).
+extraction_rule_data | string | 
+extraction_rule_type | enum | POS,
+is_enum | | 
+is_soft_enum | | 
+code | long | 
+message | string | 
+success | boolean | true
+label | string | Label name for the attribute.
+name | string | Name of the attribute.
+type | enum | 
+use_in_dump | enum | Value: `1`
+values | obj | Values of the attribute.
+label | string | Label name for the attribute value.
+name | string | Name of the attribute value.
+
+
+
+
 ## Search Products
 
 > Sample Request

@@ -1422,7 +1422,7 @@ updated | boolean | Returns `true` if the the identifier is updated successfully
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/customer/search?q=slab:EQUALS:CLASSIC
+https://api.capillary.co.in/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
 ```
 
 
@@ -1589,7 +1589,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI	| `customer/search?q={param}:{Query}:{value}&format={xml/json}`
+URI	| `customer/search?q=({param}:{Query}:{value})&format={xml/json}`
 Authentication | Yes
 HTTP Method | GET
 Batch Support | Yes
@@ -1597,7 +1597,7 @@ Batch Support | Yes
 
 
 ### Request URL
-`https://{host}/v1.1/customer/search?q={param}:{Operator}:{value}&format={xml/json}`
+`https://{host}/v1.1/customer/search?q=({param}:{Operator}:{value})&format={xml/json}`
 
 
 ### Request Query Parameters
@@ -1754,6 +1754,78 @@ https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
 }
 ```
 
+
+> Sample Response snippet of `gap_to_upgrade_for`
+
+```json
+
+# For upgrade based on tracker strategy
+
+"gap_to_upgrade": {
+  "upgrade_strategy": [
+    {
+      "upgrade_based_on": "TRACKER_VALUE_BASED",
+      "upgrade_entity_identifers": {
+        "tracker_name": "2 Years Upgrade Tracker",
+        "tracker_type": "BILL_AMOUNT",
+        "tracker_mode": "MOVING_WINDOW",
+        "tracker_case_name": "730Days_Case",
+        "tracker_case_period_type": "DAYS",
+        "tracker_case_period_value": "730"
+      },
+      "upgrade_threshold": "25000",
+      "customer_upgrade_entity_values": {
+        "current_value": "9786",
+        "gap_to_upgrade": "15214",
+        "value_valid_upto": "2022-05-06"
+      }
+    }
+  ]
+}
+
+
+```
+
+> Sample Response snippet of `gap_to_renew_for`
+
+```json
+
+# For upgrade based on lifetime points
+
+...
+"gap_to_renew": {
+  "tier_expiry_date": "2020-09-03",
+  "renew_confirmed": "false",
+  "renew_strategy": [
+    {
+      "renew_based_on": "VISITS",
+      "renew_entity_identifiers": {},
+      "renew_threshold": "56000",
+      "customer_renew_entity_value": "1",
+      "customer_gap_to_renew_value": "55999"
+    },
+    {
+      "renew_based_on": "PURCHASE",
+      "renew_entity_identifiers": {},
+      "renew_threshold": "30000",
+      "customer_renew_entity_value": "1200",
+      "customer_gap_to_renew_value": "28800"
+    },
+    {
+      "renew_based_on": "POINTS",
+      "renew_entity_identifiers": {},
+      "renew_threshold": "50000",
+      "customer_renew_entity_value": "460",
+      "customer_gap_to_renew_value": "49540"
+    }
+  ]
+}
+
+
+```
+
+
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <response>
@@ -1890,6 +1962,7 @@ membership_retention_criteria=true | - | Returns the criteria set for membership
 tier_upgrade_criteria=true | - | Returns the tier upgrade criteria configured in `tier_update_criteria` object of response payload.<br>This is supported only if the tier upgrade strategy is based on Lifetime Points, Lifetime Purchases, or Current Points,  but not on tracker based strategy. Also, you will not see upgrade criteria if the customer is in the highest tier.
 mlp=true | - | Retrieves the loyalty information of the customer for each loyalty program including the gap to upgrade and gap to renew details. Different program details are applicable only for brands with multiple loyalty programs (MLP).
 gap_to_upgrade_for | int | See the gap after a specific number of days from the current day. Gap is the value of the tier upgrade parameter (purchases/points/tracker) yet to allocate to upgrade the customer's current tier. Pass `0` to get the gap as of the current day, `1` to get the gap as of the next day, `30` to get the gap as of the 30th day from the current day. The gap might change with days for tracker value based tier upgrade strategy. No negative values are supported.
+gap_to_renew_for | int | See the gap after a specific number of days from the current day. The required value of purchases/visits/points/tracker to renew the tier (as per the configuration in tier downgrade strategy). Pass `0` to get the renewal value as of the current day, `1` to get renewal value as of the next day, `30` to get the renewal value as of the 30th day from the current day. No negative value is supported.
 user_group=true | - | Retrieves the details of user group associated to the user (if available).
 customer_image=true | - | Retrieves the customer's profile image.
 transactions=true | - | Retrieves transaction details of the customer.
@@ -2069,6 +2142,8 @@ https://eu.api.capillarytech.com/v1.1/customer/transactions?format=json&mobile=4
 }
 
 ```
+
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

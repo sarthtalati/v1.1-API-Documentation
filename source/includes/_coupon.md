@@ -274,38 +274,41 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 </transaction>
 </coupon>
 </root>
+
 ```
 > Sample Response
 
 ```json
+
 {
    "status": {
       "success": "true",
       "code": "200",
-      "message": "SUCCESS"
+      "message": "Success"
    },
    "coupons": {
       "coupon": {
-         "code": "06000041",
          "customer": {
             "mobile": "447700900000",
-            "email": [],
-            "external_id": [],
-            "user_id": "55434"
+            "email": "tom.sawyer@example.com",
+            "external_id": "ext_id7342762947"
          },
+         "redemptionId": "4577842",
+         "code": "P7WNQWF4",
+         "discount_code": "XYZ123",
+         "series_code": "9076",
+         "series_info": [],
+         "is_absolute": "false",
+         "coupon_value": "10",
          "transaction": {
-            "number": "bill-110",
-            "amount": "1000"
+            "amount": "1000.00",
+            "number": "numbr7342762947"
          },
-         "discount_code": [],
-         "series_code": "227f0",
-         "is_absolute": "true",
-         "coupon_value": "0",
+         "side_effects": [],
          "item_status": {
             "success": "true",
-            "#text": "t",
-            "code": "200",
-            "message": "SUCCESS"
+            "code": "700",
+            "message": "Coupon processing successful"
          }
       }
    }
@@ -313,37 +316,39 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 ```
 
 ```xml
-<response>  
-<status>    
-<success>true</success>    
-<code>200</code>    
-<message>SUCCESS</message>  
-</status>  
-<coupons>    
-<coupon>      
-<code>06000041</code>      
-<customer>        
-<mobile>447700900000</mobile>      
-<email></email>
-<external_id></external_id>
-<user_id>55434</user_id> 
-<!-- Will be returned only if user_id is true -->
-</customer>      
-<transaction>        
-<number>bill-110</number>
-<amount>1000</amount>        
-</transaction>      
-<discount_code></discount_code>      
-<series_code>227f0</series_code>      
-<is_absolute>true</is_absolute>      
-<coupon_value>0</coupon_value>      
-<item_status>        
-<success>true</success>        
-t<code>200</code>        
-<message>SUCCESS</message>      
-</item_status>    
-</coupon>  
-</coupons>
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+   <status>
+      <success>true</success>
+      <code>200</code>
+      <message>Success</message>
+   </status>
+   <coupons>
+      <coupon>
+         <customer>
+            <mobile>447700900000</mobile>
+            <email>tom.sawyer@example.com</email>
+            <external_id>ext_id7342762947</external_id>
+         </customer>
+         <redemptionId>4577842</redemptionId>
+         <code>P7WNQWF4</code>
+         <discount_code>XYZ123</discount_code>
+         <series_code>9076</series_code>
+         <series_info />
+         <is_absolute>false</is_absolute>
+         <coupon_value>10</coupon_value>
+         <transaction>
+            <amount>1000.00</amount>
+            <number>numbr7342762947</number>
+         </transaction>
+         <side_effects />
+         <item_status>
+            <success>true</success>
+            <code>700</code>
+            <message>Coupon processing successful</message>
+         </item_status>
+      </coupon>
+   </coupons>
 </response>
 ```
 
@@ -705,6 +710,15 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
             "code": "700",
             "message": "Coupon series fetched successfully"
           },
+		  "valid_redemption_org_entities":{
+              "concepts":null,
+
+              "zones":null,
+
+              "stores":null,
+
+              "tills":"[12808452]"
+          },
           "products": "",
           "brands": "",
           "categories": ""
@@ -788,6 +802,16 @@ http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
             </coupons>
             <offline_redemption_enabled>true</offline_redemption_enabled>
             <campaign_name />
+			<purpose/>
+			<metadata/>
+			<valid_redemption_org_entities>
+				<concepts>[12808430,12808431]</concepts>
+				<stores null="true" />
+				<tills>
+				<element>12808452</element>
+				</tills>
+				<zones null="true" />
+			</valid_redemption_org_entities>
             <item_status>
                <success>true</success>
                <code>700</code>

@@ -69,8 +69,12 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
           "lastname": "Sawyer"
         },
 		"redemptions" : {
-			"pointsRedemptions" : [1427813],
-		"	couponRedemptions" : [ ]
+		"points_redemptions": {
+            "id": [
+              "987654"
+            ]
+          }
+		"coupon_redemptions" : [ ]
 	},
         "extended_fields": {
           "field": [
@@ -2823,15 +2827,15 @@ language | Specify the ISO language code to get transaction level extended field
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-id** | long | Unique ID of the transaction to fetch.
-number** | string | Unique transaction number that you want to fetch.
-store_code** | string | Fetch the transactions of a specific store. Pass the store code.
-till_code** | string | Fetch the transactions of a specific TILL. Pass the respective TILL code.
+id* | long | Unique ID of the transaction to fetch.
+number* | string | Unique transaction number that you want to fetch.
+store_code* | string | Fetch the transactions of a specific store. Pass the store code.
+till_code* | string | Fetch the transactions of a specific TILL. Pass the respective TILL code.
 amount | double | Filter transactions of a specific amount. 
 date | date | Filter transactions of a specific date. Pass the date in `YYYY-MM-DD` format.
-type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`. By default it shows the details of regular transaction.
+type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`, `NI_MIXED`, `ALL` (to retrieve any transaction type, for mixed or NI mixed, it retrieves both transaction and return details). By default it shows the details of regular transaction.
 
-<aside class="notice">Any one among the parameters marked with ** is mandatory.</aside>
+<aside class="notice">Any one among the parameters marked with * is mandatory.</aside>
 
 
 
