@@ -2678,11 +2678,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Retrieves the list of customers whose transaction amount matches the specified query. <br><strong>Query</strong>: <code class="prettyprint">transaction_value:GREATER:{transaction_amount}</code></td>
 </tr>
 <tr>
-<td>Custom fields</td>
-<td>string</td>
-<td>Retrieves the list of customers whose custom field values matches the specified value. <br><strong>Query</strong>: <code class="prettyprint">{field_name}:{field_value}</code></td>
-</tr>
-<tr>
 <td>Operator</td>
 <td>enum</td>
 <td>Predefined conditions based on which you want to fetch results. Values: <code class="prettyprint">STARTS</code>, <code class="prettyprint">ENDS</code>, <code class="prettyprint">EXACT</code>, <code class="prettyprint">RANGE</code>, <code class="prettyprint">LESS</code>, <code class="prettyprint">GREATER</code>, <code class="prettyprint">EQUALS</code>, <code class="prettyprint">IN</code>. For more details, see the following section, Search Query Grammar.</td>
@@ -3548,16 +3543,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Provide the respective identifier value. For example, <code class="prettyprint">?email=tom.sawyer@example.com</code>.</td>
 </tr>
 <tr>
-<td>start_date</td>
-<td>date-time</td>
-<td>Retrieves transactions made in a specific duration (start_date to end_date).</td>
-</tr>
-<tr>
-<td>end_date</td>
-<td>date-time</td>
-<td>Retrieves transactions made in a specific duration (start_date to end_date). <br>Example: <code class="prettyprint">start_date=2013-12-21+23:45:45&amp;end_date=2013-12-29+12:11:45</code></td>
-</tr>
-<tr>
 <td>entity_type</td>
 <td>enum</td>
 <td>Attribute by which you want to filter the transactions. Value: <code class="prettyprint">ZONE</code>, <code class="prettyprint">CONCEPT</code>, <code class="prettyprint">STORE</code>, <code class="prettyprint">TILL</code>, <code class="prettyprint">STR_SERVER</code> (store server). For oAuth2, you need to pass this in headers. See the Introduction &gt; Authentication section for more details.</td>
@@ -3595,12 +3580,22 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>start_id</td>
 <td>int</td>
-<td>Filter transactions by transaction ids starting with a specific value.</td>
+<td>Filters transactions with transaction IDs are greater than or equal to a specific value.</td>
 </tr>
 <tr>
 <td>end_id</td>
 <td>int</td>
-<td>Filter transactions by transaction ids ending with a specific value.</td>
+<td>Filter transactions with transaction IDs less than or equal to a specific value.</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>date-time</td>
+<td>Retrieves transactions made on or after a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get transactions of a particular duration, use both <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>.</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>date-time</td>
+<td>Retrieves transactions made on or before a specific date (<code class="prettyprint">YYYY-MM-DD</code>). To get transactions of a particular duration, use both <code class="prettyprint">start_date</code> and <code class="prettyprint">end_date</code>. <br>Example: <code class="prettyprint">start_date=2013-12-21+23:45:45&amp;end_date=2013-12-29+12:11:45</code></td>
 </tr>
 <tr>
 <td>credit_notes</td>
@@ -3613,19 +3608,29 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Pass <code class="prettyprint">true</code> to retrieve transaction level custom field details.</td>
 </tr>
 <tr>
+<td>points_breakup</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve the breakup of points earned for each transaction.</td>
+</tr>
+<tr>
 <td>limit</td>
 <td>int</td>
 <td>Limit the number of results to be displayed (default value is 10). For example, <code class="prettyprint">limit=20</code> shows up to 20 transactions of the customer.</td>
 </tr>
 <tr>
+<td>offset</td>
+<td>int</td>
+<td>Number of records to be ignored from the top. Offset is the position of the entity in the database record. The value is assigned based on the sequence of creation. For example, offset=10 ignores the first 10 transactions of the customer.</td>
+</tr>
+<tr>
 <td>sort</td>
 <td>enum</td>
-<td>Arranges the transactions by transaction date or transaction id based on the <code class="prettyprint">order</code> value passed. Supported value: <code class="prettyprint">trans_id</code>, <code class="prettyprint">trans_date</code>. By default, results are shown in descending order.</td>
+<td>Arranges transactions in ascending or descending order of transaction date if the value is<code class="prettyprint">trans_date</code>, transaction id if the value is <code class="prettyprint">trans_id</code>. By default, results are shown in descending order.</td>
 </tr>
 <tr>
 <td>order</td>
 <td>enum</td>
-<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in ascending or descending order. <strong>Value</strong>: <code class="prettyprint">asc</code>, <code class="prettyprint">desc</code>. By default, transactions are displayed in descending order of transaction date/id.</td>
+<td>Arranges the transactions based on the value set in <code class="prettyprint">sort</code> in an ascending (<code class="prettyprint">asc</code>) or descending order (<code class="prettyprint">desc</code>). By default, results are shown in the descending order of transaction date/id.</td>
 </tr>
 </tbody></table>
 
@@ -7814,7 +7819,6 @@ Extended fields and custom fields in transactions are used to capture additional
         </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"shipping_source_till_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECOMM"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
@@ -8265,7 +8269,6 @@ Extended fields and custom fields in transactions are used to capture additional
                <span class="nt">&lt;/pointsRedemptions&gt;</span>
             <span class="nt">&lt;/redemptions&gt;</span>
             <span class="nt">&lt;shipping_source_till_code</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;source&gt;</span>ECOMM<span class="nt">&lt;/source&gt;</span>
             <span class="nt">&lt;type&gt;</span>regular<span class="nt">&lt;/type&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
       <span class="nt">&lt;/transaction&gt;</span>
