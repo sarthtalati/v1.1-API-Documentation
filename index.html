@@ -3568,11 +3568,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Filter transactions associated to a specific store id.</td>
 </tr>
 <tr>
-<td>store_name</td>
-<td>string</td>
-<td>Filter transactions associated to a specific store name.</td>
-</tr>
-<tr>
 <td>store_code</td>
 <td>string</td>
 <td>Filter transactions associated to a specific store code.</td>
@@ -7795,6 +7790,8 @@ Extended fields and custom fields in transactions are used to capture additional
 <li>Maximum and minimum amount allowed per line-item</li>
 </ul>
 
+<aside class="notice">Please ignore error headers it is still in evaluation phase. </aside>
+
 <h2 id="add-transaction">Add Transaction</h2>
 
 <blockquote>
@@ -7817,7 +7814,8 @@ Extended fields and custom fields in transactions are used to capture additional
         </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2 line items"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-01"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"gross_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"delivery_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="s2">"txnrflSDX123"</span><span class="w">
+        </span><span class="s2">"delivery_status"</span><span class="err">:</span><span class="w"> </span><span class="s2">"DELIVERED"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"shipping_source_till_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="nt">"outlier_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"credit_notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -7827,7 +7825,8 @@ Extended fields and custom fields in transactions are used to capture additional
           </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
           </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="w">
+          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sawyer"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"referral_code"</span><span class="p">:</span><span class="s2">"CUSTSDX123"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"redemptions"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"points_redemptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -8051,6 +8050,7 @@ Extended fields and custom fields in transactions are used to capture additional
                <span class="nt">&lt;name&gt;</span>Chin<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;/associate_details&gt;</span>
             <span class="nt">&lt;bill_client_id</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;referral_code&gt;</span>txnsdx123<span class="nt">&lt;/referral_code&gt;</span>
             <span class="nt">&lt;billing_time&gt;</span>2018-04-01<span class="nt">&lt;/billing_time&gt;</span>
             <span class="nt">&lt;credit_notes</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;currency_code&gt;</span>INR<span class="nt">&lt;/currency_code&gt;</span>
@@ -8068,6 +8068,7 @@ Extended fields and custom fields in transactions are used to capture additional
                <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
                <span class="nt">&lt;lastname&gt;</span>Sawyer<span class="nt">&lt;/lastname&gt;</span>
                <span class="nt">&lt;mobile&gt;</span>919999000000<span class="nt">&lt;/mobile&gt;</span>
+               <span class="nt">&lt;referral_code&gt;</span>CUSTSDX123<span class="nt">&lt;/referral_code&gt;</span>
             <span class="nt">&lt;/customer&gt;</span>
             <span class="nt">&lt;delivery_status&gt;</span>DELIVERED<span class="nt">&lt;/delivery_status&gt;</span>
             <span class="nt">&lt;discount&gt;</span>10<span class="nt">&lt;/discount&gt;</span>
@@ -8486,7 +8487,7 @@ Extended fields and custom fields in transactions are used to capture additional
 </tr>
 <tr>
 <td>Rate Limited?</td>
-<td>Yes</td>
+<td>Yes (1000 per hour)</td>
 </tr>
 <tr>
 <td>HTTP Methods</td>
@@ -8604,7 +8605,7 @@ Extended fields and custom fields in transactions are used to capture additional
 <tr>
 <td>referral_code</td>
 <td>string</td>
-<td>Referral code for a new customer (if applicable) to register in the org&rsquo;s loyalty program.</td>
+<td>Referral code for a new customer (if applicable) to register in the org&rsquo;s loyalty program. You can also have transaction level referrl code.</td>
 </tr>
 <tr>
 <td>customer</td>
@@ -11619,6 +11620,21 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <td>enum</td>
 <td>Filter transactions of a specific type. Values: <code class="prettyprint">REGULAR</code>, <code class="prettyprint">NOT_INTERESTED</code>, <code class="prettyprint">RETURN</code>, <code class="prettyprint">NOT_INTERESTED_RETURN</code>, <code class="prettyprint">MIXED</code>, <code class="prettyprint">NI_MIXED</code>, <code class="prettyprint">ALL</code> (to retrieve any transaction type, for mixed or NI mixed, it retrieves both transaction and return details). By default it shows the details of regular transaction.</td>
 </tr>
+<tr>
+<td>tenders</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve transaction details.</td>
+</tr>
+<tr>
+<td>credit_notes</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve credit notes.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to retrieve unique ID of the customer in response.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">Any one among the parameters marked with * is mandatory.</aside>
@@ -11958,6 +11974,10 @@ To cancel a line-item, it is required to pass return item&rsquo;s purchased tran
 <tr>
 <td>500</td>
 <td>Unable to retrieve transaction.</td>
+</tr>
+<tr>
+<td>517</td>
+<td>Rate limit exceeded for that specific user.</td>
 </tr>
 <tr>
 <td>601</td>
