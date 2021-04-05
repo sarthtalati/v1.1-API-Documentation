@@ -590,6 +590,10 @@ When an API call is made with 4 batch transactions, A response header is generat
       </span><span class="nt">"customer"</span><span class="p">:[</span><span class="w"> 
          </span><span class="p">{</span><span class="w"> 
             </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"card_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOLD20000000032435"</span><span class="w">
+            </span><span class="s2">"series_code"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom@example.com"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"TOM345"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"firstname"</span><span class="p">:</span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
@@ -767,6 +771,9 @@ When an API call is made with 4 batch transactions, A response header is generat
             <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
             <span class="nt">&lt;lastname&gt;</span>Cruise<span class="nt">&lt;/lastname&gt;</span>
             <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+            <span class="nt">&lt;card_details&gt;</span>
+            <span class="nt">&lt;card_number&gt;</span>GOLD20000000032435<span class="nt">&lt;/card_number&gt;</span>
+            <span class="nt">&lt;/card_details&gt;</span>
             <span class="nt">&lt;ndnc_status&gt;</span>INVALID<span class="nt">&lt;/ndnc_status&gt;</span>
             <span class="nt">&lt;referral_code&gt;</span>SDX123<span class="nt">&lt;/referral_code&gt;</span>
             <span class="nt">&lt;registered_on&gt;</span>2012-09-11 11:11:11<span class="nt">&lt;/registered_on&gt;</span>
@@ -1337,6 +1344,16 @@ When an API call is made with 4 batch transactions, A response header is generat
 <td>lastname</td>
 <td>string</td>
 <td>Last name of the customer.</td>
+</tr>
+<tr>
+<td>card_number</td>
+<td>string</td>
+<td>Card number to issue to the customer. Applicable for manual (auto_generate disabled) card issual.</td>
+</tr>
+<tr>
+<td>series_code</td>
+<td>string</td>
+<td>Unique series code from which the card needs to issue. Applicable for auto-generated card issual.</td>
 </tr>
 <tr>
 <td>type</td>
@@ -2713,16 +2730,6 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Number of customer results retrieved.</td>
 </tr>
 <tr>
-<td>start</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
-<td>rows</td>
-<td>int</td>
-<td></td>
-</tr>
-<tr>
 <td>item</td>
 <td>obj</td>
 <td>Details of each customer.</td>
@@ -3218,6 +3225,11 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>member_care_access=true</td>
 <td>-</td>
 <td>For admin users, it will show  customers that are active within the vicinity of that user.</td>
+</tr>
+<tr>
+<td>card_details=true</td>
+<td>-</td>
+<td>Retrieves the details of all cards of the customers.</td>
 </tr>
 </tbody></table>
 
@@ -4773,7 +4785,7 @@ user_id tag will be returned only if query param user_id = true
 <tr>
 <td>status</td>
 <td>enum</td>
-<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">unredeemed</code>, <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code> (based on coupon validity). <code class="prettyprint">active</code> is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (<code class="prettyprint">valid_till</code>) is a future date.<br>You can also pass more than one status separating each with ; (semi-colon). for example, <code class="prettyprint">status=redeemed;expired</code>.</td>
+<td>Retrieve coupons by coupon status. <br><strong>Values</strong>: <code class="prettyprint">unredeemed</code>, <code class="prettyprint">redeemed</code>, <code class="prettyprint">expired</code>, <code class="prettyprint">active</code> (based on coupon validity). <code class="prettyprint">active</code> is based on the coupon expiry date and does not validate redemptions. Hence you will see all coupons whose expiry (<code class="prettyprint">valid_till</code>) is a future date.</td>
 </tr>
 <tr>
 <td>series_id</td>
