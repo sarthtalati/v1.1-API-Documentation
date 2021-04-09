@@ -31,6 +31,9 @@ Before using transaction APIs, understand the transaction configurations of your
 * Maximum and minimum amount allowed per transaction
 * Maximum and minimum amount allowed per line-item
 
+<aside class="notice">Please ignore error headers it is still in evaluation phase. </aside>
+
+
 ## Add Transaction
 
 > Sample Request
@@ -44,240 +47,229 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
 
 ```json
 {
-  "root": {
-    "transaction": [
-      {
-        "bill_client_id": "",
-        "type": "regular",
-        "number": "BILL99",
-        "amount": "5000",
-        "currency_code": "INR",
-        "notes": "2 line items",
-        "billing_time": "2018-04-01",
-        "gross_amount": "1000",
-        "delivery_status": "DELIVERED",
-        "shipping_source_till_code": "",
-        "source": "ECOMM",
-        "outlier_status": "NORMAL",
-        "credit_notes": "",
-        "discount": "10",
-        "customer": {
-          "mobile": "919999000000",
-          "email": "",
-          "external_id": "",
-          "firstname": "Tom",
-          "lastname": "Sawyer"
-        },
-		"redemptions" : {
-		"points_redemptions": {
-            "id": [
-              "987654"
-            ]
-          }
-		"coupon_redemptions" : [ ]
-	},
-        "extended_fields": {
-          "field": [
-            {
-              "name": "CentralGST",
-              "value": "8.5"
-            },
-            {
-              "name": "cashier_id",
-              "value": "12345678"
-            }
-          ]
-        },
-        "payment_details": {
-          "payment": [
-            {
-              "mode": "CASH",
-              "value": "100"
-            },
-            {
-              "mode": [
-                "CREDIT",
-                "CHECKAPI"
-              ],
-              "value": [
-                "4000",
-                "500"
-              ],
-              "attributes": {
-                "attribute": [
-                  {
-                    "name": "BankNameAPI",
-                    "value": "value_602656"
-                  },
-                  {
-                    "name": "branch_nameAPI",
-                    "value": "value_602656"
-                  }
-                ]
-              },
-              "notes": "notes_602656"
-            }
-          ]
-        },
-        "custom_fields": {
-          "field": [
-            {
-              "name": "Bank",
-              "value": "SBI"
-            }
-          ]
-        },
-        "line_items": {
-          "line_item": [
-            {
-              "serial": "1",
-              "amount": "500",
-              "description": "soap",
-              "item_code": "skuattr9",
-              "base_item_code": "",
-              "discount_value": 234,
-              "extended_fields": {
-                "field": [
-                  {
-                    "name": "booking_type",
-                    "value": "Online"
-                  },
-                  {
-                    "name": "MetalRate",
-                    "value": "120.55"
-                  }
-                ]
-              },
-              "variant": "",
-              "addon_items": {
-                "addon_item": [
-                  {
-                    "item_code": "Addon-033",
-                    "quantity": "1",
-                    "description": ""
-                  },
-                  {
-                    "item_code": "Addon-033",
-                    "quantity": "1",
-                    "description": ""
-                  }
-                ]
-              },
-              "combo_items": {
-                "combo_item": [
-                  {
-                    "item_code": "combo-033",
-                    "quantity": "1",
-                    "description": ""
-                  },
-                  {
-                    "item_code": "combo-033",
-                    "quantity": "1",
-                    "description": ""
-                  }
-                ]
-              },
-              "split_items": {
-                "split_item": [
-                  {
-                    "item_code": "Cheese dip",
-                    "quantity": "1",
-                    "description": "Cheese dip"
-                  },
-                  {
-                    "item_code": "Cheese dip",
-                    "quantity": "1",
-                    "description": "Cheese dip"
-                  }
-                ]
-              },
-              "qty": "50",
-              "rate": "10",
-              "value": "500",
-              "attributes": {
-                "attribute": {
-                  "name": "brand",
-                  "value": "Levis"
-                }
-              }
-            },
-            {
-              "serial": "1",
-              "transaction_number": "Trans99",
-              "amount": "500",
-              "description": "soap",
-              "item_code": "skuattr9",
-              "variant": "variant-33",
-              "notes": "",
-              "addon_items": {
-                "addon_item": [
-                  {
-                    "item_code": "Addon-043",
-                    "quantity": "1",
-                    "rate": "10",
-                    "value": "500",
-                    "description": ""
-                  },
-                  {
-                    "item_code": "Addon-043",
-                    "quantity": "1",
-                    "rate": "10",
-                    "value": "500",
-                    "description": ""
-                  }
-                ]
-              },
-              "combo_items": {
-                "combo_item": [
-                  {
-                    "item_code": "combo-033",
-                    "quantity": "1",
-                    "description": ""
-                  },
-                  {
-                    "item_code": "combo-033",
-                    "quantity": "1",
-                    "description": ""
-                  }
-                ]
-              },
-              "split_items": {
-                "split_item": [
-                  {
-                    "item_code": "Cheese dip",
-                    "quantity": "1",
-                    "rate": "10",
-                    "value": "500",
-                    "description": "Cheese dip"
-                  },
-                  {
-                    "item_code": "Cheese dip",
-                    "quantity": "1",
-                    "rate": "10",
-                    "value": "500",
-                    "description": "Cheese dip"
-                  }
-                ]
-              },
-              "qty": "50",
-              "rate": "10",
-              "value": "500",
-              "attributes": {
-                "attribute": {
-                  "name": "brand",
-                  "value": "Levis"
-                }
-              }
-            }
-          ]
-        },
-        "associate_details": {
-          "code": "hiraxdhara",
-          "name": "Chin"
-        }
-      }
-    ]
-  }
+	"root": {
+		"transaction": [{
+			"bill_client_id": "",
+			"type": "regular",
+			"number": "BILL99",
+			"amount": "5000",
+			"currency_code": "INR",
+			"notes": "2 line items",
+			"billing_time": "2018-04-01",
+			"gross_amount": "1000",
+			"referral_code": "txnrflSDX123",
+			"delivery_status": "DELIVERED",
+			"shipping_source_till_code": "",
+			"outlier_status": "NORMAL",
+			"credit_notes": "",
+			"discount": "10",
+			"customer": {
+				"mobile": "919999000000",
+				"email": "",
+				"external_id": "",
+				"card_details": {
+					"card_number": ""
+				},
+				"firstname": "Tom",
+				"lastname": "Sawyer",
+				"referral_code": "CUSTSDX123"
+			},
+			"redemptions": {
+				"points_redemptions": {
+					"id": [
+						"987654"
+					]
+				}
+			},
+			"coupon_redemptions": [],
+			"extended_fields": {
+				"field": [{
+						"name": "CentralGST",
+						"value": "8.5"
+					},
+					{
+						"name": "cashier_id",
+						"value": "12345678"
+					}
+				]
+			},
+			"payment_details": {
+				"payment": [{
+						"mode": "CASH",
+						"value": "100"
+					},
+					{
+						"mode": [
+							"CREDIT",
+							"CHECKAPI"
+						],
+						"value": [
+							"4000",
+							"500"
+						],
+						"attributes": {
+							"attribute": [{
+									"name": "BankNameAPI",
+									"value": "value_602656"
+								},
+								{
+									"name": "branch_nameAPI",
+									"value": "value_602656"
+								}
+							]
+						},
+						"notes": "notes_602656"
+					}
+				]
+			},
+			"custom_fields": {
+				"field": [{
+					"name": "Bank",
+					"value": "SBI"
+				}]
+			},
+			"line_items": {
+				"line_item": [{
+						"serial": "1",
+						"amount": "500",
+						"description": "soap",
+						"item_code": "skuattr9",
+						"base_item_code": "",
+						"discount_value": 234,
+						"extended_fields": {
+							"field": [{
+									"name": "booking_type",
+									"value": "Online"
+								},
+								{
+									"name": "MetalRate",
+									"value": "120.55"
+								}
+							]
+						},
+						"variant": "",
+						"addon_items": {
+							"addon_item": [{
+									"item_code": "Addon-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "Addon-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"combo_items": {
+							"combo_item": [{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"split_items": {
+							"split_item": [{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"description": "Cheese dip"
+								},
+								{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"description": "Cheese dip"
+								}
+							]
+						},
+						"qty": "50",
+						"rate": "10",
+						"value": "500",
+						"attributes": {
+							"attribute": {
+								"name": "brand",
+								"value": "Levis"
+							}
+						}
+					},
+					{
+						"serial": "1",
+						"transaction_number": "Trans99",
+						"amount": "500",
+						"description": "soap",
+						"item_code": "skuattr9",
+						"variant": "variant-33",
+						"notes": "",
+						"addon_items": {
+							"addon_item": [{
+									"item_code": "Addon-043",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": ""
+								},
+								{
+									"item_code": "Addon-043",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": ""
+								}
+							]
+						},
+						"combo_items": {
+							"combo_item": [{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								},
+								{
+									"item_code": "combo-033",
+									"quantity": "1",
+									"description": ""
+								}
+							]
+						},
+						"split_items": {
+							"split_item": [{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": "Cheese dip"
+								},
+								{
+									"item_code": "Cheese dip",
+									"quantity": "1",
+									"rate": "10",
+									"value": "500",
+									"description": "Cheese dip"
+								}
+							]
+						},
+						"qty": "50",
+						"rate": "10",
+						"value": "500",
+						"attributes": {
+							"attribute": {
+								"name": "brand",
+								"value": "Levis"
+							}
+						}
+					}
+				]
+			},
+			"associate_details": {
+				"code": "hiraxdhara",
+				"name": "Chin"
+			}
+		}]
+	}
 }
 ```
 
@@ -294,6 +286,7 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
             </associate_details>
             <bill_client_id />
             <billing_time>2018-04-01</billing_time>
+            <coupon_redemptions />
             <credit_notes />
             <currency_code>INR</currency_code>
             <custom_fields>
@@ -305,11 +298,15 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
                </field>
             </custom_fields>
             <customer>
+               <card_details>
+                  <card_number />
+               </card_details>
                <email />
                <external_id />
                <firstname>Tom</firstname>
                <lastname>Sawyer</lastname>
                <mobile>919999000000</mobile>
+               <referral_code>CUSTSDX123</referral_code>
             </customer>
             <delivery_status>DELIVERED</delivery_status>
             <discount>10</discount>
@@ -505,13 +502,14 @@ https://us.api.capillarytech.com/v1.1/transaction/add?format=json
                </payment>
             </payment_details>
             <redemptions>
-               <couponRedemptions />
-               <pointsRedemptions>
-                  <element>1427813</element>
-               </pointsRedemptions>
+               <points_redemptions>
+                  <id>
+                     <element>987654</element>
+                  </id>
+               </points_redemptions>
             </redemptions>
+            <referral_code>txnrflSDX123</referral_code>
             <shipping_source_till_code />
-            <source>ECOMM</source>
             <type>regular</type>
          </element>
       </transaction>
@@ -720,7 +718,7 @@ You can update custom field details and extended field details for either regula
 | | |
 --------- | ----------- |
 URI | `/add`
-Rate Limited? | Yes
+Rate Limited? | Yes (1000 per hour)
 HTTP Methods | POST
 Batch Support | Yes
 
@@ -750,9 +748,9 @@ source | enum | Source from which the transaction is made. Values: `INSTORE`( fo
 not_interested_reason | string | Reason why the customer is not interested to register. Applicable only for not-interested transactions.
 pointsRedemptions | array | Unique points redemption id(s) that you want to apply for the transaction. For example, [727272, 237878]. `
 couponRedemptions | array | Unique coupon redemption id(s) that you want to apply for the transaction. For example, [727298, 237856].
-referral_code | string | Referral code for a new customer (if applicable) to register in the org's loyalty program.
+referral_code | string | Referral code for a new customer (if applicable) to register in the org's loyalty program. You can also have transaction level referrl code.
 customer | obj | Pass customer information. Applicable for non-loyalty and not-interested transactions.
-mobile/email/external_id | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
+mobile/email/external_id/card_number | string | Pass any of the registered identifiers of the customer. Required for  regular transactions.
 firstname | string | First name of the customer.
 lastname | string | Last name of the customer.
 extended_fields | obj | Valid transaction level extended field details in name and value pairs. You can also pass line-item level extended field details in `line_item` object.
@@ -2834,6 +2832,11 @@ till_code* | string | Fetch the transactions of a specific TILL. Pass the respec
 amount | double | Filter transactions of a specific amount. 
 date | date | Filter transactions of a specific date. Pass the date in `YYYY-MM-DD` format.
 type | enum | Filter transactions of a specific type. Values: `REGULAR`, `NOT_INTERESTED`, `RETURN`, `NOT_INTERESTED_RETURN`, `MIXED`, `NI_MIXED`, `ALL` (to retrieve any transaction type, for mixed or NI mixed, it retrieves both transaction and return details). By default it shows the details of regular transaction.
+tenders | boolean | Pass `true` to retrieve transaction details.
+credit_notes | boolean | Pass `true` to retrieve credit notes.
+user_id | boolean | Pass `true` to retrieve unique ID of the customer in response.
+
+
 
 <aside class="notice">Any one among the parameters marked with * is mandatory.</aside>
 
@@ -2916,6 +2919,7 @@ Code  | Description
 Code | Description
 ---- | -----------
 500 | Unable to retrieve transaction.
+517 | Rate limit exceeded for that specific user.
 601 | Transaction failed. Transaction amount, quantity, rate, or discount is invalid.
 602 | Transaction number is invalid.
 603 | Points are already used (Deprecated).

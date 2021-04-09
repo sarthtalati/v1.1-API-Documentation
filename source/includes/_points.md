@@ -135,7 +135,7 @@ Batch Support | No
 
 ### Request URL
 To validate points and issue code if the validation is successful
-`https://{host}/v1.1/points/isredeemable?points={points to redeem}&issue_otp=true&{mobile/email}={mobile no./email id}&format={xml/json}`
+`https://{host}/v1.1/points/isredeemable?points={points to redeem}&issue_otp=true&{identifier_name}={identifier_value}&format={xml/json}`
 
 To just validate points
 `https://{host}/v1.1/points/isredeemable?points={points to redeem}&validation_code={OTP}&{mobile/email}={value}&format={xml/json}`
@@ -143,7 +143,7 @@ To just validate points
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifier* | enum | Pass any of the identifier type of the customer.
+identifier_name* | enum | Pass any of the registered identifier type. Value: `email`, `mobile`, `card_number`.
 value | string | Pass the respective identifier value of the customer to issue validation code.
 program_id | long | Unique ID of the loyalty program from which points need to redeem.
 group_redemption  | boolean | Pass `true` for group redemption - points earned in one program need to redeem in a different program of the org.
@@ -291,7 +291,9 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
             "customer": {
                "mobile": "44700900999",
                "external_id": "",
-                "email": ""
+                "email": "",
+               "card_number": ""
+            },
             },
             "redemption_time": "2020-03-13 18:02:34",
             "transaction_number": "red123",
@@ -315,6 +317,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
                <email />
                <external_id />
                <mobile>44700900999</mobile>
+			   <card_number></card_number>
             </customer>
             <notes>10 points redemption by SMS.</notes>
             <points_redeemed>10</points_redeemed>

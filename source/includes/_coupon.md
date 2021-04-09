@@ -235,7 +235,12 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
   "root": {
     "coupon": [{
       "code": "06000041",
-      "customer": { "mobile": "447700900000" },
+      "customer": { 
+	  "mobile": "447700900000",
+	  "email": "",
+	  "external_id": "",
+      "card_number": ""
+	  },
       "custom_fields": [{
         "field": {
           "name": "Sport",
@@ -259,6 +264,7 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <mobile>447700900000</mobile>
 <email></email>
 <external_id></external_id>
+<card_number></card_number>
 </customer>
 <custom_fields>
 <!-- Optional, as Specified by the Brand -->
@@ -370,7 +376,8 @@ Batch Support  | No
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifierName* | enum | Unique identifier of the customer whose coupon needs to be redeemed.
+identifierName* | enum | Any registered identifier type. Value: `mobile`, `email`, `external_id`, `id`. 
+identifierValue* | string | Registered identifier value of the customer. For example, id={customerId} 
 id | long | Coupon id that needs to be redeemed.
 code | string | Coupon code that need to be redeemed.
 validation_code | string | Validation code is required for the orgs that use validation based redemption.
@@ -619,7 +626,8 @@ Batch Support  | No
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifierName* | enum | Pass any of the registered identifier names of the customer. Values: `mobile`, `email`, `external_id`, `id`.
+identifierName* | enum | Pass any of the registered identifier names of the customer. Values: `mobile`, `email`, `external_id`, `id`, `card_number`.
+value* | string | Pass the respective identifier value of the customer whose coupon has to be verified for redemption.
 value* | string | Pass the respective identifier value of the customer whose coupon has to be verified for redemption. 
 code* | string | Pass the coupon code that you want to check
 details=true | - | Retrieves the details of the coupon series.
