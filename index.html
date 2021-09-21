@@ -591,8 +591,8 @@ When an API call is made with 4 batch transactions, A response header is generat
          </span><span class="p">{</span><span class="w"> 
             </span><span class="nt">"mobile"</span><span class="p">:</span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"card_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOLD20000000032435"</span><span class="w">
-            </span><span class="s2">"series_code"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GOLD20000000032435"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"series_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"tom@example.com"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"external_id"</span><span class="p">:</span><span class="s2">"TOM345"</span><span class="p">,</span><span class="w">
@@ -1585,7 +1585,7 @@ When an API call is made with 4 batch transactions, A response header is generat
 <blockquote>
 <p>Sample Request URL</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/update?format=json
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/update?format=json
 </code></pre>
 <blockquote>
 <p>Sample POST Request</p>
@@ -2433,7 +2433,7 @@ You can update secondary identifiers (mobile no./email id./external id) only if 
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
+<pre class="highlight html"><code>https://us.api.capillarytech.tech.com/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -2786,7 +2786,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <blockquote>
 <p>Sample Request URL</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/get?mobile=919889999999<span class="err">&amp;</span>mlp=true
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
@@ -3560,9 +3560,9 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Attribute by which you want to filter the transactions. Value: <code class="prettyprint">ZONE</code>, <code class="prettyprint">CONCEPT</code>, <code class="prettyprint">STORE</code>, <code class="prettyprint">TILL</code>, <code class="prettyprint">STR_SERVER</code> (store server). For oAuth2, you need to pass this in headers. See the Introduction &gt; Authentication section for more details.</td>
 </tr>
 <tr>
-<td>entity_value</td>
+<td>entity_code</td>
 <td>string</td>
-<td>Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass <code class="prettyprint">entity_type=zone&amp;entity_value=zone01</code>.</td>
+<td>Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass <code class="prettyprint">entity_type=zone&amp;entity_code=zone01</code>.</td>
 </tr>
 <tr>
 <td>number</td>
@@ -4614,7 +4614,7 @@ user_id tag will be returned only if query param user_id = true
 <blockquote>
 <p>Sample Request</p>
 </blockquote>
-<pre class="highlight html"><code>https://api.capillary.co.in/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
+<pre class="highlight html"><code>https://us.api.capillarytech.com/v1.1/customer/coupons?format=json<span class="err">&amp;</span>mobile=44700900990
 </code></pre><pre class="highlight json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
@@ -12960,26 +12960,24 @@ The validation code is issued either to mobile number, or email id or both, base
 <p>Sample POST Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-           </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="nt">"points_redeemed"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
             </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-               </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-               </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="err">}</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"redemption_time"</span><span class="err">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"transaction_number"</span><span class="err">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"till_id"</span><span class="err">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"notes"</span><span class="err">:</span><span class="w"> </span><span class="s2">"10 points redemption by SMS."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"validation_code"</span><span class="err">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"group_redemption"</span><span class="err">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
-           </span><span class="err">}</span><span class="w">
-       </span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+            </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"external_reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toms12d"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"till_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 points redemption by SMS."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"group_redemption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
@@ -12997,6 +12995,7 @@ The validation code is issued either to mobile number, or email id or both, base
             <span class="nt">&lt;redemption_time&gt;</span>2020-03-13 18:02:34<span class="nt">&lt;/redemption_time&gt;</span>
             <span class="nt">&lt;till_id</span> <span class="nt">/&gt;</span>
             <span class="nt">&lt;transaction_number&gt;</span>red123<span class="nt">&lt;/transaction_number&gt;</span>
+            <span class="nt">&lt;external_reference_number&gt;</span>toms12d<span class="nt">&lt;/external_reference_number&gt;</span>
             <span class="nt">&lt;validation_code&gt;</span>4PZGXC<span class="nt">&lt;/validation_code&gt;</span>
             <span class="nt">&lt;group_redemption&gt;</span>false<span class="nt">&lt;/group_redemption&gt;</span>
          <span class="nt">&lt;/element&gt;</span>
@@ -13156,6 +13155,11 @@ You need to use the validation code within the validity period. You can check th
 <td>transaction_number</td>
 <td>string</td>
 <td>Provide the transaction number for which the points has to be redeemed.</td>
+</tr>
+<tr>
+<td>external_reference_number</td>
+<td>string</td>
+<td>Unique external reference number for redemption (say, passed by the integrator). You also need to tag the number to the transaction</td>
 </tr>
 <tr>
 <td>validation_code*</td>
@@ -13752,18 +13756,23 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
       </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sport"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[“Soccer”]"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}],</span><span class="w">
+          </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Soccer"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_field2"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
         </span><span class="nt">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bill-110"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="w">
       </span><span class="p">}]</span><span class="w">
     </span><span class="p">}]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="nt">&lt;root&gt;</span>
 <span class="nt">&lt;coupon&gt;</span>
@@ -13778,7 +13787,7 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <span class="c">&lt;!-- Optional, as Specified by the Brand --&gt;</span>
 <span class="nt">&lt;field&gt;</span>
     <span class="nt">&lt;name&gt;</span>Sport<span class="nt">&lt;/name&gt;</span>
-    <span class="nt">&lt;value&gt;</span>[“Soccer”]<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;value&gt;</span>Soccer<span class="nt">&lt;/value&gt;</span>
 <span class="nt">&lt;/field&gt;</span>
 <span class="nt">&lt;/custom_fields&gt;</span>
 <span class="nt">&lt;redemption_time&gt;&lt;/redemption_time&gt;</span>
