@@ -284,26 +284,24 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
 
 ```json
 {
-   "root": {
-       "redeem": [
-           {
-            "points_redeemed": 10,
-            "customer": {
-               "mobile": "44700900999",
-               "external_id": "",
-                "email": "",
-               "card_number": ""
-            },
-            },
-            "redemption_time": "2020-03-13 18:02:34",
-            "transaction_number": "red123",
-            "till_id": "",
-            "notes": "10 points redemption by SMS.",
-            "validation_code": "4PZGXC",
+	"root": {
+		"redeem": [{
+			"points_redeemed": 10,
+			"customer": {
+				"mobile": "44700900999",
+				"external_id": "",
+				"email": "",
+				"card_number": ""
+			},
+			"redemption_time": "2020-03-13 18:02:34",
+			"transaction_number": "red123",
+			"external_reference_number": "toms12d",
+			"till_id": "",
+			"notes": "10 points redemption by SMS.",
+			"validation_code": "4PZGXC",
 			"group_redemption": "false"
-           }
-       ]
-   }
+		}]
+	}
 }
 ```
 
@@ -324,6 +322,7 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
             <redemption_time>2020-03-13 18:02:34</redemption_time>
             <till_id />
             <transaction_number>red123</transaction_number>
+			<external_reference_number>toms12d</external_reference_number>
             <validation_code>4PZGXC</validation_code>
 			<group_redemption>false</group_redemption>
          </element>
@@ -449,6 +448,7 @@ Parameter | Datatype | Description
 mobile* | string | Provide the registered mobile number of the customer to redeem points.
 points_redeemed* | int | Provide the number of points to be redeemed.
 transaction_number | string | Provide the transaction number for which the points has to be redeemed.
+external_reference_number | string | Unique external reference number for redemption (say, passed by the integrator). You also need to tag the number to the transaction 
 validation_code* | string | Provide the validation code received by the customer through `points/validationcode`.
 redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.
 program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.

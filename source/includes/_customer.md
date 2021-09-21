@@ -38,7 +38,7 @@ https://us.api.capillarytech.com/v1.1/customer/add?format=json
          { 
             "mobile":"44700900000",
 			"card_details": {
-            "card_number": "GOLD20000000032435"
+            "card_number": "GOLD20000000032435",
 			"series_code": ""
             },
             "email":"tom@example.com",
@@ -773,7 +773,7 @@ subscriptions | obj | Provide the subscription details of the customer.
 priority | enum | Type of message. Value: `TRANS` for personalized or transaction messages, `BULK` for promotional messages.
 is_subscribed | enum | Specify `1` for subscribed, `0` for unsubscribed.
 channel | enum | Current communication channel. Value: `sms`, `email`.
-side_effects | obj | Effect of customer registration on other things. 
+side_effects | obj | Effect of customer registration on other things.
 
 
 
@@ -823,7 +823,7 @@ side_effects | obj | Effect of customer registration in other details. For examp
 
 
 ```html
-https://api.capillary.co.in/v1.1/customer/update?format=json
+https://us.api.capillarytech.com/v1.1/customer/update?format=json
 ```
 
 > Sample POST Request
@@ -1431,7 +1431,7 @@ updated | boolean | Returns `true` if the the identifier is updated successfully
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
+https://us.api.capillarytech.tech.com/v1.1/customer/search?q=(slab:EQUALS:CLASSIC)
 ```
 
 
@@ -1669,7 +1669,7 @@ attributes | obj | Customer attribute details in `name` and `value`
 > Sample Request URL
 
 ```html
-https://api.capillary.co.in/v1.1/customer/get?mobile=919889999999&mlp=true
+https://us.api.capillarytech.com/v1.1/customer/get?mobile=919889999999&mlp=true
 ```
 
 > Sample Response
@@ -2234,7 +2234,7 @@ Parameter | Datatype | Description
 identifierName* | enum | Pass any of the customer identifier with the identifier value. Value: `mobile`, `email`, `external_id` `id`. <br>To retrieve transactions of multiple customers at a time, provide each identifier separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`.
 identifierValue* | string | Provide the respective identifier value. For example, `?email=tom.sawyer@example.com`. 
 entity_type | enum | Attribute by which you want to filter the transactions. Value: `ZONE`, `CONCEPT`, `STORE`, `TILL`, `STR_SERVER` (store server). For oAuth2, you need to pass this in headers. See the Introduction > Authentication section for more details.
-entity_value | string | Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass `entity_type=zone&entity_value=zone01`.
+entity_code | string | Code of the specified entity_type. For example, to get transactions of a specific zone (with zone code zone01), pass `entity_type=zone&entity_code=zone01`.
 number | string | Fetch transaction details by transaction number.
 transaction_id | int | Fetch details of a transaction by transaction ID (internally generated unique ID for a transaction).
 store_id | string | Filter transactions associated to a specific store id.
@@ -2964,7 +2964,7 @@ value* | string | Value of the specified identifier. For example, if `identifier
 
 
 ```html
-https://api.capillary.co.in/v1.1/customer/coupons?format=json&mobile=44700900990
+https://us.api.capillarytech.com/v1.1/customer/coupons?format=json&mobile=44700900990
 ```
 
 ```json

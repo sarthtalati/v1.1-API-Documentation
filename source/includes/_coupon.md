@@ -241,18 +241,23 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 	  "external_id": "",
       "card_number": ""
 	  },
-      "custom_fields": [{
-        "field": {
+      "custom_fields": {
+        "field": [{
           "name": "Sport",
-          "value": "[“Soccer”]"
-        }
-      }],
+          "value": "Soccer"
+        },
+		{
+           "name": "custom_field2",
+		   "value": "50"
+          }
+		  ]
+      },
       "transaction": [{
         "number": "bill-110",
         "amount": "1000"
       }]
     }]
-  }
+  }	
 }
 ```
 
@@ -270,7 +275,7 @@ http://api.capillary.co.in/v1.1/coupon/redeem?format=json
 <!-- Optional, as Specified by the Brand -->
 <field>
     <name>Sport</name>
-    <value>[“Soccer”]</value>
+    <value>Soccer</value>
 </field>
 </custom_fields>
 <redemption_time></redemption_time>
