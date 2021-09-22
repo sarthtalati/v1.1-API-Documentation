@@ -90,355 +90,1133 @@ Batch Support | No
 
 
 ## Get Org Entities
+
+> Sample Request
+
 ```html
-http://apac.api.capillarytech.com/v1.1/organization/entities?format=json&type=till
+# To get specific entity details
+https://us.api.capillarytech.com/v1.1/organization/entities?format=json&type=till
 ```
 
+```html
+# To get child entities
+https://us.api.capillarytech.com/v1.1/organization/entities?type=STORE&parent_identifier_type=CONCEPT_CODE&parent_identifier_value=supermarket
+```
+
+> Sample Response
+
 ```xml
+<?xml version="1.0" encoding="UTF-8" ?>
 <response>
-    <pagination>
-        <limit>200</limit>
-        <offset>0</offset>
-        <total>4</total>
-    </pagination>
-    <status>
-        <success>true</success>
-        <code>200</code>
-        <message>SUCCESS</message>
-    </status>
-    <organization>
-        <entities>
-            <entity>
-                <item_status>
-                    <success>true</success>
-                    <code>200</code>
-                    <message>Entity search successful</message>
-                </item_status>
-                <id>15001639</id>
-                <is_active>1</is_active>
-                <code>api.002</code>
-                <name>api.002</name>
-                <description/>
-                <last_updated_by>4</last_updated_by>
-                <last_updated_on>2013-12-06 10:12:36</last_updated_on>
-                <time_zone_id>243</time_zone_id>
-                <currency_id>-1</currency_id>
-                <language_id>-1</language_id>
-                <timezones>
-                    <base_timezone>
-                        <label>Asia/Macau</label>
-                        <offset>+08:00</offset>
-                    </base_timezone>
-                </timezones>
-                <currencies>
-                    <base_currency>
-                        <symbol/>
-                        <label/>
-                    </base_currency>
-                </currencies>
-                <language_code/>
-                <language_locale>IN</language_locale>
-                <languages>
-                    <base_language>
-                        <lang/>
-                        <locale>IN</locale>
-                    </base_language>
-                </languages>
-                <parent/>
-                <country_code>IN</country_code>
-                <username>api.002</username>
-                <last_login/>
-                <type>TILL</type>
-            </entity>
-            <entity>
-                <item_status>
-                    <success>true</success>
-                    <code>200</code>
-                    <message>Entity search successful</message>
-                </item_status>
-                <id>15000593</id>
-                <is_active>1</is_active>
-                <code>api.001</code>
-                <name>api.001</name>
-                <description/>
-                <last_updated_by>15000449</last_updated_by>
-                <last_updated_on>2013-07-10 14:07:12</last_updated_on>
-                <time_zone_id>243</time_zone_id>
-                <currency_id>-1</currency_id>
-                <language_id>-1</language_id>
-                <timezones>
-                    <base_timezone>
-                        <label>Asia/Macau</label>
-                        <offset>+08:00</offset>
-                    </base_timezone>
-                </timezones>
-                <currencies>
-                    <base_currency>
-                        <symbol/>
-                        <label/>
-                    </base_currency>
-                </currencies>
-                <language_code/>
-                <language_locale>IN</language_locale>
-                <languages>
-                    <base_language>
-                        <lang/>
-                        <locale>IN</locale>
-                    </base_language>
-                </languages>
-                <parent/>
-                <country_code>IN</country_code>
-                <username>api.001</username>
-                <last_login/>
-                <type>TILL</type>
-            </entity>
-            <entity>
-                <item_status>
-                    <success>true</success>
-                    <code>200</code>
-                    <message>Entity search successful</message>
-                </item_status>
-                <id>15004460</id>
-                <is_active>1</is_active>
-                <code>api.004</code>
-                <name>api.004</name>
-                <description/>
-                <last_updated_by>4</last_updated_by>
-                <last_updated_on>2014-05-05 16:05:35</last_updated_on>
-                <time_zone_id>243</time_zone_id>
-                <currency_id>-1</currency_id>
-                <language_id>-1</language_id>
-                <timezones>
-                    <base_timezone>
-                        <label>Asia/Macau</label>
-                        <offset>+08:00</offset>
-                    </base_timezone>
-                </timezones>
-                <currencies>
-                    <base_currency>
-                        <symbol/>
-                        <label/>
-                    </base_currency>
-                </currencies>
-                <language_code/>
-                <language_locale>IN</language_locale>
-                <languages>
-                    <base_language>
-                        <lang/>
-                        <locale>IN</locale>
-                    </base_language>
-                </languages>
-                <parent/>
-                <country_code>IN</country_code>
-                <username>api.004</username>
-                <last_login/>
-                <type>TILL</type>
-            </entity>
-            <entity>
-                <item_status>
-                    <success>true</success>
-                    <code>200</code>
-                    <message>Entity search successful</message>
-                </item_status>
-                <id>15001817</id>
-                <is_active>1</is_active>
-                <code>apis.001</code>
-                <name>apis.001</name>
-                <description/>
-                <last_updated_by>4</last_updated_by>
-                <last_updated_on>2016-12-31 16:12:41</last_updated_on>
-                <time_zone_id>243</time_zone_id>
-                <currency_id>-1</currency_id>
-                <language_id>-1</language_id>
-                <timezones>
-                    <base_timezone>
-                        <label>Asia/Macau</label>
-                        <offset>+08:00</offset>
-                    </base_timezone>
-                </timezones>
-                <currencies>
-                    <base_currency>
-                        <symbol/>
-                        <label/>
-                    </base_currency>
-                </currencies>
-                <language_code/>
-                <language_locale>IN</language_locale>
-                <languages>
-                    <base_language>
-                        <lang/>
-                        <locale>IN</locale>
-                    </base_language>
-                </languages>
-                <parent/>
-                <country_code>IN</country_code>
-                <username>apis.001</username>
-                <last_login/>
-                <type>TILL</type>
-            </entity>
-        </entities>
-    </organization>
+  <pagination>
+    <limit>500</limit>
+    <offset>0</offset>
+    <total>11</total>
+  </pagination>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>SUCCESS</message>
+  </status>
+  <organization>
+    <entities>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008031</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket4</code>
+        <name>Store West Super Market Four</name>
+        <description>Store West Super Market Four</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John039</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102049</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm4</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008030</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket3</code>
+        <name>Store West Super Market Three</name>
+        <description>Store West Super Market Three</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John038</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102048</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm3</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50007998</id>
+        <is_active>1</is_active>
+        <code>str.east.brand1</code>
+        <name>Store East Brand</name>
+        <description>Store East Brand</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:17:39</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John005</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102015</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>streastbrand1</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008029</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket2</code>
+        <name>Store West Super Market Two</name>
+        <description>Store West Super Market Two</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John037</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102047</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm2</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008028</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket1</code>
+        <name>Store West Super Market One</name>
+        <description>Store West Super Market One</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John035</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102045</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm1</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008032</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket5</code>
+        <name>Store West Super Market Five</name>
+        <description>Store West Super Market Five</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John040</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102050</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm5</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008037</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket10</code>
+        <name>Store West Super Market Ten</name>
+        <description>Store West Super Market Ten</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John036</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102046</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm10</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+      <entity>
+        <item_status>
+          <success>true</success>
+          <code>3200</code>
+          <message>Entity search successful</message>
+        </item_status>
+        <id>50008036</id>
+        <is_active>1</is_active>
+        <code>str.west.supermarket9</code>
+        <name>Store West Super Market Nine</name>
+        <description>Store West Super Market Nine</description>
+        <last_updated_by>15000449</last_updated_by>
+        <last_updated_on>2017-08-22 13:30:20</last_updated_on>
+        <custom_fields>
+          <field>
+            <name>cashiername</name>
+            <value>John044</value>
+          </field>
+          <field>
+            <name>cashierid</name>
+            <value>102054</value>
+          </field>
+        </custom_fields>
+        <language_translations>
+          <field/>
+        </language_translations>
+        <time_zone_id>0</time_zone_id>
+        <currency_id>0</currency_id>
+        <language_id>0</language_id>
+        <timezones>
+          <base_timezone>
+            <label>Asia/Kolkata</label>
+            <offset>+05:30</offset>
+          </base_timezone>
+        </timezones>
+        <currencies>
+          <base_currency>
+            <symbol>₹</symbol>
+            <label>INR</label>
+          </base_currency>
+        </currencies>
+        <language_code></language_code>
+        <language_locale>IN</language_locale>
+        <languages>
+          <base_language>
+            <lang></lang>
+            <locale>IN</locale>
+          </base_language>
+        </languages>
+        <parent/>
+        <external_id>strwestsm9</external_id>
+        <external_id_1></external_id_1>
+        <external_id_2></external_id_2>
+        <mobile></mobile>
+        <channel>instore</channel>
+        <land_line></land_line>
+        <email></email>
+        <address>NA, NA, NA, NA</address>
+        <location>
+          <latitude></latitude>
+          <longitude></longitude>
+        </location>
+        <type>STORE</type>
+      </entity>
+    </entities>
+  </organization>
 </response>
-
-
 ```
 
 ```json
 {
-  "response": {
-    "pagination": {
-      "limit": "200",
-      "offset": "0",
-      "total": "4"
-    },
-    "status": {
-      "success": "true",
-      "code": "200",
-      "message": "SUCCESS"
-    },
-    "organization": {
-      "entities": {
-        "entity": [
-          {
-            "item_status": {
-              "success": "true",
-              "code": "200",
-              "message": "Entity search successful"
-            },
-            "id": "15001639",
-            "is_active": "1",
-            "code": "api.002",
-            "name": "api.002",
-            "last_updated_by": "4",
-            "last_updated_on": "2013-12-06 10:12:36",
-            "time_zone_id": "243",
-            "currency_id": "-1",
-            "language_id": "-1",
-            "timezones": {
-              "base_timezone": {
-                "label": "Asia/Macau",
-                "offset": "+08:00"
-              }
-            },
-            "currencies": {
-              "base_currency": {
-                
-              }
-            },
-            "language_locale": "IN",
-            "languages": {
-              "base_language": { "locale": "IN" }
-            },
-            "country_code": "IN",
-            "username": "api.002",
-            "type": "TILL"
-          },
-          {
-            "item_status": {
-              "success": "true",
-              "code": "200",
-              "message": "Entity search successful"
-            },
-            "id": "15000593",
-            "is_active": "1",
-            "code": "api.001",
-            "name": "api.001",
-            "last_updated_by": "15000449",
-            "last_updated_on": "2013-07-10 14:07:12",
-            "time_zone_id": "243",
-            "currency_id": "-1",
-            "language_id": "-1",
-            "timezones": {
-              "base_timezone": {
-                "label": "Asia/Macau",
-                "offset": "+08:00"
-              }
-            },
-            "currencies": {
-              "base_currency": {
-                
-              }
-            },
-            "language_locale": "IN",
-            "languages": {
-              "base_language": { "locale": "IN" }
-            },
-            "country_code": "IN",
-            "username": "api.001",
-            "type": "TILL"
-          },
-          {
-            "item_status": {
-              "success": "true",
-              "code": "200",
-              "message": "Entity search successful"
-            },
-            "id": "15004460",
-            "is_active": "1",
-            "code": "api.004",
-            "name": "api.004",
-            "last_updated_by": "4",
-            "last_updated_on": "2014-05-05 16:05:35",
-            "time_zone_id": "243",
-            "currency_id": "-1",
-            "language_id": "-1",
-            "timezones": {
-              "base_timezone": {
-                "label": "Asia/Macau",
-                "offset": "+08:00"
-              }
-            },
-            "currencies": {
-              "base_currency": {
-                
-              }
-            },
-            "language_locale": "IN",
-            "languages": {
-              "base_language": { "locale": "IN" }
-            },
-            "country_code": "IN",
-            "username": "api.004",
-            "type": "TILL"
-          },
-          {
-            "item_status": {
-              "success": "true",
-              "code": "200",
-              "message": "Entity search successful"
-            },
-            "id": "15001817",
-            "is_active": "1",
-            "code": "apis.001",
-            "name": "apis.001",
-            "last_updated_by": "4",
-            "last_updated_on": "2013-12-31 16:12:41",
-            "time_zone_id": "243",
-            "currency_id": "-1",
-            "language_id": "-1",
-            "timezones": {
-              "base_timezone": {
-                "label": "Asia/Macau",
-                "offset": "+08:00"
-              }
-            },
-            "currencies": {
-              "base_currency": {
-                
-              }
-            },
-            "language_locale": "IN",
-            "languages": {
-              "base_language": { "locale": "IN" }
-            },
-            "country_code": "IN",
-            "username": "apis.001",
-            "type": "TILL"
-          }
-        ]
+   "response":{
+      "pagination":{
+         "limit":"500",
+         "offset":"0",
+         "total":11
+      },
+      "status":{
+         "success":true,
+         "code":200,
+         "message":"SUCCESS"
+      },
+      "organization":{
+         "entities":{
+            "entity":[
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008031",
+                  "is_active":"1",
+                  "code":"str.west.supermarket4",
+                  "name":"Store West Super Market Four",
+                  "description":"Store West Super Market Four",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John039"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102049"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm4",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008030",
+                  "is_active":"1",
+                  "code":"str.west.supermarket3",
+                  "name":"Store West Super Market Three",
+                  "description":"Store West Super Market Three",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John038"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102048"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm3",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50007998",
+                  "is_active":"1",
+                  "code":"str.east.brand1",
+                  "name":"Store East Brand",
+                  "description":"Store East Brand",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:17:39",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John005"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102015"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"streastbrand1",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008029",
+                  "is_active":"1",
+                  "code":"str.west.supermarket2",
+                  "name":"Store West Super Market Two",
+                  "description":"Store West Super Market Two",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John037"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102047"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm2",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008028",
+                  "is_active":"1",
+                  "code":"str.west.supermarket1",
+                  "name":"Store West Super Market One",
+                  "description":"Store West Super Market One",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John035"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102045"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm1",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008032",
+                  "is_active":"1",
+                  "code":"str.west.supermarket5",
+                  "name":"Store West Super Market Five",
+                  "description":"Store West Super Market Five",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John040"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102050"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm5",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008037",
+                  "is_active":"1",
+                  "code":"str.west.supermarket10",
+                  "name":"Store West Super Market Ten",
+                  "description":"Store West Super Market Ten",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John036"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102046"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm10",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               },
+               {
+                  "item_status":{
+                     "success":"true",
+                     "code":3200,
+                     "message":"Entity search successful"
+                  },
+                  "id":"50008036",
+                  "is_active":"1",
+                  "code":"str.west.supermarket9",
+                  "name":"Store West Super Market Nine",
+                  "description":"Store West Super Market Nine",
+                  "last_updated_by":"15000449",
+                  "last_updated_on":"2017-08-22 13:30:20",
+                  "custom_fields":{
+                     "field":[
+                        {
+                           "name":"cashiername",
+                           "value":"John044"
+                        },
+                        {
+                           "name":"cashierid",
+                           "value":"102054"
+                        }
+                     ]
+                  },
+                  "language_translations":{
+                     "field":[
+                        
+                     ]
+                  },
+                  "time_zone_id":"0",
+                  "currency_id":"0",
+                  "language_id":"0",
+                  "timezones":{
+                     "base_timezone":{
+                        "label":"Asia/Kolkata",
+                        "offset":"+05:30"
+                     }
+                  },
+                  "currencies":{
+                     "base_currency":{
+                        "symbol":"₹",
+                        "label":"INR"
+                     }
+                  },
+                  "language_code":"",
+                  "language_locale":"IN",
+                  "languages":{
+                     "base_language":{
+                        "lang":"",
+                        "locale":"IN"
+                     }
+                  },
+                  "parent":{
+                     
+                  },
+                  "external_id":"strwestsm9",
+                  "external_id_1":"",
+                  "external_id_2":"",
+                  "mobile":"",
+                  "channel":"instore",
+                  "land_line":"",
+                  "email":"",
+                  "address":"NA, NA, NA, NA",
+                  "location":{
+                     "latitude":"",
+                     "longitude":""
+                  },
+                  "type":"STORE"
+               }
+            ]
+         }
       }
-    }
-  }
+   }
 }
 ```
 Retrieves the details of zones, stores, store servers, concepts or TILLs configured for the current organization. By default, it fetches up to 200 entities.
@@ -452,22 +1230,28 @@ HTTP Methods | GET
 Batch Support | Yes
 
 ### Request URL
-`http://{host}/v1.1/organization/entities?type={type}&id={id}` 
+`https://{host}/v1.1/organization/entities?type={type}&id={id}` 
 
-`http://{host}/v1.1/organization/entities?type={store/zone/till}&format={xml/json}
+`https://{host}/v1.1/organization/entities?type={store/zone/till}&format={xml/json}`
+
+To get child entities
+
+`https://{{host}}/v1.1/organization/entities?type={type}&parent_identifier_type={parent_type}&parent_identifier_value={identifier_value}`
  
 ### Request Parameters
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
-type* | enum | Pass the entity details to retrieve. Value: `STORE`, `STR_SERVER` (store server), TILL, ZONE, CONCEPTSTORE (concept).
-id | string | Pass an entity id as in the `org_entities` table (in database) to get the details of that particular entity. To get the details of multiple entries, pass each ID separating with `,` . For example, "12859252,12859253". 
-include_parent | boolean | Pass `true` to retrieve the details of parent zone or concept. This is applicable only for `type` zone or concept.
+type* | enum | Pass the entity type to retrieve. Value: `STORE`, `STR_SERVER` (store server), `TILL`, `ZONE`, `CONCEPT`. Pass example, pass `STORE` to rerieve store details
+id | string | Pass an entity id as in the `org_entities` table (in database) to get the details of that particular entity. For example, `?type=STORE&id=12354309`To get the details of multiple entries, pass each ID separating with `,` . For example, "12859252,12859253".
+parent_identifier_type | enum | Parent entity type to fetch its child entities. Values: `STORE_CODE`, `STORE_ID`, `STORE_EXTERNAL_ID`, `CONCEPT_CODE`, `CONCEPT_ID`.
+parent_identifier_value | string | Pass the respective identifer value. For example, `parent_identifier_type=CONCEPT_CODE&parent_identifier_value=supermarket`. `parent_identifier_type` and `type` cannot be from the same entity level. `type` should be a child entity of `parent_identifier_type`.
+include_parent | boolean | Pass `true` to retrieve the details of the parent entity (parent zone or concept). This is applicable only for `type` zone or concept. Sample - `?type=CONCEPT&id=50995&include_parent=true`
 sub_entities_count | int | Limit the number of sub-entities to retrieve for each entity.
 details | enum | Pass `basic` to see only basic information excluding currency, time-zone, and language information.
-exclude_locale | enum | Pass `1` to exclude time zone details, `0` to retrieve base_timezone details of an entity. Default value is `0`.
+exclude_locale | enum | Pass `1` to exclude time zone details (`timezones`), `0` to retrieve timezones > base_timezone details of an entity. Default value is `0`.
 start_id | long | Fetches entities that are above the offset number you pass. Offset is the position of the entity  in the db record. The value is assigned based on the sequence of creation. For example, start_id=10 retrieves all the entities from record number 11.
-limit | int | Limit the number of entities to retrieve. Default value is 200.
+limit | int | Limit the number of entities to retrieve. Default value is 500.
 modified_since | date | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
 active_only | boolean | Pass `true` to retrieve the list of only active stores.
 scope | string | Default value: `STORE_CUSTOM_FIELDS`.
