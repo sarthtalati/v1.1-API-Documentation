@@ -35,6 +35,12 @@ search: true
 # Release Updates
 This section provides the quarterly breakup of existing API updates and new API releases.
 
+## Q2 Releases (2021-2022)
+
+* Support for user group2 parameters in points [/redeem] (https://capillary.github.io/v1.1-API-Documentation/#redeem-points) and [isRedeemable](https://capillary.github.io/v1.1-API-Documentation/#check-if-points-are-redeemable). New params - `user_group2_primary_user_id`, `user_group2_id`, `user_group2_external_id`, and `use_default_user_group2`.
+
+
+
 ## Q2 Releases (2020)
 
 * OAuth supports posting data through store along with Till that was already supported. Two new headers are introduced `X-CAP-API-ATTRIBUTION-ENTITY-TYPE`, `X-CAP-API-ATTRIBUTION-ENTITY-CODE` replacing `X-CAP-API-ATTRIBUTION-TILL-CODE`.
