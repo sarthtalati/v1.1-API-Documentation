@@ -1946,19 +1946,19 @@ language | Specify the ISO language code to get customer level extended field de
 
 Parameter | Datatype | Description
 --------- | -------- | ----------- 
-identifierName | enum  | Pass any one of the registered identifier names of the customer.
+identifierName | enum  | Pass any one of the registered identifier names of the customer. Value: `mobile`, `email`, `external_id`, `card_number`, `card_external_id`.
 identifierValue | string | Pass the respective identifier value. <br> For example, mobile=44700900000. To retrieve details of multiple customers at a time, pass each value separating with comma (,) For example,  `mobile=44700900000,44700900999,4470090345`.
 coupon_limit | int | Limits the number of coupon interactions (issued,redeemed and expired). Example: coupon_limit=5 retrieves five recent coupon interactions.
 coupon_offset | int | Retrieves next set of coupons according to issual sequence. For example, if 10 coupons are issued to a customer till date, then coupon_offset=6, returns the 7th, 8th, 9th, and 10th coupon (ignoring the first 6 coupons).
-coupon_order_by | date-time | Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.
-coupon_sort_order | enum | asc, desc. Orders coupons in ascending or descending order of `coupon_order_by` parameter
+coupon_order_by | enum | What basis you want the coupon history o order. Value: `created_date` (default), `created_by`, `valid_till` (to order by till name).
+coupon_sort_order | enum | Value: `asc`, `desc` (default). Orders coupons in ascending or descending order based on the `coupon_order_by` value.
 user_id=true | - | Returns the unique id of the customer (generated at our end when the customer is registered).
 next_slab=true | - | Returns the details of the next loyalty tier of the customer such as <br> next_slab, next_slab_serial_number,               next_slab_description, trackers value (for tracker based strategy), and current_nps_status.
 slab_history=true | - | Returns the details of loyalty tier changes of the customer.
 registered_store=true | - | Returns the store at which the customer is registered. This is returned by default.
 registered_till=true | - | Returns the store-TILL at which the customer is registered. This is returned by default. 
 fraud_details=true | - | Returns the fraud details of a customer. This field is returned by default.
-ndsc_status=true | - | Returns the status of the customer's registered mobile number on NDSC/DND.
+ndnc_status=true | - | Returns the status of the customer's registered mobile number on NDNC/DND.
 optin_status=true | - | Returns the services (SMS/email) to which the customer has opted in and opted out.
 expiry_schedule=true | - | Returns the details of points expiry summary with number of points to expire, program ID, and date and time of expiry.
 expired_points=true | - | Returns the details of expired points of the customer.
@@ -1976,6 +1976,17 @@ subscriptions=true | - | Retrieves subscription details of the customer.
 segments=true | - | Retrieves segment details of the customer if applicable. Segments are logical grouping of customers based on one or more parameters.
 member_care_access=true | - | For admin users, it will show  customers that are active within the vicinity of that user.
 card_details=true | - | Retrieves the details of all cards of the customers.
+tracker_info=true | - | 
+delayed_accrual=true | - | 
+coupon_active=true | - | 
+basic=true | - | 
+program_id | int | 
+coupon_offer | int | Default value - 0.
+coupon_org_entity_type | string | 
+coupon_org_entity_value | string | 
+coupon_status | string | 
+
+
 
 
 <aside class="notice">Parameter marked with * is mandatory. </aside>
@@ -2486,20 +2497,24 @@ Batch Support | Yes
 Parameter | Datatype | Description
 --------- | -------- | -----------
 Identifier* | enum | Provide the identifier you want to use to identify customer. Value: `mobile`, `email`, `external_id`, `id`. <br>To retrieve redemption details of multiple customers at a time, provide the identifier of each customer separating by a comma. <br>**Example**: `mobile=44700900000,44700900999,4470090345`
-type | enum | Filter the results either by `points` redemption or `coupons` redemption.
+type | enum | Filter the results either by `POINTS` redemption, `COUPONS` redemption, `BOTH` (default).
 start_date | date | Get redemptions done on or after a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
 end_date | date | Get redemptions made before a specific date (`YYYY-MM-DD`). To get redemptions made in a specific duration, pass the date range in `start_date` and `end_date`.
 coupons_limit | int | Limit the number of coupon redemptions to be displayed. Example:`coupons_limit=10` to show only 10 coupon redemption details. Use only when the `type` parameter is not passed.
 points_limit | int | Limit the number of points redemption results to be displayed. Example:`points_limit=10` to show only 10 points redemption details. Use only when the `type` parameter is not passed.
-limit | int | Limit the number of redemption details (points and/or coupons). Use only when the `type` parameter is not passed.
-coupons_start_id | int | Filter the results by coupon redemption id starting with a specific number. Use only when the `type` parameter is not passed.
-coupons_end_id | int | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed.
-points_start_id | int | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed.
-points_end_id | int | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed.
+limit | int | Limit the number of redemption details (points and/or coupons). Use only when the `type` parameter is not passed. Default value is 10.
+coupons_start_id | long | Filter the results by coupon redemption id starting with a specific number. Use only when the `type` parameter is not passed.
+coupons_end_id | long | Filter the results by coupon redemption id ending with a specific number. Use only when the `type` parameter is not passed.
+points_start_id | long | Filter the results by points redemption id starting with a specific number. Use only when the `type` parameter is not passed.
+points_end_id | long | Filter the results by points redemption id ending with a specific number. Use only when the `type` parameter is not passed.
 sort | enum | Sort the results either by redemption id (`redemption_id`) or redemption time(`redeemed_time`). By default, the results are sorted in the descending order of redeemed time.
 order | enum | Order the results in ascending (`asc`) or descending order (`desc`). By default, the results are shown in the descending order of redeemed time.
 mlp=true | - | Retrieves the details of points redeemed from each loyalty program of the org (only for orgs with multi-brand loyalty).
-format | enum | Pass the desired representation of response content - `format=xml`, or `format=json`. 
+format | enum | Pass the desired representation of response content - `format=xml`, or `format=json`.
+user_id=true | - | Returns the customer ID in response. By default, customer id is not retrieved.
+mlp=true | - | Returns return additional points related block, will have to get the exact JSON block for this.
+external_reference_number | string | 
+programId | int | 
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 

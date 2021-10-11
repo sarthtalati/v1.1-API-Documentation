@@ -3084,7 +3084,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>identifierName</td>
 <td>enum</td>
-<td>Pass any one of the registered identifier names of the customer.</td>
+<td>Pass any one of the registered identifier names of the customer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">card_number</code>, <code class="prettyprint">card_external_id</code>.</td>
 </tr>
 <tr>
 <td>identifierValue</td>
@@ -3103,13 +3103,13 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 </tr>
 <tr>
 <td>coupon_order_by</td>
-<td>date-time</td>
-<td>Orders the coupon history by created date (descending order of created date), created by (ascending order of till name), or coupon validity (valid till: ascending order of expiry). Values: created_date, created_by, valid_till respectively.</td>
+<td>enum</td>
+<td>What basis you want the coupon history o order. Value: <code class="prettyprint">created_date</code> (default), <code class="prettyprint">created_by</code>, <code class="prettyprint">valid_till</code> (to order by till name).</td>
 </tr>
 <tr>
 <td>coupon_sort_order</td>
 <td>enum</td>
-<td>asc, desc. Orders coupons in ascending or descending order of <code class="prettyprint">coupon_order_by</code> parameter</td>
+<td>Value: <code class="prettyprint">asc</code>, <code class="prettyprint">desc</code> (default). Orders coupons in ascending or descending order based on the <code class="prettyprint">coupon_order_by</code> value.</td>
 </tr>
 <tr>
 <td>user_id=true</td>
@@ -3142,9 +3142,9 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Returns the fraud details of a customer. This field is returned by default.</td>
 </tr>
 <tr>
-<td>ndsc_status=true</td>
+<td>ndnc_status=true</td>
 <td>-</td>
-<td>Returns the status of the customer&rsquo;s registered mobile number on NDSC/DND.</td>
+<td>Returns the status of the customer&rsquo;s registered mobile number on NDNC/DND.</td>
 </tr>
 <tr>
 <td>optin_status=true</td>
@@ -3230,6 +3230,51 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>card_details=true</td>
 <td>-</td>
 <td>Retrieves the details of all cards of the customers.</td>
+</tr>
+<tr>
+<td>tracker_info=true</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>delayed_accrual=true</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>coupon_active=true</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>basic=true</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>coupon_offer</td>
+<td>int</td>
+<td>Default value - 0.</td>
+</tr>
+<tr>
+<td>coupon_org_entity_type</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>coupon_org_entity_value</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>coupon_status</td>
+<td>string</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -3901,7 +3946,7 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>type</td>
 <td>enum</td>
-<td>Filter the results either by <code class="prettyprint">points</code> redemption or <code class="prettyprint">coupons</code> redemption.</td>
+<td>Filter the results either by <code class="prettyprint">POINTS</code> redemption, <code class="prettyprint">COUPONS</code> redemption, <code class="prettyprint">BOTH</code> (default).</td>
 </tr>
 <tr>
 <td>start_date</td>
@@ -3926,26 +3971,26 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <tr>
 <td>limit</td>
 <td>int</td>
-<td>Limit the number of redemption details (points and/or coupons). Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
+<td>Limit the number of redemption details (points and/or coupons). Use only when the <code class="prettyprint">type</code> parameter is not passed. Default value is 10.</td>
 </tr>
 <tr>
 <td>coupons_start_id</td>
-<td>int</td>
+<td>long</td>
 <td>Filter the results by coupon redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>coupons_end_id</td>
-<td>int</td>
+<td>long</td>
 <td>Filter the results by coupon redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>points_start_id</td>
-<td>int</td>
+<td>long</td>
 <td>Filter the results by points redemption id starting with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
 <td>points_end_id</td>
-<td>int</td>
+<td>long</td>
 <td>Filter the results by points redemption id ending with a specific number. Use only when the <code class="prettyprint">type</code> parameter is not passed.</td>
 </tr>
 <tr>
@@ -3967,6 +4012,26 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>format</td>
 <td>enum</td>
 <td>Pass the desired representation of response content - <code class="prettyprint">format=xml</code>, or <code class="prettyprint">format=json</code>.</td>
+</tr>
+<tr>
+<td>user_id=true</td>
+<td>-</td>
+<td>Returns the customer ID in response. By default, customer id is not retrieved.</td>
+</tr>
+<tr>
+<td>mlp=true</td>
+<td>-</td>
+<td>Returns return additional points related block, will have to get the exact JSON block for this.</td>
+</tr>
+<tr>
+<td>external_reference_number</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>programId</td>
+<td>int</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -12738,9 +12803,34 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>enum</td>
 <td>Preferred mode of validation. Value: <code class="prettyprint">MISSED_CALL</code>, <code class="prettyprint">SMS</code>, <code class="prettyprint">INVALID</code>. Use invalid if you want to <code class="prettyprint">skip_validation</code>.</td>
 </tr>
+<tr>
+<td>user_group2_primary_user_id**</td>
+<td>long</td>
+<td>Unique user ID of the primary member of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>user_group2_id**</td>
+<td>int</td>
+<td>Unique ID of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>user_group2_external_id**</td>
+<td>string</td>
+<td>Unique external ID of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>use_default_user_group2**</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to associate the default group with the points to redeem.</td>
+</tr>
+<tr>
+<td>use_default_user_group2**</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> to associate the default group with the points to redeem.</td>
+</tr>
 </tbody></table>
 
-<aside class="notice">Parameters marked with * are mandatory.</aside>
+<aside class="notice">Parameters marked with * are mandatory. Any one among the parameters marked with ** is required for group level points redemption.</aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
@@ -13132,7 +13222,35 @@ You need to use the validation code within the validity period. You can check th
 
 <p><code class="prettyprint">https://{host}/v1.1/points/redeem?{query_param}={param_value}&amp;format={xml/json}</code></p>
 
-<h3 id="request-parameters">Request Parameters</h3>
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_group2_primary_user_id**</td>
+<td>long</td>
+<td>Unique user ID of the primary member of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>user_group2_id**</td>
+<td>int</td>
+<td>Unique ID of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>user_group2_external_id**</td>
+<td>string</td>
+<td>Unique external ID of the group associated with the points to redeem.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Any one among the parameters marked with ** is required for group level points redemption. </aside>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -20807,7 +20925,12 @@ https://us.api.capillarytech.com/v1.1/organization/entities?type=STORE<span clas
 <tr>
 <td>type*</td>
 <td>enum</td>
-<td>Pass the entity type to retrieve. Value: <code class="prettyprint">STORE</code>, <code class="prettyprint">STR_SERVER</code> (store server), <code class="prettyprint">TILL</code>, <code class="prettyprint">ZONE</code>, <code class="prettyprint">CONCEPT</code>. Pass example, pass <code class="prettyprint">STORE</code> to rerieve store details</td>
+<td>Pass the entity type to retrieve. Value: <code class="prettyprint">STORE</code>, <code class="prettyprint">STR_SERVER</code> (store server), <code class="prettyprint">TILL</code>, <code class="prettyprint">ZONE</code>, <code class="prettyprint">CONCEPT</code>. Pass example, pass <code class="prettyprint">STORE</code> to rerieve store details.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>Pass <code class="prettyprint">STORE_CUSTOM_FIELDS</code> to retrieve the list of store level custom fields. Applicable only when <code class="prettyprint">type=STORE</code>.</td>
 </tr>
 <tr>
 <td>id</td>
@@ -20822,7 +20945,7 @@ https://us.api.capillarytech.com/v1.1/organization/entities?type=STORE<span clas
 <tr>
 <td>parent_identifier_value</td>
 <td>string</td>
-<td>Pass the respective identifer value. For example, <code class="prettyprint">parent_identifier_type=CONCEPT_CODE&amp;parent_identifier_value=supermarket</code>. <code class="prettyprint">parent_identifier_type</code> and <code class="prettyprint">type</code> cannot be from the same entity level. <code class="prettyprint">type</code> should be a child entity of <code class="prettyprint">parent_identifier_type</code>.</td>
+<td>Pass the respective identifier value. For example, <code class="prettyprint">parent_identifier_type=CONCEPT_CODE&amp;parent_identifier_value=supermarket</code>. <code class="prettyprint">parent_identifier_type</code> and <code class="prettyprint">type</code> cannot be from the same entity level. <code class="prettyprint">type</code> should be a child entity of <code class="prettyprint">parent_identifier_type</code>.</td>
 </tr>
 <tr>
 <td>include_parent</td>
@@ -20865,9 +20988,9 @@ https://us.api.capillarytech.com/v1.1/organization/entities?type=STORE<span clas
 <td>Pass <code class="prettyprint">true</code> to retrieve the list of only active stores.</td>
 </tr>
 <tr>
-<td>scope</td>
-<td>string</td>
-<td>Default value: <code class="prettyprint">STORE_CUSTOM_FIELDS</code>.</td>
+<td>language_translatons</td>
+<td>boolean</td>
+<td></td>
 </tr>
 </tbody></table>
 

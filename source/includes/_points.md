@@ -152,8 +152,15 @@ issue_otp | boolean | Pass `true` to issue OTP if the validation is successful.
 validation_code | string | OTP issued to the customer's mobile number.
 skip_validation | boolean | Pass `true` if you want to skip validation.
 validation_type | enum | Preferred mode of validation. Value: `MISSED_CALL`, `SMS`, `INVALID`. Use invalid if you want to `skip_validation`.
+user_group2_primary_user_id** | long | Unique user ID of the primary member of the group associated with the points to redeem.
+user_group2_id** | int | Unique ID of the group associated with the points to redeem.
+user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
+use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
+use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
 
-<aside class="notice">Parameters marked with * are mandatory.</aside>
+
+
+<aside class="notice">Parameters marked with * are mandatory. Any one among the parameters marked with ** is required for group level points redemption.</aside>
 
 
 ### Response Parameters
@@ -442,7 +449,19 @@ Batch Support | No
 ### Request URL
 `https://{host}/v1.1/points/redeem?{query_param}={param_value}&format={xml/json}`
 
-### Request Parameters
+
+### Request Query Parameters
+
+Parameter | Datatype | Description
+--------- | -------- | -----------
+user_group2_primary_user_id** | long | Unique user ID of the primary member of the group associated with the points to redeem.
+user_group2_id** | int | Unique ID of the group associated with the points to redeem.
+user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
+
+
+<aside class="notice">Any one among the parameters marked with ** is required for group level points redemption. </aside>
+
+### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
 mobile* | string | Provide the registered mobile number of the customer to redeem points.

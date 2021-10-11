@@ -1242,10 +1242,11 @@ To get child entities
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
-type* | enum | Pass the entity type to retrieve. Value: `STORE`, `STR_SERVER` (store server), `TILL`, `ZONE`, `CONCEPT`. Pass example, pass `STORE` to rerieve store details
+type* | enum | Pass the entity type to retrieve. Value: `STORE`, `STR_SERVER` (store server), `TILL`, `ZONE`, `CONCEPT`. Pass example, pass `STORE` to rerieve store details.
+scope | string | Pass `STORE_CUSTOM_FIELDS` to retrieve the list of store level custom fields. Applicable only when `type=STORE`.
 id | string | Pass an entity id as in the `org_entities` table (in database) to get the details of that particular entity. For example, `?type=STORE&id=12354309`To get the details of multiple entries, pass each ID separating with `,` . For example, "12859252,12859253".
 parent_identifier_type | enum | Parent entity type to fetch its child entities. Values: `STORE_CODE`, `STORE_ID`, `STORE_EXTERNAL_ID`, `CONCEPT_CODE`, `CONCEPT_ID`.
-parent_identifier_value | string | Pass the respective identifer value. For example, `parent_identifier_type=CONCEPT_CODE&parent_identifier_value=supermarket`. `parent_identifier_type` and `type` cannot be from the same entity level. `type` should be a child entity of `parent_identifier_type`.
+parent_identifier_value | string | Pass the respective identifier value. For example, `parent_identifier_type=CONCEPT_CODE&parent_identifier_value=supermarket`. `parent_identifier_type` and `type` cannot be from the same entity level. `type` should be a child entity of `parent_identifier_type`.
 include_parent | boolean | Pass `true` to retrieve the details of the parent entity (parent zone or concept). This is applicable only for `type` zone or concept. Sample - `?type=CONCEPT&id=50995&include_parent=true`
 sub_entities_count | int | Limit the number of sub-entities to retrieve for each entity.
 details | enum | Pass `basic` to see only basic information excluding currency, time-zone, and language information.
@@ -1254,7 +1255,7 @@ start_id | long | Fetches entities that are above the offset number you pass. Of
 limit | int | Limit the number of entities to retrieve. Default value is 500.
 modified_since | date | Retrieves the entities that are modified on or after a specific date. Pass the date in `YYYY-MM-DD` format.
 active_only | boolean | Pass `true` to retrieve the list of only active stores.
-scope | string | Default value: `STORE_CUSTOM_FIELDS`.
+language_translatons | boolean | 
 
 <aside class="notice">Parameter marked with * is mandatory.</aside>
 
