@@ -9,51 +9,44 @@ https://us.api.capillarytech.com/v1.1/product/add.json
 > Sample POST Request
 
 ```xml
-
-
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-   <root>
-      <product>
-         <element>
-            <attributes>
-               <attribute>
-                  <element>
-                     <name>style</name>
-                     <value>M</value>
-                  </element>
-                  <element>
-                     <name>sampleName</name>
-                     <value>samplevalue</value>
-                  </element>
-               </attribute>
-            </attributes>
-            <brand>
-               <name>Lee</name>
-            </brand>
-            <category>
-               <name>HANDBAG(S)</name>
-            </category>
-            <color>
-               <name />
-            </color>
-            <description>adding sample product</description>
-            <ean />
-            <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
-            <long_description>Sample description</long_description>
-            <price>7000</price>
-            <size>
-               <name>Jeans Shirt</name>
-            </size>
-            <sku>SKU80</sku>
-            <style>
-               <name />
-            </style>
-         </element>
-      </product>
-   </root>
+	<product>
+		<sku>SKU80</sku>
+		<ean></ean>
+		<price>7000</price>
+		<description>adding sample product</description>
+		<returnable>true</returnable>
+		<returnable_days>10</returnable_days>
+			<long_description>Sample description</long_description>
+			<img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+			<size>
+				<name>Jeans Shirt</name>
+			</size>
+			<style>
+				<name></name>
+			</style>
+			<brand>
+				<name>Lee</name>
+			</brand>
+			<color>
+				<name></name>
+			</color>
+			<category>
+				<name>HANDBAG(S)</name>
+			</category>
+			<attributes>
+				<attribute>
+					<name>style</name>
+					<value>M</value>
+				</attribute>
+				<attribute>
+					<name>sampleName</name>
+					<value>samplevalue</value>
+				</attribute>
+			</attributes>
+		</product>
 </root>
-
 ```
 
 ```json
@@ -64,11 +57,19 @@ https://us.api.capillarytech.com/v1.1/product/add.json
       "ean": "",
       "price": "7000",
       "description": "adding sample product",
+	  "returnable": "true",
+      "returnable_days": 10,
       "long_description": "Sample description",
       "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
-      "size": { "name": "Jeans Shirt" },
-      "style": { "name": "" },
-      "brand": { "name": "Lee" },
+      "size": { 
+	  "name": "Jeans Shirt" 
+	  },
+      "style": { 
+	  "name": "" 
+	  },
+      "brand": { 
+	  "name": 
+	  "Lee" },
       "color": { "name": "" },
       "category": { "name": "HANDBAG(S)" },
       "attributes": {
@@ -92,60 +93,80 @@ https://us.api.capillarytech.com/v1.1/product/add.json
 
 ```xml
 
-
-<?xml version="1.0" encoding="UTF-8"?>
-<root>
-   <response>
-      <product>
-         <element>
-            <added_on>2019-12-18 15:48:48</added_on>
-            <attributes null="true" />
-            <brand>
-               <description>Lee brand</description>
-               <label>Lee</label>
-               <name>Lee</name>
-            </brand>
-            <category>
-               <description />
-               <label>HANDBAG(S)</label>
-               <name>HANDBAG(S)</name>
-            </category>
-            <color>
-               <name />
-               <pallette />
-            </color>
-            <description>adding sample product</description>
-            <ean>SKU80</ean>
-            <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
-            <in_stock>false</in_stock>
-            <item_id>27364313</item_id>
-            <item_status>
-               <code>9100</code>
-               <message>Product added successfully</message>
-               <success>true</success>
-            </item_status>
-            <long_description>Sample description</long_description>
-            <price>7000</price>
-            <size>
-               <label />
-               <name />
-               <type />
-            </size>
-            <sku>SKU80</sku>
-            <style>
-               <label>ATTIRE Y G</label>
-               <name>ATTIRE Y G</name>
-            </style>
-         </element>
-      </product>
-      <status>
-         <code>200</code>
-         <message>Success</message>
-         <success>true</success>
-      </status>
-   </response>
-</root>
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<response>
+	<status>
+		<success>true</success>
+		<code>200</code>
+		<message>Success</message>
+	</status>
+	<product>
+		<item_id>27809952</item_id>
+		<sku>SKU80</sku>
+		<ean>SKU80</ean>
+		<price>7000</price>
+		<img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+		<in_stock>false</in_stock>
+		<description>adding sample product</description>
+		<returnable>true</returnable>
+		<returnable_days>10</returnable_days>
+		<long_description>Sample description</long_description>
+		<size>
+			<name/>
+		</size>
+		<style>
+			<name/>
+		</style>
+		<brand>
+			<name/>
+		</brand>
+		<color>
+			<name/>
+		</color>
+		<category>
+			<name/>
+		</category>
+		<attributes>
+			<attribute>
+				<name>ERAVERSARY_0821_DOUBLE_COUPON</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-01</name>
+				<value>72970-01</value>
+			</attribute>
+			<attribute>
+				<name>72970-02</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-03</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-04</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-05</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-06</name>
+				<value></value>
+			</attribute>
+			<attribute>
+				<name>72970-07</name>
+				<value></value>
+			</attribute>
+		</attributes>
+		<item_status>
+			<success>true</success>
+			<code>9100</code>
+			<message>Product added successfully</message>
+		</item_status>
+	</product>
+</response>
 
 ```
 
@@ -159,39 +180,67 @@ https://us.api.capillarytech.com/v1.1/product/add.json
         },
         "product": [
             {
-                "item_id": "27364313",
+                "item_id": "27809952",
                 "sku": "SKU80",
                 "ean": "SKU80",
                 "price": "7000",
                 "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
                 "in_stock": "false",
                 "description": "adding sample product",
+                "returnable": "true",
+                "returnable_days": -1,
                 "long_description": "Sample description",
                 "size": {
-                    "label": "",
-                    "name": "",
-                    "type": ""
+                    "name": null
                 },
                 "style": {
-                    "name": "ATTIRE Y G",
-                    "label": "ATTIRE Y G"
+                    "name": null
                 },
                 "brand": {
-                    "label": "Lee",
-                    "name": "Lee",
-                    "description": "Lee brand"
+                    "name": null
                 },
                 "color": {
-                    "pallette": "",
-                    "name": ""
+                    "name": null
                 },
                 "category": {
-                    "label": "HANDBAG(S)",
-                    "name": "HANDBAG(S)",
-                    "description": ""
+                    "name": null
                 },
-                "attributes": null,
-                "added_on": "2019-12-18 15:48:48",
+                "attributes": {
+                    "attribute": [
+                        {
+                            "name": "ERAVERSARY_0821_DOUBLE_COUPON",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-01",
+                            "value": "72970-01"
+                        },
+                        {
+                            "name": "72970-02",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-03",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-04",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-05",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-06",
+                            "value": ""
+                        },
+                        {
+                            "name": "72970-07",
+                            "value": ""
+                        }
+                    ]
+                },
                 "item_status": {
                     "success": true,
                     "code": 9100,
@@ -226,6 +275,8 @@ sku* | string | SKU of the product to add.
 ean | string | European article number of the product.
 price* | double | Price of the product.
 description | string | Brief description of the product.
+returnable | boolean | Pass `true` if the item is allowed to return post purchase. You also need to mention `returnableDays`. Default value is `false`.
+returnableDays | int | Number of days in which the item can be returned after purchasing. Default value is `-1` (no limit). 
 long_description | string | Detailed description of the product.
 img_url | string | URL of the product image.
 size | obj | Size of the product in name:value pairs.
@@ -293,9 +344,7 @@ https://us.api.capillarytech.com/v1.1/product/attributes?format=json
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-   <root>
       <product>
-         <element>
             <attributes>
                <attribute>
                   <default_attribute_value_name>firstName_7248723</default_attribute_value_name>
@@ -313,9 +362,7 @@ https://us.api.capillarytech.com/v1.1/product/attributes?format=json
                   </values>
                </attribute>
             </attributes>
-         </element>
       </product>
-   </root>
 </root>
 ```
 
@@ -336,7 +383,7 @@ https://us.api.capillarytech.com/v1.1/product/attributes?format=json
             "is_soft_enum": "1",
             "item_status": {
               "code": 9180,
-              "message": "Attribute addition successfull",
+              "message": "Attribute addition successful",
               "success": true
             },
             "label": null,
@@ -365,45 +412,41 @@ https://us.api.capillarytech.com/v1.1/product/attributes?format=json
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-   <response>
-      <product>
-         <attributes>
-            <attribute>
-               <element>
-                  <default_attribute_value_name null="true" />
-                  <extraction_rule_data>firstName_1218117</extraction_rule_data>
-                  <extraction_rule_type>POS</extraction_rule_type>
-                  <is_enum>1</is_enum>
-                  <is_soft_enum>1</is_soft_enum>
-                  <item_status>
-                     <code>9180</code>
-                     <message>Attribute addition successfull</message>
-                     <success>true</success>
-                  </item_status>
-                  <label null="true" />
-                  <name>firstName_1218117</name>
-                  <type>Int</type>
-                  <use_in_dump>1</use_in_dump>
-                  <values>
-                     <value>
-                        <element>
-                           <label>lastName_1218117</label>
-                           <name>lastName_1218117</name>
-                        </element>
-                     </value>
-                  </values>
-               </element>
-            </attribute>
-         </attributes>
-      </product>
-      <status>
-         <code>200</code>
-         <message>SUCCESS</message>
-         <success>true</success>
-      </status>
-   </response>
+	<response>
+		<product>
+			<attributes>
+				<attribute>
+					<default_attribute_value_name />
+					<extraction_rule_data>firstName_1218117</extraction_rule_data>
+					<extraction_rule_type>POS</extraction_rule_type>
+					<is_enum>1</is_enum>
+					<is_soft_enum>1</is_soft_enum>
+					<item_status>
+						<code>9180</code>
+						<message>Attribute addition successful</message>
+						<success>true</success>
+					</item_status>
+					<label />
+					<name>firstName_1218117</name>
+					<type>Int</type>
+					<use_in_dump>1</use_in_dump>
+					<values>
+						<value>
+							<label>lastName_1218117</label>
+							<name>lastName_1218117</name>
+						</value>
+					</values>
+				</attribute>
+			</attributes>
+		</product>
+		<status>
+			<code>200</code>
+			<message>SUCCESS</message>
+			<success>true</success>
+		</status>
+	</response>
 </root>
 ```
 
@@ -428,9 +471,6 @@ extraction_rule_data | string |
 extraction_rule_type | enum | POS,
 is_enum | | 
 is_soft_enum | | 
-code | long | 
-message | string | 
-success | boolean | true
 label | string | Label name for the attribute.
 name | string | Name of the attribute.
 type | enum | 
@@ -453,66 +493,56 @@ https://us.api.capillarytech.com/v1.1/product/search?q=(color%3AIN%3ABlack%3BBlu
 
 ```xml
 
-
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-   <response>
-      <product>
-         <count>21</count>
-         <results>
-            <item>
-               <element>
-                  <added_on>2017-06-20T00:00:00Z</added_on>
-                  <attributes>
-                     <attribute />
-                  </attributes>
-                  <description>soap</description>
-                  <ean>401234567892</ean>
-                  <id>26666454</id>
-                  <img_url>https://nightly.capillary.in/productManagement/Colors/img3.jpg</img_url>
-                  <org_id>50074</org_id>
-                  <price>1000</price>
-                  <sku>item-001</sku>
-               </element>
-               <element>
-                  <added_on>2017-08-18T00:00:00Z</added_on>
-                  <attributes>
-                     <attribute />
-                  </attributes>
-                  <description>Van Heusen Black Dress - Color : Black, Size :L</description>
-                  <ean>401234567891</ean>
-                  <id>26694137</id>
-                  <img_url>https://nightly.capillary.in/productManagement/Colors/img2.jpg</img_url>
-                  <org_id>50074</org_id>
-                  <price>200</price>
-                  <sku>8907670343739</sku>
-               </element>
-               <element>
-                  <added_on>2019-07-08T00:00:00Z</added_on>
-                  <attributes>
-                     <attribute />
-                  </attributes>
-                  <description>long</description>
-                  <ean>401234567890</ean>
-                  <id>27211795</id>
-                  <img_url>https://nightly.capillary.in/productManagement/Colors/img1.jpg</img_url>
-                  <org_id>50074</org_id>
-                  <price>100</price>
-                  <sku>sl1</sku>
-               </element>
-            </item>
-         </results>
-         <rows>10</rows>
-         <start>0</start>
-      </product>
-      <status>
-         <code>200</code>
-         <message>SUCCESS</message>
-         <success>true</success>
-      </status>
-   </response>
+	<response>
+		<status>
+			<success>true</success>
+			<code>200</code>
+			<message>SUCCESS</message>
+		</status>
+		<product>
+			<count>21</count>
+			<start>0</start>
+			<rows>10</rows>
+			<results>
+				<item>
+					<id>26666454</id>
+					<price>1000</price>
+					<org_id>50074</org_id>
+					<description>soap</description>
+					<sku>item-001</sku>
+					<added_on>2017-06-20T00:00:00Z</added_on>
+					<attributes></attributes>
+					<img_url>https://nightly.capillary.in/productManagement/Colors/img3.jpg</img_url>
+					<ean>401234567892</ean>
+				</item>
+				<item>
+					<id>26694137</id>
+					<price>200</price>
+					<org_id>50074</org_id>
+					<description>Van Heusen Black Dress - Color : Black, Size :L</description>
+					<sku>8907670343739</sku>
+					<added_on>2017-08-18T00:00:00Z</added_on>
+					<attributes></attributes>
+					<img_url>https://nightly.capillary.in/productManagement/Colors/img2.jpg</img_url>
+					<ean>401234567891</ean>
+				</item>
+				<item>
+					<id>27211795</id>
+					<price>100</price>
+					<org_id>50074</org_id>
+					<description>long</description>
+					<sku>sl1</sku>
+					<added_on>2019-07-08T00:00:00Z</added_on>
+					<attributes></attributes>
+					<img_url>https://nightly.capillary.in/productManagement/Colors/img1.jpg</img_url>
+					<ean>401234567890</ean>
+				</item>
+			</results>
+		</product>
+	</response>
 </root>
-
 
 ```
 
@@ -657,77 +687,71 @@ https://api.capillary.co.in/v1.1/product/get?sku=item-001,Pearls&format=json
 > Sample Response
 
 ```xml
-
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <root>
-   <response>
-      <product>
-         <item>
-            <element>
-               <added_on>2019-09-18 12:40:36</added_on>
-               <attributes null="true" />
-               <brand null="true" />
-               <category null="true" />
-               <color null="true" />
-               <description>White</description>
-               <img_url />
-               <in_stock>true</in_stock>
-               <item_ean>Pearls</item_ean>
-               <item_id>27286097</item_id>
-               <item_status>
-                  <code>2100</code>
-                  <message>Product retrieval successful</message>
-                  <status>true</status>
-               </item_status>
-               <long_description null="true" />
-               <price>200</price>
-               <size null="true" />
-               <sku>Pearls</sku>
-               <style null="true" />
-            </element>
-            <element>
-               <added_on>2017-06-20 22:05:35</added_on>
-               <attributes>
-                  <attribute>
-                     <element>
-                        <name>Color</name>
-                        <value>Black</value>
-                     </element>
-                     <element>
-                        <name>Size</name>
-                        <value>XXL</value>
-                     </element>
-                  </attribute>
-               </attributes>
-               <brand null="true" />
-               <category null="true" />
-               <color null="true" />
-               <description>soap</description>
-               <img_url />
-               <in_stock>true</in_stock>
-               <item_ean>item-001</item_ean>
-               <item_id>26666454</item_id>
-               <item_status>
-                  <code>2100</code>
-                  <message>Product retrieval successful</message>
-                  <status>true</status>
-               </item_status>
-               <long_description null="true" />
-               <price>1000</price>
-               <size null="true" />
-               <sku>item-001</sku>
-               <style null="true" />
-            </element>
-         </item>
-      </product>
-      <status>
-         <code>200</code>
-         <message>Success</message>
-         <success>true</success>
-      </status>
-   </response>
+	<response>
+		<status>
+			<success>true</success>
+			<code>200</code>
+			<message>Success</message>
+		</status>
+		<product>
+			<item>
+				<item_id>27286097</item_id>
+				<sku>Pearls</sku>
+				<item_ean>Pearls</item_ean>
+				<price>200</price>
+				<img_url></img_url>
+				<in_stock>true</in_stock>
+				<description>White</description>
+				<long_description> </long_description>
+				<size> </size>
+				<style></style>
+				<brand></brand>
+				<color></color>
+				<category></category>
+				<attributes></attributes>
+				<added_on>2019-09-18 12:40:36</added_on>
+				<item_status>
+					<status>true</status>
+					<code>2100</code>
+					<message>Product retrieval successful</message>
+				</item_status>
+			</item>
+			<item>
+				<item_id>26666454</item_id>
+				<sku>item-001</sku>
+				<item_ean>item-001</item_ean>
+				<price>1000</price>
+				<img_url></img_url>
+				<in_stock>true</in_stock>
+				<description>soap</description>
+				<long_description />
+				<size />
+				<style />
+				<brand />
+				<color />
+				<category />
+				<attributes>
+					<attribute>
+						<name>Color</name>
+						<value>Black</value>
+					</attribute>
+					<attribute>
+						<name>Size</name>
+						<value>XXL</value>
+					</attribute>
+				</attributes>
+				<added_on>2017-06-20 22:05:35</added_on>
+				<item_status>
+					<status>true</status>
+					<code>2100</code>
+					<message>Product retrieval successful</message>
+				</item_status>
+			</item>
+		</product>
+	</response>
 </root>
-
 ```
 
 ```json
@@ -821,7 +845,7 @@ Batch Support | Yes
 Parameter | Datatype | Description
 --------- | -------- | -----------
 sku** | string | Returns products based on the SKU passed
-id** | long | Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server
+id** | long | Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server.
 include_hierarchy | boolean | Pass `true` to retrieve product hierarchy.
 
 <aside class="notice">Any one among the parameters marked with * is mandatory. </aside>

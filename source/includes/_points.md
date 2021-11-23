@@ -127,7 +127,7 @@ This API lets you verify whether a specific number of points can be redeemed by 
 ### Resource Information
 | | |
 --------- | ----------- |
-URI | `points/isredeemable/{request_params}`
+URI | `points/isredeemable?{query_params}`
 Rate Limited? | Yes
 Authentication | Yes
 HTTP Method | GET
@@ -143,8 +143,7 @@ To just validate points
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-identifier_name* | enum | Pass any of the registered identifier type. Value: `email`, `mobile`, `card_number`.
-value | string | Pass the respective identifier value of the customer to issue validation code.
+mobile/email/external_id/card_number/card_external_id* | enum | Pass any of the registered identifier type.
 program_id | long | Unique ID of the loyalty program from which points need to redeem.
 group_redemption  | boolean | Pass `true` for group redemption - points earned in one program need to redeem in a different program of the org.
 points* | int | Number of points to redeem.
@@ -157,6 +156,7 @@ user_group2_id** | int | Unique ID of the group associated with the points to re
 user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
 use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
 use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
+currency_input | boolean | 
 
 
 
@@ -551,3 +551,4 @@ Code | Description
 902	| Redemption ID does not exist.
 903 | Unable to redeem points.
 904 | Invalid customer details passed.
+3045 | Points Redemption is not allowed for the customer with id {x} as the status is fraud.

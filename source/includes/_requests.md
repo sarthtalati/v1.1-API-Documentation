@@ -164,6 +164,13 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/v1.1/request/add&format={xml/json}`
 
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+
+
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -173,8 +180,7 @@ type | enum | Type of request. Value:`CHANGE_IDENTIFIER`.
 base_type | enum | Identifier that you want to update. Value: `MOBILE`, `EMAIL`, `EXTERNAL_ID`.
 old_value | string | The current value of the customer identifier.
 new_value | string | The new value of the customer identifier.
-client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
-is_one_step_change | boolean | Pass `true` for one step identifier change.
+
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 
@@ -385,6 +391,13 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/v1.1/request/add&format={xml/json}`
 
+
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+client_auto_approve | boolean | If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step identifier change.
+
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -394,8 +407,7 @@ mobile/email/external_id/id* | string | Pass any of the identifiers of the custo
 old_value | string | The mobile number of the source customer that has to reassign to the target customer.
 type | enum | Type of request. Value: `CHANGE_IDENTIFIER`.
 base_type | enum | Sub-type of the request. Value: `MOBILE_REALLOC`.
-client_auto_approve | boolean | If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases
-is_one_step_change | boolean | Pass `true` for one step identifier change.
+
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 
@@ -599,6 +611,14 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/v1.1/request/add&format={xml/json}`
 
+
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+is_one_step_change | boolean | Pass `true` for one step account merge.
+
+
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -607,7 +627,7 @@ target_customer | obj | Details of the survivor account - the account that will 
 mobile/email/external_id/id* | string | Pass any of the identifiers of the customer with the identifier value.
 type | enum | Pass `CHANGE_IDENTIFIER` for merge requests.
 base_type | enum | Sub-type of the request. Value: `MERGE`
-client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
+
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
 
@@ -843,7 +863,8 @@ Batch Support | Yes
 ### Request Query Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-client_auto_approve | boolean | Pass `true` to auto-approve requests.
+client_auto_approve | boolean | If the value is `true`, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.
+is_one_step_change | boolean | Pass `true` for one step identifier change.
 program_id | long | The loyalty program ID from which you want to issue points. This is applicable if the org has multiple loyalty programs configured.
 
  
@@ -860,8 +881,6 @@ type | enum | Type of request. Value: `GOODWILL`.
 base_type | enum | Sub-type of the request. Value: `POINTS` for goodwill points issual, `COUPONS` for goodwill coupon issual.
 series_id | long | Offer ID from which coupon has to be issued. Ensure that the offer is consumed by Member Care module (Goodwill Adjustment Settings > Coupon). Applicable only for `base_type` as `COUPONS`.
 points | int | Number of points to issue. Applicable only for `base_type` as `POINTS`.
-client_auto_approve | boolean | If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.
-is_one_step_change | boolean | Pass `true` for one step identifier change.
 
 
 <aside class="notice">Parameters marked with * are mandatory. </aside>
@@ -1053,6 +1072,13 @@ Batch Support | Yes
 ### Request URL
 `http://{host}/v1.1/request/add&format={xml/json}`
 
+### Request Query Parameters
+Parameter | Datatype | Description
+--------- | -------- | -----------
+client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.
+is_one_step_change | boolean | Pass `true` for directly tagging a not-interested transaction to a customer without validation.
+
+
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
@@ -1064,8 +1090,6 @@ old_type | enum | Current transaction type. Value: `NOT_INTERESTED`.
 new_type | enum | New transaction type. Value: `REGULAR`.
 reason | string | Reason for issuing goodwill points/coupons. Applicable only for goodwill response
 comments | string | Small description on why goodwill points/coupons issued
-client_auto_approve | boolean | If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases
-is_one_step_change | boolean | Pass `true` for one step identifier change.
 transaction_id | string | Transaction ID of the not-interested transaction that you want to update.
 misc_info | string | Additional information regarding the current retro conversion.
 
