@@ -738,348 +738,302 @@ When an API call is made with 4 batch transactions, A response header is generat
       </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;root&gt;</span>
-      <span class="nt">&lt;customer&gt;</span>
-         <span class="nt">&lt;element&gt;</span>
-            <span class="nt">&lt;associated_with&gt;</span>two.till01<span class="nt">&lt;/associated_with&gt;</span>
-            <span class="nt">&lt;custom_fields&gt;</span>
-               <span class="nt">&lt;field&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>Hobbies<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>[“Playing”]<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>FavoriteColor<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>Green<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/field&gt;</span>
-            <span class="nt">&lt;/custom_fields&gt;</span>
-            <span class="nt">&lt;email&gt;</span>tom@example.com<span class="nt">&lt;/email&gt;</span>
-            <span class="nt">&lt;extended_fields&gt;</span>
-               <span class="nt">&lt;field&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>Male<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>city<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>Bangalore<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>dob<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>1998/12/01<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/field&gt;</span>
-            <span class="nt">&lt;/extended_fields&gt;</span>
-            <span class="nt">&lt;external_id&gt;</span>TOM345<span class="nt">&lt;/external_id&gt;</span>
-            <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
-            <span class="nt">&lt;lastname&gt;</span>Cruise<span class="nt">&lt;/lastname&gt;</span>
-            <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
-            <span class="nt">&lt;card_details&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>44700900000<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;card_details&gt;</span>
             <span class="nt">&lt;card_number&gt;</span>GOLD20000000032435<span class="nt">&lt;/card_number&gt;</span>
-            <span class="nt">&lt;/card_details&gt;</span>
-            <span class="nt">&lt;ndnc_status&gt;</span>INVALID<span class="nt">&lt;/ndnc_status&gt;</span>
-            <span class="nt">&lt;referral_code&gt;</span>SDX123<span class="nt">&lt;/referral_code&gt;</span>
-            <span class="nt">&lt;registered_on&gt;</span>2012-09-11 11:11:11<span class="nt">&lt;/registered_on&gt;</span>
-            <span class="nt">&lt;registered_till&gt;</span>NorthEast<span class="nt">&lt;/registered_till&gt;</span>
-            <span class="nt">&lt;source&gt;</span>INSTORE<span class="nt">&lt;/source&gt;</span>
-            <span class="nt">&lt;subscriptions&gt;</span>
-               <span class="nt">&lt;subscription&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/subscription&gt;</span>
-            <span class="nt">&lt;/subscriptions&gt;</span>
-            <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
-            <span class="nt">&lt;updated_on</span> <span class="nt">/&gt;</span>
-         <span class="nt">&lt;/element&gt;</span>
-         <span class="nt">&lt;element&gt;</span>
-            <span class="nt">&lt;custom_fields&gt;</span>
-               <span class="nt">&lt;field&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>Hobbies<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>[“Singing”]<span class="ni">&amp;gt;</span><span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>FavoriteColor<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>Blue<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/field&gt;</span>
-            <span class="nt">&lt;/custom_fields&gt;</span>
-            <span class="nt">&lt;email&gt;</span>rita.john@example.com<span class="nt">&lt;/email&gt;</span>
-            <span class="nt">&lt;extended_fields&gt;</span>
-               <span class="nt">&lt;field&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>female<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>city<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>Bangalore<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>dob<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>1998/09/01<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/field&gt;</span>
-            <span class="nt">&lt;/extended_fields&gt;</span>
-            <span class="nt">&lt;external_id&gt;</span>XYPZ006<span class="nt">&lt;/external_id&gt;</span>
-            <span class="nt">&lt;firstname&gt;</span>Rita<span class="nt">&lt;/firstname&gt;</span>
-            <span class="nt">&lt;lastname&gt;</span>John<span class="nt">&lt;/lastname&gt;</span>
-            <span class="nt">&lt;mobile&gt;</span>44700900011<span class="nt">&lt;/mobile&gt;</span>
-            <span class="nt">&lt;ndnc_status&gt;</span>
-               <span class="nt">&lt;element&gt;</span>NDNC<span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;element</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/ndnc_status&gt;</span>
-            <span class="nt">&lt;referral_code&gt;</span>BGH123<span class="nt">&lt;/referral_code&gt;</span>
-            <span class="nt">&lt;registered_on&gt;</span>2018-09-11 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
-            <span class="nt">&lt;source&gt;</span>WECHAT<span class="nt">&lt;/source&gt;</span>
-            <span class="nt">&lt;subscriptions&gt;</span>
-               <span class="nt">&lt;subscription&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
-                     <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
-                     <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
-                     <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/subscription&gt;</span>
-            <span class="nt">&lt;/subscriptions&gt;</span>
-            <span class="nt">&lt;type&gt;</span>NON_LOYALTY<span class="nt">&lt;/type&gt;</span>
-         <span class="nt">&lt;/element&gt;</span>
-      <span class="nt">&lt;/customer&gt;</span>
-   <span class="nt">&lt;/root&gt;</span>
+            <span class="nt">&lt;series_code&gt;&lt;/series_code&gt;</span>
+        <span class="nt">&lt;/card_details&gt;</span>
+        <span class="nt">&lt;email&gt;</span>tom@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;external_id&gt;</span>TOM345<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;firstname&gt;</span>Tom<span class="nt">&lt;/firstname&gt;</span>
+        <span class="nt">&lt;lastname&gt;</span>Cruise<span class="nt">&lt;/lastname&gt;</span>
+        <span class="nt">&lt;registered_on&gt;</span>2012-09-11 11:11:11<span class="nt">&lt;/registered_on&gt;</span>
+        <span class="nt">&lt;updated_on&gt;&lt;/updated_on&gt;</span>
+        <span class="nt">&lt;registered_till&gt;</span>NorthEast<span class="nt">&lt;/registered_till&gt;</span>
+        <span class="nt">&lt;associated_with&gt;</span>two.till01<span class="nt">&lt;/associated_with&gt;</span>
+        <span class="nt">&lt;referral_code&gt;</span>SDX123<span class="nt">&lt;/referral_code&gt;</span>
+        <span class="nt">&lt;source&gt;</span>INSTORE<span class="nt">&lt;/source&gt;</span>
+        <span class="nt">&lt;type&gt;</span>LOYALTY<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;subscriptions&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+        <span class="nt">&lt;/subscriptions&gt;</span>
+        <span class="nt">&lt;extended_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>Male<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>city<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>Bangalore<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dob<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>1998/12/01<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/extended_fields&gt;</span>
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Hobbies<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>[“Playing”]<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>FavoriteColor<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>Green<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/custom_fields&gt;</span>
+    <span class="nt">&lt;/customer&gt;</span>
+    <span class="nt">&lt;customer&gt;</span>
+        <span class="nt">&lt;mobile&gt;</span>44700900011<span class="nt">&lt;/mobile&gt;</span>
+        <span class="nt">&lt;email&gt;</span>rita.john@example.com<span class="nt">&lt;/email&gt;</span>
+        <span class="nt">&lt;external_id&gt;</span>XYPZ006<span class="nt">&lt;/external_id&gt;</span>
+        <span class="nt">&lt;firstname&gt;</span>Rita<span class="nt">&lt;/firstname&gt;</span>
+        <span class="nt">&lt;lastname&gt;</span>John<span class="nt">&lt;/lastname&gt;</span>
+        <span class="nt">&lt;registered_on&gt;</span>2018-09-11 11:11:15<span class="nt">&lt;/registered_on&gt;</span>
+        <span class="nt">&lt;referral_code&gt;</span>BGH123<span class="nt">&lt;/referral_code&gt;</span>
+        <span class="nt">&lt;source&gt;</span>WECHAT<span class="nt">&lt;/source&gt;</span>
+        <span class="nt">&lt;type&gt;</span>NON_LOYALTY<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;extended_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>gender<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>female<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>city<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>Bangalore<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dob<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>1998/09/01<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;/extended_fields&gt;</span>
+        <span class="nt">&lt;subscriptions&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>email<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>TRANS<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+            <span class="nt">&lt;subscription&gt;</span>
+                <span class="nt">&lt;priority&gt;</span>BULK<span class="nt">&lt;/priority&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>all<span class="nt">&lt;/scope&gt;</span>
+                <span class="nt">&lt;is_subscribed&gt;</span>0<span class="nt">&lt;/is_subscribed&gt;</span>
+                <span class="nt">&lt;channel&gt;</span>sms<span class="nt">&lt;/channel&gt;</span>
+            <span class="nt">&lt;/subscription&gt;</span>
+        <span class="nt">&lt;/subscriptions&gt;</span>
+        <span class="nt">&lt;custom_fields&gt;</span>
+            <span class="nt">&lt;field&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Hobbies<span class="nt">&lt;/name&gt;&lt;value&gt;</span>[“Singing”]&gt;<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/field&gt;</span>
+        <span class="nt">&lt;field&gt;</span>
+            <span class="nt">&lt;name&gt;</span>FavoriteColor<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>Blue<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/field&gt;</span>
+    <span class="nt">&lt;/custom_fields&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
+
 </code></pre>
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"success_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343445381</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tom"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cruise"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900000"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tom@example.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOM345"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2112-09-11 23:59:59"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"points_summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"points_summary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"programId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1016"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"lifetimePoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"loyaltyPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"cumulativePurchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"currentSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlabSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlabDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"slabSNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"slabExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2112-09-11 23:59:59"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"totalPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-11 11:11:11"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09 11:19:23"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Male"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dob"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-12-01"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer registration successful"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"1017"</span><span class="w">
-              </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">343445382</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rita"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900011"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rita.john@example.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XYPZ006"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"lifetime_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"loyalty_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"current_slab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"tier_expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2112-09-11 23:59:59"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"points_summaries"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"points_summary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"programId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1016"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"redeemed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"expired"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"returned"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"adjusted"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"lifetimePoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"loyaltyPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"cumulativePurchases"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"currentSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bronze"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlab"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlabSerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"nextSlabDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"silver"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"slabSNo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"slabExpiryDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2112-09-11 23:59:59"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"totalPoints"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"lifetime_purchases"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"registered_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-09-11 11:11:15"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"updated_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-09 11:19:23"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOYALTY"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instore"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"fraud_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NONE"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"extended_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gender"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"city"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bangalore"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dob"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1998-09-01"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SMS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BULK"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANS"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"side_effects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"effect"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer registration successful"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"warnings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nt">"warning"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="s2">"1017"</span><span class="w">
-              </span><span class="p">]</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="err">&lt;?xml</span><span class="w"> </span><span class="err">version=</span><span class="s2">"1.0"</span><span class="w"> </span><span class="err">encoding=</span><span class="s2">"UTF-8"</span><span class="w"> </span><span class="err">?&gt;</span><span class="w">
+</span><span class="err">&lt;response&gt;</span><span class="w">
+    </span><span class="err">&lt;status&gt;</span><span class="w">
+        </span><span class="err">&lt;success&gt;</span><span class="kc">true</span><span class="err">&lt;/success&gt;</span><span class="w">
+        </span><span class="err">&lt;code&gt;</span><span class="mi">200</span><span class="err">&lt;/code&gt;</span><span class="w">
+        </span><span class="err">&lt;message&gt;Success&lt;/message&gt;</span><span class="w">
+        </span><span class="err">&lt;total&gt;</span><span class="mi">2</span><span class="err">&lt;/total&gt;</span><span class="w">
+        </span><span class="err">&lt;success_count&gt;</span><span class="mi">2</span><span class="err">&lt;/success_count&gt;</span><span class="w">
+    </span><span class="err">&lt;/status&gt;</span><span class="w">
+    </span><span class="err">&lt;customers&gt;</span><span class="w">
+        </span><span class="err">&lt;customer&gt;</span><span class="w">
+            </span><span class="err">&lt;user_id&gt;</span><span class="mi">343445381</span><span class="err">&lt;/user_id&gt;</span><span class="w">
+            </span><span class="err">&lt;firstname&gt;Tom&lt;/firstname&gt;</span><span class="w">
+            </span><span class="err">&lt;lastname&gt;Cruise&lt;/lastname&gt;</span><span class="w">
+            </span><span class="err">&lt;mobile&gt;</span><span class="mi">44700900000</span><span class="err">&lt;/mobile&gt;</span><span class="w">
+            </span><span class="err">&lt;email&gt;tom@example.com&lt;/email&gt;</span><span class="w">
+            </span><span class="err">&lt;external_id&gt;TOM</span><span class="mi">345</span><span class="err">&lt;/external_id&gt;</span><span class="w">
+            </span><span class="err">&lt;lifetime_points&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetime_points&gt;</span><span class="w">
+            </span><span class="err">&lt;loyalty_points&gt;</span><span class="mi">0</span><span class="err">&lt;/loyalty_points&gt;</span><span class="w">
+            </span><span class="err">&lt;current_slab&gt;bronze&lt;/current_slab&gt;</span><span class="w">
+            </span><span class="err">&lt;tier_expiry_date&gt;</span><span class="mi">2112-09-11</span><span class="w"> </span><span class="mi">23</span><span class="err">:</span><span class="mi">59</span><span class="err">:</span><span class="mi">59</span><span class="err">&lt;/tier_expiry_date&gt;</span><span class="w">
+            </span><span class="err">&lt;points_summaries&gt;</span><span class="w">
+                </span><span class="err">&lt;points_summary&gt;</span><span class="w">
+                    </span><span class="err">&lt;programId&gt;</span><span class="mi">1016</span><span class="err">&lt;/programId&gt;</span><span class="w">
+                    </span><span class="err">&lt;redeemed&gt;</span><span class="mi">0</span><span class="err">&lt;/redeemed&gt;</span><span class="w">
+                    </span><span class="err">&lt;expired&gt;</span><span class="mi">0</span><span class="err">&lt;/expired&gt;</span><span class="w">
+                    </span><span class="err">&lt;returned&gt;</span><span class="mi">0</span><span class="err">&lt;/returned&gt;</span><span class="w">
+                    </span><span class="err">&lt;adjusted&gt;</span><span class="mi">0</span><span class="err">&lt;/adjusted&gt;</span><span class="w">
+                    </span><span class="err">&lt;lifetimePoints&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetimePoints&gt;</span><span class="w">
+                    </span><span class="err">&lt;loyaltyPoints&gt;</span><span class="mi">0</span><span class="err">&lt;/loyaltyPoints&gt;</span><span class="w">
+                    </span><span class="err">&lt;cumulativePurchases&gt;</span><span class="mi">0</span><span class="err">&lt;/cumulativePurchases&gt;</span><span class="w">
+                    </span><span class="err">&lt;currentSlab&gt;bronze&lt;/currentSlab&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlab&gt;silver&lt;/nextSlab&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlabSerialNumber&gt;</span><span class="mi">2</span><span class="err">&lt;/nextSlabSerialNumber&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlabDescription&gt;silver&lt;/nextSlabDescription&gt;</span><span class="w">
+                    </span><span class="err">&lt;slabSNo&gt;</span><span class="mi">1</span><span class="err">&lt;/slabSNo&gt;</span><span class="w">
+                    </span><span class="err">&lt;slabExpiryDate&gt;</span><span class="mi">2112-09-11</span><span class="w"> </span><span class="mi">23</span><span class="err">:</span><span class="mi">59</span><span class="err">:</span><span class="mi">59</span><span class="err">&lt;/slabExpiryDate&gt;</span><span class="w">
+                    </span><span class="err">&lt;totalPoints&gt;&lt;/totalPoints&gt;</span><span class="w">
+                </span><span class="err">&lt;/points_summary&gt;</span><span class="w">
+            </span><span class="err">&lt;/points_summaries&gt;</span><span class="w">
+            </span><span class="err">&lt;lifetime_purchases&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetime_purchases&gt;</span><span class="w">
+            </span><span class="err">&lt;registered_on&gt;</span><span class="mi">2012-09-11</span><span class="w"> </span><span class="mi">11</span><span class="err">:</span><span class="mi">11</span><span class="err">:</span><span class="mi">11</span><span class="err">&lt;/registered_on&gt;</span><span class="w">
+            </span><span class="err">&lt;updated_on&gt;</span><span class="mi">2019-12-09</span><span class="w"> </span><span class="mi">11</span><span class="err">:</span><span class="mi">19</span><span class="err">:</span><span class="mi">23</span><span class="err">&lt;/updated_on&gt;</span><span class="w">
+            </span><span class="err">&lt;type&gt;LOYALTY&lt;/type&gt;</span><span class="w">
+            </span><span class="err">&lt;custom_fields&gt;&lt;/custom_fields&gt;</span><span class="w">
+            </span><span class="err">&lt;extended_fields&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;gender&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;Male&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;city&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;Bangalore&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;dob&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;</span><span class="mi">1998-12-01</span><span class="err">&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+            </span><span class="err">&lt;/extended_fields&gt;</span><span class="w">
+            </span><span class="err">&lt;subscriptions&gt;&lt;/subscriptions&gt;</span><span class="w">
+            </span><span class="err">&lt;side_effects&gt;&lt;/side_effects&gt;</span><span class="w">
+            </span><span class="err">&lt;item_status&gt;</span><span class="w">
+                </span><span class="err">&lt;success&gt;</span><span class="kc">true</span><span class="err">&lt;/success&gt;</span><span class="w">
+                </span><span class="err">&lt;code&gt;</span><span class="mi">1000</span><span class="err">&lt;/code&gt;</span><span class="w">
+                </span><span class="err">&lt;message&gt;Customer</span><span class="w"> </span><span class="err">registration</span><span class="w"> </span><span class="err">successful&lt;/message&gt;</span><span class="w">
+                </span><span class="err">&lt;warnings&gt;</span><span class="w">
+                    </span><span class="err">&lt;warning&gt;</span><span class="mi">1017</span><span class="err">&lt;/warning&gt;</span><span class="w">
+                </span><span class="err">&lt;/warnings&gt;</span><span class="w">
+            </span><span class="err">&lt;/item_status&gt;</span><span class="w">
+        </span><span class="err">&lt;/customer&gt;</span><span class="w">
+        </span><span class="err">&lt;customer&gt;</span><span class="w">
+            </span><span class="err">&lt;user_id&gt;</span><span class="mi">343445382</span><span class="err">&lt;/user_id&gt;</span><span class="w">
+            </span><span class="err">&lt;firstname&gt;Rita&lt;/firstname&gt;</span><span class="w">
+            </span><span class="err">&lt;lastname&gt;John&lt;/lastname&gt;</span><span class="w">
+            </span><span class="err">&lt;mobile&gt;</span><span class="mi">44700900011</span><span class="err">&lt;/mobile&gt;</span><span class="w">
+            </span><span class="err">&lt;email&gt;rita.john@example.com&lt;/email&gt;</span><span class="w">
+            </span><span class="err">&lt;external_id&gt;XYPZ</span><span class="mi">006</span><span class="err">&lt;/external_id&gt;</span><span class="w">
+            </span><span class="err">&lt;lifetime_points&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetime_points&gt;</span><span class="w">
+            </span><span class="err">&lt;loyalty_points&gt;</span><span class="mi">0</span><span class="err">&lt;/loyalty_points&gt;</span><span class="w">
+            </span><span class="err">&lt;current_slab&gt;bronze&lt;/current_slab&gt;</span><span class="w">
+            </span><span class="err">&lt;tier_expiry_date&gt;</span><span class="mi">2112-09-11</span><span class="w"> </span><span class="mi">23</span><span class="err">:</span><span class="mi">59</span><span class="err">:</span><span class="mi">59</span><span class="err">&lt;/tier_expiry_date&gt;</span><span class="w">
+            </span><span class="err">&lt;points_summaries&gt;</span><span class="w">
+                </span><span class="err">&lt;points_summary&gt;</span><span class="w">
+                    </span><span class="err">&lt;programId&gt;</span><span class="mi">1016</span><span class="err">&lt;/programId&gt;</span><span class="w">
+                    </span><span class="err">&lt;redeemed&gt;</span><span class="mi">0</span><span class="err">&lt;/redeemed&gt;</span><span class="w">
+                    </span><span class="err">&lt;expired&gt;</span><span class="mi">0</span><span class="err">&lt;/expired&gt;</span><span class="w">
+                    </span><span class="err">&lt;returned&gt;</span><span class="mi">0</span><span class="err">&lt;/returned&gt;</span><span class="w">
+                    </span><span class="err">&lt;adjusted&gt;</span><span class="mi">0</span><span class="err">&lt;/adjusted&gt;</span><span class="w">
+                    </span><span class="err">&lt;lifetimePoints&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetimePoints&gt;</span><span class="w">
+                    </span><span class="err">&lt;loyaltyPoints&gt;</span><span class="mi">0</span><span class="err">&lt;/loyaltyPoints&gt;</span><span class="w">
+                    </span><span class="err">&lt;cumulativePurchases&gt;</span><span class="mi">0</span><span class="err">&lt;/cumulativePurchases&gt;</span><span class="w">
+                    </span><span class="err">&lt;currentSlab&gt;bronze&lt;/currentSlab&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlab&gt;silver&lt;/nextSlab&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlabSerialNumber&gt;</span><span class="mi">2</span><span class="err">&lt;/nextSlabSerialNumber&gt;</span><span class="w">
+                    </span><span class="err">&lt;nextSlabDescription&gt;silver&lt;/nextSlabDescription&gt;</span><span class="w">
+                    </span><span class="err">&lt;slabSNo&gt;</span><span class="mi">1</span><span class="err">&lt;/slabSNo&gt;</span><span class="w">
+                    </span><span class="err">&lt;slabExpiryDate&gt;</span><span class="mi">2112-09-11</span><span class="w"> </span><span class="mi">23</span><span class="err">:</span><span class="mi">59</span><span class="err">:</span><span class="mi">59</span><span class="err">&lt;/slabExpiryDate&gt;</span><span class="w">
+                    </span><span class="err">&lt;totalPoints&gt;&lt;/totalPoints&gt;</span><span class="w">
+                </span><span class="err">&lt;/points_summary&gt;</span><span class="w">
+            </span><span class="err">&lt;/points_summaries&gt;</span><span class="w">
+            </span><span class="err">&lt;lifetime_purchases&gt;</span><span class="mi">0</span><span class="err">&lt;/lifetime_purchases&gt;</span><span class="w">
+            </span><span class="err">&lt;registered_on&gt;</span><span class="mi">2012-09-11</span><span class="w"> </span><span class="mi">11</span><span class="err">:</span><span class="mi">11</span><span class="err">:</span><span class="mi">15</span><span class="err">&lt;/registered_on&gt;</span><span class="w">
+            </span><span class="err">&lt;updated_on&gt;</span><span class="mi">2019-12-09</span><span class="w"> </span><span class="mi">11</span><span class="err">:</span><span class="mi">19</span><span class="err">:</span><span class="mi">23</span><span class="err">&lt;/updated_on&gt;</span><span class="w">
+            </span><span class="err">&lt;type&gt;LOYALTY&lt;/type&gt;</span><span class="w">
+            </span><span class="err">&lt;source&gt;instore&lt;/source&gt;</span><span class="w">
+            </span><span class="err">&lt;fraud_status&gt;NONE&lt;/fraud_status&gt;</span><span class="w">
+            </span><span class="err">&lt;custom_fields&gt;&lt;/custom_fields&gt;</span><span class="w">
+            </span><span class="err">&lt;extended_fields&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;gender&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;Female&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;city&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;Bangalore&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+                </span><span class="err">&lt;field&gt;</span><span class="w">
+                    </span><span class="err">&lt;name&gt;dob&lt;/name&gt;</span><span class="w">
+                    </span><span class="err">&lt;value&gt;</span><span class="mi">1998-09-01</span><span class="err">&lt;/value&gt;</span><span class="w">
+                </span><span class="err">&lt;/field&gt;</span><span class="w">
+            </span><span class="err">&lt;/extended_fields&gt;</span><span class="w">
+            </span><span class="err">&lt;subscriptions&gt;</span><span class="w">
+                </span><span class="err">&lt;subscription&gt;</span><span class="w">
+                    </span><span class="err">&lt;channel&gt;SMS&lt;/channel&gt;</span><span class="w">
+                    </span><span class="err">&lt;priority&gt;TRANS&lt;/priority&gt;</span><span class="w">
+                    </span><span class="err">&lt;scope&gt;ALL&lt;/scope&gt;</span><span class="w">
+                    </span><span class="err">&lt;status&gt;</span><span class="mi">0</span><span class="err">&lt;/status&gt;</span><span class="w">
+                </span><span class="err">&lt;/subscription&gt;</span><span class="w">
+                </span><span class="err">&lt;subscription&gt;</span><span class="w">
+                    </span><span class="err">&lt;channel&gt;EMAIL&lt;/channel&gt;</span><span class="w">
+                    </span><span class="err">&lt;priority&gt;BULK&lt;/priority&gt;</span><span class="w">
+                    </span><span class="err">&lt;scope&gt;ALL&lt;/scope&gt;</span><span class="w">
+                    </span><span class="err">&lt;status&gt;</span><span class="mi">0</span><span class="err">&lt;/status&gt;</span><span class="w">
+                </span><span class="err">&lt;/subscription&gt;</span><span class="w">
+                </span><span class="err">&lt;subscription&gt;</span><span class="w">
+                    </span><span class="err">&lt;channel&gt;SMS&lt;/channel&gt;</span><span class="w">
+                    </span><span class="err">&lt;priority&gt;BULK&lt;/priority&gt;</span><span class="w">
+                    </span><span class="err">&lt;scope&gt;ALL&lt;/scope&gt;</span><span class="w">
+                    </span><span class="err">&lt;status&gt;</span><span class="mi">0</span><span class="err">&lt;/status&gt;</span><span class="w">
+                </span><span class="err">&lt;/subscription&gt;</span><span class="w">
+                </span><span class="err">&lt;subscription&gt;</span><span class="w">
+                    </span><span class="err">&lt;channel&gt;EMAIL&lt;/channel&gt;</span><span class="w">
+                    </span><span class="err">&lt;priority&gt;TRANS&lt;/priority&gt;</span><span class="w">
+                    </span><span class="err">&lt;scope&gt;ALL&lt;/scope&gt;</span><span class="w">
+                    </span><span class="err">&lt;status&gt;</span><span class="mi">0</span><span class="err">&lt;/status&gt;</span><span class="w">
+                </span><span class="err">&lt;/subscription&gt;</span><span class="w">
+            </span><span class="err">&lt;/subscriptions&gt;</span><span class="w">
+            </span><span class="err">&lt;side_effects&gt;&lt;/side_effects&gt;</span><span class="w">
+            </span><span class="err">&lt;item_status&gt;</span><span class="w">
+                </span><span class="err">&lt;success&gt;</span><span class="kc">true</span><span class="err">&lt;/success&gt;</span><span class="w">
+                </span><span class="err">&lt;code&gt;</span><span class="mi">1000</span><span class="err">&lt;/code&gt;</span><span class="w">
+                </span><span class="err">&lt;message&gt;Customer</span><span class="w"> </span><span class="err">registration</span><span class="w"> </span><span class="err">successful&lt;/message&gt;</span><span class="w">
+                </span><span class="err">&lt;warnings&gt;</span><span class="w">
+                    </span><span class="err">&lt;warning&gt;</span><span class="mi">1017</span><span class="err">&lt;/warning&gt;</span><span class="w">
+                </span><span class="err">&lt;/warnings&gt;</span><span class="w">
+            </span><span class="err">&lt;/item_status&gt;</span><span class="w">
+        </span><span class="err">&lt;/customer&gt;</span><span class="w">
+    </span><span class="err">&lt;/customers&gt;</span><span class="w">
+</span><span class="err">&lt;/response&gt;</span><span class="w">
+
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;response&gt;</span>
@@ -12727,7 +12681,7 @@ Points cannot be issued through APIs. It can be issued only through modules such
 </thead><tbody>
 <tr>
 <td>URI</td>
-<td><code class="prettyprint">points/isredeemable/{request_params}</code></td>
+<td><code class="prettyprint">points/isredeemable?{query_params}</code></td>
 </tr>
 <tr>
 <td>Rate Limited?</td>
@@ -12765,14 +12719,9 @@ Points cannot be issued through APIs. It can be issued only through modules such
 </tr>
 </thead><tbody>
 <tr>
-<td>identifier_name*</td>
+<td>mobile/email/external_id/card_number/card_external_id*</td>
 <td>enum</td>
-<td>Pass any of the registered identifier type. Value: <code class="prettyprint">email</code>, <code class="prettyprint">mobile</code>, <code class="prettyprint">card_number</code>.</td>
-</tr>
-<tr>
-<td>value</td>
-<td>string</td>
-<td>Pass the respective identifier value of the customer to issue validation code.</td>
+<td>Pass any of the registered identifier type.</td>
 </tr>
 <tr>
 <td>program_id</td>
@@ -12833,6 +12782,11 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>use_default_user_group2**</td>
 <td>boolean</td>
 <td>Pass <code class="prettyprint">true</code> to associate the default group with the points to redeem.</td>
+</tr>
+<tr>
+<td>currency_input</td>
+<td>boolean</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -13581,6 +13535,10 @@ You need to use the validation code within the validity period. You can check th
 <tr>
 <td>904</td>
 <td>Invalid customer details passed.</td>
+</tr>
+<tr>
+<td>3045</td>
+<td>Points Redemption is not allowed for the customer with id {x} as the status is fraud.</td>
 </tr>
 </tbody></table>
 
@@ -15577,6 +15535,27 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
 
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
@@ -15615,16 +15594,6 @@ The param `client_auto_approve` overrides all the server side configurations men
 <td>new_value</td>
 <td>string</td>
 <td>The new value of the customer identifier.</td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
-</tr>
-<tr>
-<td>is_one_step_change</td>
-<td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
 </tr>
 </tbody></table>
 
@@ -15866,6 +15835,27 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
 
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
@@ -15904,16 +15894,6 @@ The param `client_auto_approve` overrides all the server side configurations men
 <td>base_type</td>
 <td>enum</td>
 <td>Sub-type of the request. Value: <code class="prettyprint">MOBILE_REALLOC</code>.</td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, we strictly recommended not to use in normal cases</td>
-</tr>
-<tr>
-<td>is_one_step_change</td>
-<td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
 </tr>
 </tbody></table>
 
@@ -16149,6 +16129,27 @@ The param `client_auto_approve` overrides the server side configuration, mention
 
 <p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
 
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step account merge.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
@@ -16182,11 +16183,6 @@ The param `client_auto_approve` overrides the server side configuration, mention
 <td>base_type</td>
 <td>enum</td>
 <td>Sub-type of the request. Value: <code class="prettyprint">MERGE</code></td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
 </tr>
 </tbody></table>
 
@@ -16435,7 +16431,12 @@ The param `client_auto_approve` overrides all the server side configurations men
 <tr>
 <td>client_auto_approve</td>
 <td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> to auto-approve requests.</td>
+<td>If the value is <code class="prettyprint">true</code>, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
 </tr>
 <tr>
 <td>program_id</td>
@@ -16497,16 +16498,6 @@ The param `client_auto_approve` overrides all the server side configurations men
 <td>points</td>
 <td>int</td>
 <td>Number of points to issue. Applicable only for <code class="prettyprint">base_type</code> as <code class="prettyprint">POINTS</code>.</td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>If the value is true, the request is approved directly. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.</td>
-</tr>
-<tr>
-<td>is_one_step_change</td>
-<td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
 </tr>
 </tbody></table>
 
@@ -16721,6 +16712,27 @@ The param `client_auto_approve` overrides all the server side configurations men
 
 <p><code class="prettyprint">http://{host}/v1.1/request/add&amp;format={xml/json}</code></p>
 
+<h3 id="request-query-parameters">Request Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_auto_approve</td>
+<td>boolean</td>
+<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases.</td>
+</tr>
+<tr>
+<td>is_one_step_change</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> for directly tagging a not-interested transaction to a customer without validation.</td>
+</tr>
+</tbody></table>
+
 <h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
@@ -16769,16 +16781,6 @@ The param `client_auto_approve` overrides all the server side configurations men
 <td>comments</td>
 <td>string</td>
 <td>Small description on why goodwill points/coupons issued</td>
-</tr>
-<tr>
-<td>client_auto_approve</td>
-<td>boolean</td>
-<td>If the value is true, approves request directly when the request is submitted. This even overrides the back-end configurations set on Member Care. Hence, highly recommended not to use in normal cases</td>
-</tr>
-<tr>
-<td>is_one_step_change</td>
-<td>boolean</td>
-<td>Pass <code class="prettyprint">true</code> for one step identifier change.</td>
 </tr>
 <tr>
 <td>transaction_id</td>
@@ -23454,51 +23456,44 @@ false
 <blockquote>
 <p>Sample POST Request</p>
 </blockquote>
-<pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;root&gt;</span>
-      <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;element&gt;</span>
-            <span class="nt">&lt;attributes&gt;</span>
-               <span class="nt">&lt;attribute&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>style<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>M<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;element&gt;</span>
-                     <span class="nt">&lt;name&gt;</span>sampleName<span class="nt">&lt;/name&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>samplevalue<span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;/attribute&gt;</span>
-            <span class="nt">&lt;/attributes&gt;</span>
-            <span class="nt">&lt;brand&gt;</span>
-               <span class="nt">&lt;name&gt;</span>Lee<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/brand&gt;</span>
-            <span class="nt">&lt;category&gt;</span>
-               <span class="nt">&lt;name&gt;</span>HANDBAG(S)<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/category&gt;</span>
-            <span class="nt">&lt;color&gt;</span>
-               <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/color&gt;</span>
-            <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
-            <span class="nt">&lt;ean</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img.jpg<span class="nt">&lt;/img_url&gt;</span>
+    <span class="nt">&lt;product&gt;</span>
+        <span class="nt">&lt;sku&gt;</span>SKU80<span class="nt">&lt;/sku&gt;</span>
+        <span class="nt">&lt;ean&gt;&lt;/ean&gt;</span>
+        <span class="nt">&lt;price&gt;</span>7000<span class="nt">&lt;/price&gt;</span>
+        <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;returnable&gt;</span>true<span class="nt">&lt;/returnable&gt;</span>
+        <span class="nt">&lt;returnable_days&gt;</span>10<span class="nt">&lt;/returnable_days&gt;</span>
             <span class="nt">&lt;long_description&gt;</span>Sample description<span class="nt">&lt;/long_description&gt;</span>
-            <span class="nt">&lt;price&gt;</span>7000<span class="nt">&lt;/price&gt;</span>
+            <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img.jpg<span class="nt">&lt;/img_url&gt;</span>
             <span class="nt">&lt;size&gt;</span>
-               <span class="nt">&lt;name&gt;</span>Jeans Shirt<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Jeans Shirt<span class="nt">&lt;/name&gt;</span>
             <span class="nt">&lt;/size&gt;</span>
-            <span class="nt">&lt;sku&gt;</span>SKU80<span class="nt">&lt;/sku&gt;</span>
             <span class="nt">&lt;style&gt;</span>
-               <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;name&gt;&lt;/name&gt;</span>
             <span class="nt">&lt;/style&gt;</span>
-         <span class="nt">&lt;/element&gt;</span>
-      <span class="nt">&lt;/product&gt;</span>
-   <span class="nt">&lt;/root&gt;</span>
+            <span class="nt">&lt;brand&gt;</span>
+                <span class="nt">&lt;name&gt;</span>Lee<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;/brand&gt;</span>
+            <span class="nt">&lt;color&gt;</span>
+                <span class="nt">&lt;name&gt;&lt;/name&gt;</span>
+            <span class="nt">&lt;/color&gt;</span>
+            <span class="nt">&lt;category&gt;</span>
+                <span class="nt">&lt;name&gt;</span>HANDBAG(S)<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;/category&gt;</span>
+            <span class="nt">&lt;attributes&gt;</span>
+                <span class="nt">&lt;attribute&gt;</span>
+                    <span class="nt">&lt;name&gt;</span>style<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>M<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/attribute&gt;</span>
+                <span class="nt">&lt;attribute&gt;</span>
+                    <span class="nt">&lt;name&gt;</span>sampleName<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;value&gt;</span>samplevalue<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;/attributes&gt;</span>
+        <span class="nt">&lt;/product&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"root"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -23506,11 +23501,19 @@ false
       </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adding sample product"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"returnable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"returnable_days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
       </span><span class="nt">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nightly.capillary.in/productManagement/Colors/img.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeans Shirt"</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeans Shirt"</span><span class="w"> 
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> 
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> 
+      </span><span class="s2">"Lee"</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HANDBAG(S)"</span><span class="w"> </span><span class="p">},</span><span class="w">
       </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -23533,60 +23536,80 @@ false
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;response&gt;</span>
-      <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;element&gt;</span>
-            <span class="nt">&lt;added_on&gt;</span>2019-12-18 15:48:48<span class="nt">&lt;/added_on&gt;</span>
-            <span class="nt">&lt;attributes</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;brand&gt;</span>
-               <span class="nt">&lt;description&gt;</span>Lee brand<span class="nt">&lt;/description&gt;</span>
-               <span class="nt">&lt;label&gt;</span>Lee<span class="nt">&lt;/label&gt;</span>
-               <span class="nt">&lt;name&gt;</span>Lee<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/brand&gt;</span>
-            <span class="nt">&lt;category&gt;</span>
-               <span class="nt">&lt;description</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;label&gt;</span>HANDBAG(S)<span class="nt">&lt;/label&gt;</span>
-               <span class="nt">&lt;name&gt;</span>HANDBAG(S)<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/category&gt;</span>
-            <span class="nt">&lt;color&gt;</span>
-               <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;pallette</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/color&gt;</span>
-            <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
-            <span class="nt">&lt;ean&gt;</span>SKU80<span class="nt">&lt;/ean&gt;</span>
-            <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img.jpg<span class="nt">&lt;/img_url&gt;</span>
-            <span class="nt">&lt;in_stock&gt;</span>false<span class="nt">&lt;/in_stock&gt;</span>
-            <span class="nt">&lt;item_id&gt;</span>27364313<span class="nt">&lt;/item_id&gt;</span>
-            <span class="nt">&lt;item_status&gt;</span>
-               <span class="nt">&lt;code&gt;</span>9100<span class="nt">&lt;/code&gt;</span>
-               <span class="nt">&lt;message&gt;</span>Product added successfully<span class="nt">&lt;/message&gt;</span>
-               <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-            <span class="nt">&lt;/item_status&gt;</span>
-            <span class="nt">&lt;long_description&gt;</span>Sample description<span class="nt">&lt;/long_description&gt;</span>
-            <span class="nt">&lt;price&gt;</span>7000<span class="nt">&lt;/price&gt;</span>
-            <span class="nt">&lt;size&gt;</span>
-               <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;name</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;type</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/size&gt;</span>
-            <span class="nt">&lt;sku&gt;</span>SKU80<span class="nt">&lt;/sku&gt;</span>
-            <span class="nt">&lt;style&gt;</span>
-               <span class="nt">&lt;label&gt;</span>ATTIRE Y G<span class="nt">&lt;/label&gt;</span>
-               <span class="nt">&lt;name&gt;</span>ATTIRE Y G<span class="nt">&lt;/name&gt;</span>
-            <span class="nt">&lt;/style&gt;</span>
-         <span class="nt">&lt;/element&gt;</span>
-      <span class="nt">&lt;/product&gt;</span>
-      <span class="nt">&lt;status&gt;</span>
-         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;/response&gt;</span>
-<span class="nt">&lt;/root&gt;</span>
-
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
+<span class="nt">&lt;response&gt;</span>
+    <span class="nt">&lt;status&gt;</span>
+        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+    <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;product&gt;</span>
+        <span class="nt">&lt;item_id&gt;</span>27809952<span class="nt">&lt;/item_id&gt;</span>
+        <span class="nt">&lt;sku&gt;</span>SKU80<span class="nt">&lt;/sku&gt;</span>
+        <span class="nt">&lt;ean&gt;</span>SKU80<span class="nt">&lt;/ean&gt;</span>
+        <span class="nt">&lt;price&gt;</span>7000<span class="nt">&lt;/price&gt;</span>
+        <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img.jpg<span class="nt">&lt;/img_url&gt;</span>
+        <span class="nt">&lt;in_stock&gt;</span>false<span class="nt">&lt;/in_stock&gt;</span>
+        <span class="nt">&lt;description&gt;</span>adding sample product<span class="nt">&lt;/description&gt;</span>
+        <span class="nt">&lt;returnable&gt;</span>true<span class="nt">&lt;/returnable&gt;</span>
+        <span class="nt">&lt;returnable_days&gt;</span>10<span class="nt">&lt;/returnable_days&gt;</span>
+        <span class="nt">&lt;long_description&gt;</span>Sample description<span class="nt">&lt;/long_description&gt;</span>
+        <span class="nt">&lt;size&gt;</span>
+            <span class="nt">&lt;name/&gt;</span>
+        <span class="nt">&lt;/size&gt;</span>
+        <span class="nt">&lt;style&gt;</span>
+            <span class="nt">&lt;name/&gt;</span>
+        <span class="nt">&lt;/style&gt;</span>
+        <span class="nt">&lt;brand&gt;</span>
+            <span class="nt">&lt;name/&gt;</span>
+        <span class="nt">&lt;/brand&gt;</span>
+        <span class="nt">&lt;color&gt;</span>
+            <span class="nt">&lt;name/&gt;</span>
+        <span class="nt">&lt;/color&gt;</span>
+        <span class="nt">&lt;category&gt;</span>
+            <span class="nt">&lt;name/&gt;</span>
+        <span class="nt">&lt;/category&gt;</span>
+        <span class="nt">&lt;attributes&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>ERAVERSARY_0821_DOUBLE_COUPON<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-01<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>72970-01<span class="nt">&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-02<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-03<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-04<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-05<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-06<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;attribute&gt;</span>
+                <span class="nt">&lt;name&gt;</span>72970-07<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+            <span class="nt">&lt;/attribute&gt;</span>
+        <span class="nt">&lt;/attributes&gt;</span>
+        <span class="nt">&lt;item_status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>9100<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Product added successfully<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/item_status&gt;</span>
+    <span class="nt">&lt;/product&gt;</span>
+<span class="nt">&lt;/response&gt;</span>
 
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"response"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -23597,39 +23620,67 @@ false
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27364313"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27809952"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU80"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"ean"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SKU80"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7000"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"img_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nightly.capillary.in/productManagement/Colors/img.jpg"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adding sample product"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"returnable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"returnable_days"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample description"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nt">"style"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATTIRE Y G"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATTIRE Y G"</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lee brand"</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nt">"color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"pallette"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HANDBAG(S)"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HANDBAG(S)"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
                 </span><span class="p">},</span><span class="w">
-                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"added_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-18 15:48:48"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"attribute"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ERAVERSARY_0821_DOUBLE_COUPON"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-01"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-01"</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-02"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-03"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-04"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-05"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-06"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72970-07"</span><span class="p">,</span><span class="w">
+                            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
                 </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
                     </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9100</span><span class="p">,</span><span class="w">
@@ -23700,6 +23751,16 @@ false
 <td>description</td>
 <td>string</td>
 <td>Brief description of the product.</td>
+</tr>
+<tr>
+<td>returnable</td>
+<td>boolean</td>
+<td>Pass <code class="prettyprint">true</code> if the item is allowed to return post purchase. You also need to mention <code class="prettyprint">returnableDays</code>. Default value is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td>returnableDays</td>
+<td>int</td>
+<td>Number of days in which the item can be returned after purchasing. Default value is <code class="prettyprint">-1</code> (no limit).</td>
 </tr>
 <tr>
 <td>long_description</td>
@@ -23825,9 +23886,7 @@ false
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;root&gt;</span>
       <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;element&gt;</span>
             <span class="nt">&lt;attributes&gt;</span>
                <span class="nt">&lt;attribute&gt;</span>
                   <span class="nt">&lt;default_attribute_value_name&gt;</span>firstName_7248723<span class="nt">&lt;/default_attribute_value_name&gt;</span>
@@ -23845,9 +23904,7 @@ false
                   <span class="nt">&lt;/values&gt;</span>
                <span class="nt">&lt;/attribute&gt;</span>
             <span class="nt">&lt;/attributes&gt;</span>
-         <span class="nt">&lt;/element&gt;</span>
       <span class="nt">&lt;/product&gt;</span>
-   <span class="nt">&lt;/root&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <blockquote>
@@ -23866,7 +23923,7 @@ false
             </span><span class="nt">"is_soft_enum"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"item_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9180</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute addition successfull"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Attribute addition successful"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -23892,45 +23949,41 @@ false
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+</span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;response&gt;</span>
-      <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;attributes&gt;</span>
-            <span class="nt">&lt;attribute&gt;</span>
-               <span class="nt">&lt;element&gt;</span>
-                  <span class="nt">&lt;default_attribute_value_name</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-                  <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_1218117<span class="nt">&lt;/extraction_rule_data&gt;</span>
-                  <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
-                  <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
-                  <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
-                  <span class="nt">&lt;item_status&gt;</span>
-                     <span class="nt">&lt;code&gt;</span>9180<span class="nt">&lt;/code&gt;</span>
-                     <span class="nt">&lt;message&gt;</span>Attribute addition successfull<span class="nt">&lt;/message&gt;</span>
-                     <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-                  <span class="nt">&lt;/item_status&gt;</span>
-                  <span class="nt">&lt;label</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-                  <span class="nt">&lt;name&gt;</span>firstName_1218117<span class="nt">&lt;/name&gt;</span>
-                  <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
-                  <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
-                  <span class="nt">&lt;values&gt;</span>
-                     <span class="nt">&lt;value&gt;</span>
-                        <span class="nt">&lt;element&gt;</span>
-                           <span class="nt">&lt;label&gt;</span>lastName_1218117<span class="nt">&lt;/label&gt;</span>
-                           <span class="nt">&lt;name&gt;</span>lastName_1218117<span class="nt">&lt;/name&gt;</span>
-                        <span class="nt">&lt;/element&gt;</span>
-                     <span class="nt">&lt;/value&gt;</span>
-                  <span class="nt">&lt;/values&gt;</span>
-               <span class="nt">&lt;/element&gt;</span>
-            <span class="nt">&lt;/attribute&gt;</span>
-         <span class="nt">&lt;/attributes&gt;</span>
-      <span class="nt">&lt;/product&gt;</span>
-      <span class="nt">&lt;status&gt;</span>
-         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;/response&gt;</span>
+    <span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;product&gt;</span>
+            <span class="nt">&lt;attributes&gt;</span>
+                <span class="nt">&lt;attribute&gt;</span>
+                    <span class="nt">&lt;default_attribute_value_name</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;extraction_rule_data&gt;</span>firstName_1218117<span class="nt">&lt;/extraction_rule_data&gt;</span>
+                    <span class="nt">&lt;extraction_rule_type&gt;</span>POS<span class="nt">&lt;/extraction_rule_type&gt;</span>
+                    <span class="nt">&lt;is_enum&gt;</span>1<span class="nt">&lt;/is_enum&gt;</span>
+                    <span class="nt">&lt;is_soft_enum&gt;</span>1<span class="nt">&lt;/is_soft_enum&gt;</span>
+                    <span class="nt">&lt;item_status&gt;</span>
+                        <span class="nt">&lt;code&gt;</span>9180<span class="nt">&lt;/code&gt;</span>
+                        <span class="nt">&lt;message&gt;</span>Attribute addition successful<span class="nt">&lt;/message&gt;</span>
+                        <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+                    <span class="nt">&lt;/item_status&gt;</span>
+                    <span class="nt">&lt;label</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;name&gt;</span>firstName_1218117<span class="nt">&lt;/name&gt;</span>
+                    <span class="nt">&lt;type&gt;</span>Int<span class="nt">&lt;/type&gt;</span>
+                    <span class="nt">&lt;use_in_dump&gt;</span>1<span class="nt">&lt;/use_in_dump&gt;</span>
+                    <span class="nt">&lt;values&gt;</span>
+                        <span class="nt">&lt;value&gt;</span>
+                            <span class="nt">&lt;label&gt;</span>lastName_1218117<span class="nt">&lt;/label&gt;</span>
+                            <span class="nt">&lt;name&gt;</span>lastName_1218117<span class="nt">&lt;/name&gt;</span>
+                        <span class="nt">&lt;/value&gt;</span>
+                    <span class="nt">&lt;/values&gt;</span>
+                <span class="nt">&lt;/attribute&gt;</span>
+            <span class="nt">&lt;/attributes&gt;</span>
+        <span class="nt">&lt;/product&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
 </code></pre>
 <h3 id="resource-information">Resource Information</h3>
@@ -23998,21 +24051,6 @@ false
 <td></td>
 </tr>
 <tr>
-<td>code</td>
-<td>long</td>
-<td></td>
-</tr>
-<tr>
-<td>message</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>success</td>
-<td>boolean</td>
-<td>true</td>
-</tr>
-<tr>
 <td>label</td>
 <td>string</td>
 <td>Label name for the attribute.</td>
@@ -24060,66 +24098,56 @@ false
 <p>Sample Response</p>
 </blockquote>
 <pre class="highlight xml"><code>
-
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;response&gt;</span>
-      <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;count&gt;</span>21<span class="nt">&lt;/count&gt;</span>
-         <span class="nt">&lt;results&gt;</span>
-            <span class="nt">&lt;item&gt;</span>
-               <span class="nt">&lt;element&gt;</span>
-                  <span class="nt">&lt;added_on&gt;</span>2017-06-20T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
-                  <span class="nt">&lt;attributes&gt;</span>
-                     <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                  <span class="nt">&lt;/attributes&gt;</span>
-                  <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-                  <span class="nt">&lt;ean&gt;</span>401234567892<span class="nt">&lt;/ean&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>26666454<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img3.jpg<span class="nt">&lt;/img_url&gt;</span>
-                  <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
-                  <span class="nt">&lt;price&gt;</span>1000<span class="nt">&lt;/price&gt;</span>
-                  <span class="nt">&lt;sku&gt;</span>item-001<span class="nt">&lt;/sku&gt;</span>
-               <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;element&gt;</span>
-                  <span class="nt">&lt;added_on&gt;</span>2017-08-18T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
-                  <span class="nt">&lt;attributes&gt;</span>
-                     <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                  <span class="nt">&lt;/attributes&gt;</span>
-                  <span class="nt">&lt;description&gt;</span>Van Heusen Black Dress - Color : Black, Size :L<span class="nt">&lt;/description&gt;</span>
-                  <span class="nt">&lt;ean&gt;</span>401234567891<span class="nt">&lt;/ean&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>26694137<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img2.jpg<span class="nt">&lt;/img_url&gt;</span>
-                  <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
-                  <span class="nt">&lt;price&gt;</span>200<span class="nt">&lt;/price&gt;</span>
-                  <span class="nt">&lt;sku&gt;</span>8907670343739<span class="nt">&lt;/sku&gt;</span>
-               <span class="nt">&lt;/element&gt;</span>
-               <span class="nt">&lt;element&gt;</span>
-                  <span class="nt">&lt;added_on&gt;</span>2019-07-08T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
-                  <span class="nt">&lt;attributes&gt;</span>
-                     <span class="nt">&lt;attribute</span> <span class="nt">/&gt;</span>
-                  <span class="nt">&lt;/attributes&gt;</span>
-                  <span class="nt">&lt;description&gt;</span>long<span class="nt">&lt;/description&gt;</span>
-                  <span class="nt">&lt;ean&gt;</span>401234567890<span class="nt">&lt;/ean&gt;</span>
-                  <span class="nt">&lt;id&gt;</span>27211795<span class="nt">&lt;/id&gt;</span>
-                  <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img1.jpg<span class="nt">&lt;/img_url&gt;</span>
-                  <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
-                  <span class="nt">&lt;price&gt;</span>100<span class="nt">&lt;/price&gt;</span>
-                  <span class="nt">&lt;sku&gt;</span>sl1<span class="nt">&lt;/sku&gt;</span>
-               <span class="nt">&lt;/element&gt;</span>
-            <span class="nt">&lt;/item&gt;</span>
-         <span class="nt">&lt;/results&gt;</span>
-         <span class="nt">&lt;rows&gt;</span>10<span class="nt">&lt;/rows&gt;</span>
-         <span class="nt">&lt;start&gt;</span>0<span class="nt">&lt;/start&gt;</span>
-      <span class="nt">&lt;/product&gt;</span>
-      <span class="nt">&lt;status&gt;</span>
-         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-         <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;/response&gt;</span>
+    <span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>SUCCESS<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;product&gt;</span>
+            <span class="nt">&lt;count&gt;</span>21<span class="nt">&lt;/count&gt;</span>
+            <span class="nt">&lt;start&gt;</span>0<span class="nt">&lt;/start&gt;</span>
+            <span class="nt">&lt;rows&gt;</span>10<span class="nt">&lt;/rows&gt;</span>
+            <span class="nt">&lt;results&gt;</span>
+                <span class="nt">&lt;item&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>26666454<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;price&gt;</span>1000<span class="nt">&lt;/price&gt;</span>
+                    <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
+                    <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                    <span class="nt">&lt;sku&gt;</span>item-001<span class="nt">&lt;/sku&gt;</span>
+                    <span class="nt">&lt;added_on&gt;</span>2017-06-20T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
+                    <span class="nt">&lt;attributes&gt;&lt;/attributes&gt;</span>
+                    <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img3.jpg<span class="nt">&lt;/img_url&gt;</span>
+                    <span class="nt">&lt;ean&gt;</span>401234567892<span class="nt">&lt;/ean&gt;</span>
+                <span class="nt">&lt;/item&gt;</span>
+                <span class="nt">&lt;item&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>26694137<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;price&gt;</span>200<span class="nt">&lt;/price&gt;</span>
+                    <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
+                    <span class="nt">&lt;description&gt;</span>Van Heusen Black Dress - Color : Black, Size :L<span class="nt">&lt;/description&gt;</span>
+                    <span class="nt">&lt;sku&gt;</span>8907670343739<span class="nt">&lt;/sku&gt;</span>
+                    <span class="nt">&lt;added_on&gt;</span>2017-08-18T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
+                    <span class="nt">&lt;attributes&gt;&lt;/attributes&gt;</span>
+                    <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img2.jpg<span class="nt">&lt;/img_url&gt;</span>
+                    <span class="nt">&lt;ean&gt;</span>401234567891<span class="nt">&lt;/ean&gt;</span>
+                <span class="nt">&lt;/item&gt;</span>
+                <span class="nt">&lt;item&gt;</span>
+                    <span class="nt">&lt;id&gt;</span>27211795<span class="nt">&lt;/id&gt;</span>
+                    <span class="nt">&lt;price&gt;</span>100<span class="nt">&lt;/price&gt;</span>
+                    <span class="nt">&lt;org_id&gt;</span>50074<span class="nt">&lt;/org_id&gt;</span>
+                    <span class="nt">&lt;description&gt;</span>long<span class="nt">&lt;/description&gt;</span>
+                    <span class="nt">&lt;sku&gt;</span>sl1<span class="nt">&lt;/sku&gt;</span>
+                    <span class="nt">&lt;added_on&gt;</span>2019-07-08T00:00:00Z<span class="nt">&lt;/added_on&gt;</span>
+                    <span class="nt">&lt;attributes&gt;&lt;/attributes&gt;</span>
+                    <span class="nt">&lt;img_url&gt;</span>https://nightly.capillary.in/productManagement/Colors/img1.jpg<span class="nt">&lt;/img_url&gt;</span>
+                    <span class="nt">&lt;ean&gt;</span>401234567890<span class="nt">&lt;/ean&gt;</span>
+                <span class="nt">&lt;/item&gt;</span>
+            <span class="nt">&lt;/results&gt;</span>
+        <span class="nt">&lt;/product&gt;</span>
+    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-
 
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
@@ -24311,77 +24339,71 @@ https://api.capillary.co.in/v1.1/product/get?sku=item-001,Pearls<span class="err
 <blockquote>
 <p>Sample Response</p>
 </blockquote>
-<pre class="highlight xml"><code>
-<span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
-   <span class="nt">&lt;response&gt;</span>
-      <span class="nt">&lt;product&gt;</span>
-         <span class="nt">&lt;item&gt;</span>
-            <span class="nt">&lt;element&gt;</span>
-               <span class="nt">&lt;added_on&gt;</span>2019-09-18 12:40:36<span class="nt">&lt;/added_on&gt;</span>
-               <span class="nt">&lt;attributes</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;brand</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;category</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;color</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;description&gt;</span>White<span class="nt">&lt;/description&gt;</span>
-               <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;in_stock&gt;</span>true<span class="nt">&lt;/in_stock&gt;</span>
-               <span class="nt">&lt;item_ean&gt;</span>Pearls<span class="nt">&lt;/item_ean&gt;</span>
-               <span class="nt">&lt;item_id&gt;</span>27286097<span class="nt">&lt;/item_id&gt;</span>
-               <span class="nt">&lt;item_status&gt;</span>
-                  <span class="nt">&lt;code&gt;</span>2100<span class="nt">&lt;/code&gt;</span>
-                  <span class="nt">&lt;message&gt;</span>Product retrieval successful<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>true<span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/item_status&gt;</span>
-               <span class="nt">&lt;long_description</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;price&gt;</span>200<span class="nt">&lt;/price&gt;</span>
-               <span class="nt">&lt;size</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;sku&gt;</span>Pearls<span class="nt">&lt;/sku&gt;</span>
-               <span class="nt">&lt;style</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/element&gt;</span>
-            <span class="nt">&lt;element&gt;</span>
-               <span class="nt">&lt;added_on&gt;</span>2017-06-20 22:05:35<span class="nt">&lt;/added_on&gt;</span>
-               <span class="nt">&lt;attributes&gt;</span>
-                  <span class="nt">&lt;attribute&gt;</span>
-                     <span class="nt">&lt;element&gt;</span>
+    <span class="nt">&lt;response&gt;</span>
+        <span class="nt">&lt;status&gt;</span>
+            <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
+            <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
+            <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
+        <span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;product&gt;</span>
+            <span class="nt">&lt;item&gt;</span>
+                <span class="nt">&lt;item_id&gt;</span>27286097<span class="nt">&lt;/item_id&gt;</span>
+                <span class="nt">&lt;sku&gt;</span>Pearls<span class="nt">&lt;/sku&gt;</span>
+                <span class="nt">&lt;item_ean&gt;</span>Pearls<span class="nt">&lt;/item_ean&gt;</span>
+                <span class="nt">&lt;price&gt;</span>200<span class="nt">&lt;/price&gt;</span>
+                <span class="nt">&lt;img_url&gt;&lt;/img_url&gt;</span>
+                <span class="nt">&lt;in_stock&gt;</span>true<span class="nt">&lt;/in_stock&gt;</span>
+                <span class="nt">&lt;description&gt;</span>White<span class="nt">&lt;/description&gt;</span>
+                <span class="nt">&lt;long_description&gt;</span> <span class="nt">&lt;/long_description&gt;</span>
+                <span class="nt">&lt;size&gt;</span> <span class="nt">&lt;/size&gt;</span>
+                <span class="nt">&lt;style&gt;&lt;/style&gt;</span>
+                <span class="nt">&lt;brand&gt;&lt;/brand&gt;</span>
+                <span class="nt">&lt;color&gt;&lt;/color&gt;</span>
+                <span class="nt">&lt;category&gt;&lt;/category&gt;</span>
+                <span class="nt">&lt;attributes&gt;&lt;/attributes&gt;</span>
+                <span class="nt">&lt;added_on&gt;</span>2019-09-18 12:40:36<span class="nt">&lt;/added_on&gt;</span>
+                <span class="nt">&lt;item_status&gt;</span>
+                    <span class="nt">&lt;status&gt;</span>true<span class="nt">&lt;/status&gt;</span>
+                    <span class="nt">&lt;code&gt;</span>2100<span class="nt">&lt;/code&gt;</span>
+                    <span class="nt">&lt;message&gt;</span>Product retrieval successful<span class="nt">&lt;/message&gt;</span>
+                <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;/item&gt;</span>
+            <span class="nt">&lt;item&gt;</span>
+                <span class="nt">&lt;item_id&gt;</span>26666454<span class="nt">&lt;/item_id&gt;</span>
+                <span class="nt">&lt;sku&gt;</span>item-001<span class="nt">&lt;/sku&gt;</span>
+                <span class="nt">&lt;item_ean&gt;</span>item-001<span class="nt">&lt;/item_ean&gt;</span>
+                <span class="nt">&lt;price&gt;</span>1000<span class="nt">&lt;/price&gt;</span>
+                <span class="nt">&lt;img_url&gt;&lt;/img_url&gt;</span>
+                <span class="nt">&lt;in_stock&gt;</span>true<span class="nt">&lt;/in_stock&gt;</span>
+                <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
+                <span class="nt">&lt;long_description</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;size</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;style</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;brand</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;color</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;attributes&gt;</span>
+                    <span class="nt">&lt;attribute&gt;</span>
                         <span class="nt">&lt;name&gt;</span>Color<span class="nt">&lt;/name&gt;</span>
                         <span class="nt">&lt;value&gt;</span>Black<span class="nt">&lt;/value&gt;</span>
-                     <span class="nt">&lt;/element&gt;</span>
-                     <span class="nt">&lt;element&gt;</span>
+                    <span class="nt">&lt;/attribute&gt;</span>
+                    <span class="nt">&lt;attribute&gt;</span>
                         <span class="nt">&lt;name&gt;</span>Size<span class="nt">&lt;/name&gt;</span>
                         <span class="nt">&lt;value&gt;</span>XXL<span class="nt">&lt;/value&gt;</span>
-                     <span class="nt">&lt;/element&gt;</span>
-                  <span class="nt">&lt;/attribute&gt;</span>
-               <span class="nt">&lt;/attributes&gt;</span>
-               <span class="nt">&lt;brand</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;category</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;color</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;description&gt;</span>soap<span class="nt">&lt;/description&gt;</span>
-               <span class="nt">&lt;img_url</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;in_stock&gt;</span>true<span class="nt">&lt;/in_stock&gt;</span>
-               <span class="nt">&lt;item_ean&gt;</span>item-001<span class="nt">&lt;/item_ean&gt;</span>
-               <span class="nt">&lt;item_id&gt;</span>26666454<span class="nt">&lt;/item_id&gt;</span>
-               <span class="nt">&lt;item_status&gt;</span>
-                  <span class="nt">&lt;code&gt;</span>2100<span class="nt">&lt;/code&gt;</span>
-                  <span class="nt">&lt;message&gt;</span>Product retrieval successful<span class="nt">&lt;/message&gt;</span>
-                  <span class="nt">&lt;status&gt;</span>true<span class="nt">&lt;/status&gt;</span>
-               <span class="nt">&lt;/item_status&gt;</span>
-               <span class="nt">&lt;long_description</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;price&gt;</span>1000<span class="nt">&lt;/price&gt;</span>
-               <span class="nt">&lt;size</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-               <span class="nt">&lt;sku&gt;</span>item-001<span class="nt">&lt;/sku&gt;</span>
-               <span class="nt">&lt;style</span> <span class="na">null=</span><span class="s">"true"</span> <span class="nt">/&gt;</span>
-            <span class="nt">&lt;/element&gt;</span>
-         <span class="nt">&lt;/item&gt;</span>
-      <span class="nt">&lt;/product&gt;</span>
-      <span class="nt">&lt;status&gt;</span>
-         <span class="nt">&lt;code&gt;</span>200<span class="nt">&lt;/code&gt;</span>
-         <span class="nt">&lt;message&gt;</span>Success<span class="nt">&lt;/message&gt;</span>
-         <span class="nt">&lt;success&gt;</span>true<span class="nt">&lt;/success&gt;</span>
-      <span class="nt">&lt;/status&gt;</span>
-   <span class="nt">&lt;/response&gt;</span>
+                    <span class="nt">&lt;/attribute&gt;</span>
+                <span class="nt">&lt;/attributes&gt;</span>
+                <span class="nt">&lt;added_on&gt;</span>2017-06-20 22:05:35<span class="nt">&lt;/added_on&gt;</span>
+                <span class="nt">&lt;item_status&gt;</span>
+                    <span class="nt">&lt;status&gt;</span>true<span class="nt">&lt;/status&gt;</span>
+                    <span class="nt">&lt;code&gt;</span>2100<span class="nt">&lt;/code&gt;</span>
+                    <span class="nt">&lt;message&gt;</span>Product retrieval successful<span class="nt">&lt;/message&gt;</span>
+                <span class="nt">&lt;/item_status&gt;</span>
+            <span class="nt">&lt;/item&gt;</span>
+        <span class="nt">&lt;/product&gt;</span>
+    <span class="nt">&lt;/response&gt;</span>
 <span class="nt">&lt;/root&gt;</span>
-
 </code></pre><pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="nt">"response"</span><span class="p">:{</span><span class="w">
       </span><span class="nt">"status"</span><span class="p">:{</span><span class="w">
@@ -24500,7 +24522,7 @@ https://api.capillary.co.in/v1.1/product/get?sku=item-001,Pearls<span class="err
 <tr>
 <td>id**</td>
 <td>long</td>
-<td>Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server</td>
+<td>Returns products based on the product id. This id is assigned by Capillary when each product is added to the Capillary server.</td>
 </tr>
 <tr>
 <td>include_hierarchy</td>
