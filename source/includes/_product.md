@@ -11,41 +11,87 @@ https://us.api.capillarytech.com/v1.1/product/add.json
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-	<product>
-		<sku>SKU80</sku>
-		<ean></ean>
-		<price>7000</price>
-		<description>adding sample product</description>
-		<returnable>true</returnable>
-		<returnable_days>10</returnable_days>
-			<long_description>Sample description</long_description>
-			<img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
-			<size>
-				<name>Jeans Shirt</name>
-			</size>
-			<style>
-				<name></name>
-			</style>
-			<brand>
-				<name>Lee</name>
-			</brand>
-			<color>
-				<name></name>
-			</color>
-			<category>
-				<name>HANDBAG(S)</name>
-			</category>
-			<attributes>
-				<attribute>
-					<name>style</name>
-					<value>M</value>
-				</attribute>
-				<attribute>
-					<name>sampleName</name>
-					<value>samplevalue</value>
-				</attribute>
-			</attributes>
-		</product>
+  <product>
+    <sku>SKU40</sku>
+    <ean></ean>
+    <price>7000</price>
+    <description>adding sample product</description>
+    <long_description>Sample description</long_description>
+    <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+    <size>
+      <name>Medium</name>
+    </size>
+    <style>
+      <name>slimFit</name>
+    </style>
+    <brand>
+      <name>Lee</name>
+    </brand>
+    <color>
+      <name>blue</name>
+    </color>
+    <category>
+      <name>HANDBAG(S)</name>
+    </category>
+    <attributes>
+      <attribute>
+        <name>weight</name>
+        <value>100g</value>
+      </attribute>
+      <attribute>
+        <name>sampleName</name>
+        <value>samplevalue</value>
+      </attribute>
+    </attributes>
+  </product>
+  <product>
+    <sku>Levis-015</sku>
+    <ean>Levis-015</ean>
+    <price>22</price>
+    <description/>
+    <img_url/>
+    <size>
+      <name>abcd</name>
+      <type>type1</type>
+    </size>
+    <text>&gt;</text>
+    <style>
+      <name>testcode</name>
+    </style>
+    <category>
+      <name>test1</name>
+    </category>
+    <attributes>
+      <attribute>
+        <name>Jeans</name>
+        <value>Levis13</value>
+      </attribute>
+    </attributes>
+  </product>
+  <product>
+    <sku>Levis-014</sku>
+    <ean>Levis-014</ean>
+    <price>22</price>
+    <description/>
+    <img_url/>
+    <size>
+      <name>abcd</name>
+      <type>type1</type>
+    </size>
+    <text>&gt;</text>
+    <style>
+      <name>testcode</name>
+    </style>
+    <category>
+      <name>test1</name>
+    </category>
+    <attributes>
+      <attribute>
+        <name>Jeans</name>
+        <value>Levis13</value>
+      </attribute>
+    </attributes>
+  </product>
 </root>
 ```
 
@@ -53,30 +99,22 @@ https://us.api.capillarytech.com/v1.1/product/add.json
 {
   "root": {
     "product": [{
-      "sku": "SKU80",
+      "sku": "SKU40",
       "ean": "",
       "price": "7000",
       "description": "adding sample product",
-	  "returnable": "true",
-      "returnable_days": 10,
       "long_description": "Sample description",
       "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
-      "size": { 
-	  "name": "Jeans Shirt" 
-	  },
-      "style": { 
-	  "name": "" 
-	  },
-      "brand": { 
-	  "name": 
-	  "Lee" },
-      "color": { "name": "" },
+      "size": { "name": "Medium" },
+      "style": { "name": "slimFit" },
+      "brand": { "name": "Lee" },
+      "color": { "name": "blue" },
       "category": { "name": "HANDBAG(S)" },
       "attributes": {
         "attribute": [
           {
-            "name": "style",
-            "value": "M"
+            "name": "weight",
+            "value": "100g"
           },
           {
             "name": "sampleName",
@@ -84,7 +122,56 @@ https://us.api.capillarytech.com/v1.1/product/add.json
           }
         ]
       }
-    }]
+    },
+   {
+      "sku": "Levis-015",
+      "ean": "Levis-015",
+      "price": "22",
+      "description": [],
+      "img_url": [],
+      "size": {
+         "name": "abcd",
+         "type": "type1"
+      },
+      "#text": ">",
+      "style": {
+         "name": "testcode"
+      },
+      "category": {
+         "name": "test1"
+      },
+      "attributes": {
+         "attribute": {
+            "name": "Jeans",
+            "value": "Levis13"
+         }
+      }
+   },
+   {
+      "sku": "Levis-014",
+      "ean": "Levis-014",
+      "price": "22",
+      "description": [],
+      "img_url": [],
+      "size": {
+         "name": "abcd",
+         "type": "type1"
+      },
+      "#text": ">",
+      "style": {
+         "name": "testcode"
+      },
+      "category": {
+         "name": "test1"
+      },
+      "attributes": {
+         "attribute": {
+            "name": "Jeans",
+            "value": "Levis13"
+         }
+      }
+   }
+    ]
   }
 }
 ```
@@ -92,80 +179,112 @@ https://us.api.capillarytech.com/v1.1/product/add.json
 > Sample Response
 
 ```xml
-
 <?xml version="1.0" encoding="UTF-8" ?>
 <response>
-	<status>
-		<success>true</success>
-		<code>200</code>
-		<message>Success</message>
-	</status>
-	<product>
-		<item_id>27809952</item_id>
-		<sku>SKU80</sku>
-		<ean>SKU80</ean>
-		<price>7000</price>
-		<img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
-		<in_stock>false</in_stock>
-		<description>adding sample product</description>
-		<returnable>true</returnable>
-		<returnable_days>10</returnable_days>
-		<long_description>Sample description</long_description>
-		<size>
-			<name/>
-		</size>
-		<style>
-			<name/>
-		</style>
-		<brand>
-			<name/>
-		</brand>
-		<color>
-			<name/>
-		</color>
-		<category>
-			<name/>
-		</category>
-		<attributes>
-			<attribute>
-				<name>ERAVERSARY_0821_DOUBLE_COUPON</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-01</name>
-				<value>72970-01</value>
-			</attribute>
-			<attribute>
-				<name>72970-02</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-03</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-04</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-05</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-06</name>
-				<value></value>
-			</attribute>
-			<attribute>
-				<name>72970-07</name>
-				<value></value>
-			</attribute>
-		</attributes>
-		<item_status>
-			<success>true</success>
-			<code>9100</code>
-			<message>Product added successfully</message>
-		</item_status>
-	</product>
+  <status>
+    <success>true</success>
+    <code>200</code>
+    <message>Success</message>
+  </status>
+  <product>
+    <item_id>28267591</item_id>
+    <sku>SKU40</sku>
+    <ean>SKU40</ean>
+    <price>7000</price>
+    <img_url>https://nightly.capillary.in/productManagement/Colors/img.jpg</img_url>
+    <in_stock>false</in_stock>
+    <description>adding sample product</description>
+    <returnable>true</returnable>
+    <returnable_days>-1</returnable_days>
+    <long_description>Sample description</long_description>
+    <size>
+      <name/>
+    </size>
+    <style>
+      <name/>
+    </style>
+    <brand>
+      <name/>
+    </brand>
+    <color>
+      <name/>
+    </color>
+    <category>
+      <name/>
+    </category>
+    <attributes/>
+    <item_status>
+      <success>true</success>
+      <code>9100</code>
+      <message>Product added successfully</message>
+    </item_status>
+  </product>
+  <product>
+    <item_id>28267592</item_id>
+    <sku>Levis-015</sku>
+    <ean>Levis-015</ean>
+    <price>22</price>
+    <img_url>[]</img_url>
+    <in_stock>false</in_stock>
+    <description>[]</description>
+    <returnable>true</returnable>
+    <returnable_days>-1</returnable_days>
+    <long_description></long_description>
+    <size>
+      <name/>
+    </size>
+    <style>
+      <name/>
+    </style>
+    <brand>
+      <name/>
+    </brand>
+    <color>
+      <name/>
+    </color>
+    <category>
+      <name/>
+    </category>
+    <attributes/>
+    <item_status>
+      <success>true</success>
+      <code>9100</code>
+      <message>Product added successfully</message>
+    </item_status>
+  </product>
+  <product>
+    <item_id>28267593</item_id>
+    <sku>Levis-014</sku>
+    <ean>Levis-014</ean>
+    <price>22</price>
+    <img_url>[]</img_url>
+    <in_stock>false</in_stock>
+    <description>[]</description>
+    <returnable>true</returnable>
+    <returnable_days>-1</returnable_days>
+    <long_description></long_description>
+    <size>
+      <name/>
+    </size>
+    <style>
+      <name/>
+    </style>
+    <brand>
+      <name/>
+    </brand>
+    <color>
+      <name/>
+    </color>
+    <category>
+      <name/>
+    </category>
+    <attributes/>
+    <item_status>
+      <success>true</success>
+      <code>9100</code>
+      <message>Product added successfully</message>
+    </item_status>
+  </product>
 </response>
 
 ```
@@ -180,9 +299,9 @@ https://us.api.capillarytech.com/v1.1/product/add.json
         },
         "product": [
             {
-                "item_id": "27809952",
-                "sku": "SKU80",
-                "ean": "SKU80",
+                "item_id": "28267591",
+                "sku": "SKU40",
+                "ean": "SKU40",
                 "price": "7000",
                 "img_url": "https://nightly.capillary.in/productManagement/Colors/img.jpg",
                 "in_stock": "false",
@@ -205,42 +324,73 @@ https://us.api.capillarytech.com/v1.1/product/add.json
                 "category": {
                     "name": null
                 },
-                "attributes": {
-                    "attribute": [
-                        {
-                            "name": "ERAVERSARY_0821_DOUBLE_COUPON",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-01",
-                            "value": "72970-01"
-                        },
-                        {
-                            "name": "72970-02",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-03",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-04",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-05",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-06",
-                            "value": ""
-                        },
-                        {
-                            "name": "72970-07",
-                            "value": ""
-                        }
-                    ]
+                "attributes": [],
+                "item_status": {
+                    "success": true,
+                    "code": 9100,
+                    "message": "Product added successfully"
+                }
+            },
+            {
+                "item_id": "28267592",
+                "sku": "Levis-015",
+                "ean": "Levis-015",
+                "price": "22",
+                "img_url": "[]",
+                "in_stock": "false",
+                "description": "[]",
+                "returnable": "true",
+                "returnable_days": -1,
+                "long_description": "",
+                "size": {
+                    "name": null
                 },
+                "style": {
+                    "name": null
+                },
+                "brand": {
+                    "name": null
+                },
+                "color": {
+                    "name": null
+                },
+                "category": {
+                    "name": null
+                },
+                "attributes": [],
+                "item_status": {
+                    "success": true,
+                    "code": 9100,
+                    "message": "Product added successfully"
+                }
+            },
+            {
+                "item_id": "28267593",
+                "sku": "Levis-014",
+                "ean": "Levis-014",
+                "price": "22",
+                "img_url": "[]",
+                "in_stock": "false",
+                "description": "[]",
+                "returnable": "true",
+                "returnable_days": -1,
+                "long_description": "",
+                "size": {
+                    "name": null
+                },
+                "style": {
+                    "name": null
+                },
+                "brand": {
+                    "name": null
+                },
+                "color": {
+                    "name": null
+                },
+                "category": {
+                    "name": null
+                },
+                "attributes": [],
                 "item_status": {
                     "success": true,
                     "code": 9100,
@@ -271,6 +421,7 @@ Batch Support | Yes
 
 Parameter | Datatype | Description
 --------- | -------- | -----------
+product* | array-obj | list of products to add. 
 sku* | string | SKU of the product to add.
 ean | string | European article number of the product.
 price* | double | Price of the product.

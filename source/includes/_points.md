@@ -298,15 +298,27 @@ http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&progr
 				"mobile": "44700900999",
 				"external_id": "",
 				"email": "",
-				"card_number": ""
+				"card_number": "",
+				"card_external_id": ""
 			},
+			custom_fields [{
+			"name": "field1",
+			"value": "value1"
+			},
+			{
+			"name": "field1",
+			"value": "value1"
+			}],
 			"redemption_time": "2020-03-13 18:02:34",
+			"redemption_purpose": "2020-03-13 18:02:34",
 			"transaction_number": "red123",
+			"billing_time": "",
 			"external_reference_number": "toms12d",
 			"till_id": "",
 			"notes": "10 points redemption by SMS.",
 			"validation_code": "4PZGXC",
 			"group_redemption": "false"
+			
 		}]
 	}
 }
@@ -457,6 +469,9 @@ Parameter | Datatype | Description
 user_group2_primary_user_id** | long | Unique user ID of the primary member of the group associated with the points to redeem.
 user_group2_id** | int | Unique ID of the group associated with the points to redeem.
 user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
+skip_validation | boolen | Pass `true` to skip customer validation to redeem points.
+program_id | long | Unique ID of the program from which points need to be redeemed. Applicable for orgs with multi-loyalty program enabled. 
+validation_type | enum | Validation type used to redeem points. Value: `MISSED_CALL`, `SMS`.
 
 
 <aside class="notice">Any one among the parameters marked with ** is required for group level points redemption. </aside>
@@ -464,15 +479,16 @@ user_group2_external_id** | string | Unique external ID of the group associated 
 ### Request Body Parameters
 Parameter | Datatype | Description
 --------- | -------- | -----------
-mobile* | string | Provide the registered mobile number of the customer to redeem points.
+customer* | obj | Pass any of the registered identifiers of the customer. Value: `mobile`, `email`, `external_id`, `card_number`, `card_external_id`.
 points_redeemed* | int | Provide the number of points to be redeemed.
 transaction_number | string | Provide the transaction number for which the points has to be redeemed.
 external_reference_number | string | Unique external reference number for redemption (say, passed by the integrator). You also need to tag the number to the transaction 
 validation_code* | string | Provide the validation code received by the customer through `points/validationcode`.
 redemption_time | date-time | Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.
-program_id | long | Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.
 till_id | string | Till ID from which points are redeemed.
 group_redemption | boolean | Pass `true` for cross program redemption, that is, redeem loyalty points earned in a loyalty program in a different loyalty program of the org. Default value is `false`. 
+redemption_purpose | string | Purpose of the redemption.
+custom_fields | array | Pass points redemption level custom field details in `name` and `value`.
 
 <aside class="notice">Parameters marked with * are mandatory.</aside>
 
@@ -552,3 +568,4 @@ Code | Description
 903 | Unable to redeem points.
 904 | Invalid customer details passed.
 3045 | Points Redemption is not allowed for the customer with id {x} as the status is fraud.
+3802 | Points reversal redeemed points already reversed.
