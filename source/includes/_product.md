@@ -438,7 +438,7 @@ color | obj | Pass a valid product color (as per the database) .
 category | obj | Pass a valid product category name ((as per the database).
 attributes | obj | Other product attributes in name-value pairs.
 
-<aside class="notice">Parameters marked with * are mandatory.</aside>
+<aside class="notice">Parameters marked with * are mandatory. Values of product attributes such as style, size, brand, type, color, and category should have been configured for the org.  You can set these on the Organization Settings page on InTouch. </aside>
 
 ### Response Parameters
 

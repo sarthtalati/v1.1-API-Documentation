@@ -35,6 +35,10 @@ search: true
 # Release Updates
 This section provides the quarterly breakup of existing API updates and new API releases.
 
+## Q3 Releases (2021-2022)
+
+* The APIs [v1.1/points/redeem](https://capillary.github.io/v1.1-API-Documentation/#redeem-points) and [v1.1/points/isredeemable](https://capillary.github.io/v1.1-API-Documentation/#check-if-points-are-redeemable) to support new user group (v2) parameters - `user_group2_primary_user_source`, `user_group2_primary_user_accountId`, `user_group2_primary_user_identifier_type`, and user_group2_primary_user_identifier_value
+
 ## Q2 Releases (2021-2022)
 
 * Support for user group2 parameters in points [/redeem] (https://capillary.github.io/v1.1-API-Documentation/#redeem-points) and [isRedeemable](https://capillary.github.io/v1.1-API-Documentation/#check-if-points-are-redeemable). New params - `user_group2_primary_user_id`, `user_group2_id`, `user_group2_external_id`, and `use_default_user_group2`.

@@ -153,6 +153,10 @@ skip_validation | boolean | Pass `true` if you want to skip validation.
 validation_type | enum | Preferred mode of validation. Value: `MISSED_CALL`, `SMS`, `INVALID`. Use invalid if you want to `skip_validation`.
 user_group2_primary_user_id** | long | Unique user ID of the primary member of the group associated with the points to redeem.
 user_group2_id** | int | Unique ID of the group associated with the points to redeem.
+user_group2_primary_user_source | enum | Source in which the primary user's identifier is available. Value: `FACEBOOK`, `WEB_ENGAGE`, `WECHAT`, `INSTORE`, `MARTJACK`, `TMALL`, `TAOBAO`, `JD`, `ECOMMERCE`, `WEBSITE`, `LINE`, `MOBILE_APP`.
+user_group2_primary_user_accountId | string | Account ID of the source with multiple accounts such as WECHAT.
+user_group2_primary_user_identifier_type | enum | Identifier type used for the primary member. Value: `mobile`, `email`, `cardnumber`, `cardExternalId`, `id`.
+user_group2_primary_user_identifier_value | string | Value of the specified identifier type.
 user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
 use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
 use_default_user_group2** | boolean | Pass `true` to associate the default group with the points to redeem.
@@ -469,6 +473,10 @@ Parameter | Datatype | Description
 user_group2_primary_user_id** | long | Unique user ID of the primary member of the group associated with the points to redeem.
 user_group2_id** | int | Unique ID of the group associated with the points to redeem.
 user_group2_external_id** | string | Unique external ID of the group associated with the points to redeem.
+user_group2_primary_user_source | enum | Source in which the primary user's identifier is available. Value: `FACEBOOK`, `WEB_ENGAGE`, `WECHAT`, `INSTORE`, `MARTJACK`, `TMALL`, `TAOBAO`, `JD`, `ECOMMERCE`, `WEBSITE`, `LINE`, `MOBILE_APP`.
+user_group2_primary_user_accountId | string | Account ID of the source with multiple accounts such as WECHAT.
+user_group2_primary_user_identifier_type | enum | Identifier type used for the primary member. Value: `mobile`, `email`, `cardnumber`, `cardExternalId`, `id`.
+user_group2_primary_user_identifier_value | string | Value of the specified identifier type.
 skip_validation | boolen | Pass `true` to skip customer validation to redeem points.
 program_id | long | Unique ID of the program from which points need to be redeemed. Applicable for orgs with multi-loyalty program enabled. 
 validation_type | enum | Validation type used to redeem points. Value: `MISSED_CALL`, `SMS`.

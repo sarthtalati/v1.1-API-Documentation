@@ -132,6 +132,12 @@
 
 <p>This section provides the quarterly breakup of existing API updates and new API releases.</p>
 
+<h2 id="q3-releases-2021-2022">Q3 Releases (2021-2022)</h2>
+
+<ul>
+<li>The APIs <a href="https://capillary.github.io/v1.1-API-Documentation/#redeem-points">v1.1/points/redeem</a> and <a href="https://capillary.github.io/v1.1-API-Documentation/#check-if-points-are-redeemable">v1.1/points/isredeemable</a> to support new user group (v2) parameters - <code class="prettyprint">user_group2_primary_user_source</code>, <code class="prettyprint">user_group2_primary_user_accountId</code>, <code class="prettyprint">user_group2_primary_user_identifier_type</code>, and user_group2_primary_user_identifier_value</li>
+</ul>
+
 <h2 id="q2-releases-2021-2022">Q2 Releases (2021-2022)</h2>
 
 <ul>
@@ -12769,6 +12775,26 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>Unique ID of the group associated with the points to redeem.</td>
 </tr>
 <tr>
+<td>user_group2_primary_user_source</td>
+<td>enum</td>
+<td>Source in which the primary user&rsquo;s identifier is available. Value: <code class="prettyprint">FACEBOOK</code>, <code class="prettyprint">WEB_ENGAGE</code>, <code class="prettyprint">WECHAT</code>, <code class="prettyprint">INSTORE</code>, <code class="prettyprint">MARTJACK</code>, <code class="prettyprint">TMALL</code>, <code class="prettyprint">TAOBAO</code>, <code class="prettyprint">JD</code>, <code class="prettyprint">ECOMMERCE</code>, <code class="prettyprint">WEBSITE</code>, <code class="prettyprint">LINE</code>, <code class="prettyprint">MOBILE_APP</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_accountId</td>
+<td>string</td>
+<td>Account ID of the source with multiple accounts such as WECHAT.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_type</td>
+<td>enum</td>
+<td>Identifier type used for the primary member. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">cardnumber</code>, <code class="prettyprint">cardExternalId</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_value</td>
+<td>string</td>
+<td>Value of the specified identifier type.</td>
+</tr>
+<tr>
 <td>user_group2_external_id**</td>
 <td>string</td>
 <td>Unique external ID of the group associated with the points to redeem.</td>
@@ -13017,18 +13043,30 @@ The validation code is issued either to mobile number, or email id or both, base
                 </span><span class="nt">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44700900999"</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"card_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
+            </span><span class="err">custom_fields</span><span class="w"> </span><span class="err">[{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
+            </span><span class="p">}],</span><span class="w">
             </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"redemption_purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"billing_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"external_reference_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toms12d"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"till_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
             </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10 points redemption by SMS."</span><span class="p">,</span><span class="w">
             </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"group_redemption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
-        </span><span class="p">}]</span><span class="w">
+
+        </span><span class="p">}</span><span class="err">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;root&gt;</span>
@@ -13206,6 +13244,41 @@ You need to use the validation code within the validity period. You can check th
 <td>string</td>
 <td>Unique external ID of the group associated with the points to redeem.</td>
 </tr>
+<tr>
+<td>user_group2_primary_user_source</td>
+<td>enum</td>
+<td>Source in which the primary user&rsquo;s identifier is available. Value: <code class="prettyprint">FACEBOOK</code>, <code class="prettyprint">WEB_ENGAGE</code>, <code class="prettyprint">WECHAT</code>, <code class="prettyprint">INSTORE</code>, <code class="prettyprint">MARTJACK</code>, <code class="prettyprint">TMALL</code>, <code class="prettyprint">TAOBAO</code>, <code class="prettyprint">JD</code>, <code class="prettyprint">ECOMMERCE</code>, <code class="prettyprint">WEBSITE</code>, <code class="prettyprint">LINE</code>, <code class="prettyprint">MOBILE_APP</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_accountId</td>
+<td>string</td>
+<td>Account ID of the source with multiple accounts such as WECHAT.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_type</td>
+<td>enum</td>
+<td>Identifier type used for the primary member. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">cardnumber</code>, <code class="prettyprint">cardExternalId</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_value</td>
+<td>string</td>
+<td>Value of the specified identifier type.</td>
+</tr>
+<tr>
+<td>skip_validation</td>
+<td>boolen</td>
+<td>Pass <code class="prettyprint">true</code> to skip customer validation to redeem points.</td>
+</tr>
+<tr>
+<td>program_id</td>
+<td>long</td>
+<td>Unique ID of the program from which points need to be redeemed. Applicable for orgs with multi-loyalty program enabled.</td>
+</tr>
+<tr>
+<td>validation_type</td>
+<td>enum</td>
+<td>Validation type used to redeem points. Value: <code class="prettyprint">MISSED_CALL</code>, <code class="prettyprint">SMS</code>.</td>
+</tr>
 </tbody></table>
 
 <aside class="notice">Any one among the parameters marked with ** is required for group level points redemption. </aside>
@@ -13220,9 +13293,9 @@ You need to use the validation code within the validity period. You can check th
 </tr>
 </thead><tbody>
 <tr>
-<td>mobile*</td>
-<td>string</td>
-<td>Provide the registered mobile number of the customer to redeem points.</td>
+<td>customer*</td>
+<td>obj</td>
+<td>Pass any of the registered identifiers of the customer. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">external_id</code>, <code class="prettyprint">card_number</code>, <code class="prettyprint">card_external_id</code>.</td>
 </tr>
 <tr>
 <td>points_redeemed*</td>
@@ -13250,11 +13323,6 @@ You need to use the validation code within the validity period. You can check th
 <td>Provide the redemption date and time in YYYY-MM-DD HH-MM-SS format.</td>
 </tr>
 <tr>
-<td>program_id</td>
-<td>long</td>
-<td>Program id associated to the points that you want to redeem. Required only for orgs with MLP enabled.</td>
-</tr>
-<tr>
 <td>till_id</td>
 <td>string</td>
 <td>Till ID from which points are redeemed.</td>
@@ -13263,6 +13331,16 @@ You need to use the validation code within the validity period. You can check th
 <td>group_redemption</td>
 <td>boolean</td>
 <td>Pass <code class="prettyprint">true</code> for cross program redemption, that is, redeem loyalty points earned in a loyalty program in a different loyalty program of the org. Default value is <code class="prettyprint">false</code>.</td>
+</tr>
+<tr>
+<td>redemption_purpose</td>
+<td>string</td>
+<td>Purpose of the redemption.</td>
+</tr>
+<tr>
+<td>custom_fields</td>
+<td>array</td>
+<td>Pass points redemption level custom field details in <code class="prettyprint">name</code> and <code class="prettyprint">value</code>.</td>
 </tr>
 </tbody></table>
 
@@ -13539,6 +13617,10 @@ You need to use the validation code within the validity period. You can check th
 <tr>
 <td>3045</td>
 <td>Points Redemption is not allowed for the customer with id {x} as the status is fraud.</td>
+</tr>
+<tr>
+<td>3802</td>
+<td>Points reversal redeemed points already reversed.</td>
 </tr>
 </tbody></table>
 
@@ -23964,7 +24046,7 @@ false
 </tr>
 </tbody></table>
 
-<aside class="notice">Parameters marked with * are mandatory.</aside>
+<aside class="notice">Parameters marked with * are mandatory. Values of product attributes such as style, size, brand, type, color, and category should have been configured for the org.  You can set these on the Organization Settings page on InTouch. </aside>
 
 <h3 id="response-parameters">Response Parameters</h3>
 
