@@ -132,6 +132,12 @@
 
 <p>This section provides the quarterly breakup of existing API updates and new API releases.</p>
 
+<h2 id="q3-releases-2021-2022">Q3 Releases (2021-2022)</h2>
+
+<ul>
+<li>The APIs <a href="https://capillary.github.io/v1.1-API-Documentation/#redeem-points">v1.1/points/redeem</a> and <a href="https://capillary.github.io/v1.1-API-Documentation/#check-if-points-are-redeemable">v1.1/points/isredeemable</a> to support new user group (v2) parameters - <code class="prettyprint">user_group2_primary_user_source</code>, <code class="prettyprint">user_group2_primary_user_accountId</code>, <code class="prettyprint">user_group2_primary_user_identifier_type</code>, and user_group2_primary_user_identifier_value</li>
+</ul>
+
 <h2 id="q2-releases-2021-2022">Q2 Releases (2021-2022)</h2>
 
 <ul>
@@ -12769,6 +12775,26 @@ Points cannot be issued through APIs. It can be issued only through modules such
 <td>Unique ID of the group associated with the points to redeem.</td>
 </tr>
 <tr>
+<td>user_group2_primary_user_source</td>
+<td>enum</td>
+<td>Source in which the primary user&rsquo;s identifier is available. Value: <code class="prettyprint">FACEBOOK</code>, <code class="prettyprint">WEB_ENGAGE</code>, <code class="prettyprint">WECHAT</code>, <code class="prettyprint">INSTORE</code>, <code class="prettyprint">MARTJACK</code>, <code class="prettyprint">TMALL</code>, <code class="prettyprint">TAOBAO</code>, <code class="prettyprint">JD</code>, <code class="prettyprint">ECOMMERCE</code>, <code class="prettyprint">WEBSITE</code>, <code class="prettyprint">LINE</code>, <code class="prettyprint">MOBILE_APP</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_accountId</td>
+<td>string</td>
+<td>Account ID of the source with multiple accounts such as WECHAT.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_type</td>
+<td>enum</td>
+<td>Identifier type used for the primary member. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">cardnumber</code>, <code class="prettyprint">cardExternalId</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_value</td>
+<td>string</td>
+<td>Value of the specified identifier type.</td>
+</tr>
+<tr>
 <td>user_group2_external_id**</td>
 <td>string</td>
 <td>Unique external ID of the group associated with the points to redeem.</td>
@@ -13217,6 +13243,26 @@ You need to use the validation code within the validity period. You can check th
 <td>user_group2_external_id**</td>
 <td>string</td>
 <td>Unique external ID of the group associated with the points to redeem.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_source</td>
+<td>enum</td>
+<td>Source in which the primary user&rsquo;s identifier is available. Value: <code class="prettyprint">FACEBOOK</code>, <code class="prettyprint">WEB_ENGAGE</code>, <code class="prettyprint">WECHAT</code>, <code class="prettyprint">INSTORE</code>, <code class="prettyprint">MARTJACK</code>, <code class="prettyprint">TMALL</code>, <code class="prettyprint">TAOBAO</code>, <code class="prettyprint">JD</code>, <code class="prettyprint">ECOMMERCE</code>, <code class="prettyprint">WEBSITE</code>, <code class="prettyprint">LINE</code>, <code class="prettyprint">MOBILE_APP</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_accountId</td>
+<td>string</td>
+<td>Account ID of the source with multiple accounts such as WECHAT.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_type</td>
+<td>enum</td>
+<td>Identifier type used for the primary member. Value: <code class="prettyprint">mobile</code>, <code class="prettyprint">email</code>, <code class="prettyprint">cardnumber</code>, <code class="prettyprint">cardExternalId</code>, <code class="prettyprint">id</code>.</td>
+</tr>
+<tr>
+<td>user_group2_primary_user_identifier_value</td>
+<td>string</td>
+<td>Value of the specified identifier type.</td>
 </tr>
 <tr>
 <td>skip_validation</td>
