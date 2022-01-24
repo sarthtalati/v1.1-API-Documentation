@@ -132,6 +132,12 @@
 
 <p>This section provides the quarterly breakup of existing API updates and new API releases.</p>
 
+<h2 id="q4-releases-2021-2022">Q4 Releases (2021-2022)</h2>
+
+<ul>
+<li><a href="https://capillary.github.io/v1.1-API-Documentation/#get-customer-redemptions">v1.1/customer/redemptions</a> supports fetching redemptions made in a specific store with the parameter <code class="prettyprint">merchant_store_id</code>.</li>
+</ul>
+
 <h2 id="q3-releases-2021-2022">Q3 Releases (2021-2022)</h2>
 
 <ul>
@@ -3990,14 +3996,14 @@ This is because, when you make an API call, Solr DB is queried firstly. If Solr 
 <td>Returns return additional points related block, will have to get the exact JSON block for this.</td>
 </tr>
 <tr>
-<td>external_reference_number</td>
-<td>string</td>
-<td></td>
+<td>merchant_store_id</td>
+<td>long</td>
+<td>Pass the store ID to fetch redemptions made in a particular store.</td>
 </tr>
 <tr>
 <td>programId</td>
 <td>int</td>
-<td></td>
+<td>Pass program ID to filter redemptions of a particular program.</td>
 </tr>
 </tbody></table>
 
