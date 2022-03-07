@@ -14943,7 +14943,8 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=json
     </span><span class="nt">"sms"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="nt">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"447700900000"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, wish you a happy wedding anniversary!"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-05 22:00:00IST"</span><span class="w">
+      </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-08-05 22:00:00IST"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"918000000000"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -14988,7 +14989,7 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=json
 <span class="nt">&lt;/sms&gt;</span>    
 <span class="nt">&lt;/response&gt;</span>
 </code></pre>
-<p>This API allows you to send sms to a specific mobile number. You can schedule the date and time you wish to send the message.</p>
+<p>This API allows you to send sms to a specific mobile number. You can schedule the date and time you wish to send the message. When you pass <code class="prettyprint">senderId</code>, the org unit associated with the sender ID would be considered. </p>
 
 <h3 id="resource-information">Resource Information</h3>
 
@@ -15020,9 +15021,45 @@ http://us.api.capillarytech.com/v1.1/communications/sms?format=json
 
 <p><code class="prettyprint">http://{host}/v1.1/communications/sms?format={xml/json}</code></p>
 
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to*</td>
+<td>string</td>
+<td>Mobile number of the recipient.</td>
+</tr>
+<tr>
+<td>body*</td>
+<td>string</td>
+<td>Message content to be sent.</td>
+</tr>
+<tr>
+<td>scheduled_time*</td>
+<td>date-time</td>
+<td>Date and time of sending in <code class="prettyprint">ISO</code> standard format.</td>
+</tr>
+<tr>
+<td>sender</td>
+<td>string</td>
+<td>Sender ID from which the message has to go (sender IDs configured for the respective OU). If not passed, the default sender ID of the org is considered.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory.</aside>
+
 <h2 id="send-email-to-customer">Send Email to Customer</h2>
-<pre class="highlight html"><code># Sample Request URL
-http://us.api.capillarytech.com/v1.1/communications/email?format=json
+
+<blockquote>
+<p>Sample Request URL</p>
+</blockquote>
+<pre class="highlight html"><code>http://us.api.capillarytech.com/v1.1/communications/email?format=json
 
 </code></pre>
 <blockquote>
@@ -15035,12 +15072,9 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
       </span><span class="nt">"cc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cashier1@example.com, cashier2@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"bcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"storemanager@example.com"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store1@store.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"#text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"  -- optional
-        "</span><span class="p">,</span><span class="w">
       </span><span class="nt">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing email"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dear Tom,
             Thanks for visiting our store. Hope you had a pleasant experience.
-
         "</span><span class="p">,</span><span class="w">
       </span><span class="nt">"attachments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"attachment"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
@@ -15050,8 +15084,8 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
                 adsdsadd21121dasd12123123assdad1212123
                 234234234234234234
                 24234234
-
-            "</span><span class="w">
+            "</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"file_encoding_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64"</span><span class="w">
         </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"scheduled_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-08-05 22:00:21"</span><span class="w">
@@ -15081,6 +15115,7 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
                 24234234
                 ]]&gt;</span>
             <span class="nt">&lt;/file_data&gt;</span>    
+            <span class="nt">&lt;file_encoding_type&gt;</span>base64<span class="nt">&lt;/file_encoding_type&gt;</span>
         <span class="nt">&lt;/attachment&gt;</span>    
         <span class="nt">&lt;/attachments&gt;</span>
         <span class="nt">&lt;scheduled_time&gt;</span>2016-08-05 22:00:21<span class="nt">&lt;/scheduled_time&gt;</span>
@@ -15162,6 +15197,89 @@ http://us.api.capillarytech.com/v1.1/communications/email?format=json
 <h3 id="request-url">Request URL</h3>
 
 <p><code class="prettyprint">http://{host}/v1.1/communications/email?format={xml/json}</code></p>
+
+<h3 id="request-body-parameters">Request Body Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email*</td>
+<td>array-obj</td>
+<td>Complete details of the email to send.</td>
+</tr>
+<tr>
+<td>to*</td>
+<td>string</td>
+<td>Recipient&rsquo;s email ID.</td>
+</tr>
+<tr>
+<td>cc</td>
+<td>string</td>
+<td>Email ID to be included in CC</td>
+</tr>
+<tr>
+<td>bcc</td>
+<td>string</td>
+<td>Email IDs to included in BCC.</td>
+</tr>
+<tr>
+<td>from*</td>
+<td>string</td>
+<td>Email ID of the sender.</td>
+</tr>
+<tr>
+<td>subject*</td>
+<td>string</td>
+<td>Subject of the email.</td>
+</tr>
+<tr>
+<td>body*</td>
+<td>string</td>
+<td>Body of the email.</td>
+</tr>
+<tr>
+<td>attachments</td>
+<td>obj</td>
+<td>Details of the attachment used in the email.</td>
+</tr>
+<tr>
+<td>attachment</td>
+<td>array-obj</td>
+<td>Details of each attachment in email.</td>
+</tr>
+<tr>
+<td>file_name</td>
+<td>string</td>
+<td>Name of the attached file.</td>
+</tr>
+<tr>
+<td>file_type</td>
+<td>string</td>
+<td>Type of the file (file format).</td>
+</tr>
+<tr>
+<td>file_data</td>
+<td>strig</td>
+<td>Encoded data of the  attachment.</td>
+</tr>
+<tr>
+<td>file_encoding_type</td>
+<td>string</td>
+<td>Encoding type of the attachment provided in fileData.</td>
+</tr>
+<tr>
+<td>scheduled_time</td>
+<td>date-time</td>
+<td><code class="prettyprint">ISO</code> standard date and time of scheduling the email.</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">Parameters marked with * are mandatory. All file related parameters are required for attachments.</aside>
 
 <h2 id="retrieve-details-of-emails-sent">Retrieve Details of Emails Sent</h2>
 <pre class="highlight html"><code># Sample Request
