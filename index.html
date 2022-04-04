@@ -13060,14 +13060,16 @@ The validation code is issued either to mobile number, or email id or both, base
                 </span><span class="nt">"card_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
                 </span><span class="nt">"card_external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="err">custom_fields</span><span class="w"> </span><span class="err">[{</span><span class="w">
+            </span><span class="nt">"custom_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
             </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field1"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"value1"</span><span class="w">
-            </span><span class="p">}],</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
             </span><span class="nt">"redemption_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"redemption_purpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-13 18:02:34"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"transaction_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red123"</span><span class="p">,</span><span class="w">
@@ -13078,9 +13080,9 @@ The validation code is issued either to mobile number, or email id or both, base
             </span><span class="nt">"validation_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4PZGXC"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"group_redemption"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
 
-        </span><span class="p">}</span><span class="err">]</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;root&gt;</span>
    <span class="nt">&lt;root&gt;</span>
@@ -24350,7 +24352,7 @@ false
 
 <p><code class="prettyprint">https://{host}/v1.1/product/attributes?format={xml/json}</code></p>
 
-<h2 id="request-body-parameters">Request Body Parameters</h2>
+<h3 id="request-body-parameters">Request Body Parameters</h3>
 
 <table><thead>
 <tr>
@@ -24600,11 +24602,12 @@ false
 
 <p><code class="prettyprint">q=(color:IN:Black;Blue;Green|size:EQUALS:XL|price:RANGE:2000;4000|department:EQUALS:Men)</code></p>
 
-<p><strong>URL Encoded String</strong>:</p>
+<p><strong>URL Encoded String</strong></p>
 
 <p><code class="prettyprint">color%3AIN%3ABlack%3BBlue%3BGreen%7Csize%3AEQUALS%3AXL%7Cprice%3ARANGE%3A2000%3B4000%7Cdepartment%3AEQUALS%3AMen</code></p>
 
-<p><strong>Request URL</strong>: https://{host}/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&amp;format={xml/json}</p>
+<p><strong>Request URL</strong>
+ https://{host}/v1.1/product/search?q=(color%3ain%3ablack%3bblue%3bgreen%7csize%3aequals%3axl%7cprice%3arange%3a2000%3b4000%7cdepartment%3aequals%3amen)&amp;format={xml/json}</p>
 
 <aside class="warning">The following characters are not supported in search queries as they have a special meaning in search grammar. <br>
 `+ - && || ! ( ) { } [ ] ^ &ldquo; ~ * ? : `
