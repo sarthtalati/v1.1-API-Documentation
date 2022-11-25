@@ -18,7 +18,7 @@ The points entity allows you to perform the following tasks:
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/isredeemable?program_id=504&points=100&issue_otp=true&mobile=44700900999&format=json
+http://us.api.capillarytech.com/v1.1/points/isredeemable?program_id=504&points=100&issue_otp=true&mobile=44700900999&format=json
 ```
 > Sample Response
 
@@ -185,7 +185,7 @@ points_currency_ratio | double |
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/validationcode?mobile=447700900000&points=50&format=json
+http://us.api.capillarytech.com/v1.1/points/validationcode?mobile=447700900000&points=50&format=json
 ```
 
 > Sample Response
@@ -288,7 +288,7 @@ points | int | Number of points to redeem.
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/points/redeem?validation_type=SMS&program_id=504&format=json
+http://us.api.capillarytech.com/v1.1/points/redeem?validation_type=SMS&program_id=504&format=json
 ```
 
 > Sample POST Request
