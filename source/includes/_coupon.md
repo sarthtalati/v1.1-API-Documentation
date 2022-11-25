@@ -13,8 +13,10 @@ The coupon entity allows you to perform the following tasks:
 * Check whether a customer can redeem a specific coupon and redeem the coupon
 
 ## Issue Coupon
+> Sample request
+
 ```html
-http://us.intouch.capillarytech.com/v1.1/coupon/issue?format=json
+http://us.api.capillarytech.com/v1.1/coupon/issue?format=json
 ```
 > Sample POST Request
 
@@ -144,7 +146,7 @@ id | Coupon series id that you want to issue
 
 ```html
 # Sample Request
-http://us.intouch.capillarytech.com/v1.1/coupon/resend?format=xml&id=13596576
+http://us.api.capillarytech.com/v1.1/coupon/resend?format=xml&id=13596576
 ```
 > Sample Response
 
@@ -225,7 +227,7 @@ code | Coupon code that you want to issue to the customer
 
 ```html
 # Sample Request
-http://api.capillary.co.in/v1.1/coupon/redeem?format=json
+http://us.api.capillarytech.com/v1.1/coupon/redeem?format=json
 ```
 
 > Sample POST Request
@@ -400,7 +402,7 @@ value | string | Custom field value.
 > Sample Request
 
 ```html
-http://api.capillary.co.in/v1.1/coupon/get?code=06000041&format=xml
+http://us.api.capillarytech.com/v1.1/coupon/get?code=06000041&format=xml
 ```
 > Sample Response
 
@@ -545,7 +547,7 @@ code** | string | Pass the coupon id that you want to retrieve. To retrieve deta
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/coupon/isredeemable?format=xml&details=true&code=06000041&mobile=447700900000
+http://us.api.capillarytech.com/v1.1/coupon/isredeemable?format=xml&details=true&code=06000041&mobile=447700900000
 ```
 > Sample Response
 
@@ -647,7 +649,7 @@ details=extended | - | Retrieves the details of coupon configurations (set on ca
 > Sample Request
 
 ```html
-http://us.intouch.capillarytech.com/v1.1/coupon/series?format=json&id=7033
+http://us.api.capillarytech.com/v1.1/coupon/series?format=json&id=7033
 ```
 > Sample Response
 
