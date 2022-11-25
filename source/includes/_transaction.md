@@ -1806,7 +1806,7 @@ return_type* | enum | Specify `FULL` to return the entire transaction, `LINE_ITE
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/transaction/update?format=xml
+https://us.api.capillarytech.com/v1.1/transaction/update?format=xml
 ```
 > Sample POST Request
 
