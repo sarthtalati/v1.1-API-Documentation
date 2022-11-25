@@ -3,8 +3,8 @@ Tasks could be any activity created by an associate for oneself or for other ass
 
 ## Create Tasks
 ```html
-# Sample Request
-http://api.capillary.co.in/v1.1/task/add
+> Sample Request
+http://us.api.capillarytech.com/v1.1/task/add
 ```
 
 > Sample POST Request
@@ -1279,7 +1279,7 @@ http://<cluster url>/v1.1/task/statusmapping?format=xml/json>
 
 ## Retrieve Task Reminders
 ```html
-http://api.capillary.co.in/v1.1/task/reminder?format=xml&only_for_stores=true
+http://us.api.capillarytech.com/v1.1/task/reminder?format=xml&only_for_stores=true
 ```
 > Sample Response
 
