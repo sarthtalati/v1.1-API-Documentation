@@ -1981,7 +1981,7 @@ customer | obj | Customer details associated to the transaction.
 > Sample Request
 
 ```html
-https://api.capillary.co.in/v1.1/transaction/update?format=json
+https://us.api.capillarytech.com/v1.1/transaction/update?format=json
 ```
 
 > Sample POST Request
