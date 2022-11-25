@@ -1264,7 +1264,7 @@ language_translatons | boolean |
 > Sample Request
 
 ```html
-http://api.capillary.co.in/v1.1/organization/configs?format=json
+http://us.api.capillarytech.com/v1.1/organization/configs?format=json
 ```
 
 > Sample Request
