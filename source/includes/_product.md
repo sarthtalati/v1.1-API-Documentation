@@ -832,7 +832,7 @@ added_on | date-time | Date and time of the product addition.
 ## Retrieve Products Details
 ```html
 # Sample Request
-https://api.capillary.co.in/v1.1/product/get?sku=item-001,Pearls&format=json
+https://us.api.capillarytech.com/v1.1/product/get?sku=item-001,Pearls&format=json
 ```
 
 > Sample Response
@@ -1443,7 +1443,7 @@ parent_label | string | Label name of the parent brand.
 > Sample Request
 
 ```html
-https://us/api.capillarytech.com/v1.1/product/colors?format=json
+https://us.api.capillarytech.com/v1.1/product/colors?format=json
 ```
 > Sample Response
 
@@ -1958,7 +1958,7 @@ parent_meta_size | string | Parent of the meta-size. Applicable for child meta-s
 > Sample Request
 
 ```html
-https://api.us.capillarytech.com/v1.1/product/attributes?format=json
+https://us.api.capillarytech.com/v1.1/product/attributes?format=json
 ```
 
 > Sample Response
