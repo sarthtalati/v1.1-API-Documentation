@@ -4771,7 +4771,7 @@ product_limit | int |
 > Sample Request
 
 ```html
-https://nightly.capillary.in/v1.1/customer/subscriptions?mobile=447700900000,919999000012
+https://us.api.capillarytech.comm/v1.1/customer/subscriptions?mobile=447700900000,919999000012
 
 ```
 
