@@ -420,7 +420,7 @@ Batch Support | No
 ## Verify Store Login Credentials
 ```html
 # Sample Request
-http://api.capillary.co.in/v1.1/store/login.json
+http://us.api.capillarytech.com/v1.1/store/login.json
 ```
 
 > Sample Response
@@ -1314,8 +1314,10 @@ Batch Support | No
 `http://<cluster url>/store/configurations?format=<xml/json>`
 
 ##  Verify Login Credentials
+> Sample Request
+
 ```html
-http://api.capillary.co.in/v1.1/store/login.json
+http://us.api.capillarytech.com/v1.1/store/login.json
 ```
 
 > Sample Response
